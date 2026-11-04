@@ -927,6 +927,52 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CustomDbEngineVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            database_installation_files_s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_installation_files_s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            db_parameter_group_family: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            filename: pulumi.Input[Optional[_builtins.str]] = None,
+            image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            manifest: pulumi.Input[Optional[_builtins.str]] = None,
+            manifest_computed: pulumi.Input[Optional[_builtins.str]] = None,
+            manifest_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createTime"] = create_time
+        __props__["databaseInstallationFilesS3BucketName"] = database_installation_files_s3_bucket_name
+        __props__["databaseInstallationFilesS3Prefix"] = database_installation_files_s3_prefix
+        __props__["dbParameterGroupFamily"] = db_parameter_group_family
+        __props__["description"] = description
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["filename"] = filename
+        __props__["imageId"] = image_id
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["majorEngineVersion"] = major_engine_version
+        __props__["manifest"] = manifest
+        __props__["manifestComputed"] = manifest_computed
+        __props__["manifestHash"] = manifest_hash
+        __props__["region"] = region
+        __props__["sourceImageId"] = source_image_id
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:rds/customDbEngineVersion:CustomDbEngineVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

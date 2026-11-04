@@ -200,6 +200,12 @@ func (RouteServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerState)(nil)).Elem()
 }
 
+// RouteServerExists checks whether an existing RouteServer resource with the given ID exists.
+func RouteServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpc/routeServer:RouteServer", id, state, "", opts...)
+}
+
 type routeServerArgs struct {
 	// Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
 	//

@@ -152,6 +152,12 @@ func (AccountSettingDefaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountSettingDefaultState)(nil)).Elem()
 }
 
+// AccountSettingDefaultExists checks whether an existing AccountSettingDefault resource with the given ID exists.
+func AccountSettingDefaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountSettingDefaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecs/accountSettingDefault:AccountSettingDefault", id, state, "", opts...)
+}
+
 type accountSettingDefaultArgs struct {
 	// Name of the account setting to set.
 	Name *string `pulumi:"name"`

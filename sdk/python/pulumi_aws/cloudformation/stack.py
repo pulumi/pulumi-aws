@@ -812,6 +812,44 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["timeout_in_minutes"] = timeout_in_minutes
         return Stack(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            disable_rollback: pulumi.Input[Optional[_builtins.bool]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            on_failure: pulumi.Input[Optional[_builtins.str]] = None,
+            outputs: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            policy_body: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_body: pulumi.Input[Optional[_builtins.str]] = None,
+            template_url: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["capabilities"] = capabilities
+        __props__["disableRollback"] = disable_rollback
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["name"] = name
+        __props__["notificationArns"] = notification_arns
+        __props__["onFailure"] = on_failure
+        __props__["outputs"] = outputs
+        __props__["parameters"] = parameters
+        __props__["policyBody"] = policy_body
+        __props__["policyUrl"] = policy_url
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["templateBody"] = template_body
+        __props__["templateUrl"] = template_url
+        __props__["timeoutInMinutes"] = timeout_in_minutes
+        return pulumi.runtime.exists_resource(None, 'aws:cloudformation/stack:Stack', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

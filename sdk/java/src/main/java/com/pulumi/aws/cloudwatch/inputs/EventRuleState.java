@@ -95,22 +95,20 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
      * 
-     * @deprecated
-     * is_enabled is deprecated. Use state instead.
+     * @deprecated is_enabled is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* is_enabled is deprecated. Use state instead. */
+    @Deprecated
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
      * @return Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
      * 
-     * @deprecated
-     * is_enabled is deprecated. Use state instead.
+     * @deprecated is_enabled is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* is_enabled is deprecated. Use state instead. */
+    @Deprecated
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
@@ -386,11 +384,10 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * is_enabled is deprecated. Use state instead.
+         * @deprecated is_enabled is deprecated. Use state instead.
          * 
          */
-        @Deprecated /* is_enabled is deprecated. Use state instead. */
+        @Deprecated
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
@@ -401,11 +398,10 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * is_enabled is deprecated. Use state instead.
+         * @deprecated is_enabled is deprecated. Use state instead.
          * 
          */
-        @Deprecated /* is_enabled is deprecated. Use state instead. */
+        @Deprecated
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }

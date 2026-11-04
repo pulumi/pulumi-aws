@@ -147,6 +147,12 @@ func (LfTagExpressionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lfTagExpressionState)(nil)).Elem()
 }
 
+// LfTagExpressionExists checks whether an existing LfTagExpression resource with the given ID exists.
+func LfTagExpressionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LfTagExpressionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lakeformation/lfTagExpression:LfTagExpression", id, state, "", opts...)
+}
+
 type lfTagExpressionArgs struct {
 	// ID of the Data Catalog. Defaults to the account ID if not specified.
 	CatalogId *string `pulumi:"catalogId"`

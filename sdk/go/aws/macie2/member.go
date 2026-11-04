@@ -197,6 +197,12 @@ func (MemberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*memberState)(nil)).Elem()
 }
 
+// MemberExists checks whether an existing Member resource with the given ID exists.
+func MemberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MemberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie2/member:Member", id, state, "", opts...)
+}
+
 type memberArgs struct {
 	// AWS account ID for the account.
 	AccountId string `pulumi:"accountId"`

@@ -240,6 +240,16 @@ class ChannelAssociation(pulumi.CustomResource):
         __props__.__dict__["notification_configuration_arn"] = notification_configuration_arn
         return ChannelAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["notificationConfigurationArn"] = notification_configuration_arn
+        return pulumi.runtime.exists_resource(None, 'aws:notifications/channelAssociation:ChannelAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

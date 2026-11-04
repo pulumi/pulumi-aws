@@ -110,6 +110,17 @@ export class Smsvoicev2Keyword extends pulumi.CustomResource {
         return new Smsvoicev2Keyword(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Smsvoicev2Keyword resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: Smsvoicev2KeywordState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:pinpoint/smsvoicev2Keyword:Smsvoicev2Keyword", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:pinpoint/smsvoicev2Keyword:Smsvoicev2Keyword';
 

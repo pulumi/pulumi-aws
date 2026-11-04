@@ -490,6 +490,24 @@ class Classifier(pulumi.CustomResource):
         __props__.__dict__["xml_classifier"] = xml_classifier
         return Classifier(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            csv_classifier: pulumi.Input[Optional[Union['ClassifierCsvClassifierArgs', 'ClassifierCsvClassifierArgsDict', 'outputs.ClassifierCsvClassifier']]] = None,
+            grok_classifier: pulumi.Input[Optional[Union['ClassifierGrokClassifierArgs', 'ClassifierGrokClassifierArgsDict', 'outputs.ClassifierGrokClassifier']]] = None,
+            json_classifier: pulumi.Input[Optional[Union['ClassifierJsonClassifierArgs', 'ClassifierJsonClassifierArgsDict', 'outputs.ClassifierJsonClassifier']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_classifier: pulumi.Input[Optional[Union['ClassifierXmlClassifierArgs', 'ClassifierXmlClassifierArgsDict', 'outputs.ClassifierXmlClassifier']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["csvClassifier"] = csv_classifier
+        __props__["grokClassifier"] = grok_classifier
+        __props__["jsonClassifier"] = json_classifier
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["xmlClassifier"] = xml_classifier
+        return pulumi.runtime.exists_resource(None, 'aws:glue/classifier:Classifier', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="csvClassifier")
     def csv_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierCsvClassifier']]:

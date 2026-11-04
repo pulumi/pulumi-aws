@@ -182,6 +182,12 @@ func (HostedZoneDnsSecState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedZoneDnsSecState)(nil)).Elem()
 }
 
+// HostedZoneDnsSecExists checks whether an existing HostedZoneDnsSec resource with the given ID exists.
+func HostedZoneDnsSecExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostedZoneDnsSecState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/hostedZoneDnsSec:HostedZoneDnsSec", id, state, "", opts...)
+}
+
 type hostedZoneDnsSecArgs struct {
 	// Identifier of the Route 53 Hosted Zone.
 	//

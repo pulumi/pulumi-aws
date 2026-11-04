@@ -268,6 +268,12 @@ func (AttachmentAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachmentAccepterState)(nil)).Elem()
 }
 
+// AttachmentAccepterExists checks whether an existing AttachmentAccepter resource with the given ID exists.
+func AttachmentAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AttachmentAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/attachmentAccepter:AttachmentAccepter", id, state, "", opts...)
+}
+
 type attachmentAccepterArgs struct {
 	// ID of the attachment.
 	AttachmentId string `pulumi:"attachmentId"`

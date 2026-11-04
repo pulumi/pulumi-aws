@@ -153,6 +153,12 @@ func (UserInGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userInGroupState)(nil)).Elem()
 }
 
+// UserInGroupExists checks whether an existing UserInGroup resource with the given ID exists.
+func UserInGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserInGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/userInGroup:UserInGroup", id, state, "", opts...)
+}
+
 type userInGroupArgs struct {
 	// The name of the group to which the user is to be added.
 	GroupName string `pulumi:"groupName"`

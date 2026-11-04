@@ -199,6 +199,12 @@ func (ViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewState)(nil)).Elem()
 }
 
+// ViewExists checks whether an existing View resource with the given ID exists.
+func ViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatchomni/view:View", id, state, "", opts...)
+}
+
 type viewArgs struct {
 	// SQL query that defines the view. Must be 1 to 10000 characters. The service validates the query when the view is created or updated.
 	Definition string `pulumi:"definition"`

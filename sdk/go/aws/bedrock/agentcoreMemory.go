@@ -256,6 +256,12 @@ func (AgentcoreMemoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreMemoryState)(nil)).Elem()
 }
 
+// AgentcoreMemoryExists checks whether an existing AgentcoreMemory resource with the given ID exists.
+func AgentcoreMemoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreMemoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreMemory:AgentcoreMemory", id, state, "", opts...)
+}
+
 type agentcoreMemoryArgs struct {
 	// Description of the memory.
 	Description *string `pulumi:"description"`

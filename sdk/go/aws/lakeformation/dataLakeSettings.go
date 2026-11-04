@@ -298,6 +298,12 @@ func (DataLakeSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataLakeSettingsState)(nil)).Elem()
 }
 
+// DataLakeSettingsExists checks whether an existing DataLakeSettings resource with the given ID exists.
+func DataLakeSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataLakeSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lakeformation/dataLakeSettings:DataLakeSettings", id, state, "", opts...)
+}
+
 type dataLakeSettingsArgs struct {
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
 	Admins []string `pulumi:"admins"`

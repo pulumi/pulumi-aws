@@ -80,22 +80,20 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     /**
      * AWS Region to which the template applies. Use `aws.getRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use aws.getRegion instead.
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Deprecated
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
      * @return AWS Region to which the template applies. Use `aws.getRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use aws.getRegion instead.
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Deprecated
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -281,11 +279,10 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use aws.getRegion instead.
+         * @deprecated region is deprecated. Use aws.getRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+        @Deprecated
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
@@ -296,11 +293,10 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use aws.getRegion instead.
+         * @deprecated region is deprecated. Use aws.getRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+        @Deprecated
         public Builder region(String region) {
             return region(Output.of(region));
         }

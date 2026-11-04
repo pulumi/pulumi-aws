@@ -768,6 +768,42 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceSamlConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_organizations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            editor_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            idp_metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+            idp_metadata_xml: pulumi.Input[Optional[_builtins.str]] = None,
+            login_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            login_validity_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            name_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            org_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminRoleValues"] = admin_role_values
+        __props__["allowedOrganizations"] = allowed_organizations
+        __props__["editorRoleValues"] = editor_role_values
+        __props__["emailAssertion"] = email_assertion
+        __props__["groupsAssertion"] = groups_assertion
+        __props__["idpMetadataUrl"] = idp_metadata_url
+        __props__["idpMetadataXml"] = idp_metadata_xml
+        __props__["loginAssertion"] = login_assertion
+        __props__["loginValidityDuration"] = login_validity_duration
+        __props__["nameAssertion"] = name_assertion
+        __props__["orgAssertion"] = org_assertion
+        __props__["region"] = region
+        __props__["roleAssertion"] = role_assertion
+        __props__["status"] = status
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminRoleValues")
     def admin_role_values(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

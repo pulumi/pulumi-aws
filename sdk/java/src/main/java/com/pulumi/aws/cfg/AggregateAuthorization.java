@@ -108,11 +108,10 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
     /**
      * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
-     * @deprecated
-     * region is deprecated. Use authorizedAwsRegion instead.
+     * @deprecated region is deprecated. Use authorizedAwsRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
+    @Deprecated
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 

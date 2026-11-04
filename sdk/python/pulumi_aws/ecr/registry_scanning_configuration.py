@@ -352,6 +352,20 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         __props__.__dict__["scan_type"] = scan_type
         return RegistryScanningConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryScanningConfigurationRuleArgs', 'RegistryScanningConfigurationRuleArgsDict', 'outputs.RegistryScanningConfigurationRule']]]]] = None,
+            scan_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["registryId"] = registry_id
+        __props__["rules"] = rules
+        __props__["scanType"] = scan_type
+        return pulumi.runtime.exists_resource(None, 'aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

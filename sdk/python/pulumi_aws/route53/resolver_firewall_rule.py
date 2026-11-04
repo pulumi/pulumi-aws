@@ -787,6 +787,42 @@ class ResolverFirewallRule(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return ResolverFirewallRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            block_override_dns_type: pulumi.Input[Optional[_builtins.str]] = None,
+            block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            block_response: pulumi.Input[Optional[_builtins.str]] = None,
+            confidence_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_threat_protection: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_domain_redirection_action: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_rule_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_threat_protection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            q_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["blockOverrideDnsType"] = block_override_dns_type
+        __props__["blockOverrideDomain"] = block_override_domain
+        __props__["blockOverrideTtl"] = block_override_ttl
+        __props__["blockResponse"] = block_response
+        __props__["confidenceThreshold"] = confidence_threshold
+        __props__["dnsThreatProtection"] = dns_threat_protection
+        __props__["firewallDomainListId"] = firewall_domain_list_id
+        __props__["firewallDomainRedirectionAction"] = firewall_domain_redirection_action
+        __props__["firewallRuleGroupId"] = firewall_rule_group_id
+        __props__["firewallThreatProtectionId"] = firewall_threat_protection_id
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["qType"] = q_type
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:route53/resolverFirewallRule:ResolverFirewallRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:

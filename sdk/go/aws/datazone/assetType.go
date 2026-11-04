@@ -177,6 +177,12 @@ func (AssetTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assetTypeState)(nil)).Elem()
 }
 
+// AssetTypeExists checks whether an existing AssetType resource with the given ID exists.
+func AssetTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssetTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datazone/assetType:AssetType", id, state, "", opts...)
+}
+
 type assetTypeArgs struct {
 	// The description of the custom asset type.
 	Description *string `pulumi:"description"`

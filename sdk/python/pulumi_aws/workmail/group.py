@@ -465,6 +465,30 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            disabled_date: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_date: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hidden_from_global_address_list: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["disabledDate"] = disabled_date
+        __props__["email"] = email
+        __props__["enabledDate"] = enabled_date
+        __props__["groupId"] = group_id
+        __props__["hiddenFromGlobalAddressList"] = hidden_from_global_address_list
+        __props__["name"] = name
+        __props__["organizationId"] = organization_id
+        __props__["region"] = region
+        __props__["state"] = state
+        return pulumi.runtime.exists_resource(None, 'aws:workmail/group:Group', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="disabledDate")
     def disabled_date(self) -> pulumi.Output[_builtins.str]:

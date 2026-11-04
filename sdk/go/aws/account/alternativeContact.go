@@ -153,6 +153,12 @@ func (AlternativeContactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alternativeContactState)(nil)).Elem()
 }
 
+// AlternativeContactExists checks whether an existing AlternativeContact resource with the given ID exists.
+func AlternativeContactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlternativeContactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:account/alternativeContact:AlternativeContact", id, state, "", opts...)
+}
+
 type alternativeContactArgs struct {
 	// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId *string `pulumi:"accountId"`

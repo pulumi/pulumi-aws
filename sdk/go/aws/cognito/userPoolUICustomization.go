@@ -230,6 +230,12 @@ func (UserPoolUICustomizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolUICustomizationState)(nil)).Elem()
 }
 
+// UserPoolUICustomizationExists checks whether an existing UserPoolUICustomization resource with the given ID exists.
+func UserPoolUICustomizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolUICustomizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/userPoolUICustomization:UserPoolUICustomization", id, state, "", opts...)
+}
+
 type userPoolUICustomizationArgs struct {
 	// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
 	ClientId *string `pulumi:"clientId"`

@@ -337,6 +337,22 @@ class DocumentationPart(pulumi.CustomResource):
         __props__.__dict__["rest_api_id"] = rest_api_id
         return DocumentationPart(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            documentation_part_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict', 'outputs.DocumentationPartLocation']]] = None,
+            properties: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["documentationPartId"] = documentation_part_id
+        __props__["location"] = location
+        __props__["properties"] = properties
+        __props__["region"] = region
+        __props__["restApiId"] = rest_api_id
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/documentationPart:DocumentationPart', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="documentationPartId")
     def documentation_part_id(self) -> pulumi.Output[_builtins.str]:

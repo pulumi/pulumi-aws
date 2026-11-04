@@ -348,6 +348,12 @@ func (EnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentState)(nil)).Elem()
 }
 
+// EnvironmentExists checks whether an existing Environment resource with the given ID exists.
+func EnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:m2/environment:Environment", id, state, "", opts...)
+}
+
 type environmentArgs struct {
 	// Whether to apply configuration changes during the preferred maintenance window instead of immediately.
 	ApplyChangesDuringMaintenanceWindow *bool `pulumi:"applyChangesDuringMaintenanceWindow"`

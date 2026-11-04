@@ -278,6 +278,12 @@ func (UserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userState)(nil)).Elem()
 }
 
+// UserExists checks whether an existing User resource with the given ID exists.
+func UserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/user:User", id, state, "", opts...)
+}
+
 type userArgs struct {
 	// Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory *string `pulumi:"homeDirectory"`

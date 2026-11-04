@@ -247,6 +247,12 @@ func (AccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountState)(nil)).Elem()
 }
 
+// AccountExists checks whether an existing Account resource with the given ID exists.
+func AccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:organizations/account:Account", id, state, "", opts...)
+}
+
 type accountArgs struct {
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion *bool `pulumi:"closeOnDeletion"`

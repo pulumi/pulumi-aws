@@ -519,6 +519,36 @@ class ProxyEndpoint(pulumi.CustomResource):
         __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
         return ProxyEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            db_proxy_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_role: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dbProxyEndpointName"] = db_proxy_endpoint_name
+        __props__["dbProxyName"] = db_proxy_name
+        __props__["endpoint"] = endpoint
+        __props__["isDefault"] = is_default
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetRole"] = target_role
+        __props__["vpcId"] = vpc_id
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        __props__["vpcSubnetIds"] = vpc_subnet_ids
+        return pulumi.runtime.exists_resource(None, 'aws:rds/proxyEndpoint:ProxyEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

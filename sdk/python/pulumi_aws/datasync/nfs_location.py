@@ -460,6 +460,30 @@ class NfsLocation(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return NfsLocation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            mount_options: pulumi.Input[Optional[Union['NfsLocationMountOptionsArgs', 'NfsLocationMountOptionsArgsDict', 'outputs.NfsLocationMountOptions']]] = None,
+            on_prem_config: pulumi.Input[Optional[Union['NfsLocationOnPremConfigArgs', 'NfsLocationOnPremConfigArgsDict', 'outputs.NfsLocationOnPremConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["mountOptions"] = mount_options
+        __props__["onPremConfig"] = on_prem_config
+        __props__["region"] = region
+        __props__["serverHostname"] = server_hostname
+        __props__["subdirectory"] = subdirectory
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/nfsLocation:NfsLocation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

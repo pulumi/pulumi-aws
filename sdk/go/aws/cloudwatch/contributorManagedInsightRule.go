@@ -158,6 +158,12 @@ func (ContributorManagedInsightRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contributorManagedInsightRuleState)(nil)).Elem()
 }
 
+// ContributorManagedInsightRuleExists checks whether an existing ContributorManagedInsightRule resource with the given ID exists.
+func ContributorManagedInsightRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContributorManagedInsightRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule", id, state, "", opts...)
+}
+
 type contributorManagedInsightRuleArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

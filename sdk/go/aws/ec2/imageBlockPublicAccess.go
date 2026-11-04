@@ -111,6 +111,12 @@ func (ImageBlockPublicAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageBlockPublicAccessState)(nil)).Elem()
 }
 
+// ImageBlockPublicAccessExists checks whether an existing ImageBlockPublicAccess resource with the given ID exists.
+func ImageBlockPublicAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImageBlockPublicAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess", id, state, "", opts...)
+}
+
 type imageBlockPublicAccessArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

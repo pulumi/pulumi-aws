@@ -131,6 +131,12 @@ func (AppBundleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appBundleState)(nil)).Elem()
 }
 
+// AppBundleExists checks whether an existing AppBundle resource with the given ID exists.
+func AppBundleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppBundleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appfabric/appBundle:AppBundle", id, state, "", opts...)
+}
+
 type appBundleArgs struct {
 	// ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 	CustomerManagedKeyArn *string `pulumi:"customerManagedKeyArn"`

@@ -40,31 +40,31 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Configuration("example", ConfigurationArgs.builder()
  *             .description("Example Configuration")
  *             .name("example")
  *             .engineType("ActiveMQ")
  *             .engineVersion("5.19")
  *             .data("""
- * <?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
- * <broker xmlns=\"http://activemq.apache.org/schema/core\">
+ * <?xml version=}&#92;{@code "1.0}&#92;{@code " encoding=}&#92;{@code "UTF-8}&#92;{@code " standalone=}&#92;{@code "yes}&#92;{@code "?>
+ * <broker xmlns=}&#92;{@code "http://activemq.apache.org/schema/core}&#92;{@code ">
  *   <plugins>
- *     <forcePersistencyModeBrokerPlugin persistenceFlag=\"true\"/>
+ *     <forcePersistencyModeBrokerPlugin persistenceFlag=}&#92;{@code "true}&#92;{@code "/>
  *     <statisticsBrokerPlugin/>
- *     <timeStampingBrokerPlugin ttlCeiling=\"86400000\" zeroExpirationOverride=\"86400000\"/>
+ *     <timeStampingBrokerPlugin ttlCeiling=}&#92;{@code "86400000}&#92;{@code " zeroExpirationOverride=}&#92;{@code "86400000}&#92;{@code "/>
  *   </plugins>
  * </broker>
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

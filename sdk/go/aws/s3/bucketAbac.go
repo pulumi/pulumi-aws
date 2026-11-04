@@ -155,6 +155,12 @@ func (BucketAbacState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketAbacState)(nil)).Elem()
 }
 
+// BucketAbacExists checks whether an existing BucketAbac resource with the given ID exists.
+func BucketAbacExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketAbacState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketAbac:BucketAbac", id, state, "", opts...)
+}
+
 type bucketAbacArgs struct {
 	// ABAC status configuration. See `abacStatus` Block for details.
 	AbacStatus BucketAbacAbacStatus `pulumi:"abacStatus"`

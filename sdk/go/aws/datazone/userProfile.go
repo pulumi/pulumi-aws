@@ -164,6 +164,12 @@ func (UserProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userProfileState)(nil)).Elem()
 }
 
+// UserProfileExists checks whether an existing UserProfile resource with the given ID exists.
+func UserProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datazone/userProfile:UserProfile", id, state, "", opts...)
+}
+
 type userProfileArgs struct {
 	// The domain identifier.
 	DomainIdentifier string `pulumi:"domainIdentifier"`

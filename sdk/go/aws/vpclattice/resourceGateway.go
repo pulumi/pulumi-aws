@@ -254,6 +254,12 @@ func (ResourceGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGatewayState)(nil)).Elem()
 }
 
+// ResourceGatewayExists checks whether an existing ResourceGateway resource with the given ID exists.
+func ResourceGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/resourceGateway:ResourceGateway", id, state, "", opts...)
+}
+
 type resourceGatewayArgs struct {
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType *string `pulumi:"ipAddressType"`

@@ -314,6 +314,12 @@ func (DefaultNetworkAclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultNetworkAclState)(nil)).Elem()
 }
 
+// DefaultNetworkAclExists checks whether an existing DefaultNetworkAcl resource with the given ID exists.
+func DefaultNetworkAclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultNetworkAclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", id, state, "", opts...)
+}
+
 type defaultNetworkAclArgs struct {
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	//

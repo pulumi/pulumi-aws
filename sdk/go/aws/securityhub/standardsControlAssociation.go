@@ -218,6 +218,12 @@ func (StandardsControlAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*standardsControlAssociationState)(nil)).Elem()
 }
 
+// StandardsControlAssociationExists checks whether an existing StandardsControlAssociation resource with the given ID exists.
+func StandardsControlAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StandardsControlAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/standardsControlAssociation:StandardsControlAssociation", id, state, "", opts...)
+}
+
 type standardsControlAssociationArgs struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus string `pulumi:"associationStatus"`

@@ -160,6 +160,12 @@ func (TrackerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trackerState)(nil)).Elem()
 }
 
+// TrackerExists checks whether an existing Tracker resource with the given ID exists.
+func TrackerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrackerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:location/tracker:Tracker", id, state, "", opts...)
+}
+
 type trackerArgs struct {
 	// The optional description for the tracker resource.
 	Description *string `pulumi:"description"`

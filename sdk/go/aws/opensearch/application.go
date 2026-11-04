@@ -390,6 +390,12 @@ func (ApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationState)(nil)).Elem()
 }
 
+// ApplicationExists checks whether an existing Application resource with the given ID exists.
+func ApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/application:Application", id, state, "", opts...)
+}
+
 type applicationArgs struct {
 	// Configuration block(s) for OpenSearch application settings. See App Config below.
 	AppConfigs []ApplicationAppConfig `pulumi:"appConfigs"`

@@ -56,6 +56,17 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
         return new LogAnomalyDetector(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing LogAnomalyDetector resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: LogAnomalyDetectorState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector';
 

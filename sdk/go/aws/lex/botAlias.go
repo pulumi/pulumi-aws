@@ -161,6 +161,12 @@ func (BotAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*botAliasState)(nil)).Elem()
 }
 
+// BotAliasExists checks whether an existing BotAlias resource with the given ID exists.
+func BotAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BotAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/botAlias:BotAlias", id, state, "", opts...)
+}
+
 type botAliasArgs struct {
 	// The name of the bot.
 	BotName string `pulumi:"botName"`

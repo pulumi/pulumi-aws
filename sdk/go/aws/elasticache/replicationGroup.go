@@ -840,6 +840,12 @@ func (ReplicationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationGroupState)(nil)).Elem()
 }
 
+// ReplicationGroupExists checks whether an existing ReplicationGroup resource with the given ID exists.
+func ReplicationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elasticache/replicationGroup:ReplicationGroup", id, state, "", opts...)
+}
+
 type replicationGroupArgs struct {
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`

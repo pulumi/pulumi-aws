@@ -170,6 +170,12 @@ func (ProvisionedConcurrencyConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisionedConcurrencyConfigState)(nil)).Elem()
 }
 
+// ProvisionedConcurrencyConfigExists checks whether an existing ProvisionedConcurrencyConfig resource with the given ID exists.
+func ProvisionedConcurrencyConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProvisionedConcurrencyConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig", id, state, "", opts...)
+}
+
 type provisionedConcurrencyConfigArgs struct {
 	// Name or ARN of the Lambda Function.
 	FunctionName string `pulumi:"functionName"`

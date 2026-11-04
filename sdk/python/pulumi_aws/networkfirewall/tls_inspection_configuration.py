@@ -965,6 +965,40 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         __props__.__dict__["update_token"] = update_token
         return TlsInspectionConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_authorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateAuthorityArgs', 'TlsInspectionConfigurationCertificateAuthorityArgsDict', 'outputs.TlsInspectionConfigurationCertificateAuthority']]]]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateArgs', 'TlsInspectionConfigurationCertificateArgsDict', 'outputs.TlsInspectionConfigurationCertificate']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationEncryptionConfiguration']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_associations: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict', 'outputs.TlsInspectionConfigurationTimeouts']]] = None,
+            tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationTlsInspectionConfiguration']]] = None,
+            tls_inspection_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            update_token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["certificateAuthorities"] = certificate_authorities
+        __props__["certificates"] = certificates
+        __props__["description"] = description
+        __props__["encryptionConfigurations"] = encryption_configurations
+        __props__["name"] = name
+        __props__["numberOfAssociations"] = number_of_associations
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["tlsInspectionConfiguration"] = tls_inspection_configuration
+        __props__["tlsInspectionConfigurationId"] = tls_inspection_configuration_id
+        __props__["updateToken"] = update_token
+        return pulumi.runtime.exists_resource(None, 'aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

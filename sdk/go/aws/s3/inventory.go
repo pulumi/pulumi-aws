@@ -241,6 +241,12 @@ func (InventoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inventoryState)(nil)).Elem()
 }
 
+// InventoryExists checks whether an existing Inventory resource with the given ID exists.
+func InventoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InventoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/inventory:Inventory", id, state, "", opts...)
+}
+
 type inventoryArgs struct {
 	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket string `pulumi:"bucket"`

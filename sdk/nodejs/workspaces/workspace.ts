@@ -66,6 +66,17 @@ export class Workspace extends pulumi.CustomResource {
         return new Workspace(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Workspace resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: WorkspaceState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:workspaces/workspace:Workspace", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:workspaces/workspace:Workspace';
 

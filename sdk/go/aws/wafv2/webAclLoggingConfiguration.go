@@ -202,6 +202,12 @@ func (WebAclLoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclLoggingConfigurationState)(nil)).Elem()
 }
 
+// WebAclLoggingConfigurationExists checks whether an existing WebAclLoggingConfiguration resource with the given ID exists.
+func WebAclLoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAclLoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration", id, state, "", opts...)
+}
+
 type webAclLoggingConfigurationArgs struct {
 	// Configuration block that allows you to associate Amazon Kinesis Data Firehose, CloudWatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
 	LogDestinationConfigs []string `pulumi:"logDestinationConfigs"`

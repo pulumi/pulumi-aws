@@ -134,6 +134,12 @@ func (ReadinessCheckState) ElementType() reflect.Type {
 	return reflect.TypeOf((*readinessCheckState)(nil)).Elem()
 }
 
+// ReadinessCheckExists checks whether an existing ReadinessCheck resource with the given ID exists.
+func ReadinessCheckExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReadinessCheckState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck", id, state, "", opts...)
+}
+
 type readinessCheckArgs struct {
 	// Unique name describing the readiness check.
 	ReadinessCheckName string `pulumi:"readinessCheckName"`

@@ -830,6 +830,46 @@ class ExportTask(pulumi.CustomResource):
         __props__.__dict__["warning_message"] = warning_message
         return ExportTask(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            export_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            export_task_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_cause: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            percent_progress: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+            source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            task_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            task_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict', 'outputs.ExportTaskTimeouts']]] = None,
+            warning_message: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["exportOnlies"] = export_onlies
+        __props__["exportTaskIdentifier"] = export_task_identifier
+        __props__["failureCause"] = failure_cause
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["percentProgress"] = percent_progress
+        __props__["region"] = region
+        __props__["s3BucketName"] = s3_bucket_name
+        __props__["s3Prefix"] = s3_prefix
+        __props__["snapshotTime"] = snapshot_time
+        __props__["sourceArn"] = source_arn
+        __props__["sourceType"] = source_type
+        __props__["status"] = status
+        __props__["taskEndTime"] = task_end_time
+        __props__["taskStartTime"] = task_start_time
+        __props__["timeouts"] = timeouts
+        __props__["warningMessage"] = warning_message
+        return pulumi.runtime.exists_resource(None, 'aws:rds/exportTask:ExportTask', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="exportOnlies")
     def export_onlies(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

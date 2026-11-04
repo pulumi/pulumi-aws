@@ -169,6 +169,12 @@ func (VpcIpamResourceDiscoveryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamResourceDiscoveryState)(nil)).Elem()
 }
 
+// VpcIpamResourceDiscoveryExists checks whether an existing VpcIpamResourceDiscovery resource with the given ID exists.
+func VpcIpamResourceDiscoveryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamResourceDiscoveryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery", id, state, "", opts...)
+}
+
 type vpcIpamResourceDiscoveryArgs struct {
 	// Description for the IPAM Resource Discovery.
 	Description *string `pulumi:"description"`

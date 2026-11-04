@@ -140,6 +140,12 @@ func (CustomRoutingListenerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customRoutingListenerState)(nil)).Elem()
 }
 
+// CustomRoutingListenerExists checks whether an existing CustomRoutingListener resource with the given ID exists.
+func CustomRoutingListenerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomRoutingListenerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:globalaccelerator/customRoutingListener:CustomRoutingListener", id, state, "", opts...)
+}
+
 type customRoutingListenerArgs struct {
 	// ARN of a custom routing accelerator.
 	AcceleratorArn string `pulumi:"acceleratorArn"`

@@ -817,6 +817,44 @@ class Feature(pulumi.CustomResource):
         __props__.__dict__["variations"] = variations
         return Feature(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            default_variation: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            evaluation_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEvaluationRuleArgs', 'FeatureEvaluationRuleArgsDict', 'outputs.FeatureEvaluationRule']]]]] = None,
+            evaluation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            value_type: pulumi.Input[Optional[_builtins.str]] = None,
+            variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict', 'outputs.FeatureVariation']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdTime"] = created_time
+        __props__["defaultVariation"] = default_variation
+        __props__["description"] = description
+        __props__["entityOverrides"] = entity_overrides
+        __props__["evaluationRules"] = evaluation_rules
+        __props__["evaluationStrategy"] = evaluation_strategy
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["name"] = name
+        __props__["project"] = project
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["valueType"] = value_type
+        __props__["variations"] = variations
+        return pulumi.runtime.exists_resource(None, 'aws:evidently/feature:Feature', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

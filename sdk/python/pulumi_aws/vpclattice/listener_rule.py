@@ -657,6 +657,34 @@ class ListenerRule(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            listener_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            match: pulumi.Input[Optional[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict', 'outputs.ListenerRuleMatch']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["arn"] = arn
+        __props__["listenerIdentifier"] = listener_identifier
+        __props__["match"] = match
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["region"] = region
+        __props__["ruleId"] = rule_id
+        __props__["serviceIdentifier"] = service_identifier
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:vpclattice/listenerRule:ListenerRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output['outputs.ListenerRuleAction']:

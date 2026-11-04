@@ -355,6 +355,24 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            expires: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["apiKeyId"] = api_key_id
+        __props__["description"] = description
+        __props__["expires"] = expires
+        __props__["key"] = key
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/apiKey:ApiKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

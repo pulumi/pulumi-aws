@@ -855,6 +855,46 @@ class InferenceComponent(pulumi.CustomResource):
         __props__.__dict__["variant_name"] = variant_name
         return InferenceComponent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_config: pulumi.Input[Optional[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict', 'outputs.InferenceComponentDeploymentConfig']]] = None,
+            endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_config: pulumi.Input[Optional[Union['InferenceComponentRuntimeConfigArgs', 'InferenceComponentRuntimeConfigArgsDict', 'outputs.InferenceComponentRuntimeConfig']]] = None,
+            specification: pulumi.Input[Optional[Union['InferenceComponentSpecificationArgs', 'InferenceComponentSpecificationArgsDict', 'outputs.InferenceComponentSpecification']]] = None,
+            specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InferenceComponentSpecificationArgs', 'InferenceComponentSpecificationArgsDict', 'outputs.InferenceComponentSpecification']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['InferenceComponentTimeoutsArgs', 'InferenceComponentTimeoutsArgsDict', 'outputs.InferenceComponentTimeouts']]] = None,
+            variant_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["creationTime"] = creation_time
+        __props__["deploymentConfig"] = deployment_config
+        __props__["endpointArn"] = endpoint_arn
+        __props__["endpointName"] = endpoint_name
+        __props__["failureReason"] = failure_reason
+        __props__["lastModifiedTime"] = last_modified_time
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["runtimeConfig"] = runtime_config
+        __props__["specification"] = specification
+        __props__["specifications"] = specifications
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["variantName"] = variant_name
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/inferenceComponent:InferenceComponent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

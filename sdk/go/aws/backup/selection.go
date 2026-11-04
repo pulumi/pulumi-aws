@@ -359,6 +359,12 @@ func (SelectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*selectionState)(nil)).Elem()
 }
 
+// SelectionExists checks whether an existing Selection resource with the given ID exists.
+func SelectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SelectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/selection:Selection", id, state, "", opts...)
+}
+
 type selectionArgs struct {
 	// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
 	Conditions []SelectionCondition `pulumi:"conditions"`

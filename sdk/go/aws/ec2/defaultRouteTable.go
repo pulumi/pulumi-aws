@@ -203,6 +203,12 @@ func (DefaultRouteTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultRouteTableState)(nil)).Elem()
 }
 
+// DefaultRouteTableExists checks whether an existing DefaultRouteTable resource with the given ID exists.
+func DefaultRouteTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultRouteTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/defaultRouteTable:DefaultRouteTable", id, state, "", opts...)
+}
+
 type defaultRouteTableArgs struct {
 	// ID of the default route table.
 	//

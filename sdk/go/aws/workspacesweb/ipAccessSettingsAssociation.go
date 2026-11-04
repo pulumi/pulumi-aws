@@ -133,6 +133,12 @@ func (IpAccessSettingsAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipAccessSettingsAssociationState)(nil)).Elem()
 }
 
+// IpAccessSettingsAssociationExists checks whether an existing IpAccessSettingsAssociation resource with the given ID exists.
+func IpAccessSettingsAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpAccessSettingsAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/ipAccessSettingsAssociation:IpAccessSettingsAssociation", id, state, "", opts...)
+}
+
 type ipAccessSettingsAssociationArgs struct {
 	// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
 	IpAccessSettingsArn string `pulumi:"ipAccessSettingsArn"`

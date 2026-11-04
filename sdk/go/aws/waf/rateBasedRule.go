@@ -172,6 +172,12 @@ func (RateBasedRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rateBasedRuleState)(nil)).Elem()
 }
 
+// RateBasedRuleExists checks whether an existing RateBasedRule resource with the given ID exists.
+func RateBasedRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RateBasedRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:waf/rateBasedRule:RateBasedRule", id, state, "", opts...)
+}
+
 type rateBasedRuleArgs struct {
 	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName string `pulumi:"metricName"`

@@ -102,6 +102,12 @@ func (ProxyDefaultTargetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyDefaultTargetGroupState)(nil)).Elem()
 }
 
+// ProxyDefaultTargetGroupExists checks whether an existing ProxyDefaultTargetGroup resource with the given ID exists.
+func ProxyDefaultTargetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProxyDefaultTargetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup", id, state, "", opts...)
+}
+
 type proxyDefaultTargetGroupArgs struct {
 	// Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
 	ConnectionPoolConfig *ProxyDefaultTargetGroupConnectionPoolConfig `pulumi:"connectionPoolConfig"`

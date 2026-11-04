@@ -151,6 +151,12 @@ func (AccessLogSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessLogSubscriptionState)(nil)).Elem()
 }
 
+// AccessLogSubscriptionExists checks whether an existing AccessLogSubscription resource with the given ID exists.
+func AccessLogSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessLogSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/accessLogSubscription:AccessLogSubscription", id, state, "", opts...)
+}
+
 type accessLogSubscriptionArgs struct {
 	// ARN of the log destination.
 	DestinationArn string `pulumi:"destinationArn"`

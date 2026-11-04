@@ -483,6 +483,26 @@ class EipAssociation(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return EipAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_reassociation: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocationId"] = allocation_id
+        __props__["allowReassociation"] = allow_reassociation
+        __props__["instanceId"] = instance_id
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["privateIpAddress"] = private_ip_address
+        __props__["publicIp"] = public_ip
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/eipAssociation:EipAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[_builtins.str]:

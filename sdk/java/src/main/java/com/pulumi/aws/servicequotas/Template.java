@@ -128,11 +128,10 @@ public class Template extends com.pulumi.resources.CustomResource {
     /**
      * AWS Region to which the template applies. Use `aws.getRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use aws.getRegion instead.
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Deprecated
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 

@@ -448,6 +448,26 @@ class ContactChannel(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ContactChannel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activation_status: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict', 'outputs.ContactChannelDeliveryAddress']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activationStatus"] = activation_status
+        __props__["arn"] = arn
+        __props__["contactId"] = contact_id
+        __props__["deliveryAddress"] = delivery_address
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:ssmcontacts/contactChannel:ContactChannel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activationStatus")
     def activation_status(self) -> pulumi.Output[_builtins.str]:

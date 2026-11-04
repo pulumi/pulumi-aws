@@ -171,6 +171,12 @@ func (DedicatedHostState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedHostState)(nil)).Elem()
 }
 
+// DedicatedHostExists checks whether an existing DedicatedHost resource with the given ID exists.
+func DedicatedHostExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DedicatedHostState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/dedicatedHost:DedicatedHost", id, state, "", opts...)
+}
+
 type dedicatedHostArgs struct {
 	// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
 	AssetId *string `pulumi:"assetId"`

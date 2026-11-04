@@ -269,6 +269,12 @@ func (Smsvoicev2EventDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsvoicev2EventDestinationState)(nil)).Elem()
 }
 
+// Smsvoicev2EventDestinationExists checks whether an existing Smsvoicev2EventDestination resource with the given ID exists.
+func Smsvoicev2EventDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Smsvoicev2EventDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsvoicev2EventDestination:Smsvoicev2EventDestination", id, state, "", opts...)
+}
+
 type smsvoicev2EventDestinationArgs struct {
 	// Send events to Amazon CloudWatch Logs. Exactly one of `cloudwatchLogsDestination`, `kinesisFirehoseDestination`, or `snsDestination` must be configured. See `cloudwatchLogsDestination` Block for details.
 	CloudwatchLogsDestination *Smsvoicev2EventDestinationCloudwatchLogsDestination `pulumi:"cloudwatchLogsDestination"`

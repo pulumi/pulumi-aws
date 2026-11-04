@@ -254,7 +254,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public partial class DbInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: ` "InfluxIOIncludedT1":  `20` ,  `"InfluxIOIncludedT2" and ` "InfluxIOIncludedT3":  `400`.
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string?> DbParameterGroupIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `AllocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
+        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use ` "InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for  `AllocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         /// </summary>
         [Output("dbStorageType")]
         public Output<string> DbStorageType { get; private set; } = null!;
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public sealed class DbInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: ` "InfluxIOIncludedT1":  `20` ,  `"InfluxIOIncludedT2" and ` "InfluxIOIncludedT3":  `400`.
         /// </summary>
         [Input("allocatedStorage", required: true)]
         public Input<int> AllocatedStorage { get; set; } = null!;
@@ -483,7 +483,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? DbParameterGroupIdentifier { get; set; }
 
         /// <summary>
-        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `AllocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
+        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use ` "InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for  `AllocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         /// </summary>
         [Input("dbStorageType")]
         public Input<string>? DbStorageType { get; set; }
@@ -614,7 +614,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public sealed class DbInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: ` "InfluxIOIncludedT1":  `20` ,  `"InfluxIOIncludedT2" and ` "InfluxIOIncludedT3":  `400`.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -650,7 +650,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? DbParameterGroupIdentifier { get; set; }
 
         /// <summary>
-        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `AllocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
+        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use ` "InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for  `AllocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         /// </summary>
         [Input("dbStorageType")]
         public Input<string>? DbStorageType { get; set; }

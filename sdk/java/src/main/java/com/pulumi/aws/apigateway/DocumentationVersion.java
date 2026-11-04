@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()
  *             .name("example_api")
  *             .build());
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .location(DocumentationPartLocationArgs.builder()
  *                 .type("API")
  *                 .build())
- *             .properties("{\"description\":\"Example\"}")
+ *             .properties("}{&#92;{@code "description}&#92;{@code ":}&#92;{@code "Example}&#92;{@code "}}{@code ")
  *             .restApiId(exampleRestApi.id())
  *             .build());
  * 
@@ -67,8 +67,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleDocumentationPart)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

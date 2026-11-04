@@ -256,6 +256,12 @@ func (SubscriberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriberState)(nil)).Elem()
 }
 
+// SubscriberExists checks whether an existing Subscriber resource with the given ID exists.
+func SubscriberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securitylake/subscriber:Subscriber", id, state, "", opts...)
+}
+
 type subscriberArgs struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType *string `pulumi:"accessType"`

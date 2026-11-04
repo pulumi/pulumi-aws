@@ -1284,6 +1284,70 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticsearch_settings: pulumi.Input[Optional[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict', 'outputs.EndpointElasticsearchSettings']]] = None,
+            endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+            extra_connection_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_settings: pulumi.Input[Optional[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict', 'outputs.EndpointKafkaSettings']]] = None,
+            kinesis_settings: pulumi.Input[Optional[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict', 'outputs.EndpointKinesisSettings']]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            mongodb_settings: pulumi.Input[Optional[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict', 'outputs.EndpointMongodbSettings']]] = None,
+            mysql_settings: pulumi.Input[Optional[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict', 'outputs.EndpointMysqlSettings']]] = None,
+            oracle_settings: pulumi.Input[Optional[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict', 'outputs.EndpointOracleSettings']]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            pause_replication_tasks: pulumi.Input[Optional[_builtins.bool]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            postgres_settings: pulumi.Input[Optional[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict', 'outputs.EndpointPostgresSettings']]] = None,
+            redis_settings: pulumi.Input[Optional[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict', 'outputs.EndpointRedisSettings']]] = None,
+            redshift_settings: pulumi.Input[Optional[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict', 'outputs.EndpointRedshiftSettings']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets_manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateArn"] = certificate_arn
+        __props__["databaseName"] = database_name
+        __props__["elasticsearchSettings"] = elasticsearch_settings
+        __props__["endpointArn"] = endpoint_arn
+        __props__["endpointId"] = endpoint_id
+        __props__["endpointType"] = endpoint_type
+        __props__["engineName"] = engine_name
+        __props__["extraConnectionAttributes"] = extra_connection_attributes
+        __props__["kafkaSettings"] = kafka_settings
+        __props__["kinesisSettings"] = kinesis_settings
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["mongodbSettings"] = mongodb_settings
+        __props__["mysqlSettings"] = mysql_settings
+        __props__["oracleSettings"] = oracle_settings
+        __props__["password"] = password
+        __props__["pauseReplicationTasks"] = pause_replication_tasks
+        __props__["port"] = port
+        __props__["postgresSettings"] = postgres_settings
+        __props__["redisSettings"] = redis_settings
+        __props__["redshiftSettings"] = redshift_settings
+        __props__["region"] = region
+        __props__["secretsManagerAccessRoleArn"] = secrets_manager_access_role_arn
+        __props__["secretsManagerArn"] = secrets_manager_arn
+        __props__["serverName"] = server_name
+        __props__["serviceAccessRole"] = service_access_role
+        __props__["sslMode"] = ssl_mode
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'aws:dms/endpoint:Endpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[_builtins.str]:

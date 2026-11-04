@@ -16,8 +16,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `File` interpolation function to read a raw JSON policy document from a file.
         /// 
-        /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ### Basic Example
@@ -218,8 +216,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `File` interpolation function to read a raw JSON policy document from a file.
         /// 
-        /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ### Basic Example
@@ -419,8 +415,6 @@ namespace Pulumi.Aws.NetworkManager
         /// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `AwsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
         /// 
         /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `File` interpolation function to read a raw JSON policy document from a file.
-        /// 
-        /// 
         /// 
         /// ## Example Usage
         /// 

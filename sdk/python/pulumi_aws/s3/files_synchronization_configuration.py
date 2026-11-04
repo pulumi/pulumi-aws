@@ -390,6 +390,22 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return FilesSynchronizationConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationExpirationDataRule']]]]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationImportDataRule']]]]] = None,
+            latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["expirationDataRules"] = expiration_data_rules
+        __props__["fileSystemId"] = file_system_id
+        __props__["importDataRules"] = import_data_rules
+        __props__["latestVersionNumber"] = latest_version_number
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:s3/filesSynchronizationConfiguration:FilesSynchronizationConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="expirationDataRules")
     def expiration_data_rules(self) -> pulumi.Output[Optional[Sequence['outputs.FilesSynchronizationConfigurationExpirationDataRule']]]:

@@ -704,6 +704,36 @@ class Preset(pulumi.CustomResource):
         __props__.__dict__["video_watermarks"] = video_watermarks
         return Preset(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            audio: pulumi.Input[Optional[Union['PresetAudioArgs', 'PresetAudioArgsDict', 'outputs.PresetAudio']]] = None,
+            audio_codec_options: pulumi.Input[Optional[Union['PresetAudioCodecOptionsArgs', 'PresetAudioCodecOptionsArgsDict', 'outputs.PresetAudioCodecOptions']]] = None,
+            container: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbnails: pulumi.Input[Optional[Union['PresetThumbnailsArgs', 'PresetThumbnailsArgsDict', 'outputs.PresetThumbnails']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            video: pulumi.Input[Optional[Union['PresetVideoArgs', 'PresetVideoArgsDict', 'outputs.PresetVideo']]] = None,
+            video_codec_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            video_watermarks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PresetVideoWatermarkArgs', 'PresetVideoWatermarkArgsDict', 'outputs.PresetVideoWatermark']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["audio"] = audio
+        __props__["audioCodecOptions"] = audio_codec_options
+        __props__["container"] = container
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["thumbnails"] = thumbnails
+        __props__["type"] = type
+        __props__["video"] = video
+        __props__["videoCodecOptions"] = video_codec_options
+        __props__["videoWatermarks"] = video_watermarks
+        return pulumi.runtime.exists_resource(None, 'aws:elastictranscoder/preset:Preset', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

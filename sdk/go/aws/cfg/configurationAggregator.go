@@ -227,6 +227,12 @@ func (ConfigurationAggregatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationAggregatorState)(nil)).Elem()
 }
 
+// ConfigurationAggregatorExists checks whether an existing ConfigurationAggregator resource with the given ID exists.
+func ConfigurationAggregatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationAggregatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/configurationAggregator:ConfigurationAggregator", id, state, "", opts...)
+}
+
 type configurationAggregatorArgs struct {
 	// The account(s) to aggregate config data from as documented below.
 	AccountAggregationSource *ConfigurationAggregatorAccountAggregationSource `pulumi:"accountAggregationSource"`

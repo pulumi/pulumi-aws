@@ -171,6 +171,12 @@ func (RevisionAssetsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*revisionAssetsState)(nil)).Elem()
 }
 
+// RevisionAssetsExists checks whether an existing RevisionAssets resource with the given ID exists.
+func RevisionAssetsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RevisionAssetsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dataexchange/revisionAssets:RevisionAssets", id, state, "", opts...)
+}
+
 type revisionAssetsArgs struct {
 	// A block to define the asset associated with the revision. See Asset for more details.
 	//

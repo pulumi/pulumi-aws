@@ -370,6 +370,24 @@ class GuardrailVersion(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return GuardrailVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            timeouts: pulumi.Input[Optional[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict', 'outputs.GuardrailVersionTimeouts']]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["guardrailArn"] = guardrail_arn
+        __props__["region"] = region
+        __props__["skipDestroy"] = skip_destroy
+        __props__["timeouts"] = timeouts
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/guardrailVersion:GuardrailVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -198,6 +198,12 @@ func (OpenZfsVolumeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openZfsVolumeState)(nil)).Elem()
 }
 
+// OpenZfsVolumeExists checks whether an existing OpenZfsVolume resource with the given ID exists.
+func OpenZfsVolumeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenZfsVolumeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/openZfsVolume:OpenZfsVolume", id, state, "", opts...)
+}
+
 type openZfsVolumeArgs struct {
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`

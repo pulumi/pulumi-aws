@@ -283,6 +283,12 @@ func (PlatformApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*platformApplicationState)(nil)).Elem()
 }
 
+// PlatformApplicationExists checks whether an existing PlatformApplication resource with the given ID exists.
+func PlatformApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlatformApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sns/platformApplication:PlatformApplication", id, state, "", opts...)
+}
+
 type platformApplicationArgs struct {
 	// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
 	ApplePlatformBundleId *string `pulumi:"applePlatformBundleId"`

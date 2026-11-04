@@ -171,6 +171,12 @@ func (ApprovalRuleTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*approvalRuleTemplateState)(nil)).Elem()
 }
 
+// ApprovalRuleTemplateExists checks whether an existing ApprovalRuleTemplate resource with the given ID exists.
+func ApprovalRuleTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApprovalRuleTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate", id, state, "", opts...)
+}
+
 type approvalRuleTemplateArgs struct {
 	// The content of the approval rule template. Maximum of 3000 characters.
 	Content string `pulumi:"content"`

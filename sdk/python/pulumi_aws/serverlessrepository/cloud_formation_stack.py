@@ -486,6 +486,30 @@ class CloudFormationStack(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CloudFormationStack(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outputs: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            semantic_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["capabilities"] = capabilities
+        __props__["name"] = name
+        __props__["outputs"] = outputs
+        __props__["parameters"] = parameters
+        __props__["region"] = region
+        __props__["semanticVersion"] = semantic_version
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:serverlessrepository/cloudFormationStack:CloudFormationStack', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

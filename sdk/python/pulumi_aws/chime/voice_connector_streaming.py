@@ -500,6 +500,24 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         __props__.__dict__["voice_connector_id"] = voice_connector_id
         return VoiceConnectorStreaming(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_retention: pulumi.Input[Optional[_builtins.int]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            media_insights_configuration: pulumi.Input[Optional[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict', 'outputs.VoiceConnectorStreamingMediaInsightsConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            streaming_notification_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataRetention"] = data_retention
+        __props__["disabled"] = disabled
+        __props__["mediaInsightsConfiguration"] = media_insights_configuration
+        __props__["region"] = region
+        __props__["streamingNotificationTargets"] = streaming_notification_targets
+        __props__["voiceConnectorId"] = voice_connector_id
+        return pulumi.runtime.exists_resource(None, 'aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataRetention")
     def data_retention(self) -> pulumi.Output[_builtins.int]:

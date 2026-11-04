@@ -298,6 +298,12 @@ func (GuardrailState) ElementType() reflect.Type {
 	return reflect.TypeOf((*guardrailState)(nil)).Elem()
 }
 
+// GuardrailExists checks whether an existing Guardrail resource with the given ID exists.
+func GuardrailExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GuardrailState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/guardrail:Guardrail", id, state, "", opts...)
+}
+
 type guardrailArgs struct {
 	// Message to return when the guardrail blocks a prompt.
 	BlockedInputMessaging string `pulumi:"blockedInputMessaging"`

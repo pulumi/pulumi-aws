@@ -172,6 +172,12 @@ func (ServiceQuotaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceQuotaState)(nil)).Elem()
 }
 
+// ServiceQuotaExists checks whether an existing ServiceQuota resource with the given ID exists.
+func ServiceQuotaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceQuotaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicequotas/serviceQuota:ServiceQuota", id, state, "", opts...)
+}
+
 type serviceQuotaArgs struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode string `pulumi:"quotaCode"`

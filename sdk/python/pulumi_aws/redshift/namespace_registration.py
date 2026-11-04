@@ -520,6 +520,24 @@ class NamespaceRegistration(pulumi.CustomResource):
         __props__.__dict__["serverless_workgroup_identifier"] = serverless_workgroup_identifier
         return NamespaceRegistration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            consumer_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_type: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_namespace_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_workgroup_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["consumerIdentifier"] = consumer_identifier
+        __props__["namespaceType"] = namespace_type
+        __props__["provisionedClusterIdentifier"] = provisioned_cluster_identifier
+        __props__["region"] = region
+        __props__["serverlessNamespaceIdentifier"] = serverless_namespace_identifier
+        __props__["serverlessWorkgroupIdentifier"] = serverless_workgroup_identifier
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/namespaceRegistration:NamespaceRegistration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="consumerIdentifier")
     def consumer_identifier(self) -> pulumi.Output[_builtins.str]:

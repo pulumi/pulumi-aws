@@ -16,11 +16,10 @@ public final class GetSecretVersionResult {
     /**
      * @return (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
-     * @deprecated
-     * arn is deprecated. Use secretArn instead.
+     * @deprecated arn is deprecated. Use secretArn instead.
      * 
      */
-    @Deprecated /* arn is deprecated. Use secretArn instead. */
+    @Deprecated
     private String arn;
     /**
      * @return Created date of the secret in UTC.
@@ -65,11 +64,10 @@ public final class GetSecretVersionResult {
     /**
      * @return (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
-     * @deprecated
-     * arn is deprecated. Use secretArn instead.
+     * @deprecated arn is deprecated. Use secretArn instead.
      * 
      */
-    @Deprecated /* arn is deprecated. Use secretArn instead. */
+    @Deprecated
     public String arn() {
         return this.arn;
     }

@@ -498,11 +498,10 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
     /**
      * (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
      * 
-     * @deprecated
-     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Export(name="streamProcessorArn", refs={String.class}, tree="[0]")
     private Output<String> streamProcessorArn;
 

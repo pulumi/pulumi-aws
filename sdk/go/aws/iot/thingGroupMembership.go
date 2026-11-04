@@ -123,6 +123,12 @@ func (ThingGroupMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingGroupMembershipState)(nil)).Elem()
 }
 
+// ThingGroupMembershipExists checks whether an existing ThingGroupMembership resource with the given ID exists.
+func ThingGroupMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThingGroupMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/thingGroupMembership:ThingGroupMembership", id, state, "", opts...)
+}
+
 type thingGroupMembershipArgs struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup *bool `pulumi:"overrideDynamicGroup"`

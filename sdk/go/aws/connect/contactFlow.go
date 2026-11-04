@@ -261,6 +261,12 @@ func (ContactFlowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactFlowState)(nil)).Elem()
 }
 
+// ContactFlowExists checks whether an existing ContactFlow resource with the given ID exists.
+func ContactFlowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactFlowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/contactFlow:ContactFlow", id, state, "", opts...)
+}
+
 type contactFlowArgs struct {
 	// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
 	Content *string `pulumi:"content"`

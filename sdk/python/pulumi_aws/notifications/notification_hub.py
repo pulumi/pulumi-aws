@@ -215,6 +215,16 @@ class NotificationHub(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return NotificationHub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            notification_hub_region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['NotificationHubTimeoutsArgs', 'NotificationHubTimeoutsArgsDict', 'outputs.NotificationHubTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["notificationHubRegion"] = notification_hub_region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:notifications/notificationHub:NotificationHub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="notificationHubRegion")
     def notification_hub_region(self) -> pulumi.Output[_builtins.str]:

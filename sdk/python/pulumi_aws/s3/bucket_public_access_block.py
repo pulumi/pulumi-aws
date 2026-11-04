@@ -456,6 +456,26 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         __props__.__dict__["skip_destroy"] = skip_destroy
         return BucketPublicAccessBlock(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+            block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blockPublicAcls"] = block_public_acls
+        __props__["blockPublicPolicy"] = block_public_policy
+        __props__["bucket"] = bucket
+        __props__["ignorePublicAcls"] = ignore_public_acls
+        __props__["region"] = region
+        __props__["restrictPublicBuckets"] = restrict_public_buckets
+        __props__["skipDestroy"] = skip_destroy
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> pulumi.Output[Optional[_builtins.bool]]:

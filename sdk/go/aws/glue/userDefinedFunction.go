@@ -180,6 +180,12 @@ func (UserDefinedFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userDefinedFunctionState)(nil)).Elem()
 }
 
+// UserDefinedFunctionExists checks whether an existing UserDefinedFunction resource with the given ID exists.
+func UserDefinedFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserDefinedFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/userDefinedFunction:UserDefinedFunction", id, state, "", opts...)
+}
+
 type userDefinedFunctionArgs struct {
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`

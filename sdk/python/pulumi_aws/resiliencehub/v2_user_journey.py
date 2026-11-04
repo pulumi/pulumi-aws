@@ -444,6 +444,24 @@ class V2UserJourney(pulumi.CustomResource):
         __props__.__dict__["user_journey_id"] = user_journey_id
         return V2UserJourney(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            system_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            user_journey_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["policyArn"] = policy_arn
+        __props__["region"] = region
+        __props__["systemArn"] = system_arn
+        __props__["userJourneyId"] = user_journey_id
+        return pulumi.runtime.exists_resource(None, 'aws:resiliencehub/v2UserJourney:V2UserJourney', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

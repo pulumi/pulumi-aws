@@ -249,6 +249,12 @@ func (ProductSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*productSubscriptionState)(nil)).Elem()
 }
 
+// ProductSubscriptionExists checks whether an existing ProductSubscription resource with the given ID exists.
+func ProductSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProductSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/productSubscription:ProductSubscription", id, state, "", opts...)
+}
+
 type productSubscriptionArgs struct {
 	// The ARN of the product that generates findings that you want to import into Security Hub - see below.
 	//

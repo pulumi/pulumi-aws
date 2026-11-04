@@ -319,6 +319,12 @@ func (AgentcoreEvaluatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreEvaluatorState)(nil)).Elem()
 }
 
+// AgentcoreEvaluatorExists checks whether an existing AgentcoreEvaluator resource with the given ID exists.
+func AgentcoreEvaluatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreEvaluatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreEvaluator:AgentcoreEvaluator", id, state, "", opts...)
+}
+
 type agentcoreEvaluatorArgs struct {
 	// Description of the evaluator. Length 1–200.
 	Description *string `pulumi:"description"`

@@ -187,6 +187,12 @@ func (AccessEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessEntryState)(nil)).Elem()
 }
 
+// AccessEntryExists checks whether an existing AccessEntry resource with the given ID exists.
+func AccessEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:eks/accessEntry:AccessEntry", id, state, "", opts...)
+}
+
 type accessEntryArgs struct {
 	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`

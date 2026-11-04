@@ -149,6 +149,12 @@ func (ControlPanelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*controlPanelState)(nil)).Elem()
 }
 
+// ControlPanelExists checks whether an existing ControlPanel resource with the given ID exists.
+func ControlPanelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ControlPanelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53recoverycontrol/controlPanel:ControlPanel", id, state, "", opts...)
+}
+
 type controlPanelArgs struct {
 	// ARN of the cluster in which this control panel will reside.
 	ClusterArn string `pulumi:"clusterArn"`

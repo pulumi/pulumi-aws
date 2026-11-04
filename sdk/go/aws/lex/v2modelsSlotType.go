@@ -291,6 +291,12 @@ func (V2modelsSlotTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2modelsSlotTypeState)(nil)).Elem()
 }
 
+// V2modelsSlotTypeExists checks whether an existing V2modelsSlotType resource with the given ID exists.
+func V2modelsSlotTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2modelsSlotTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/v2modelsSlotType:V2modelsSlotType", id, state, "", opts...)
+}
+
 type v2modelsSlotTypeArgs struct {
 	// Identifier of the bot associated with this slot type.
 	BotId string `pulumi:"botId"`

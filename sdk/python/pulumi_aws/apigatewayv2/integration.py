@@ -1101,6 +1101,52 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["tls_config"] = tls_config
         return Integration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_method: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_subtype: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_type: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            passthrough_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            response_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict', 'outputs.IntegrationResponseParameter']]]]] = None,
+            template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+            tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["connectionId"] = connection_id
+        __props__["connectionType"] = connection_type
+        __props__["contentHandlingStrategy"] = content_handling_strategy
+        __props__["credentialsArn"] = credentials_arn
+        __props__["description"] = description
+        __props__["integrationMethod"] = integration_method
+        __props__["integrationResponseSelectionExpression"] = integration_response_selection_expression
+        __props__["integrationSubtype"] = integration_subtype
+        __props__["integrationType"] = integration_type
+        __props__["integrationUri"] = integration_uri
+        __props__["passthroughBehavior"] = passthrough_behavior
+        __props__["payloadFormatVersion"] = payload_format_version
+        __props__["region"] = region
+        __props__["requestParameters"] = request_parameters
+        __props__["requestTemplates"] = request_templates
+        __props__["responseParameters"] = response_parameters
+        __props__["templateSelectionExpression"] = template_selection_expression
+        __props__["timeoutMilliseconds"] = timeout_milliseconds
+        __props__["tlsConfig"] = tls_config
+        return pulumi.runtime.exists_resource(None, 'aws:apigatewayv2/integration:Integration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

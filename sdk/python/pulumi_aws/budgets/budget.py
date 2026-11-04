@@ -1512,6 +1512,52 @@ class Budget(pulumi.CustomResource):
         __props__.__dict__["time_unit"] = time_unit
         return Budget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_adjust_data: pulumi.Input[Optional[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict', 'outputs.BudgetAutoAdjustData']]] = None,
+            billing_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            budget_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cost_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict', 'outputs.BudgetCostFilter']]]]] = None,
+            cost_types: pulumi.Input[Optional[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict', 'outputs.BudgetCostTypes']]] = None,
+            filter_expression: pulumi.Input[Optional[Union['BudgetFilterExpressionArgs', 'BudgetFilterExpressionArgsDict', 'outputs.BudgetFilterExpression']]] = None,
+            limit_amount: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_unit: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict', 'outputs.BudgetNotification']]]]] = None,
+            planned_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict', 'outputs.BudgetPlannedLimit']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            time_period_end: pulumi.Input[Optional[_builtins.str]] = None,
+            time_period_start: pulumi.Input[Optional[_builtins.str]] = None,
+            time_unit: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["arn"] = arn
+        __props__["autoAdjustData"] = auto_adjust_data
+        __props__["billingViewArn"] = billing_view_arn
+        __props__["budgetType"] = budget_type
+        __props__["costFilters"] = cost_filters
+        __props__["costTypes"] = cost_types
+        __props__["filterExpression"] = filter_expression
+        __props__["limitAmount"] = limit_amount
+        __props__["limitUnit"] = limit_unit
+        __props__["metrics"] = metrics
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["notifications"] = notifications
+        __props__["plannedLimits"] = planned_limits
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timePeriodEnd"] = time_period_end
+        __props__["timePeriodStart"] = time_period_start
+        __props__["timeUnit"] = time_unit
+        return pulumi.runtime.exists_resource(None, 'aws:budgets/budget:Budget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

@@ -151,6 +151,12 @@ func (UserGroupMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGroupMembershipState)(nil)).Elem()
 }
 
+// UserGroupMembershipExists checks whether an existing UserGroupMembership resource with the given ID exists.
+func UserGroupMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserGroupMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/userGroupMembership:UserGroupMembership", id, state, "", opts...)
+}
+
 type userGroupMembershipArgs struct {
 	// A list of IAM Groups to add the user to
 	Groups []string `pulumi:"groups"`

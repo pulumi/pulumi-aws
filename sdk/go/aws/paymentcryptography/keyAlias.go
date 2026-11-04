@@ -142,6 +142,12 @@ func (KeyAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyAliasState)(nil)).Elem()
 }
 
+// KeyAliasExists checks whether an existing KeyAlias resource with the given ID exists.
+func KeyAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:paymentcryptography/keyAlias:KeyAlias", id, state, "", opts...)
+}
+
 type keyAliasArgs struct {
 	// Name of the Key Alias.
 	//

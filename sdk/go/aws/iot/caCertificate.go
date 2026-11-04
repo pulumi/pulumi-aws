@@ -248,6 +248,12 @@ func (CaCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*caCertificateState)(nil)).Elem()
 }
 
+// CaCertificateExists checks whether an existing CaCertificate resource with the given ID exists.
+func CaCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CaCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/caCertificate:CaCertificate", id, state, "", opts...)
+}
+
 type caCertificateArgs struct {
 	// Boolean flag to indicate if the certificate should be active for device authentication.
 	Active bool `pulumi:"active"`

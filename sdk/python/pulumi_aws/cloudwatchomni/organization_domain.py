@@ -710,6 +710,42 @@ class OrganizationDomain(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return OrganizationDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_endpoint_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            domain_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_center_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_configuration: pulumi.Input[Optional[Union['OrganizationDomainIdentityProviderConfigurationArgs', 'OrganizationDomainIdentityProviderConfigurationArgsDict', 'outputs.OrganizationDomainIdentityProviderConfiguration']]] = None,
+            identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["customEndpointUrls"] = custom_endpoint_urls
+        __props__["domainAccessRoleArn"] = domain_access_role_arn
+        __props__["domainEndpointUrl"] = domain_endpoint_url
+        __props__["domainId"] = domain_id
+        __props__["identityCenterApplicationArn"] = identity_center_application_arn
+        __props__["identityProviderConfiguration"] = identity_provider_configuration
+        __props__["identityProviders"] = identity_providers
+        __props__["name"] = name
+        __props__["organizationId"] = organization_id
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatchomni/organizationDomain:OrganizationDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

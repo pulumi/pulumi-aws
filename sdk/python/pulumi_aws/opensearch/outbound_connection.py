@@ -470,6 +470,28 @@ class OutboundConnection(pulumi.CustomResource):
         __props__.__dict__["remote_domain_info"] = remote_domain_info
         return OutboundConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_connection: pulumi.Input[Optional[_builtins.bool]] = None,
+            connection_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_properties: pulumi.Input[Optional[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict', 'outputs.OutboundConnectionConnectionProperties']]] = None,
+            connection_status: pulumi.Input[Optional[_builtins.str]] = None,
+            local_domain_info: pulumi.Input[Optional[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict', 'outputs.OutboundConnectionLocalDomainInfo']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_domain_info: pulumi.Input[Optional[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict', 'outputs.OutboundConnectionRemoteDomainInfo']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptConnection"] = accept_connection
+        __props__["connectionAlias"] = connection_alias
+        __props__["connectionMode"] = connection_mode
+        __props__["connectionProperties"] = connection_properties
+        __props__["connectionStatus"] = connection_status
+        __props__["localDomainInfo"] = local_domain_info
+        __props__["region"] = region
+        __props__["remoteDomainInfo"] = remote_domain_info
+        return pulumi.runtime.exists_resource(None, 'aws:opensearch/outboundConnection:OutboundConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptConnection")
     def accept_connection(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -968,6 +968,54 @@ class AccountSubscription(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return AccountSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            account_subscription_status: pulumi.Input[Optional[_builtins.str]] = None,
+            active_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            admin_pro_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+            author_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            author_pro_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            contact_number: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            edition: pulumi.Input[Optional[_builtins.str]] = None,
+            email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            first_name: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+            reader_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            reader_pro_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            realm: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["accountSubscriptionStatus"] = account_subscription_status
+        __props__["activeDirectoryName"] = active_directory_name
+        __props__["adminGroups"] = admin_groups
+        __props__["adminProGroups"] = admin_pro_groups
+        __props__["authenticationMethod"] = authentication_method
+        __props__["authorGroups"] = author_groups
+        __props__["authorProGroups"] = author_pro_groups
+        __props__["awsAccountId"] = aws_account_id
+        __props__["contactNumber"] = contact_number
+        __props__["directoryId"] = directory_id
+        __props__["edition"] = edition
+        __props__["emailAddress"] = email_address
+        __props__["firstName"] = first_name
+        __props__["iamIdentityCenterInstanceArn"] = iam_identity_center_instance_arn
+        __props__["lastName"] = last_name
+        __props__["notificationEmail"] = notification_email
+        __props__["readerGroups"] = reader_groups
+        __props__["readerProGroups"] = reader_pro_groups
+        __props__["realm"] = realm
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/accountSubscription:AccountSubscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

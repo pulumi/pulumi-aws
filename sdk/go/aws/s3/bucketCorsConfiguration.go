@@ -190,6 +190,12 @@ func (BucketCorsConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketCorsConfigurationState)(nil)).Elem()
 }
 
+// BucketCorsConfigurationExists checks whether an existing BucketCorsConfiguration resource with the given ID exists.
+func BucketCorsConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketCorsConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketCorsConfiguration:BucketCorsConfiguration", id, state, "", opts...)
+}
+
 type bucketCorsConfigurationArgs struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`

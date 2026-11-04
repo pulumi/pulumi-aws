@@ -134,6 +134,12 @@ func (GroupMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupMembershipState)(nil)).Elem()
 }
 
+// GroupMembershipExists checks whether an existing GroupMembership resource with the given ID exists.
+func GroupMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/groupMembership:GroupMembership", id, state, "", opts...)
+}
+
 type groupMembershipArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

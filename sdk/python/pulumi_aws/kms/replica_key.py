@@ -625,6 +625,40 @@ class ReplicaKey(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ReplicaKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+            key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["bypassPolicyLockoutSafetyCheck"] = bypass_policy_lockout_safety_check
+        __props__["deletionWindowInDays"] = deletion_window_in_days
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["keyId"] = key_id
+        __props__["keyRotationEnabled"] = key_rotation_enabled
+        __props__["keySpec"] = key_spec
+        __props__["keyUsage"] = key_usage
+        __props__["policy"] = policy
+        __props__["primaryKeyArn"] = primary_key_arn
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:kms/replicaKey:ReplicaKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

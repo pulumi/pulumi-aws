@@ -548,6 +548,12 @@ func (EventBusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventBusState)(nil)).Elem()
 }
 
+// EventBusExists checks whether an existing EventBus resource with the given ID exists.
+func EventBusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventBusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/eventBus:EventBus", id, state, "", opts...)
+}
+
 type eventBusArgs struct {
 	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
 	DeadLetterConfig *EventBusDeadLetterConfig `pulumi:"deadLetterConfig"`

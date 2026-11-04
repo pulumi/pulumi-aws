@@ -1865,6 +1865,50 @@ class Index(pulumi.CustomResource):
         __props__.__dict__["user_token_configurations"] = user_token_configurations
         return Index(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict', 'outputs.IndexCapacityUnits']]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            document_metadata_configuration_updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict', 'outputs.IndexDocumentMetadataConfigurationUpdate']]]]] = None,
+            edition: pulumi.Input[Optional[_builtins.str]] = None,
+            error_message: pulumi.Input[Optional[_builtins.str]] = None,
+            index_statistics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexIndexStatisticArgs', 'IndexIndexStatisticArgsDict', 'outputs.IndexIndexStatistic']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            user_context_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            user_group_resolution_configuration: pulumi.Input[Optional[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict', 'outputs.IndexUserGroupResolutionConfiguration']]] = None,
+            user_token_configurations: pulumi.Input[Optional[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict', 'outputs.IndexUserTokenConfigurations']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["capacityUnits"] = capacity_units
+        __props__["createdAt"] = created_at
+        __props__["description"] = description
+        __props__["documentMetadataConfigurationUpdates"] = document_metadata_configuration_updates
+        __props__["edition"] = edition
+        __props__["errorMessage"] = error_message
+        __props__["indexStatistics"] = index_statistics
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["serverSideEncryptionConfiguration"] = server_side_encryption_configuration
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["updatedAt"] = updated_at
+        __props__["userContextPolicy"] = user_context_policy
+        __props__["userGroupResolutionConfiguration"] = user_group_resolution_configuration
+        __props__["userTokenConfigurations"] = user_token_configurations
+        return pulumi.runtime.exists_resource(None, 'aws:kendra/index:Index', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

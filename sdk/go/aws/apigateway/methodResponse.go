@@ -292,6 +292,12 @@ func (MethodResponseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodResponseState)(nil)).Elem()
 }
 
+// MethodResponseExists checks whether an existing MethodResponse resource with the given ID exists.
+func MethodResponseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MethodResponseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/methodResponse:MethodResponse", id, state, "", opts...)
+}
+
 type methodResponseArgs struct {
 	// HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod string `pulumi:"httpMethod"`

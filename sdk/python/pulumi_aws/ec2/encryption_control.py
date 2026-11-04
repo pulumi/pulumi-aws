@@ -771,6 +771,46 @@ class EncryptionControl(pulumi.CustomResource):
         __props__.__dict__["vpc_peering_exclusion"] = vpc_peering_exclusion
         return EncryptionControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            egress_only_internet_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
+            elastic_file_system_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
+            internet_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_exclusions: pulumi.Input[Optional[Union['EncryptionControlResourceExclusionsArgs', 'EncryptionControlResourceExclusionsArgsDict', 'outputs.EncryptionControlResourceExclusions']]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            state_message: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['EncryptionControlTimeoutsArgs', 'EncryptionControlTimeoutsArgsDict', 'outputs.EncryptionControlTimeouts']]] = None,
+            virtual_private_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_lattice_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_peering_exclusion: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["egressOnlyInternetGatewayExclusion"] = egress_only_internet_gateway_exclusion
+        __props__["elasticFileSystemExclusion"] = elastic_file_system_exclusion
+        __props__["internetGatewayExclusion"] = internet_gateway_exclusion
+        __props__["lambdaExclusion"] = lambda_exclusion
+        __props__["mode"] = mode
+        __props__["natGatewayExclusion"] = nat_gateway_exclusion
+        __props__["region"] = region
+        __props__["resourceExclusions"] = resource_exclusions
+        __props__["state"] = state
+        __props__["stateMessage"] = state_message
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["virtualPrivateGatewayExclusion"] = virtual_private_gateway_exclusion
+        __props__["vpcId"] = vpc_id
+        __props__["vpcLatticeExclusion"] = vpc_lattice_exclusion
+        __props__["vpcPeeringExclusion"] = vpc_peering_exclusion
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/encryptionControl:EncryptionControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="egressOnlyInternetGatewayExclusion")
     def egress_only_internet_gateway_exclusion(self) -> pulumi.Output[_builtins.str]:

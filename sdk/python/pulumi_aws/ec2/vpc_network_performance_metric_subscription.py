@@ -345,6 +345,24 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         __props__.__dict__["statistic"] = statistic
         return VpcNetworkPerformanceMetricSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            metric: pulumi.Input[Optional[_builtins.str]] = None,
+            period: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            statistic: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destination"] = destination
+        __props__["metric"] = metric
+        __props__["period"] = period
+        __props__["region"] = region
+        __props__["source"] = source
+        __props__["statistic"] = statistic
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Output[_builtins.str]:

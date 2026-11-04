@@ -171,6 +171,12 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyState)(nil)).Elem()
 }
 
+// ResourcePolicyExists checks whether an existing ResourcePolicy resource with the given ID exists.
+func ResourcePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourcePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codebuild/resourcePolicy:ResourcePolicy", id, state, "", opts...)
+}
+
 type resourcePolicyArgs struct {
 	// A JSON-formatted resource policy. For more information, see [Sharing a Project](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
 	Policy string `pulumi:"policy"`

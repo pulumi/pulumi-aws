@@ -192,6 +192,14 @@ class GlobalSettings(pulumi.CustomResource):
         __props__.__dict__["global_settings"] = global_settings
         return GlobalSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            global_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["globalSettings"] = global_settings
+        return pulumi.runtime.exists_resource(None, 'aws:backup/globalSettings:GlobalSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="globalSettings")
     def global_settings(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

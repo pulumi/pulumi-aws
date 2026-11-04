@@ -36,49 +36,49 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
  *             .content("""
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Statement\": [
- *     {
- *       \"Sid\": \"DelegatingNecessaryDescribeListActions\",
- *       \"Effect\": \"Allow\",
- *       \"Principal\": {
- *         \"AWS\": \"arn:aws:iam::123456789012:root\"
- *       },
- *       \"Action\": [
- *         \"organizations:DescribeOrganization\",
- *         \"organizations:DescribeOrganizationalUnit\",
- *         \"organizations:DescribeAccount\",
- *         \"organizations:DescribePolicy\",
- *         \"organizations:DescribeEffectivePolicy\",
- *         \"organizations:ListRoots\",
- *         \"organizations:ListOrganizationalUnitsForParent\",
- *         \"organizations:ListParents\",
- *         \"organizations:ListChildren\",
- *         \"organizations:ListAccounts\",
- *         \"organizations:ListAccountsForParent\",
- *         \"organizations:ListPolicies\",
- *         \"organizations:ListPoliciesForTarget\",
- *         \"organizations:ListTargetsForPolicy\",
- *         \"organizations:ListTagsForResource\"
+ * }{{@code
+ *   }&#92;{@code "Version}&#92;{@code ": }&#92;{@code "2012-10-17}&#92;{@code ",
+ *   }&#92;{@code "Statement}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "Sid}&#92;{@code ": }&#92;{@code "DelegatingNecessaryDescribeListActions}&#92;{@code ",
+ *       }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *       }&#92;{@code "Principal}&#92;{@code ": }{{@code
+ *         }&#92;{@code "AWS}&#92;{@code ": }&#92;{@code "arn:aws:iam::123456789012:root}&#92;{@code "
+ *       }}{@code ,
+ *       }&#92;{@code "Action}&#92;{@code ": [
+ *         }&#92;{@code "organizations:DescribeOrganization}&#92;{@code ",
+ *         }&#92;{@code "organizations:DescribeOrganizationalUnit}&#92;{@code ",
+ *         }&#92;{@code "organizations:DescribeAccount}&#92;{@code ",
+ *         }&#92;{@code "organizations:DescribePolicy}&#92;{@code ",
+ *         }&#92;{@code "organizations:DescribeEffectivePolicy}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListRoots}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListOrganizationalUnitsForParent}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListParents}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListChildren}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListAccounts}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListAccountsForParent}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListPolicies}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListPoliciesForTarget}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListTargetsForPolicy}&#92;{@code ",
+ *         }&#92;{@code "organizations:ListTagsForResource}&#92;{@code "
  *       ],
- *       \"Resource\": \"*\"
- *     }
+ *       }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "*}&#92;{@code "
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

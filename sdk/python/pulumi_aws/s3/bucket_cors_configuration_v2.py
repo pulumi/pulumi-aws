@@ -402,6 +402,20 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return BucketCorsConfigurationV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict', 'outputs.BucketCorsConfigurationV2CorsRule']]]]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bucket"] = bucket
+        __props__["corsRules"] = cors_rules
+        __props__["expectedBucketOwner"] = expected_bucket_owner
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:

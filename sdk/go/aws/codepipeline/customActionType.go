@@ -170,6 +170,12 @@ func (CustomActionTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customActionTypeState)(nil)).Elem()
 }
 
+// CustomActionTypeExists checks whether an existing CustomActionType resource with the given ID exists.
+func CustomActionTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomActionTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codepipeline/customActionType:CustomActionType", id, state, "", opts...)
+}
+
 type customActionTypeArgs struct {
 	// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
 	Category string `pulumi:"category"`

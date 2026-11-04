@@ -150,6 +150,12 @@ func (DomainSamlOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainSamlOptionsState)(nil)).Elem()
 }
 
+// DomainSamlOptionsExists checks whether an existing DomainSamlOptions resource with the given ID exists.
+func DomainSamlOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainSamlOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/domainSamlOptions:DomainSamlOptions", id, state, "", opts...)
+}
+
 type domainSamlOptionsArgs struct {
 	// Name of the domain.
 	//

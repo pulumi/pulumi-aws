@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         private InputList<string>? _events;
 
         /// <summary>
-        /// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+        /// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
         /// </summary>
         public InputList<string> Events
         {

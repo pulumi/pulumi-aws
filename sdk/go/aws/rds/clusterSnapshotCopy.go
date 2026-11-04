@@ -239,6 +239,12 @@ func (ClusterSnapshotCopyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSnapshotCopyState)(nil)).Elem()
 }
 
+// ClusterSnapshotCopyExists checks whether an existing ClusterSnapshotCopy resource with the given ID exists.
+func ClusterSnapshotCopyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterSnapshotCopyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy", id, state, "", opts...)
+}
+
 type clusterSnapshotCopyArgs struct {
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags *bool `pulumi:"copyTags"`

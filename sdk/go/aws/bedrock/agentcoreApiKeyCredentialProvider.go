@@ -253,6 +253,12 @@ func (AgentcoreApiKeyCredentialProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreApiKeyCredentialProviderState)(nil)).Elem()
 }
 
+// AgentcoreApiKeyCredentialProviderExists checks whether an existing AgentcoreApiKeyCredentialProvider resource with the given ID exists.
+func AgentcoreApiKeyCredentialProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreApiKeyCredentialProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider", id, state, "", opts...)
+}
+
 type agentcoreApiKeyCredentialProviderArgs struct {
 	// API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
 	ApiKey *string `pulumi:"apiKey"`

@@ -182,6 +182,12 @@ func (ObjectLambdaAccessPointPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*objectLambdaAccessPointPolicyState)(nil)).Elem()
 }
 
+// ObjectLambdaAccessPointPolicyExists checks whether an existing ObjectLambdaAccessPointPolicy resource with the given ID exists.
+func ObjectLambdaAccessPointPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObjectLambdaAccessPointPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", id, state, "", opts...)
+}
+
 type objectLambdaAccessPointPolicyArgs struct {
 	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`

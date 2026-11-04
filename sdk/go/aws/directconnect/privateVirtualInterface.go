@@ -244,6 +244,12 @@ func (PrivateVirtualInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateVirtualInterfaceState)(nil)).Elem()
 }
 
+// PrivateVirtualInterfaceExists checks whether an existing PrivateVirtualInterface resource with the given ID exists.
+func PrivateVirtualInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateVirtualInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", id, state, "", opts...)
+}
+
 type privateVirtualInterfaceArgs struct {
 	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily string `pulumi:"addressFamily"`

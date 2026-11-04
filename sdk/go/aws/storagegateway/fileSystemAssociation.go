@@ -262,6 +262,12 @@ func (FileSystemAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemAssociationState)(nil)).Elem()
 }
 
+// FileSystemAssociationExists checks whether an existing FileSystemAssociation resource with the given ID exists.
+func FileSystemAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileSystemAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/fileSystemAssociation:FileSystemAssociation", id, state, "", opts...)
+}
+
 type fileSystemAssociationArgs struct {
 	// ARN of the storage used for the audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`

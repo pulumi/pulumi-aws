@@ -2182,6 +2182,86 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["visible_to_all_users"] = visible_to_all_users
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_info: pulumi.Input[Optional[_builtins.str]] = None,
+            applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_termination_policy: pulumi.Input[Optional[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict', 'outputs.ClusterAutoTerminationPolicy']]] = None,
+            autoscaling_role: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict', 'outputs.ClusterBootstrapAction']]]]] = None,
+            cluster_state: pulumi.Input[Optional[_builtins.str]] = None,
+            configurations: pulumi.Input[Optional[_builtins.str]] = None,
+            configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+            core_instance_fleet: pulumi.Input[Optional[Union['ClusterCoreInstanceFleetArgs', 'ClusterCoreInstanceFleetArgsDict', 'outputs.ClusterCoreInstanceFleet']]] = None,
+            core_instance_group: pulumi.Input[Optional[Union['ClusterCoreInstanceGroupArgs', 'ClusterCoreInstanceGroupArgsDict', 'outputs.ClusterCoreInstanceGroup']]] = None,
+            custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_root_volume_size: pulumi.Input[Optional[_builtins.int]] = None,
+            ec2_attributes: pulumi.Input[Optional[Union['ClusterEc2AttributesArgs', 'ClusterEc2AttributesArgsDict', 'outputs.ClusterEc2Attributes']]] = None,
+            keep_job_flow_alive_when_no_steps: pulumi.Input[Optional[_builtins.bool]] = None,
+            kerberos_attributes: pulumi.Input[Optional[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict', 'outputs.ClusterKerberosAttributes']]] = None,
+            list_steps_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            log_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            master_instance_fleet: pulumi.Input[Optional[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict', 'outputs.ClusterMasterInstanceFleet']]] = None,
+            master_instance_group: pulumi.Input[Optional[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict', 'outputs.ClusterMasterInstanceGroup']]] = None,
+            master_public_dns: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_release_label: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_group_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict', 'outputs.ClusterPlacementGroupConfig']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_label: pulumi.Input[Optional[_builtins.str]] = None,
+            scale_down_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            step_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterStepArgs', 'ClusterStepArgsDict', 'outputs.ClusterStep']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            unhealthy_node_replacement: pulumi.Input[Optional[_builtins.bool]] = None,
+            visible_to_all_users: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalInfo"] = additional_info
+        __props__["applications"] = applications
+        __props__["arn"] = arn
+        __props__["autoTerminationPolicy"] = auto_termination_policy
+        __props__["autoscalingRole"] = autoscaling_role
+        __props__["bootstrapActions"] = bootstrap_actions
+        __props__["clusterState"] = cluster_state
+        __props__["configurations"] = configurations
+        __props__["configurationsJson"] = configurations_json
+        __props__["coreInstanceFleet"] = core_instance_fleet
+        __props__["coreInstanceGroup"] = core_instance_group
+        __props__["customAmiId"] = custom_ami_id
+        __props__["ebsRootVolumeSize"] = ebs_root_volume_size
+        __props__["ec2Attributes"] = ec2_attributes
+        __props__["keepJobFlowAliveWhenNoSteps"] = keep_job_flow_alive_when_no_steps
+        __props__["kerberosAttributes"] = kerberos_attributes
+        __props__["listStepsStates"] = list_steps_states
+        __props__["logEncryptionKmsKeyId"] = log_encryption_kms_key_id
+        __props__["logUri"] = log_uri
+        __props__["masterInstanceFleet"] = master_instance_fleet
+        __props__["masterInstanceGroup"] = master_instance_group
+        __props__["masterPublicDns"] = master_public_dns
+        __props__["name"] = name
+        __props__["osReleaseLabel"] = os_release_label
+        __props__["placementGroupConfigs"] = placement_group_configs
+        __props__["region"] = region
+        __props__["releaseLabel"] = release_label
+        __props__["scaleDownBehavior"] = scale_down_behavior
+        __props__["securityConfiguration"] = security_configuration
+        __props__["serviceRole"] = service_role
+        __props__["stepConcurrencyLevel"] = step_concurrency_level
+        __props__["steps"] = steps
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["terminationProtection"] = termination_protection
+        __props__["unhealthyNodeReplacement"] = unhealthy_node_replacement
+        __props__["visibleToAllUsers"] = visible_to_all_users
+        return pulumi.runtime.exists_resource(None, 'aws:emr/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalInfo")
     def additional_info(self) -> pulumi.Output[Optional[_builtins.str]]:

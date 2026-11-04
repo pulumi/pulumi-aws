@@ -283,6 +283,12 @@ func (InstanceStorageConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceStorageConfigState)(nil)).Elem()
 }
 
+// InstanceStorageConfigExists checks whether an existing InstanceStorageConfig resource with the given ID exists.
+func InstanceStorageConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceStorageConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/instanceStorageConfig:InstanceStorageConfig", id, state, "", opts...)
+}
+
 type instanceStorageConfigArgs struct {
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId string `pulumi:"instanceId"`

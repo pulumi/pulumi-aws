@@ -236,6 +236,12 @@ func (QueuePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queuePolicyState)(nil)).Elem()
 }
 
+// QueuePolicyExists checks whether an existing QueuePolicy resource with the given ID exists.
+func QueuePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueuePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sqs/queuePolicy:QueuePolicy", id, state, "", opts...)
+}
+
 type queuePolicyArgs struct {
 	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
 	Policy interface{} `pulumi:"policy"`

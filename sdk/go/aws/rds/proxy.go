@@ -339,6 +339,12 @@ func (ProxyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyState)(nil)).Elem()
 }
 
+// ProxyExists checks whether an existing Proxy resource with the given ID exists.
+func ProxyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProxyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/proxy:Proxy", id, state, "", opts...)
+}
+
 type proxyArgs struct {
 	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
 	Auths []ProxyAuth `pulumi:"auths"`

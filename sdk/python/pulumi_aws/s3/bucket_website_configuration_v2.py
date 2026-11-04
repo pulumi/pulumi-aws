@@ -641,6 +641,32 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         __props__.__dict__["website_endpoint"] = website_endpoint
         return BucketWebsiteConfigurationV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            error_document: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2ErrorDocumentArgs', 'BucketWebsiteConfigurationV2ErrorDocumentArgsDict', 'outputs.BucketWebsiteConfigurationV2ErrorDocument']]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            index_document: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2IndexDocumentArgs', 'BucketWebsiteConfigurationV2IndexDocumentArgsDict', 'outputs.BucketWebsiteConfigurationV2IndexDocument']]] = None,
+            redirect_all_requests_to: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs', 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgsDict', 'outputs.BucketWebsiteConfigurationV2RedirectAllRequestsTo']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rule_details: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketWebsiteConfigurationV2RoutingRuleArgs', 'BucketWebsiteConfigurationV2RoutingRuleArgsDict', 'outputs.BucketWebsiteConfigurationV2RoutingRule']]]]] = None,
+            website_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            website_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bucket"] = bucket
+        __props__["errorDocument"] = error_document
+        __props__["expectedBucketOwner"] = expected_bucket_owner
+        __props__["indexDocument"] = index_document
+        __props__["redirectAllRequestsTo"] = redirect_all_requests_to
+        __props__["region"] = region
+        __props__["routingRuleDetails"] = routing_rule_details
+        __props__["routingRules"] = routing_rules
+        __props__["websiteDomain"] = website_domain
+        __props__["websiteEndpoint"] = website_endpoint
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:

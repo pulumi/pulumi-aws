@@ -145,6 +145,12 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryPolicyState)(nil)).Elem()
 }
 
+// RegistryPolicyExists checks whether an existing RegistryPolicy resource with the given ID exists.
+func RegistryPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:schemas/registryPolicy:RegistryPolicy", id, state, "", opts...)
+}
+
 type registryPolicyArgs struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy string `pulumi:"policy"`

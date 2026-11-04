@@ -188,6 +188,12 @@ func (UserAccessLoggingSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAccessLoggingSettingsState)(nil)).Elem()
 }
 
+// UserAccessLoggingSettingsExists checks whether an existing UserAccessLoggingSettings resource with the given ID exists.
+func UserAccessLoggingSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserAccessLoggingSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings", id, state, "", opts...)
+}
+
 type userAccessLoggingSettingsArgs struct {
 	// ARN of the Kinesis stream.
 	//

@@ -329,6 +329,24 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["table_bucket_arn"] = table_bucket_arn
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["namespace"] = namespace
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["region"] = region
+        __props__["tableBucketArn"] = table_bucket_arn
+        return pulumi.runtime.exists_resource(None, 'aws:s3tables/namespace:Namespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

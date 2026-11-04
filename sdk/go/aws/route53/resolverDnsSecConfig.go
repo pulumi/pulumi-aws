@@ -133,6 +133,12 @@ func (ResolverDnsSecConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverDnsSecConfigState)(nil)).Elem()
 }
 
+// ResolverDnsSecConfigExists checks whether an existing ResolverDnsSecConfig resource with the given ID exists.
+func ResolverDnsSecConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverDnsSecConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig", id, state, "", opts...)
+}
+
 type resolverDnsSecConfigArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

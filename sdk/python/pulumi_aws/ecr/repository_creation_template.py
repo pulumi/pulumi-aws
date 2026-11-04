@@ -701,6 +701,36 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         __props__.__dict__["resource_tags"] = resource_tags
         return RepositoryCreationTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            applied_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict', 'outputs.RepositoryCreationTemplateEncryptionConfiguration']]]]] = None,
+            image_tag_mutability: pulumi.Input[Optional[_builtins.str]] = None,
+            image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter']]]]] = None,
+            lifecycle_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appliedFors"] = applied_fors
+        __props__["customRoleArn"] = custom_role_arn
+        __props__["description"] = description
+        __props__["encryptionConfigurations"] = encryption_configurations
+        __props__["imageTagMutability"] = image_tag_mutability
+        __props__["imageTagMutabilityExclusionFilters"] = image_tag_mutability_exclusion_filters
+        __props__["lifecyclePolicy"] = lifecycle_policy
+        __props__["prefix"] = prefix
+        __props__["region"] = region
+        __props__["registryId"] = registry_id
+        __props__["repositoryPolicy"] = repository_policy
+        __props__["resourceTags"] = resource_tags
+        return pulumi.runtime.exists_resource(None, 'aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> pulumi.Output[Sequence[_builtins.str]]:

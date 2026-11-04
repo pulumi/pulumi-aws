@@ -151,6 +151,12 @@ func (UserStackAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userStackAssociationState)(nil)).Elem()
 }
 
+// UserStackAssociationExists checks whether an existing UserStackAssociation resource with the given ID exists.
+func UserStackAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserStackAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appstream/userStackAssociation:UserStackAssociation", id, state, "", opts...)
+}
+
 type userStackAssociationArgs struct {
 	// Authentication type for the user.
 	AuthenticationType string `pulumi:"authenticationType"`

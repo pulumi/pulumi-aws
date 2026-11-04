@@ -253,11 +253,10 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
     /**
      * The replication set&#39;s Regions. Use `regions` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use regions instead.
+     * @deprecated region is deprecated. Use regions instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use regions instead. */
+    @Deprecated
     @Export(name="region", refs={List.class,ReplicationSetRegion.class}, tree="[0,1]")
     private Output<List<ReplicationSetRegion>> region;
 

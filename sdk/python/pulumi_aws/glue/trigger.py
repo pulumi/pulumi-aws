@@ -844,6 +844,42 @@ class Trigger(pulumi.CustomResource):
         __props__.__dict__["workflow_name"] = workflow_name
         return Trigger(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict', 'outputs.TriggerAction']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_batching_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict', 'outputs.TriggerEventBatchingCondition']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            predicate: pulumi.Input[Optional[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict', 'outputs.TriggerPredicate']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[_builtins.str]] = None,
+            start_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            workflow_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["eventBatchingConditions"] = event_batching_conditions
+        __props__["name"] = name
+        __props__["predicate"] = predicate
+        __props__["region"] = region
+        __props__["schedule"] = schedule
+        __props__["startOnCreation"] = start_on_creation
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["workflowName"] = workflow_name
+        return pulumi.runtime.exists_resource(None, 'aws:glue/trigger:Trigger', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.TriggerAction']]:

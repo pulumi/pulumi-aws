@@ -153,6 +153,12 @@ func (AgentAgentKnowledgeBaseAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentAgentKnowledgeBaseAssociationState)(nil)).Elem()
 }
 
+// AgentAgentKnowledgeBaseAssociationExists checks whether an existing AgentAgentKnowledgeBaseAssociation resource with the given ID exists.
+func AgentAgentKnowledgeBaseAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentAgentKnowledgeBaseAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation", id, state, "", opts...)
+}
+
 type agentAgentKnowledgeBaseAssociationArgs struct {
 	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId string `pulumi:"agentId"`

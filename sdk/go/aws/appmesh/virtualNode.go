@@ -363,6 +363,12 @@ func (VirtualNodeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNodeState)(nil)).Elem()
 }
 
+// VirtualNodeExists checks whether an existing VirtualNode resource with the given ID exists.
+func VirtualNodeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNodeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appmesh/virtualNode:VirtualNode", id, state, "", opts...)
+}
+
 type virtualNodeArgs struct {
 	// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`

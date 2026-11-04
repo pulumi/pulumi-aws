@@ -823,6 +823,50 @@ class EvaluationJob(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return EvaluationJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_type: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_encryption_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluation_config: pulumi.Input[Optional[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict', 'outputs.EvaluationJobEvaluationConfig']]] = None,
+            failure_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inference_config: pulumi.Input[Optional[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict', 'outputs.EvaluationJobInferenceConfig']]] = None,
+            job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            job_description: pulumi.Input[Optional[_builtins.str]] = None,
+            job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            job_type: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            output_data_config: pulumi.Input[Optional[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict', 'outputs.EvaluationJobOutputDataConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['EvaluationJobTimeoutsArgs', 'EvaluationJobTimeoutsArgsDict', 'outputs.EvaluationJobTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationType"] = application_type
+        __props__["createdAt"] = created_at
+        __props__["customerEncryptionKeyId"] = customer_encryption_key_id
+        __props__["evaluationConfig"] = evaluation_config
+        __props__["failureMessages"] = failure_messages
+        __props__["inferenceConfig"] = inference_config
+        __props__["jobArn"] = job_arn
+        __props__["jobDescription"] = job_description
+        __props__["jobName"] = job_name
+        __props__["jobType"] = job_type
+        __props__["lastModifiedTime"] = last_modified_time
+        __props__["outputDataConfig"] = output_data_config
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["skipDestroy"] = skip_destroy
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/evaluationJob:EvaluationJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> pulumi.Output[_builtins.str]:

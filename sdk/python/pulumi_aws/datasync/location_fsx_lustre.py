@@ -421,6 +421,30 @@ class LocationFsxLustre(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return LocationFsxLustre(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            fsx_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["creationTime"] = creation_time
+        __props__["fsxFilesystemArn"] = fsx_filesystem_arn
+        __props__["region"] = region
+        __props__["securityGroupArns"] = security_group_arns
+        __props__["subdirectory"] = subdirectory
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/locationFsxLustre:LocationFsxLustre', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

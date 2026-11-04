@@ -664,6 +664,12 @@ func (FlowLogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowLogState)(nil)).Elem()
 }
 
+// FlowLogExists checks whether an existing FlowLog resource with the given ID exists.
+func FlowLogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowLogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/flowLog:FlowLog", id, state, "", opts...)
+}
+
 type flowLogArgs struct {
 	// ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
 	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`

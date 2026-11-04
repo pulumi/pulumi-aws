@@ -393,6 +393,28 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dkim_verification_status: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_test_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ownership_verification_status: pulumi.Input[Optional[_builtins.str]] = None,
+            records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainRecordArgs', 'DomainRecordArgsDict', 'outputs.DomainRecord']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dkimVerificationStatus"] = dkim_verification_status
+        __props__["domainName"] = domain_name
+        __props__["isDefault"] = is_default
+        __props__["isTestDomain"] = is_test_domain
+        __props__["organizationId"] = organization_id
+        __props__["ownershipVerificationStatus"] = ownership_verification_status
+        __props__["records"] = records
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:workmail/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dkimVerificationStatus")
     def dkim_verification_status(self) -> pulumi.Output[_builtins.str]:

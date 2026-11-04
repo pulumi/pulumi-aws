@@ -267,6 +267,12 @@ func (CapabilityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capabilityState)(nil)).Elem()
 }
 
+// CapabilityExists checks whether an existing Capability resource with the given ID exists.
+func CapabilityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapabilityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:eks/capability:Capability", id, state, "", opts...)
+}
+
 type capabilityArgs struct {
 	// Name of the capability. Must be unique within the cluster.
 	CapabilityName string `pulumi:"capabilityName"`

@@ -580,6 +580,34 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["target_tracking_scaling_policy_configuration"] = target_tracking_scaling_policy_configuration
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alarm_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict', 'outputs.PolicyPredictiveScalingPolicyConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+            service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            step_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict', 'outputs.PolicyStepScalingPolicyConfiguration']]] = None,
+            target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict', 'outputs.PolicyTargetTrackingScalingPolicyConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alarmArns"] = alarm_arns
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["policyType"] = policy_type
+        __props__["predictiveScalingPolicyConfiguration"] = predictive_scaling_policy_configuration
+        __props__["region"] = region
+        __props__["resourceId"] = resource_id
+        __props__["scalableDimension"] = scalable_dimension
+        __props__["serviceNamespace"] = service_namespace
+        __props__["stepScalingPolicyConfiguration"] = step_scaling_policy_configuration
+        __props__["targetTrackingScalingPolicyConfiguration"] = target_tracking_scaling_policy_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:appautoscaling/policy:Policy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alarmArns")
     def alarm_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:

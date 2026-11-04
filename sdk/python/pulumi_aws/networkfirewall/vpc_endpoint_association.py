@@ -512,6 +512,34 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return VpcEndpointAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_mapping: pulumi.Input[Optional[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict', 'outputs.VpcEndpointAssociationSubnetMapping']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['VpcEndpointAssociationTimeoutsArgs', 'VpcEndpointAssociationTimeoutsArgsDict', 'outputs.VpcEndpointAssociationTimeouts']]] = None,
+            vpc_endpoint_association_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_association_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointAssociationVpcEndpointAssociationStatusArgs', 'VpcEndpointAssociationVpcEndpointAssociationStatusArgsDict', 'outputs.VpcEndpointAssociationVpcEndpointAssociationStatus']]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["firewallArn"] = firewall_arn
+        __props__["region"] = region
+        __props__["subnetMapping"] = subnet_mapping
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["vpcEndpointAssociationArn"] = vpc_endpoint_association_arn
+        __props__["vpcEndpointAssociationId"] = vpc_endpoint_association_id
+        __props__["vpcEndpointAssociationStatuses"] = vpc_endpoint_association_statuses
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

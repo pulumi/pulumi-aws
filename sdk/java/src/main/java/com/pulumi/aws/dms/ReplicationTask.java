@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Create a new replication task
  *         var test = new ReplicationTask("test", ReplicationTaskArgs.builder()
  *             .cdcStartTime("1993-05-21T05:50:00Z")
@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  *             .replicationTaskId("test-dms-replication-task-tf")
  *             .replicationTaskSettings("...")
  *             .sourceEndpointArn(test_dms_source_endpoint_tf.get("endpointArn"))
- *             .tableMappings("{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}")
+ *             .tableMappings("}{&#92;{@code "rules}&#92;{@code ":[}{&#92;{@code "rule-type}&#92;{@code ":}&#92;{@code "selection}&#92;{@code ",}&#92;{@code "rule-id}&#92;{@code ":}&#92;{@code "1}&#92;{@code ",}&#92;{@code "rule-name}&#92;{@code ":}&#92;{@code "1}&#92;{@code ",}&#92;{@code "object-locator}&#92;{@code ":}{&#92;{@code "schema-name}&#92;{@code ":}&#92;{@code "%}&#92;{@code ",}&#92;{@code "table-name}&#92;{@code ":}&#92;{@code "%}&#92;{@code "}}{@code ,}&#92;{@code "rule-action}&#92;{@code ":}&#92;{@code "include}&#92;{@code "}}{@code ]}}{@code ")
  *             .tags(Map.of("Name", "test"))
  *             .targetEndpointArn(test_dms_target_endpoint_tf.get("endpointArn"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

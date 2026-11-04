@@ -265,6 +265,12 @@ func (LogAccountPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logAccountPolicyState)(nil)).Elem()
 }
 
+// LogAccountPolicyExists checks whether an existing LogAccountPolicy resource with the given ID exists.
+func LogAccountPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogAccountPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logAccountPolicy:LogAccountPolicy", id, state, "", opts...)
+}
+
 type logAccountPolicyArgs struct {
 	// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
 	PolicyDocument string `pulumi:"policyDocument"`

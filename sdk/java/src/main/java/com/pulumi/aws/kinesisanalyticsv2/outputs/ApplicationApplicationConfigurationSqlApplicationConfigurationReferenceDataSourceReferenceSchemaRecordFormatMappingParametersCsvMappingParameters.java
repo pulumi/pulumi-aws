@@ -16,7 +16,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      */
     private String recordColumnDelimiter;
     /**
-     * @return Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+     * @return Row delimiter. For example, in a CSV format, `&#92;n` is the typical row delimiter.
      * 
      */
     private String recordRowDelimiter;
@@ -30,7 +30,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         return this.recordColumnDelimiter;
     }
     /**
-     * @return Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+     * @return Row delimiter. For example, in a CSV format, `&#92;n` is the typical row delimiter.
      * 
      */
     public String recordRowDelimiter() {

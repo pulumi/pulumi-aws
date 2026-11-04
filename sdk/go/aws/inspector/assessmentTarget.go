@@ -130,6 +130,12 @@ func (AssessmentTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentTargetState)(nil)).Elem()
 }
 
+// AssessmentTargetExists checks whether an existing AssessmentTarget resource with the given ID exists.
+func AssessmentTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssessmentTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:inspector/assessmentTarget:AssessmentTarget", id, state, "", opts...)
+}
+
 type assessmentTargetArgs struct {
 	// The name of the assessment target.
 	Name *string `pulumi:"name"`

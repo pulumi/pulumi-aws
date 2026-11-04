@@ -158,6 +158,12 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyState)(nil)).Elem()
 }
 
+// ResourcePolicyExists checks whether an existing ResourcePolicy resource with the given ID exists.
+func ResourcePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourcePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/resourcePolicy:ResourcePolicy", id, state, "", opts...)
+}
+
 type resourcePolicyArgs struct {
 	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
 	EnableHybrid *string `pulumi:"enableHybrid"`

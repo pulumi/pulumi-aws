@@ -148,6 +148,12 @@ func (PartnerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnerState)(nil)).Elem()
 }
 
+// PartnerExists checks whether an existing Partner resource with the given ID exists.
+func PartnerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PartnerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/partner:Partner", id, state, "", opts...)
+}
+
 type partnerArgs struct {
 	// The Amazon Web Services account ID that owns the cluster.
 	AccountId string `pulumi:"accountId"`

@@ -108,6 +108,12 @@ func (TablePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tablePolicyState)(nil)).Elem()
 }
 
+// TablePolicyExists checks whether an existing TablePolicy resource with the given ID exists.
+func TablePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TablePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3tables/tablePolicy:TablePolicy", id, state, "", opts...)
+}
+
 type tablePolicyArgs struct {
 	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Name *string `pulumi:"name"`

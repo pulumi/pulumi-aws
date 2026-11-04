@@ -224,6 +224,12 @@ func (ComponentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*componentState)(nil)).Elem()
 }
 
+// ComponentExists checks whether an existing Component resource with the given ID exists.
+func ComponentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComponentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:imagebuilder/component:Component", id, state, "", opts...)
+}
+
 type componentArgs struct {
 	// Change description of the component.
 	ChangeDescription *string `pulumi:"changeDescription"`

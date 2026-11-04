@@ -152,6 +152,12 @@ func (CustomDomainAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDomainAssociationState)(nil)).Elem()
 }
 
+// CustomDomainAssociationExists checks whether an existing CustomDomainAssociation resource with the given ID exists.
+func CustomDomainAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDomainAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation", id, state, "", opts...)
+}
+
 type customDomainAssociationArgs struct {
 	// ARN of the certificate for the custom domain association.
 	CustomDomainCertificateArn string `pulumi:"customDomainCertificateArn"`

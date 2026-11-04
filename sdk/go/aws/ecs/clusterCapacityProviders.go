@@ -138,6 +138,12 @@ func (ClusterCapacityProvidersState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterCapacityProvidersState)(nil)).Elem()
 }
 
+// ClusterCapacityProvidersExists checks whether an existing ClusterCapacityProviders resource with the given ID exists.
+func ClusterCapacityProvidersExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterCapacityProvidersState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders", id, state, "", opts...)
+}
+
 type clusterCapacityProvidersArgs struct {
 	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 	CapacityProviders []string `pulumi:"capacityProviders"`

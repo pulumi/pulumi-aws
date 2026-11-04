@@ -258,6 +258,12 @@ func (FolderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*folderState)(nil)).Elem()
 }
 
+// FolderExists checks whether an existing Folder resource with the given ID exists.
+func FolderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FolderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/folder:Folder", id, state, "", opts...)
+}
+
 type folderArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

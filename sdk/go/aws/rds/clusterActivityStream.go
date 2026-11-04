@@ -180,6 +180,12 @@ func (ClusterActivityStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterActivityStreamState)(nil)).Elem()
 }
 
+// ClusterActivityStreamExists checks whether an existing ClusterActivityStream resource with the given ID exists.
+func ClusterActivityStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterActivityStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/clusterActivityStream:ClusterActivityStream", id, state, "", opts...)
+}
+
 type clusterActivityStreamArgs struct {
 	// Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
 	EngineNativeAuditFieldsIncluded *bool `pulumi:"engineNativeAuditFieldsIncluded"`

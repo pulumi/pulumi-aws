@@ -1146,6 +1146,46 @@ class Record(pulumi.CustomResource):
         __props__.__dict__["zone_id"] = zone_id
         return Record(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict', 'outputs.RecordAlias']]]]] = None,
+            allow_overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+            cidr_routing_policy: pulumi.Input[Optional[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict', 'outputs.RecordCidrRoutingPolicy']]] = None,
+            failover_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict', 'outputs.RecordFailoverRoutingPolicy']]]]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            geolocation_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict', 'outputs.RecordGeolocationRoutingPolicy']]]]] = None,
+            geoproximity_routing_policy: pulumi.Input[Optional[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict', 'outputs.RecordGeoproximityRoutingPolicy']]] = None,
+            health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
+            latency_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict', 'outputs.RecordLatencyRoutingPolicy']]]]] = None,
+            multivalue_answer_routing_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            records: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[Union[_builtins.str, 'RecordType']]] = None,
+            weighted_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict', 'outputs.RecordWeightedRoutingPolicy']]]]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aliases"] = aliases
+        __props__["allowOverwrite"] = allow_overwrite
+        __props__["cidrRoutingPolicy"] = cidr_routing_policy
+        __props__["failoverRoutingPolicies"] = failover_routing_policies
+        __props__["fqdn"] = fqdn
+        __props__["geolocationRoutingPolicies"] = geolocation_routing_policies
+        __props__["geoproximityRoutingPolicy"] = geoproximity_routing_policy
+        __props__["healthCheckId"] = health_check_id
+        __props__["latencyRoutingPolicies"] = latency_routing_policies
+        __props__["multivalueAnswerRoutingPolicy"] = multivalue_answer_routing_policy
+        __props__["name"] = name
+        __props__["records"] = records
+        __props__["setIdentifier"] = set_identifier
+        __props__["ttl"] = ttl
+        __props__["type"] = type
+        __props__["weightedRoutingPolicies"] = weighted_routing_policies
+        __props__["zoneId"] = zone_id
+        return pulumi.runtime.exists_resource(None, 'aws:route53/record:Record', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aliases(self) -> pulumi.Output[Optional[Sequence['outputs.RecordAlias']]]:

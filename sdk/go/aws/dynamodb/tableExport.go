@@ -311,6 +311,12 @@ func (TableExportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableExportState)(nil)).Elem()
 }
 
+// TableExportExists checks whether an existing TableExport resource with the given ID exists.
+func TableExportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableExportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dynamodb/tableExport:TableExport", id, state, "", opts...)
+}
+
 type tableExportArgs struct {
 	// Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
 	ExportFormat *string `pulumi:"exportFormat"`

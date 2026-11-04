@@ -164,6 +164,14 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
         __props__.__dict__["global_endpoint_token_version"] = global_endpoint_token_version
         return SecurityTokenServicePreferences(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            global_endpoint_token_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["globalEndpointTokenVersion"] = global_endpoint_token_version
+        return pulumi.runtime.exists_resource(None, 'aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="globalEndpointTokenVersion")
     def global_endpoint_token_version(self) -> pulumi.Output[_builtins.str]:

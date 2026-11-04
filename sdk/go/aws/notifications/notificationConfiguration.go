@@ -196,6 +196,12 @@ func (NotificationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationConfigurationState)(nil)).Elem()
 }
 
+// NotificationConfigurationExists checks whether an existing NotificationConfiguration resource with the given ID exists.
+func NotificationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:notifications/notificationConfiguration:NotificationConfiguration", id, state, "", opts...)
+}
+
 type notificationConfigurationArgs struct {
 	// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
 	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate

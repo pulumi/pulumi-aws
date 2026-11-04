@@ -150,6 +150,12 @@ func (QueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueState)(nil)).Elem()
 }
 
+// QueueExists checks whether an existing Queue resource with the given ID exists.
+func QueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mediaconvert/queue:Queue", id, state, "", opts...)
+}
+
 type queueArgs struct {
 	// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
 	ConcurrentJobs *int `pulumi:"concurrentJobs"`

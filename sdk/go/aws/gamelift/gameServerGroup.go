@@ -324,6 +324,12 @@ func (GameServerGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gameServerGroupState)(nil)).Elem()
 }
 
+// GameServerGroupExists checks whether an existing GameServerGroup resource with the given ID exists.
+func GameServerGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GameServerGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:gamelift/gameServerGroup:GameServerGroup", id, state, "", opts...)
+}
+
 type gameServerGroupArgs struct {
 	AutoScalingPolicy *GameServerGroupAutoScalingPolicy `pulumi:"autoScalingPolicy"`
 	// How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.

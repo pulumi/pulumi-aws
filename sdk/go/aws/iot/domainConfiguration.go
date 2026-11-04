@@ -185,6 +185,12 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainConfigurationState)(nil)).Elem()
 }
 
+// DomainConfigurationExists checks whether an existing DomainConfiguration resource with the given ID exists.
+func DomainConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/domainConfiguration:DomainConfiguration", id, state, "", opts...)
+}
+
 type domainConfigurationArgs struct {
 	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
 	ApplicationProtocol *string `pulumi:"applicationProtocol"`

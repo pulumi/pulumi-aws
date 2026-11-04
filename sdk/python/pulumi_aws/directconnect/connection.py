@@ -895,6 +895,62 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["vlan_id"] = vlan_id
         return Connection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_device: pulumi.Input[Optional[_builtins.str]] = None,
+            bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            has_logical_redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+            jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            macsec_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port_encryption_status: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_pool_size_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_size_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_unallocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_unallocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionRateLimiterStatusArgs', 'ConnectionRateLimiterStatusArgsDict', 'outputs.ConnectionRateLimiterStatus']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_macsec: pulumi.Input[Optional[_builtins.bool]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vlan_id: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsDevice"] = aws_device
+        __props__["bandwidth"] = bandwidth
+        __props__["encryptionMode"] = encryption_mode
+        __props__["hasLogicalRedundancy"] = has_logical_redundancy
+        __props__["jumboFrameCapable"] = jumbo_frame_capable
+        __props__["location"] = location
+        __props__["macsecCapable"] = macsec_capable
+        __props__["name"] = name
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["partnerName"] = partner_name
+        __props__["portEncryptionStatus"] = port_encryption_status
+        __props__["prefixPoolSizeIpv4"] = prefix_pool_size_ipv4
+        __props__["prefixPoolSizeIpv6"] = prefix_pool_size_ipv6
+        __props__["prefixPoolUnallocatedCountIpv4"] = prefix_pool_unallocated_count_ipv4
+        __props__["prefixPoolUnallocatedCountIpv6"] = prefix_pool_unallocated_count_ipv6
+        __props__["providerName"] = provider_name
+        __props__["rateLimiterStatuses"] = rate_limiter_statuses
+        __props__["region"] = region
+        __props__["requestMacsec"] = request_macsec
+        __props__["skipDestroy"] = skip_destroy
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vlanId"] = vlan_id
+        return pulumi.runtime.exists_resource(None, 'aws:directconnect/connection:Connection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

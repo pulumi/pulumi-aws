@@ -173,6 +173,12 @@ func (VaultNotificationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultNotificationsState)(nil)).Elem()
 }
 
+// VaultNotificationsExists checks whether an existing VaultNotifications resource with the given ID exists.
+func VaultNotificationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VaultNotificationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/vaultNotifications:VaultNotifications", id, state, "", opts...)
+}
+
 type vaultNotificationsArgs struct {
 	// Array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`

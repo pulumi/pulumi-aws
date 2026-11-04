@@ -196,6 +196,12 @@ func (FilesMountTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*filesMountTargetState)(nil)).Elem()
 }
 
+// FilesMountTargetExists checks whether an existing FilesMountTarget resource with the given ID exists.
+func FilesMountTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FilesMountTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/filesMountTarget:FilesMountTarget", id, state, "", opts...)
+}
+
 type filesMountTargetArgs struct {
 	// File system ID. Changing this value forces replacement.
 	FileSystemId string `pulumi:"fileSystemId"`

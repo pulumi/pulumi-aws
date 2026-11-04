@@ -118,6 +118,12 @@ func (GeoMatchSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*geoMatchSetState)(nil)).Elem()
 }
 
+// GeoMatchSetExists checks whether an existing GeoMatchSet resource with the given ID exists.
+func GeoMatchSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GeoMatchSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:waf/geoMatchSet:GeoMatchSet", id, state, "", opts...)
+}
+
 type geoMatchSetArgs struct {
 	// The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints []GeoMatchSetGeoMatchConstraint `pulumi:"geoMatchConstraints"`

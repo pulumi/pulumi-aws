@@ -606,6 +606,34 @@ class User(pulumi.CustomResource):
         __props__.__dict__["user_role"] = user_role
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            session_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_invitation_url: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_role: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsAccountId"] = aws_account_id
+        __props__["email"] = email
+        __props__["iamArn"] = iam_arn
+        __props__["identityType"] = identity_type
+        __props__["namespace"] = namespace
+        __props__["region"] = region
+        __props__["sessionName"] = session_name
+        __props__["userInvitationUrl"] = user_invitation_url
+        __props__["userName"] = user_name
+        __props__["userRole"] = user_role
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

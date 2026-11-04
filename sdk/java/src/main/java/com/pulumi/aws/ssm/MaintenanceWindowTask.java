@@ -101,19 +101,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .lambdaParameters(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs.builder()
  *                     .clientContext(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                         .input("{\"key1\":\"value1\"}")
+ *                         .input("}{&#92;{@code "key1}&#92;{@code ":}&#92;{@code "value1}&#92;{@code "}}{@code ")
  *                         .build()).result())
- *                     .payload("{\"key1\":\"value1\"}")
+ *                     .payload("}{&#92;{@code "key1}&#92;{@code ":}&#92;{@code "value1}&#92;{@code "}}{@code ")
  *                     .build())
  *                 .build())
  *             .targets(MaintenanceWindowTaskTargetArgs.builder()
@@ -128,8 +128,8 @@ import javax.annotation.Nullable;
  *             .windowId(exampleAwsSsmMaintenanceWindow.get("id"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -218,16 +218,16 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .stepFunctionsParameters(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.builder()
- *                     .input("{\"key1\":\"value1\"}")
+ *                     .input("}{&#92;{@code "key1}&#92;{@code ":}&#92;{@code "value1}&#92;{@code "}}{@code ")
  *                     .name("example")
  *                     .build())
  *                 .build())
@@ -243,8 +243,8 @@ import javax.annotation.Nullable;
  *             .windowId(exampleAwsSsmMaintenanceWindow.get("id"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

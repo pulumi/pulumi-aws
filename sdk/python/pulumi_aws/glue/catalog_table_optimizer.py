@@ -509,6 +509,24 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return CatalogTableOptimizer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration: pulumi.Input[Optional[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogId"] = catalog_id
+        __props__["configuration"] = configuration
+        __props__["databaseName"] = database_name
+        __props__["region"] = region
+        __props__["tableName"] = table_name
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:glue/catalogTableOptimizer:CatalogTableOptimizer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:

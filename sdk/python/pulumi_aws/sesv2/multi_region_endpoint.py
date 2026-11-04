@@ -420,6 +420,30 @@ class MultiRegionEndpoint(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return MultiRegionEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']]] = None,
+            endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionEndpointRouteArgs', 'MultiRegionEndpointRouteArgsDict', 'outputs.MultiRegionEndpointRoute']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['MultiRegionEndpointTimeoutsArgs', 'MultiRegionEndpointTimeoutsArgsDict', 'outputs.MultiRegionEndpointTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["details"] = details
+        __props__["endpointId"] = endpoint_id
+        __props__["endpointName"] = endpoint_name
+        __props__["region"] = region
+        __props__["routes"] = routes
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/multiRegionEndpoint:MultiRegionEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -759,6 +759,46 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["tenancy"] = tenancy
         return CapacityReservation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            end_date_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ephemeral_storage: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_match_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_platform: pulumi.Input[Optional[Union[_builtins.str, 'InstancePlatform']]] = None,
+            instance_type: pulumi.Input[Optional[Union[_builtins.str, 'InstanceType']]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenancy: pulumi.Input[Optional[Union[_builtins.str, 'Tenancy']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["ebsOptimized"] = ebs_optimized
+        __props__["endDate"] = end_date
+        __props__["endDateType"] = end_date_type
+        __props__["ephemeralStorage"] = ephemeral_storage
+        __props__["instanceCount"] = instance_count
+        __props__["instanceMatchCriteria"] = instance_match_criteria
+        __props__["instancePlatform"] = instance_platform
+        __props__["instanceType"] = instance_type
+        __props__["outpostArn"] = outpost_arn
+        __props__["ownerId"] = owner_id
+        __props__["placementGroupArn"] = placement_group_arn
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tenancy"] = tenancy
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/capacityReservation:CapacityReservation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

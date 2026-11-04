@@ -499,6 +499,40 @@ class RepositoryAssociation(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return RepositoryAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_details: pulumi.Input[Optional[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict', 'outputs.RepositoryAssociationKmsKeyDetails']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict', 'outputs.RepositoryAssociationRepository']]] = None,
+            s3_repository_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryAssociationS3RepositoryDetailArgs', 'RepositoryAssociationS3RepositoryDetailArgsDict', 'outputs.RepositoryAssociationS3RepositoryDetail']]]]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            state_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["associationId"] = association_id
+        __props__["connectionArn"] = connection_arn
+        __props__["kmsKeyDetails"] = kms_key_details
+        __props__["name"] = name
+        __props__["owner"] = owner
+        __props__["providerType"] = provider_type
+        __props__["region"] = region
+        __props__["repository"] = repository
+        __props__["s3RepositoryDetails"] = s3_repository_details
+        __props__["state"] = state
+        __props__["stateReason"] = state_reason
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:codegurureviewer/repositoryAssociation:RepositoryAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

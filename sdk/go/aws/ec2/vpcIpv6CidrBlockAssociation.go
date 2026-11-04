@@ -173,6 +173,12 @@ func (VpcIpv6CidrBlockAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpv6CidrBlockAssociationState)(nil)).Elem()
 }
 
+// VpcIpv6CidrBlockAssociationExists checks whether an existing VpcIpv6CidrBlockAssociation resource with the given ID exists.
+func VpcIpv6CidrBlockAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpv6CidrBlockAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation", id, state, "", opts...)
+}
+
 type vpcIpv6CidrBlockAssociationArgs struct {
 	// Whether to request an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
 	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`

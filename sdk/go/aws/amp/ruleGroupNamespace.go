@@ -158,6 +158,12 @@ func (RuleGroupNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleGroupNamespaceState)(nil)).Elem()
 }
 
+// RuleGroupNamespaceExists checks whether an existing RuleGroupNamespace resource with the given ID exists.
+func RuleGroupNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleGroupNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:amp/ruleGroupNamespace:RuleGroupNamespace", id, state, "", opts...)
+}
+
 type ruleGroupNamespaceArgs struct {
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data string `pulumi:"data"`

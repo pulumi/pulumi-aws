@@ -282,6 +282,12 @@ func (WebAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppState)(nil)).Elem()
 }
 
+// WebAppExists checks whether an existing WebApp resource with the given ID exists.
+func WebAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/webApp:WebApp", id, state, "", opts...)
+}
+
 type webAppArgs struct {
 	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 	AccessEndpoint *string `pulumi:"accessEndpoint"`

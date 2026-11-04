@@ -759,6 +759,46 @@ class LabelingJob(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return LabelingJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict', 'outputs.LabelingJobHumanTaskConfig']]] = None,
+            input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict', 'outputs.LabelingJobInputConfig']]] = None,
+            job_reference_code: pulumi.Input[Optional[_builtins.str]] = None,
+            label_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
+            label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            label_counters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobLabelCounterArgs', 'LabelingJobLabelCounterArgsDict', 'outputs.LabelingJobLabelCounter']]]]] = None,
+            labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict', 'outputs.LabelingJobLabelingJobAlgorithmsConfig']]] = None,
+            labeling_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            labeling_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            labeling_job_status: pulumi.Input[Optional[_builtins.str]] = None,
+            output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict', 'outputs.LabelingJobOutputConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict', 'outputs.LabelingJobStoppingCondition']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["failureReason"] = failure_reason
+        __props__["humanTaskConfig"] = human_task_config
+        __props__["inputConfig"] = input_config
+        __props__["jobReferenceCode"] = job_reference_code
+        __props__["labelAttributeName"] = label_attribute_name
+        __props__["labelCategoryConfigS3Uri"] = label_category_config_s3_uri
+        __props__["labelCounters"] = label_counters
+        __props__["labelingJobAlgorithmsConfig"] = labeling_job_algorithms_config
+        __props__["labelingJobArn"] = labeling_job_arn
+        __props__["labelingJobName"] = labeling_job_name
+        __props__["labelingJobStatus"] = labeling_job_status
+        __props__["outputConfig"] = output_config
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["stoppingConditions"] = stopping_conditions
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/labelingJob:LabelingJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> pulumi.Output[_builtins.str]:

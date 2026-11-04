@@ -151,6 +151,12 @@ func (ContactsEmailContactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactsEmailContactState)(nil)).Elem()
 }
 
+// ContactsEmailContactExists checks whether an existing ContactsEmailContact resource with the given ID exists.
+func ContactsEmailContactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactsEmailContactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:notifications/contactsEmailContact:ContactsEmailContact", id, state, "", opts...)
+}
+
 type contactsEmailContactArgs struct {
 	// Email address for the contact. Must be between 6 and 254 characters and match an email
 	// pattern.

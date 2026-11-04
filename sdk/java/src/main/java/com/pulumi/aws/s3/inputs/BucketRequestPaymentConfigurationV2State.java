@@ -33,22 +33,20 @@ public final class BucketRequestPaymentConfigurationV2State extends com.pulumi.r
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+    @Deprecated
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
      * @return Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+    @Deprecated
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
@@ -136,11 +134,10 @@ public final class BucketRequestPaymentConfigurationV2State extends com.pulumi.r
          * 
          * @return builder
          * 
-         * @deprecated
-         * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+         * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
          * 
          */
-        @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+        @Deprecated
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
@@ -151,11 +148,10 @@ public final class BucketRequestPaymentConfigurationV2State extends com.pulumi.r
          * 
          * @return builder
          * 
-         * @deprecated
-         * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+         * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
          * 
          */
-        @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+        @Deprecated
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }

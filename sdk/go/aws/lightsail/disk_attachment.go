@@ -158,6 +158,12 @@ func (Disk_attachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*disk_attachmentState)(nil)).Elem()
 }
 
+// Disk_attachmentExists checks whether an existing Disk_attachment resource with the given ID exists.
+func Disk_attachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Disk_attachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/disk_attachment:Disk_attachment", id, state, "", opts...)
+}
+
 type disk_attachmentArgs struct {
 	// Name of the Lightsail disk.
 	DiskName string `pulumi:"diskName"`

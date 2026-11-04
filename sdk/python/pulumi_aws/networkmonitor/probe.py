@@ -563,6 +563,38 @@ class Probe(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return Probe(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_family: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+            monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+            packet_size: pulumi.Input[Optional[_builtins.int]] = None,
+            probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressFamily"] = address_family
+        __props__["arn"] = arn
+        __props__["destination"] = destination
+        __props__["destinationPort"] = destination_port
+        __props__["monitorName"] = monitor_name
+        __props__["packetSize"] = packet_size
+        __props__["probeId"] = probe_id
+        __props__["protocol"] = protocol
+        __props__["region"] = region
+        __props__["sourceArn"] = source_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:networkmonitor/probe:Probe', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[_builtins.str]:

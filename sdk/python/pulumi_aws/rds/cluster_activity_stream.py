@@ -418,6 +418,24 @@ class ClusterActivityStream(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = resource_arn
         return ClusterActivityStream(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            engine_native_audit_fields_included: pulumi.Input[Optional[_builtins.bool]] = None,
+            kinesis_stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["engineNativeAuditFieldsIncluded"] = engine_native_audit_fields_included
+        __props__["kinesisStreamName"] = kinesis_stream_name
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["mode"] = mode
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        return pulumi.runtime.exists_resource(None, 'aws:rds/clusterActivityStream:ClusterActivityStream', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="engineNativeAuditFieldsIncluded")
     def engine_native_audit_fields_included(self) -> pulumi.Output[Optional[_builtins.bool]]:

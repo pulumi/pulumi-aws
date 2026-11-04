@@ -450,6 +450,30 @@ class ListenerRule(pulumi.CustomResource):
         __props__.__dict__["transforms"] = transforms
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleConditionArgs', 'ListenerRuleConditionArgsDict', 'outputs.ListenerRuleCondition']]]]] = None,
+            listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transforms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict', 'outputs.ListenerRuleTransform']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["arn"] = arn
+        __props__["conditions"] = conditions
+        __props__["listenerArn"] = listener_arn
+        __props__["priority"] = priority
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["transforms"] = transforms
+        return pulumi.runtime.exists_resource(None, 'aws:alb/listenerRule:ListenerRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleAction']]:

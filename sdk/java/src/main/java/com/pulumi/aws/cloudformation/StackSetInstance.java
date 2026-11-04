@@ -286,11 +286,10 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
     /**
      * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use stackSetInstanceRegion instead.
+     * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
+    @Deprecated
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 

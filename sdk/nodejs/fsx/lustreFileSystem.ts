@@ -58,6 +58,17 @@ export class LustreFileSystem extends pulumi.CustomResource {
         return new LustreFileSystem(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing LustreFileSystem resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: LustreFileSystemState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:fsx/lustreFileSystem:LustreFileSystem", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:fsx/lustreFileSystem:LustreFileSystem';
 

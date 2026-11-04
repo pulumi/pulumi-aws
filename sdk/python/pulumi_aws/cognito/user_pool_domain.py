@@ -513,6 +513,34 @@ class UserPoolDomain(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return UserPoolDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_distribution: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_distribution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_distribution_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsAccountId"] = aws_account_id
+        __props__["certificateArn"] = certificate_arn
+        __props__["cloudfrontDistribution"] = cloudfront_distribution
+        __props__["cloudfrontDistributionArn"] = cloudfront_distribution_arn
+        __props__["cloudfrontDistributionZoneId"] = cloudfront_distribution_zone_id
+        __props__["domain"] = domain
+        __props__["managedLoginVersion"] = managed_login_version
+        __props__["region"] = region
+        __props__["s3Bucket"] = s3_bucket
+        __props__["userPoolId"] = user_pool_id
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/userPoolDomain:UserPoolDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:

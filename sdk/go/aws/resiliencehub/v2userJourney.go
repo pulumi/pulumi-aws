@@ -203,6 +203,12 @@ func (V2UserJourneyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2userJourneyState)(nil)).Elem()
 }
 
+// V2UserJourneyExists checks whether an existing V2UserJourney resource with the given ID exists.
+func V2UserJourneyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2UserJourneyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resiliencehub/v2UserJourney:V2UserJourney", id, state, "", opts...)
+}
+
 type v2userJourneyArgs struct {
 	// Description of the user journey.
 	Description *string `pulumi:"description"`

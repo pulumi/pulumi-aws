@@ -147,6 +147,12 @@ func (ModelAgreementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelAgreementState)(nil)).Elem()
 }
 
+// ModelAgreementExists checks whether an existing ModelAgreement resource with the given ID exists.
+func ModelAgreementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelAgreementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrockfoundation/modelAgreement:ModelAgreement", id, state, "", opts...)
+}
+
 type modelAgreementArgs struct {
 	// Model ID for the access request.
 	ModelId string `pulumi:"modelId"`

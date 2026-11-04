@@ -252,6 +252,12 @@ func (DataQualityRulesetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataQualityRulesetState)(nil)).Elem()
 }
 
+// DataQualityRulesetExists checks whether an existing DataQualityRuleset resource with the given ID exists.
+func DataQualityRulesetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataQualityRulesetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/dataQualityRuleset:DataQualityRuleset", id, state, "", opts...)
+}
+
 type dataQualityRulesetArgs struct {
 	// Description of the data quality ruleset.
 	Description *string `pulumi:"description"`

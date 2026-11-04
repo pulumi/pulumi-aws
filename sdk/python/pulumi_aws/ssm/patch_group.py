@@ -293,6 +293,18 @@ class PatchGroup(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return PatchGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            baseline_id: pulumi.Input[Optional[_builtins.str]] = None,
+            patch_group: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["baselineId"] = baseline_id
+        __props__["patchGroup"] = patch_group
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/patchGroup:PatchGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> pulumi.Output[_builtins.str]:

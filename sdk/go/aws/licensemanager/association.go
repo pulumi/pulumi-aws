@@ -150,6 +150,12 @@ func (AssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationState)(nil)).Elem()
 }
 
+// AssociationExists checks whether an existing Association resource with the given ID exists.
+func AssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:licensemanager/association:Association", id, state, "", opts...)
+}
+
 type associationArgs struct {
 	// ARN of the license configuration.
 	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`

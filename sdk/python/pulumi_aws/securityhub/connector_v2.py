@@ -549,6 +549,32 @@ class ConnectorV2(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ConnectorV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_provider: pulumi.Input[Optional[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict', 'outputs.ConnectorV2ConnectorProvider']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            healths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorV2HealthArgs', 'ConnectorV2HealthArgsDict', 'outputs.ConnectorV2Health']]]]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["connectorId"] = connector_id
+        __props__["connectorProvider"] = connector_provider
+        __props__["description"] = description
+        __props__["healths"] = healths
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:securityhub/connectorV2:ConnectorV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

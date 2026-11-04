@@ -205,6 +205,12 @@ func (NetworkPeeringConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkPeeringConnectionState)(nil)).Elem()
 }
 
+// NetworkPeeringConnectionExists checks whether an existing NetworkPeeringConnection resource with the given ID exists.
+func NetworkPeeringConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkPeeringConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:odb/networkPeeringConnection:NetworkPeeringConnection", id, state, "", opts...)
+}
+
 type networkPeeringConnectionArgs struct {
 	// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
 	DisplayName string `pulumi:"displayName"`

@@ -272,6 +272,12 @@ func (GlossaryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*glossaryState)(nil)).Elem()
 }
 
+// GlossaryExists checks whether an existing Glossary resource with the given ID exists.
+func GlossaryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlossaryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datazone/glossary:Glossary", id, state, "", opts...)
+}
+
 type glossaryArgs struct {
 	// Description of the glossary. Must have a length between 0 and 4096.
 	Description      *string `pulumi:"description"`

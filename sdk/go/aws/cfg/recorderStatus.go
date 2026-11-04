@@ -211,6 +211,12 @@ func (RecorderStatusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recorderStatusState)(nil)).Elem()
 }
 
+// RecorderStatusExists checks whether an existing RecorderStatus resource with the given ID exists.
+func RecorderStatusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecorderStatusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/recorderStatus:RecorderStatus", id, state, "", opts...)
+}
+
 type recorderStatusArgs struct {
 	// Whether the configuration recorder should be enabled or disabled.
 	IsEnabled bool `pulumi:"isEnabled"`

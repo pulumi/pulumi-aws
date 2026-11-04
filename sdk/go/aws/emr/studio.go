@@ -233,6 +233,12 @@ func (StudioState) ElementType() reflect.Type {
 	return reflect.TypeOf((*studioState)(nil)).Elem()
 }
 
+// StudioExists checks whether an existing Studio resource with the given ID exists.
+func StudioExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StudioState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:emr/studio:Studio", id, state, "", opts...)
+}
+
 type studioArgs struct {
 	// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
 	AuthMode string `pulumi:"authMode"`

@@ -130,6 +130,12 @@ func (AccountSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountSettingsState)(nil)).Elem()
 }
 
+// AccountSettingsExists checks whether an existing AccountSettings resource with the given ID exists.
+func AccountSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/accountSettings:AccountSettings", id, state, "", opts...)
+}
+
 type accountSettingsArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

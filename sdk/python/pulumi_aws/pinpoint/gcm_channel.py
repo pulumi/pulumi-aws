@@ -361,6 +361,24 @@ class GcmChannel(pulumi.CustomResource):
         __props__.__dict__["service_json"] = service_json
         return GcmChannel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_json: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["applicationId"] = application_id
+        __props__["defaultAuthenticationMethod"] = default_authentication_method
+        __props__["enabled"] = enabled
+        __props__["region"] = region
+        __props__["serviceJson"] = service_json
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/gcmChannel:GcmChannel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:

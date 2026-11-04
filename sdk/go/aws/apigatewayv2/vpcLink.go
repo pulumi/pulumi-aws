@@ -149,6 +149,12 @@ func (VpcLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcLinkState)(nil)).Elem()
 }
 
+// VpcLinkExists checks whether an existing VpcLink resource with the given ID exists.
+func VpcLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigatewayv2/vpcLink:VpcLink", id, state, "", opts...)
+}
+
 type vpcLinkArgs struct {
 	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`

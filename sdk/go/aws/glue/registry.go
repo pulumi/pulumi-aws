@@ -136,6 +136,12 @@ func (RegistryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryState)(nil)).Elem()
 }
 
+// RegistryExists checks whether an existing Registry resource with the given ID exists.
+func RegistryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/registry:Registry", id, state, "", opts...)
+}
+
 type registryArgs struct {
 	// Description of the registry.
 	Description *string `pulumi:"description"`

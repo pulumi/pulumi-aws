@@ -108,6 +108,12 @@ func (AccountSuppressionAttributesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountSuppressionAttributesState)(nil)).Elem()
 }
 
+// AccountSuppressionAttributesExists checks whether an existing AccountSuppressionAttributes resource with the given ID exists.
+func AccountSuppressionAttributesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountSuppressionAttributesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes", id, state, "", opts...)
+}
+
 type accountSuppressionAttributesArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

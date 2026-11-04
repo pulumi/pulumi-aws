@@ -300,6 +300,12 @@ func (AgentcoreBrowserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreBrowserState)(nil)).Elem()
 }
 
+// AgentcoreBrowserExists checks whether an existing AgentcoreBrowser resource with the given ID exists.
+func AgentcoreBrowserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreBrowserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreBrowser:AgentcoreBrowser", id, state, "", opts...)
+}
+
 type agentcoreBrowserArgs struct {
 	// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
 	BrowserSigning *AgentcoreBrowserBrowserSigning `pulumi:"browserSigning"`

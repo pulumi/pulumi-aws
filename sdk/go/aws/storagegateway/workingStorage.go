@@ -118,6 +118,12 @@ func (WorkingStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workingStorageState)(nil)).Elem()
 }
 
+// WorkingStorageExists checks whether an existing WorkingStorage resource with the given ID exists.
+func WorkingStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkingStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/workingStorage:WorkingStorage", id, state, "", opts...)
+}
+
 type workingStorageArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId string `pulumi:"diskId"`

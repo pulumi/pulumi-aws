@@ -156,6 +156,12 @@ func (ClusterParameterGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterParameterGroupState)(nil)).Elem()
 }
 
+// ClusterParameterGroupExists checks whether an existing ClusterParameterGroup resource with the given ID exists.
+func ClusterParameterGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterParameterGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:neptune/clusterParameterGroup:ClusterParameterGroup", id, state, "", opts...)
+}
+
 type clusterParameterGroupArgs struct {
 	// The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`

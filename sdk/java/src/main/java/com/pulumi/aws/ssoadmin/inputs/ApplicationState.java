@@ -35,22 +35,20 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     /**
      * (**Deprecated** Reference `arn` instead) ARN of the application.
      * 
-     * @deprecated
-     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
     /**
      * @return (**Deprecated** Reference `arn` instead) ARN of the application.
      * 
-     * @deprecated
-     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<Output<String>> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
@@ -286,11 +284,10 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+         * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder applicationArn(@Nullable Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
@@ -301,11 +298,10 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+         * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }

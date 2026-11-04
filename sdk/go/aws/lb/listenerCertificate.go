@@ -139,6 +139,12 @@ func (ListenerCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerCertificateState)(nil)).Elem()
 }
 
+// ListenerCertificateExists checks whether an existing ListenerCertificate resource with the given ID exists.
+func ListenerCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ListenerCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lb/listenerCertificate:ListenerCertificate", id, state, "", opts...)
+}
+
 type listenerCertificateArgs struct {
 	// The ARN of the certificate to attach to the listener.
 	CertificateArn string `pulumi:"certificateArn"`

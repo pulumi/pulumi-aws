@@ -576,6 +576,34 @@ class ApplicationVersion(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ApplicationVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            process: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["application"] = application
+        __props__["arn"] = arn
+        __props__["bucket"] = bucket
+        __props__["description"] = description
+        __props__["forceDelete"] = force_delete
+        __props__["key"] = key
+        __props__["name"] = name
+        __props__["process"] = process
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:elasticbeanstalk/applicationVersion:ApplicationVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def application(self) -> pulumi.Output[_builtins.str]:

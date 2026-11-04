@@ -222,6 +222,12 @@ func (BlockPublicAccessConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*blockPublicAccessConfigurationState)(nil)).Elem()
 }
 
+// BlockPublicAccessConfigurationExists checks whether an existing BlockPublicAccessConfiguration resource with the given ID exists.
+func BlockPublicAccessConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BlockPublicAccessConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration", id, state, "", opts...)
+}
+
 type blockPublicAccessConfigurationArgs struct {
 	// Enable or disable EMR Block Public Access.
 	//

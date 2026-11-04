@@ -373,6 +373,22 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         __props__.__dict__["utilization_performance_index"] = utilization_performance_index
         return ManagedScalingPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict', 'outputs.ManagedScalingPolicyComputeLimit']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterId"] = cluster_id
+        __props__["computeLimits"] = compute_limits
+        __props__["region"] = region
+        __props__["scalingStrategy"] = scaling_strategy
+        __props__["utilizationPerformanceIndex"] = utilization_performance_index
+        return pulumi.runtime.exists_resource(None, 'aws:emr/managedScalingPolicy:ManagedScalingPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.str]:

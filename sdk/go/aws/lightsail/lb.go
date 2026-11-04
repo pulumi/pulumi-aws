@@ -185,6 +185,12 @@ func (LbState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lbState)(nil)).Elem()
 }
 
+// LbExists checks whether an existing Lb resource with the given ID exists.
+func LbExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LbState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/lb:Lb", id, state, "", opts...)
+}
+
 type lbArgs struct {
 	// Health check path of the load balancer. Default value `/`.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`

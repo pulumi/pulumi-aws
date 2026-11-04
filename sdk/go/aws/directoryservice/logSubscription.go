@@ -164,6 +164,12 @@ func (LogSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logSubscriptionState)(nil)).Elem()
 }
 
+// LogSubscriptionExists checks whether an existing LogSubscription resource with the given ID exists.
+func LogSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/logSubscription:LogSubscription", id, state, "", opts...)
+}
+
 type logSubscriptionArgs struct {
 	// ID of directory.
 	DirectoryId string `pulumi:"directoryId"`

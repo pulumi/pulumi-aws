@@ -171,6 +171,12 @@ func (VpcIpamResourceDiscoveryAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamResourceDiscoveryAssociationState)(nil)).Elem()
 }
 
+// VpcIpamResourceDiscoveryAssociationExists checks whether an existing VpcIpamResourceDiscoveryAssociation resource with the given ID exists.
+func VpcIpamResourceDiscoveryAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamResourceDiscoveryAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation", id, state, "", opts...)
+}
+
 type vpcIpamResourceDiscoveryAssociationArgs struct {
 	// ID of the IPAM to associate.
 	IpamId string `pulumi:"ipamId"`

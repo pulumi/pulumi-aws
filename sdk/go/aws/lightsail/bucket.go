@@ -167,6 +167,12 @@ func (BucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketState)(nil)).Elem()
 }
 
+// BucketExists checks whether an existing Bucket resource with the given ID exists.
+func BucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/bucket:Bucket", id, state, "", opts...)
+}
+
 type bucketArgs struct {
 	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
 	BundleId string `pulumi:"bundleId"`

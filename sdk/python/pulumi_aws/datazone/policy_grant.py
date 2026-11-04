@@ -641,6 +641,32 @@ class PolicyGrant(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return PolicyGrant(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            detail: pulumi.Input[Optional[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict', 'outputs.PolicyGrantDetail']]] = None,
+            domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict', 'outputs.PolicyGrantPrincipal']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["detail"] = detail
+        __props__["domainIdentifier"] = domain_identifier
+        __props__["entityIdentifier"] = entity_identifier
+        __props__["entityType"] = entity_type
+        __props__["grantId"] = grant_id
+        __props__["policyType"] = policy_type
+        __props__["principal"] = principal
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:datazone/policyGrant:PolicyGrant', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

@@ -420,6 +420,26 @@ class OriginAccessIdentity(pulumi.CustomResource):
         __props__.__dict__["s3_canonical_user_id"] = s3_canonical_user_id
         return OriginAccessIdentity(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_access_identity_path: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_canonical_user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["callerReference"] = caller_reference
+        __props__["cloudfrontAccessIdentityPath"] = cloudfront_access_identity_path
+        __props__["comment"] = comment
+        __props__["etag"] = etag
+        __props__["iamArn"] = iam_arn
+        __props__["s3CanonicalUserId"] = s3_canonical_user_id
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/originAccessIdentity:OriginAccessIdentity', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

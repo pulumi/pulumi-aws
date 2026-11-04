@@ -163,11 +163,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
  * ```
  * 
- * @deprecated
- * aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration
+ * @deprecated aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration
  * 
  */
-@Deprecated /* aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration */
+@Deprecated
 @ResourceType(type="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")
 public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -187,11 +186,10 @@ public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resour
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

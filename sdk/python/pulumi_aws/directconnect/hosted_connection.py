@@ -557,6 +557,44 @@ class HostedConnection(pulumi.CustomResource):
         __props__.__dict__["vlan"] = vlan
         return HostedConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_device: pulumi.Input[Optional[_builtins.str]] = None,
+            bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_region: pulumi.Input[Optional[_builtins.str]] = None,
+            has_logical_redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+            jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+            lag_id: pulumi.Input[Optional[_builtins.str]] = None,
+            loa_issue_time: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            vlan: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsDevice"] = aws_device
+        __props__["bandwidth"] = bandwidth
+        __props__["connectionId"] = connection_id
+        __props__["connectionRegion"] = connection_region
+        __props__["hasLogicalRedundancy"] = has_logical_redundancy
+        __props__["jumboFrameCapable"] = jumbo_frame_capable
+        __props__["lagId"] = lag_id
+        __props__["loaIssueTime"] = loa_issue_time
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["partnerName"] = partner_name
+        __props__["providerName"] = provider_name
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["vlan"] = vlan
+        return pulumi.runtime.exists_resource(None, 'aws:directconnect/hostedConnection:HostedConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsDevice")
     def aws_device(self) -> pulumi.Output[_builtins.str]:

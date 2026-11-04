@@ -1075,6 +1075,58 @@ class ReplicationInstance(pulumi.CustomResource):
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return ReplicationInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+            allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name_servers: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_authentication_settings: pulumi.Input[Optional[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict', 'outputs.ReplicationInstanceKerberosAuthenticationSettings']]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_instance_private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            replication_instance_public_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            replication_subnet_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocatedStorage"] = allocated_storage
+        __props__["allowMajorVersionUpgrade"] = allow_major_version_upgrade
+        __props__["applyImmediately"] = apply_immediately
+        __props__["autoMinorVersionUpgrade"] = auto_minor_version_upgrade
+        __props__["availabilityZone"] = availability_zone
+        __props__["dnsNameServers"] = dns_name_servers
+        __props__["engineVersion"] = engine_version
+        __props__["kerberosAuthenticationSettings"] = kerberos_authentication_settings
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["multiAz"] = multi_az
+        __props__["networkType"] = network_type
+        __props__["preferredMaintenanceWindow"] = preferred_maintenance_window
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["region"] = region
+        __props__["replicationInstanceArn"] = replication_instance_arn
+        __props__["replicationInstanceClass"] = replication_instance_class
+        __props__["replicationInstanceId"] = replication_instance_id
+        __props__["replicationInstancePrivateIps"] = replication_instance_private_ips
+        __props__["replicationInstancePublicIps"] = replication_instance_public_ips
+        __props__["replicationSubnetGroupId"] = replication_subnet_group_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        return pulumi.runtime.exists_resource(None, 'aws:dms/replicationInstance:ReplicationInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[_builtins.int]:

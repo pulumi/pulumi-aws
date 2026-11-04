@@ -1717,6 +1717,70 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__.__dict__["wait_for_fulfillment"] = wait_for_fulfillment
         return SpotFleetRequest(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            client_token: pulumi.Input[Optional[_builtins.str]] = None,
+            context: pulumi.Input[Optional[_builtins.str]] = None,
+            excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_fleet_role: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_interruption_behaviour: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_pools_to_use_count: pulumi.Input[Optional[_builtins.int]] = None,
+            launch_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchSpecificationArgs', 'SpotFleetRequestLaunchSpecificationArgsDict', 'outputs.SpotFleetRequestLaunchSpecification']]]]] = None,
+            launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchTemplateConfigArgs', 'SpotFleetRequestLaunchTemplateConfigArgsDict', 'outputs.SpotFleetRequestLaunchTemplateConfig']]]]] = None,
+            load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            on_demand_allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            on_demand_max_total_price: pulumi.Input[Optional[_builtins.str]] = None,
+            on_demand_target_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+            spot_maintenance_strategies: pulumi.Input[Optional[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict', 'outputs.SpotFleetRequestSpotMaintenanceStrategies']]] = None,
+            spot_price: pulumi.Input[Optional[_builtins.str]] = None,
+            spot_request_state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            target_capacity_unit_type: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            terminate_instances_on_delete: pulumi.Input[Optional[_builtins.str]] = None,
+            terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.str]] = None,
+            wait_for_fulfillment: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocationStrategy"] = allocation_strategy
+        __props__["clientToken"] = client_token
+        __props__["context"] = context
+        __props__["excessCapacityTerminationPolicy"] = excess_capacity_termination_policy
+        __props__["fleetType"] = fleet_type
+        __props__["iamFleetRole"] = iam_fleet_role
+        __props__["instanceInterruptionBehaviour"] = instance_interruption_behaviour
+        __props__["instancePoolsToUseCount"] = instance_pools_to_use_count
+        __props__["launchSpecifications"] = launch_specifications
+        __props__["launchTemplateConfigs"] = launch_template_configs
+        __props__["loadBalancers"] = load_balancers
+        __props__["onDemandAllocationStrategy"] = on_demand_allocation_strategy
+        __props__["onDemandMaxTotalPrice"] = on_demand_max_total_price
+        __props__["onDemandTargetCapacity"] = on_demand_target_capacity
+        __props__["region"] = region
+        __props__["replaceUnhealthyInstances"] = replace_unhealthy_instances
+        __props__["spotMaintenanceStrategies"] = spot_maintenance_strategies
+        __props__["spotPrice"] = spot_price
+        __props__["spotRequestState"] = spot_request_state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetCapacity"] = target_capacity
+        __props__["targetCapacityUnitType"] = target_capacity_unit_type
+        __props__["targetGroupArns"] = target_group_arns
+        __props__["terminateInstancesOnDelete"] = terminate_instances_on_delete
+        __props__["terminateInstancesWithExpiration"] = terminate_instances_with_expiration
+        __props__["validFrom"] = valid_from
+        __props__["validUntil"] = valid_until
+        __props__["waitForFulfillment"] = wait_for_fulfillment
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/spotFleetRequest:SpotFleetRequest', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:

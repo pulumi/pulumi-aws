@@ -118,6 +118,12 @@ func (IpSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipSetState)(nil)).Elem()
 }
 
+// IpSetExists checks whether an existing IpSet resource with the given ID exists.
+func IpSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:waf/ipSet:IpSet", id, state, "", opts...)
+}
+
 type ipSetArgs struct {
 	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
 	IpSetDescriptors []IpSetIpSetDescriptor `pulumi:"ipSetDescriptors"`

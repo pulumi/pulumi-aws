@@ -153,6 +153,12 @@ func (FilesSynchronizationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*filesSynchronizationConfigurationState)(nil)).Elem()
 }
 
+// FilesSynchronizationConfigurationExists checks whether an existing FilesSynchronizationConfiguration resource with the given ID exists.
+func FilesSynchronizationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FilesSynchronizationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/filesSynchronizationConfiguration:FilesSynchronizationConfiguration", id, state, "", opts...)
+}
+
 type filesSynchronizationConfigurationArgs struct {
 	// Expiration data rule configuration. See `expirationDataRule` below.
 	ExpirationDataRules []FilesSynchronizationConfigurationExpirationDataRule `pulumi:"expirationDataRules"`

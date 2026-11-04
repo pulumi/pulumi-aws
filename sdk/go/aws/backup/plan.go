@@ -177,6 +177,12 @@ func (PlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*planState)(nil)).Elem()
 }
 
+// PlanExists checks whether an existing Plan resource with the given ID exists.
+func PlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/plan:Plan", id, state, "", opts...)
+}
+
 type planArgs struct {
 	// Object that specifies backup options for each resource type. Detailed below.
 	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`

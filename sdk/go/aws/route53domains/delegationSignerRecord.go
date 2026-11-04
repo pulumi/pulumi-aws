@@ -219,6 +219,12 @@ func (DelegationSignerRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*delegationSignerRecordState)(nil)).Elem()
 }
 
+// DelegationSignerRecordExists checks whether an existing DelegationSignerRecord resource with the given ID exists.
+func DelegationSignerRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DelegationSignerRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53domains/delegationSignerRecord:DelegationSignerRecord", id, state, "", opts...)
+}
+
 type delegationSignerRecordArgs struct {
 	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
 	DomainName string `pulumi:"domainName"`

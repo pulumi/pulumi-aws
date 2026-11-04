@@ -598,6 +598,36 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["uuid"] = uuid
         return OntapStorageVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active_directory_configuration: pulumi.Input[Optional[Union['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs', 'OntapStorageVirtualMachineActiveDirectoryConfigurationArgsDict', 'outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OntapStorageVirtualMachineEndpointArgs', 'OntapStorageVirtualMachineEndpointArgsDict', 'outputs.OntapStorageVirtualMachineEndpoint']]]]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_volume_security_style: pulumi.Input[Optional[_builtins.str]] = None,
+            subtype: pulumi.Input[Optional[_builtins.str]] = None,
+            svm_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uuid: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activeDirectoryConfiguration"] = active_directory_configuration
+        __props__["arn"] = arn
+        __props__["endpoints"] = endpoints
+        __props__["fileSystemId"] = file_system_id
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["rootVolumeSecurityStyle"] = root_volume_security_style
+        __props__["subtype"] = subtype
+        __props__["svmAdminPassword"] = svm_admin_password
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uuid"] = uuid
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConfiguration")
     def active_directory_configuration(self) -> pulumi.Output[Optional['outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration']]:

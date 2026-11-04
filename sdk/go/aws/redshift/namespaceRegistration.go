@@ -257,6 +257,12 @@ func (NamespaceRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceRegistrationState)(nil)).Elem()
 }
 
+// NamespaceRegistrationExists checks whether an existing NamespaceRegistration resource with the given ID exists.
+func NamespaceRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/namespaceRegistration:NamespaceRegistration", id, state, "", opts...)
+}
+
 type namespaceRegistrationArgs struct {
 	// Consumer identifier for the registration. Typically in the format `DataCatalog/<account-id>`.
 	ConsumerIdentifier string `pulumi:"consumerIdentifier"`

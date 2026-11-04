@@ -126,6 +126,12 @@ func (VpcNetworkPerformanceMetricSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcNetworkPerformanceMetricSubscriptionState)(nil)).Elem()
 }
 
+// VpcNetworkPerformanceMetricSubscriptionExists checks whether an existing VpcNetworkPerformanceMetricSubscription resource with the given ID exists.
+func VpcNetworkPerformanceMetricSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcNetworkPerformanceMetricSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription", id, state, "", opts...)
+}
+
 type vpcNetworkPerformanceMetricSubscriptionArgs struct {
 	// Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
 	Destination string `pulumi:"destination"`

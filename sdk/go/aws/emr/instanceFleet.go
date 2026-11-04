@@ -198,6 +198,12 @@ func (InstanceFleetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceFleetState)(nil)).Elem()
 }
 
+// InstanceFleetExists checks whether an existing InstanceFleet resource with the given ID exists.
+func InstanceFleetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceFleetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:emr/instanceFleet:InstanceFleet", id, state, "", opts...)
+}
+
 type instanceFleetArgs struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId string `pulumi:"clusterId"`

@@ -35,14 +35,14 @@ public final class GetAddonVersionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9&#92;-_]+$`).
      * 
      */
     @Import(name="kubernetesVersion", required=true)
     private Output<String> kubernetesVersion;
 
     /**
-     * @return Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * @return Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9&#92;-_]+$`).
      * 
      */
     public Output<String> kubernetesVersion() {
@@ -130,7 +130,7 @@ public final class GetAddonVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param kubernetesVersion Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param kubernetesVersion Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9&#92;-_]+$`).
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetAddonVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param kubernetesVersion Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param kubernetesVersion Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9&#92;-_]+$`).
          * 
          * @return builder
          * 

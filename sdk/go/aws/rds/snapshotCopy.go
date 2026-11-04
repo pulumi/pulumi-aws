@@ -270,6 +270,12 @@ func (SnapshotCopyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyState)(nil)).Elem()
 }
 
+// SnapshotCopyExists checks whether an existing SnapshotCopy resource with the given ID exists.
+func SnapshotCopyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotCopyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/snapshotCopy:SnapshotCopy", id, state, "", opts...)
+}
+
 type snapshotCopyArgs struct {
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags *bool `pulumi:"copyTags"`

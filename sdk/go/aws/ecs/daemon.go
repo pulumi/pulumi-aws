@@ -273,6 +273,12 @@ func (DaemonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*daemonState)(nil)).Elem()
 }
 
+// DaemonExists checks whether an existing Daemon resource with the given ID exists.
+func DaemonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DaemonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecs/daemon:Daemon", id, state, "", opts...)
+}
+
 type daemonArgs struct {
 	// Set of capacity provider ARNs to use for the daemon.
 	CapacityProviderArns []string `pulumi:"capacityProviderArns"`

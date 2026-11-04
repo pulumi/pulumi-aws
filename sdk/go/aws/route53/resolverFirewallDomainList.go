@@ -126,6 +126,12 @@ func (ResolverFirewallDomainListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverFirewallDomainListState)(nil)).Elem()
 }
 
+// ResolverFirewallDomainListExists checks whether an existing ResolverFirewallDomainList resource with the given ID exists.
+func ResolverFirewallDomainListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverFirewallDomainListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList", id, state, "", opts...)
+}
+
 type resolverFirewallDomainListArgs struct {
 	// A array of domains for the firewall domain list.
 	Domains []string `pulumi:"domains"`

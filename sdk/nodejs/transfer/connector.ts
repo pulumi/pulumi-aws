@@ -93,6 +93,17 @@ export class Connector extends pulumi.CustomResource {
         return new Connector(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Connector resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ConnectorState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:transfer/connector:Connector", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:transfer/connector:Connector';
 

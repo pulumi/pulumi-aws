@@ -555,6 +555,32 @@ class NotificationRule(pulumi.CustomResource):
         __props__.__dict__["targets"] = targets
         return NotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            detail_type: pulumi.Input[Optional[_builtins.str]] = None,
+            event_type_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["detailType"] = detail_type
+        __props__["eventTypeIds"] = event_type_ids
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["resource"] = resource
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targets"] = targets
+        return pulumi.runtime.exists_resource(None, 'aws:codestarnotifications/notificationRule:NotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

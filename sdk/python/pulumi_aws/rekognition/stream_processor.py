@@ -1038,6 +1038,42 @@ class StreamProcessor(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return StreamProcessor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict', 'outputs.StreamProcessorDataSharingPreference']]] = None,
+            input: pulumi.Input[Optional[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict', 'outputs.StreamProcessorInput']]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict', 'outputs.StreamProcessorNotificationChannel']]] = None,
+            output: pulumi.Input[Optional[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict', 'outputs.StreamProcessorOutput']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regions_of_interests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict', 'outputs.StreamProcessorRegionsOfInterest']]]]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict', 'outputs.StreamProcessorSettings']]] = None,
+            stream_processor_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['StreamProcessorTimeoutsArgs', 'StreamProcessorTimeoutsArgsDict', 'outputs.StreamProcessorTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dataSharingPreference"] = data_sharing_preference
+        __props__["input"] = input
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["name"] = name
+        __props__["notificationChannel"] = notification_channel
+        __props__["output"] = output
+        __props__["region"] = region
+        __props__["regionsOfInterests"] = regions_of_interests
+        __props__["roleArn"] = role_arn
+        __props__["settings"] = settings
+        __props__["streamProcessorArn"] = stream_processor_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:rekognition/streamProcessor:StreamProcessor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

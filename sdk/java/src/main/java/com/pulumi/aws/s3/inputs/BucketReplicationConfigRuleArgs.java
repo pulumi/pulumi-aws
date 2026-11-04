@@ -100,22 +100,20 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     /**
      * Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
      * 
-     * @deprecated
-     * prefix is deprecated. Use filter instead.
+     * @deprecated prefix is deprecated. Use filter instead.
      * 
      */
-    @Deprecated /* prefix is deprecated. Use filter instead. */
+    @Deprecated
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
      * @return Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
      * 
-     * @deprecated
-     * prefix is deprecated. Use filter instead.
+     * @deprecated prefix is deprecated. Use filter instead.
      * 
      */
-    @Deprecated /* prefix is deprecated. Use filter instead. */
+    @Deprecated
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -307,11 +305,10 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * prefix is deprecated. Use filter instead.
+         * @deprecated prefix is deprecated. Use filter instead.
          * 
          */
-        @Deprecated /* prefix is deprecated. Use filter instead. */
+        @Deprecated
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
@@ -322,11 +319,10 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * prefix is deprecated. Use filter instead.
+         * @deprecated prefix is deprecated. Use filter instead.
          * 
          */
-        @Deprecated /* prefix is deprecated. Use filter instead. */
+        @Deprecated
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

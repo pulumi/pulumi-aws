@@ -741,6 +741,44 @@ class ReplicationTask(pulumi.CustomResource):
         __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
         return ReplicationTask(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cdc_start_position: pulumi.Input[Optional[_builtins.str]] = None,
+            cdc_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            migration_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_task_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_task_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            start_replication_task: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            table_mappings: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cdcStartPosition"] = cdc_start_position
+        __props__["cdcStartTime"] = cdc_start_time
+        __props__["migrationType"] = migration_type
+        __props__["region"] = region
+        __props__["replicationInstanceArn"] = replication_instance_arn
+        __props__["replicationTaskArn"] = replication_task_arn
+        __props__["replicationTaskId"] = replication_task_id
+        __props__["replicationTaskSettings"] = replication_task_settings
+        __props__["resourceIdentifier"] = resource_identifier
+        __props__["sourceEndpointArn"] = source_endpoint_arn
+        __props__["startReplicationTask"] = start_replication_task
+        __props__["status"] = status
+        __props__["tableMappings"] = table_mappings
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetEndpointArn"] = target_endpoint_arn
+        return pulumi.runtime.exists_resource(None, 'aws:dms/replicationTask:ReplicationTask', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cdcStartPosition")
     def cdc_start_position(self) -> pulumi.Output[_builtins.str]:

@@ -751,6 +751,46 @@ class Input(pulumi.CustomResource):
         __props__.__dict__["vpc"] = vpc
         return Input(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attached_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict', 'outputs.InputDestination']]]]] = None,
+            input_class: pulumi.Input[Optional[_builtins.str]] = None,
+            input_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputInputDeviceArgs', 'InputInputDeviceArgsDict', 'outputs.InputInputDevice']]]]] = None,
+            input_partner_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            input_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            input_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict', 'outputs.InputMediaConnectFlow']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict', 'outputs.InputSource']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc: pulumi.Input[Optional[Union['InputVpcArgs', 'InputVpcArgsDict', 'outputs.InputVpc']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["attachedChannels"] = attached_channels
+        __props__["destinations"] = destinations
+        __props__["inputClass"] = input_class
+        __props__["inputDevices"] = input_devices
+        __props__["inputPartnerIds"] = input_partner_ids
+        __props__["inputSecurityGroups"] = input_security_groups
+        __props__["inputSourceType"] = input_source_type
+        __props__["mediaConnectFlows"] = media_connect_flows
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["sources"] = sources
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["vpc"] = vpc
+        return pulumi.runtime.exists_resource(None, 'aws:medialive/input:Input', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

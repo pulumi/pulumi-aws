@@ -848,6 +848,48 @@ class User(pulumi.CustomResource):
         __props__.__dict__["user_type"] = user_type
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            addresses: pulumi.Input[Optional[Union['UserAddressesArgs', 'UserAddressesArgsDict', 'outputs.UserAddresses']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            emails: pulumi.Input[Optional[Union['UserEmailsArgs', 'UserEmailsArgsDict', 'outputs.UserEmails']]] = None,
+            external_ids: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserExternalIdArgs', 'UserExternalIdArgsDict', 'outputs.UserExternalId']]]]] = None,
+            identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[Union['UserNameArgs', 'UserNameArgsDict', 'outputs.UserName']]] = None,
+            nickname: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_numbers: pulumi.Input[Optional[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict', 'outputs.UserPhoneNumbers']]] = None,
+            preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addresses"] = addresses
+        __props__["displayName"] = display_name
+        __props__["emails"] = emails
+        __props__["externalIds"] = external_ids
+        __props__["identityStoreId"] = identity_store_id
+        __props__["locale"] = locale
+        __props__["name"] = name
+        __props__["nickname"] = nickname
+        __props__["phoneNumbers"] = phone_numbers
+        __props__["preferredLanguage"] = preferred_language
+        __props__["profileUrl"] = profile_url
+        __props__["region"] = region
+        __props__["timezone"] = timezone
+        __props__["title"] = title
+        __props__["userId"] = user_id
+        __props__["userName"] = user_name
+        __props__["userStatus"] = user_status
+        __props__["userType"] = user_type
+        return pulumi.runtime.exists_resource(None, 'aws:identitystore/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def addresses(self) -> pulumi.Output[Optional['outputs.UserAddresses']]:

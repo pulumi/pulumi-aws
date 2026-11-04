@@ -380,6 +380,12 @@ func (DirectoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryState)(nil)).Elem()
 }
 
+// DirectoryExists checks whether an existing Directory resource with the given ID exists.
+func DirectoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/directory:Directory", id, state, "", opts...)
+}
+
 type directoryArgs struct {
 	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
 	Alias *string `pulumi:"alias"`

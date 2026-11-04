@@ -359,6 +359,24 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         __props__.__dict__["query_arg_profile_config"] = query_arg_profile_config
         return FieldLevelEncryptionConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type_profile_config: pulumi.Input[Optional[Union['FieldLevelEncryptionConfigContentTypeProfileConfigArgs', 'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict', 'outputs.FieldLevelEncryptionConfigContentTypeProfileConfig']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            query_arg_profile_config: pulumi.Input[Optional[Union['FieldLevelEncryptionConfigQueryArgProfileConfigArgs', 'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict', 'outputs.FieldLevelEncryptionConfigQueryArgProfileConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["callerReference"] = caller_reference
+        __props__["comment"] = comment
+        __props__["contentTypeProfileConfig"] = content_type_profile_config
+        __props__["etag"] = etag
+        __props__["queryArgProfileConfig"] = query_arg_profile_config
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

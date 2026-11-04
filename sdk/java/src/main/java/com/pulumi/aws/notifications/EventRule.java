@@ -114,14 +114,14 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventPattern);
     }
     /**
-     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
+     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 &#92;-&#92;(&#92;)])+`.
      * 
      */
     @Export(name="eventType", refs={String.class}, tree="[0]")
     private Output<String> eventType;
 
     /**
-     * @return Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
+     * @return Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 &#92;-&#92;(&#92;)])+`.
      * 
      */
     public Output<String> eventType() {
@@ -156,7 +156,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return this.regions;
     }
     /**
-     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
+     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9&#92;-])+`.
      * 
      * The following arguments are optional:
      * 
@@ -165,7 +165,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
     private Output<String> source;
 
     /**
-     * @return Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
+     * @return Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9&#92;-])+`.
      * 
      * The following arguments are optional:
      * 

@@ -137,12 +137,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Function("example", FunctionArgs.builder()
  *             .name("tag-request")
  *             .runtime("cloudfront-js-2.0")
@@ -150,11 +150,11 @@ import javax.annotation.Nullable;
  *             .code("""
  * import cf from 'cloudfront';
  * 
- * function handler(event) {
- *   var variant = event.request.uri.indexOf(\"/beta\") === 0 ? \"b\" : \"a\";
- *   cf.logCustomData(\"variant=\" + variant);
+ * function handler(event) }{{@code
+ *   var variant = event.request.uri.indexOf(}&#92;{@code "/beta}&#92;{@code ") === 0 ? }&#92;{@code "b}&#92;{@code " : }&#92;{@code "a}&#92;{@code ";
+ *   cf.logCustomData(}&#92;{@code "variant=}&#92;{@code " + variant);
  *   return event.request;
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
@@ -178,8 +178,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleAwsIamRolePolicy)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

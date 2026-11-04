@@ -179,6 +179,12 @@ func (LoadBalancerBackendServerPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerBackendServerPolicyState)(nil)).Elem()
 }
 
+// LoadBalancerBackendServerPolicyExists checks whether an existing LoadBalancerBackendServerPolicy resource with the given ID exists.
+func LoadBalancerBackendServerPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerBackendServerPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", id, state, "", opts...)
+}
+
 type loadBalancerBackendServerPolicyArgs struct {
 	// The instance port to apply the policy to.
 	InstancePort int `pulumi:"instancePort"`

@@ -210,6 +210,12 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationSetState)(nil)).Elem()
 }
 
+// ConfigurationSetExists checks whether an existing ConfigurationSet resource with the given ID exists.
+func ConfigurationSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/configurationSet:ConfigurationSet", id, state, "", opts...)
+}
+
 type configurationSetArgs struct {
 	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`

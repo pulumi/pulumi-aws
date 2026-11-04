@@ -154,6 +154,12 @@ func (PreparedStatementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*preparedStatementState)(nil)).Elem()
 }
 
+// PreparedStatementExists checks whether an existing PreparedStatement resource with the given ID exists.
+func PreparedStatementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PreparedStatementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:athena/preparedStatement:PreparedStatement", id, state, "", opts...)
+}
+
 type preparedStatementArgs struct {
 	// Brief explanation of prepared statement. Maximum length of 1024.
 	Description *string `pulumi:"description"`

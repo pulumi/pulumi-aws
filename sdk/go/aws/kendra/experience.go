@@ -185,6 +185,12 @@ func (ExperienceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*experienceState)(nil)).Elem()
 }
 
+// ExperienceExists checks whether an existing Experience resource with the given ID exists.
+func ExperienceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExperienceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kendra/experience:Experience", id, state, "", opts...)
+}
+
 type experienceArgs struct {
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`

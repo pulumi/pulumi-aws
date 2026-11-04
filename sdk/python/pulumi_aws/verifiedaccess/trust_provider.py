@@ -606,6 +606,36 @@ class TrustProvider(pulumi.CustomResource):
         __props__.__dict__["user_trust_provider_type"] = user_trust_provider_type
         return TrustProvider(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']]] = None,
+            device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']]] = None,
+            oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']]] = None,
+            policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict', 'outputs.TrustProviderSseSpecification']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["deviceOptions"] = device_options
+        __props__["deviceTrustProviderType"] = device_trust_provider_type
+        __props__["nativeApplicationOidcOptions"] = native_application_oidc_options
+        __props__["oidcOptions"] = oidc_options
+        __props__["policyReferenceName"] = policy_reference_name
+        __props__["region"] = region
+        __props__["sseSpecification"] = sse_specification
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["trustProviderType"] = trust_provider_type
+        __props__["userTrustProviderType"] = user_trust_provider_type
+        return pulumi.runtime.exists_resource(None, 'aws:verifiedaccess/trustProvider:TrustProvider', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

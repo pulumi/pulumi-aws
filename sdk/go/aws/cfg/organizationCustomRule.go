@@ -217,6 +217,12 @@ func (OrganizationCustomRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationCustomRuleState)(nil)).Elem()
 }
 
+// OrganizationCustomRuleExists checks whether an existing OrganizationCustomRule resource with the given ID exists.
+func OrganizationCustomRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationCustomRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/organizationCustomRule:OrganizationCustomRule", id, state, "", opts...)
+}
+
 type organizationCustomRuleArgs struct {
 	// Description of the rule
 	Description *string `pulumi:"description"`

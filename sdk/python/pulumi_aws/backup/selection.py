@@ -684,6 +684,28 @@ class Selection(pulumi.CustomResource):
         __props__.__dict__["selection_tags"] = selection_tags
         return Selection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SelectionConditionArgs', 'SelectionConditionArgsDict', 'outputs.SelectionCondition']]]]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            not_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            selection_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict', 'outputs.SelectionSelectionTag']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditions"] = conditions
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["name"] = name
+        __props__["notResources"] = not_resources
+        __props__["planId"] = plan_id
+        __props__["region"] = region
+        __props__["resources"] = resources
+        __props__["selectionTags"] = selection_tags
+        return pulumi.runtime.exists_resource(None, 'aws:backup/selection:Selection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Sequence['outputs.SelectionCondition']]:

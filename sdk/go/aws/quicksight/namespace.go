@@ -159,6 +159,12 @@ func (NamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceState)(nil)).Elem()
 }
 
+// NamespaceExists checks whether an existing Namespace resource with the given ID exists.
+func NamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/namespace:Namespace", id, state, "", opts...)
+}
+
 type namespaceArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

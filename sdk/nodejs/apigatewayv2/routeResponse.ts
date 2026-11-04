@@ -47,6 +47,17 @@ export class RouteResponse extends pulumi.CustomResource {
         return new RouteResponse(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing RouteResponse resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: RouteResponseState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:apigatewayv2/routeResponse:RouteResponse", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:apigatewayv2/routeResponse:RouteResponse';
 

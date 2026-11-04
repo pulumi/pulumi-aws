@@ -1421,6 +1421,66 @@ class App(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return App(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_token: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_branch_creation_config: pulumi.Input[Optional[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict', 'outputs.AppAutoBranchCreationConfig']]] = None,
+            auto_branch_creation_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            basic_auth_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+            build_spec: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_config: pulumi.Input[Optional[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict', 'outputs.AppCacheConfig']]] = None,
+            compute_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict', 'outputs.AppCustomRule']]]]] = None,
+            default_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_auto_branch_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_branch_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_branch_auto_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            job_config: pulumi.Input[Optional[Union['AppJobConfigArgs', 'AppJobConfigArgsDict', 'outputs.AppJobConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_token: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            production_branches: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppProductionBranchArgs', 'AppProductionBranchArgsDict', 'outputs.AppProductionBranch']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessToken"] = access_token
+        __props__["arn"] = arn
+        __props__["autoBranchCreationConfig"] = auto_branch_creation_config
+        __props__["autoBranchCreationPatterns"] = auto_branch_creation_patterns
+        __props__["basicAuthCredentials"] = basic_auth_credentials
+        __props__["buildSpec"] = build_spec
+        __props__["cacheConfig"] = cache_config
+        __props__["computeRoleArn"] = compute_role_arn
+        __props__["customHeaders"] = custom_headers
+        __props__["customRules"] = custom_rules
+        __props__["defaultDomain"] = default_domain
+        __props__["description"] = description
+        __props__["enableAutoBranchCreation"] = enable_auto_branch_creation
+        __props__["enableBasicAuth"] = enable_basic_auth
+        __props__["enableBranchAutoBuild"] = enable_branch_auto_build
+        __props__["enableBranchAutoDeletion"] = enable_branch_auto_deletion
+        __props__["environmentVariables"] = environment_variables
+        __props__["iamServiceRoleArn"] = iam_service_role_arn
+        __props__["jobConfig"] = job_config
+        __props__["name"] = name
+        __props__["oauthToken"] = oauth_token
+        __props__["platform"] = platform
+        __props__["productionBranches"] = production_branches
+        __props__["region"] = region
+        __props__["repository"] = repository
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:amplify/app:App', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[_builtins.str]]:

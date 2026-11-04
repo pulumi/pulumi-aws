@@ -153,6 +153,12 @@ func (AccountRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountRegistrationState)(nil)).Elem()
 }
 
+// AccountRegistrationExists checks whether an existing AccountRegistration resource with the given ID exists.
+func AccountRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:auditmanager/accountRegistration:AccountRegistration", id, state, "", opts...)
+}
+
 type accountRegistrationArgs struct {
 	// Identifier for the delegated administrator account.
 	DelegatedAdminAccount *string `pulumi:"delegatedAdminAccount"`

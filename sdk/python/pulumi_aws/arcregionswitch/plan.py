@@ -1043,6 +1043,44 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["workflows"] = workflows
         return Plan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict', 'outputs.PlanAssociatedAlarm']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_region: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_approach: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            report_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict', 'outputs.PlanReportConfiguration']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict', 'outputs.PlanTimeouts']]] = None,
+            triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict', 'outputs.PlanTrigger']]]]] = None,
+            workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict', 'outputs.PlanWorkflow']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["associatedAlarms"] = associated_alarms
+        __props__["description"] = description
+        __props__["executionRole"] = execution_role
+        __props__["name"] = name
+        __props__["primaryRegion"] = primary_region
+        __props__["recoveryApproach"] = recovery_approach
+        __props__["recoveryTimeObjectiveMinutes"] = recovery_time_objective_minutes
+        __props__["region"] = region
+        __props__["regions"] = regions
+        __props__["reportConfigurations"] = report_configurations
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["triggers"] = triggers
+        __props__["workflows"] = workflows
+        return pulumi.runtime.exists_resource(None, 'aws:arcregionswitch/plan:Plan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

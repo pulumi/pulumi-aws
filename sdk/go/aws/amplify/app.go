@@ -542,6 +542,12 @@ func (AppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appState)(nil)).Elem()
 }
 
+// AppExists checks whether an existing App resource with the given ID exists.
+func AppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:amplify/app:App", id, state, "", opts...)
+}
+
 type appArgs struct {
 	// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 	AccessToken *string `pulumi:"accessToken"`

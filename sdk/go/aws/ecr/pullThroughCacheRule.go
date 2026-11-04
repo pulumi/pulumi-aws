@@ -144,6 +144,12 @@ func (PullThroughCacheRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pullThroughCacheRuleState)(nil)).Elem()
 }
 
+// PullThroughCacheRuleExists checks whether an existing PullThroughCacheRule resource with the given ID exists.
+func PullThroughCacheRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PullThroughCacheRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecr/pullThroughCacheRule:PullThroughCacheRule", id, state, "", opts...)
+}
+
 type pullThroughCacheRuleArgs struct {
 	// ARN of the Secret which will be used to authenticate against the registry.
 	CredentialArn *string `pulumi:"credentialArn"`

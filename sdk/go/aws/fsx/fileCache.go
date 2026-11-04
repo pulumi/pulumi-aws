@@ -251,6 +251,12 @@ func (FileCacheState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileCacheState)(nil)).Elem()
 }
 
+// FileCacheExists checks whether an existing FileCache resource with the given ID exists.
+func FileCacheExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileCacheState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/fileCache:FileCache", id, state, "", opts...)
+}
+
 type fileCacheArgs struct {
 	// Whether to copy tags for the cache to data repository associations. Defaults to `false`.
 	CopyTagsToDataRepositoryAssociations *bool `pulumi:"copyTagsToDataRepositoryAssociations"`

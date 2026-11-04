@@ -838,6 +838,52 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["warehouse_location"] = warehouse_location
         return Table(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict', 'outputs.TableEncryptionConfiguration']]] = None,
+            format: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration: pulumi.Input[Optional[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict', 'outputs.TableMaintenanceConfiguration']]] = None,
+            metadata: pulumi.Input[Optional[Union['TableMetadataArgs', 'TableMetadataArgsDict', 'outputs.TableMetadata']]] = None,
+            metadata_location: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            version_token: pulumi.Input[Optional[_builtins.str]] = None,
+            warehouse_location: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["format"] = format
+        __props__["maintenanceConfiguration"] = maintenance_configuration
+        __props__["metadata"] = metadata
+        __props__["metadataLocation"] = metadata_location
+        __props__["modifiedAt"] = modified_at
+        __props__["modifiedBy"] = modified_by
+        __props__["name"] = name
+        __props__["namespace"] = namespace
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["region"] = region
+        __props__["tableBucketArn"] = table_bucket_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["versionToken"] = version_token
+        __props__["warehouseLocation"] = warehouse_location
+        return pulumi.runtime.exists_resource(None, 'aws:s3tables/table:Table', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

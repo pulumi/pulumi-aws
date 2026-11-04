@@ -166,6 +166,12 @@ func (AccessPolicyAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPolicyAssociationState)(nil)).Elem()
 }
 
+// AccessPolicyAssociationExists checks whether an existing AccessPolicyAssociation resource with the given ID exists.
+func AccessPolicyAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPolicyAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:eks/accessPolicyAssociation:AccessPolicyAssociation", id, state, "", opts...)
+}
+
 type accessPolicyAssociationArgs struct {
 	// The configuration block to determine the scope of the access. See `accessScope` Block below.
 	AccessScope AccessPolicyAssociationAccessScope `pulumi:"accessScope"`

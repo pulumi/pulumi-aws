@@ -381,6 +381,22 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         __props__.__dict__["use_defaults"] = use_defaults
         return IdentityPoolProviderPrincipalTag(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            use_defaults: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["identityPoolId"] = identity_pool_id
+        __props__["identityProviderName"] = identity_provider_name
+        __props__["principalTags"] = principal_tags
+        __props__["region"] = region
+        __props__["useDefaults"] = use_defaults
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Output[_builtins.str]:

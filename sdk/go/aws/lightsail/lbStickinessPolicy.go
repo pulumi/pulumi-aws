@@ -145,6 +145,12 @@ func (LbStickinessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lbStickinessPolicyState)(nil)).Elem()
 }
 
+// LbStickinessPolicyExists checks whether an existing LbStickinessPolicy resource with the given ID exists.
+func LbStickinessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LbStickinessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy", id, state, "", opts...)
+}
+
 type lbStickinessPolicyArgs struct {
 	// Cookie duration in seconds. This determines the length of the session stickiness.
 	CookieDuration int `pulumi:"cookieDuration"`

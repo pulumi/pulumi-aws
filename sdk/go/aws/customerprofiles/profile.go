@@ -245,6 +245,12 @@ func (ProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileState)(nil)).Elem()
 }
 
+// ProfileExists checks whether an existing Profile resource with the given ID exists.
+func ProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:customerprofiles/profile:Profile", id, state, "", opts...)
+}
+
 type profileArgs struct {
 	// A unique account number that you have given to the customer.
 	AccountNumber *string `pulumi:"accountNumber"`

@@ -122,6 +122,12 @@ func (SnapshotCreateVolumePermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCreateVolumePermissionState)(nil)).Elem()
 }
 
+// SnapshotCreateVolumePermissionExists checks whether an existing SnapshotCreateVolumePermission resource with the given ID exists.
+func SnapshotCreateVolumePermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotCreateVolumePermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", id, state, "", opts...)
+}
+
 type snapshotCreateVolumePermissionArgs struct {
 	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId string `pulumi:"accountId"`

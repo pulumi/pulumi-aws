@@ -166,6 +166,12 @@ func (ViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewState)(nil)).Elem()
 }
 
+// ViewExists checks whether an existing View resource with the given ID exists.
+func ViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resourceexplorer/view:View", id, state, "", opts...)
+}
+
 type viewArgs struct {
 	// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
 	DefaultView *bool `pulumi:"defaultView"`

@@ -273,6 +273,18 @@ class CidrLocation(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return CidrLocation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cidr_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidrBlocks"] = cidr_blocks
+        __props__["cidrCollectionId"] = cidr_collection_id
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'aws:route53/cidrLocation:CidrLocation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Output[Sequence[_builtins.str]]:

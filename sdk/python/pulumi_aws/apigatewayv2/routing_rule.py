@@ -443,6 +443,26 @@ class RoutingRule(pulumi.CustomResource):
         __props__.__dict__["routing_rule_id"] = routing_rule_id
         return RoutingRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict', 'outputs.RoutingRuleAction']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict', 'outputs.RoutingRuleCondition']]]]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rule_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["conditions"] = conditions
+        __props__["domainName"] = domain_name
+        __props__["priority"] = priority
+        __props__["region"] = region
+        __props__["routingRuleArn"] = routing_rule_arn
+        __props__["routingRuleId"] = routing_rule_id
+        return pulumi.runtime.exists_resource(None, 'aws:apigatewayv2/routingRule:RoutingRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.RoutingRuleAction']]:

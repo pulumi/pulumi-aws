@@ -458,6 +458,12 @@ func (GatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayState)(nil)).Elem()
 }
 
+// GatewayExists checks whether an existing Gateway resource with the given ID exists.
+func GatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/gateway:Gateway", id, state, "", opts...)
+}
+
 type gatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey *string `pulumi:"activationKey"`

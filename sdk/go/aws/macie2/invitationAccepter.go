@@ -133,6 +133,12 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*invitationAccepterState)(nil)).Elem()
 }
 
+// InvitationAccepterExists checks whether an existing InvitationAccepter resource with the given ID exists.
+func InvitationAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InvitationAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie2/invitationAccepter:InvitationAccepter", id, state, "", opts...)
+}
+
 type invitationAccepterArgs struct {
 	// AWS account ID for the account that sent the invitation.
 	AdministratorAccountId string `pulumi:"administratorAccountId"`

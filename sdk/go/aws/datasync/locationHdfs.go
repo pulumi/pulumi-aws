@@ -277,6 +277,12 @@ func (LocationHdfsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationHdfsState)(nil)).Elem()
 }
 
+// LocationHdfsExists checks whether an existing LocationHdfs resource with the given ID exists.
+func LocationHdfsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationHdfsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datasync/locationHdfs:LocationHdfs", id, state, "", opts...)
+}
+
 type locationHdfsArgs struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns []string `pulumi:"agentArns"`

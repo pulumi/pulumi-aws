@@ -372,6 +372,24 @@ class Permission(pulumi.CustomResource):
         __props__.__dict__["source_account"] = source_account
         return Permission(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_account: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["certificateAuthorityArn"] = certificate_authority_arn
+        __props__["policy"] = policy
+        __props__["principal"] = principal
+        __props__["region"] = region
+        __props__["sourceAccount"] = source_account
+        return pulumi.runtime.exists_resource(None, 'aws:acmpca/permission:Permission', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence[_builtins.str]]:

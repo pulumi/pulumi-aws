@@ -579,6 +579,36 @@ class LocationAzureBlob(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return LocationAzureBlob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            blob_type: pulumi.Input[Optional[_builtins.str]] = None,
+            container_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sas_configuration: pulumi.Input[Optional[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict', 'outputs.LocationAzureBlobSasConfiguration']]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessTier"] = access_tier
+        __props__["agentArns"] = agent_arns
+        __props__["arn"] = arn
+        __props__["authenticationType"] = authentication_type
+        __props__["blobType"] = blob_type
+        __props__["containerUrl"] = container_url
+        __props__["region"] = region
+        __props__["sasConfiguration"] = sas_configuration
+        __props__["subdirectory"] = subdirectory
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/locationAzureBlob:LocationAzureBlob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Output[Optional[_builtins.str]]:

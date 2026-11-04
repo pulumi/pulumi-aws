@@ -148,6 +148,12 @@ func (KeyvaluestoreKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyvaluestoreKeyState)(nil)).Elem()
 }
 
+// KeyvaluestoreKeyExists checks whether an existing KeyvaluestoreKey resource with the given ID exists.
+func KeyvaluestoreKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyvaluestoreKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey", id, state, "", opts...)
+}
+
 type keyvaluestoreKeyArgs struct {
 	// Key to put.
 	Key string `pulumi:"key"`

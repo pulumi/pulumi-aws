@@ -191,6 +191,12 @@ func (GatewayRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayRouteState)(nil)).Elem()
 }
 
+// GatewayRouteExists checks whether an existing GatewayRoute resource with the given ID exists.
+func GatewayRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appmesh/gatewayRoute:GatewayRoute", id, state, "", opts...)
+}
+
 type gatewayRouteArgs struct {
 	// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`

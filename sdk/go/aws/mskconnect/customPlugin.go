@@ -181,6 +181,12 @@ func (CustomPluginState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customPluginState)(nil)).Elem()
 }
 
+// CustomPluginExists checks whether an existing CustomPlugin resource with the given ID exists.
+func CustomPluginExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomPluginState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mskconnect/customPlugin:CustomPlugin", id, state, "", opts...)
+}
+
 type customPluginArgs struct {
 	// Type of the plugin file. Allowed values are `ZIP` and `JAR`.
 	ContentType string `pulumi:"contentType"`

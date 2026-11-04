@@ -156,6 +156,12 @@ func (RuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleState)(nil)).Elem()
 }
 
+// RuleExists checks whether an existing Rule resource with the given ID exists.
+func RuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafregional/rule:Rule", id, state, "", opts...)
+}
+
 type ruleArgs struct {
 	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName string `pulumi:"metricName"`

@@ -104,6 +104,12 @@ func (SdkvoiceGlobalSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sdkvoiceGlobalSettingsState)(nil)).Elem()
 }
 
+// SdkvoiceGlobalSettingsExists checks whether an existing SdkvoiceGlobalSettings resource with the given ID exists.
+func SdkvoiceGlobalSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SdkvoiceGlobalSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings", id, state, "", opts...)
+}
+
 type sdkvoiceGlobalSettingsArgs struct {
 	// The Voice Connector settings. See voice_connector.
 	VoiceConnector SdkvoiceGlobalSettingsVoiceConnector `pulumi:"voiceConnector"`

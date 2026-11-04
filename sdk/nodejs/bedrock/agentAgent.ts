@@ -87,6 +87,17 @@ export class AgentAgent extends pulumi.CustomResource {
         return new AgentAgent(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing AgentAgent resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: AgentAgentState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:bedrock/agentAgent:AgentAgent", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:bedrock/agentAgent:AgentAgent';
 

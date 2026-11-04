@@ -136,6 +136,12 @@ func (OptInState) ElementType() reflect.Type {
 	return reflect.TypeOf((*optInState)(nil)).Elem()
 }
 
+// OptInExists checks whether an existing OptIn resource with the given ID exists.
+func OptInExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OptInState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lakeformation/optIn:OptIn", id, state, "", opts...)
+}
+
 type optInArgs struct {
 	// Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
 	Conditions []OptInCondition `pulumi:"conditions"`

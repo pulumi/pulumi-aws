@@ -243,6 +243,12 @@ func (EventDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventDestinationState)(nil)).Elem()
 }
 
+// EventDestinationExists checks whether an existing EventDestination resource with the given ID exists.
+func EventDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/eventDestination:EventDestination", id, state, "", opts...)
+}
+
 type eventDestinationArgs struct {
 	// CloudWatch destination for the events
 	CloudwatchDestinations []EventDestinationCloudwatchDestination `pulumi:"cloudwatchDestinations"`

@@ -420,6 +420,12 @@ func (ComputeEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*computeEnvironmentState)(nil)).Elem()
 }
 
+// ComputeEnvironmentExists checks whether an existing ComputeEnvironment resource with the given ID exists.
+func ComputeEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComputeEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:batch/computeEnvironment:ComputeEnvironment", id, state, "", opts...)
+}
+
 type computeEnvironmentArgs struct {
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 	ComputeResources *ComputeEnvironmentComputeResources `pulumi:"computeResources"`

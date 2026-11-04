@@ -150,6 +150,12 @@ func (OriginAccessControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*originAccessControlState)(nil)).Elem()
 }
 
+// OriginAccessControlExists checks whether an existing OriginAccessControl resource with the given ID exists.
+func OriginAccessControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OriginAccessControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/originAccessControl:OriginAccessControl", id, state, "", opts...)
+}
+
 type originAccessControlArgs struct {
 	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description *string `pulumi:"description"`

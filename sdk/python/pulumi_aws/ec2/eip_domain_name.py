@@ -326,6 +326,22 @@ class EipDomainName(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return EipDomainName(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ptr_record: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict', 'outputs.EipDomainNameTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocationId"] = allocation_id
+        __props__["domainName"] = domain_name
+        __props__["ptrRecord"] = ptr_record
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/eipDomainName:EipDomainName', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[_builtins.str]:

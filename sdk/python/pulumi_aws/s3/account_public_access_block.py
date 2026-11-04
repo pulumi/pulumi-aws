@@ -359,6 +359,22 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
         __props__.__dict__["restrict_public_buckets"] = restrict_public_buckets
         return AccountPublicAccessBlock(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+            block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+            restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["blockPublicAcls"] = block_public_acls
+        __props__["blockPublicPolicy"] = block_public_policy
+        __props__["ignorePublicAcls"] = ignore_public_acls
+        __props__["restrictPublicBuckets"] = restrict_public_buckets
+        return pulumi.runtime.exists_resource(None, 'aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

@@ -1146,6 +1146,62 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_upload_date: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict', 'outputs.DomainNameEndpointConfiguration']]] = None,
+            mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']]] = None,
+            ownership_verification_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regional_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            regional_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            regional_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            regional_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["certificateArn"] = certificate_arn
+        __props__["certificateBody"] = certificate_body
+        __props__["certificateChain"] = certificate_chain
+        __props__["certificateName"] = certificate_name
+        __props__["certificatePrivateKey"] = certificate_private_key
+        __props__["certificateUploadDate"] = certificate_upload_date
+        __props__["cloudfrontDomainName"] = cloudfront_domain_name
+        __props__["cloudfrontZoneId"] = cloudfront_zone_id
+        __props__["domainName"] = domain_name
+        __props__["domainNameId"] = domain_name_id
+        __props__["endpointAccessMode"] = endpoint_access_mode
+        __props__["endpointConfiguration"] = endpoint_configuration
+        __props__["mutualTlsAuthentication"] = mutual_tls_authentication
+        __props__["ownershipVerificationCertificateArn"] = ownership_verification_certificate_arn
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["regionalCertificateArn"] = regional_certificate_arn
+        __props__["regionalCertificateName"] = regional_certificate_name
+        __props__["regionalDomainName"] = regional_domain_name
+        __props__["regionalZoneId"] = regional_zone_id
+        __props__["routingMode"] = routing_mode
+        __props__["securityPolicy"] = security_policy
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/domainName:DomainName', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

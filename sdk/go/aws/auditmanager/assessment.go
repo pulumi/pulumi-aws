@@ -208,6 +208,12 @@ func (AssessmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentState)(nil)).Elem()
 }
 
+// AssessmentExists checks whether an existing Assessment resource with the given ID exists.
+func AssessmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssessmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:auditmanager/assessment:Assessment", id, state, "", opts...)
+}
+
 type assessmentArgs struct {
 	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
 	AssessmentReportsDestination *AssessmentAssessmentReportsDestination `pulumi:"assessmentReportsDestination"`

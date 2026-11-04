@@ -354,6 +354,22 @@ class ControlTowerControl(pulumi.CustomResource):
         __props__.__dict__["target_identifier"] = target_identifier
         return ControlTowerControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict', 'outputs.ControlTowerControlParameter']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["controlIdentifier"] = control_identifier
+        __props__["parameters"] = parameters
+        __props__["region"] = region
+        __props__["targetIdentifier"] = target_identifier
+        return pulumi.runtime.exists_resource(None, 'aws:controltower/controlTowerControl:ControlTowerControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

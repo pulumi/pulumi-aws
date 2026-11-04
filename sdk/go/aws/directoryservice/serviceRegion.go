@@ -263,6 +263,12 @@ func (ServiceRegionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceRegionState)(nil)).Elem()
 }
 
+// ServiceRegionExists checks whether an existing ServiceRegion resource with the given ID exists.
+func ServiceRegionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceRegionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/serviceRegion:ServiceRegion", id, state, "", opts...)
+}
+
 type serviceRegionArgs struct {
 	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
 	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`

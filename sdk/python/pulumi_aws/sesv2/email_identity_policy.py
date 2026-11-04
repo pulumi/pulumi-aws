@@ -353,6 +353,20 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return EmailIdentityPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["emailIdentity"] = email_identity
+        __props__["policy"] = policy
+        __props__["policyName"] = policy_name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Output[_builtins.str]:

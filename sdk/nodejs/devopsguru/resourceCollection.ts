@@ -96,6 +96,17 @@ export class ResourceCollection extends pulumi.CustomResource {
         return new ResourceCollection(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing ResourceCollection resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ResourceCollectionState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:devopsguru/resourceCollection:ResourceCollection", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:devopsguru/resourceCollection:ResourceCollection';
 

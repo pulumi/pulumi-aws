@@ -184,6 +184,12 @@ func (LocationAzureBlobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationAzureBlobState)(nil)).Elem()
 }
 
+// LocationAzureBlobExists checks whether an existing LocationAzureBlob resource with the given ID exists.
+func LocationAzureBlobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationAzureBlobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datasync/locationAzureBlob:LocationAzureBlob", id, state, "", opts...)
+}
+
 type locationAzureBlobArgs struct {
 	// The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
 	AccessTier *string `pulumi:"accessTier"`

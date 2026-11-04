@@ -258,6 +258,12 @@ func (NfsFileShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nfsFileShareState)(nil)).Elem()
 }
 
+// NfsFileShareExists checks whether an existing NfsFileShare resource with the given ID exists.
+func NfsFileShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NfsFileShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/nfsFileShare:NfsFileShare", id, state, "", opts...)
+}
+
 type nfsFileShareArgs struct {
 	// ARN of the storage used for audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`

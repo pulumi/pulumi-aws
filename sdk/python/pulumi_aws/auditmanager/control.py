@@ -559,6 +559,34 @@ class Control(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Control(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+            action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict', 'outputs.ControlControlMappingSource']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            testing_information: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionPlanInstructions"] = action_plan_instructions
+        __props__["actionPlanTitle"] = action_plan_title
+        __props__["arn"] = arn
+        __props__["controlMappingSources"] = control_mapping_sources
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["testingInformation"] = testing_information
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:auditmanager/control:Control', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionPlanInstructions")
     def action_plan_instructions(self) -> pulumi.Output[Optional[_builtins.str]]:

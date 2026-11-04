@@ -925,6 +925,52 @@ class LayerVersion(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return LayerVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code: pulumi.Input[Optional[pulumi.Archive]] = None,
+            code_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+            compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            layer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            license_info: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_profile_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            source_code_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            source_code_size: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["code"] = code
+        __props__["codeSha256"] = code_sha256
+        __props__["compatibleArchitectures"] = compatible_architectures
+        __props__["compatibleRuntimes"] = compatible_runtimes
+        __props__["createdDate"] = created_date
+        __props__["description"] = description
+        __props__["layerArn"] = layer_arn
+        __props__["layerName"] = layer_name
+        __props__["licenseInfo"] = license_info
+        __props__["region"] = region
+        __props__["s3Bucket"] = s3_bucket
+        __props__["s3Key"] = s3_key
+        __props__["s3ObjectVersion"] = s3_object_version
+        __props__["signingJobArn"] = signing_job_arn
+        __props__["signingProfileVersionArn"] = signing_profile_version_arn
+        __props__["skipDestroy"] = skip_destroy
+        __props__["sourceCodeHash"] = source_code_hash
+        __props__["sourceCodeSize"] = source_code_size
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:lambda/layerVersion:LayerVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

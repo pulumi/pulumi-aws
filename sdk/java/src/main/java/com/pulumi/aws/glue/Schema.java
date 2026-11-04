@@ -37,22 +37,22 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Schema("example", SchemaArgs.builder()
  *             .schemaName("example")
  *             .registryArn(test.get("arn"))
  *             .dataFormat("AVRO")
  *             .compatibility("NONE")
- *             .schemaDefinition("{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}")
+ *             .schemaDefinition("}{&#92;{@code "type}&#92;{@code ": }&#92;{@code "record}&#92;{@code ", }&#92;{@code "name}&#92;{@code ": }&#92;{@code "r1}&#92;{@code ", }&#92;{@code "fields}&#92;{@code ": [ }{&#92;{@code "name}&#92;{@code ": }&#92;{@code "f1}&#92;{@code ", }&#92;{@code "type}&#92;{@code ": }&#92;{@code "int}&#92;{@code "}}{@code , }{&#92;{@code "name}&#92;{@code ": }&#92;{@code "f2}&#92;{@code ", }&#92;{@code "type}&#92;{@code ": }&#92;{@code "string}&#92;{@code "}}{@code  ]}}{@code ")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

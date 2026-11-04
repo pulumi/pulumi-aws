@@ -39,19 +39,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .name("example")
- *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
+ *             .ruleset("Rules = [Completeness }&#92;{@code "colA}&#92;{@code " between 0.4 and 0.8]")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -73,20 +73,20 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .name("example")
  *             .description("example")
- *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
+ *             .ruleset("Rules = [Completeness }&#92;{@code "colA}&#92;{@code " between 0.4 and 0.8]")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -108,20 +108,20 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .name("example")
- *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
+ *             .ruleset("Rules = [Completeness }&#92;{@code "colA}&#92;{@code " between 0.4 and 0.8]")
  *             .tags(Map.of("hello", "world"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -144,23 +144,23 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .targetTable(DataQualityRulesetTargetTableArgs.builder()
  *                 .databaseName(exampleAwsGlueCatalogDatabase.get("name"))
  *                 .tableName(exampleAwsGlueCatalogTable.get("name"))
  *                 .build())
  *             .name("example")
- *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
+ *             .ruleset("Rules = [Completeness }&#92;{@code "colA}&#92;{@code " between 0.4 and 0.8]")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -159,6 +159,12 @@ func (FieldLevelEncryptionProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fieldLevelEncryptionProfileState)(nil)).Elem()
 }
 
+// FieldLevelEncryptionProfileExists checks whether an existing FieldLevelEncryptionProfile resource with the given ID exists.
+func FieldLevelEncryptionProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FieldLevelEncryptionProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile", id, state, "", opts...)
+}
+
 type fieldLevelEncryptionProfileArgs struct {
 	// An optional comment about the Field Level Encryption Profile.
 	Comment *string `pulumi:"comment"`

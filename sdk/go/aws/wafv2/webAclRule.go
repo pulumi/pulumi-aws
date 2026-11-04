@@ -729,6 +729,12 @@ func (WebAclRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclRuleState)(nil)).Elem()
 }
 
+// WebAclRuleExists checks whether an existing WebAclRule resource with the given ID exists.
+func WebAclRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAclRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafv2/webAclRule:WebAclRule", id, state, "", opts...)
+}
+
 type webAclRuleArgs struct {
 	// Action to take when the rule matches. See Action below. Conflicts with `overrideAction`.
 	Action *WebAclRuleAction `pulumi:"action"`

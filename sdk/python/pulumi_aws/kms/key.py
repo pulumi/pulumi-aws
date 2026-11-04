@@ -1366,6 +1366,46 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["xks_key_id"] = xks_key_id
         return Key(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_key_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_master_key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            xks_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["bypassPolicyLockoutSafetyCheck"] = bypass_policy_lockout_safety_check
+        __props__["customKeyStoreId"] = custom_key_store_id
+        __props__["customerMasterKeySpec"] = customer_master_key_spec
+        __props__["deletionWindowInDays"] = deletion_window_in_days
+        __props__["description"] = description
+        __props__["enableKeyRotation"] = enable_key_rotation
+        __props__["isEnabled"] = is_enabled
+        __props__["keyId"] = key_id
+        __props__["keyUsage"] = key_usage
+        __props__["multiRegion"] = multi_region
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["rotationPeriodInDays"] = rotation_period_in_days
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["xksKeyId"] = xks_key_id
+        return pulumi.runtime.exists_resource(None, 'aws:kms/key:Key', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

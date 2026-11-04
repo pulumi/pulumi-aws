@@ -543,6 +543,38 @@ class Lb(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Lb(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_port: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            support_code: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdAt"] = created_at
+        __props__["dnsName"] = dns_name
+        __props__["healthCheckPath"] = health_check_path
+        __props__["instancePort"] = instance_port
+        __props__["ipAddressType"] = ip_address_type
+        __props__["name"] = name
+        __props__["protocol"] = protocol
+        __props__["publicPorts"] = public_ports
+        __props__["region"] = region
+        __props__["supportCode"] = support_code
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:lightsail/lb:Lb', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

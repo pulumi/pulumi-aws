@@ -449,6 +449,24 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         __props__.__dict__["traffic_config"] = traffic_config
         return ContinuousDeploymentPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            staging_distribution_dns_names: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs', 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict', 'outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames']]] = None,
+            traffic_config: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyTrafficConfigArgs', 'ContinuousDeploymentPolicyTrafficConfigArgsDict', 'outputs.ContinuousDeploymentPolicyTrafficConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["enabled"] = enabled
+        __props__["etag"] = etag
+        __props__["lastModifiedTime"] = last_modified_time
+        __props__["stagingDistributionDnsNames"] = staging_distribution_dns_names
+        __props__["trafficConfig"] = traffic_config
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

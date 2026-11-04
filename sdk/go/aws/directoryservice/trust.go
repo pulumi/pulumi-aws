@@ -307,6 +307,12 @@ func (TrustState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustState)(nil)).Elem()
 }
 
+// TrustExists checks whether an existing Trust resource with the given ID exists.
+func TrustExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/trust:Trust", id, state, "", opts...)
+}
+
 type trustArgs struct {
 	// Set of IPv4 addresses for the DNS server associated with the remote Directory.
 	// Can contain between 1 and 4 values.

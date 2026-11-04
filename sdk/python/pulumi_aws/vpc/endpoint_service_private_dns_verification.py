@@ -309,6 +309,20 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
         __props__.__dict__["wait_for_verification"] = wait_for_verification
         return EndpointServicePrivateDnsVerification(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict', 'outputs.EndpointServicePrivateDnsVerificationTimeouts']]] = None,
+            wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["serviceId"] = service_id
+        __props__["timeouts"] = timeouts
+        __props__["waitForVerification"] = wait_for_verification
+        return pulumi.runtime.exists_resource(None, 'aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

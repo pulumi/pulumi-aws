@@ -49,19 +49,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ManagedUserPoolClient("example", ManagedUserPoolClientArgs.builder()
- *             .namePattern("^AmazonOpenSearchService-example-(\\w+)$")
+ *             .namePattern("^AmazonOpenSearchService-example-(}&#92;&#92;{@code w+)$")
  *             .userPoolId(exampleAwsCognitoUserPool.get("id"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

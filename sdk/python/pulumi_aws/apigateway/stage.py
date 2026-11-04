@@ -813,6 +813,50 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["xray_tracing_enabled"] = xray_tracing_enabled
         return Stage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_log_settings: pulumi.Input[Optional[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cache_cluster_size: pulumi.Input[Optional[_builtins.str]] = None,
+            canary_settings: pulumi.Input[Optional[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict', 'outputs.StageCanarySettings']]] = None,
+            client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            documentation_version: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            invoke_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            stage_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            xray_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessLogSettings"] = access_log_settings
+        __props__["arn"] = arn
+        __props__["cacheClusterEnabled"] = cache_cluster_enabled
+        __props__["cacheClusterSize"] = cache_cluster_size
+        __props__["canarySettings"] = canary_settings
+        __props__["clientCertificateId"] = client_certificate_id
+        __props__["deployment"] = deployment
+        __props__["description"] = description
+        __props__["documentationVersion"] = documentation_version
+        __props__["executionArn"] = execution_arn
+        __props__["invokeUrl"] = invoke_url
+        __props__["region"] = region
+        __props__["restApi"] = rest_api
+        __props__["stageName"] = stage_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["variables"] = variables
+        __props__["webAclArn"] = web_acl_arn
+        __props__["xrayTracingEnabled"] = xray_tracing_enabled
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/stage:Stage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Output[Optional['outputs.StageAccessLogSettings']]:

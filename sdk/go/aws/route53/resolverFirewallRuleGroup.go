@@ -132,6 +132,12 @@ func (ResolverFirewallRuleGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverFirewallRuleGroupState)(nil)).Elem()
 }
 
+// ResolverFirewallRuleGroupExists checks whether an existing ResolverFirewallRuleGroup resource with the given ID exists.
+func ResolverFirewallRuleGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverFirewallRuleGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", id, state, "", opts...)
+}
+
 type resolverFirewallRuleGroupArgs struct {
 	// A name that lets you identify the rule group, to manage and use it.
 	Name *string `pulumi:"name"`

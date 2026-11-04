@@ -790,6 +790,34 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict', 'outputs.ApplicationIamIdentityCenterOptions']]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appConfigs"] = app_configs
+        __props__["arn"] = arn
+        __props__["dataSources"] = data_sources
+        __props__["endpoint"] = endpoint
+        __props__["iamIdentityCenterOptions"] = iam_identity_center_options
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:opensearch/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appConfigs")
     def app_configs(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationAppConfig']]]:

@@ -576,6 +576,32 @@ class FargateProfile(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return FargateProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fargate_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            pod_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict', 'outputs.FargateProfileSelector']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["clusterName"] = cluster_name
+        __props__["fargateProfileName"] = fargate_profile_name
+        __props__["podExecutionRoleArn"] = pod_execution_role_arn
+        __props__["region"] = region
+        __props__["selectors"] = selectors
+        __props__["status"] = status
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:eks/fargateProfile:FargateProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -171,6 +171,12 @@ func (RouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeState)(nil)).Elem()
 }
 
+// RouteExists checks whether an existing Route resource with the given ID exists.
+func RouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/route:Route", id, state, "", opts...)
+}
+
 type routeArgs struct {
 	// Indicates whether to drop traffic that matches this route (default to `false`).
 	Blackhole *bool `pulumi:"blackhole"`

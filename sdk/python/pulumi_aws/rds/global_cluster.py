@@ -998,6 +998,46 @@ class GlobalCluster(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return GlobalCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            global_cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict', 'outputs.GlobalClusterGlobalClusterMember']]]]] = None,
+            global_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["databaseName"] = database_name
+        __props__["deletionProtection"] = deletion_protection
+        __props__["endpoint"] = endpoint
+        __props__["engine"] = engine
+        __props__["engineLifecycleSupport"] = engine_lifecycle_support
+        __props__["engineVersion"] = engine_version
+        __props__["engineVersionActual"] = engine_version_actual
+        __props__["forceDestroy"] = force_destroy
+        __props__["globalClusterIdentifier"] = global_cluster_identifier
+        __props__["globalClusterMembers"] = global_cluster_members
+        __props__["globalClusterResourceId"] = global_cluster_resource_id
+        __props__["region"] = region
+        __props__["sourceDbClusterIdentifier"] = source_db_cluster_identifier
+        __props__["storageEncrypted"] = storage_encrypted
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:rds/globalCluster:GlobalCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -427,6 +427,12 @@ func (BucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketState)(nil)).Elem()
 }
 
+// BucketExists checks whether an existing Bucket resource with the given ID exists.
+func BucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucket:Bucket", id, state, "", opts...)
+}
+
 type bucketArgs struct {
 	// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAccelerateConfiguration` instead.
 	//

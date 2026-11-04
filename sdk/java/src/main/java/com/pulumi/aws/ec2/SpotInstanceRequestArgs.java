@@ -487,22 +487,20 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
-     * @deprecated
-     * network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      * 
      */
-    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
+    @Deprecated
     @Import(name="networkInterfaces")
     private @Nullable Output<List<SpotInstanceRequestNetworkInterfaceArgs>> networkInterfaces;
 
     /**
      * @return Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
-     * @deprecated
-     * network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      * 
      */
-    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
+    @Deprecated
     public Optional<Output<List<SpotInstanceRequestNetworkInterfaceArgs>>> networkInterfaces() {
         return Optional.ofNullable(this.networkInterfaces);
     }
@@ -1626,11 +1624,10 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
-         * @deprecated
-         * network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
          * 
          */
-        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
+        @Deprecated
         public Builder networkInterfaces(@Nullable Output<List<SpotInstanceRequestNetworkInterfaceArgs>> networkInterfaces) {
             $.networkInterfaces = networkInterfaces;
             return this;
@@ -1641,11 +1638,10 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
-         * @deprecated
-         * network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
          * 
          */
-        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
+        @Deprecated
         public Builder networkInterfaces(List<SpotInstanceRequestNetworkInterfaceArgs> networkInterfaces) {
             return networkInterfaces(Output.of(networkInterfaces));
         }
@@ -1655,11 +1651,10 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
-         * @deprecated
-         * network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+         * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
          * 
          */
-        @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
+        @Deprecated
         public Builder networkInterfaces(SpotInstanceRequestNetworkInterfaceArgs... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }

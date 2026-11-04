@@ -495,6 +495,12 @@ func (ClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterState)(nil)).Elem()
 }
 
+// ClusterExists checks whether an existing Cluster resource with the given ID exists.
+func ClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/cluster:Cluster", id, state, "", opts...)
+}
+
 type clusterArgs struct {
 	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
 	AllowVersionUpgrade *bool `pulumi:"allowVersionUpgrade"`

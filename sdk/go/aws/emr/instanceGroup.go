@@ -282,6 +282,12 @@ func (InstanceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceGroupState)(nil)).Elem()
 }
 
+// InstanceGroupExists checks whether an existing InstanceGroup resource with the given ID exists.
+func InstanceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:emr/instanceGroup:InstanceGroup", id, state, "", opts...)
+}
+
 type instanceGroupArgs struct {
 	// The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
 	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`

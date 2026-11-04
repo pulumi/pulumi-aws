@@ -297,6 +297,18 @@ class BucketOwnershipControls(pulumi.CustomResource):
         __props__.__dict__["rule"] = rule
         return BucketOwnershipControls(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict', 'outputs.BucketOwnershipControlsRule']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bucket"] = bucket
+        __props__["region"] = region
+        __props__["rule"] = rule
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketOwnershipControls:BucketOwnershipControls', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:

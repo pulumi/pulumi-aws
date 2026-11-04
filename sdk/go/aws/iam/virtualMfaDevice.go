@@ -162,6 +162,12 @@ func (VirtualMfaDeviceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMfaDeviceState)(nil)).Elem()
 }
 
+// VirtualMfaDeviceExists checks whether an existing VirtualMfaDevice resource with the given ID exists.
+func VirtualMfaDeviceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMfaDeviceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/virtualMfaDevice:VirtualMfaDevice", id, state, "", opts...)
+}
+
 type virtualMfaDeviceArgs struct {
 	// Path for the virtual MFA device.
 	Path *string `pulumi:"path"`

@@ -711,6 +711,32 @@ class SessionLogger(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return SessionLogger(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            associated_portal_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']]] = None,
+            log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalEncryptionContext"] = additional_encryption_context
+        __props__["associatedPortalArns"] = associated_portal_arns
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["displayName"] = display_name
+        __props__["eventFilter"] = event_filter
+        __props__["logConfiguration"] = log_configuration
+        __props__["region"] = region
+        __props__["sessionLoggerArn"] = session_logger_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:workspacesweb/sessionLogger:SessionLogger', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

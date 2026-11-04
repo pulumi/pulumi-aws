@@ -47,33 +47,33 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new GraphQLApi("test", GraphQLApiArgs.builder()
  *             .authenticationType("API_KEY")
  *             .name("tf-example")
  *             .schema("""
- * type Mutation {
- * \tputPost(id: ID!, title: String!): Post
- * }
+ * type Mutation }{{@code
+ * }&#92;{@code tputPost(id: ID!, title: String!): Post
+ * }}{@code
  * 
- * type Post {
- * \tid: ID!
- * \ttitle: String!
- * }
+ * type Post }{{@code
+ * }&#92;{@code tid: ID!
+ * }&#92;{@code ttitle: String!
+ * }}{@code
  * 
- * type Query {
- * \tsinglePost(id: ID!): Post
- * }
+ * type Query }{{@code
+ * }&#92;{@code tsinglePost(id: ID!): Post
+ * }}{@code
  * 
- * schema {
- * \tquery: Query
- * \tmutation: Mutation
- * }
+ * schema }{{@code
+ * }&#92;{@code tquery: Query
+ * }&#92;{@code tmutation: Mutation
+ * }}{@code
  *             """)
  *             .build());
  * 
@@ -99,14 +99,14 @@ import javax.annotation.Nullable;
  *             .type("Query")
  *             .dataSource(testDataSource.name())
  *             .requestTemplate("""
- * {
- *     \"version\": \"2018-05-29\",
- *     \"method\": \"GET\",
- *     \"resourcePath\": \"/\",
- *     \"params\":{
- *         \"headers\": $utils.http.copyheaders($ctx.request.headers)
- *     }
- * }
+ * }{{@code
+ *     }&#92;{@code "version}&#92;{@code ": }&#92;{@code "2018-05-29}&#92;{@code ",
+ *     }&#92;{@code "method}&#92;{@code ": }&#92;{@code "GET}&#92;{@code ",
+ *     }&#92;{@code "resourcePath}&#92;{@code ": }&#92;{@code "/}&#92;{@code ",
+ *     }&#92;{@code "params}&#92;{@code ":}{{@code
+ *         }&#92;{@code "headers}&#92;{@code ": $utils.http.copyheaders($ctx.request.headers)
+ *     }}{@code
+ * }}{@code
  *             """)
  *             .responseTemplate("""
  * #if($ctx.result.statusCode == 200)
@@ -128,13 +128,13 @@ import javax.annotation.Nullable;
  *             .type("Mutation")
  *             .apiId(test.id())
  *             .field("pipelineTest")
- *             .requestTemplate("{}")
+ *             .requestTemplate("}{}{@code ")
  *             .responseTemplate("$util.toJson($ctx.result)")
  *             .kind("PIPELINE")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

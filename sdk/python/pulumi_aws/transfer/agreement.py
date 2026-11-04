@@ -548,6 +548,36 @@ class Agreement(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Agreement(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_role: pulumi.Input[Optional[_builtins.str]] = None,
+            agreement_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base_directory: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            local_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessRole"] = access_role
+        __props__["agreementId"] = agreement_id
+        __props__["arn"] = arn
+        __props__["baseDirectory"] = base_directory
+        __props__["description"] = description
+        __props__["localProfileId"] = local_profile_id
+        __props__["partnerProfileId"] = partner_profile_id
+        __props__["region"] = region
+        __props__["serverId"] = server_id
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:transfer/agreement:Agreement', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessRole")
     def access_role(self) -> pulumi.Output[_builtins.str]:

@@ -118,6 +118,12 @@ func (SizeConstraintSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sizeConstraintSetState)(nil)).Elem()
 }
 
+// SizeConstraintSetExists checks whether an existing SizeConstraintSet resource with the given ID exists.
+func SizeConstraintSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SizeConstraintSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:waf/sizeConstraintSet:SizeConstraintSet", id, state, "", opts...)
+}
+
 type sizeConstraintSetArgs struct {
 	// Name or description of the Size Constraint Set.
 	Name *string `pulumi:"name"`

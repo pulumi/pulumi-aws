@@ -110,6 +110,12 @@ func (ControlTowerControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*controlTowerControlState)(nil)).Elem()
 }
 
+// ControlTowerControlExists checks whether an existing ControlTowerControl resource with the given ID exists.
+func ControlTowerControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ControlTowerControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:controltower/controlTowerControl:ControlTowerControl", id, state, "", opts...)
+}
+
 type controlTowerControlArgs struct {
 	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier string `pulumi:"controlIdentifier"`

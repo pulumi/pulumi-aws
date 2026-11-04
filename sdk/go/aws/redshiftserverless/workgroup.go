@@ -212,6 +212,12 @@ func (WorkgroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workgroupState)(nil)).Elem()
 }
 
+// WorkgroupExists checks whether an existing Workgroup resource with the given ID exists.
+func WorkgroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkgroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshiftserverless/workgroup:Workgroup", id, state, "", opts...)
+}
+
 type workgroupArgs struct {
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity *int `pulumi:"baseCapacity"`

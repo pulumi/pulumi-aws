@@ -175,6 +175,12 @@ func (VpcConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcConnectionState)(nil)).Elem()
 }
 
+// VpcConnectionExists checks whether an existing VpcConnection resource with the given ID exists.
+func VpcConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:msk/vpcConnection:VpcConnection", id, state, "", opts...)
+}
+
 type vpcConnectionArgs struct {
 	// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication string `pulumi:"authentication"`

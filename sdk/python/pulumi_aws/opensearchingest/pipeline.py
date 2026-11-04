@@ -789,6 +789,42 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["vpc_options"] = vpc_options
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            buffer_options: pulumi.Input[Optional[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict', 'outputs.PipelineBufferOptions']]] = None,
+            encryption_at_rest_options: pulumi.Input[Optional[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict', 'outputs.PipelineEncryptionAtRestOptions']]] = None,
+            ingest_endpoint_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            log_publishing_options: pulumi.Input[Optional[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict', 'outputs.PipelineLogPublishingOptions']]] = None,
+            max_units: pulumi.Input[Optional[_builtins.int]] = None,
+            min_units: pulumi.Input[Optional[_builtins.int]] = None,
+            pipeline_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_configuration_body: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict', 'outputs.PipelineTimeouts']]] = None,
+            vpc_options: pulumi.Input[Optional[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict', 'outputs.PipelineVpcOptions']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bufferOptions"] = buffer_options
+        __props__["encryptionAtRestOptions"] = encryption_at_rest_options
+        __props__["ingestEndpointUrls"] = ingest_endpoint_urls
+        __props__["logPublishingOptions"] = log_publishing_options
+        __props__["maxUnits"] = max_units
+        __props__["minUnits"] = min_units
+        __props__["pipelineArn"] = pipeline_arn
+        __props__["pipelineConfigurationBody"] = pipeline_configuration_body
+        __props__["pipelineName"] = pipeline_name
+        __props__["pipelineRoleArn"] = pipeline_role_arn
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["vpcOptions"] = vpc_options
+        return pulumi.runtime.exists_resource(None, 'aws:opensearchingest/pipeline:Pipeline', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bufferOptions")
     def buffer_options(self) -> pulumi.Output[Optional['outputs.PipelineBufferOptions']]:

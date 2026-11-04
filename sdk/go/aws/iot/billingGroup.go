@@ -138,6 +138,12 @@ func (BillingGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*billingGroupState)(nil)).Elem()
 }
 
+// BillingGroupExists checks whether an existing BillingGroup resource with the given ID exists.
+func BillingGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BillingGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/billingGroup:BillingGroup", id, state, "", opts...)
+}
+
 type billingGroupArgs struct {
 	// The name of the Billing Group.
 	Name *string `pulumi:"name"`

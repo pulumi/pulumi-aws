@@ -377,6 +377,24 @@ class PipelineEndpoint(pulumi.CustomResource):
         __props__.__dict__["vpc_options"] = vpc_options
         return PipelineEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            pipeline_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['PipelineEndpointTimeoutsArgs', 'PipelineEndpointTimeoutsArgsDict', 'outputs.PipelineEndpointTimeouts']]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_options: pulumi.Input[Optional[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict', 'outputs.PipelineEndpointVpcOptions']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["pipelineArn"] = pipeline_arn
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["timeouts"] = timeouts
+        __props__["vpcId"] = vpc_id
+        __props__["vpcOptions"] = vpc_options
+        return pulumi.runtime.exists_resource(None, 'aws:opensearchingest/pipelineEndpoint:PipelineEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="pipelineArn")
     def pipeline_arn(self) -> pulumi.Output[_builtins.str]:

@@ -740,6 +740,40 @@ class EventRule(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return EventRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+            event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["eventBusName"] = event_bus_name
+        __props__["eventPattern"] = event_pattern
+        __props__["forceDestroy"] = force_destroy
+        __props__["isEnabled"] = is_enabled
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["scheduleExpression"] = schedule_expression
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/eventRule:EventRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

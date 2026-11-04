@@ -434,6 +434,26 @@ class ConfigurationTemplate(pulumi.CustomResource):
         __props__.__dict__["solution_stack_name"] = solution_stack_name
         return ConfigurationTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict', 'outputs.ConfigurationTemplateSetting']]]]] = None,
+            solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["application"] = application
+        __props__["description"] = description
+        __props__["environmentId"] = environment_id
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["settings"] = settings
+        __props__["solutionStackName"] = solution_stack_name
+        return pulumi.runtime.exists_resource(None, 'aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def application(self) -> pulumi.Output[_builtins.str]:

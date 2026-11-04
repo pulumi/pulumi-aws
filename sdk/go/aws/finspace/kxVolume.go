@@ -216,6 +216,12 @@ func (KxVolumeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kxVolumeState)(nil)).Elem()
 }
 
+// KxVolumeExists checks whether an existing KxVolume resource with the given ID exists.
+func KxVolumeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KxVolumeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:finspace/kxVolume:KxVolume", id, state, "", opts...)
+}
+
 type kxVolumeArgs struct {
 	// Identifier of the AWS Availability Zone IDs.
 	AvailabilityZones []string `pulumi:"availabilityZones"`

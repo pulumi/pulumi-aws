@@ -204,6 +204,12 @@ func (BotAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*botAssociationState)(nil)).Elem()
 }
 
+// BotAssociationExists checks whether an existing BotAssociation resource with the given ID exists.
+func BotAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BotAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/botAssociation:BotAssociation", id, state, "", opts...)
+}
+
 type botAssociationArgs struct {
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId string `pulumi:"instanceId"`

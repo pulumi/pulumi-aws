@@ -1305,6 +1305,42 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            adjustment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            estimated_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+            metric_aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            predictive_scaling_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict', 'outputs.PolicyPredictiveScalingConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
+            step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict', 'outputs.PolicyStepAdjustment']]]]] = None,
+            target_tracking_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict', 'outputs.PolicyTargetTrackingConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adjustmentType"] = adjustment_type
+        __props__["arn"] = arn
+        __props__["autoscalingGroupName"] = autoscaling_group_name
+        __props__["cooldown"] = cooldown
+        __props__["enabled"] = enabled
+        __props__["estimatedInstanceWarmup"] = estimated_instance_warmup
+        __props__["metricAggregationType"] = metric_aggregation_type
+        __props__["minAdjustmentMagnitude"] = min_adjustment_magnitude
+        __props__["name"] = name
+        __props__["policyType"] = policy_type
+        __props__["predictiveScalingConfiguration"] = predictive_scaling_configuration
+        __props__["region"] = region
+        __props__["scalingAdjustment"] = scaling_adjustment
+        __props__["stepAdjustments"] = step_adjustments
+        __props__["targetTrackingConfiguration"] = target_tracking_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:autoscaling/policy:Policy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adjustmentType")
     def adjustment_type(self) -> pulumi.Output[Optional[_builtins.str]]:

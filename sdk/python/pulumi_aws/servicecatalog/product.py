@@ -755,6 +755,46 @@ class Product(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Product(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            distributor: pulumi.Input[Optional[_builtins.str]] = None,
+            has_default_path: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict', 'outputs.ProductProvisioningArtifactParameters']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            support_description: pulumi.Input[Optional[_builtins.str]] = None,
+            support_email: pulumi.Input[Optional[_builtins.str]] = None,
+            support_url: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptLanguage"] = accept_language
+        __props__["arn"] = arn
+        __props__["createdTime"] = created_time
+        __props__["description"] = description
+        __props__["distributor"] = distributor
+        __props__["hasDefaultPath"] = has_default_path
+        __props__["name"] = name
+        __props__["owner"] = owner
+        __props__["provisioningArtifactParameters"] = provisioning_artifact_parameters
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["supportDescription"] = support_description
+        __props__["supportEmail"] = support_email
+        __props__["supportUrl"] = support_url
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:servicecatalog/product:Product', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:

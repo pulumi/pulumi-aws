@@ -1109,6 +1109,64 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["vpn_port"] = vpn_port
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointAuthenticationOptionArgs', 'EndpointAuthenticationOptionArgsDict', 'outputs.EndpointAuthenticationOption']]]]] = None,
+            client_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            client_connect_options: pulumi.Input[Optional[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict', 'outputs.EndpointClientConnectOptions']]] = None,
+            client_login_banner_options: pulumi.Input[Optional[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict', 'outputs.EndpointClientLoginBannerOptions']]] = None,
+            client_route_enforcement_options: pulumi.Input[Optional[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict', 'outputs.EndpointClientRouteEnforcementOptions']]] = None,
+            connection_log_options: pulumi.Input[Optional[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict', 'outputs.EndpointConnectionLogOptions']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disconnect_on_session_timeout: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            endpoint_ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            self_service_portal: pulumi.Input[Optional[_builtins.str]] = None,
+            self_service_portal_url: pulumi.Input[Optional[_builtins.str]] = None,
+            server_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            session_timeout_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            split_tunnel: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            traffic_ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_configuration: pulumi.Input[Optional[Union['EndpointTransitGatewayConfigurationArgs', 'EndpointTransitGatewayConfigurationArgsDict', 'outputs.EndpointTransitGatewayConfiguration']]] = None,
+            transport_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpn_port: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["authenticationOptions"] = authentication_options
+        __props__["clientCidrBlock"] = client_cidr_block
+        __props__["clientConnectOptions"] = client_connect_options
+        __props__["clientLoginBannerOptions"] = client_login_banner_options
+        __props__["clientRouteEnforcementOptions"] = client_route_enforcement_options
+        __props__["connectionLogOptions"] = connection_log_options
+        __props__["description"] = description
+        __props__["disconnectOnSessionTimeout"] = disconnect_on_session_timeout
+        __props__["dnsName"] = dns_name
+        __props__["dnsServers"] = dns_servers
+        __props__["endpointIpAddressType"] = endpoint_ip_address_type
+        __props__["region"] = region
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["selfServicePortal"] = self_service_portal
+        __props__["selfServicePortalUrl"] = self_service_portal_url
+        __props__["serverCertificateArn"] = server_certificate_arn
+        __props__["sessionTimeoutHours"] = session_timeout_hours
+        __props__["splitTunnel"] = split_tunnel
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["trafficIpAddressType"] = traffic_ip_address_type
+        __props__["transitGatewayConfiguration"] = transit_gateway_configuration
+        __props__["transportProtocol"] = transport_protocol
+        __props__["vpcId"] = vpc_id
+        __props__["vpnPort"] = vpn_port
+        return pulumi.runtime.exists_resource(None, 'aws:ec2clientvpn/endpoint:Endpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

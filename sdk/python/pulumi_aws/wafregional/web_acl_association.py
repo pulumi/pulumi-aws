@@ -357,6 +357,18 @@ class WebAclAssociation(pulumi.CustomResource):
         __props__.__dict__["web_acl_id"] = web_acl_id
         return WebAclAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            web_acl_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        __props__["webAclId"] = web_acl_id
+        return pulumi.runtime.exists_resource(None, 'aws:wafregional/webAclAssociation:WebAclAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

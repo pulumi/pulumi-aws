@@ -622,6 +622,38 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Rule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleExcludeResourceTagArgs', 'RuleExcludeResourceTagArgsDict', 'outputs.RuleExcludeResourceTag']]]]] = None,
+            lock_configuration: pulumi.Input[Optional[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict', 'outputs.RuleLockConfiguration']]] = None,
+            lock_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_state: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict', 'outputs.RuleResourceTag']]]]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict', 'outputs.RuleRetentionPeriod']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["excludeResourceTags"] = exclude_resource_tags
+        __props__["lockConfiguration"] = lock_configuration
+        __props__["lockEndTime"] = lock_end_time
+        __props__["lockState"] = lock_state
+        __props__["region"] = region
+        __props__["resourceTags"] = resource_tags
+        __props__["resourceType"] = resource_type
+        __props__["retentionPeriod"] = retention_period
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:rbin/rule:Rule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

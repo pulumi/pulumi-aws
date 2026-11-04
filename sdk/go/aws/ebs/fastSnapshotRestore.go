@@ -127,6 +127,12 @@ func (FastSnapshotRestoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fastSnapshotRestoreState)(nil)).Elem()
 }
 
+// FastSnapshotRestoreExists checks whether an existing FastSnapshotRestore resource with the given ID exists.
+func FastSnapshotRestoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FastSnapshotRestoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ebs/fastSnapshotRestore:FastSnapshotRestore", id, state, "", opts...)
+}
+
 type fastSnapshotRestoreArgs struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone string `pulumi:"availabilityZone"`

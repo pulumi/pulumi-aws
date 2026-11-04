@@ -780,6 +780,38 @@ class HyperParameterTuningJob(pulumi.CustomResource):
         __props__.__dict__["warm_start_config"] = warm_start_config
         return HyperParameterTuningJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            autotune: pulumi.Input[Optional[Union['HyperParameterTuningJobAutotuneArgs', 'HyperParameterTuningJobAutotuneArgsDict', 'outputs.HyperParameterTuningJobAutotune']]] = None,
+            config: pulumi.Input[Optional[Union['HyperParameterTuningJobConfigArgs', 'HyperParameterTuningJobConfigArgsDict', 'outputs.HyperParameterTuningJobConfig']]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['HyperParameterTuningJobTimeoutsArgs', 'HyperParameterTuningJobTimeoutsArgsDict', 'outputs.HyperParameterTuningJobTimeouts']]] = None,
+            training_job_definition: pulumi.Input[Optional[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict', 'outputs.HyperParameterTuningJobTrainingJobDefinition']]] = None,
+            training_job_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict', 'outputs.HyperParameterTuningJobTrainingJobDefinition']]]]] = None,
+            warm_start_config: pulumi.Input[Optional[Union['HyperParameterTuningJobWarmStartConfigArgs', 'HyperParameterTuningJobWarmStartConfigArgsDict', 'outputs.HyperParameterTuningJobWarmStartConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autotune"] = autotune
+        __props__["config"] = config
+        __props__["failureReason"] = failure_reason
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["trainingJobDefinition"] = training_job_definition
+        __props__["trainingJobDefinitions"] = training_job_definitions
+        __props__["warmStartConfig"] = warm_start_config
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/hyperParameterTuningJob:HyperParameterTuningJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

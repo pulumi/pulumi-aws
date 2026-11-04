@@ -318,6 +318,12 @@ func (MulticastDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multicastDomainState)(nil)).Elem()
 }
 
+// MulticastDomainExists checks whether an existing MulticastDomain resource with the given ID exists.
+func MulticastDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MulticastDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/multicastDomain:MulticastDomain", id, state, "", opts...)
+}
+
 type multicastDomainArgs struct {
 	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAssociations *string `pulumi:"autoAcceptSharedAssociations"`

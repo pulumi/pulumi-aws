@@ -438,6 +438,26 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         __props__.__dict__["voice_connector_id"] = voice_connector_id
         return VoiceConnectorTermination(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            calling_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cidr_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cps_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            default_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["callingRegions"] = calling_regions
+        __props__["cidrAllowLists"] = cidr_allow_lists
+        __props__["cpsLimit"] = cps_limit
+        __props__["defaultPhoneNumber"] = default_phone_number
+        __props__["disabled"] = disabled
+        __props__["region"] = region
+        __props__["voiceConnectorId"] = voice_connector_id
+        return pulumi.runtime.exists_resource(None, 'aws:chime/voiceConnectorTermination:VoiceConnectorTermination', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="callingRegions")
     def calling_regions(self) -> pulumi.Output[Sequence[_builtins.str]]:

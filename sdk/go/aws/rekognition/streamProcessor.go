@@ -497,6 +497,12 @@ func (StreamProcessorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamProcessorState)(nil)).Elem()
 }
 
+// StreamProcessorExists checks whether an existing StreamProcessor resource with the given ID exists.
+func StreamProcessorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamProcessorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rekognition/streamProcessor:StreamProcessor", id, state, "", opts...)
+}
+
 type streamProcessorArgs struct {
 	// See `dataSharingPreference`.
 	DataSharingPreference *StreamProcessorDataSharingPreference `pulumi:"dataSharingPreference"`

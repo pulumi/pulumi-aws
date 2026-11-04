@@ -146,6 +146,12 @@ func (KinesisStreamingDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kinesisStreamingDestinationState)(nil)).Elem()
 }
 
+// KinesisStreamingDestinationExists checks whether an existing KinesisStreamingDestination resource with the given ID exists.
+func KinesisStreamingDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KinesisStreamingDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination", id, state, "", opts...)
+}
+
 type kinesisStreamingDestinationArgs struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`

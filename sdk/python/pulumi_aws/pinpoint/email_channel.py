@@ -591,6 +591,30 @@ class EmailChannel(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = role_arn
         return EmailChannel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_set: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            from_address: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[_builtins.str]] = None,
+            messages_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+            orchestration_sending_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["configurationSet"] = configuration_set
+        __props__["enabled"] = enabled
+        __props__["fromAddress"] = from_address
+        __props__["identity"] = identity
+        __props__["messagesPerSecond"] = messages_per_second
+        __props__["orchestrationSendingRoleArn"] = orchestration_sending_role_arn
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/emailChannel:EmailChannel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     @_utilities.deprecated("""application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")

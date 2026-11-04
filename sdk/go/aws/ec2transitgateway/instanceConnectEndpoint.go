@@ -181,6 +181,12 @@ func (InstanceConnectEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceConnectEndpointState)(nil)).Elem()
 }
 
+// InstanceConnectEndpointExists checks whether an existing InstanceConnectEndpoint resource with the given ID exists.
+func InstanceConnectEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceConnectEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint", id, state, "", opts...)
+}
+
 type instanceConnectEndpointArgs struct {
 	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
 	IpAddressType *string `pulumi:"ipAddressType"`

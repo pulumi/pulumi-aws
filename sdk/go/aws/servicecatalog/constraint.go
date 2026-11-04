@@ -177,6 +177,12 @@ func (ConstraintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*constraintState)(nil)).Elem()
 }
 
+// ConstraintExists checks whether an existing Constraint resource with the given ID exists.
+func ConstraintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConstraintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/constraint:Constraint", id, state, "", opts...)
+}
+
 type constraintArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

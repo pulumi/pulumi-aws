@@ -756,6 +756,36 @@ class DataLakeSettings(pulumi.CustomResource):
         __props__.__dict__["trusted_resource_owners"] = trusted_resource_owners
         return DataLakeSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allow_external_data_filtering: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateDatabaseDefaultPermission']]]]] = None,
+            create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateTableDefaultPermission']]]]] = None,
+            external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            trusted_resource_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["admins"] = admins
+        __props__["allowExternalDataFiltering"] = allow_external_data_filtering
+        __props__["allowFullTableExternalDataAccess"] = allow_full_table_external_data_access
+        __props__["authorizedSessionTagValueLists"] = authorized_session_tag_value_lists
+        __props__["catalogId"] = catalog_id
+        __props__["createDatabaseDefaultPermissions"] = create_database_default_permissions
+        __props__["createTableDefaultPermissions"] = create_table_default_permissions
+        __props__["externalDataFilteringAllowLists"] = external_data_filtering_allow_lists
+        __props__["parameters"] = parameters
+        __props__["readOnlyAdmins"] = read_only_admins
+        __props__["region"] = region
+        __props__["trustedResourceOwners"] = trusted_resource_owners
+        return pulumi.runtime.exists_resource(None, 'aws:lakeformation/dataLakeSettings:DataLakeSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def admins(self) -> pulumi.Output[Sequence[_builtins.str]]:

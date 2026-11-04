@@ -196,6 +196,12 @@ func (DefaultVpcState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultVpcState)(nil)).Elem()
 }
 
+// DefaultVpcExists checks whether an existing DefaultVpc resource with the given ID exists.
+func DefaultVpcExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultVpcState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/defaultVpc:DefaultVpc", id, state, "", opts...)
+}
+
 type defaultVpcArgs struct {
 	AssignGeneratedIpv6CidrBlock     *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
 	EnableDnsHostnames               *bool `pulumi:"enableDnsHostnames"`

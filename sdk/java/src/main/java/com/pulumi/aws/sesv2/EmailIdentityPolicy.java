@@ -53,22 +53,22 @@ import javax.annotation.Nullable;
  *             .policyName("example")
  *             .policy(example.arn().applyValue(_arn -> """
  * }{{@code
- *   \"Id\":\"ExampleAuthorizationPolicy\",
- *   \"Version\":\"2012-10-17\",
- *   \"Statement\":[
+ *   }&#92;{@code "Id}&#92;{@code ":}&#92;{@code "ExampleAuthorizationPolicy}&#92;{@code ",
+ *   }&#92;{@code "Version}&#92;{@code ":}&#92;{@code "2012-10-17}&#92;{@code ",
+ *   }&#92;{@code "Statement}&#92;{@code ":[
  *     }{{@code
- *       \"Sid\":\"AuthorizeIAMUser\",
- *       \"Effect\":\"Allow\",
- *       \"Resource\":\"%s\",
- *       \"Principal\":}{{@code
- *         \"AWS\":[
- *           \"arn:aws:iam::123456789012:user/John\",
- *           \"arn:aws:iam::123456789012:user/Jane\"
+ *       }&#92;{@code "Sid}&#92;{@code ":}&#92;{@code "AuthorizeIAMUser}&#92;{@code ",
+ *       }&#92;{@code "Effect}&#92;{@code ":}&#92;{@code "Allow}&#92;{@code ",
+ *       }&#92;{@code "Resource}&#92;{@code ":}&#92;{@code "%s}&#92;{@code ",
+ *       }&#92;{@code "Principal}&#92;{@code ":}{{@code
+ *         }&#92;{@code "AWS}&#92;{@code ":[
+ *           }&#92;{@code "arn:aws:iam::123456789012:user/John}&#92;{@code ",
+ *           }&#92;{@code "arn:aws:iam::123456789012:user/Jane}&#92;{@code "
  *         ]
  *       }}{@code ,
- *       \"Action\":[
- *         \"ses:DeleteEmailIdentity\",
- *         \"ses:PutEmailIdentityDkimSigningAttributes\"
+ *       }&#92;{@code "Action}&#92;{@code ":[
+ *         }&#92;{@code "ses:DeleteEmailIdentity}&#92;{@code ",
+ *         }&#92;{@code "ses:PutEmailIdentityDkimSigningAttributes}&#92;{@code "
  *       ]
  *     }}{@code
  *   ]

@@ -543,6 +543,12 @@ func (CloudVmClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudVmClusterState)(nil)).Elem()
 }
 
+// CloudVmClusterExists checks whether an existing CloudVmCluster resource with the given ID exists.
+func CloudVmClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudVmClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:odb/cloudVmCluster:CloudVmCluster", id, state, "", opts...)
+}
+
 type cloudVmClusterArgs struct {
 	// ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`

@@ -513,6 +513,12 @@ func (DbInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbInstanceState)(nil)).Elem()
 }
 
+// DbInstanceExists checks whether an existing DbInstance resource with the given ID exists.
+func DbInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:timestreaminfluxdb/dbInstance:DbInstance", id, state, "", opts...)
+}
+
 type dbInstanceArgs struct {
 	// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument's minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` "InfluxIOIncludedT1":  `20` ,  `"InfluxIOIncludedT2" and ` "InfluxIOIncludedT3":  `400`.
 	AllocatedStorage int `pulumi:"allocatedStorage"`

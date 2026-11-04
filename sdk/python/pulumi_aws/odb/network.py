@@ -1244,6 +1244,80 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["zero_etl_access"] = zero_etl_access
         return Network(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            client_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            cross_region_s3_restore_sources_accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_dns_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_associated_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ec2_placement_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kms_access: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict', 'outputs.NetworkManagedService']]]]] = None,
+            oci_dns_forwarding_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict', 'outputs.NetworkOciDnsForwardingConfig']]]]] = None,
+            oci_network_anchor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_network_anchor_url: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_resource_anchor_name: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_vcn_id: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_vcn_url: pulumi.Input[Optional[_builtins.str]] = None,
+            peered_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            percent_progress: pulumi.Input[Optional[_builtins.float]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_access: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            sts_access: pulumi.Input[Optional[_builtins.str]] = None,
+            sts_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict', 'outputs.NetworkTimeouts']]] = None,
+            zero_etl_access: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["availabilityZoneId"] = availability_zone_id
+        __props__["backupSubnetCidr"] = backup_subnet_cidr
+        __props__["clientSubnetCidr"] = client_subnet_cidr
+        __props__["createdAt"] = created_at
+        __props__["crossRegionS3RestoreSourcesAccesses"] = cross_region_s3_restore_sources_accesses
+        __props__["customDomainName"] = custom_domain_name
+        __props__["defaultDnsPrefix"] = default_dns_prefix
+        __props__["deleteAssociatedResources"] = delete_associated_resources
+        __props__["displayName"] = display_name
+        __props__["ec2PlacementGroupIds"] = ec2_placement_group_ids
+        __props__["kmsAccess"] = kms_access
+        __props__["kmsPolicyDocument"] = kms_policy_document
+        __props__["managedServices"] = managed_services
+        __props__["ociDnsForwardingConfigs"] = oci_dns_forwarding_configs
+        __props__["ociNetworkAnchorId"] = oci_network_anchor_id
+        __props__["ociNetworkAnchorUrl"] = oci_network_anchor_url
+        __props__["ociResourceAnchorName"] = oci_resource_anchor_name
+        __props__["ociVcnId"] = oci_vcn_id
+        __props__["ociVcnUrl"] = oci_vcn_url
+        __props__["peeredCidrs"] = peered_cidrs
+        __props__["percentProgress"] = percent_progress
+        __props__["region"] = region
+        __props__["s3Access"] = s3_access
+        __props__["s3PolicyDocument"] = s3_policy_document
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        __props__["stsAccess"] = sts_access
+        __props__["stsPolicyDocument"] = sts_policy_document
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["zeroEtlAccess"] = zero_etl_access
+        return pulumi.runtime.exists_resource(None, 'aws:odb/network:Network', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -239,6 +239,12 @@ func (WorkspaceConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceConfigurationState)(nil)).Elem()
 }
 
+// WorkspaceConfigurationExists checks whether an existing WorkspaceConfiguration resource with the given ID exists.
+func WorkspaceConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:amp/workspaceConfiguration:WorkspaceConfiguration", id, state, "", opts...)
+}
+
 type workspaceConfigurationArgs struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`

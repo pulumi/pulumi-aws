@@ -189,6 +189,12 @@ func (RepositoryAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryAssociationState)(nil)).Elem()
 }
 
+// RepositoryAssociationExists checks whether an existing RepositoryAssociation resource with the given ID exists.
+func RepositoryAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation", id, state, "", opts...)
+}
+
 type repositoryAssociationArgs struct {
 	// An object describing the KMS key to associate. Block is documented below.
 	KmsKeyDetails *RepositoryAssociationKmsKeyDetails `pulumi:"kmsKeyDetails"`

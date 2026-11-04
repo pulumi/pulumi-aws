@@ -157,6 +157,12 @@ func (GatewayAssociationProposalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayAssociationProposalState)(nil)).Elem()
 }
 
+// GatewayAssociationProposalExists checks whether an existing GatewayAssociationProposal resource with the given ID exists.
+func GatewayAssociationProposalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayAssociationProposalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", id, state, "", opts...)
+}
+
 type gatewayAssociationProposalArgs struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
 	AllowedPrefixes []string `pulumi:"allowedPrefixes"`

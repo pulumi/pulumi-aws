@@ -187,6 +187,12 @@ func (VpcAttachmentAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcAttachmentAccepterState)(nil)).Elem()
 }
 
+// VpcAttachmentAccepterExists checks whether an existing VpcAttachmentAccepter resource with the given ID exists.
+func VpcAttachmentAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcAttachmentAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", id, state, "", opts...)
+}
+
 type vpcAttachmentAccepterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -113,6 +113,12 @@ func (TargetGroupAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupAttachmentState)(nil)).Elem()
 }
 
+// TargetGroupAttachmentExists checks whether an existing TargetGroupAttachment resource with the given ID exists.
+func TargetGroupAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TargetGroupAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment", id, state, "", opts...)
+}
+
 type targetGroupAttachmentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

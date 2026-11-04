@@ -228,6 +228,12 @@ func (ScheduledActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledActionState)(nil)).Elem()
 }
 
+// ScheduledActionExists checks whether an existing ScheduledAction resource with the given ID exists.
+func ScheduledActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appautoscaling/scheduledAction:ScheduledAction", id, state, "", opts...)
+}
+
 type scheduledActionArgs struct {
 	// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 	EndTime *string `pulumi:"endTime"`

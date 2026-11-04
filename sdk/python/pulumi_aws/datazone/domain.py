@@ -892,6 +892,42 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on: pulumi.Input[Optional[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict', 'outputs.DomainSingleSignOn']]] = None,
+            skip_deletion_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict', 'outputs.DomainTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["domainExecutionRole"] = domain_execution_role
+        __props__["domainVersion"] = domain_version
+        __props__["kmsKeyIdentifier"] = kms_key_identifier
+        __props__["name"] = name
+        __props__["portalUrl"] = portal_url
+        __props__["region"] = region
+        __props__["rootDomainUnitId"] = root_domain_unit_id
+        __props__["serviceRole"] = service_role
+        __props__["singleSignOn"] = single_sign_on
+        __props__["skipDeletionCheck"] = skip_deletion_check
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:datazone/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

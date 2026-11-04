@@ -696,6 +696,38 @@ class EnvironmentEC2(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return EnvironmentEC2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_stop_time_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["automaticStopTimeMinutes"] = automatic_stop_time_minutes
+        __props__["connectionType"] = connection_type
+        __props__["description"] = description
+        __props__["imageId"] = image_id
+        __props__["instanceType"] = instance_type
+        __props__["name"] = name
+        __props__["ownerArn"] = owner_arn
+        __props__["region"] = region
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:cloud9/environmentEC2:EnvironmentEC2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

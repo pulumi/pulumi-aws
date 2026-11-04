@@ -639,6 +639,28 @@ class SecretRotation(pulumi.CustomResource):
         __props__.__dict__["secret_id"] = secret_id
         return SecretRotation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            external_secret_rotation_metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict', 'outputs.SecretRotationExternalSecretRotationMetadata']]]]] = None,
+            external_secret_rotation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict', 'outputs.SecretRotationRotationRules']]] = None,
+            secret_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["externalSecretRotationMetadatas"] = external_secret_rotation_metadatas
+        __props__["externalSecretRotationRoleArn"] = external_secret_rotation_role_arn
+        __props__["region"] = region
+        __props__["rotateImmediately"] = rotate_immediately
+        __props__["rotationEnabled"] = rotation_enabled
+        __props__["rotationLambdaArn"] = rotation_lambda_arn
+        __props__["rotationRules"] = rotation_rules
+        __props__["secretId"] = secret_id
+        return pulumi.runtime.exists_resource(None, 'aws:secretsmanager/secretRotation:SecretRotation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="externalSecretRotationMetadatas")
     def external_secret_rotation_metadatas(self) -> pulumi.Output[Optional[Sequence['outputs.SecretRotationExternalSecretRotationMetadata']]]:

@@ -467,6 +467,22 @@ class MethodSettings(pulumi.CustomResource):
         __props__.__dict__["stage_name"] = stage_name
         return MethodSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            method_path: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict', 'outputs.MethodSettingsSettings']]] = None,
+            stage_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["methodPath"] = method_path
+        __props__["region"] = region
+        __props__["restApi"] = rest_api
+        __props__["settings"] = settings
+        __props__["stageName"] = stage_name
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/methodSettings:MethodSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="methodPath")
     def method_path(self) -> pulumi.Output[_builtins.str]:

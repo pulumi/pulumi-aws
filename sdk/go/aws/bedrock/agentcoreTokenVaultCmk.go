@@ -117,6 +117,12 @@ func (AgentcoreTokenVaultCmkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreTokenVaultCmkState)(nil)).Elem()
 }
 
+// AgentcoreTokenVaultCmkExists checks whether an existing AgentcoreTokenVaultCmk resource with the given ID exists.
+func AgentcoreTokenVaultCmkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreTokenVaultCmkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk", id, state, "", opts...)
+}
+
 type agentcoreTokenVaultCmkArgs struct {
 	// KMS configuration for the token vault. See `kmsConfiguration` below.
 	KmsConfiguration AgentcoreTokenVaultCmkKmsConfiguration `pulumi:"kmsConfiguration"`

@@ -412,6 +412,26 @@ class Resource(pulumi.CustomResource):
         __props__.__dict__["type_version_id"] = type_version_id
         return Resource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            desired_state: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            type_name: pulumi.Input[Optional[_builtins.str]] = None,
+            type_version_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["desiredState"] = desired_state
+        __props__["properties"] = properties
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["schema"] = schema
+        __props__["typeName"] = type_name
+        __props__["typeVersionId"] = type_version_id
+        return pulumi.runtime.exists_resource(None, 'aws:cloudcontrol/resource:Resource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="desiredState")
     def desired_state(self) -> pulumi.Output[_builtins.str]:

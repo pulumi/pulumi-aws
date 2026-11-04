@@ -50,77 +50,69 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
 
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet login_path
+     * @deprecated Use awsManagedRulesAtpRuleSet login_path
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet login_path */
+    @Deprecated
     @Import(name="loginPath")
     private @Nullable Output<String> loginPath;
 
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet login_path
+     * @deprecated Use awsManagedRulesAtpRuleSet login_path
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet login_path */
+    @Deprecated
     public Optional<Output<String>> loginPath() {
         return Optional.ofNullable(this.loginPath);
     }
 
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection password_field
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection password_field
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection password_field */
+    @Deprecated
     @Import(name="passwordField")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs> passwordField;
 
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection password_field
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection password_field
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection password_field */
+    @Deprecated
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs>> passwordField() {
         return Optional.ofNullable(this.passwordField);
     }
 
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection payload_type
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection payload_type
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection payload_type */
+    @Deprecated
     @Import(name="payloadType")
     private @Nullable Output<String> payloadType;
 
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection payload_type
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection payload_type
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection payload_type */
+    @Deprecated
     public Optional<Output<String>> payloadType() {
         return Optional.ofNullable(this.payloadType);
     }
 
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection username_field
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection username_field
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection username_field */
+    @Deprecated
     @Import(name="usernameField")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs> usernameField;
 
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection username_field
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection username_field
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection username_field */
+    @Deprecated
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs>> usernameField() {
         return Optional.ofNullable(this.usernameField);
     }
@@ -195,11 +187,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use awsManagedRulesAtpRuleSet login_path
+         * @deprecated Use awsManagedRulesAtpRuleSet login_path
          * 
          */
-        @Deprecated /* Use awsManagedRulesAtpRuleSet login_path */
+        @Deprecated
         public Builder loginPath(@Nullable Output<String> loginPath) {
             $.loginPath = loginPath;
             return this;
@@ -208,11 +199,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use awsManagedRulesAtpRuleSet login_path
+         * @deprecated Use awsManagedRulesAtpRuleSet login_path
          * 
          */
-        @Deprecated /* Use awsManagedRulesAtpRuleSet login_path */
+        @Deprecated
         public Builder loginPath(String loginPath) {
             return loginPath(Output.of(loginPath));
         }
@@ -220,11 +210,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use awsManagedRulesAtpRuleSet request_inspection password_field
+         * @deprecated Use awsManagedRulesAtpRuleSet request_inspection password_field
          * 
          */
-        @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection password_field */
+        @Deprecated
         public Builder passwordField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs> passwordField) {
             $.passwordField = passwordField;
             return this;
@@ -233,11 +222,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use awsManagedRulesAtpRuleSet request_inspection password_field
+         * @deprecated Use awsManagedRulesAtpRuleSet request_inspection password_field
          * 
          */
-        @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection password_field */
+        @Deprecated
         public Builder passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs passwordField) {
             return passwordField(Output.of(passwordField));
         }
@@ -245,11 +233,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use awsManagedRulesAtpRuleSet request_inspection payload_type
+         * @deprecated Use awsManagedRulesAtpRuleSet request_inspection payload_type
          * 
          */
-        @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection payload_type */
+        @Deprecated
         public Builder payloadType(@Nullable Output<String> payloadType) {
             $.payloadType = payloadType;
             return this;
@@ -258,11 +245,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use awsManagedRulesAtpRuleSet request_inspection payload_type
+         * @deprecated Use awsManagedRulesAtpRuleSet request_inspection payload_type
          * 
          */
-        @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection payload_type */
+        @Deprecated
         public Builder payloadType(String payloadType) {
             return payloadType(Output.of(payloadType));
         }
@@ -270,11 +256,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use awsManagedRulesAtpRuleSet request_inspection username_field
+         * @deprecated Use awsManagedRulesAtpRuleSet request_inspection username_field
          * 
          */
-        @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection username_field */
+        @Deprecated
         public Builder usernameField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs> usernameField) {
             $.usernameField = usernameField;
             return this;
@@ -283,11 +268,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use awsManagedRulesAtpRuleSet request_inspection username_field
+         * @deprecated Use awsManagedRulesAtpRuleSet request_inspection username_field
          * 
          */
-        @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection username_field */
+        @Deprecated
         public Builder usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs usernameField) {
             return usernameField(Output.of(usernameField));
         }

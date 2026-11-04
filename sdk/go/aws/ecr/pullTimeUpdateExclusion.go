@@ -229,6 +229,12 @@ func (PullTimeUpdateExclusionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pullTimeUpdateExclusionState)(nil)).Elem()
 }
 
+// PullTimeUpdateExclusionExists checks whether an existing PullTimeUpdateExclusion resource with the given ID exists.
+func PullTimeUpdateExclusionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PullTimeUpdateExclusionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion", id, state, "", opts...)
+}
+
 type pullTimeUpdateExclusionArgs struct {
 	// ARN of the IAM principal to exclude from having image pull times recorded.
 	//

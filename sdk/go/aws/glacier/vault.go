@@ -185,6 +185,12 @@ func (VaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultState)(nil)).Elem()
 }
 
+// VaultExists checks whether an existing Vault resource with the given ID exists.
+func VaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glacier/vault:Vault", id, state, "", opts...)
+}
+
 type vaultArgs struct {
 	// Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
 	AccessPolicy *string `pulumi:"accessPolicy"`

@@ -187,6 +187,12 @@ func (ConfigurationPolicyAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationPolicyAssociationState)(nil)).Elem()
 }
 
+// ConfigurationPolicyAssociationExists checks whether an existing ConfigurationPolicyAssociation resource with the given ID exists.
+func ConfigurationPolicyAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationPolicyAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation", id, state, "", opts...)
+}
+
 type configurationPolicyAssociationArgs struct {
 	// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
 	PolicyId string `pulumi:"policyId"`

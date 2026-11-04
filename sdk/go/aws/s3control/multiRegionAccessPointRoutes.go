@@ -215,6 +215,12 @@ func (MultiRegionAccessPointRoutesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiRegionAccessPointRoutesState)(nil)).Elem()
 }
 
+// MultiRegionAccessPointRoutesExists checks whether an existing MultiRegionAccessPointRoutes resource with the given ID exists.
+func MultiRegionAccessPointRoutesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiRegionAccessPointRoutesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/multiRegionAccessPointRoutes:MultiRegionAccessPointRoutes", id, state, "", opts...)
+}
+
 type multiRegionAccessPointRoutesArgs struct {
 	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`

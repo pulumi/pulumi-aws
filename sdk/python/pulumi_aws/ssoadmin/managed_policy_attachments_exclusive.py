@@ -428,6 +428,22 @@ class ManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ManagedPolicyAttachmentsExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict', 'outputs.ManagedPolicyAttachmentsExclusiveTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["instanceArn"] = instance_arn
+        __props__["managedPolicyArns"] = managed_policy_arns
+        __props__["permissionSetArn"] = permission_set_arn
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ssoadmin/managedPolicyAttachmentsExclusive:ManagedPolicyAttachmentsExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:

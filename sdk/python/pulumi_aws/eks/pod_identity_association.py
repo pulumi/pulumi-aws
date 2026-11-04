@@ -719,6 +719,38 @@ class PodIdentityAssociation(pulumi.CustomResource):
         __props__.__dict__["target_role_arn"] = target_role_arn
         return PodIdentityAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            association_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_session_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["associationArn"] = association_arn
+        __props__["associationId"] = association_id
+        __props__["clusterName"] = cluster_name
+        __props__["disableSessionTags"] = disable_session_tags
+        __props__["externalId"] = external_id
+        __props__["namespace"] = namespace
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["serviceAccount"] = service_account
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetRoleArn"] = target_role_arn
+        return pulumi.runtime.exists_resource(None, 'aws:eks/podIdentityAssociation:PodIdentityAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="associationArn")
     def association_arn(self) -> pulumi.Output[_builtins.str]:

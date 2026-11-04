@@ -632,6 +632,34 @@ class Schedule(pulumi.CustomResource):
         __props__.__dict__["time_zone"] = time_zone
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            min_size: pulumi.Input[Optional[_builtins.int]] = None,
+            recurrence: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scheduled_action_name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoscalingGroupName"] = autoscaling_group_name
+        __props__["desiredCapacity"] = desired_capacity
+        __props__["endTime"] = end_time
+        __props__["maxSize"] = max_size
+        __props__["minSize"] = min_size
+        __props__["recurrence"] = recurrence
+        __props__["region"] = region
+        __props__["scheduledActionName"] = scheduled_action_name
+        __props__["startTime"] = start_time
+        __props__["timeZone"] = time_zone
+        return pulumi.runtime.exists_resource(None, 'aws:autoscaling/schedule:Schedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

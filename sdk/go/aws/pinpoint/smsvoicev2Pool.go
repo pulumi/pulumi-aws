@@ -303,6 +303,12 @@ func (Smsvoicev2PoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsvoicev2PoolState)(nil)).Elem()
 }
 
+// Smsvoicev2PoolExists checks whether an existing Smsvoicev2Pool resource with the given ID exists.
+func Smsvoicev2PoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Smsvoicev2PoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsvoicev2Pool:Smsvoicev2Pool", id, state, "", opts...)
+}
+
 type smsvoicev2PoolArgs struct {
 	// Whether deletion protection is enabled. When `true`, the pool cannot be deleted.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`

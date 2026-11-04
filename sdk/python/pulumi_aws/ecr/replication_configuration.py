@@ -350,6 +350,18 @@ class ReplicationConfiguration(pulumi.CustomResource):
         __props__.__dict__["replication_configuration"] = replication_configuration
         return ReplicationConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict', 'outputs.ReplicationConfigurationReplicationConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["registryId"] = registry_id
+        __props__["replicationConfiguration"] = replication_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:ecr/replicationConfiguration:ReplicationConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

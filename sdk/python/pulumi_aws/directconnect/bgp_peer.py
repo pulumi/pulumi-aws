@@ -516,6 +516,34 @@ class BgpPeer(pulumi.CustomResource):
         __props__.__dict__["virtual_interface_id"] = virtual_interface_id
         return BgpPeer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_family: pulumi.Input[Optional[_builtins.str]] = None,
+            amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_device: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            bgp_asn_long: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_status: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_address: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_interface_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressFamily"] = address_family
+        __props__["amazonAddress"] = amazon_address
+        __props__["awsDevice"] = aws_device
+        __props__["bgpAsn"] = bgp_asn
+        __props__["bgpAsnLong"] = bgp_asn_long
+        __props__["bgpAuthKey"] = bgp_auth_key
+        __props__["bgpPeerId"] = bgp_peer_id
+        __props__["bgpStatus"] = bgp_status
+        __props__["customerAddress"] = customer_address
+        __props__["region"] = region
+        __props__["virtualInterfaceId"] = virtual_interface_id
+        return pulumi.runtime.exists_resource(None, 'aws:directconnect/bgpPeer:BgpPeer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[_builtins.str]:

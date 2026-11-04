@@ -156,6 +156,12 @@ func (GroupPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupPolicyState)(nil)).Elem()
 }
 
+// GroupPolicyExists checks whether an existing GroupPolicy resource with the given ID exists.
+func GroupPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/groupPolicy:GroupPolicy", id, state, "", opts...)
+}
+
 type groupPolicyArgs struct {
 	// The IAM group to attach to the policy.
 	Group string `pulumi:"group"`

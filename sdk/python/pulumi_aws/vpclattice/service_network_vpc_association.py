@@ -507,6 +507,34 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         __props__.__dict__["vpc_identifier"] = vpc_identifier
         return ServiceNetworkVpcAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_options: pulumi.Input[Optional[Union['ServiceNetworkVpcAssociationDnsOptionsArgs', 'ServiceNetworkVpcAssociationDnsOptionsArgsDict', 'outputs.ServiceNetworkVpcAssociationDnsOptions']]] = None,
+            private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdBy"] = created_by
+        __props__["dnsOptions"] = dns_options
+        __props__["privateDnsEnabled"] = private_dns_enabled
+        __props__["region"] = region
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["serviceNetworkIdentifier"] = service_network_identifier
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcIdentifier"] = vpc_identifier
+        return pulumi.runtime.exists_resource(None, 'aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

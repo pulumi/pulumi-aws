@@ -142,6 +142,12 @@ func (DataShareAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataShareAuthorizationState)(nil)).Elem()
 }
 
+// DataShareAuthorizationExists checks whether an existing DataShareAuthorization resource with the given ID exists.
+func DataShareAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataShareAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/dataShareAuthorization:DataShareAuthorization", id, state, "", opts...)
+}
+
 type dataShareAuthorizationArgs struct {
 	// Whether to allow write operations for a datashare.
 	AllowWrites *bool `pulumi:"allowWrites"`

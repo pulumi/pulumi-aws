@@ -135,6 +135,12 @@ func (InviteAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inviteAccepterState)(nil)).Elem()
 }
 
+// InviteAccepterExists checks whether an existing InviteAccepter resource with the given ID exists.
+func InviteAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InviteAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/inviteAccepter:InviteAccepter", id, state, "", opts...)
+}
+
 type inviteAccepterArgs struct {
 	// Detector ID of the member GuardDuty account.
 	DetectorId string `pulumi:"detectorId"`

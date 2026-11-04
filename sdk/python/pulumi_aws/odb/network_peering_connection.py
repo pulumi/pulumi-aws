@@ -638,6 +638,44 @@ class NetworkPeeringConnection(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return NetworkPeeringConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            odb_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            odb_peering_connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_network_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            peer_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            percent_progress: pulumi.Input[Optional[_builtins.float]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['NetworkPeeringConnectionTimeoutsArgs', 'NetworkPeeringConnectionTimeoutsArgsDict', 'outputs.NetworkPeeringConnectionTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdAt"] = created_at
+        __props__["displayName"] = display_name
+        __props__["odbNetworkArn"] = odb_network_arn
+        __props__["odbNetworkId"] = odb_network_id
+        __props__["odbPeeringConnectionType"] = odb_peering_connection_type
+        __props__["peerNetworkArn"] = peer_network_arn
+        __props__["peerNetworkCidrs"] = peer_network_cidrs
+        __props__["peerNetworkId"] = peer_network_id
+        __props__["percentProgress"] = percent_progress
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:odb/networkPeeringConnection:NetworkPeeringConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

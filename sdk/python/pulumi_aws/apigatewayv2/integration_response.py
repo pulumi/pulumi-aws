@@ -428,6 +428,26 @@ class IntegrationResponse(pulumi.CustomResource):
         __props__.__dict__["template_selection_expression"] = template_selection_expression
         return IntegrationResponse(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_response_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["contentHandlingStrategy"] = content_handling_strategy
+        __props__["integrationId"] = integration_id
+        __props__["integrationResponseKey"] = integration_response_key
+        __props__["region"] = region
+        __props__["responseTemplates"] = response_templates
+        __props__["templateSelectionExpression"] = template_selection_expression
+        return pulumi.runtime.exists_resource(None, 'aws:apigatewayv2/integrationResponse:IntegrationResponse', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

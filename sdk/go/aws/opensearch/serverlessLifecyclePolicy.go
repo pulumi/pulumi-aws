@@ -179,6 +179,12 @@ func (ServerlessLifecyclePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessLifecyclePolicyState)(nil)).Elem()
 }
 
+// ServerlessLifecyclePolicyExists checks whether an existing ServerlessLifecyclePolicy resource with the given ID exists.
+func ServerlessLifecyclePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessLifecyclePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy", id, state, "", opts...)
+}
+
 type serverlessLifecyclePolicyArgs struct {
 	// Description of the policy.
 	Description *string `pulumi:"description"`

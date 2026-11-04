@@ -681,6 +681,34 @@ class VpcPeeringConnection(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return VpcPeeringConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_status: pulumi.Input[Optional[_builtins.str]] = None,
+            accepter: pulumi.Input[Optional[Union['VpcPeeringConnectionAccepterArgs', 'VpcPeeringConnectionAccepterArgsDict', 'outputs.VpcPeeringConnectionAccepter']]] = None,
+            auto_accept: pulumi.Input[Optional[_builtins.bool]] = None,
+            peer_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_region: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requester: pulumi.Input[Optional[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict', 'outputs.VpcPeeringConnectionRequester']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptStatus"] = accept_status
+        __props__["accepter"] = accepter
+        __props__["autoAccept"] = auto_accept
+        __props__["peerOwnerId"] = peer_owner_id
+        __props__["peerRegion"] = peer_region
+        __props__["peerVpcId"] = peer_vpc_id
+        __props__["region"] = region
+        __props__["requester"] = requester
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcPeeringConnection:VpcPeeringConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptStatus")
     def accept_status(self) -> pulumi.Output[_builtins.str]:

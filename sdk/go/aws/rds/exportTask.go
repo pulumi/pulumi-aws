@@ -370,6 +370,12 @@ func (ExportTaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*exportTaskState)(nil)).Elem()
 }
 
+// ExportTaskExists checks whether an existing ExportTask resource with the given ID exists.
+func ExportTaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExportTaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/exportTask:ExportTask", id, state, "", opts...)
+}
+
 type exportTaskArgs struct {
 	// Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
 	ExportOnlies []string `pulumi:"exportOnlies"`

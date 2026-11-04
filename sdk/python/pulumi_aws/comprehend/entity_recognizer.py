@@ -770,6 +770,38 @@ class EntityRecognizer(pulumi.CustomResource):
         __props__.__dict__["vpc_config"] = vpc_config
         return EntityRecognizer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            input_data_config: pulumi.Input[Optional[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict', 'outputs.EntityRecognizerInputDataConfig']]] = None,
+            language_code: pulumi.Input[Optional[_builtins.str]] = None,
+            model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_config: pulumi.Input[Optional[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict', 'outputs.EntityRecognizerVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dataAccessRoleArn"] = data_access_role_arn
+        __props__["inputDataConfig"] = input_data_config
+        __props__["languageCode"] = language_code
+        __props__["modelKmsKeyId"] = model_kms_key_id
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["versionName"] = version_name
+        __props__["versionNamePrefix"] = version_name_prefix
+        __props__["volumeKmsKeyId"] = volume_kms_key_id
+        __props__["vpcConfig"] = vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:comprehend/entityRecognizer:EntityRecognizer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

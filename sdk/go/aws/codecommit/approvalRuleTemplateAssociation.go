@@ -116,6 +116,12 @@ func (ApprovalRuleTemplateAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*approvalRuleTemplateAssociationState)(nil)).Elem()
 }
 
+// ApprovalRuleTemplateAssociationExists checks whether an existing ApprovalRuleTemplateAssociation resource with the given ID exists.
+func ApprovalRuleTemplateAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApprovalRuleTemplateAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", id, state, "", opts...)
+}
+
 type approvalRuleTemplateAssociationArgs struct {
 	// The name for the approval rule template.
 	ApprovalRuleTemplateName string `pulumi:"approvalRuleTemplateName"`

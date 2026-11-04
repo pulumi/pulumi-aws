@@ -145,6 +145,12 @@ func (RiskConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*riskConfigurationState)(nil)).Elem()
 }
 
+// RiskConfigurationExists checks whether an existing RiskConfiguration resource with the given ID exists.
+func RiskConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RiskConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/riskConfiguration:RiskConfiguration", id, state, "", opts...)
+}
+
 type riskConfigurationArgs struct {
 	// The account takeover risk configuration. See details below.
 	AccountTakeoverRiskConfiguration *RiskConfigurationAccountTakeoverRiskConfiguration `pulumi:"accountTakeoverRiskConfiguration"`

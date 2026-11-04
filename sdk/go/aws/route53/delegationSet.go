@@ -128,6 +128,12 @@ func (DelegationSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*delegationSetState)(nil)).Elem()
 }
 
+// DelegationSetExists checks whether an existing DelegationSet resource with the given ID exists.
+func DelegationSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DelegationSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/delegationSet:DelegationSet", id, state, "", opts...)
+}
+
 type delegationSetArgs struct {
 	// This is a reference name used in Caller Reference
 	// (helpful for identifying single delegation set amongst others)

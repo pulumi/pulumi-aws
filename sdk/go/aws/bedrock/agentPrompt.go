@@ -224,6 +224,12 @@ func (AgentPromptState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentPromptState)(nil)).Elem()
 }
 
+// AgentPromptExists checks whether an existing AgentPrompt resource with the given ID exists.
+func AgentPromptExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentPromptState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentPrompt:AgentPrompt", id, state, "", opts...)
+}
+
 type agentPromptArgs struct {
 	// ARN of the KMS key that you encrypted the prompt with.
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`

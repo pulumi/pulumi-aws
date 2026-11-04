@@ -760,6 +760,52 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return ClusterSnapshotCopy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+            copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            db_cluster_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            presigned_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snapshot_type: pulumi.Input[Optional[_builtins.str]] = None,
+            source_db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ClusterSnapshotCopyTimeoutsArgs', 'ClusterSnapshotCopyTimeoutsArgsDict', 'outputs.ClusterSnapshotCopyTimeouts']]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocatedStorage"] = allocated_storage
+        __props__["copyTags"] = copy_tags
+        __props__["dbClusterSnapshotArn"] = db_cluster_snapshot_arn
+        __props__["destinationRegion"] = destination_region
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["licenseModel"] = license_model
+        __props__["presignedUrl"] = presigned_url
+        __props__["region"] = region
+        __props__["sharedAccounts"] = shared_accounts
+        __props__["snapshotType"] = snapshot_type
+        __props__["sourceDbClusterSnapshotIdentifier"] = source_db_cluster_snapshot_identifier
+        __props__["storageEncrypted"] = storage_encrypted
+        __props__["storageType"] = storage_type
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetDbClusterSnapshotIdentifier"] = target_db_cluster_snapshot_identifier
+        __props__["timeouts"] = timeouts
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[_builtins.int]:

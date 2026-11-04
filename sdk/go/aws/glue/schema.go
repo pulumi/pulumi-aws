@@ -197,6 +197,12 @@ func (SchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaState)(nil)).Elem()
 }
 
+// SchemaExists checks whether an existing Schema resource with the given ID exists.
+func SchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/schema:Schema", id, state, "", opts...)
+}
+
 type schemaArgs struct {
 	// Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility string `pulumi:"compatibility"`

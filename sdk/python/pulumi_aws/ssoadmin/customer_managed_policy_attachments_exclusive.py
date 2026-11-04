@@ -455,6 +455,22 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return CustomerManagedPolicyAttachmentsExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference']]]]] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customerManagedPolicyReferences"] = customer_managed_policy_references
+        __props__["instanceArn"] = instance_arn
+        __props__["permissionSetArn"] = permission_set_arn
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customerManagedPolicyReferences")
     def customer_managed_policy_references(self) -> pulumi.Output[Optional[Sequence['outputs.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference']]]:

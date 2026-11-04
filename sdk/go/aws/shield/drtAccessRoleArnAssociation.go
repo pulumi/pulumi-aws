@@ -140,6 +140,12 @@ func (DrtAccessRoleArnAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*drtAccessRoleArnAssociationState)(nil)).Elem()
 }
 
+// DrtAccessRoleArnAssociationExists checks whether an existing DrtAccessRoleArnAssociation resource with the given ID exists.
+func DrtAccessRoleArnAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DrtAccessRoleArnAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation", id, state, "", opts...)
+}
+
 type drtAccessRoleArnAssociationArgs struct {
 	// ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  string                               `pulumi:"roleArn"`

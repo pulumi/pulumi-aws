@@ -641,6 +641,34 @@ class CapacityProvider(pulumi.CustomResource):
         __props__.__dict__["vpc_config"] = vpc_config
         return CapacityProvider(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_provider_scaling_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderCapacityProviderScalingConfig']]]]] = None,
+            instance_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict', 'outputs.CapacityProviderInstanceRequirement']]]]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['CapacityProviderTimeoutsArgs', 'CapacityProviderTimeoutsArgsDict', 'outputs.CapacityProviderTimeouts']]] = None,
+            vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["capacityProviderScalingConfigs"] = capacity_provider_scaling_configs
+        __props__["instanceRequirements"] = instance_requirements
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["name"] = name
+        __props__["permissionsConfig"] = permissions_config
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["vpcConfig"] = vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:lambda/capacityProvider:CapacityProvider', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

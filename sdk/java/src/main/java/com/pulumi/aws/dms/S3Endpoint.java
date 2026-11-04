@@ -86,12 +86,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new S3Endpoint("example", S3EndpointArgs.builder()
  *             .endpointId("donnedtipi")
  *             .endpointType("target")
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *             .csvDelimiter(";")
  *             .csvNoSupValue("x")
  *             .csvNullValue("?")
- *             .csvRowDelimiter("\\r\\n")
+ *             .csvRowDelimiter("}&#92;&#92;{@code r}&#92;&#92;{@code n")
  *             .dataFormat("parquet")
  *             .dataPageSize(1100000)
  *             .datePartitionDelimiter("UNDERSCORE")
@@ -146,8 +146,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleAwsIamRolePolicy)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -373,14 +373,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.csvNullValue);
     }
     /**
-     * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
+     * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `&#92;n`).
      * 
      */
     @Export(name="csvRowDelimiter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csvRowDelimiter;
 
     /**
-     * @return Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
+     * @return Delimiter used to separate rows in the source files. Default is newline (_i.e._, `&#92;n`).
      * 
      */
     public Output<Optional<String>> csvRowDelimiter() {
@@ -683,11 +683,10 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
-     * @deprecated
-     * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+     * @deprecated kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
      * 
      */
-    @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
+    @Deprecated
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 

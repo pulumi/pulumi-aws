@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Scraper("example", ScraperArgs.builder()
  *             .source(ScraperSourceArgs.builder()
  *                 .eks(ScraperSourceEksArgs.builder()
@@ -124,13 +124,13 @@ import javax.annotation.Nullable;
  *       - __address__
  *       action: replace
  *       target_label: __address__
- *       regex: (.+?)(\\\\:\\\\d+)?
+ *       regex: (.+?)(}&#92;&#92;&#92;&#92;{@code :}&#92;&#92;&#92;&#92;{@code d+)?
  *       replacement: $1:10249
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

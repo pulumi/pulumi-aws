@@ -138,6 +138,12 @@ func (SubnetCidrReservationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetCidrReservationState)(nil)).Elem()
 }
 
+// SubnetCidrReservationExists checks whether an existing SubnetCidrReservation resource with the given ID exists.
+func SubnetCidrReservationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetCidrReservationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/subnetCidrReservation:SubnetCidrReservation", id, state, "", opts...)
+}
+
 type subnetCidrReservationArgs struct {
 	// The CIDR block for the reservation.
 	CidrBlock string `pulumi:"cidrBlock"`

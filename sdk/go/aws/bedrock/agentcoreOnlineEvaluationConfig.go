@@ -336,6 +336,12 @@ func (AgentcoreOnlineEvaluationConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreOnlineEvaluationConfigState)(nil)).Elem()
 }
 
+// AgentcoreOnlineEvaluationConfigExists checks whether an existing AgentcoreOnlineEvaluationConfig resource with the given ID exists.
+func AgentcoreOnlineEvaluationConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreOnlineEvaluationConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreOnlineEvaluationConfig:AgentcoreOnlineEvaluationConfig", id, state, "", opts...)
+}
+
 type agentcoreOnlineEvaluationConfigArgs struct {
 	// Data source configuration specifying where to read agent traces. See `dataSourceConfig` Block below.
 	DataSourceConfig AgentcoreOnlineEvaluationConfigDataSourceConfig `pulumi:"dataSourceConfig"`

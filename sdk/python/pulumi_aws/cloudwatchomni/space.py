@@ -674,6 +674,32 @@ class Space(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return Space(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_core_evaluation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['SpaceEncryptionConfigurationArgs', 'SpaceEncryptionConfigurationArgsDict', 'outputs.SpaceEncryptionConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            space_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            space_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentCoreEvaluationRoleArn"] = agent_core_evaluation_role_arn
+        __props__["dataAccessRoleArn"] = data_access_role_arn
+        __props__["domainArn"] = domain_arn
+        __props__["domainId"] = domain_id
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["spaceArn"] = space_arn
+        __props__["spaceId"] = space_id
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatchomni/space:Space', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentCoreEvaluationRoleArn")
     def agent_core_evaluation_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -277,6 +277,12 @@ func (BucketVersioningState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketVersioningState)(nil)).Elem()
 }
 
+// BucketVersioningExists checks whether an existing BucketVersioning resource with the given ID exists.
+func BucketVersioningExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketVersioningState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketVersioning:BucketVersioning", id, state, "", opts...)
+}
+
 type bucketVersioningArgs struct {
 	// Name of the S3 bucket.
 	Bucket string `pulumi:"bucket"`

@@ -178,6 +178,12 @@ func (DataShareConsumerAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataShareConsumerAssociationState)(nil)).Elem()
 }
 
+// DataShareConsumerAssociationExists checks whether an existing DataShareConsumerAssociation resource with the given ID exists.
+func DataShareConsumerAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataShareConsumerAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation", id, state, "", opts...)
+}
+
 type dataShareConsumerAssociationArgs struct {
 	// Whether to allow write operations for a datashare.
 	AllowWrites *bool `pulumi:"allowWrites"`

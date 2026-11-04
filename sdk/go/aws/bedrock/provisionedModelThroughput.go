@@ -160,6 +160,12 @@ func (ProvisionedModelThroughputState) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisionedModelThroughputState)(nil)).Elem()
 }
 
+// ProvisionedModelThroughputExists checks whether an existing ProvisionedModelThroughput resource with the given ID exists.
+func ProvisionedModelThroughputExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProvisionedModelThroughputState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput", id, state, "", opts...)
+}
+
 type provisionedModelThroughputArgs struct {
 	// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
 	CommitmentDuration *string `pulumi:"commitmentDuration"`

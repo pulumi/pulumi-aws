@@ -431,6 +431,26 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_source: pulumi.Input[Optional[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict', 'outputs.ApplicationIdentitySource']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["identitySource"] = identity_source
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tenantId"] = tenant_id
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:accountaccess/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

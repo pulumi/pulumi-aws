@@ -1119,6 +1119,58 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["zone_id"] = zone_id
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict', 'outputs.LoadBalancerAccessLogs']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
+            connection_draining_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+            desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            internal: pulumi.Input[Optional[_builtins.bool]] = None,
+            listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict', 'outputs.LoadBalancerListener']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source_security_group: pulumi.Input[Optional[_builtins.str]] = None,
+            source_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessLogs"] = access_logs
+        __props__["arn"] = arn
+        __props__["availabilityZones"] = availability_zones
+        __props__["connectionDraining"] = connection_draining
+        __props__["connectionDrainingTimeout"] = connection_draining_timeout
+        __props__["crossZoneLoadBalancing"] = cross_zone_load_balancing
+        __props__["desyncMitigationMode"] = desync_mitigation_mode
+        __props__["dnsName"] = dns_name
+        __props__["healthCheck"] = health_check
+        __props__["idleTimeout"] = idle_timeout
+        __props__["instances"] = instances
+        __props__["internal"] = internal
+        __props__["listeners"] = listeners
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["securityGroups"] = security_groups
+        __props__["sourceSecurityGroup"] = source_security_group
+        __props__["sourceSecurityGroupId"] = source_security_group_id
+        __props__["subnets"] = subnets
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["zoneId"] = zone_id
+        return pulumi.runtime.exists_resource(None, 'aws:elb/loadBalancer:LoadBalancer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Output[Optional['outputs.LoadBalancerAccessLogs']]:

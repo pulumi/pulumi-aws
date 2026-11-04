@@ -105,6 +105,12 @@ func (DeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentState)(nil)).Elem()
 }
 
+// DeploymentExists checks whether an existing Deployment resource with the given ID exists.
+func DeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigatewayv2/deployment:Deployment", id, state, "", opts...)
+}
+
 type deploymentArgs struct {
 	// API identifier.
 	ApiId string `pulumi:"apiId"`

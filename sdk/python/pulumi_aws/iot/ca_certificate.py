@@ -621,6 +621,38 @@ class CaCertificate(pulumi.CustomResource):
         __props__.__dict__["verification_certificate_pem"] = verification_certificate_pem
         return CaCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_auto_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_version: pulumi.Input[Optional[_builtins.int]] = None,
+            generation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registration_config: pulumi.Input[Optional[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict', 'outputs.CaCertificateRegistrationConfig']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            validities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CaCertificateValidityArgs', 'CaCertificateValidityArgsDict', 'outputs.CaCertificateValidity']]]]] = None,
+            verification_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["allowAutoRegistration"] = allow_auto_registration
+        __props__["arn"] = arn
+        __props__["caCertificatePem"] = ca_certificate_pem
+        __props__["certificateMode"] = certificate_mode
+        __props__["customerVersion"] = customer_version
+        __props__["generationId"] = generation_id
+        __props__["region"] = region
+        __props__["registrationConfig"] = registration_config
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["validities"] = validities
+        __props__["verificationCertificatePem"] = verification_certificate_pem
+        return pulumi.runtime.exists_resource(None, 'aws:iot/caCertificate:CaCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[_builtins.bool]:

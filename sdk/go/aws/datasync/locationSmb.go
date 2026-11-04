@@ -196,6 +196,12 @@ func (LocationSmbState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationSmbState)(nil)).Elem()
 }
 
+// LocationSmbExists checks whether an existing LocationSmb resource with the given ID exists.
+func LocationSmbExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationSmbState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datasync/locationSmb:LocationSmb", id, state, "", opts...)
+}
+
 type locationSmbArgs struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns []string `pulumi:"agentArns"`

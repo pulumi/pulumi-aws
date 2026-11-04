@@ -38,20 +38,20 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new ResourcePolicy("test", ResourcePolicyArgs.builder()
  *             .policyName("test")
- *             .policyDocument("{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AllowXRayAccess\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"xray:*\",\"xray:PutResourcePolicy\"],\"Resource\":\"*\"}]}")
+ *             .policyDocument("}{&#92;{@code "Version}&#92;{@code ":}&#92;{@code "2012-10-17}&#92;{@code ",}&#92;{@code "Statement}&#92;{@code ":[}{&#92;{@code "Sid}&#92;{@code ":}&#92;{@code "AllowXRayAccess}&#92;{@code ",}&#92;{@code "Effect}&#92;{@code ":}&#92;{@code "Allow}&#92;{@code ",}&#92;{@code "Principal}&#92;{@code ":}{&#92;{@code "AWS}&#92;{@code ":}&#92;{@code "*}&#92;{@code "}}{@code ,}&#92;{@code "Action}&#92;{@code ":[}&#92;{@code "xray:*}&#92;{@code ",}&#92;{@code "xray:PutResourcePolicy}&#92;{@code "],}&#92;{@code "Resource}&#92;{@code ":}&#92;{@code "*}&#92;{@code "}}{@code ]}}{@code ")
  *             .bypassPolicyLockoutCheck(true)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

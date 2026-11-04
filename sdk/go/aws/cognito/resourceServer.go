@@ -183,6 +183,12 @@ func (ResourceServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceServerState)(nil)).Elem()
 }
 
+// ResourceServerExists checks whether an existing ResourceServer resource with the given ID exists.
+func ResourceServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/resourceServer:ResourceServer", id, state, "", opts...)
+}
+
 type resourceServerArgs struct {
 	// An identifier for the resource server.
 	Identifier string `pulumi:"identifier"`

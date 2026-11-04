@@ -1166,6 +1166,66 @@ class KxCluster(pulumi.CustomResource):
         __props__.__dict__["vpc_configuration"] = vpc_configuration
         return KxCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_configuration: pulumi.Input[Optional[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict', 'outputs.KxClusterAutoScalingConfiguration']]] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict', 'outputs.KxClusterCacheStorageConfiguration']]]]] = None,
+            capacity_configuration: pulumi.Input[Optional[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict', 'outputs.KxClusterCapacityConfiguration']]] = None,
+            code: pulumi.Input[Optional[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict', 'outputs.KxClusterCode']]] = None,
+            command_line_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            created_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            databases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict', 'outputs.KxClusterDatabase']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+            initialization_script: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_label: pulumi.Input[Optional[_builtins.str]] = None,
+            savedown_storage_configuration: pulumi.Input[Optional[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict', 'outputs.KxClusterSavedownStorageConfiguration']]] = None,
+            scaling_group_configuration: pulumi.Input[Optional[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict', 'outputs.KxClusterScalingGroupConfiguration']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tickerplant_log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict', 'outputs.KxClusterTickerplantLogConfiguration']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_configuration: pulumi.Input[Optional[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict', 'outputs.KxClusterVpcConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoScalingConfiguration"] = auto_scaling_configuration
+        __props__["availabilityZoneId"] = availability_zone_id
+        __props__["azMode"] = az_mode
+        __props__["cacheStorageConfigurations"] = cache_storage_configurations
+        __props__["capacityConfiguration"] = capacity_configuration
+        __props__["code"] = code
+        __props__["commandLineArguments"] = command_line_arguments
+        __props__["createdTimestamp"] = created_timestamp
+        __props__["databases"] = databases
+        __props__["description"] = description
+        __props__["environmentId"] = environment_id
+        __props__["executionRole"] = execution_role
+        __props__["initializationScript"] = initialization_script
+        __props__["lastModifiedTimestamp"] = last_modified_timestamp
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["releaseLabel"] = release_label
+        __props__["savedownStorageConfiguration"] = savedown_storage_configuration
+        __props__["scalingGroupConfiguration"] = scaling_group_configuration
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tickerplantLogConfigurations"] = tickerplant_log_configurations
+        __props__["type"] = type
+        __props__["vpcConfiguration"] = vpc_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:finspace/kxCluster:KxCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

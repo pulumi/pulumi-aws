@@ -240,6 +240,12 @@ func (AccountSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountSubscriptionState)(nil)).Elem()
 }
 
+// AccountSubscriptionExists checks whether an existing AccountSubscription resource with the given ID exists.
+func AccountSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/accountSubscription:AccountSubscription", id, state, "", opts...)
+}
+
 type accountSubscriptionArgs struct {
 	// Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
 	AccountName string `pulumi:"accountName"`

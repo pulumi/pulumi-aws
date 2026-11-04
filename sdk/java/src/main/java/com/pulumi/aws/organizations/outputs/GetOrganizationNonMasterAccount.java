@@ -48,11 +48,10 @@ public final class GetOrganizationNonMasterAccount {
     /**
      * @return Status of the policy type as it relates to the associated root.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     private String status;
 
     private GetOrganizationNonMasterAccount() {}
@@ -108,11 +107,10 @@ public final class GetOrganizationNonMasterAccount {
     /**
      * @return Status of the policy type as it relates to the associated root.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     public String status() {
         return this.status;
     }

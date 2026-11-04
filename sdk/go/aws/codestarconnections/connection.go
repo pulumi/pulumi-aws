@@ -192,6 +192,12 @@ func (ConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionState)(nil)).Elem()
 }
 
+// ConnectionExists checks whether an existing Connection resource with the given ID exists.
+func ConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codestarconnections/connection:Connection", id, state, "", opts...)
+}
+
 type connectionArgs struct {
 	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn *string `pulumi:"hostArn"`

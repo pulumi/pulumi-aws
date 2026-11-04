@@ -249,6 +249,12 @@ func (VoiceConnectorStreamingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*voiceConnectorStreamingState)(nil)).Elem()
 }
 
+// VoiceConnectorStreamingExists checks whether an existing VoiceConnectorStreaming resource with the given ID exists.
+func VoiceConnectorStreamingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VoiceConnectorStreamingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming", id, state, "", opts...)
+}
+
 type voiceConnectorStreamingArgs struct {
 	// The retention period, in hours, for the Amazon Kinesis data.
 	DataRetention int `pulumi:"dataRetention"`

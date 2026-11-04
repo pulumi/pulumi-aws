@@ -280,6 +280,18 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return DataCatalogEncryptionSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogId"] = catalog_id
+        __props__["dataCatalogEncryptionSettings"] = data_catalog_encryption_settings
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:

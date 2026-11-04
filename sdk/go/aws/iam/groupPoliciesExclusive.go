@@ -149,6 +149,12 @@ func (GroupPoliciesExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupPoliciesExclusiveState)(nil)).Elem()
 }
 
+// GroupPoliciesExclusiveExists checks whether an existing GroupPoliciesExclusive resource with the given ID exists.
+func GroupPoliciesExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupPoliciesExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive", id, state, "", opts...)
+}
+
 type groupPoliciesExclusiveArgs struct {
 	// IAM group name.
 	GroupName string `pulumi:"groupName"`

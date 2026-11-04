@@ -876,6 +876,50 @@ class ElasticCluster(pulumi.CustomResource):
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return ElasticCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shard_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+            shard_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict', 'outputs.ElasticClusterTimeouts']]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminUserName"] = admin_user_name
+        __props__["adminUserPassword"] = admin_user_password
+        __props__["arn"] = arn
+        __props__["authType"] = auth_type
+        __props__["backupRetentionPeriod"] = backup_retention_period
+        __props__["endpoint"] = endpoint
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["name"] = name
+        __props__["preferredBackupWindow"] = preferred_backup_window
+        __props__["preferredMaintenanceWindow"] = preferred_maintenance_window
+        __props__["region"] = region
+        __props__["shardCapacity"] = shard_capacity
+        __props__["shardCount"] = shard_count
+        __props__["shardInstanceCount"] = shard_instance_count
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        return pulumi.runtime.exists_resource(None, 'aws:docdb/elasticCluster:ElasticCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> pulumi.Output[_builtins.str]:

@@ -198,6 +198,12 @@ func (V2modelsBotLocaleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2modelsBotLocaleState)(nil)).Elem()
 }
 
+// V2modelsBotLocaleExists checks whether an existing V2modelsBotLocale resource with the given ID exists.
+func V2modelsBotLocaleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2modelsBotLocaleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/v2modelsBotLocale:V2modelsBotLocale", id, state, "", opts...)
+}
+
 type v2modelsBotLocaleArgs struct {
 	// Identifier of the bot to create the locale for.
 	BotId string `pulumi:"botId"`

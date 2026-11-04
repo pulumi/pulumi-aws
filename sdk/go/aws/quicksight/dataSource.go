@@ -356,6 +356,12 @@ func (DataSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceState)(nil)).Elem()
 }
 
+// DataSourceExists checks whether an existing DataSource resource with the given ID exists.
+func DataSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/dataSource:DataSource", id, state, "", opts...)
+}
+
 type dataSourceArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

@@ -163,6 +163,12 @@ func (BgpPeerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bgpPeerState)(nil)).Elem()
 }
 
+// BgpPeerExists checks whether an existing BgpPeer resource with the given ID exists.
+func BgpPeerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BgpPeerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/bgpPeer:BgpPeer", id, state, "", opts...)
+}
+
 type bgpPeerArgs struct {
 	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily string `pulumi:"addressFamily"`

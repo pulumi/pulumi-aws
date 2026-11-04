@@ -194,6 +194,12 @@ func (ContactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactState)(nil)).Elem()
 }
 
+// ContactExists checks whether an existing Contact resource with the given ID exists.
+func ContactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssmcontacts/contact:Contact", id, state, "", opts...)
+}
+
 type contactArgs struct {
 	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias string `pulumi:"alias"`

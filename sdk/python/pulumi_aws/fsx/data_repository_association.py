@@ -616,6 +616,36 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return DataRepositoryAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            batch_import_meta_data_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_repository_path: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_data_in_filesystem: pulumi.Input[Optional[_builtins.bool]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
+            imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["associationId"] = association_id
+        __props__["batchImportMetaDataOnCreate"] = batch_import_meta_data_on_create
+        __props__["dataRepositoryPath"] = data_repository_path
+        __props__["deleteDataInFilesystem"] = delete_data_in_filesystem
+        __props__["fileSystemId"] = file_system_id
+        __props__["fileSystemPath"] = file_system_path
+        __props__["importedFileChunkSize"] = imported_file_chunk_size
+        __props__["region"] = region
+        __props__["s3"] = s3
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

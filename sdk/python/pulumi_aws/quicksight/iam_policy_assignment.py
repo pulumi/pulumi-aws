@@ -465,6 +465,28 @@ class IamPolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return IamPolicyAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            assignment_status: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict', 'outputs.IamPolicyAssignmentIdentities']]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assignmentId"] = assignment_id
+        __props__["assignmentName"] = assignment_name
+        __props__["assignmentStatus"] = assignment_status
+        __props__["awsAccountId"] = aws_account_id
+        __props__["identities"] = identities
+        __props__["namespace"] = namespace
+        __props__["policyArn"] = policy_arn
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/iamPolicyAssignment:IamPolicyAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assignmentId")
     def assignment_id(self) -> pulumi.Output[_builtins.str]:

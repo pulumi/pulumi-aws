@@ -1322,6 +1322,78 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
         return OpenZfsFileSystem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            copy_tags_to_volumes: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_iops_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict', 'outputs.OpenZfsFileSystemDiskIopsConfiguration']]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
+            final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict', 'outputs.OpenZfsFileSystemReadCacheConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_volume_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict', 'outputs.OpenZfsFileSystemRootVolumeConfiguration']]] = None,
+            root_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["automaticBackupRetentionDays"] = automatic_backup_retention_days
+        __props__["backupId"] = backup_id
+        __props__["copyTagsToBackups"] = copy_tags_to_backups
+        __props__["copyTagsToVolumes"] = copy_tags_to_volumes
+        __props__["dailyAutomaticBackupStartTime"] = daily_automatic_backup_start_time
+        __props__["deleteOptions"] = delete_options
+        __props__["deploymentType"] = deployment_type
+        __props__["diskIopsConfiguration"] = disk_iops_configuration
+        __props__["dnsName"] = dns_name
+        __props__["endpointIpAddress"] = endpoint_ip_address
+        __props__["endpointIpAddressRange"] = endpoint_ip_address_range
+        __props__["finalBackupTags"] = final_backup_tags
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["networkInterfaceIds"] = network_interface_ids
+        __props__["networkType"] = network_type
+        __props__["ownerId"] = owner_id
+        __props__["preferredSubnetId"] = preferred_subnet_id
+        __props__["readCacheConfiguration"] = read_cache_configuration
+        __props__["region"] = region
+        __props__["rootVolumeConfiguration"] = root_volume_configuration
+        __props__["rootVolumeId"] = root_volume_id
+        __props__["routeTableIds"] = route_table_ids
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["skipFinalBackup"] = skip_final_backup
+        __props__["storageCapacity"] = storage_capacity
+        __props__["storageType"] = storage_type
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throughputCapacity"] = throughput_capacity
+        __props__["vpcId"] = vpc_id
+        __props__["weeklyMaintenanceStartTime"] = weekly_maintenance_start_time
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/openZfsFileSystem:OpenZfsFileSystem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

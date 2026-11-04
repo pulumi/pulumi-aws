@@ -203,6 +203,12 @@ func (PermissionsBoundaryAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionsBoundaryAttachmentState)(nil)).Elem()
 }
 
+// PermissionsBoundaryAttachmentExists checks whether an existing PermissionsBoundaryAttachment resource with the given ID exists.
+func PermissionsBoundaryAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionsBoundaryAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", id, state, "", opts...)
+}
+
 type permissionsBoundaryAttachmentArgs struct {
 	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn string `pulumi:"instanceArn"`

@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var main = new RestApi("main", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .build());
@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *             .restApiId(main.id())
  *             .statusCode("401")
  *             .responseType("UNAUTHORIZED")
- *             .responseTemplates(Map.of("application/json", "{\"message\":$context.error.messageString}"))
+ *             .responseTemplates(Map.of("application/json", "}{&#92;{@code "message}&#92;{@code ":$context.error.messageString}}{@code "))
  *             .responseParameters(Map.of("gatewayresponse.header.Authorization", "'Basic'"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

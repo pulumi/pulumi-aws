@@ -30,20 +30,18 @@ public final class GetPolicyDocumentResult {
      */
     private String minifiedJson;
     /**
-     * @deprecated
-     * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+     * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+    @Deprecated
     private @Nullable String overrideJson;
     private @Nullable List<String> overridePolicyDocuments;
     private @Nullable String policyId;
     /**
-     * @deprecated
-     * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+     * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+    @Deprecated
     private @Nullable String sourceJson;
     private @Nullable List<String> sourcePolicyDocuments;
     private @Nullable List<GetPolicyDocumentStatement> statements;
@@ -72,11 +70,10 @@ public final class GetPolicyDocumentResult {
         return this.minifiedJson;
     }
     /**
-     * @deprecated
-     * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+     * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+    @Deprecated
     public Optional<String> overrideJson() {
         return Optional.ofNullable(this.overrideJson);
     }
@@ -87,11 +84,10 @@ public final class GetPolicyDocumentResult {
         return Optional.ofNullable(this.policyId);
     }
     /**
-     * @deprecated
-     * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+     * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+    @Deprecated
     public Optional<String> sourceJson() {
         return Optional.ofNullable(this.sourceJson);
     }

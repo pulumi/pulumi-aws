@@ -163,6 +163,12 @@ func (ResolverFirewallRuleGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverFirewallRuleGroupAssociationState)(nil)).Elem()
 }
 
+// ResolverFirewallRuleGroupAssociationExists checks whether an existing ResolverFirewallRuleGroupAssociation resource with the given ID exists.
+func ResolverFirewallRuleGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverFirewallRuleGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation", id, state, "", opts...)
+}
+
 type resolverFirewallRuleGroupAssociationArgs struct {
 	// The unique identifier of the firewall rule group.
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`

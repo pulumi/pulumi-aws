@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -87,29 +87,29 @@ import javax.annotation.Nullable;
  *             .appliedFors("PULL_THROUGH_CACHE")
  *             .repositoryPolicy(example.json())
  *             .lifecyclePolicy("""
- * {
- *   \"rules\": [
- *     {
- *       \"rulePriority\": 1,
- *       \"description\": \"Expire images older than 14 days\",
- *       \"selection\": {
- *         \"tagStatus\": \"untagged\",
- *         \"countType\": \"sinceImagePushed\",
- *         \"countUnit\": \"days\",
- *         \"countNumber\": 14
- *       },
- *       \"action\": {
- *         \"type\": \"expire\"
- *       }
- *     }
+ * }{{@code
+ *   }&#92;{@code "rules}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "rulePriority}&#92;{@code ": 1,
+ *       }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Expire images older than 14 days}&#92;{@code ",
+ *       }&#92;{@code "selection}&#92;{@code ": }{{@code
+ *         }&#92;{@code "tagStatus}&#92;{@code ": }&#92;{@code "untagged}&#92;{@code ",
+ *         }&#92;{@code "countType}&#92;{@code ": }&#92;{@code "sinceImagePushed}&#92;{@code ",
+ *         }&#92;{@code "countUnit}&#92;{@code ": }&#92;{@code "days}&#92;{@code ",
+ *         }&#92;{@code "countNumber}&#92;{@code ": 14
+ *       }}{@code ,
+ *       }&#92;{@code "action}&#92;{@code ": }{{@code
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "expire}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  *             """)
  *             .resourceTags(Map.of("Foo", "Bar"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

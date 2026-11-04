@@ -209,6 +209,12 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggingConfigurationState)(nil)).Elem()
 }
 
+// LoggingConfigurationExists checks whether an existing LoggingConfiguration resource with the given ID exists.
+func LoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkfirewall/loggingConfiguration:LoggingConfiguration", id, state, "", opts...)
+}
+
 type loggingConfigurationArgs struct {
 	// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
 	EnableMonitoringDashboard *bool `pulumi:"enableMonitoringDashboard"`

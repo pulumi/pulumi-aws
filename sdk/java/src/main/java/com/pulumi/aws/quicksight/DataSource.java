@@ -107,12 +107,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
  *             .build());
  * 
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *                     jsonProperty("globalUploadSettings", jsonObject(
  *                         jsonProperty("format", "CSV"),
  *                         jsonProperty("delimiter", ","),
- *                         jsonProperty("textqualifier", "\""),
+ *                         jsonProperty("textqualifier", "}&#92;{@code ""),
  *                         jsonProperty("containsHeader", true)
  *                     ))
  *                 ))))
@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("example")
  *             .description("Policy to allow QuickSight access to S3 bucket")
- *             .policy(Output.tuple(example.arn(), exampleBucketObjectv2.key()).applyValue(values -> {
+ *             .policy(Output.tuple(example.arn(), exampleBucketObjectv2.key()).applyValue(values -> }{{@code
  *                 var arn = values.t1;
  *                 var key = values.t2;
  *                 return serializeJson(
@@ -183,7 +183,7 @@ import javax.annotation.Nullable;
  *                             )
  *                         ))
  *                     ));
- *             }))
+ *             }}{@code ))
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
@@ -206,8 +206,8 @@ import javax.annotation.Nullable;
  *             .type("S3")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

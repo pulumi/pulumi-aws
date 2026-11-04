@@ -149,6 +149,12 @@ func (UserPoliciesExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoliciesExclusiveState)(nil)).Elem()
 }
 
+// UserPoliciesExclusiveExists checks whether an existing UserPoliciesExclusive resource with the given ID exists.
+func UserPoliciesExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoliciesExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/userPoliciesExclusive:UserPoliciesExclusive", id, state, "", opts...)
+}
+
 type userPoliciesExclusiveArgs struct {
 	// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyNames []string `pulumi:"policyNames"`

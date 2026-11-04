@@ -547,6 +547,28 @@ class S3TableIntegration(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return S3TableIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption: pulumi.Input[Optional[Union['S3TableIntegrationEncryptionArgs', 'S3TableIntegrationEncryptionArgsDict', 'outputs.S3TableIntegrationEncryption']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['S3TableIntegrationTimeoutsArgs', 'S3TableIntegrationTimeoutsArgsDict', 'outputs.S3TableIntegrationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["destinationTableBucketArn"] = destination_table_bucket_arn
+        __props__["encryption"] = encryption
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:observabilityadmin/s3TableIntegration:S3TableIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -475,6 +475,30 @@ class RestoreTestingPlan(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return RestoreTestingPlan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict', 'outputs.RestoreTestingPlanRecoveryPointSelection']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            start_window_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["recoveryPointSelection"] = recovery_point_selection
+        __props__["region"] = region
+        __props__["scheduleExpression"] = schedule_expression
+        __props__["scheduleExpressionTimezone"] = schedule_expression_timezone
+        __props__["startWindowHours"] = start_window_hours
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:backup/restoreTestingPlan:RestoreTestingPlan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

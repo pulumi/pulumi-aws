@@ -673,6 +673,36 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["thumbnail_config_permissions"] = thumbnail_config_permissions
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            content_config: pulumi.Input[Optional[Union['PipelineContentConfigArgs', 'PipelineContentConfigArgsDict', 'outputs.PipelineContentConfig']]] = None,
+            content_config_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineContentConfigPermissionArgs', 'PipelineContentConfigPermissionArgsDict', 'outputs.PipelineContentConfigPermission']]]]] = None,
+            input_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notifications: pulumi.Input[Optional[Union['PipelineNotificationsArgs', 'PipelineNotificationsArgsDict', 'outputs.PipelineNotifications']]] = None,
+            output_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbnail_config: pulumi.Input[Optional[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict', 'outputs.PipelineThumbnailConfig']]] = None,
+            thumbnail_config_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict', 'outputs.PipelineThumbnailConfigPermission']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsKmsKeyArn"] = aws_kms_key_arn
+        __props__["contentConfig"] = content_config
+        __props__["contentConfigPermissions"] = content_config_permissions
+        __props__["inputBucket"] = input_bucket
+        __props__["name"] = name
+        __props__["notifications"] = notifications
+        __props__["outputBucket"] = output_bucket
+        __props__["region"] = region
+        __props__["role"] = role
+        __props__["thumbnailConfig"] = thumbnail_config
+        __props__["thumbnailConfigPermissions"] = thumbnail_config_permissions
+        return pulumi.runtime.exists_resource(None, 'aws:elastictranscoder/pipeline:Pipeline', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

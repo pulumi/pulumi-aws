@@ -186,6 +186,12 @@ func (LinkAggregationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkAggregationGroupState)(nil)).Elem()
 }
 
+// LinkAggregationGroupExists checks whether an existing LinkAggregationGroup resource with the given ID exists.
+func LinkAggregationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkAggregationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", id, state, "", opts...)
+}
+
 type linkAggregationGroupArgs struct {
 	// The ID of an existing dedicated connection to migrate to the LAG.
 	ConnectionId *string `pulumi:"connectionId"`

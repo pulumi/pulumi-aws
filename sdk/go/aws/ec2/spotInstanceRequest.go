@@ -559,6 +559,12 @@ func (SpotInstanceRequestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotInstanceRequestState)(nil)).Elem()
 }
 
+// SpotInstanceRequestExists checks whether an existing SpotInstanceRequest resource with the given ID exists.
+func SpotInstanceRequestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpotInstanceRequestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/spotInstanceRequest:SpotInstanceRequest", id, state, "", opts...)
+}
+
 type spotInstanceRequestArgs struct {
 	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami *string `pulumi:"ami"`

@@ -268,6 +268,12 @@ func (BucketMetricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketMetricState)(nil)).Elem()
 }
 
+// BucketMetricExists checks whether an existing BucketMetric resource with the given ID exists.
+func BucketMetricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketMetricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketMetric:BucketMetric", id, state, "", opts...)
+}
+
 type bucketMetricArgs struct {
 	// Name of the bucket to put metric configuration.
 	Bucket string `pulumi:"bucket"`

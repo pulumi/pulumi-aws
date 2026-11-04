@@ -503,6 +503,32 @@ class PeeringAttachment(pulumi.CustomResource):
         __props__.__dict__["transit_gateway_id"] = transit_gateway_id
         return PeeringAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict', 'outputs.PeeringAttachmentOptions']]] = None,
+            peer_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_region: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["options"] = options
+        __props__["peerAccountId"] = peer_account_id
+        __props__["peerRegion"] = peer_region
+        __props__["peerTransitGatewayId"] = peer_transit_gateway_id
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["transitGatewayId"] = transit_gateway_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/peeringAttachment:PeeringAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

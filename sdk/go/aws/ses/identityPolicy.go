@@ -151,6 +151,12 @@ func (IdentityPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPolicyState)(nil)).Elem()
 }
 
+// IdentityPolicyExists checks whether an existing IdentityPolicy resource with the given ID exists.
+func IdentityPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/identityPolicy:IdentityPolicy", id, state, "", opts...)
+}
+
 type identityPolicyArgs struct {
 	// Name or ARN of the SES Identity.
 	Identity string `pulumi:"identity"`

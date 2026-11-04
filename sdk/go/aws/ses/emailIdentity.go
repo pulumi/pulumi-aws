@@ -112,6 +112,12 @@ func (EmailIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIdentityState)(nil)).Elem()
 }
 
+// EmailIdentityExists checks whether an existing EmailIdentity resource with the given ID exists.
+func EmailIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/emailIdentity:EmailIdentity", id, state, "", opts...)
+}
+
 type emailIdentityArgs struct {
 	// Email address to assign to SES.
 	Email string `pulumi:"email"`

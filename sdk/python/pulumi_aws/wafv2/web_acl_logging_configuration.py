@@ -443,6 +443,22 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = resource_arn
         return WebAclLoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            logging_filter: pulumi.Input[Optional[Union['WebAclLoggingConfigurationLoggingFilterArgs', 'WebAclLoggingConfigurationLoggingFilterArgsDict', 'outputs.WebAclLoggingConfigurationLoggingFilter']]] = None,
+            redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclLoggingConfigurationRedactedFieldArgs', 'WebAclLoggingConfigurationRedactedFieldArgsDict', 'outputs.WebAclLoggingConfigurationRedactedField']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["logDestinationConfigs"] = log_destination_configs
+        __props__["loggingFilter"] = logging_filter
+        __props__["redactedFields"] = redacted_fields
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        return pulumi.runtime.exists_resource(None, 'aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> pulumi.Output[Sequence[_builtins.str]]:

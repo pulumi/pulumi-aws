@@ -161,6 +161,12 @@ func (RedriveAllowPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*redriveAllowPolicyState)(nil)).Elem()
 }
 
+// RedriveAllowPolicyExists checks whether an existing RedriveAllowPolicy resource with the given ID exists.
+func RedriveAllowPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RedriveAllowPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy", id, state, "", opts...)
+}
+
 type redriveAllowPolicyArgs struct {
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl string `pulumi:"queueUrl"`

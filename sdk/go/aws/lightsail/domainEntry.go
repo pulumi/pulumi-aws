@@ -153,6 +153,12 @@ func (DomainEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainEntryState)(nil)).Elem()
 }
 
+// DomainEntryExists checks whether an existing DomainEntry resource with the given ID exists.
+func DomainEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/domainEntry:DomainEntry", id, state, "", opts...)
+}
+
 type domainEntryArgs struct {
 	// Name of the Lightsail domain in which to create the entry.
 	DomainName string `pulumi:"domainName"`

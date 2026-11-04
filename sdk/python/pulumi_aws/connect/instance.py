@@ -813,6 +813,46 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Instance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_resolve_best_voices_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            contact_flow_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            contact_lens_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            early_media_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity_management_type: pulumi.Input[Optional[_builtins.str]] = None,
+            inbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_party_conference_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            outbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoResolveBestVoicesEnabled"] = auto_resolve_best_voices_enabled
+        __props__["contactFlowLogsEnabled"] = contact_flow_logs_enabled
+        __props__["contactLensEnabled"] = contact_lens_enabled
+        __props__["createdTime"] = created_time
+        __props__["directoryId"] = directory_id
+        __props__["earlyMediaEnabled"] = early_media_enabled
+        __props__["identityManagementType"] = identity_management_type
+        __props__["inboundCallsEnabled"] = inbound_calls_enabled
+        __props__["instanceAlias"] = instance_alias
+        __props__["multiPartyConferenceEnabled"] = multi_party_conference_enabled
+        __props__["outboundCallsEnabled"] = outbound_calls_enabled
+        __props__["region"] = region
+        __props__["serviceRole"] = service_role
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:connect/instance:Instance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

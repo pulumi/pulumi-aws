@@ -191,6 +191,12 @@ func (MemberDetectorFeatureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*memberDetectorFeatureState)(nil)).Elem()
 }
 
+// MemberDetectorFeatureExists checks whether an existing MemberDetectorFeature resource with the given ID exists.
+func MemberDetectorFeatureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MemberDetectorFeatureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/memberDetectorFeature:MemberDetectorFeature", id, state, "", opts...)
+}
+
 type memberDetectorFeatureArgs struct {
 	// Member account ID to be updated.
 	AccountId string `pulumi:"accountId"`

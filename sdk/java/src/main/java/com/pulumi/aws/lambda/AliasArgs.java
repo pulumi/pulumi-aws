@@ -48,14 +48,14 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+     * Lambda function version for which you are creating the alias. Pattern: `(&#92;$LATEST|[0-9]+)`.
      * 
      */
     @Import(name="functionVersion", required=true)
     private Output<String> functionVersion;
 
     /**
-     * @return Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+     * @return Lambda function version for which you are creating the alias. Pattern: `(&#92;$LATEST|[0-9]+)`.
      * 
      */
     public Output<String> functionVersion() {
@@ -183,7 +183,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionVersion Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+         * @param functionVersion Lambda function version for which you are creating the alias. Pattern: `(&#92;$LATEST|[0-9]+)`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionVersion Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+         * @param functionVersion Lambda function version for which you are creating the alias. Pattern: `(&#92;$LATEST|[0-9]+)`.
          * 
          * @return builder
          * 

@@ -801,6 +801,52 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["workflows"] = workflows
         return Image(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            container_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            date_created: pulumi.Input[Optional[_builtins.str]] = None,
+            distribution_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enhanced_image_metadata_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+            image_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            image_scanning_configuration: pulumi.Input[Optional[Union['ImageImageScanningConfigurationArgs', 'ImageImageScanningConfigurationArgsDict', 'outputs.ImageImageScanningConfiguration']]] = None,
+            image_tests_configuration: pulumi.Input[Optional[Union['ImageImageTestsConfigurationArgs', 'ImageImageTestsConfigurationArgsDict', 'outputs.ImageImageTestsConfiguration']]] = None,
+            infrastructure_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['ImageLoggingConfigurationArgs', 'ImageLoggingConfigurationArgsDict', 'outputs.ImageLoggingConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_version: pulumi.Input[Optional[_builtins.str]] = None,
+            output_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageOutputResourceArgs', 'ImageOutputResourceArgsDict', 'outputs.ImageOutputResource']]]]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageWorkflowArgs', 'ImageWorkflowArgsDict', 'outputs.ImageWorkflow']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["containerRecipeArn"] = container_recipe_arn
+        __props__["dateCreated"] = date_created
+        __props__["distributionConfigurationArn"] = distribution_configuration_arn
+        __props__["enhancedImageMetadataEnabled"] = enhanced_image_metadata_enabled
+        __props__["executionRole"] = execution_role
+        __props__["imageRecipeArn"] = image_recipe_arn
+        __props__["imageScanningConfiguration"] = image_scanning_configuration
+        __props__["imageTestsConfiguration"] = image_tests_configuration
+        __props__["infrastructureConfigurationArn"] = infrastructure_configuration_arn
+        __props__["loggingConfiguration"] = logging_configuration
+        __props__["name"] = name
+        __props__["osVersion"] = os_version
+        __props__["outputResources"] = output_resources
+        __props__["platform"] = platform
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["version"] = version
+        __props__["workflows"] = workflows
+        return pulumi.runtime.exists_resource(None, 'aws:imagebuilder/image:Image', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

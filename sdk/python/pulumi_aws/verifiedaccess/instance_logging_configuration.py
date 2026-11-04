@@ -449,6 +449,18 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         __props__.__dict__["verifiedaccess_instance_id"] = verifiedaccess_instance_id
         return InstanceLoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_logs: pulumi.Input[Optional[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict', 'outputs.InstanceLoggingConfigurationAccessLogs']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            verifiedaccess_instance_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessLogs"] = access_logs
+        __props__["region"] = region
+        __props__["verifiedaccessInstanceId"] = verifiedaccess_instance_id
+        return pulumi.runtime.exists_resource(None, 'aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Output['outputs.InstanceLoggingConfigurationAccessLogs']:

@@ -803,6 +803,46 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["volume_initialization_rate"] = volume_initialization_rate
         return Volume(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+            iops: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_attach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.int]] = None,
+            snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_initialization_rate: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["createTime"] = create_time
+        __props__["encrypted"] = encrypted
+        __props__["finalSnapshot"] = final_snapshot
+        __props__["iops"] = iops
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["multiAttachEnabled"] = multi_attach_enabled
+        __props__["outpostArn"] = outpost_arn
+        __props__["region"] = region
+        __props__["size"] = size
+        __props__["snapshotId"] = snapshot_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throughput"] = throughput
+        __props__["type"] = type
+        __props__["volumeInitializationRate"] = volume_initialization_rate
+        return pulumi.runtime.exists_resource(None, 'aws:ebs/volume:Volume', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

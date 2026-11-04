@@ -511,6 +511,34 @@ class FilesAccessPoint(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return FilesAccessPoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict', 'outputs.FilesAccessPointPosixUser']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict', 'outputs.FilesAccessPointRootDirectory']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict', 'outputs.FilesAccessPointTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["fileSystemId"] = file_system_id
+        __props__["name"] = name
+        __props__["ownerId"] = owner_id
+        __props__["posixUsers"] = posix_users
+        __props__["region"] = region
+        __props__["rootDirectories"] = root_directories
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:s3/filesAccessPoint:FilesAccessPoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

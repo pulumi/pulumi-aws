@@ -204,6 +204,12 @@ func (TransitGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayState)(nil)).Elem()
 }
 
+// TransitGatewayExists checks whether an existing TransitGateway resource with the given ID exists.
+func TransitGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/transitGateway:TransitGateway", id, state, "", opts...)
+}
+
 type transitGatewayArgs struct {
 	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
 	//

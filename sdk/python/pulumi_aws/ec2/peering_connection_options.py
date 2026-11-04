@@ -427,6 +427,20 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
         return PeeringConnectionOptions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accepter: pulumi.Input[Optional[Union['PeeringConnectionOptionsAccepterArgs', 'PeeringConnectionOptionsAccepterArgsDict', 'outputs.PeeringConnectionOptionsAccepter']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requester: pulumi.Input[Optional[Union['PeeringConnectionOptionsRequesterArgs', 'PeeringConnectionOptionsRequesterArgsDict', 'outputs.PeeringConnectionOptionsRequester']]] = None,
+            vpc_peering_connection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accepter"] = accepter
+        __props__["region"] = region
+        __props__["requester"] = requester
+        __props__["vpcPeeringConnectionId"] = vpc_peering_connection_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/peeringConnectionOptions:PeeringConnectionOptions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def accepter(self) -> pulumi.Output['outputs.PeeringConnectionOptionsAccepter']:

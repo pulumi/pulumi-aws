@@ -140,6 +140,12 @@ func (WorkspaceApiKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceApiKeyState)(nil)).Elem()
 }
 
+// WorkspaceApiKeyExists checks whether an existing WorkspaceApiKey resource with the given ID exists.
+func WorkspaceApiKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceApiKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:grafana/workspaceApiKey:WorkspaceApiKey", id, state, "", opts...)
+}
+
 type workspaceApiKeyArgs struct {
 	// Name of the API key. Key names must be unique to the workspace.
 	KeyName string `pulumi:"keyName"`

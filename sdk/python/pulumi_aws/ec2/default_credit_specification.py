@@ -288,6 +288,20 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return DefaultCreditSpecification(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cpu_credits: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict', 'outputs.DefaultCreditSpecificationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cpuCredits"] = cpu_credits
+        __props__["instanceFamily"] = instance_family
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/defaultCreditSpecification:DefaultCreditSpecification', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cpuCredits")
     def cpu_credits(self) -> pulumi.Output[_builtins.str]:

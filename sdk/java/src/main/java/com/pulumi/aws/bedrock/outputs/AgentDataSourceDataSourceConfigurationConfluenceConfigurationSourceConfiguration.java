@@ -26,7 +26,7 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
      */
     private String hostType;
     /**
-     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^&#92;s]*$`.
      * 
      */
     private String hostUrl;
@@ -54,7 +54,7 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
         return this.hostType;
     }
     /**
-     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^&#92;s]*$`.
      * 
      */
     public String hostUrl() {

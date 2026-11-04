@@ -145,6 +145,12 @@ func (ArchiveRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*archiveRuleState)(nil)).Elem()
 }
 
+// ArchiveRuleExists checks whether an existing ArchiveRule resource with the given ID exists.
+func ArchiveRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArchiveRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:accessanalyzer/archiveRule:ArchiveRule", id, state, "", opts...)
+}
+
 type archiveRuleArgs struct {
 	// Analyzer name.
 	AnalyzerName string `pulumi:"analyzerName"`

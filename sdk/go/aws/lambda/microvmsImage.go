@@ -326,6 +326,12 @@ func (MicrovmsImageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*microvmsImageState)(nil)).Elem()
 }
 
+// MicrovmsImageExists checks whether an existing MicrovmsImage resource with the given ID exists.
+func MicrovmsImageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MicrovmsImageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/microvmsImage:MicrovmsImage", id, state, "", opts...)
+}
+
 type microvmsImageArgs struct {
 	// List of additional OS capabilities granted to the MicroVM runtime environment. Valid values: `ALL`.
 	AdditionalOsCapabilities []string `pulumi:"additionalOsCapabilities"`

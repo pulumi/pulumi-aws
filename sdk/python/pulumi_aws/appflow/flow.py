@@ -782,6 +782,38 @@ class Flow(pulumi.CustomResource):
         __props__.__dict__["trigger_config"] = trigger_config
         return Flow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict', 'outputs.FlowDestinationFlowConfig']]]]] = None,
+            flow_status: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict', 'outputs.FlowMetadataCatalogConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict', 'outputs.FlowSourceFlowConfig']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict', 'outputs.FlowTask']]]]] = None,
+            trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict', 'outputs.FlowTriggerConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["destinationFlowConfigs"] = destination_flow_configs
+        __props__["flowStatus"] = flow_status
+        __props__["kmsArn"] = kms_arn
+        __props__["metadataCatalogConfig"] = metadata_catalog_config
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["sourceFlowConfig"] = source_flow_config
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tasks"] = tasks
+        __props__["triggerConfig"] = trigger_config
+        return pulumi.runtime.exists_resource(None, 'aws:appflow/flow:Flow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

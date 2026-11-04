@@ -156,6 +156,12 @@ func (CapacityReservationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityReservationState)(nil)).Elem()
 }
 
+// CapacityReservationExists checks whether an existing CapacityReservation resource with the given ID exists.
+func CapacityReservationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityReservationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:athena/capacityReservation:CapacityReservation", id, state, "", opts...)
+}
+
 type capacityReservationArgs struct {
 	// Name of the capacity reservation.
 	Name *string `pulumi:"name"`

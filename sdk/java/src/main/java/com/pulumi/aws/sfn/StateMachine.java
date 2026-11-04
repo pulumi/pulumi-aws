@@ -42,33 +42,33 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .name("my-state-machine")
  *             .roleArn(iamForSfn.get("arn"))
  *             .definition("""
- * {
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"%s\",
- *       \"End\": true
- *     }
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "Comment}&#92;{@code ": }&#92;{@code "A Hello World example of the Amazon States Language using an AWS Lambda Function}&#92;{@code ",
+ *   }&#92;{@code "StartAt}&#92;{@code ": }&#92;{@code "HelloWorld}&#92;{@code ",
+ *   }&#92;{@code "States}&#92;{@code ": }{{@code
+ *     }&#92;{@code "HelloWorld}&#92;{@code ": }{{@code
+ *       }&#92;{@code "Type}&#92;{@code ": }&#92;{@code "Task}&#92;{@code ",
+ *       }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "%s}&#92;{@code ",
+ *       }&#92;{@code "End}&#92;{@code ": true
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  * ", lambda.get("arn")))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -90,34 +90,34 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .name("my-state-machine")
  *             .roleArn(iamForSfn.get("arn"))
  *             .type("EXPRESS")
  *             .definition("""
- * {
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"%s\",
- *       \"End\": true
- *     }
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "Comment}&#92;{@code ": }&#92;{@code "A Hello World example of the Amazon States Language using an AWS Lambda Function}&#92;{@code ",
+ *   }&#92;{@code "StartAt}&#92;{@code ": }&#92;{@code "HelloWorld}&#92;{@code ",
+ *   }&#92;{@code "States}&#92;{@code ": }{{@code
+ *     }&#92;{@code "HelloWorld}&#92;{@code ": }{{@code
+ *       }&#92;{@code "Type}&#92;{@code ": }&#92;{@code "Task}&#92;{@code ",
+ *       }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "%s}&#92;{@code ",
+ *       }&#92;{@code "End}&#92;{@code ": true
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  * ", lambda.get("arn")))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -139,12 +139,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .name("my-state-machine")
@@ -152,22 +152,22 @@ import javax.annotation.Nullable;
  *             .publish(true)
  *             .type("EXPRESS")
  *             .definition("""
- * {
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"%s\",
- *       \"End\": true
- *     }
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "Comment}&#92;{@code ": }&#92;{@code "A Hello World example of the Amazon States Language using an AWS Lambda Function}&#92;{@code ",
+ *   }&#92;{@code "StartAt}&#92;{@code ": }&#92;{@code "HelloWorld}&#92;{@code ",
+ *   }&#92;{@code "States}&#92;{@code ": }{{@code
+ *     }&#92;{@code "HelloWorld}&#92;{@code ": }{{@code
+ *       }&#92;{@code "Type}&#92;{@code ": }&#92;{@code "Task}&#92;{@code ",
+ *       }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "%s}&#92;{@code ",
+ *       }&#92;{@code "End}&#92;{@code ": true
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  * ", lambda.get("arn")))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -192,12 +192,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
@@ -208,22 +208,22 @@ import javax.annotation.Nullable;
  *             .name("my-state-machine")
  *             .roleArn(iamForSfn.get("arn"))
  *             .definition("""
- * {
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"%s\",
- *       \"End\": true
- *     }
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "Comment}&#92;{@code ": }&#92;{@code "A Hello World example of the Amazon States Language using an AWS Lambda Function}&#92;{@code ",
+ *   }&#92;{@code "StartAt}&#92;{@code ": }&#92;{@code "HelloWorld}&#92;{@code ",
+ *   }&#92;{@code "States}&#92;{@code ": }{{@code
+ *     }&#92;{@code "HelloWorld}&#92;{@code ": }{{@code
+ *       }&#92;{@code "Type}&#92;{@code ": }&#92;{@code "Task}&#92;{@code ",
+ *       }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "%s}&#92;{@code ",
+ *       }&#92;{@code "End}&#92;{@code ": true
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  * ", lambda.get("arn")))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -248,12 +248,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .encryptionConfiguration(StateMachineEncryptionConfigurationArgs.builder()
@@ -264,22 +264,22 @@ import javax.annotation.Nullable;
  *             .name("my-state-machine")
  *             .roleArn(iamForSfn.get("arn"))
  *             .definition("""
- * {
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"%s\",
- *       \"End\": true
- *     }
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "Comment}&#92;{@code ": }&#92;{@code "A Hello World example of the Amazon States Language using an AWS Lambda Function}&#92;{@code ",
+ *   }&#92;{@code "StartAt}&#92;{@code ": }&#92;{@code "HelloWorld}&#92;{@code ",
+ *   }&#92;{@code "States}&#92;{@code ": }{{@code
+ *     }&#92;{@code "HelloWorld}&#92;{@code ": }{{@code
+ *       }&#92;{@code "Type}&#92;{@code ": }&#92;{@code "Task}&#92;{@code ",
+ *       }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "%s}&#92;{@code ",
+ *       }&#92;{@code "End}&#92;{@code ": true
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  * ", lambda.get("arn")))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -108,6 +108,12 @@ func (CidrCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cidrCollectionState)(nil)).Elem()
 }
 
+// CidrCollectionExists checks whether an existing CidrCollection resource with the given ID exists.
+func CidrCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CidrCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/cidrCollection:CidrCollection", id, state, "", opts...)
+}
+
 type cidrCollectionArgs struct {
 	// Unique name for the CIDR collection.
 	Name *string `pulumi:"name"`

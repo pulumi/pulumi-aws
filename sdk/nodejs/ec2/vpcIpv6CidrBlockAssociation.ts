@@ -60,6 +60,17 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
         return new VpcIpv6CidrBlockAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing VpcIpv6CidrBlockAssociation resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: VpcIpv6CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation';
 

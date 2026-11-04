@@ -1381,6 +1381,82 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["zookeeper_connect_string_tls"] = zookeeper_connect_string_tls
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_public_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_public_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_public_tls: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_sasl_iam_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_sasl_scram_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_tls: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_tls_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_vpc_connectivity_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_vpc_connectivity_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_vpc_connectivity_tls: pulumi.Input[Optional[_builtins.str]] = None,
+            broker_node_group_info: pulumi.Input[Optional[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict', 'outputs.ClusterBrokerNodeGroupInfo']]] = None,
+            client_authentication: pulumi.Input[Optional[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict', 'outputs.ClusterClientAuthentication']]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_info: pulumi.Input[Optional[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict', 'outputs.ClusterConfigurationInfo']]] = None,
+            current_version: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_action_status: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_info: pulumi.Input[Optional[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict', 'outputs.ClusterEncryptionInfo']]] = None,
+            enhanced_monitoring: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_version: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_info: pulumi.Input[Optional[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict', 'outputs.ClusterLoggingInfo']]] = None,
+            number_of_broker_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+            open_monitoring: pulumi.Input[Optional[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict', 'outputs.ClusterOpenMonitoring']]] = None,
+            rebalancing: pulumi.Input[Optional[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict', 'outputs.ClusterRebalancing']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zookeeper_connect_string: pulumi.Input[Optional[_builtins.str]] = None,
+            zookeeper_connect_string_tls: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["bootstrapBrokers"] = bootstrap_brokers
+        __props__["bootstrapBrokersIpv6"] = bootstrap_brokers_ipv6
+        __props__["bootstrapBrokersPublicSaslIam"] = bootstrap_brokers_public_sasl_iam
+        __props__["bootstrapBrokersPublicSaslScram"] = bootstrap_brokers_public_sasl_scram
+        __props__["bootstrapBrokersPublicTls"] = bootstrap_brokers_public_tls
+        __props__["bootstrapBrokersSaslIam"] = bootstrap_brokers_sasl_iam
+        __props__["bootstrapBrokersSaslIamIpv6"] = bootstrap_brokers_sasl_iam_ipv6
+        __props__["bootstrapBrokersSaslScram"] = bootstrap_brokers_sasl_scram
+        __props__["bootstrapBrokersSaslScramIpv6"] = bootstrap_brokers_sasl_scram_ipv6
+        __props__["bootstrapBrokersTls"] = bootstrap_brokers_tls
+        __props__["bootstrapBrokersTlsIpv6"] = bootstrap_brokers_tls_ipv6
+        __props__["bootstrapBrokersVpcConnectivitySaslIam"] = bootstrap_brokers_vpc_connectivity_sasl_iam
+        __props__["bootstrapBrokersVpcConnectivitySaslScram"] = bootstrap_brokers_vpc_connectivity_sasl_scram
+        __props__["bootstrapBrokersVpcConnectivityTls"] = bootstrap_brokers_vpc_connectivity_tls
+        __props__["brokerNodeGroupInfo"] = broker_node_group_info
+        __props__["clientAuthentication"] = client_authentication
+        __props__["clusterName"] = cluster_name
+        __props__["clusterUuid"] = cluster_uuid
+        __props__["configurationInfo"] = configuration_info
+        __props__["currentVersion"] = current_version
+        __props__["customerActionStatus"] = customer_action_status
+        __props__["encryptionInfo"] = encryption_info
+        __props__["enhancedMonitoring"] = enhanced_monitoring
+        __props__["kafkaVersion"] = kafka_version
+        __props__["loggingInfo"] = logging_info
+        __props__["numberOfBrokerNodes"] = number_of_broker_nodes
+        __props__["openMonitoring"] = open_monitoring
+        __props__["rebalancing"] = rebalancing
+        __props__["region"] = region
+        __props__["storageMode"] = storage_mode
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["zookeeperConnectString"] = zookeeper_connect_string
+        __props__["zookeeperConnectStringTls"] = zookeeper_connect_string_tls
+        return pulumi.runtime.exists_resource(None, 'aws:msk/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

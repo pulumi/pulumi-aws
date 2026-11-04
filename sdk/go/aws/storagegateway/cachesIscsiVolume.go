@@ -282,6 +282,12 @@ func (CachesIscsiVolumeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cachesIscsiVolumeState)(nil)).Elem()
 }
 
+// CachesIscsiVolumeExists checks whether an existing CachesIscsiVolume resource with the given ID exists.
+func CachesIscsiVolumeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CachesIscsiVolumeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", id, state, "", opts...)
+}
+
 type cachesIscsiVolumeArgs struct {
 	// ARN of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`

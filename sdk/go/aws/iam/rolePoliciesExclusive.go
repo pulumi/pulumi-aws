@@ -151,6 +151,12 @@ func (RolePoliciesExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rolePoliciesExclusiveState)(nil)).Elem()
 }
 
+// RolePoliciesExclusiveExists checks whether an existing RolePoliciesExclusive resource with the given ID exists.
+func RolePoliciesExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RolePoliciesExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/rolePoliciesExclusive:RolePoliciesExclusive", id, state, "", opts...)
+}
+
 type rolePoliciesExclusiveArgs struct {
 	// A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
 	PolicyNames []string `pulumi:"policyNames"`

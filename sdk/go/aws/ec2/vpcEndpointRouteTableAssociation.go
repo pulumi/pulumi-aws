@@ -128,6 +128,12 @@ func (VpcEndpointRouteTableAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointRouteTableAssociationState)(nil)).Elem()
 }
 
+// VpcEndpointRouteTableAssociationExists checks whether an existing VpcEndpointRouteTableAssociation resource with the given ID exists.
+func VpcEndpointRouteTableAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointRouteTableAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", id, state, "", opts...)
+}
+
 type vpcEndpointRouteTableAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -711,6 +711,12 @@ func (CoreNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*coreNetworkState)(nil)).Elem()
 }
 
+// CoreNetworkExists checks whether an existing CoreNetwork resource with the given ID exists.
+func CoreNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CoreNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/coreNetwork:CoreNetwork", id, state, "", opts...)
+}
+
 type coreNetworkArgs struct {
 	// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	BasePolicyDocument *string `pulumi:"basePolicyDocument"`

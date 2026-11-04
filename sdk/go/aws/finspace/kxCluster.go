@@ -316,6 +316,12 @@ func (KxClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kxClusterState)(nil)).Elem()
 }
 
+// KxClusterExists checks whether an existing KxCluster resource with the given ID exists.
+func KxClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KxClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:finspace/kxCluster:KxCluster", id, state, "", opts...)
+}
+
 type kxClusterArgs struct {
 	// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
 	AutoScalingConfiguration *KxClusterAutoScalingConfiguration `pulumi:"autoScalingConfiguration"`

@@ -304,6 +304,12 @@ func (AmiFromInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiFromInstanceState)(nil)).Elem()
 }
 
+// AmiFromInstanceExists checks whether an existing AmiFromInstance resource with the given ID exists.
+func AmiFromInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AmiFromInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/amiFromInstance:AmiFromInstance", id, state, "", opts...)
+}
+
 type amiFromInstanceArgs struct {
 	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime *string `pulumi:"deprecationTime"`

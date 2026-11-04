@@ -233,6 +233,12 @@ func (KeyPairState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyPairState)(nil)).Elem()
 }
 
+// KeyPairExists checks whether an existing KeyPair resource with the given ID exists.
+func KeyPairExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyPairState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/keyPair:KeyPair", id, state, "", opts...)
+}
+
 type keyPairArgs struct {
 	// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`

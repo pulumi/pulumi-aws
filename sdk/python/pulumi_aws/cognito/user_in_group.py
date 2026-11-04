@@ -335,6 +335,20 @@ class UserInGroup(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return UserInGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupName"] = group_name
+        __props__["region"] = region
+        __props__["userPoolId"] = user_pool_id
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/userInGroup:UserInGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:

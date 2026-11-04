@@ -161,6 +161,12 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyState)(nil)).Elem()
 }
 
+// ResourcePolicyExists checks whether an existing ResourcePolicy resource with the given ID exists.
+func ResourcePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourcePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/resourcePolicy:ResourcePolicy", id, state, "", opts...)
+}
+
 type resourcePolicyArgs struct {
 	// IAM policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy string `pulumi:"policy"`

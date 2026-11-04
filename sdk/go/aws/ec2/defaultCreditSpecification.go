@@ -117,6 +117,12 @@ func (DefaultCreditSpecificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultCreditSpecificationState)(nil)).Elem()
 }
 
+// DefaultCreditSpecificationExists checks whether an existing DefaultCreditSpecification resource with the given ID exists.
+func DefaultCreditSpecificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultCreditSpecificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/defaultCreditSpecification:DefaultCreditSpecification", id, state, "", opts...)
+}
+
 type defaultCreditSpecificationArgs struct {
 	// Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
 	CpuCredits string `pulumi:"cpuCredits"`

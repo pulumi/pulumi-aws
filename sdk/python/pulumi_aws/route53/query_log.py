@@ -300,6 +300,18 @@ class QueryLog(pulumi.CustomResource):
         __props__.__dict__["zone_id"] = zone_id
         return QueryLog(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cloudwatchLogGroupArn"] = cloudwatch_log_group_arn
+        __props__["zoneId"] = zone_id
+        return pulumi.runtime.exists_resource(None, 'aws:route53/queryLog:QueryLog', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

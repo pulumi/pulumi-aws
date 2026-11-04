@@ -336,6 +336,22 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["throttle_settings"] = throttle_settings
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key_version: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            throttle_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict', 'outputs.AccountThrottleSetting']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKeyVersion"] = api_key_version
+        __props__["cloudwatchRoleArn"] = cloudwatch_role_arn
+        __props__["features"] = features
+        __props__["region"] = region
+        __props__["throttleSettings"] = throttle_settings
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/account:Account', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKeyVersion")
     def api_key_version(self) -> pulumi.Output[_builtins.str]:

@@ -326,6 +326,20 @@ class Notification(pulumi.CustomResource):
         __props__.__dict__["topic_arn"] = topic_arn
         return Notification(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationType']]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            topic_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupNames"] = group_names
+        __props__["notifications"] = notifications
+        __props__["region"] = region
+        __props__["topicArn"] = topic_arn
+        return pulumi.runtime.exists_resource(None, 'aws:autoscaling/notification:Notification', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupNames")
     def group_names(self) -> pulumi.Output[Sequence[_builtins.str]]:

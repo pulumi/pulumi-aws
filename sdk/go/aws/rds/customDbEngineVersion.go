@@ -353,6 +353,12 @@ func (CustomDbEngineVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDbEngineVersionState)(nil)).Elem()
 }
 
+// CustomDbEngineVersionExists checks whether an existing CustomDbEngineVersion resource with the given ID exists.
+func CustomDbEngineVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDbEngineVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/customDbEngineVersion:CustomDbEngineVersion", id, state, "", opts...)
+}
+
 type customDbEngineVersionArgs struct {
 	// Name of the Amazon S3 bucket that contains the database installation files.
 	DatabaseInstallationFilesS3BucketName *string `pulumi:"databaseInstallationFilesS3BucketName"`

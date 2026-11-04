@@ -425,6 +425,12 @@ func (HealthCheckState) ElementType() reflect.Type {
 	return reflect.TypeOf((*healthCheckState)(nil)).Elem()
 }
 
+// HealthCheckExists checks whether an existing HealthCheck resource with the given ID exists.
+func HealthCheckExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HealthCheckState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/healthCheck:HealthCheck", id, state, "", opts...)
+}
+
 type healthCheckArgs struct {
 	// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
 	ChildHealthThreshold *int `pulumi:"childHealthThreshold"`

@@ -231,6 +231,12 @@ func (ClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterState)(nil)).Elem()
 }
 
+// ClusterExists checks whether an existing Cluster resource with the given ID exists.
+func ClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudhsmv2/cluster:Cluster", id, state, "", opts...)
+}
+
 type clusterArgs struct {
 	// The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
 	HsmType string `pulumi:"hsmType"`

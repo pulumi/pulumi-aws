@@ -794,6 +794,42 @@ class PlatformApplication(pulumi.CustomResource):
         __props__.__dict__["success_feedback_sample_rate"] = success_feedback_sample_rate
         return PlatformApplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apple_platform_bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            apple_platform_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_delivery_failure_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_endpoint_created_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_endpoint_deleted_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_endpoint_updated_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_credential: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_principal: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            success_feedback_sample_rate: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applePlatformBundleId"] = apple_platform_bundle_id
+        __props__["applePlatformTeamId"] = apple_platform_team_id
+        __props__["arn"] = arn
+        __props__["eventDeliveryFailureTopicArn"] = event_delivery_failure_topic_arn
+        __props__["eventEndpointCreatedTopicArn"] = event_endpoint_created_topic_arn
+        __props__["eventEndpointDeletedTopicArn"] = event_endpoint_deleted_topic_arn
+        __props__["eventEndpointUpdatedTopicArn"] = event_endpoint_updated_topic_arn
+        __props__["failureFeedbackRoleArn"] = failure_feedback_role_arn
+        __props__["name"] = name
+        __props__["platform"] = platform
+        __props__["platformCredential"] = platform_credential
+        __props__["platformPrincipal"] = platform_principal
+        __props__["region"] = region
+        __props__["successFeedbackRoleArn"] = success_feedback_role_arn
+        __props__["successFeedbackSampleRate"] = success_feedback_sample_rate
+        return pulumi.runtime.exists_resource(None, 'aws:sns/platformApplication:PlatformApplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applePlatformBundleId")
     def apple_platform_bundle_id(self) -> pulumi.Output[Optional[_builtins.str]]:

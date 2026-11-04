@@ -331,6 +331,12 @@ func (SpaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spaceState)(nil)).Elem()
 }
 
+// SpaceExists checks whether an existing Space resource with the given ID exists.
+func SpaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatchomni/space:Space", id, state, "", opts...)
+}
+
 type spaceArgs struct {
 	// ARN of the IAM role used by AgentCore online evaluation. Changing this forces a new resource.
 	AgentCoreEvaluationRoleArn *string `pulumi:"agentCoreEvaluationRoleArn"`

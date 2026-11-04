@@ -890,6 +890,46 @@ class MLTransform(pulumi.CustomResource):
         __props__.__dict__["worker_type"] = worker_type
         return MLTransform(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+            input_record_tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MLTransformInputRecordTableArgs', 'MLTransformInputRecordTableArgsDict', 'outputs.MLTransformInputRecordTable']]]]] = None,
+            label_count: pulumi.Input[Optional[_builtins.int]] = None,
+            max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+            max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            parameters: pulumi.Input[Optional[Union['MLTransformParametersArgs', 'MLTransformParametersArgsDict', 'outputs.MLTransformParameters']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            schemas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MLTransformSchemaArgs', 'MLTransformSchemaArgsDict', 'outputs.MLTransformSchema']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            worker_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["glueVersion"] = glue_version
+        __props__["inputRecordTables"] = input_record_tables
+        __props__["labelCount"] = label_count
+        __props__["maxCapacity"] = max_capacity
+        __props__["maxRetries"] = max_retries
+        __props__["name"] = name
+        __props__["numberOfWorkers"] = number_of_workers
+        __props__["parameters"] = parameters
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["schemas"] = schemas
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeout"] = timeout
+        __props__["workerType"] = worker_type
+        return pulumi.runtime.exists_resource(None, 'aws:glue/mLTransform:MLTransform', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

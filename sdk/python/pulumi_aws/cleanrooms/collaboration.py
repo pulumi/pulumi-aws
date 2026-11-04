@@ -693,6 +693,40 @@ class Collaboration(pulumi.CustomResource):
         __props__.__dict__["update_time"] = update_time
         return Collaboration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            analytics_engine: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            creator_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            creator_member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict', 'outputs.CollaborationMember']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_log_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            update_time: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["analyticsEngine"] = analytics_engine
+        __props__["arn"] = arn
+        __props__["createTime"] = create_time
+        __props__["creatorDisplayName"] = creator_display_name
+        __props__["creatorMemberAbilities"] = creator_member_abilities
+        __props__["dataEncryptionMetadata"] = data_encryption_metadata
+        __props__["description"] = description
+        __props__["members"] = members
+        __props__["name"] = name
+        __props__["queryLogStatus"] = query_log_status
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["updateTime"] = update_time
+        return pulumi.runtime.exists_resource(None, 'aws:cleanrooms/collaboration:Collaboration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="analyticsEngine")
     def analytics_engine(self) -> pulumi.Output[Optional[_builtins.str]]:

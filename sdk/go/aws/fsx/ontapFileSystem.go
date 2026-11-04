@@ -404,6 +404,12 @@ func (OntapFileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ontapFileSystemState)(nil)).Elem()
 }
 
+// OntapFileSystemExists checks whether an existing OntapFileSystem resource with the given ID exists.
+func OntapFileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OntapFileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/ontapFileSystem:OntapFileSystem", id, state, "", opts...)
+}
+
 type ontapFileSystemArgs struct {
 	// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`

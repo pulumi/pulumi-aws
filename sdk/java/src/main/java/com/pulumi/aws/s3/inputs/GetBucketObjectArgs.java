@@ -20,22 +20,20 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
      * 
-     * @deprecated
-     * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
+     * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      * 
      */
-    @Deprecated /* bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead. */
+    @Deprecated
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
      * @return Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
      * 
-     * @deprecated
-     * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
+     * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      * 
      */
-    @Deprecated /* bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead. */
+    @Deprecated
     public Output<String> bucket() {
         return this.bucket;
     }
@@ -149,11 +147,10 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
+         * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
          * 
          */
-        @Deprecated /* bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead. */
+        @Deprecated
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
@@ -164,11 +161,10 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
+         * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
          * 
          */
-        @Deprecated /* bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead. */
+        @Deprecated
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }

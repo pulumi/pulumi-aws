@@ -135,6 +135,12 @@ func (OrganizationConfigurationFeatureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigurationFeatureState)(nil)).Elem()
 }
 
+// OrganizationConfigurationFeatureExists checks whether an existing OrganizationConfigurationFeature resource with the given ID exists.
+func OrganizationConfigurationFeatureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConfigurationFeatureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature", id, state, "", opts...)
+}
+
 type organizationConfigurationFeatureArgs struct {
 	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `autoEnable` instead.  See below.
 	AdditionalConfigurations []OrganizationConfigurationFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`

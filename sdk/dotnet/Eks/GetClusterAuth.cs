@@ -19,8 +19,6 @@ namespace Pulumi.Aws.Eks
         /// This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
         /// server configured.
         /// 
-        /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -55,8 +53,6 @@ namespace Pulumi.Aws.Eks
         /// This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
         /// server configured.
         /// 
-        /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -90,8 +86,6 @@ namespace Pulumi.Aws.Eks
         /// [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
         /// This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
         /// server configured.
-        /// 
-        /// 
         /// 
         /// ## Example Usage
         /// 

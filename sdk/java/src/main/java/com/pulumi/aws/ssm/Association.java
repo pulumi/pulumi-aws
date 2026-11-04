@@ -312,12 +312,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // SSM Association for Webbased Servers
  *         var databaseAssociation = new Association("databaseAssociation", AssociationArgs.builder()
  *             .targets(AssociationTargetArgs.builder()
@@ -350,7 +350,7 @@ import javax.annotation.Nullable;
  * yum install -y httpd
  * systemctl enable httpd
  * systemctl start httpd
- * echo \"<h1>Web Server - %s</h1>\" > /var/www/html/index.html
+ * echo }&#92;{@code "<h1>Web Server - %s</h1>}&#92;{@code " > /var/www/html/index.html
  * ", prefix))
  *                 .build()).result())
  *             .tags(Map.ofEntries(
@@ -391,8 +391,8 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

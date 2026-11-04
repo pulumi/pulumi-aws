@@ -317,6 +317,12 @@ func (EventArchiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventArchiveState)(nil)).Elem()
 }
 
+// EventArchiveExists checks whether an existing EventArchive resource with the given ID exists.
+func EventArchiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventArchiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/eventArchive:EventArchive", id, state, "", opts...)
+}
+
 type eventArchiveArgs struct {
 	// Description for the archive.
 	Description *string `pulumi:"description"`

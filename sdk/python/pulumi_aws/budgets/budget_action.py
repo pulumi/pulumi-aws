@@ -722,6 +722,40 @@ class BudgetAction(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return BudgetAction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            action_id: pulumi.Input[Optional[_builtins.str]] = None,
+            action_threshold: pulumi.Input[Optional[Union['BudgetActionActionThresholdArgs', 'BudgetActionActionThresholdArgsDict', 'outputs.BudgetActionActionThreshold']]] = None,
+            action_type: pulumi.Input[Optional[_builtins.str]] = None,
+            approval_model: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            budget_name: pulumi.Input[Optional[_builtins.str]] = None,
+            definition: pulumi.Input[Optional[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict', 'outputs.BudgetActionDefinition']]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict', 'outputs.BudgetActionSubscriber']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["actionId"] = action_id
+        __props__["actionThreshold"] = action_threshold
+        __props__["actionType"] = action_type
+        __props__["approvalModel"] = approval_model
+        __props__["arn"] = arn
+        __props__["budgetName"] = budget_name
+        __props__["definition"] = definition
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["notificationType"] = notification_type
+        __props__["status"] = status
+        __props__["subscribers"] = subscribers
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:budgets/budgetAction:BudgetAction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

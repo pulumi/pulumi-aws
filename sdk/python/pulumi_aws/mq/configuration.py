@@ -628,6 +628,36 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            data: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_revision: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["authenticationStrategy"] = authentication_strategy
+        __props__["data"] = data
+        __props__["description"] = description
+        __props__["engineType"] = engine_type
+        __props__["engineVersion"] = engine_version
+        __props__["latestRevision"] = latest_revision
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["skipDestroy"] = skip_destroy
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:mq/configuration:Configuration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

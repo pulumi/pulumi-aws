@@ -133,6 +133,12 @@ func (FleetStackAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetStackAssociationState)(nil)).Elem()
 }
 
+// FleetStackAssociationExists checks whether an existing FleetStackAssociation resource with the given ID exists.
+func FleetStackAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetStackAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appstream/fleetStackAssociation:FleetStackAssociation", id, state, "", opts...)
+}
+
 type fleetStackAssociationArgs struct {
 	// Name of the fleet.
 	FleetName string `pulumi:"fleetName"`

@@ -502,6 +502,12 @@ func (NodeGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodeGroupState)(nil)).Elem()
 }
 
+// NodeGroupExists checks whether an existing NodeGroup resource with the given ID exists.
+func NodeGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NodeGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:eks/nodeGroup:NodeGroup", id, state, "", opts...)
+}
+
 type nodeGroupArgs struct {
 	// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`

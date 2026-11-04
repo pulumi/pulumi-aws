@@ -157,6 +157,12 @@ func (DomainServiceAccessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainServiceAccessPolicyState)(nil)).Elem()
 }
 
+// DomainServiceAccessPolicyExists checks whether an existing DomainServiceAccessPolicy resource with the given ID exists.
+func DomainServiceAccessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainServiceAccessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy", id, state, "", opts...)
+}
+
 type domainServiceAccessPolicyArgs struct {
 	// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
 	AccessPolicy string `pulumi:"accessPolicy"`

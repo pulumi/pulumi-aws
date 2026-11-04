@@ -30,14 +30,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+     * Row delimiter. For example, in a CSV format, `&#92;n` is the typical row delimiter.
      * 
      */
     @Import(name="recordRowDelimiter", required=true)
     private Output<String> recordRowDelimiter;
 
     /**
-     * @return Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+     * @return Row delimiter. For example, in a CSV format, `&#92;n` is the typical row delimiter.
      * 
      */
     public Output<String> recordRowDelimiter() {
@@ -91,7 +91,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordRowDelimiter Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+         * @param recordRowDelimiter Row delimiter. For example, in a CSV format, `&#92;n` is the typical row delimiter.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordRowDelimiter Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+         * @param recordRowDelimiter Row delimiter. For example, in a CSV format, `&#92;n` is the typical row delimiter.
          * 
          * @return builder
          * 

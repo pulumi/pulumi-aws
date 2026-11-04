@@ -691,6 +691,40 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["ttl"] = ttl
         return Table(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_specification: pulumi.Input[Optional[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict', 'outputs.TableCapacitySpecification']]] = None,
+            client_side_timestamps: pulumi.Input[Optional[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict', 'outputs.TableClientSideTimestamps']]] = None,
+            comment: pulumi.Input[Optional[Union['TableCommentArgs', 'TableCommentArgsDict', 'outputs.TableComment']]] = None,
+            default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+            encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict', 'outputs.TableEncryptionSpecification']]] = None,
+            keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            point_in_time_recovery: pulumi.Input[Optional[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict', 'outputs.TablePointInTimeRecovery']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_definition: pulumi.Input[Optional[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict', 'outputs.TableSchemaDefinition']]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[Union['TableTtlArgs', 'TableTtlArgsDict', 'outputs.TableTtl']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["capacitySpecification"] = capacity_specification
+        __props__["clientSideTimestamps"] = client_side_timestamps
+        __props__["comment"] = comment
+        __props__["defaultTimeToLive"] = default_time_to_live
+        __props__["encryptionSpecification"] = encryption_specification
+        __props__["keyspaceName"] = keyspace_name
+        __props__["pointInTimeRecovery"] = point_in_time_recovery
+        __props__["region"] = region
+        __props__["schemaDefinition"] = schema_definition
+        __props__["tableName"] = table_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["ttl"] = ttl
+        return pulumi.runtime.exists_resource(None, 'aws:keyspaces/table:Table', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

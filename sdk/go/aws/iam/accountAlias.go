@@ -102,6 +102,12 @@ func (AccountAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountAliasState)(nil)).Elem()
 }
 
+// AccountAliasExists checks whether an existing AccountAlias resource with the given ID exists.
+func AccountAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/accountAlias:AccountAlias", id, state, "", opts...)
+}
+
 type accountAliasArgs struct {
 	// The account alias
 	AccountAlias string `pulumi:"accountAlias"`

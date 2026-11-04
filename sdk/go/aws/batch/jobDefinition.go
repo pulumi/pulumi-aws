@@ -600,6 +600,12 @@ func (JobDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobDefinitionState)(nil)).Elem()
 }
 
+// JobDefinitionExists checks whether an existing JobDefinition resource with the given ID exists.
+func JobDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:batch/jobDefinition:JobDefinition", id, state, "", opts...)
+}
+
 type jobDefinitionArgs struct {
 	// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties *string `pulumi:"containerProperties"`

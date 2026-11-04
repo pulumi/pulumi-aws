@@ -373,6 +373,12 @@ func (CentralizationRuleForOrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*centralizationRuleForOrganizationState)(nil)).Elem()
 }
 
+// CentralizationRuleForOrganizationExists checks whether an existing CentralizationRuleForOrganization resource with the given ID exists.
+func CentralizationRuleForOrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CentralizationRuleForOrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization", id, state, "", opts...)
+}
+
 type centralizationRuleForOrganizationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

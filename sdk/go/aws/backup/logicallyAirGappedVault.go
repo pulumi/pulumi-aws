@@ -152,6 +152,12 @@ func (LogicallyAirGappedVaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logicallyAirGappedVaultState)(nil)).Elem()
 }
 
+// LogicallyAirGappedVaultExists checks whether an existing LogicallyAirGappedVault resource with the given ID exists.
+func LogicallyAirGappedVaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogicallyAirGappedVaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault", id, state, "", opts...)
+}
+
 type logicallyAirGappedVaultArgs struct {
 	// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`

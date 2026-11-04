@@ -160,6 +160,12 @@ func (BucketMetadataConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketMetadataConfigurationState)(nil)).Elem()
 }
 
+// BucketMetadataConfigurationExists checks whether an existing BucketMetadataConfiguration resource with the given ID exists.
+func BucketMetadataConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketMetadataConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration", id, state, "", opts...)
+}
+
 type bucketMetadataConfigurationArgs struct {
 	// General purpose bucket that you want to create the metadata configuration for.
 	Bucket string `pulumi:"bucket"`

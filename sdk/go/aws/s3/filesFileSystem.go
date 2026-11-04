@@ -202,6 +202,12 @@ func (FilesFileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*filesFileSystemState)(nil)).Elem()
 }
 
+// FilesFileSystemExists checks whether an existing FilesFileSystem resource with the given ID exists.
+func FilesFileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FilesFileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/filesFileSystem:FilesFileSystem", id, state, "", opts...)
+}
+
 type filesFileSystemArgs struct {
 	// Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
 	AcceptBucketWarning *bool `pulumi:"acceptBucketWarning"`

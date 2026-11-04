@@ -653,6 +653,36 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']]] = None,
+            health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["dnsConfig"] = dns_config
+        __props__["forceDestroy"] = force_destroy
+        __props__["healthCheckConfig"] = health_check_config
+        __props__["healthCheckCustomConfig"] = health_check_custom_config
+        __props__["name"] = name
+        __props__["namespaceId"] = namespace_id
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:servicediscovery/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

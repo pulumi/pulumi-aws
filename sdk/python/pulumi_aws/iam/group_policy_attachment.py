@@ -260,6 +260,16 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         __props__.__dict__["policy_arn"] = policy_arn
         return GroupPolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["group"] = group
+        __props__["policyArn"] = policy_arn
+        return pulumi.runtime.exists_resource(None, 'aws:iam/groupPolicyAttachment:GroupPolicyAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def group(self) -> pulumi.Output[_builtins.str]:

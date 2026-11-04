@@ -178,6 +178,12 @@ func (AcceleratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*acceleratorState)(nil)).Elem()
 }
 
+// AcceleratorExists checks whether an existing Accelerator resource with the given ID exists.
+func AcceleratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AcceleratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:globalaccelerator/accelerator:Accelerator", id, state, "", opts...)
+}
+
 type acceleratorArgs struct {
 	// Configuration block with accelerator attributes. See `attributes` below.
 	Attributes *AcceleratorAttributes `pulumi:"attributes"`

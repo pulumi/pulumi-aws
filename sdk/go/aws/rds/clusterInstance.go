@@ -374,6 +374,12 @@ func (ClusterInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterInstanceState)(nil)).Elem()
 }
 
+// ClusterInstanceExists checks whether an existing ClusterInstance resource with the given ID exists.
+func ClusterInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/clusterInstance:ClusterInstance", id, state, "", opts...)
+}
+
 type clusterInstanceArgs struct {
 	// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`

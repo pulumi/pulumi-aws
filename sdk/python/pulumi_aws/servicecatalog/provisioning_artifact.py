@@ -646,6 +646,38 @@ class ProvisioningArtifact(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ProvisioningArtifact(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_template_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+            guidance: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            template_physical_id: pulumi.Input[Optional[_builtins.str]] = None,
+            template_url: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptLanguage"] = accept_language
+        __props__["active"] = active
+        __props__["createdTime"] = created_time
+        __props__["description"] = description
+        __props__["disableTemplateValidation"] = disable_template_validation
+        __props__["guidance"] = guidance
+        __props__["name"] = name
+        __props__["productId"] = product_id
+        __props__["provisioningArtifactId"] = provisioning_artifact_id
+        __props__["region"] = region
+        __props__["templatePhysicalId"] = template_physical_id
+        __props__["templateUrl"] = template_url
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:servicecatalog/provisioningArtifact:ProvisioningArtifact', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:

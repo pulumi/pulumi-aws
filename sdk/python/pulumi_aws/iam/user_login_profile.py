@@ -403,6 +403,26 @@ class UserLoginProfile(pulumi.CustomResource):
         __props__.__dict__["user"] = user
         return UserLoginProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            encrypted_password: pulumi.Input[Optional[_builtins.str]] = None,
+            key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            password_length: pulumi.Input[Optional[_builtins.int]] = None,
+            password_reset_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["encryptedPassword"] = encrypted_password
+        __props__["keyFingerprint"] = key_fingerprint
+        __props__["password"] = password
+        __props__["passwordLength"] = password_length
+        __props__["passwordResetRequired"] = password_reset_required
+        __props__["pgpKey"] = pgp_key
+        __props__["user"] = user
+        return pulumi.runtime.exists_resource(None, 'aws:iam/userLoginProfile:UserLoginProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="encryptedPassword")
     def encrypted_password(self) -> pulumi.Output[_builtins.str]:

@@ -164,6 +164,12 @@ func (DirectoryBucketAccessPointScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryBucketAccessPointScopeState)(nil)).Elem()
 }
 
+// DirectoryBucketAccessPointScopeExists checks whether an existing DirectoryBucketAccessPointScope resource with the given ID exists.
+func DirectoryBucketAccessPointScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectoryBucketAccessPointScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope", id, state, "", opts...)
+}
+
 type directoryBucketAccessPointScopeArgs struct {
 	// AWS account ID that owns the specified access point.
 	AccountId string `pulumi:"accountId"`

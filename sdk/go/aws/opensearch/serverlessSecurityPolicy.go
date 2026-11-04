@@ -453,6 +453,12 @@ func (ServerlessSecurityPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessSecurityPolicyState)(nil)).Elem()
 }
 
+// ServerlessSecurityPolicyExists checks whether an existing ServerlessSecurityPolicy resource with the given ID exists.
+func ServerlessSecurityPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessSecurityPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy", id, state, "", opts...)
+}
+
 type serverlessSecurityPolicyArgs struct {
 	// Description of the policy. Typically used to store information about the permissions defined in the policy.
 	Description *string `pulumi:"description"`

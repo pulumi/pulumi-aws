@@ -456,6 +456,30 @@ class AccessKey(pulumi.CustomResource):
         __props__.__dict__["user"] = user
         return AccessKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            create_date: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted_ses_smtp_password_v4: pulumi.Input[Optional[_builtins.str]] = None,
+            key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secret: pulumi.Input[Optional[_builtins.str]] = None,
+            ses_smtp_password_v4: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createDate"] = create_date
+        __props__["encryptedSecret"] = encrypted_secret
+        __props__["encryptedSesSmtpPasswordV4"] = encrypted_ses_smtp_password_v4
+        __props__["keyFingerprint"] = key_fingerprint
+        __props__["pgpKey"] = pgp_key
+        __props__["secret"] = secret
+        __props__["sesSmtpPasswordV4"] = ses_smtp_password_v4
+        __props__["status"] = status
+        __props__["user"] = user
+        return pulumi.runtime.exists_resource(None, 'aws:iam/accessKey:AccessKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createDate")
     def create_date(self) -> pulumi.Output[_builtins.str]:

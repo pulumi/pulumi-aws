@@ -353,6 +353,26 @@ class ConnectionAlias(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ConnectionAlias(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ConnectionAliasTimeoutsArgs', 'ConnectionAliasTimeoutsArgsDict', 'outputs.ConnectionAliasTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectionString"] = connection_string
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:workspaces/connectionAlias:ConnectionAlias', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> pulumi.Output[_builtins.str]:

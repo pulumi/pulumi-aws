@@ -403,6 +403,24 @@ class DomainEntry(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return DomainEntry(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_alias: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domainName"] = domain_name
+        __props__["isAlias"] = is_alias
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["target"] = target
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:lightsail/domainEntry:DomainEntry', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:

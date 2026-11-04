@@ -651,6 +651,26 @@ class TelemetryRule(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return TelemetryRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict', 'outputs.TelemetryRuleRule']]] = None,
+            rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['TelemetryRuleTimeoutsArgs', 'TelemetryRuleTimeoutsArgsDict', 'outputs.TelemetryRuleTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["rule"] = rule
+        __props__["ruleArn"] = rule_arn
+        __props__["ruleName"] = rule_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:observabilityadmin/telemetryRule:TelemetryRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

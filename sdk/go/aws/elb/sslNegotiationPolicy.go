@@ -202,6 +202,12 @@ func (SslNegotiationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sslNegotiationPolicyState)(nil)).Elem()
 }
 
+// SslNegotiationPolicyExists checks whether an existing SslNegotiationPolicy resource with the given ID exists.
+func SslNegotiationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SslNegotiationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", id, state, "", opts...)
+}
+
 type sslNegotiationPolicyArgs struct {
 	// An SSL Negotiation policy attribute. Each has two properties:
 	Attributes []SslNegotiationPolicyAttribute `pulumi:"attributes"`

@@ -134,6 +134,12 @@ func (DomainNameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameState)(nil)).Elem()
 }
 
+// DomainNameExists checks whether an existing DomainName resource with the given ID exists.
+func DomainNameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainNameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appsync/domainName:DomainName", id, state, "", opts...)
+}
+
 type domainNameArgs struct {
 	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn string `pulumi:"certificateArn"`

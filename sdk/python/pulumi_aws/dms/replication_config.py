@@ -704,6 +704,40 @@ class ReplicationConfig(pulumi.CustomResource):
         __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
         return ReplicationConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict', 'outputs.ReplicationConfigComputeConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_config_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            start_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+            supplemental_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            table_mappings: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["computeConfig"] = compute_config
+        __props__["region"] = region
+        __props__["replicationConfigIdentifier"] = replication_config_identifier
+        __props__["replicationSettings"] = replication_settings
+        __props__["replicationType"] = replication_type
+        __props__["resourceIdentifier"] = resource_identifier
+        __props__["sourceEndpointArn"] = source_endpoint_arn
+        __props__["startReplication"] = start_replication
+        __props__["supplementalSettings"] = supplemental_settings
+        __props__["tableMappings"] = table_mappings
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetEndpointArn"] = target_endpoint_arn
+        return pulumi.runtime.exists_resource(None, 'aws:dms/replicationConfig:ReplicationConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

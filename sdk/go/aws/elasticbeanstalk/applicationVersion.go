@@ -200,6 +200,12 @@ func (ApplicationVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationVersionState)(nil)).Elem()
 }
 
+// ApplicationVersionExists checks whether an existing ApplicationVersion resource with the given ID exists.
+func ApplicationVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", id, state, "", opts...)
+}
+
 type applicationVersionArgs struct {
 	// Name of the Beanstalk Application the version is associated with.
 	Application interface{} `pulumi:"application"`

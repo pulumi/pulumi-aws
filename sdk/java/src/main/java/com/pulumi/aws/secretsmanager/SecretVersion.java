@@ -163,11 +163,10 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
     /**
      * (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
-     * @deprecated
-     * arn is deprecated. Use secretArn instead.
+     * @deprecated arn is deprecated. Use secretArn instead.
      * 
      */
-    @Deprecated /* arn is deprecated. Use secretArn instead. */
+    @Deprecated
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 

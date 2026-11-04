@@ -690,6 +690,40 @@ class ReportDefinition(pulumi.CustomResource):
         __props__.__dict__["time_unit"] = time_unit
         return ReportDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            additional_schema_elements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            format: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_closed_reports: pulumi.Input[Optional[_builtins.bool]] = None,
+            report_name: pulumi.Input[Optional[_builtins.str]] = None,
+            report_versioning: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            time_unit: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalArtifacts"] = additional_artifacts
+        __props__["additionalSchemaElements"] = additional_schema_elements
+        __props__["arn"] = arn
+        __props__["compression"] = compression
+        __props__["format"] = format
+        __props__["refreshClosedReports"] = refresh_closed_reports
+        __props__["reportName"] = report_name
+        __props__["reportVersioning"] = report_versioning
+        __props__["s3Bucket"] = s3_bucket
+        __props__["s3Prefix"] = s3_prefix
+        __props__["s3Region"] = s3_region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeUnit"] = time_unit
+        return pulumi.runtime.exists_resource(None, 'aws:cur/reportDefinition:ReportDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalArtifacts")
     def additional_artifacts(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

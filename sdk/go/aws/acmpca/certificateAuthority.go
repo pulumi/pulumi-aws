@@ -333,6 +333,12 @@ func (CertificateAuthorityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateAuthorityState)(nil)).Elem()
 }
 
+// CertificateAuthorityExists checks whether an existing CertificateAuthority resource with the given ID exists.
+func CertificateAuthorityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateAuthorityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:acmpca/certificateAuthority:CertificateAuthority", id, state, "", opts...)
+}
+
 type certificateAuthorityArgs struct {
 	// Nested argument containing algorithms and certificate subject information. Defined below.
 	CertificateAuthorityConfiguration CertificateAuthorityCertificateAuthorityConfiguration `pulumi:"certificateAuthorityConfiguration"`

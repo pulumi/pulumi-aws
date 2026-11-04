@@ -176,6 +176,12 @@ func (FrameworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frameworkState)(nil)).Elem()
 }
 
+// FrameworkExists checks whether an existing Framework resource with the given ID exists.
+func FrameworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrameworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:auditmanager/framework:Framework", id, state, "", opts...)
+}
+
 type frameworkArgs struct {
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 	ComplianceType *string `pulumi:"complianceType"`

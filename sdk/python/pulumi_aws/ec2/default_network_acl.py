@@ -637,6 +637,32 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return DefaultNetworkAcl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+            egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict', 'outputs.DefaultNetworkAclEgress']]]]] = None,
+            ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict', 'outputs.DefaultNetworkAclIngress']]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["defaultNetworkAclId"] = default_network_acl_id
+        __props__["egress"] = egress
+        __props__["ingress"] = ingress
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/defaultNetworkAcl:DefaultNetworkAcl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

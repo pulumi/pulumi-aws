@@ -295,6 +295,18 @@ class BackupPolicy(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_policy: pulumi.Input[Optional[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict', 'outputs.BackupPolicyBackupPolicy']]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupPolicy"] = backup_policy
+        __props__["fileSystemId"] = file_system_id
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:efs/backupPolicy:BackupPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> pulumi.Output['outputs.BackupPolicyBackupPolicy']:

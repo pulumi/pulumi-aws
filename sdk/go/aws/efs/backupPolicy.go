@@ -136,6 +136,12 @@ func (BackupPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyState)(nil)).Elem()
 }
 
+// BackupPolicyExists checks whether an existing BackupPolicy resource with the given ID exists.
+func BackupPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:efs/backupPolicy:BackupPolicy", id, state, "", opts...)
+}
+
 type backupPolicyArgs struct {
 	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicy `pulumi:"backupPolicy"`

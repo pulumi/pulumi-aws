@@ -617,6 +617,42 @@ class SigningProfile(pulumi.CustomResource):
         __props__.__dict__["version_arn"] = version_arn
         return SigningProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict', 'outputs.SigningProfileRevocationRecord']]]]] = None,
+            signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict', 'outputs.SigningProfileSignatureValidityPeriod']]] = None,
+            signing_material: pulumi.Input[Optional[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict', 'outputs.SigningProfileSigningMaterial']]] = None,
+            signing_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            version_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["platformDisplayName"] = platform_display_name
+        __props__["platformId"] = platform_id
+        __props__["region"] = region
+        __props__["revocationRecords"] = revocation_records
+        __props__["signatureValidityPeriod"] = signature_validity_period
+        __props__["signingMaterial"] = signing_material
+        __props__["signingParameters"] = signing_parameters
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["version"] = version
+        __props__["versionArn"] = version_arn
+        return pulumi.runtime.exists_resource(None, 'aws:signer/signingProfile:SigningProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -135,6 +135,12 @@ func (DomainIdentityVerificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainIdentityVerificationState)(nil)).Elem()
 }
 
+// DomainIdentityVerificationExists checks whether an existing DomainIdentityVerification resource with the given ID exists.
+func DomainIdentityVerificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainIdentityVerificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/domainIdentityVerification:DomainIdentityVerification", id, state, "", opts...)
+}
+
 type domainIdentityVerificationArgs struct {
 	// Domain name of the SES domain identity to verify.
 	Domain string `pulumi:"domain"`

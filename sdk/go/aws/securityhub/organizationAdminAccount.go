@@ -140,6 +140,12 @@ func (OrganizationAdminAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationAdminAccountState)(nil)).Elem()
 }
 
+// OrganizationAdminAccountExists checks whether an existing OrganizationAdminAccount resource with the given ID exists.
+func OrganizationAdminAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationAdminAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount", id, state, "", opts...)
+}
+
 type organizationAdminAccountArgs struct {
 	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId string `pulumi:"adminAccountId"`

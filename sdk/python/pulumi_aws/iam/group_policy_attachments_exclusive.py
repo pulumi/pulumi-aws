@@ -266,6 +266,16 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
         __props__.__dict__["policy_arns"] = policy_arns
         return GroupPolicyAttachmentsExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupName"] = group_name
+        __props__["policyArns"] = policy_arns
+        return pulumi.runtime.exists_resource(None, 'aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:

@@ -126,6 +126,12 @@ func (PhoneNumberContactFlowAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*phoneNumberContactFlowAssociationState)(nil)).Elem()
 }
 
+// PhoneNumberContactFlowAssociationExists checks whether an existing PhoneNumberContactFlowAssociation resource with the given ID exists.
+func PhoneNumberContactFlowAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PhoneNumberContactFlowAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation", id, state, "", opts...)
+}
+
 type phoneNumberContactFlowAssociationArgs struct {
 	// Contact flow ID.
 	ContactFlowId string `pulumi:"contactFlowId"`

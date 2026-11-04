@@ -779,6 +779,48 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_password_secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_password_secret_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_user_password_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_user_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            db_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            manage_admin_password: pulumi.Input[Optional[_builtins.bool]] = None,
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminPasswordSecretArn"] = admin_password_secret_arn
+        __props__["adminPasswordSecretKmsKeyId"] = admin_password_secret_kms_key_id
+        __props__["adminUserPassword"] = admin_user_password
+        __props__["adminUserPasswordWo"] = admin_user_password_wo
+        __props__["adminUserPasswordWoVersion"] = admin_user_password_wo_version
+        __props__["adminUsername"] = admin_username
+        __props__["arn"] = arn
+        __props__["dbName"] = db_name
+        __props__["defaultIamRoleArn"] = default_iam_role_arn
+        __props__["iamRoles"] = iam_roles
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["logExports"] = log_exports
+        __props__["manageAdminPassword"] = manage_admin_password
+        __props__["namespaceId"] = namespace_id
+        __props__["namespaceName"] = namespace_name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:redshiftserverless/namespace:Namespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminPasswordSecretArn")
     def admin_password_secret_arn(self) -> pulumi.Output[_builtins.str]:

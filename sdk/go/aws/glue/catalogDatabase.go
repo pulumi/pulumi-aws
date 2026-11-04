@@ -198,6 +198,12 @@ func (CatalogDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogDatabaseState)(nil)).Elem()
 }
 
+// CatalogDatabaseExists checks whether an existing CatalogDatabase resource with the given ID exists.
+func CatalogDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CatalogDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/catalogDatabase:CatalogDatabase", id, state, "", opts...)
+}
+
 type catalogDatabaseArgs struct {
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`

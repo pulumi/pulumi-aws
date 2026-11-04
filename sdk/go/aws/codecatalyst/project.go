@@ -137,6 +137,12 @@ func (ProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectState)(nil)).Elem()
 }
 
+// ProjectExists checks whether an existing Project resource with the given ID exists.
+func ProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codecatalyst/project:Project", id, state, "", opts...)
+}
+
 type projectArgs struct {
 	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description *string `pulumi:"description"`

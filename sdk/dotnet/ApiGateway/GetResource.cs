@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApiGateway
     {
         /// <summary>
         /// Use this data source to get the ID of a Resource in API Gateway.
-        /// To fetch the Resource, you must provide the REST API ID as well as the full path.  
+        /// To fetch the Resource, you must provide the REST API ID as well as the full path.
         /// 
         /// ## Example Usage
         /// 
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Use this data source to get the ID of a Resource in API Gateway.
-        /// To fetch the Resource, you must provide the REST API ID as well as the full path.  
+        /// To fetch the Resource, you must provide the REST API ID as well as the full path.
         /// 
         /// ## Example Usage
         /// 
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Use this data source to get the ID of a Resource in API Gateway.
-        /// To fetch the Resource, you must provide the REST API ID as well as the full path.  
+        /// To fetch the Resource, you must provide the REST API ID as well as the full path.
         /// 
         /// ## Example Usage
         /// 

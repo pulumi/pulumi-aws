@@ -147,6 +147,12 @@ func (CustomRoutingEndpointGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customRoutingEndpointGroupState)(nil)).Elem()
 }
 
+// CustomRoutingEndpointGroupExists checks whether an existing CustomRoutingEndpointGroup resource with the given ID exists.
+func CustomRoutingEndpointGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomRoutingEndpointGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup", id, state, "", opts...)
+}
+
 type customRoutingEndpointGroupArgs struct {
 	// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
 	DestinationConfigurations []CustomRoutingEndpointGroupDestinationConfiguration `pulumi:"destinationConfigurations"`

@@ -238,6 +238,12 @@ func (NetworkAclRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclRuleState)(nil)).Elem()
 }
 
+// NetworkAclRuleExists checks whether an existing NetworkAclRule resource with the given ID exists.
+func NetworkAclRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkAclRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/networkAclRule:NetworkAclRule", id, state, "", opts...)
+}
+
 type networkAclRuleArgs struct {
 	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
 	CidrBlock *string `pulumi:"cidrBlock"`

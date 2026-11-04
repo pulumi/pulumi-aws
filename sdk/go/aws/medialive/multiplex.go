@@ -179,6 +179,12 @@ func (MultiplexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiplexState)(nil)).Elem()
 }
 
+// MultiplexExists checks whether an existing Multiplex resource with the given ID exists.
+func MultiplexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiplexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:medialive/multiplex:Multiplex", id, state, "", opts...)
+}
+
 type multiplexArgs struct {
 	// List of availability zones. You must specify exactly two.
 	AvailabilityZones []string `pulumi:"availabilityZones"`

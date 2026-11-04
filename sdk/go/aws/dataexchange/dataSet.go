@@ -141,6 +141,12 @@ func (DataSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSetState)(nil)).Elem()
 }
 
+// DataSetExists checks whether an existing DataSet resource with the given ID exists.
+func DataSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dataexchange/dataSet:DataSet", id, state, "", opts...)
+}
+
 type dataSetArgs struct {
 	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType string `pulumi:"assetType"`

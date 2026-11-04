@@ -394,6 +394,24 @@ class ExtensionAssociation(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = resource_arn
         return ExtensionAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_version: pulumi.Input[Optional[_builtins.int]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["extensionArn"] = extension_arn
+        __props__["extensionVersion"] = extension_version
+        __props__["parameters"] = parameters
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        return pulumi.runtime.exists_resource(None, 'aws:appconfig/extensionAssociation:ExtensionAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

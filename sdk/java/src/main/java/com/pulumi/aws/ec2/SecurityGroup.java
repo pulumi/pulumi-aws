@@ -315,12 +315,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var default = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
  *             .name("default")
  *             .build());
@@ -337,8 +337,8 @@ import javax.annotation.Nullable;
  *             .create("true")
  *             .update("true")
  *             .delete("""
- *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=%s\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&
- *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
+ *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters }&#92;{@code "Name=tag:Name,Values=%s}&#92;{@code " --query }&#92;{@code "VpcEndpoints[0].VpcEndpointId}&#92;{@code " --output text` &&
+ *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id $}{{@code ENDPOINT_ID}}{@code  --add-security-group-ids %s --remove-security-group-ids %s
  * ", example.tags().workaround1(),example.tags().workaround2(),example.id()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(Arrays.asList(example))
@@ -359,8 +359,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(Arrays.asList(exampleResource))
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

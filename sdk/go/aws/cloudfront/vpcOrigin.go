@@ -152,6 +152,12 @@ func (VpcOriginState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcOriginState)(nil)).Elem()
 }
 
+// VpcOriginExists checks whether an existing VpcOrigin resource with the given ID exists.
+func VpcOriginExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcOriginState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/vpcOrigin:VpcOrigin", id, state, "", opts...)
+}
+
 type vpcOriginArgs struct {
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string  `pulumi:"tags"`

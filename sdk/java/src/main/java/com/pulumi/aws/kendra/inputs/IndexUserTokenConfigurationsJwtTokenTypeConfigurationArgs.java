@@ -92,14 +92,14 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
     }
 
     /**
-     * Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
+     * Signing key URL. Valid pattern is `^(https?|ftp|file):&#92;/&#92;/([^&#92;s]*)`.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
+     * @return Signing key URL. Valid pattern is `^(https?|ftp|file):&#92;/&#92;/([^&#92;s]*)`.
      * 
      */
     public Optional<Output<String>> url() {
@@ -257,7 +257,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param url Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
+         * @param url Signing key URL. Valid pattern is `^(https?|ftp|file):&#92;/&#92;/([^&#92;s]*)`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param url Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
+         * @param url Signing key URL. Valid pattern is `^(https?|ftp|file):&#92;/&#92;/([^&#92;s]*)`.
          * 
          * @return builder
          * 

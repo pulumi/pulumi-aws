@@ -818,6 +818,48 @@ class User(pulumi.CustomResource):
         __props__.__dict__["validation_data"] = validation_data
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            client_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            desired_delivery_mediums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_alias_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+            message_action: pulumi.Input[Optional[_builtins.str]] = None,
+            mfa_setting_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_mfa_setting: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            sub: pulumi.Input[Optional[_builtins.str]] = None,
+            temporary_password: pulumi.Input[Optional[_builtins.str]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attributes"] = attributes
+        __props__["clientMetadata"] = client_metadata
+        __props__["creationDate"] = creation_date
+        __props__["desiredDeliveryMediums"] = desired_delivery_mediums
+        __props__["enabled"] = enabled
+        __props__["forceAliasCreation"] = force_alias_creation
+        __props__["lastModifiedDate"] = last_modified_date
+        __props__["messageAction"] = message_action
+        __props__["mfaSettingLists"] = mfa_setting_lists
+        __props__["password"] = password
+        __props__["preferredMfaSetting"] = preferred_mfa_setting
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["sub"] = sub
+        __props__["temporaryPassword"] = temporary_password
+        __props__["userPoolId"] = user_pool_id
+        __props__["username"] = username
+        __props__["validationData"] = validation_data
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

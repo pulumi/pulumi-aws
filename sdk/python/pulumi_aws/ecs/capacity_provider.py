@@ -558,6 +558,28 @@ class CapacityProvider(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CapacityProvider(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']]] = None,
+            cluster: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoScalingGroupProvider"] = auto_scaling_group_provider
+        __props__["cluster"] = cluster
+        __props__["managedInstancesProvider"] = managed_instances_provider
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ecs/capacityProvider:CapacityProvider', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

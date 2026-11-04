@@ -191,6 +191,12 @@ func (KxUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kxUserState)(nil)).Elem()
 }
 
+// KxUserExists checks whether an existing KxUser resource with the given ID exists.
+func KxUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KxUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:finspace/kxUser:KxUser", id, state, "", opts...)
+}
+
 type kxUserArgs struct {
 	// Unique identifier for the KX environment.
 	EnvironmentId string `pulumi:"environmentId"`

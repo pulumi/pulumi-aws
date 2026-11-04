@@ -248,6 +248,12 @@ func (VpcConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcConnectionState)(nil)).Elem()
 }
 
+// VpcConnectionExists checks whether an existing VpcConnection resource with the given ID exists.
+func VpcConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/vpcConnection:VpcConnection", id, state, "", opts...)
+}
+
 type vpcConnectionArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

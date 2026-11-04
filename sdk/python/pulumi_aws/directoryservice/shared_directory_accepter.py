@@ -315,6 +315,24 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         __props__.__dict__["shared_directory_id"] = shared_directory_id
         return SharedDirectoryAccepter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_directory_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["method"] = method
+        __props__["notes"] = notes
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["ownerDirectoryId"] = owner_directory_id
+        __props__["region"] = region
+        __props__["sharedDirectoryId"] = shared_directory_id
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def method(self) -> pulumi.Output[_builtins.str]:

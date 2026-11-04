@@ -232,6 +232,16 @@ class AwsServiceAccess(pulumi.CustomResource):
         __props__.__dict__["service_principal"] = service_principal
         return AwsServiceAccess(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            date_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dateEnabled"] = date_enabled
+        __props__["servicePrincipal"] = service_principal
+        return pulumi.runtime.exists_resource(None, 'aws:organizations/awsServiceAccess:AwsServiceAccess', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dateEnabled")
     def date_enabled(self) -> pulumi.Output[_builtins.str]:

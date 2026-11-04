@@ -118,6 +118,12 @@ func (AvailabilityZoneGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*availabilityZoneGroupState)(nil)).Elem()
 }
 
+// AvailabilityZoneGroupExists checks whether an existing AvailabilityZoneGroup resource with the given ID exists.
+func AvailabilityZoneGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AvailabilityZoneGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", id, state, "", opts...)
+}
+
 type availabilityZoneGroupArgs struct {
 	// Name of the Availability Zone Group.
 	GroupName string `pulumi:"groupName"`

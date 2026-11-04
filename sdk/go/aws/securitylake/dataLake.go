@@ -207,6 +207,12 @@ func (DataLakeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataLakeState)(nil)).Elem()
 }
 
+// DataLakeExists checks whether an existing DataLake resource with the given ID exists.
+func DataLakeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataLakeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securitylake/dataLake:DataLake", id, state, "", opts...)
+}
+
 type dataLakeArgs struct {
 	// Specify the Region or Regions that will contribute data to the rollup region.
 	Configuration DataLakeConfiguration `pulumi:"configuration"`

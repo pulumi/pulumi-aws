@@ -307,6 +307,24 @@ class BucketAccessKey(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return BucketAccessKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessKeyId"] = access_key_id
+        __props__["bucketName"] = bucket_name
+        __props__["createdAt"] = created_at
+        __props__["region"] = region
+        __props__["secretAccessKey"] = secret_access_key
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:lightsail/bucketAccessKey:BucketAccessKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> pulumi.Output[_builtins.str]:

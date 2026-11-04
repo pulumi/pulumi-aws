@@ -235,6 +235,12 @@ func (ReplicationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationConfigurationState)(nil)).Elem()
 }
 
+// ReplicationConfigurationExists checks whether an existing ReplicationConfiguration resource with the given ID exists.
+func ReplicationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:efs/replicationConfiguration:ReplicationConfiguration", id, state, "", opts...)
+}
+
 type replicationConfigurationArgs struct {
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestination `pulumi:"destination"`

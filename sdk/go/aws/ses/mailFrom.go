@@ -204,6 +204,12 @@ func (MailFromState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailFromState)(nil)).Elem()
 }
 
+// MailFromExists checks whether an existing MailFrom resource with the given ID exists.
+func MailFromExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailFromState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/mailFrom:MailFrom", id, state, "", opts...)
+}
+
 type mailFromArgs struct {
 	// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`

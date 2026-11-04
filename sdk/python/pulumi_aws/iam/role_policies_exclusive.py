@@ -270,6 +270,16 @@ class RolePoliciesExclusive(pulumi.CustomResource):
         __props__.__dict__["role_name"] = role_name
         return RolePoliciesExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["policyNames"] = policy_names
+        __props__["roleName"] = role_name
+        return pulumi.runtime.exists_resource(None, 'aws:iam/rolePoliciesExclusive:RolePoliciesExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="policyNames")
     def policy_names(self) -> pulumi.Output[Sequence[_builtins.str]]:

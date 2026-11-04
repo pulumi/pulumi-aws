@@ -286,6 +286,12 @@ func (ChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelState)(nil)).Elem()
 }
 
+// ChannelExists checks whether an existing Channel resource with the given ID exists.
+func ChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:msk/channel:Channel", id, state, "", opts...)
+}
+
 type channelArgs struct {
 	// Name of the channel. Must be unique within the cluster. Changing this forces a new resource to be created.
 	ChannelName string `pulumi:"channelName"`

@@ -1963,6 +1963,76 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["write_capacity"] = write_capacity
         return Table(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAttributeArgs', 'TableAttributeArgsDict', 'outputs.TableAttribute']]]]] = None,
+            billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict', 'outputs.TableGlobalSecondaryIndex']]]]] = None,
+            global_table_witness: pulumi.Input[Optional[Union['TableGlobalTableWitnessArgs', 'TableGlobalTableWitnessArgsDict', 'outputs.TableGlobalTableWitness']]] = None,
+            hash_key: pulumi.Input[Optional[_builtins.str]] = None,
+            import_table: pulumi.Input[Optional[Union['TableImportTableArgs', 'TableImportTableArgsDict', 'outputs.TableImportTable']]] = None,
+            local_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict', 'outputs.TableLocalSecondaryIndex']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            on_demand_throughput: pulumi.Input[Optional[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict', 'outputs.TableOnDemandThroughput']]] = None,
+            point_in_time_recovery: pulumi.Input[Optional[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict', 'outputs.TablePointInTimeRecovery']]] = None,
+            range_key: pulumi.Input[Optional[_builtins.str]] = None,
+            read_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict', 'outputs.TableReplica']]]]] = None,
+            restore_backup_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_source_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_to_latest_time: pulumi.Input[Optional[_builtins.bool]] = None,
+            server_side_encryption: pulumi.Input[Optional[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict', 'outputs.TableServerSideEncryption']]] = None,
+            stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            stream_label: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_view_type: pulumi.Input[Optional[_builtins.str]] = None,
+            table_class: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[Union['TableTtlArgs', 'TableTtlArgsDict', 'outputs.TableTtl']]] = None,
+            warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict', 'outputs.TableWarmThroughput']]] = None,
+            write_capacity: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["attributes"] = attributes
+        __props__["billingMode"] = billing_mode
+        __props__["deletionProtectionEnabled"] = deletion_protection_enabled
+        __props__["globalSecondaryIndexes"] = global_secondary_indexes
+        __props__["globalTableWitness"] = global_table_witness
+        __props__["hashKey"] = hash_key
+        __props__["importTable"] = import_table
+        __props__["localSecondaryIndexes"] = local_secondary_indexes
+        __props__["name"] = name
+        __props__["onDemandThroughput"] = on_demand_throughput
+        __props__["pointInTimeRecovery"] = point_in_time_recovery
+        __props__["rangeKey"] = range_key
+        __props__["readCapacity"] = read_capacity
+        __props__["region"] = region
+        __props__["replicas"] = replicas
+        __props__["restoreBackupArn"] = restore_backup_arn
+        __props__["restoreDateTime"] = restore_date_time
+        __props__["restoreSourceName"] = restore_source_name
+        __props__["restoreSourceTableArn"] = restore_source_table_arn
+        __props__["restoreToLatestTime"] = restore_to_latest_time
+        __props__["serverSideEncryption"] = server_side_encryption
+        __props__["streamArn"] = stream_arn
+        __props__["streamEnabled"] = stream_enabled
+        __props__["streamLabel"] = stream_label
+        __props__["streamViewType"] = stream_view_type
+        __props__["tableClass"] = table_class
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["ttl"] = ttl
+        __props__["warmThroughput"] = warm_throughput
+        __props__["writeCapacity"] = write_capacity
+        return pulumi.runtime.exists_resource(None, 'aws:dynamodb/table:Table', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

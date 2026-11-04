@@ -492,6 +492,24 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         __props__.__dict__["triggers"] = triggers
         return SslNegotiationPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]]] = None,
+            lb_port: pulumi.Input[Optional[_builtins.int]] = None,
+            load_balancer: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attributes"] = attributes
+        __props__["lbPort"] = lb_port
+        __props__["loadBalancer"] = load_balancer
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["triggers"] = triggers
+        return pulumi.runtime.exists_resource(None, 'aws:elb/sslNegotiationPolicy:SslNegotiationPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Sequence['outputs.SslNegotiationPolicyAttribute']]]:

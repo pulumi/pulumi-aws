@@ -145,6 +145,12 @@ func (GrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantState)(nil)).Elem()
 }
 
+// GrantExists checks whether an existing Grant resource with the given ID exists.
+func GrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kms/grant:Grant", id, state, "", opts...)
+}
+
 type grantArgs struct {
 	// Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
 	Constraints []GrantConstraint `pulumi:"constraints"`

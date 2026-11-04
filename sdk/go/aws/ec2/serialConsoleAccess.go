@@ -111,6 +111,12 @@ func (SerialConsoleAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serialConsoleAccessState)(nil)).Elem()
 }
 
+// SerialConsoleAccessExists checks whether an existing SerialConsoleAccess resource with the given ID exists.
+func SerialConsoleAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SerialConsoleAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/serialConsoleAccess:SerialConsoleAccess", id, state, "", opts...)
+}
+
 type serialConsoleAccessArgs struct {
 	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`

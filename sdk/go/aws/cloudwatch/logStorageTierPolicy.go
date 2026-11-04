@@ -120,6 +120,12 @@ func (LogStorageTierPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logStorageTierPolicyState)(nil)).Elem()
 }
 
+// LogStorageTierPolicyExists checks whether an existing LogStorageTierPolicy resource with the given ID exists.
+func LogStorageTierPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogStorageTierPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logStorageTierPolicy:LogStorageTierPolicy", id, state, "", opts...)
+}
+
 type logStorageTierPolicyArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -25,14 +25,14 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
+     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9&#92;&#92;-_&#39; &#39;]+)`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
+     * @return Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9&#92;&#92;-_&#39; &#39;]+)`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -202,7 +202,7 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
+         * @param name Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9&#92;&#92;-_&#39; &#39;]+)`.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
+         * @param name Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9&#92;&#92;-_&#39; &#39;]+)`.
          * 
          * @return builder
          * 

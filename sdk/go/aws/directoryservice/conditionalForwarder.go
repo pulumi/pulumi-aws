@@ -135,6 +135,12 @@ func (ConditionalForwarderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*conditionalForwarderState)(nil)).Elem()
 }
 
+// ConditionalForwarderExists checks whether an existing ConditionalForwarder resource with the given ID exists.
+func ConditionalForwarderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConditionalForwarderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/conditionalForwarder:ConditionalForwarder", id, state, "", opts...)
+}
+
 type conditionalForwarderArgs struct {
 	// ID of directory.
 	DirectoryId string `pulumi:"directoryId"`

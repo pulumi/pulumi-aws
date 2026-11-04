@@ -221,6 +221,12 @@ func (ImageBuilderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageBuilderState)(nil)).Elem()
 }
 
+// ImageBuilderExists checks whether an existing ImageBuilder resource with the given ID exists.
+func ImageBuilderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImageBuilderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appstream/imageBuilder:ImageBuilder", id, state, "", opts...)
+}
+
 type imageBuilderArgs struct {
 	// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
 	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`

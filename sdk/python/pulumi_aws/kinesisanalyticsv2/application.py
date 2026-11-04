@@ -1099,6 +1099,46 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["version_id"] = version_id
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']]] = None,
+            application_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']]] = None,
+            create_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_update_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_environment: pulumi.Input[Optional[_builtins.str]] = None,
+            service_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+            start_application: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version_id: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationConfiguration"] = application_configuration
+        __props__["applicationMode"] = application_mode
+        __props__["arn"] = arn
+        __props__["cloudwatchLoggingOptions"] = cloudwatch_logging_options
+        __props__["createTimestamp"] = create_timestamp
+        __props__["description"] = description
+        __props__["forceStop"] = force_stop
+        __props__["lastUpdateTimestamp"] = last_update_timestamp
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["runtimeEnvironment"] = runtime_environment
+        __props__["serviceExecutionRole"] = service_execution_role
+        __props__["startApplication"] = start_application
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["versionId"] = version_id
+        return pulumi.runtime.exists_resource(None, 'aws:kinesisanalyticsv2/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> pulumi.Output['outputs.ApplicationApplicationConfiguration']:

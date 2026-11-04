@@ -575,6 +575,34 @@ class EndpointGroup(pulumi.CustomResource):
         __props__.__dict__["traffic_dial_percentage"] = traffic_dial_percentage
         return EndpointGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict', 'outputs.EndpointGroupEndpointConfiguration']]]]] = None,
+            endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check_port: pulumi.Input[Optional[_builtins.int]] = None,
+            health_check_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            port_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict', 'outputs.EndpointGroupPortOverride']]]]] = None,
+            threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+            traffic_dial_percentage: pulumi.Input[Optional[_builtins.float]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["endpointConfigurations"] = endpoint_configurations
+        __props__["endpointGroupRegion"] = endpoint_group_region
+        __props__["healthCheckIntervalSeconds"] = health_check_interval_seconds
+        __props__["healthCheckPath"] = health_check_path
+        __props__["healthCheckPort"] = health_check_port
+        __props__["healthCheckProtocol"] = health_check_protocol
+        __props__["listenerArn"] = listener_arn
+        __props__["portOverrides"] = port_overrides
+        __props__["thresholdCount"] = threshold_count
+        __props__["trafficDialPercentage"] = traffic_dial_percentage
+        return pulumi.runtime.exists_resource(None, 'aws:globalaccelerator/endpointGroup:EndpointGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

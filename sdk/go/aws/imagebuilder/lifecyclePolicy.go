@@ -248,6 +248,12 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecyclePolicyState)(nil)).Elem()
 }
 
+// LifecyclePolicyExists checks whether an existing LifecyclePolicy resource with the given ID exists.
+func LifecyclePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LifecyclePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:imagebuilder/lifecyclePolicy:LifecyclePolicy", id, state, "", opts...)
+}
+
 type lifecyclePolicyArgs struct {
 	// description for the lifecycle policy.
 	Description *string `pulumi:"description"`

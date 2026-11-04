@@ -128,6 +128,12 @@ func (MetricsDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricsDestinationState)(nil)).Elem()
 }
 
+// MetricsDestinationExists checks whether an existing MetricsDestination resource with the given ID exists.
+func MetricsDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetricsDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rum/metricsDestination:MetricsDestination", id, state, "", opts...)
+}
+
 type metricsDestinationArgs struct {
 	// The name of the CloudWatch RUM app monitor that will send the metrics.
 	AppMonitorName string `pulumi:"appMonitorName"`

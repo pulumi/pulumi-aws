@@ -328,6 +328,12 @@ func (ReplicationInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationInstanceState)(nil)).Elem()
 }
 
+// ReplicationInstanceExists checks whether an existing ReplicationInstance resource with the given ID exists.
+func ReplicationInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dms/replicationInstance:ReplicationInstance", id, state, "", opts...)
+}
+
 type replicationInstanceArgs struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`

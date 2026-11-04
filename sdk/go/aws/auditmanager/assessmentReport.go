@@ -139,6 +139,12 @@ func (AssessmentReportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentReportState)(nil)).Elem()
 }
 
+// AssessmentReportExists checks whether an existing AssessmentReport resource with the given ID exists.
+func AssessmentReportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssessmentReportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:auditmanager/assessmentReport:AssessmentReport", id, state, "", opts...)
+}
+
 type assessmentReportArgs struct {
 	// Unique identifier of the assessment to create the report from.
 	//

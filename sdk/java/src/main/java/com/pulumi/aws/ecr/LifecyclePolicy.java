@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example-repo")
  *             .build());
@@ -55,28 +55,28 @@ import javax.annotation.Nullable;
  *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
  *             .repository(example.name())
  *             .policy("""
- * {
- *   \"rules\": [
- *     {
- *       \"rulePriority\": 1,
- *       \"description\": \"Expire images older than 14 days\",
- *       \"selection\": {
- *         \"tagStatus\": \"untagged\",
- *         \"countType\": \"sinceImagePushed\",
- *         \"countUnit\": \"days\",
- *         \"countNumber\": 14
- *       },
- *       \"action\": {
- *         \"type\": \"expire\"
- *       }
- *     }
+ * }{{@code
+ *   }&#92;{@code "rules}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "rulePriority}&#92;{@code ": 1,
+ *       }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Expire images older than 14 days}&#92;{@code ",
+ *       }&#92;{@code "selection}&#92;{@code ": }{{@code
+ *         }&#92;{@code "tagStatus}&#92;{@code ": }&#92;{@code "untagged}&#92;{@code ",
+ *         }&#92;{@code "countType}&#92;{@code ": }&#92;{@code "sinceImagePushed}&#92;{@code ",
+ *         }&#92;{@code "countUnit}&#92;{@code ": }&#92;{@code "days}&#92;{@code ",
+ *         }&#92;{@code "countNumber}&#92;{@code ": 14
+ *       }}{@code ,
+ *       }&#92;{@code "action}&#92;{@code ": }{{@code
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "expire}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -100,12 +100,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example-repo")
  *             .build());
@@ -113,28 +113,28 @@ import javax.annotation.Nullable;
  *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
  *             .repository(example.name())
  *             .policy("""
- * {
- *   \"rules\": [
- *     {
- *       \"rulePriority\": 1,
- *       \"description\": \"Keep last 30 images\",
- *       \"selection\": {
- *         \"tagStatus\": \"tagged\",
- *         \"tagPrefixList\": [\"v\"],
- *         \"countType\": \"imageCountMoreThan\",
- *         \"countNumber\": 30
- *       },
- *       \"action\": {
- *         \"type\": \"expire\"
- *       }
- *     }
+ * }{{@code
+ *   }&#92;{@code "rules}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "rulePriority}&#92;{@code ": 1,
+ *       }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Keep last 30 images}&#92;{@code ",
+ *       }&#92;{@code "selection}&#92;{@code ": }{{@code
+ *         }&#92;{@code "tagStatus}&#92;{@code ": }&#92;{@code "tagged}&#92;{@code ",
+ *         }&#92;{@code "tagPrefixList}&#92;{@code ": [}&#92;{@code "v}&#92;{@code "],
+ *         }&#92;{@code "countType}&#92;{@code ": }&#92;{@code "imageCountMoreThan}&#92;{@code ",
+ *         }&#92;{@code "countNumber}&#92;{@code ": 30
+ *       }}{@code ,
+ *       }&#92;{@code "action}&#92;{@code ": }{{@code
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "expire}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -158,12 +158,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example-repo")
  *             .build());
@@ -171,43 +171,43 @@ import javax.annotation.Nullable;
  *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
  *             .repository(example.name())
  *             .policy("""
- * {
- *   \"rules\": [
- *     {
- *       \"rulePriority\": 1,
- *       \"description\": \"Archive images not pulled in 90 days\",
- *       \"selection\": {
- *         \"tagStatus\": \"any\",
- *         \"countType\": \"sinceImagePulled\",
- *         \"countUnit\": \"days\",
- *         \"countNumber\": 90
- *       },
- *       \"action\": {
- *         \"type\": \"transition\",
- *         \"targetStorageClass\": \"archive\"
- *       }
- *     },
- *     {
- *       \"rulePriority\": 2,
- *       \"description\": \"Delete images archived for more than 365 days\",
- *       \"selection\": {
- *         \"tagStatus\": \"any\",
- *         \"storageClass\": \"archive\",
- *         \"countType\": \"sinceImageTransitioned\",
- *         \"countUnit\": \"days\",
- *         \"countNumber\": 365
- *       },
- *       \"action\": {
- *         \"type\": \"expire\"
- *       }
- *     }
+ * }{{@code
+ *   }&#92;{@code "rules}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "rulePriority}&#92;{@code ": 1,
+ *       }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Archive images not pulled in 90 days}&#92;{@code ",
+ *       }&#92;{@code "selection}&#92;{@code ": }{{@code
+ *         }&#92;{@code "tagStatus}&#92;{@code ": }&#92;{@code "any}&#92;{@code ",
+ *         }&#92;{@code "countType}&#92;{@code ": }&#92;{@code "sinceImagePulled}&#92;{@code ",
+ *         }&#92;{@code "countUnit}&#92;{@code ": }&#92;{@code "days}&#92;{@code ",
+ *         }&#92;{@code "countNumber}&#92;{@code ": 90
+ *       }}{@code ,
+ *       }&#92;{@code "action}&#92;{@code ": }{{@code
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "transition}&#92;{@code ",
+ *         }&#92;{@code "targetStorageClass}&#92;{@code ": }&#92;{@code "archive}&#92;{@code "
+ *       }}{@code
+ *     }}{@code ,
+ *     }{{@code
+ *       }&#92;{@code "rulePriority}&#92;{@code ": 2,
+ *       }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Delete images archived for more than 365 days}&#92;{@code ",
+ *       }&#92;{@code "selection}&#92;{@code ": }{{@code
+ *         }&#92;{@code "tagStatus}&#92;{@code ": }&#92;{@code "any}&#92;{@code ",
+ *         }&#92;{@code "storageClass}&#92;{@code ": }&#92;{@code "archive}&#92;{@code ",
+ *         }&#92;{@code "countType}&#92;{@code ": }&#92;{@code "sinceImageTransitioned}&#92;{@code ",
+ *         }&#92;{@code "countUnit}&#92;{@code ": }&#92;{@code "days}&#92;{@code ",
+ *         }&#92;{@code "countNumber}&#92;{@code ": 365
+ *       }}{@code ,
+ *       }&#92;{@code "action}&#92;{@code ": }{{@code
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "expire}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

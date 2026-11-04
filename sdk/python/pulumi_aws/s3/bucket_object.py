@@ -1426,6 +1426,68 @@ class BucketObject(pulumi.CustomResource):
         __props__.__dict__["website_redirect"] = website_redirect
         return BucketObject(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            acl: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cache_control: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            content_disposition: pulumi.Input[Optional[_builtins.str]] = None,
+            content_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            content_language: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
+            object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_side_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union[pulumi.Asset, pulumi.Archive]]] = None,
+            source_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            website_redirect: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acl"] = acl
+        __props__["arn"] = arn
+        __props__["bucket"] = bucket
+        __props__["bucketKeyEnabled"] = bucket_key_enabled
+        __props__["cacheControl"] = cache_control
+        __props__["content"] = content
+        __props__["contentBase64"] = content_base64
+        __props__["contentDisposition"] = content_disposition
+        __props__["contentEncoding"] = content_encoding
+        __props__["contentLanguage"] = content_language
+        __props__["contentType"] = content_type
+        __props__["etag"] = etag
+        __props__["forceDestroy"] = force_destroy
+        __props__["key"] = key
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["metadata"] = metadata
+        __props__["objectLockLegalHoldStatus"] = object_lock_legal_hold_status
+        __props__["objectLockMode"] = object_lock_mode
+        __props__["objectLockRetainUntilDate"] = object_lock_retain_until_date
+        __props__["region"] = region
+        __props__["serverSideEncryption"] = server_side_encryption
+        __props__["source"] = source
+        __props__["sourceHash"] = source_hash
+        __props__["storageClass"] = storage_class
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["versionId"] = version_id
+        __props__["websiteRedirect"] = website_redirect
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketObject:BucketObject', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def acl(self) -> pulumi.Output[Optional[_builtins.str]]:

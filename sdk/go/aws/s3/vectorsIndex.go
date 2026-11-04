@@ -196,6 +196,12 @@ func (VectorsIndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vectorsIndexState)(nil)).Elem()
 }
 
+// VectorsIndexExists checks whether an existing VectorsIndex resource with the given ID exists.
+func VectorsIndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VectorsIndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/vectorsIndex:VectorsIndex", id, state, "", opts...)
+}
+
 type vectorsIndexArgs struct {
 	// Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
 	DataType string `pulumi:"dataType"`

@@ -246,6 +246,12 @@ func (ConnectorProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorProfileState)(nil)).Elem()
 }
 
+// ConnectorProfileExists checks whether an existing ConnectorProfile resource with the given ID exists.
+func ConnectorProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectorProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appflow/connectorProfile:ConnectorProfile", id, state, "", opts...)
+}
+
 type connectorProfileArgs struct {
 	// Connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
 	ConnectionMode string `pulumi:"connectionMode"`

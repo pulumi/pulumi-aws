@@ -713,6 +713,12 @@ func (MetricAlarmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricAlarmState)(nil)).Elem()
 }
 
+// MetricAlarmExists checks whether an existing MetricAlarm resource with the given ID exists.
+func MetricAlarmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetricAlarmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/metricAlarm:MetricAlarm", id, state, "", opts...)
+}
+
 type metricAlarmArgs struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`

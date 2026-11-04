@@ -192,6 +192,12 @@ func (FilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*filterState)(nil)).Elem()
 }
 
+// FilterExists checks whether an existing Filter resource with the given ID exists.
+func FilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/filter:Filter", id, state, "", opts...)
+}
+
 type filterArgs struct {
 	// Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
 	Action string `pulumi:"action"`

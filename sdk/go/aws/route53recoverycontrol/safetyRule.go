@@ -219,6 +219,12 @@ func (SafetyRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*safetyRuleState)(nil)).Elem()
 }
 
+// SafetyRuleExists checks whether an existing SafetyRule resource with the given ID exists.
+func SafetyRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SafetyRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53recoverycontrol/safetyRule:SafetyRule", id, state, "", opts...)
+}
+
 type safetyRuleArgs struct {
 	// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
 	AssertedControls []string `pulumi:"assertedControls"`

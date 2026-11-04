@@ -1821,6 +1821,70 @@ class MetricAlarm(pulumi.CustomResource):
         __props__.__dict__["warm_up_configuration"] = warm_up_configuration
         return MetricAlarm(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comparison_operator: pulumi.Input[Optional[_builtins.str]] = None,
+            datapoints_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
+            dimensions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            evaluate_low_sample_count_percentiles: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']]] = None,
+            evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+            evaluation_window: pulumi.Input[Optional[Union['MetricAlarmEvaluationWindowArgs', 'MetricAlarmEvaluationWindowArgsDict', 'outputs.MetricAlarmEvaluationWindow']]] = None,
+            extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
+            insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict', 'outputs.MetricAlarmMetricQuery']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            period: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            statistic: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
+            treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+            unit: pulumi.Input[Optional[_builtins.str]] = None,
+            warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict', 'outputs.MetricAlarmWarmUpConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionsEnabled"] = actions_enabled
+        __props__["alarmActions"] = alarm_actions
+        __props__["alarmDescription"] = alarm_description
+        __props__["arn"] = arn
+        __props__["comparisonOperator"] = comparison_operator
+        __props__["datapointsToAlarm"] = datapoints_to_alarm
+        __props__["dimensions"] = dimensions
+        __props__["evaluateLowSampleCountPercentiles"] = evaluate_low_sample_count_percentiles
+        __props__["evaluationCriteria"] = evaluation_criteria
+        __props__["evaluationInterval"] = evaluation_interval
+        __props__["evaluationPeriods"] = evaluation_periods
+        __props__["evaluationWindow"] = evaluation_window
+        __props__["extendedStatistic"] = extended_statistic
+        __props__["insufficientDataActions"] = insufficient_data_actions
+        __props__["metricName"] = metric_name
+        __props__["metricQueries"] = metric_queries
+        __props__["name"] = name
+        __props__["namespace"] = namespace
+        __props__["okActions"] = ok_actions
+        __props__["period"] = period
+        __props__["region"] = region
+        __props__["statistic"] = statistic
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["threshold"] = threshold
+        __props__["thresholdMetricId"] = threshold_metric_id
+        __props__["treatMissingData"] = treat_missing_data
+        __props__["unit"] = unit
+        __props__["warmUpConfiguration"] = warm_up_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/metricAlarm:MetricAlarm', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

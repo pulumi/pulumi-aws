@@ -251,6 +251,12 @@ func (EventDataStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventDataStoreState)(nil)).Elem()
 }
 
+// EventDataStoreExists checks whether an existing EventDataStore resource with the given ID exists.
+func EventDataStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventDataStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudtrail/eventDataStore:EventDataStore", id, state, "", opts...)
+}
+
 type eventDataStoreArgs struct {
 	// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
 	AdvancedEventSelectors []EventDataStoreAdvancedEventSelector `pulumi:"advancedEventSelectors"`

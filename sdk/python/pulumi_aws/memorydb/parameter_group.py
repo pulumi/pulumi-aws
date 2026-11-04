@@ -484,6 +484,30 @@ class ParameterGroup(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ParameterGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            family: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict', 'outputs.ParameterGroupParameter']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["family"] = family
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["parameters"] = parameters
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:memorydb/parameterGroup:ParameterGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

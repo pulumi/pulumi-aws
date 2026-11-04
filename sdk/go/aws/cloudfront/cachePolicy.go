@@ -172,6 +172,12 @@ func (CachePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cachePolicyState)(nil)).Elem()
 }
 
+// CachePolicyExists checks whether an existing CachePolicy resource with the given ID exists.
+func CachePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CachePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/cachePolicy:CachePolicy", id, state, "", opts...)
+}
+
 type cachePolicyArgs struct {
 	// Description for the cache policy.
 	Comment *string `pulumi:"comment"`

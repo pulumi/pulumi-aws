@@ -153,6 +153,12 @@ func (CollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*collectionState)(nil)).Elem()
 }
 
+// CollectionExists checks whether an existing Collection resource with the given ID exists.
+func CollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rekognition/collection:Collection", id, state, "", opts...)
+}
+
 type collectionArgs struct {
 	// Name of the collection
 	//

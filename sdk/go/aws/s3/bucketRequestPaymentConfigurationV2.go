@@ -150,6 +150,12 @@ func (BucketRequestPaymentConfigurationV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketRequestPaymentConfigurationV2State)(nil)).Elem()
 }
 
+// BucketRequestPaymentConfigurationV2Exists checks whether an existing BucketRequestPaymentConfigurationV2 resource with the given ID exists.
+func BucketRequestPaymentConfigurationV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketRequestPaymentConfigurationV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2", id, state, "", opts...)
+}
+
 type bucketRequestPaymentConfigurationV2Args struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`

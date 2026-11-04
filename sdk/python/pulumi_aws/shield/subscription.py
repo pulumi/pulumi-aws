@@ -230,6 +230,16 @@ class Subscription(pulumi.CustomResource):
         __props__.__dict__["skip_destroy"] = skip_destroy
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_renew: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoRenew"] = auto_renew
+        __props__["skipDestroy"] = skip_destroy
+        return pulumi.runtime.exists_resource(None, 'aws:shield/subscription:Subscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoRenew")
     def auto_renew(self) -> pulumi.Output[_builtins.str]:

@@ -207,6 +207,12 @@ func (VirtualServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualServiceState)(nil)).Elem()
 }
 
+// VirtualServiceExists checks whether an existing VirtualService resource with the given ID exists.
+func VirtualServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appmesh/virtualService:VirtualService", id, state, "", opts...)
+}
+
 type virtualServiceArgs struct {
 	// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`

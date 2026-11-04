@@ -55,11 +55,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      * No longer supported by the AWS API.
      * Always returns `auto`.
      * 
-     * @deprecated
-     * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+    @Deprecated
     @Import(name="aquaConfigurationStatus")
     private @Nullable Output<String> aquaConfigurationStatus;
 
@@ -68,11 +67,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      * No longer supported by the AWS API.
      * Always returns `auto`.
      * 
-     * @deprecated
-     * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+    @Deprecated
     public Optional<Output<String>> aquaConfigurationStatus() {
         return Optional.ofNullable(this.aquaConfigurationStatus);
     }
@@ -782,11 +780,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+         * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
          * 
          */
-        @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+        @Deprecated
         public Builder aquaConfigurationStatus(@Nullable Output<String> aquaConfigurationStatus) {
             $.aquaConfigurationStatus = aquaConfigurationStatus;
             return this;
@@ -799,11 +796,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+         * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
          * 
          */
-        @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+        @Deprecated
         public Builder aquaConfigurationStatus(String aquaConfigurationStatus) {
             return aquaConfigurationStatus(Output.of(aquaConfigurationStatus));
         }

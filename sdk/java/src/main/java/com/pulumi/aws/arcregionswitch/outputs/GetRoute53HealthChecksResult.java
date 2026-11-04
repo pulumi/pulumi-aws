@@ -21,11 +21,10 @@ public final class GetRoute53HealthChecksResult {
     /**
      * @return Region for the health check.
      * 
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     private String region;
 
     private GetRoute53HealthChecksResult() {}
@@ -42,11 +41,10 @@ public final class GetRoute53HealthChecksResult {
     /**
      * @return Region for the health check.
      * 
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public String region() {
         return this.region;
     }

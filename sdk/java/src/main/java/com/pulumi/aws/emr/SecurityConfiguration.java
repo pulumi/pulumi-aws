@@ -34,35 +34,35 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var foo = new SecurityConfiguration("foo", SecurityConfigurationArgs.builder()
  *             .name("emrsc_other")
  *             .configuration("""
- * {
- *   \"EncryptionConfiguration\": {
- *     \"AtRestEncryptionConfiguration\": {
- *       \"S3EncryptionConfiguration\": {
- *         \"EncryptionMode\": \"SSE-S3\"
- *       },
- *       \"LocalDiskEncryptionConfiguration\": {
- *         \"EncryptionKeyProviderType\": \"AwsKms\",
- *         \"AwsKmsKey\": \"arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key\"
- *       }
- *     },
- *     \"EnableInTransitEncryption\": false,
- *     \"EnableAtRestEncryption\": true
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "EncryptionConfiguration}&#92;{@code ": }{{@code
+ *     }&#92;{@code "AtRestEncryptionConfiguration}&#92;{@code ": }{{@code
+ *       }&#92;{@code "S3EncryptionConfiguration}&#92;{@code ": }{{@code
+ *         }&#92;{@code "EncryptionMode}&#92;{@code ": }&#92;{@code "SSE-S3}&#92;{@code "
+ *       }}{@code ,
+ *       }&#92;{@code "LocalDiskEncryptionConfiguration}&#92;{@code ": }{{@code
+ *         }&#92;{@code "EncryptionKeyProviderType}&#92;{@code ": }&#92;{@code "AwsKms}&#92;{@code ",
+ *         }&#92;{@code "AwsKmsKey}&#92;{@code ": }&#92;{@code "arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key}&#92;{@code "
+ *       }}{@code
+ *     }}{@code ,
+ *     }&#92;{@code "EnableInTransitEncryption}&#92;{@code ": false,
+ *     }&#92;{@code "EnableAtRestEncryption}&#92;{@code ": true
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

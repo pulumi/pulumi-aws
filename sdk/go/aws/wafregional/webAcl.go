@@ -274,6 +274,12 @@ func (WebAclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclState)(nil)).Elem()
 }
 
+// WebAclExists checks whether an existing WebAcl resource with the given ID exists.
+func WebAclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafregional/webAcl:WebAcl", id, state, "", opts...)
+}
+
 type webAclArgs struct {
 	// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`

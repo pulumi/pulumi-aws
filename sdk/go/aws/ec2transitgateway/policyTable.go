@@ -133,6 +133,12 @@ func (PolicyTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyTableState)(nil)).Elem()
 }
 
+// PolicyTableExists checks whether an existing PolicyTable resource with the given ID exists.
+func PolicyTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/policyTable:PolicyTable", id, state, "", opts...)
+}
+
 type policyTableArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

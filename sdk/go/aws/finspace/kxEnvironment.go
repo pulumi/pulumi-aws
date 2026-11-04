@@ -317,6 +317,12 @@ func (KxEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kxEnvironmentState)(nil)).Elem()
 }
 
+// KxEnvironmentExists checks whether an existing KxEnvironment resource with the given ID exists.
+func KxEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KxEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:finspace/kxEnvironment:KxEnvironment", id, state, "", opts...)
+}
+
 type kxEnvironmentArgs struct {
 	// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
 	CustomDnsConfigurations []KxEnvironmentCustomDnsConfiguration `pulumi:"customDnsConfigurations"`

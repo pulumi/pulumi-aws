@@ -433,6 +433,28 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Route(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_vpn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            origin: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_vpc_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clientVpnEndpointId"] = client_vpn_endpoint_id
+        __props__["description"] = description
+        __props__["destinationCidrBlock"] = destination_cidr_block
+        __props__["origin"] = origin
+        __props__["region"] = region
+        __props__["targetVpcSubnetId"] = target_vpc_subnet_id
+        __props__["transitGatewayAttachmentId"] = transit_gateway_attachment_id
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:ec2clientvpn/route:Route', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> pulumi.Output[_builtins.str]:

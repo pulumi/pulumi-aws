@@ -633,6 +633,42 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Project(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active_experiment_count: pulumi.Input[Optional[_builtins.int]] = None,
+            active_launch_count: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict', 'outputs.ProjectDataDelivery']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            experiment_count: pulumi.Input[Optional[_builtins.int]] = None,
+            feature_count: pulumi.Input[Optional[_builtins.int]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            launch_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activeExperimentCount"] = active_experiment_count
+        __props__["activeLaunchCount"] = active_launch_count
+        __props__["arn"] = arn
+        __props__["createdTime"] = created_time
+        __props__["dataDelivery"] = data_delivery
+        __props__["description"] = description
+        __props__["experimentCount"] = experiment_count
+        __props__["featureCount"] = feature_count
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["launchCount"] = launch_count
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:evidently/project:Project', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activeExperimentCount")
     def active_experiment_count(self) -> pulumi.Output[_builtins.int]:

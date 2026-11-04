@@ -622,6 +622,34 @@ class SecretVersion(pulumi.CustomResource):
         __props__.__dict__["version_stages"] = version_stages
         return SecretVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            has_secret_string_wo: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_binary: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_string_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_string_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version_stages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["hasSecretStringWo"] = has_secret_string_wo
+        __props__["region"] = region
+        __props__["secretArn"] = secret_arn
+        __props__["secretBinary"] = secret_binary
+        __props__["secretId"] = secret_id
+        __props__["secretString"] = secret_string
+        __props__["secretStringWo"] = secret_string_wo
+        __props__["secretStringWoVersion"] = secret_string_wo_version
+        __props__["versionId"] = version_id
+        __props__["versionStages"] = version_stages
+        return pulumi.runtime.exists_resource(None, 'aws:secretsmanager/secretVersion:SecretVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""arn is deprecated. Use secret_arn instead.""")

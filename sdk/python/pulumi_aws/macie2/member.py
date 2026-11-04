@@ -608,6 +608,42 @@ class Member(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return Member(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            invitation_disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            invitation_message: pulumi.Input[Optional[_builtins.str]] = None,
+            invite: pulumi.Input[Optional[_builtins.bool]] = None,
+            invited_at: pulumi.Input[Optional[_builtins.str]] = None,
+            master_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            relationship_status: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["administratorAccountId"] = administrator_account_id
+        __props__["arn"] = arn
+        __props__["email"] = email
+        __props__["invitationDisableEmailNotification"] = invitation_disable_email_notification
+        __props__["invitationMessage"] = invitation_message
+        __props__["invite"] = invite
+        __props__["invitedAt"] = invited_at
+        __props__["masterAccountId"] = master_account_id
+        __props__["region"] = region
+        __props__["relationshipStatus"] = relationship_status
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'aws:macie2/member:Member', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

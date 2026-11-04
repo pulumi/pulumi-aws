@@ -151,6 +151,12 @@ func (ResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceState)(nil)).Elem()
 }
 
+// ResourceExists checks whether an existing Resource resource with the given ID exists.
+func ResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/resource:Resource", id, state, "", opts...)
+}
+
 type resourceArgs struct {
 	// ID of the parent API resource
 	ParentId string `pulumi:"parentId"`

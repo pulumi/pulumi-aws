@@ -163,6 +163,12 @@ func (RestoreTestingPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restoreTestingPlanState)(nil)).Elem()
 }
 
+// RestoreTestingPlanExists checks whether an existing RestoreTestingPlan resource with the given ID exists.
+func RestoreTestingPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestoreTestingPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/restoreTestingPlan:RestoreTestingPlan", id, state, "", opts...)
+}
+
 type restoreTestingPlanArgs struct {
 	// Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
 	Name *string `pulumi:"name"`

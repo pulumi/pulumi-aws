@@ -128,6 +128,12 @@ func (ResolverFirewallConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverFirewallConfigState)(nil)).Elem()
 }
 
+// ResolverFirewallConfigExists checks whether an existing ResolverFirewallConfig resource with the given ID exists.
+func ResolverFirewallConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverFirewallConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverFirewallConfig:ResolverFirewallConfig", id, state, "", opts...)
+}
+
 type resolverFirewallConfigArgs struct {
 	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 	FirewallFailOpen *string `pulumi:"firewallFailOpen"`

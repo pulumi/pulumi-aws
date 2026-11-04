@@ -173,6 +173,12 @@ func (TransitGatewayPeeringState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayPeeringState)(nil)).Elem()
 }
 
+// TransitGatewayPeeringExists checks whether an existing TransitGatewayPeering resource with the given ID exists.
+func TransitGatewayPeeringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayPeeringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering", id, state, "", opts...)
+}
+
 type transitGatewayPeeringArgs struct {
 	// ID of a core network.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

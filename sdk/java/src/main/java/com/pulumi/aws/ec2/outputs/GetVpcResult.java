@@ -59,20 +59,18 @@ public final class GetVpcResult {
     /**
      * @return (**Deprecated** use `ipv6CidrBlockAssociations` instead) Association ID for the IPv6 CIDR block.
      * 
-     * @deprecated
-     * ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
+     * @deprecated ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
      * 
      */
-    @Deprecated /* ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead. */
+    @Deprecated
     private String ipv6AssociationId;
     /**
      * @return IPv6 CIDR block for the association.
      * 
-     * @deprecated
-     * ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
+     * @deprecated ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
      * 
      */
-    @Deprecated /* ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead. */
+    @Deprecated
     private String ipv6CidrBlock;
     /**
      * @return Information about the IPv6 CIDR blocks associated with the VPC. See `ipv6CidrBlockAssociations` Block below.
@@ -162,22 +160,20 @@ public final class GetVpcResult {
     /**
      * @return (**Deprecated** use `ipv6CidrBlockAssociations` instead) Association ID for the IPv6 CIDR block.
      * 
-     * @deprecated
-     * ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
+     * @deprecated ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
      * 
      */
-    @Deprecated /* ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead. */
+    @Deprecated
     public String ipv6AssociationId() {
         return this.ipv6AssociationId;
     }
     /**
      * @return IPv6 CIDR block for the association.
      * 
-     * @deprecated
-     * ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
+     * @deprecated ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
      * 
      */
-    @Deprecated /* ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead. */
+    @Deprecated
     public String ipv6CidrBlock() {
         return this.ipv6CidrBlock;
     }

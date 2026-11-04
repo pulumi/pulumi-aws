@@ -298,6 +298,12 @@ func (ClusterInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterInstanceState)(nil)).Elem()
 }
 
+// ClusterInstanceExists checks whether an existing ClusterInstance resource with the given ID exists.
+func ClusterInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:neptune/clusterInstance:ClusterInstance", id, state, "", opts...)
+}
+
 type clusterInstanceArgs struct {
 	// Specifies whether any instance modifications
 	// are applied immediately, or during the next maintenance window. Default is`false`.

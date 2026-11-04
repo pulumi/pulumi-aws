@@ -186,6 +186,12 @@ func (VocabularyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vocabularyState)(nil)).Elem()
 }
 
+// VocabularyExists checks whether an existing Vocabulary resource with the given ID exists.
+func VocabularyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VocabularyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transcribe/vocabulary:Vocabulary", id, state, "", opts...)
+}
+
 type vocabularyArgs struct {
 	// Language code you selected for your vocabulary.
 	LanguageCode string `pulumi:"languageCode"`

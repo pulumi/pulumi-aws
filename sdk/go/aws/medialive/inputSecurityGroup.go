@@ -153,6 +153,12 @@ func (InputSecurityGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inputSecurityGroupState)(nil)).Elem()
 }
 
+// InputSecurityGroupExists checks whether an existing InputSecurityGroup resource with the given ID exists.
+func InputSecurityGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InputSecurityGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:medialive/inputSecurityGroup:InputSecurityGroup", id, state, "", opts...)
+}
+
 type inputSecurityGroupArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

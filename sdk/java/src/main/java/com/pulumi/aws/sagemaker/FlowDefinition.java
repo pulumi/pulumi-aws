@@ -149,12 +149,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
  *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.get("arn"))
@@ -170,16 +170,16 @@ import javax.annotation.Nullable;
  *             .humanLoopActivationConfig(FlowDefinitionHumanLoopActivationConfigArgs.builder()
  *                 .humanLoopActivationConditionsConfig(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs.builder()
  *                     .humanLoopActivationConditions("""
- *         {
- * \t\t\t\"Conditions\": [
- * \t\t\t  {
- * \t\t\t\t\"ConditionType\": \"Sampling\",
- * \t\t\t\t\"ConditionParameters\": {
- * \t\t\t\t  \"RandomSamplingPercentage\": 5
- * \t\t\t\t}
- * \t\t\t  }
- * \t\t\t]
- * \t\t}
+ *         }{{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "Conditions}&#92;{@code ": [
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t  }{{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "ConditionType}&#92;{@code ": }&#92;{@code "Sampling}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "ConditionParameters}&#92;{@code ": }{{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code t  }&#92;{@code "RandomSamplingPercentage}&#92;{@code ": 5
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code t}}{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t  }}{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t]
+ * }&#92;{@code t}&#92;{@code t}}{@code
  *                     """)
  *                     .build())
  *                 .build())
@@ -190,8 +190,8 @@ import javax.annotation.Nullable;
  *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

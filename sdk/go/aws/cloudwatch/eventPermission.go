@@ -186,6 +186,12 @@ func (EventPermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventPermissionState)(nil)).Elem()
 }
 
+// EventPermissionExists checks whether an existing EventPermission resource with the given ID exists.
+func EventPermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventPermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/eventPermission:EventPermission", id, state, "", opts...)
+}
+
 type eventPermissionArgs struct {
 	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
 	Action *string `pulumi:"action"`

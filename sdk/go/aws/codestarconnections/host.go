@@ -149,6 +149,12 @@ func (HostState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostState)(nil)).Elem()
 }
 
+// HostExists checks whether an existing Host resource with the given ID exists.
+func HostExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codestarconnections/host:Host", id, state, "", opts...)
+}
+
 type hostArgs struct {
 	// The name of the host to be created. The name must be unique in the calling AWS account.
 	Name *string `pulumi:"name"`

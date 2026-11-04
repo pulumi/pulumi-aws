@@ -255,6 +255,12 @@ func (PolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyState)(nil)).Elem()
 }
 
+// PolicyExists checks whether an existing Policy resource with the given ID exists.
+func PolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fms/policy:Policy", id, state, "", opts...)
+}
+
 type policyArgs struct {
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources *bool `pulumi:"deleteAllPolicyResources"`

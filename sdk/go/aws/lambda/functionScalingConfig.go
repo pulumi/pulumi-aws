@@ -199,6 +199,12 @@ func (FunctionScalingConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionScalingConfigState)(nil)).Elem()
 }
 
+// FunctionScalingConfigExists checks whether an existing FunctionScalingConfig resource with the given ID exists.
+func FunctionScalingConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionScalingConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/functionScalingConfig:FunctionScalingConfig", id, state, "", opts...)
+}
+
 type functionScalingConfigArgs struct {
 	// Name or ARN of the Lambda function. Changing this forces a new resource.
 	FunctionName string `pulumi:"functionName"`

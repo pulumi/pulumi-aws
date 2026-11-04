@@ -152,6 +152,12 @@ func (SnapshotScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotScheduleState)(nil)).Elem()
 }
 
+// SnapshotScheduleExists checks whether an existing SnapshotSchedule resource with the given ID exists.
+func SnapshotScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/snapshotSchedule:SnapshotSchedule", id, state, "", opts...)
+}
+
 type snapshotScheduleArgs struct {
 	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
 	Definitions []string `pulumi:"definitions"`

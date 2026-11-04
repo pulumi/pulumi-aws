@@ -204,6 +204,12 @@ func (WebAclAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclAssociationState)(nil)).Elem()
 }
 
+// WebAclAssociationExists checks whether an existing WebAclAssociation resource with the given ID exists.
+func WebAclAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAclAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafregional/webAclAssociation:WebAclAssociation", id, state, "", opts...)
+}
+
 type webAclAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

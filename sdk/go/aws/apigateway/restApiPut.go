@@ -185,6 +185,12 @@ func (RestApiPutState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restApiPutState)(nil)).Elem()
 }
 
+// RestApiPutExists checks whether an existing RestApiPut resource with the given ID exists.
+func RestApiPutExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestApiPutState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/restApiPut:RestApiPut", id, state, "", opts...)
+}
+
 type restApiPutArgs struct {
 	// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
 	Body string `pulumi:"body"`

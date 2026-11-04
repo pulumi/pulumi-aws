@@ -868,6 +868,48 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Pool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolApplicationSettingArgs', 'PoolApplicationSettingArgsDict', 'outputs.PoolApplicationSetting']]]]] = None,
+            bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity: pulumi.Input[Optional[Union['PoolCapacityArgs', 'PoolCapacityArgsDict', 'outputs.PoolCapacity']]] = None,
+            capacity_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCapacityStatusArgs', 'PoolCapacityStatusArgsDict', 'outputs.PoolCapacityStatus']]]]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            running_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolTimeoutSettingArgs', 'PoolTimeoutSettingArgsDict', 'outputs.PoolTimeoutSetting']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['PoolTimeoutsArgs', 'PoolTimeoutsArgsDict', 'outputs.PoolTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationSettings"] = application_settings
+        __props__["bundleId"] = bundle_id
+        __props__["capacity"] = capacity
+        __props__["capacityStatuses"] = capacity_statuses
+        __props__["createdAt"] = created_at
+        __props__["description"] = description
+        __props__["directoryId"] = directory_id
+        __props__["poolArn"] = pool_arn
+        __props__["poolId"] = pool_id
+        __props__["poolName"] = pool_name
+        __props__["region"] = region
+        __props__["runningMode"] = running_mode
+        __props__["s3BucketName"] = s3_bucket_name
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeoutSettings"] = timeout_settings
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:workspaces/pool:Pool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> pulumi.Output[Sequence['outputs.PoolApplicationSetting']]:

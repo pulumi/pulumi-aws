@@ -142,6 +142,12 @@ func (NamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceState)(nil)).Elem()
 }
 
+// NamespaceExists checks whether an existing Namespace resource with the given ID exists.
+func NamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3tables/namespace:Namespace", id, state, "", opts...)
+}
+
 type namespaceArgs struct {
 	// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace string `pulumi:"namespace"`

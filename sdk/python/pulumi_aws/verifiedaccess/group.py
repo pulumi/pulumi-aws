@@ -540,6 +540,38 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["verifiedaccess_instance_id"] = verifiedaccess_instance_id
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sse_configuration: pulumi.Input[Optional[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict', 'outputs.GroupSseConfiguration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            verifiedaccess_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            verifiedaccess_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            verifiedaccess_instance_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["creationTime"] = creation_time
+        __props__["deletionTime"] = deletion_time
+        __props__["description"] = description
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["owner"] = owner
+        __props__["policyDocument"] = policy_document
+        __props__["region"] = region
+        __props__["sseConfiguration"] = sse_configuration
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["verifiedaccessGroupArn"] = verifiedaccess_group_arn
+        __props__["verifiedaccessGroupId"] = verifiedaccess_group_id
+        __props__["verifiedaccessInstanceId"] = verifiedaccess_instance_id
+        return pulumi.runtime.exists_resource(None, 'aws:verifiedaccess/group:Group', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:

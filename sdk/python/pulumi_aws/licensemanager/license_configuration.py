@@ -535,6 +535,34 @@ class LicenseConfiguration(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return LicenseConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            license_count: pulumi.Input[Optional[_builtins.int]] = None,
+            license_count_hard_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+            license_counting_type: pulumi.Input[Optional[_builtins.str]] = None,
+            license_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["licenseCount"] = license_count
+        __props__["licenseCountHardLimit"] = license_count_hard_limit
+        __props__["licenseCountingType"] = license_counting_type
+        __props__["licenseRules"] = license_rules
+        __props__["name"] = name
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:licensemanager/licenseConfiguration:LicenseConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

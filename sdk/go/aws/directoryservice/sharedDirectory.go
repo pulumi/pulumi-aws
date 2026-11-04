@@ -161,6 +161,12 @@ func (SharedDirectoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedDirectoryState)(nil)).Elem()
 }
 
+// SharedDirectoryExists checks whether an existing SharedDirectory resource with the given ID exists.
+func SharedDirectoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharedDirectoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/sharedDirectory:SharedDirectory", id, state, "", opts...)
+}
+
 type sharedDirectoryArgs struct {
 	// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
 	DirectoryId string `pulumi:"directoryId"`

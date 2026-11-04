@@ -277,6 +277,12 @@ func (ProvisionedProductState) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisionedProductState)(nil)).Elem()
 }
 
+// ProvisionedProductExists checks whether an existing ProvisionedProduct resource with the given ID exists.
+func ProvisionedProductExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProvisionedProductState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/provisionedProduct:ProvisionedProduct", id, state, "", opts...)
+}
+
 type provisionedProductArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

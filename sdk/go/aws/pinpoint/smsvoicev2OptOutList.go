@@ -120,6 +120,12 @@ func (Smsvoicev2OptOutListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsvoicev2OptOutListState)(nil)).Elem()
 }
 
+// Smsvoicev2OptOutListExists checks whether an existing Smsvoicev2OptOutList resource with the given ID exists.
+func Smsvoicev2OptOutListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Smsvoicev2OptOutListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList", id, state, "", opts...)
+}
+
 type smsvoicev2OptOutListArgs struct {
 	// Name of the opt-out list.
 	Name *string `pulumi:"name"`

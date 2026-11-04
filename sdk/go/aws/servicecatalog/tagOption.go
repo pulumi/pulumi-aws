@@ -133,6 +133,12 @@ func (TagOptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagOptionState)(nil)).Elem()
 }
 
+// TagOptionExists checks whether an existing TagOption resource with the given ID exists.
+func TagOptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagOptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/tagOption:TagOption", id, state, "", opts...)
+}
+
 type tagOptionArgs struct {
 	// Whether tag option is active. Default is `true`.
 	Active *bool `pulumi:"active"`

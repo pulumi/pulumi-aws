@@ -198,6 +198,12 @@ func (SlotTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*slotTypeState)(nil)).Elem()
 }
 
+// SlotTypeExists checks whether an existing SlotType resource with the given ID exists.
+func SlotTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SlotTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/slotType:SlotType", id, state, "", opts...)
+}
+
 type slotTypeArgs struct {
 	// Determines if a new slot type version is created when the initial resource is created and on each
 	// update. Defaults to `false`.

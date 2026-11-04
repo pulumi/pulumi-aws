@@ -595,6 +595,30 @@ class Inventory(pulumi.CustomResource):
         __props__.__dict__["schedule"] = schedule
         return Inventory(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict', 'outputs.InventoryDestination']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            filter: pulumi.Input[Optional[Union['InventoryFilterArgs', 'InventoryFilterArgsDict', 'outputs.InventoryFilter']]] = None,
+            included_object_versions: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict', 'outputs.InventorySchedule']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bucket"] = bucket
+        __props__["destination"] = destination
+        __props__["enabled"] = enabled
+        __props__["filter"] = filter
+        __props__["includedObjectVersions"] = included_object_versions
+        __props__["name"] = name
+        __props__["optionalFields"] = optional_fields
+        __props__["region"] = region
+        __props__["schedule"] = schedule
+        return pulumi.runtime.exists_resource(None, 'aws:s3/inventory:Inventory', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:

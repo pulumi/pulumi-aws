@@ -153,6 +153,12 @@ func (EventIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventIntegrationState)(nil)).Elem()
 }
 
+// EventIntegrationExists checks whether an existing EventIntegration resource with the given ID exists.
+func EventIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appconfig/eventIntegration:EventIntegration", id, state, "", opts...)
+}
+
 type eventIntegrationArgs struct {
 	// Description of the Event Integration.
 	Description *string `pulumi:"description"`

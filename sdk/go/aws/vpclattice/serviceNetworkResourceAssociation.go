@@ -160,6 +160,12 @@ func (ServiceNetworkResourceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceNetworkResourceAssociationState)(nil)).Elem()
 }
 
+// ServiceNetworkResourceAssociationExists checks whether an existing ServiceNetworkResourceAssociation resource with the given ID exists.
+func ServiceNetworkResourceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceNetworkResourceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation", id, state, "", opts...)
+}
+
 type serviceNetworkResourceAssociationArgs struct {
 	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
 	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`

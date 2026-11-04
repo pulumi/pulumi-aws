@@ -120,6 +120,12 @@ func (LinkAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkAssociationState)(nil)).Elem()
 }
 
+// LinkAssociationExists checks whether an existing LinkAssociation resource with the given ID exists.
+func LinkAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/linkAssociation:LinkAssociation", id, state, "", opts...)
+}
+
 type linkAssociationArgs struct {
 	// ID of the device.
 	DeviceId string `pulumi:"deviceId"`

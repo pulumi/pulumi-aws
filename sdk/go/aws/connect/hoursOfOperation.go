@@ -191,6 +191,12 @@ func (HoursOfOperationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hoursOfOperationState)(nil)).Elem()
 }
 
+// HoursOfOperationExists checks whether an existing HoursOfOperation resource with the given ID exists.
+func HoursOfOperationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HoursOfOperationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/hoursOfOperation:HoursOfOperation", id, state, "", opts...)
+}
+
 type hoursOfOperationArgs struct {
 	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 	Configs []HoursOfOperationConfig `pulumi:"configs"`

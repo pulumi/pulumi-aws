@@ -774,6 +774,46 @@ class OpenZfsVolume(pulumi.CustomResource):
         __props__.__dict__["volume_type"] = volume_type
         return OpenZfsVolume(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_volume_options: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nfs_exports: pulumi.Input[Optional[Union['OpenZfsVolumeNfsExportsArgs', 'OpenZfsVolumeNfsExportsArgsDict', 'outputs.OpenZfsVolumeNfsExports']]] = None,
+            origin_snapshot: pulumi.Input[Optional[Union['OpenZfsVolumeOriginSnapshotArgs', 'OpenZfsVolumeOriginSnapshotArgsDict', 'outputs.OpenZfsVolumeOriginSnapshot']]] = None,
+            parent_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            record_size_kib: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_capacity_quota_gib: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_capacity_reservation_gib: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_and_group_quotas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenZfsVolumeUserAndGroupQuotaArgs', 'OpenZfsVolumeUserAndGroupQuotaArgsDict', 'outputs.OpenZfsVolumeUserAndGroupQuota']]]]] = None,
+            volume_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["copyTagsToSnapshots"] = copy_tags_to_snapshots
+        __props__["dataCompressionType"] = data_compression_type
+        __props__["deleteVolumeOptions"] = delete_volume_options
+        __props__["name"] = name
+        __props__["nfsExports"] = nfs_exports
+        __props__["originSnapshot"] = origin_snapshot
+        __props__["parentVolumeId"] = parent_volume_id
+        __props__["readOnly"] = read_only
+        __props__["recordSizeKib"] = record_size_kib
+        __props__["region"] = region
+        __props__["storageCapacityQuotaGib"] = storage_capacity_quota_gib
+        __props__["storageCapacityReservationGib"] = storage_capacity_reservation_gib
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userAndGroupQuotas"] = user_and_group_quotas
+        __props__["volumeType"] = volume_type
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/openZfsVolume:OpenZfsVolume', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -442,6 +442,34 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["snapshot_name"] = snapshot_name
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accounts_with_provisioned_restore_accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            accounts_with_restore_accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            snapshot_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountsWithProvisionedRestoreAccesses"] = accounts_with_provisioned_restore_accesses
+        __props__["accountsWithRestoreAccesses"] = accounts_with_restore_accesses
+        __props__["adminUsername"] = admin_username
+        __props__["arn"] = arn
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["namespaceArn"] = namespace_arn
+        __props__["namespaceName"] = namespace_name
+        __props__["ownerAccount"] = owner_account
+        __props__["region"] = region
+        __props__["retentionPeriod"] = retention_period
+        __props__["snapshotName"] = snapshot_name
+        return pulumi.runtime.exists_resource(None, 'aws:redshiftserverless/snapshot:Snapshot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountsWithProvisionedRestoreAccesses")
     def accounts_with_provisioned_restore_accesses(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -226,6 +226,12 @@ func (CustomerManagedPolicyAttachmentsExclusiveState) ElementType() reflect.Type
 	return reflect.TypeOf((*customerManagedPolicyAttachmentsExclusiveState)(nil)).Elem()
 }
 
+// CustomerManagedPolicyAttachmentsExclusiveExists checks whether an existing CustomerManagedPolicyAttachmentsExclusive resource with the given ID exists.
+func CustomerManagedPolicyAttachmentsExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomerManagedPolicyAttachmentsExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive", id, state, "", opts...)
+}
+
 type customerManagedPolicyAttachmentsExclusiveArgs struct {
 	// Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
 	CustomerManagedPolicyReferences []CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReferences"`

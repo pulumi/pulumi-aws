@@ -83,33 +83,33 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
      *             .configurationsJson("""
      * [
-     * {
-     * \"Classification\": \"hadoop-env\",
-     * \"Configurations\": [
-     * {
-     * \"Classification\": \"export\",
-     * \"Properties\": {
-     * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
-     * }
-     * }
+     * }{{@code
+     * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "hadoop-env}&#92;{@code ",
+     * }&#92;{@code "Configurations}&#92;{@code ": [
+     * }{{@code
+     * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "export}&#92;{@code ",
+     * }&#92;{@code "Properties}&#92;{@code ": }{{@code
+     * }&#92;{@code "JAVA_HOME}&#92;{@code ": }&#92;{@code "/usr/lib/jvm/java-1.8.0}&#92;{@code "
+     * }}{@code
+     * }}{@code
      * ],
-     * \"Properties\": {}
-     * }
+     * }&#92;{@code "Properties}&#92;{@code ": }{}{@code
+     * }}{@code
      * ]
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -136,33 +136,33 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
      *             .configurationsJson("""
      * [
-     * {
-     * \"Classification\": \"hadoop-env\",
-     * \"Configurations\": [
-     * {
-     * \"Classification\": \"export\",
-     * \"Properties\": {
-     * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
-     * }
-     * }
+     * }{{@code
+     * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "hadoop-env}&#92;{@code ",
+     * }&#92;{@code "Configurations}&#92;{@code ": [
+     * }{{@code
+     * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "export}&#92;{@code ",
+     * }&#92;{@code "Properties}&#92;{@code ": }{{@code
+     * }&#92;{@code "JAVA_HOME}&#92;{@code ": }&#92;{@code "/usr/lib/jvm/java-1.8.0}&#92;{@code "
+     * }}{@code
+     * }}{@code
      * ],
-     * \"Properties\": {}
-     * }
+     * }&#92;{@code "Properties}&#92;{@code ": }{}{@code
+     * }}{@code
      * ]
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -408,33 +408,33 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
          * import java.nio.file.Files;
          * import java.nio.file.Paths;
          * 
-         * public class App {
-         *     public static void main(String[] args) {
+         * public class App }{{@code
+         *     public static void main(String[] args) }{{@code
          *         Pulumi.run(App::stack);
-         *     }
+         *     }}{@code
          * 
-         *     public static void stack(Context ctx) {
+         *     public static void stack(Context ctx) }{{@code
          *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
          *             .configurationsJson("""
          * [
-         * {
-         * \"Classification\": \"hadoop-env\",
-         * \"Configurations\": [
-         * {
-         * \"Classification\": \"export\",
-         * \"Properties\": {
-         * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
-         * }
-         * }
+         * }{{@code
+         * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "hadoop-env}&#92;{@code ",
+         * }&#92;{@code "Configurations}&#92;{@code ": [
+         * }{{@code
+         * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "export}&#92;{@code ",
+         * }&#92;{@code "Properties}&#92;{@code ": }{{@code
+         * }&#92;{@code "JAVA_HOME}&#92;{@code ": }&#92;{@code "/usr/lib/jvm/java-1.8.0}&#92;{@code "
+         * }}{@code
+         * }}{@code
          * ],
-         * \"Properties\": {}
-         * }
+         * }&#92;{@code "Properties}&#92;{@code ": }{}{@code
+         * }}{@code
          * ]
          *             """)
          *             .build());
          * 
-         *     }
-         * }
+         *     }}{@code
+         * }}{@code
          * }
          * </pre>
          * 
@@ -465,33 +465,33 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
          * import java.nio.file.Files;
          * import java.nio.file.Paths;
          * 
-         * public class App {
-         *     public static void main(String[] args) {
+         * public class App }{{@code
+         *     public static void main(String[] args) }{{@code
          *         Pulumi.run(App::stack);
-         *     }
+         *     }}{@code
          * 
-         *     public static void stack(Context ctx) {
+         *     public static void stack(Context ctx) }{{@code
          *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
          *             .configurationsJson("""
          * [
-         * {
-         * \"Classification\": \"hadoop-env\",
-         * \"Configurations\": [
-         * {
-         * \"Classification\": \"export\",
-         * \"Properties\": {
-         * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
-         * }
-         * }
+         * }{{@code
+         * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "hadoop-env}&#92;{@code ",
+         * }&#92;{@code "Configurations}&#92;{@code ": [
+         * }{{@code
+         * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "export}&#92;{@code ",
+         * }&#92;{@code "Properties}&#92;{@code ": }{{@code
+         * }&#92;{@code "JAVA_HOME}&#92;{@code ": }&#92;{@code "/usr/lib/jvm/java-1.8.0}&#92;{@code "
+         * }}{@code
+         * }}{@code
          * ],
-         * \"Properties\": {}
-         * }
+         * }&#92;{@code "Properties}&#92;{@code ": }{}{@code
+         * }}{@code
          * ]
          *             """)
          *             .build());
          * 
-         *     }
-         * }
+         *     }}{@code
+         * }}{@code
          * }
          * </pre>
          * 

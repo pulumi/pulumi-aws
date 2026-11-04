@@ -864,6 +864,46 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["worker_configuration"] = worker_configuration
         return Connector(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity: pulumi.Input[Optional[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict', 'outputs.ConnectorCapacity']]] = None,
+            connector_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict', 'outputs.ConnectorKafkaCluster']]] = None,
+            kafka_cluster_client_authentication: pulumi.Input[Optional[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict', 'outputs.ConnectorKafkaClusterClientAuthentication']]] = None,
+            kafka_cluster_encryption_in_transit: pulumi.Input[Optional[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict', 'outputs.ConnectorKafkaClusterEncryptionInTransit']]] = None,
+            kafkaconnect_version: pulumi.Input[Optional[_builtins.str]] = None,
+            log_delivery: pulumi.Input[Optional[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict', 'outputs.ConnectorLogDelivery']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            plugins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict', 'outputs.ConnectorPlugin']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_configuration: pulumi.Input[Optional[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict', 'outputs.ConnectorWorkerConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["capacity"] = capacity
+        __props__["connectorConfiguration"] = connector_configuration
+        __props__["description"] = description
+        __props__["kafkaCluster"] = kafka_cluster
+        __props__["kafkaClusterClientAuthentication"] = kafka_cluster_client_authentication
+        __props__["kafkaClusterEncryptionInTransit"] = kafka_cluster_encryption_in_transit
+        __props__["kafkaconnectVersion"] = kafkaconnect_version
+        __props__["logDelivery"] = log_delivery
+        __props__["name"] = name
+        __props__["plugins"] = plugins
+        __props__["region"] = region
+        __props__["serviceExecutionRoleArn"] = service_execution_role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["version"] = version
+        __props__["workerConfiguration"] = worker_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:mskconnect/connector:Connector', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

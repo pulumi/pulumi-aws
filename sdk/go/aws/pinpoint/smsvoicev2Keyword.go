@@ -256,6 +256,12 @@ func (Smsvoicev2KeywordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsvoicev2KeywordState)(nil)).Elem()
 }
 
+// Smsvoicev2KeywordExists checks whether an existing Smsvoicev2Keyword resource with the given ID exists.
+func Smsvoicev2KeywordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Smsvoicev2KeywordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsvoicev2Keyword:Smsvoicev2Keyword", id, state, "", opts...)
+}
+
 type smsvoicev2KeywordArgs struct {
 	// Keyword to configure. Must be upper-case; AWS stores keywords in upper-case. 1-30 characters and cannot start or end with a space. Changing this forces a new resource.
 	Keyword string `pulumi:"keyword"`

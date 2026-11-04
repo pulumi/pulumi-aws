@@ -135,6 +135,12 @@ func (ProxyProtocolPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyProtocolPolicyState)(nil)).Elem()
 }
 
+// ProxyProtocolPolicyExists checks whether an existing ProxyProtocolPolicy resource with the given ID exists.
+func ProxyProtocolPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProxyProtocolPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", id, state, "", opts...)
+}
+
 type proxyProtocolPolicyArgs struct {
 	// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
 	InstancePorts []string `pulumi:"instancePorts"`

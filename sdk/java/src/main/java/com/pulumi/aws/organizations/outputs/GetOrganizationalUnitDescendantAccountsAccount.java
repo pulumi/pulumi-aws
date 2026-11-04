@@ -48,11 +48,10 @@ public final class GetOrganizationalUnitDescendantAccountsAccount {
     /**
      * @return (**Deprecated** use `state` instead) Status of the account in the organization.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     private String status;
 
     private GetOrganizationalUnitDescendantAccountsAccount() {}
@@ -108,11 +107,10 @@ public final class GetOrganizationalUnitDescendantAccountsAccount {
     /**
      * @return (**Deprecated** use `state` instead) Status of the account in the organization.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     public String status() {
         return this.status;
     }

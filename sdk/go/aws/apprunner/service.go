@@ -316,6 +316,12 @@ func (ServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceState)(nil)).Elem()
 }
 
+// ServiceExists checks whether an existing Service resource with the given ID exists.
+func ServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apprunner/service:Service", id, state, "", opts...)
+}
+
 type serviceArgs struct {
 	// ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
 	AutoScalingConfigurationArn *string `pulumi:"autoScalingConfigurationArn"`

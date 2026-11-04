@@ -130,6 +130,12 @@ func (ResourceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceAssociationState)(nil)).Elem()
 }
 
+// ResourceAssociationExists checks whether an existing ResourceAssociation resource with the given ID exists.
+func ResourceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ram/resourceAssociation:ResourceAssociation", id, state, "", opts...)
+}
+
 type resourceAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

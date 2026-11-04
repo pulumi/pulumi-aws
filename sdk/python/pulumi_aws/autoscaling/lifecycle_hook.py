@@ -583,6 +583,30 @@ class LifecycleHook(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = role_arn
         return LifecycleHook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_result: pulumi.Input[Optional[_builtins.str]] = None,
+            heartbeat_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            lifecycle_transition: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoscalingGroupName"] = autoscaling_group_name
+        __props__["defaultResult"] = default_result
+        __props__["heartbeatTimeout"] = heartbeat_timeout
+        __props__["lifecycleTransition"] = lifecycle_transition
+        __props__["name"] = name
+        __props__["notificationMetadata"] = notification_metadata
+        __props__["notificationTargetArn"] = notification_target_arn
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        return pulumi.runtime.exists_resource(None, 'aws:autoscaling/lifecycleHook:LifecycleHook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[_builtins.str]:

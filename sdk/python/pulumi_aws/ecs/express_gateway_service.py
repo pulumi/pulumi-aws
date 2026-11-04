@@ -1023,6 +1023,54 @@ class ExpressGatewayService(pulumi.CustomResource):
         __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
         return ExpressGatewayService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu_architecture: pulumi.Input[Optional[_builtins.str]] = None,
+            current_deployment: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+            infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ingress_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict', 'outputs.ExpressGatewayServiceIngressPath']]]]] = None,
+            memory: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']]]]] = None,
+            primary_container: pulumi.Input[Optional[Union['ExpressGatewayServicePrimaryContainerArgs', 'ExpressGatewayServicePrimaryContainerArgsDict', 'outputs.ExpressGatewayServicePrimaryContainer']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict', 'outputs.ExpressGatewayServiceScalingTarget']]]]] = None,
+            service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_revision_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ExpressGatewayServiceTimeoutsArgs', 'ExpressGatewayServiceTimeoutsArgsDict', 'outputs.ExpressGatewayServiceTimeouts']]] = None,
+            wait_for_steady_state: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cluster"] = cluster
+        __props__["cpu"] = cpu
+        __props__["cpuArchitecture"] = cpu_architecture
+        __props__["currentDeployment"] = current_deployment
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["healthCheckPath"] = health_check_path
+        __props__["infrastructureRoleArn"] = infrastructure_role_arn
+        __props__["ingressPaths"] = ingress_paths
+        __props__["memory"] = memory
+        __props__["networkConfigurations"] = network_configurations
+        __props__["primaryContainer"] = primary_container
+        __props__["region"] = region
+        __props__["scalingTargets"] = scaling_targets
+        __props__["serviceArn"] = service_arn
+        __props__["serviceName"] = service_name
+        __props__["serviceRevisionArn"] = service_revision_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["taskRoleArn"] = task_role_arn
+        __props__["timeouts"] = timeouts
+        __props__["waitForSteadyState"] = wait_for_steady_state
+        return pulumi.runtime.exists_resource(None, 'aws:ecs/expressGatewayService:ExpressGatewayService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> pulumi.Output[_builtins.str]:

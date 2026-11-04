@@ -313,6 +313,12 @@ func (RouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeState)(nil)).Elem()
 }
 
+// RouteExists checks whether an existing Route resource with the given ID exists.
+func RouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/route:Route", id, state, "", opts...)
+}
+
 type routeArgs struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`

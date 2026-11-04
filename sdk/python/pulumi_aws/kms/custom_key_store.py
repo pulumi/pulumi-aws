@@ -672,6 +672,34 @@ class CustomKeyStore(pulumi.CustomResource):
         __props__.__dict__["xks_proxy_vpc_endpoint_service_name"] = xks_proxy_vpc_endpoint_service_name
         return CustomKeyStore(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cloud_hsm_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_key_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_key_store_type: pulumi.Input[Optional[_builtins.str]] = None,
+            key_store_password: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_anchor_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            xks_proxy_authentication_credential: pulumi.Input[Optional[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict', 'outputs.CustomKeyStoreXksProxyAuthenticationCredential']]] = None,
+            xks_proxy_connectivity: pulumi.Input[Optional[_builtins.str]] = None,
+            xks_proxy_uri_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            xks_proxy_uri_path: pulumi.Input[Optional[_builtins.str]] = None,
+            xks_proxy_vpc_endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cloudHsmClusterId"] = cloud_hsm_cluster_id
+        __props__["customKeyStoreName"] = custom_key_store_name
+        __props__["customKeyStoreType"] = custom_key_store_type
+        __props__["keyStorePassword"] = key_store_password
+        __props__["region"] = region
+        __props__["trustAnchorCertificate"] = trust_anchor_certificate
+        __props__["xksProxyAuthenticationCredential"] = xks_proxy_authentication_credential
+        __props__["xksProxyConnectivity"] = xks_proxy_connectivity
+        __props__["xksProxyUriEndpoint"] = xks_proxy_uri_endpoint
+        __props__["xksProxyUriPath"] = xks_proxy_uri_path
+        __props__["xksProxyVpcEndpointServiceName"] = xks_proxy_vpc_endpoint_service_name
+        return pulumi.runtime.exists_resource(None, 'aws:kms/customKeyStore:CustomKeyStore', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> pulumi.Output[Optional[_builtins.str]]:

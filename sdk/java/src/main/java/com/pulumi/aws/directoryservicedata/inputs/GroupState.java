@@ -95,7 +95,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / \ , [ ] {@literal @}`.
+     * SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / &#92; , [ ] {@literal @}`.
      * 
      * The following arguments are optional:
      * 
@@ -104,7 +104,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> samAccountName;
 
     /**
-     * @return SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / \ , [ ] {@literal @}`.
+     * @return SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / &#92; , [ ] {@literal @}`.
      * 
      * The following arguments are optional:
      * 
@@ -268,7 +268,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samAccountName SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / \ , [ ] {@literal @}`.
+         * @param samAccountName SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / &#92; , [ ] {@literal @}`.
          * 
          * The following arguments are optional:
          * 
@@ -281,7 +281,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samAccountName SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / \ , [ ] {@literal @}`.
+         * @param samAccountName SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / &#92; , [ ] {@literal @}`.
          * 
          * The following arguments are optional:
          * 

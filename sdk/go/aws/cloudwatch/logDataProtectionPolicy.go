@@ -183,6 +183,12 @@ func (LogDataProtectionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDataProtectionPolicyState)(nil)).Elem()
 }
 
+// LogDataProtectionPolicyExists checks whether an existing LogDataProtectionPolicy resource with the given ID exists.
+func LogDataProtectionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogDataProtectionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy", id, state, "", opts...)
+}
+
 type logDataProtectionPolicyArgs struct {
 	// The name of the log group under which the log stream is to be created.
 	LogGroupName string `pulumi:"logGroupName"`

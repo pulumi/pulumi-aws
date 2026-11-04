@@ -540,6 +540,38 @@ class InferenceProfile(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return InferenceProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            model_source: pulumi.Input[Optional[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict', 'outputs.InferenceProfileModelSource']]] = None,
+            models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict', 'outputs.InferenceProfileModel']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict', 'outputs.InferenceProfileTimeouts']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdAt"] = created_at
+        __props__["description"] = description
+        __props__["modelSource"] = model_source
+        __props__["models"] = models
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["type"] = type
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/inferenceProfile:InferenceProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

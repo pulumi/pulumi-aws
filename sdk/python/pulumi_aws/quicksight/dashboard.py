@@ -887,6 +887,50 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["version_number"] = version_number
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_publish_options: pulumi.Input[Optional[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict', 'outputs.DashboardDashboardPublishOptions']]] = None,
+            last_published_time: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Union['DashboardParametersArgs', 'DashboardParametersArgsDict', 'outputs.DashboardParameters']]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict', 'outputs.DashboardPermission']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_entity: pulumi.Input[Optional[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict', 'outputs.DashboardSourceEntity']]] = None,
+            source_entity_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            version_description: pulumi.Input[Optional[_builtins.str]] = None,
+            version_number: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsAccountId"] = aws_account_id
+        __props__["createdTime"] = created_time
+        __props__["dashboardId"] = dashboard_id
+        __props__["dashboardPublishOptions"] = dashboard_publish_options
+        __props__["lastPublishedTime"] = last_published_time
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["permissions"] = permissions
+        __props__["region"] = region
+        __props__["sourceEntity"] = source_entity
+        __props__["sourceEntityArn"] = source_entity_arn
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["themeArn"] = theme_arn
+        __props__["versionDescription"] = version_description
+        __props__["versionNumber"] = version_number
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/dashboard:Dashboard', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

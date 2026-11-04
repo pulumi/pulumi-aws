@@ -229,6 +229,12 @@ func (IpRoutesExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipRoutesExclusiveState)(nil)).Elem()
 }
 
+// IpRoutesExclusiveExists checks whether an existing IpRoutesExclusive resource with the given ID exists.
+func IpRoutesExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpRoutesExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/ipRoutesExclusive:IpRoutesExclusive", id, state, "", opts...)
+}
+
 type ipRoutesExclusiveArgs struct {
 	// Identifier of the directory. Changing this forces a new resource to be created.
 	//

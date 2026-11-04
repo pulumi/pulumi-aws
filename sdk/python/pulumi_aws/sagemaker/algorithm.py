@@ -1313,6 +1313,40 @@ class Algorithm(pulumi.CustomResource):
         __props__.__dict__["validation_specification"] = validation_specification
         return Algorithm(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+            algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
+            algorithm_status: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict', 'outputs.AlgorithmInferenceSpecification']]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict', 'outputs.AlgorithmTimeouts']]] = None,
+            training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict', 'outputs.AlgorithmTrainingSpecification']]] = None,
+            validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict', 'outputs.AlgorithmValidationSpecification']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["algorithmDescription"] = algorithm_description
+        __props__["algorithmName"] = algorithm_name
+        __props__["algorithmStatus"] = algorithm_status
+        __props__["arn"] = arn
+        __props__["certifyForMarketplace"] = certify_for_marketplace
+        __props__["creationTime"] = creation_time
+        __props__["inferenceSpecification"] = inference_specification
+        __props__["productId"] = product_id
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["trainingSpecification"] = training_specification
+        __props__["validationSpecification"] = validation_specification
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/algorithm:Algorithm', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="algorithmDescription")
     def algorithm_description(self) -> pulumi.Output[Optional[_builtins.str]]:

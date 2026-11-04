@@ -593,6 +593,36 @@ class Device(pulumi.CustomResource):
         __props__.__dict__["vendor"] = vendor
         return Device(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']]] = None,
+            model: pulumi.Input[Optional[_builtins.str]] = None,
+            serial_number: pulumi.Input[Optional[_builtins.str]] = None,
+            site_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vendor: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsLocation"] = aws_location
+        __props__["description"] = description
+        __props__["globalNetworkId"] = global_network_id
+        __props__["location"] = location
+        __props__["model"] = model
+        __props__["serialNumber"] = serial_number
+        __props__["siteId"] = site_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["vendor"] = vendor
+        return pulumi.runtime.exists_resource(None, 'aws:networkmanager/device:Device', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

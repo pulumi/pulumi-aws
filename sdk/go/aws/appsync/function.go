@@ -282,6 +282,12 @@ func (FunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionState)(nil)).Elem()
 }
 
+// FunctionExists checks whether an existing Function resource with the given ID exists.
+func FunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appsync/function:Function", id, state, "", opts...)
+}
+
 type functionArgs struct {
 	// ID of the associated AppSync API.
 	ApiId string `pulumi:"apiId"`

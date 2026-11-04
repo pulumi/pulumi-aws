@@ -205,6 +205,12 @@ func (ScramSecretAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scramSecretAssociationState)(nil)).Elem()
 }
 
+// ScramSecretAssociationExists checks whether an existing ScramSecretAssociation resource with the given ID exists.
+func ScramSecretAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScramSecretAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:msk/scramSecretAssociation:ScramSecretAssociation", id, state, "", opts...)
+}
+
 type scramSecretAssociationArgs struct {
 	// ARN of the MSK cluster.
 	ClusterArn string `pulumi:"clusterArn"`

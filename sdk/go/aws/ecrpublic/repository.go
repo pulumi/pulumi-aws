@@ -169,6 +169,12 @@ func (RepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryState)(nil)).Elem()
 }
 
+// RepositoryExists checks whether an existing Repository resource with the given ID exists.
+func RepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecrpublic/repository:Repository", id, state, "", opts...)
+}
+
 type repositoryArgs struct {
 	// Catalog data configuration for the repository. See below for schema.
 	CatalogData  *RepositoryCatalogData `pulumi:"catalogData"`

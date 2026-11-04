@@ -316,6 +316,12 @@ func (EnvironmentProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentProfileState)(nil)).Elem()
 }
 
+// EnvironmentProfileExists checks whether an existing EnvironmentProfile resource with the given ID exists.
+func EnvironmentProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datazone/environmentProfile:EnvironmentProfile", id, state, "", opts...)
+}
+
 type environmentProfileArgs struct {
 	// ID of the AWS account being used.
 	AwsAccountId *string `pulumi:"awsAccountId"`

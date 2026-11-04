@@ -474,6 +474,26 @@ class VolumeAttachment(pulumi.CustomResource):
         __props__.__dict__["volume_id"] = volume_id
         return VolumeAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            device_name: pulumi.Input[Optional[_builtins.str]] = None,
+            force_detach: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            stop_instance_before_detaching: pulumi.Input[Optional[_builtins.bool]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deviceName"] = device_name
+        __props__["forceDetach"] = force_detach
+        __props__["instanceId"] = instance_id
+        __props__["region"] = region
+        __props__["skipDestroy"] = skip_destroy
+        __props__["stopInstanceBeforeDetaching"] = stop_instance_before_detaching
+        __props__["volumeId"] = volume_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/volumeAttachment:VolumeAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Output[_builtins.str]:

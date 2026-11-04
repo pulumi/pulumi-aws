@@ -442,6 +442,28 @@ class AssessmentDelegation(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return AssessmentDelegation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assessment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            control_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delegation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            role_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assessmentId"] = assessment_id
+        __props__["comment"] = comment
+        __props__["controlSetId"] = control_set_id
+        __props__["delegationId"] = delegation_id
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["roleType"] = role_type
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:auditmanager/assessmentDelegation:AssessmentDelegation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assessmentId")
     def assessment_id(self) -> pulumi.Output[_builtins.str]:

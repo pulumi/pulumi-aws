@@ -209,6 +209,12 @@ func (NetworkInterfaceSecurityGroupAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceSecurityGroupAttachmentState)(nil)).Elem()
 }
 
+// NetworkInterfaceSecurityGroupAttachmentExists checks whether an existing NetworkInterfaceSecurityGroupAttachment resource with the given ID exists.
+func NetworkInterfaceSecurityGroupAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceSecurityGroupAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", id, state, "", opts...)
+}
+
 type networkInterfaceSecurityGroupAttachmentArgs struct {
 	// The ID of the network interface to attach to.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`

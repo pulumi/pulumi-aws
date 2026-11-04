@@ -1115,6 +1115,68 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["writer"] = writer
         return ClusterInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            dbi_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            identifier_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            neptune_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            promotion_tier: pulumi.Input[Optional[_builtins.int]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            writer: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["address"] = address
+        __props__["applyImmediately"] = apply_immediately
+        __props__["arn"] = arn
+        __props__["autoMinorVersionUpgrade"] = auto_minor_version_upgrade
+        __props__["availabilityZone"] = availability_zone
+        __props__["clusterIdentifier"] = cluster_identifier
+        __props__["dbiResourceId"] = dbi_resource_id
+        __props__["endpoint"] = endpoint
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["identifier"] = identifier
+        __props__["identifierPrefix"] = identifier_prefix
+        __props__["instanceClass"] = instance_class
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["neptuneParameterGroupName"] = neptune_parameter_group_name
+        __props__["neptuneSubnetGroupName"] = neptune_subnet_group_name
+        __props__["port"] = port
+        __props__["preferredBackupWindow"] = preferred_backup_window
+        __props__["preferredMaintenanceWindow"] = preferred_maintenance_window
+        __props__["promotionTier"] = promotion_tier
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["region"] = region
+        __props__["skipFinalSnapshot"] = skip_final_snapshot
+        __props__["storageEncrypted"] = storage_encrypted
+        __props__["storageType"] = storage_type
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["writer"] = writer
+        return pulumi.runtime.exists_resource(None, 'aws:neptune/clusterInstance:ClusterInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[_builtins.str]:

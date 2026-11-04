@@ -42,39 +42,39 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Application("example", ApplicationArgs.builder()
  *             .definition(ApplicationDefinitionArgs.builder()
  *                 .content("""
- * {
- *   \"definition\": {
- *     \"listeners\": [
- *       {
- *         \"port\": 8196,
- *         \"type\": \"http\"
- *       }
+ * }{{@code
+ *   }&#92;{@code "definition}&#92;{@code ": }{{@code
+ *     }&#92;{@code "listeners}&#92;{@code ": [
+ *       }{{@code
+ *         }&#92;{@code "port}&#92;{@code ": 8196,
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "http}&#92;{@code "
+ *       }}{@code
  *     ],
- *     \"ba-application\": {
- *       \"app-location\": \"%s/PlanetsDemo-v1.zip\"
- *     }
- *   },
- *   \"source-locations\": [
- *     {
- *       \"source-id\": \"s3-source\",
- *       \"source-type\": \"s3\",
- *       \"properties\": {
- *         \"s3-bucket\": \"example-bucket\",
- *         \"s3-key-prefix\": \"v1\"
- *       }
- *     }
+ *     }&#92;{@code "ba-application}&#92;{@code ": }{{@code
+ *       }&#92;{@code "app-location}&#92;{@code ": }&#92;{@code "%s/PlanetsDemo-v1.zip}&#92;{@code "
+ *     }}{@code
+ *   }}{@code ,
+ *   }&#92;{@code "source-locations}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "source-id}&#92;{@code ": }&#92;{@code "s3-source}&#92;{@code ",
+ *       }&#92;{@code "source-type}&#92;{@code ": }&#92;{@code "s3}&#92;{@code ",
+ *       }&#92;{@code "properties}&#92;{@code ": }{{@code
+ *         }&#92;{@code "s3-bucket}&#92;{@code ": }&#92;{@code "example-bucket}&#92;{@code ",
+ *         }&#92;{@code "s3-key-prefix}&#92;{@code ": }&#92;{@code "v1}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
  *   ],
- *   \"template-version\": \"2.0\"
- * }
+ *   }&#92;{@code "template-version}&#92;{@code ": }&#92;{@code "2.0}&#92;{@code "
+ * }}{@code
  * 
  * ", s3_source))
  *                 .build())
@@ -82,8 +82,8 @@ import javax.annotation.Nullable;
  *             .engineType("bluage")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

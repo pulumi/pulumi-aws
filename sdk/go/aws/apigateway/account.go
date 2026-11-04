@@ -179,6 +179,12 @@ func (AccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountState)(nil)).Elem()
 }
 
+// AccountExists checks whether an existing Account resource with the given ID exists.
+func AccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/account:Account", id, state, "", opts...)
+}
+
 type accountArgs struct {
 	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`

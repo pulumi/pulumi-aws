@@ -315,6 +315,12 @@ func (AgentFlowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentFlowState)(nil)).Elem()
 }
 
+// AgentFlowExists checks whether an existing AgentFlow resource with the given ID exists.
+func AgentFlowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentFlowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentFlow:AgentFlow", id, state, "", opts...)
+}
+
 type agentFlowArgs struct {
 	// ARN of the KMS key to encrypt the flow.
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`

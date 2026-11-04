@@ -647,12 +647,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var testCluster = new Domain("testCluster", DomainArgs.builder()
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceCount(2)
@@ -676,37 +676,37 @@ import javax.annotation.Nullable;
  *             .name("opensearch")
  *             .role(firehose.get("id"))
  *             .policy(testCluster.arn().applyValue(_arn -> """
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Statement\": [
- *     {
- *       \"Effect\": \"Allow\",
- *       \"Action\": [
- *         \"es:*\"
+ * }{{@code
+ *   }&#92;{@code "Version}&#92;{@code ": }&#92;{@code "2012-10-17}&#92;{@code ",
+ *   }&#92;{@code "Statement}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *       }&#92;{@code "Action}&#92;{@code ": [
+ *         }&#92;{@code "es:*}&#92;{@code "
  *       ],
- *       \"Resource\": [
- *         \"%s\",
- *         \"%s/*\"
+ *       }&#92;{@code "Resource}&#92;{@code ": [
+ *         }&#92;{@code "%s}&#92;{@code ",
+ *         }&#92;{@code "%s/*}&#92;{@code "
  *       ]
- *         },
- *         {
- *           \"Effect\": \"Allow\",
- *           \"Action\": [
- *             \"ec2:DescribeVpcs\",
- *             \"ec2:DescribeVpcAttribute\",
- *             \"ec2:DescribeSubnets\",
- *             \"ec2:DescribeSecurityGroups\",
- *             \"ec2:DescribeNetworkInterfaces\",
- *             \"ec2:CreateNetworkInterface\",
- *             \"ec2:CreateNetworkInterfacePermission\",
- *             \"ec2:DeleteNetworkInterface\"
+ *         }}{@code ,
+ *         }{{@code
+ *           }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *           }&#92;{@code "Action}&#92;{@code ": [
+ *             }&#92;{@code "ec2:DescribeVpcs}&#92;{@code ",
+ *             }&#92;{@code "ec2:DescribeVpcAttribute}&#92;{@code ",
+ *             }&#92;{@code "ec2:DescribeSubnets}&#92;{@code ",
+ *             }&#92;{@code "ec2:DescribeSecurityGroups}&#92;{@code ",
+ *             }&#92;{@code "ec2:DescribeNetworkInterfaces}&#92;{@code ",
+ *             }&#92;{@code "ec2:CreateNetworkInterface}&#92;{@code ",
+ *             }&#92;{@code "ec2:CreateNetworkInterfacePermission}&#92;{@code ",
+ *             }&#92;{@code "ec2:DeleteNetworkInterface}&#92;{@code "
  *           ],
- *           \"Resource\": [
- *             \"*\"
+ *           }&#92;{@code "Resource}&#92;{@code ": [
+ *             }&#92;{@code "*}&#92;{@code "
  *           ]
- *         }
+ *         }}{@code
  *   ]
- * }
+ * }}{@code
  * ", _arn,_arn)))
  *             .build());
  * 
@@ -733,8 +733,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(firehose_opensearch)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

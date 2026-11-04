@@ -367,6 +367,24 @@ class BackendEnvironment(pulumi.CustomResource):
         __props__.__dict__["stack_name"] = stack_name
         return BackendEnvironment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_artifacts: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["arn"] = arn
+        __props__["deploymentArtifacts"] = deployment_artifacts
+        __props__["environmentName"] = environment_name
+        __props__["region"] = region
+        __props__["stackName"] = stack_name
+        return pulumi.runtime.exists_resource(None, 'aws:amplify/backendEnvironment:BackendEnvironment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

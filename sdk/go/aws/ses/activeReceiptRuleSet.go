@@ -112,6 +112,12 @@ func (ActiveReceiptRuleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeReceiptRuleSetState)(nil)).Elem()
 }
 
+// ActiveReceiptRuleSetExists checks whether an existing ActiveReceiptRuleSet resource with the given ID exists.
+func ActiveReceiptRuleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActiveReceiptRuleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet", id, state, "", opts...)
+}
+
 type activeReceiptRuleSetArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

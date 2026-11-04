@@ -420,6 +420,26 @@ class TelemetryEvaluationForOrganization(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return TelemetryEvaluationForOrganization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            all_regions: pulumi.Input[Optional[_builtins.bool]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            home_region: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationForOrganizationTimeoutsArgs', 'TelemetryEvaluationForOrganizationTimeoutsArgsDict', 'outputs.TelemetryEvaluationForOrganizationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allRegions"] = all_regions
+        __props__["failureReason"] = failure_reason
+        __props__["homeRegion"] = home_region
+        __props__["region"] = region
+        __props__["regions"] = regions
+        __props__["status"] = status
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:observabilityadmin/telemetryEvaluationForOrganization:TelemetryEvaluationForOrganization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allRegions")
     def all_regions(self) -> pulumi.Output[Optional[_builtins.bool]]:

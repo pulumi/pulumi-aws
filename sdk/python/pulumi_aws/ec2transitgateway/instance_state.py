@@ -354,6 +354,20 @@ class InstanceState(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         return InstanceState(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            force: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["force"] = force
+        __props__["instanceId"] = instance_id
+        __props__["region"] = region
+        __props__["state"] = state
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/instanceState:InstanceState', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def force(self) -> pulumi.Output[Optional[_builtins.bool]]:

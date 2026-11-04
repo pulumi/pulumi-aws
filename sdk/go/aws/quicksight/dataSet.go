@@ -512,6 +512,12 @@ func (DataSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSetState)(nil)).Elem()
 }
 
+// DataSetExists checks whether an existing DataSet resource with the given ID exists.
+func DataSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/dataSet:DataSet", id, state, "", opts...)
+}
+
 type dataSetArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

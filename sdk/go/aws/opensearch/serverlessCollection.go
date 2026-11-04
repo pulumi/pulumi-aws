@@ -275,6 +275,12 @@ func (ServerlessCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessCollectionState)(nil)).Elem()
 }
 
+// ServerlessCollectionExists checks whether an existing ServerlessCollection resource with the given ID exists.
+func ServerlessCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/serverlessCollection:ServerlessCollection", id, state, "", opts...)
+}
+
 type serverlessCollectionArgs struct {
 	// Name of the collection group to associate with this collection.
 	CollectionGroupName *string `pulumi:"collectionGroupName"`

@@ -139,6 +139,12 @@ func (MonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorState)(nil)).Elem()
 }
 
+// MonitorExists checks whether an existing Monitor resource with the given ID exists.
+func MonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmonitor/monitor:Monitor", id, state, "", opts...)
+}
+
 type monitorArgs struct {
 	// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
 	AggregationPeriod *int `pulumi:"aggregationPeriod"`

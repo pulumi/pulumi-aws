@@ -81,14 +81,14 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+     * IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.&#92;* range. Note that the 198.19.&#92;* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
      * 
      */
     @Import(name="endpointIpAddressRange")
     private @Nullable Output<String> endpointIpAddressRange;
 
     /**
-     * @return IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+     * @return IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.&#92;* range. Note that the 198.19.&#92;* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
      * 
      */
     public Optional<Output<String>> endpointIpAddressRange() {
@@ -448,7 +448,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param endpointIpAddressRange IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+         * @param endpointIpAddressRange IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.&#92;* range. Note that the 198.19.&#92;* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param endpointIpAddressRange IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+         * @param endpointIpAddressRange IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.&#92;* range. Note that the 198.19.&#92;* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
          * 
          * @return builder
          * 

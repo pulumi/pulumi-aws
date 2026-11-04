@@ -351,6 +351,24 @@ class SshKey(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return SshKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            ssh_public_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["encoding"] = encoding
+        __props__["fingerprint"] = fingerprint
+        __props__["publicKey"] = public_key
+        __props__["sshPublicKeyId"] = ssh_public_key_id
+        __props__["status"] = status
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'aws:iam/sshKey:SshKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def encoding(self) -> pulumi.Output[_builtins.str]:

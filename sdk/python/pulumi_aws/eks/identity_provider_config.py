@@ -411,6 +411,28 @@ class IdentityProviderConfig(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return IdentityProviderConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+            oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict', 'outputs.IdentityProviderConfigOidc']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["clusterName"] = cluster_name
+        __props__["identityProviderConfigName"] = identity_provider_config_name
+        __props__["oidc"] = oidc
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:eks/identityProviderConfig:IdentityProviderConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

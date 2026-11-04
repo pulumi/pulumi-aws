@@ -75,11 +75,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
  * ```
  * 
- * @deprecated
- * aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration
+ * @deprecated aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration
  * 
  */
-@Deprecated /* aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration */
+@Deprecated
 @ResourceType(type="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")
 public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -99,11 +98,10 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

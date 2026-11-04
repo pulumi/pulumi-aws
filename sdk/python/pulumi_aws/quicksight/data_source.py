@@ -816,6 +816,38 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["vpc_connection_properties"] = vpc_connection_properties
         return DataSource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict', 'outputs.DataSourceCredentials']]] = None,
+            data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict', 'outputs.DataSourceParameters']]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict', 'outputs.DataSourcePermission']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_properties: pulumi.Input[Optional[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict', 'outputs.DataSourceSslProperties']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_connection_properties: pulumi.Input[Optional[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict', 'outputs.DataSourceVpcConnectionProperties']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsAccountId"] = aws_account_id
+        __props__["credentials"] = credentials
+        __props__["dataSourceId"] = data_source_id
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["permissions"] = permissions
+        __props__["region"] = region
+        __props__["sslProperties"] = ssl_properties
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["vpcConnectionProperties"] = vpc_connection_properties
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/dataSource:DataSource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

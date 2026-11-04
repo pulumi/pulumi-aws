@@ -154,6 +154,12 @@ func (UserGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGroupAssociationState)(nil)).Elem()
 }
 
+// UserGroupAssociationExists checks whether an existing UserGroupAssociation resource with the given ID exists.
+func UserGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elasticache/userGroupAssociation:UserGroupAssociation", id, state, "", opts...)
+}
+
 type userGroupAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -604,6 +604,30 @@ class ScheduledAction(pulumi.CustomResource):
         __props__.__dict__["target_action"] = target_action
         return ScheduledAction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            target_action: pulumi.Input[Optional[Union['ScheduledActionTargetActionArgs', 'ScheduledActionTargetActionArgsDict', 'outputs.ScheduledActionTargetAction']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["enable"] = enable
+        __props__["endTime"] = end_time
+        __props__["iamRole"] = iam_role
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["schedule"] = schedule
+        __props__["startTime"] = start_time
+        __props__["targetAction"] = target_action
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/scheduledAction:ScheduledAction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

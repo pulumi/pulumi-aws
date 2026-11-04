@@ -223,6 +223,12 @@ func (ReservedCacheNodeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reservedCacheNodeState)(nil)).Elem()
 }
 
+// ReservedCacheNodeExists checks whether an existing ReservedCacheNode resource with the given ID exists.
+func ReservedCacheNodeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReservedCacheNodeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elasticache/reservedCacheNode:ReservedCacheNode", id, state, "", opts...)
+}
+
 type reservedCacheNodeArgs struct {
 	// Number of cache node instances to reserve.
 	// Default value is `1`.

@@ -327,6 +327,12 @@ func (FlowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowState)(nil)).Elem()
 }
 
+// FlowExists checks whether an existing Flow resource with the given ID exists.
+func FlowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appflow/flow:Flow", id, state, "", opts...)
+}
+
 type flowArgs struct {
 	// Description of the flow.
 	Description *string `pulumi:"description"`

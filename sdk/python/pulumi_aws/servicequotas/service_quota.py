@@ -465,6 +465,36 @@ class ServiceQuota(pulumi.CustomResource):
         __props__.__dict__["value"] = value
         return ServiceQuota(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            adjustable: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_value: pulumi.Input[Optional[_builtins.float]] = None,
+            quota_code: pulumi.Input[Optional[_builtins.str]] = None,
+            quota_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_id: pulumi.Input[Optional[_builtins.str]] = None,
+            request_status: pulumi.Input[Optional[_builtins.str]] = None,
+            service_code: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceQuotaUsageMetricArgs', 'ServiceQuotaUsageMetricArgsDict', 'outputs.ServiceQuotaUsageMetric']]]]] = None,
+            value: pulumi.Input[Optional[_builtins.float]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adjustable"] = adjustable
+        __props__["arn"] = arn
+        __props__["defaultValue"] = default_value
+        __props__["quotaCode"] = quota_code
+        __props__["quotaName"] = quota_name
+        __props__["region"] = region
+        __props__["requestId"] = request_id
+        __props__["requestStatus"] = request_status
+        __props__["serviceCode"] = service_code
+        __props__["serviceName"] = service_name
+        __props__["usageMetrics"] = usage_metrics
+        __props__["value"] = value
+        return pulumi.runtime.exists_resource(None, 'aws:servicequotas/serviceQuota:ServiceQuota', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def adjustable(self) -> pulumi.Output[_builtins.bool]:

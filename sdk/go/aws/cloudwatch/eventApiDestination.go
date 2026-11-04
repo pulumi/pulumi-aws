@@ -166,6 +166,12 @@ func (EventApiDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventApiDestinationState)(nil)).Elem()
 }
 
+// EventApiDestinationExists checks whether an existing EventApiDestination resource with the given ID exists.
+func EventApiDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventApiDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/eventApiDestination:EventApiDestination", id, state, "", opts...)
+}
+
 type eventApiDestinationArgs struct {
 	// ARN of the EventBridge Connection to use for the API Destination.
 	ConnectionArn string `pulumi:"connectionArn"`

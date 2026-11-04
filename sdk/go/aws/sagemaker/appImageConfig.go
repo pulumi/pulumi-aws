@@ -218,6 +218,12 @@ func (AppImageConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appImageConfigState)(nil)).Elem()
 }
 
+// AppImageConfigExists checks whether an existing AppImageConfig resource with the given ID exists.
+func AppImageConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppImageConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/appImageConfig:AppImageConfig", id, state, "", opts...)
+}
+
 type appImageConfigArgs struct {
 	// The name of the App Image Config.
 	AppImageConfigName string `pulumi:"appImageConfigName"`

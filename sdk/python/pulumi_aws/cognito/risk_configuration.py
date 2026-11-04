@@ -405,6 +405,24 @@ class RiskConfiguration(pulumi.CustomResource):
         __props__.__dict__["user_pool_id"] = user_pool_id
         return RiskConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_takeover_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict', 'outputs.RiskConfigurationAccountTakeoverRiskConfiguration']]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            compromised_credentials_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict', 'outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            risk_exception_configuration: pulumi.Input[Optional[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict', 'outputs.RiskConfigurationRiskExceptionConfiguration']]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountTakeoverRiskConfiguration"] = account_takeover_risk_configuration
+        __props__["clientId"] = client_id
+        __props__["compromisedCredentialsRiskConfiguration"] = compromised_credentials_risk_configuration
+        __props__["region"] = region
+        __props__["riskExceptionConfiguration"] = risk_exception_configuration
+        __props__["userPoolId"] = user_pool_id
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/riskConfiguration:RiskConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> pulumi.Output[Optional['outputs.RiskConfigurationAccountTakeoverRiskConfiguration']]:

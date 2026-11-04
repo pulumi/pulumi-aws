@@ -312,6 +312,18 @@ class NotificationChannel(pulumi.CustomResource):
         __props__.__dict__["sns"] = sns
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            filters: pulumi.Input[Optional[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict', 'outputs.NotificationChannelFilters']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sns: pulumi.Input[Optional[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict', 'outputs.NotificationChannelSns']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["filters"] = filters
+        __props__["region"] = region
+        __props__["sns"] = sns
+        return pulumi.runtime.exists_resource(None, 'aws:devopsguru/notificationChannel:NotificationChannel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def filters(self) -> pulumi.Output[Optional['outputs.NotificationChannelFilters']]:

@@ -324,6 +324,12 @@ func (ResourceShareAssociationsExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceShareAssociationsExclusiveState)(nil)).Elem()
 }
 
+// ResourceShareAssociationsExclusiveExists checks whether an existing ResourceShareAssociationsExclusive resource with the given ID exists.
+func ResourceShareAssociationsExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceShareAssociationsExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive", id, state, "", opts...)
+}
+
 type resourceShareAssociationsExclusiveArgs struct {
 	// Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
 	Principals []string `pulumi:"principals"`

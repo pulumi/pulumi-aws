@@ -121,6 +121,12 @@ func (EmailIdentityFeedbackAttributesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIdentityFeedbackAttributesState)(nil)).Elem()
 }
 
+// EmailIdentityFeedbackAttributesExists checks whether an existing EmailIdentityFeedbackAttributes resource with the given ID exists.
+func EmailIdentityFeedbackAttributesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailIdentityFeedbackAttributesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes", id, state, "", opts...)
+}
+
 type emailIdentityFeedbackAttributesArgs struct {
 	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled *bool `pulumi:"emailForwardingEnabled"`

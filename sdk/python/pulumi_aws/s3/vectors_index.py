@@ -596,6 +596,36 @@ class VectorsIndex(pulumi.CustomResource):
         __props__.__dict__["vector_bucket_name"] = vector_bucket_name
         return VectorsIndex(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            data_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dimension: pulumi.Input[Optional[_builtins.int]] = None,
+            distance_metric: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VectorsIndexEncryptionConfigurationArgs', 'VectorsIndexEncryptionConfigurationArgsDict', 'outputs.VectorsIndexEncryptionConfiguration']]]]] = None,
+            index_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            index_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_configuration: pulumi.Input[Optional[Union['VectorsIndexMetadataConfigurationArgs', 'VectorsIndexMetadataConfigurationArgsDict', 'outputs.VectorsIndexMetadataConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["creationTime"] = creation_time
+        __props__["dataType"] = data_type
+        __props__["dimension"] = dimension
+        __props__["distanceMetric"] = distance_metric
+        __props__["encryptionConfigurations"] = encryption_configurations
+        __props__["indexArn"] = index_arn
+        __props__["indexName"] = index_name
+        __props__["metadataConfiguration"] = metadata_configuration
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vectorBucketName"] = vector_bucket_name
+        return pulumi.runtime.exists_resource(None, 'aws:s3/vectorsIndex:VectorsIndex', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:

@@ -182,6 +182,12 @@ func (TrustAnchorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustAnchorState)(nil)).Elem()
 }
 
+// TrustAnchorExists checks whether an existing TrustAnchor resource with the given ID exists.
+func TrustAnchorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustAnchorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rolesanywhere/trustAnchor:TrustAnchor", id, state, "", opts...)
+}
+
 type trustAnchorArgs struct {
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled *bool `pulumi:"enabled"`

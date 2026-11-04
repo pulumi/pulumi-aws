@@ -127,6 +127,12 @@ func (ServerlessSecurityConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessSecurityConfigState)(nil)).Elem()
 }
 
+// ServerlessSecurityConfigExists checks whether an existing ServerlessSecurityConfig resource with the given ID exists.
+func ServerlessSecurityConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessSecurityConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig", id, state, "", opts...)
+}
+
 type serverlessSecurityConfigArgs struct {
 	// Description of the security configuration.
 	Description *string `pulumi:"description"`

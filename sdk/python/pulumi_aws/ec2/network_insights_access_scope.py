@@ -486,6 +486,24 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return NetworkInsightsAccessScope(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict', 'outputs.NetworkInsightsAccessScopeExcludePath']]]]] = None,
+            match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict', 'outputs.NetworkInsightsAccessScopeMatchPath']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["excludePaths"] = exclude_paths
+        __props__["matchPaths"] = match_paths
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/networkInsightsAccessScope:NetworkInsightsAccessScope', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -94,20 +94,18 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
+     * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      * 
      */
-    @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
+    @Deprecated
     @Import(name="defaultAddonsToRemoves")
     private @Nullable Output<List<String>> defaultAddonsToRemoves;
 
     /**
-     * @deprecated
-     * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
+     * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      * 
      */
-    @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
+    @Deprecated
     public Optional<Output<List<String>>> defaultAddonsToRemoves() {
         return Optional.ofNullable(this.defaultAddonsToRemoves);
     }
@@ -233,14 +231,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
+     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9&#92;-_]*$`).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
+     * @return Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9&#92;-_]*$`).
      * 
      */
     public Optional<Output<String>> name() {
@@ -535,11 +533,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
+         * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
          * 
          */
-        @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
+        @Deprecated
         public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
             $.defaultAddonsToRemoves = defaultAddonsToRemoves;
             return this;
@@ -548,11 +545,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
+         * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
          * 
          */
-        @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
+        @Deprecated
         public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
             return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
         }
@@ -560,11 +556,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
+         * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
          * 
          */
-        @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
+        @Deprecated
         public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
             return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
@@ -748,7 +743,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
+         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9&#92;-_]*$`).
          * 
          * @return builder
          * 
@@ -759,7 +754,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
+         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9&#92;-_]*$`).
          * 
          * @return builder
          * 

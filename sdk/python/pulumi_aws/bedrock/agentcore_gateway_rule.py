@@ -659,6 +659,32 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreGatewayRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict', 'outputs.AgentcoreGatewayRuleAction']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict', 'outputs.AgentcoreGatewayRuleCondition']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleSystemArgs', 'AgentcoreGatewayRuleSystemArgsDict', 'outputs.AgentcoreGatewayRuleSystem']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayRuleTimeoutsArgs', 'AgentcoreGatewayRuleTimeoutsArgsDict', 'outputs.AgentcoreGatewayRuleTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["conditions"] = conditions
+        __props__["description"] = description
+        __props__["gatewayArn"] = gateway_arn
+        __props__["gatewayIdentifier"] = gateway_identifier
+        __props__["priority"] = priority
+        __props__["region"] = region
+        __props__["ruleId"] = rule_id
+        __props__["systems"] = systems
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreGatewayRule:AgentcoreGatewayRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreGatewayRuleAction']]]:

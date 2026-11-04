@@ -127,6 +127,12 @@ func (RouteServerVpcAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerVpcAssociationState)(nil)).Elem()
 }
 
+// RouteServerVpcAssociationExists checks whether an existing RouteServerVpcAssociation resource with the given ID exists.
+func RouteServerVpcAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerVpcAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation", id, state, "", opts...)
+}
+
 type routeServerVpcAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

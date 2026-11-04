@@ -309,6 +309,12 @@ func (OrganizationDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationDomainState)(nil)).Elem()
 }
 
+// OrganizationDomainExists checks whether an existing OrganizationDomain resource with the given ID exists.
+func OrganizationDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatchomni/organizationDomain:OrganizationDomain", id, state, "", opts...)
+}
+
 type organizationDomainArgs struct {
 	// ARN of the IAM role that CloudWatch Omni assumes to access the organization. The role must be in the management account, trust `cloudwatch.amazonaws.com` for `sts:AssumeRole` and `sts:TagSession`, and have the `CloudWatchOmniDomainAccessPolicy` AWS managed policy attached.
 	DomainAccessRoleArn string `pulumi:"domainAccessRoleArn"`

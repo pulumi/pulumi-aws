@@ -123,6 +123,12 @@ func (ClassificationExportConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*classificationExportConfigurationState)(nil)).Elem()
 }
 
+// ClassificationExportConfigurationExists checks whether an existing ClassificationExportConfiguration resource with the given ID exists.
+func ClassificationExportConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClassificationExportConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration", id, state, "", opts...)
+}
+
 type classificationExportConfigurationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

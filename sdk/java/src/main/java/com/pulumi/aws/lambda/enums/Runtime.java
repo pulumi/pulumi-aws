@@ -38,106 +38,106 @@ import java.util.StringJoiner;
         Ruby3d3("ruby3.3"),
         Ruby3d4("ruby3.4"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Dotnet5d0("dotnet5.0"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Dotnet7("dotnet7"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         DotnetCore2d1("dotnetcore2.1"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         DotnetCore3d1("dotnetcore3.1"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Go1dx("go1.x"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Java8("java8"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         NodeJS10dX("nodejs10.x"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         NodeJS12dX("nodejs12.x"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         NodeJS14dX("nodejs14.x"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         NodeJS16dX("nodejs16.x"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Custom("provided"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Python2d7("python2.7"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Python3d6("python3.6"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Python3d7("python3.7"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Python3d8("python3.8"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Ruby2d5("ruby2.5"),
         /**
-         * @deprecated
-         * This runtime is now deprecated
+         * @deprecated This runtime is now deprecated
+         * 
          */
-        @Deprecated /* This runtime is now deprecated */
+        @Deprecated
         Ruby2d7("ruby2.7");
 
         private final String value;

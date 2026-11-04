@@ -561,6 +561,34 @@ class VolumeCopy(pulumi.CustomResource):
         __props__.__dict__["volume_type"] = volume_type
         return VolumeCopy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            iops: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.int]] = None,
+            source_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None,
+            timeouts: pulumi.Input[Optional[Union['VolumeCopyTimeoutsArgs', 'VolumeCopyTimeoutsArgsDict', 'outputs.VolumeCopyTimeouts']]] = None,
+            volume_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["iops"] = iops
+        __props__["region"] = region
+        __props__["size"] = size
+        __props__["sourceVolumeId"] = source_volume_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throughput"] = throughput
+        __props__["timeouts"] = timeouts
+        __props__["volumeType"] = volume_type
+        return pulumi.runtime.exists_resource(None, 'aws:ebs/volumeCopy:VolumeCopy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

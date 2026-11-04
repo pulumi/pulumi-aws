@@ -1323,6 +1323,62 @@ class UserPoolClient(pulumi.CustomResource):
         __props__.__dict__["write_attributes"] = write_attributes
         return UserPoolClient(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            allowed_oauth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_oauth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
+            allowed_oauth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            analytics_configuration: pulumi.Input[Optional[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict', 'outputs.UserPoolClientAnalyticsConfiguration']]] = None,
+            auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            default_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_propagate_additional_user_context_data: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_token_revocation: pulumi.Input[Optional[_builtins.bool]] = None,
+            explicit_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            generate_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+            id_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            logout_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
+            read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            refresh_token_rotation: pulumi.Input[Optional[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict', 'outputs.UserPoolClientRefreshTokenRotation']]] = None,
+            refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            token_validity_units: pulumi.Input[Optional[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict', 'outputs.UserPoolClientTokenValidityUnits']]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessTokenValidity"] = access_token_validity
+        __props__["allowedOauthFlows"] = allowed_oauth_flows
+        __props__["allowedOauthFlowsUserPoolClient"] = allowed_oauth_flows_user_pool_client
+        __props__["allowedOauthScopes"] = allowed_oauth_scopes
+        __props__["analyticsConfiguration"] = analytics_configuration
+        __props__["authSessionValidity"] = auth_session_validity
+        __props__["callbackUrls"] = callback_urls
+        __props__["clientSecret"] = client_secret
+        __props__["defaultRedirectUri"] = default_redirect_uri
+        __props__["enablePropagateAdditionalUserContextData"] = enable_propagate_additional_user_context_data
+        __props__["enableTokenRevocation"] = enable_token_revocation
+        __props__["explicitAuthFlows"] = explicit_auth_flows
+        __props__["generateSecret"] = generate_secret
+        __props__["idTokenValidity"] = id_token_validity
+        __props__["logoutUrls"] = logout_urls
+        __props__["name"] = name
+        __props__["preventUserExistenceErrors"] = prevent_user_existence_errors
+        __props__["readAttributes"] = read_attributes
+        __props__["refreshTokenRotation"] = refresh_token_rotation
+        __props__["refreshTokenValidity"] = refresh_token_validity
+        __props__["region"] = region
+        __props__["supportedIdentityProviders"] = supported_identity_providers
+        __props__["tokenValidityUnits"] = token_validity_units
+        __props__["userPoolId"] = user_pool_id
+        __props__["writeAttributes"] = write_attributes
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/userPoolClient:UserPoolClient', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessTokenValidity")
     def access_token_validity(self) -> pulumi.Output[_builtins.int]:

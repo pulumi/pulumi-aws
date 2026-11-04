@@ -33,22 +33,20 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="region")
     private @Nullable String region;
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -94,11 +92,10 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future version of the provider.
+         * @deprecated This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

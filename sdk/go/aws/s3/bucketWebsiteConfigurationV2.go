@@ -252,6 +252,12 @@ func (BucketWebsiteConfigurationV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketWebsiteConfigurationV2State)(nil)).Elem()
 }
 
+// BucketWebsiteConfigurationV2Exists checks whether an existing BucketWebsiteConfigurationV2 resource with the given ID exists.
+func BucketWebsiteConfigurationV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketWebsiteConfigurationV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2", id, state, "", opts...)
+}
+
 type bucketWebsiteConfigurationV2Args struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`

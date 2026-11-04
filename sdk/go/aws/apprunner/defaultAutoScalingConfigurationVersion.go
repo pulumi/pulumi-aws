@@ -118,6 +118,12 @@ func (DefaultAutoScalingConfigurationVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultAutoScalingConfigurationVersionState)(nil)).Elem()
 }
 
+// DefaultAutoScalingConfigurationVersionExists checks whether an existing DefaultAutoScalingConfigurationVersion resource with the given ID exists.
+func DefaultAutoScalingConfigurationVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultAutoScalingConfigurationVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion", id, state, "", opts...)
+}
+
 type defaultAutoScalingConfigurationVersionArgs struct {
 	// ARN of the App Runner auto scaling configuration that you want to set as the default.
 	AutoScalingConfigurationArn string `pulumi:"autoScalingConfigurationArn"`

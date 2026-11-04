@@ -237,6 +237,12 @@ func (Smsvoicev2PhoneNumberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsvoicev2PhoneNumberState)(nil)).Elem()
 }
 
+// Smsvoicev2PhoneNumberExists checks whether an existing Smsvoicev2PhoneNumber resource with the given ID exists.
+func Smsvoicev2PhoneNumberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Smsvoicev2PhoneNumberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber", id, state, "", opts...)
+}
+
 type smsvoicev2PhoneNumberArgs struct {
 	// Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`

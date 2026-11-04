@@ -16,7 +16,7 @@ public final class EntityRecognizerInputDataConfigEntityTypeArgs extends com.pul
 
     /**
      * An entity type to be matched by the Entity Recognizer.
-     * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
+     * Cannot contain a newline (`&#92;n`), carriage return (`&#92;r`), or tab (`&#92;t`).
      * 
      */
     @Import(name="type", required=true)
@@ -24,7 +24,7 @@ public final class EntityRecognizerInputDataConfigEntityTypeArgs extends com.pul
 
     /**
      * @return An entity type to be matched by the Entity Recognizer.
-     * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
+     * Cannot contain a newline (`&#92;n`), carriage return (`&#92;r`), or tab (`&#92;t`).
      * 
      */
     public Output<String> type() {
@@ -57,7 +57,7 @@ public final class EntityRecognizerInputDataConfigEntityTypeArgs extends com.pul
 
         /**
          * @param type An entity type to be matched by the Entity Recognizer.
-         * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
+         * Cannot contain a newline (`&#92;n`), carriage return (`&#92;r`), or tab (`&#92;t`).
          * 
          * @return builder
          * 
@@ -69,7 +69,7 @@ public final class EntityRecognizerInputDataConfigEntityTypeArgs extends com.pul
 
         /**
          * @param type An entity type to be matched by the Entity Recognizer.
-         * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
+         * Cannot contain a newline (`&#92;n`), carriage return (`&#92;r`), or tab (`&#92;t`).
          * 
          * @return builder
          * 

@@ -851,6 +851,40 @@ class User(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_info: pulumi.Input[Optional[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict', 'outputs.UserIdentityInfo']]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_config: pulumi.Input[Optional[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict', 'outputs.UserPhoneConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_profile_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["directoryUserId"] = directory_user_id
+        __props__["hierarchyGroupId"] = hierarchy_group_id
+        __props__["identityInfo"] = identity_info
+        __props__["instanceId"] = instance_id
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["phoneConfig"] = phone_config
+        __props__["region"] = region
+        __props__["routingProfileId"] = routing_profile_id
+        __props__["securityProfileIds"] = security_profile_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'aws:connect/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

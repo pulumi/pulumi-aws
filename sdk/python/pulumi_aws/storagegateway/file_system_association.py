@@ -604,6 +604,32 @@ class FileSystemAssociation(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return FileSystemAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict', 'outputs.FileSystemAssociationCacheAttributes']]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["auditDestinationArn"] = audit_destination_arn
+        __props__["cacheAttributes"] = cache_attributes
+        __props__["gatewayArn"] = gateway_arn
+        __props__["locationArn"] = location_arn
+        __props__["password"] = password
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'aws:storagegateway/fileSystemAssociation:FileSystemAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

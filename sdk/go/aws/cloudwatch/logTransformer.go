@@ -136,6 +136,12 @@ func (LogTransformerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logTransformerState)(nil)).Elem()
 }
 
+// LogTransformerExists checks whether an existing LogTransformer resource with the given ID exists.
+func LogTransformerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogTransformerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logTransformer:LogTransformer", id, state, "", opts...)
+}
+
 type logTransformerArgs struct {
 	// Log group ARN to set the transformer for.
 	LogGroupArn string `pulumi:"logGroupArn"`

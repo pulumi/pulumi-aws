@@ -306,6 +306,12 @@ func (SecretRotationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretRotationState)(nil)).Elem()
 }
 
+// SecretRotationExists checks whether an existing SecretRotation resource with the given ID exists.
+func SecretRotationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretRotationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:secretsmanager/secretRotation:SecretRotation", id, state, "", opts...)
+}
+
 type secretRotationArgs struct {
 	// Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
 	ExternalSecretRotationMetadatas []SecretRotationExternalSecretRotationMetadata `pulumi:"externalSecretRotationMetadatas"`

@@ -709,6 +709,40 @@ class MigrationProject(pulumi.CustomResource):
         __props__.__dict__["transformation_rules"] = transformation_rules
         return MigrationProject(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_conversion_application_attributes: pulumi.Input[Optional[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict', 'outputs.MigrationProjectSchemaConversionApplicationAttributes']]] = None,
+            source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict', 'outputs.MigrationProjectSourceDataProviderDescriptor']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict', 'outputs.MigrationProjectTargetDataProviderDescriptor']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['MigrationProjectTimeoutsArgs', 'MigrationProjectTimeoutsArgsDict', 'outputs.MigrationProjectTimeouts']]] = None,
+            transformation_rules: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["creationTime"] = creation_time
+        __props__["description"] = description
+        __props__["instanceProfileArn"] = instance_profile_arn
+        __props__["instanceProfileName"] = instance_profile_name
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["schemaConversionApplicationAttributes"] = schema_conversion_application_attributes
+        __props__["sourceDataProviderDescriptors"] = source_data_provider_descriptors
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetDataProviderDescriptors"] = target_data_provider_descriptors
+        __props__["timeouts"] = timeouts
+        __props__["transformationRules"] = transformation_rules
+        return pulumi.runtime.exists_resource(None, 'aws:dms/migrationProject:MigrationProject', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -170,6 +170,12 @@ func (IngestionDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ingestionDestinationState)(nil)).Elem()
 }
 
+// IngestionDestinationExists checks whether an existing IngestionDestination resource with the given ID exists.
+func IngestionDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IngestionDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appfabric/ingestionDestination:IngestionDestination", id, state, "", opts...)
+}
+
 type ingestionDestinationArgs struct {
 	// ARN of the app bundle to use for the request.
 	AppBundleArn string `pulumi:"appBundleArn"`

@@ -612,6 +612,32 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreOauth2CredentialProvider(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            callback_url: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOauth2CredentialProviderClientSecretArnArgs', 'AgentcoreOauth2CredentialProviderClientSecretArnArgsDict', 'outputs.AgentcoreOauth2CredentialProviderClientSecretArn']]]]] = None,
+            credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            credential_provider_vendor: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth2_provider_config: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict', 'outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderTimeoutsArgs', 'AgentcoreOauth2CredentialProviderTimeoutsArgsDict', 'outputs.AgentcoreOauth2CredentialProviderTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["callbackUrl"] = callback_url
+        __props__["clientSecretArns"] = client_secret_arns
+        __props__["credentialProviderArn"] = credential_provider_arn
+        __props__["credentialProviderVendor"] = credential_provider_vendor
+        __props__["name"] = name
+        __props__["oauth2ProviderConfig"] = oauth2_provider_config
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="callbackUrl")
     def callback_url(self) -> pulumi.Output[_builtins.str]:

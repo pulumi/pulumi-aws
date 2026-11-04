@@ -119,7 +119,7 @@ import (
 //				tmp0 = nil
 //			}
 //			corsConfig := tmp0
-//			allowedOrigins := corsConfig.ApplyT(func(corsConfig lambda.GetFunctionUrlCor) ([]string, error) {
+//			allowedOrigins := corsConfig.ApplyT(func(corsConfig *lambda.GetFunctionUrlCor) ([]string, error) {
 //				var tmp1 []string
 //				if corsConfig != nil {
 //					tmp1 = corsConfig.AllowOrigins

@@ -314,6 +314,12 @@ func (TableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableState)(nil)).Elem()
 }
 
+// TableExists checks whether an existing Table resource with the given ID exists.
+func TableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3tables/table:Table", id, state, "", opts...)
+}
+
 type tableArgs struct {
 	// Single table bucket encryption configuration object. See `encryptionConfiguration` below.
 	EncryptionConfiguration *TableEncryptionConfiguration `pulumi:"encryptionConfiguration"`

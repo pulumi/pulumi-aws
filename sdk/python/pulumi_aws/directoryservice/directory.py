@@ -985,6 +985,50 @@ class Directory(pulumi.CustomResource):
         __props__.__dict__["vpc_settings"] = vpc_settings
         return Directory(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_url: pulumi.Input[Optional[_builtins.str]] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            connect_settings: pulumi.Input[Optional[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict', 'outputs.DirectoryConnectSettings']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            desired_number_of_domain_controllers: pulumi.Input[Optional[_builtins.int]] = None,
+            dns_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            edition: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_directory_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_sso: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            short_name: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_settings: pulumi.Input[Optional[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict', 'outputs.DirectoryVpcSettings']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessUrl"] = access_url
+        __props__["alias"] = alias
+        __props__["connectSettings"] = connect_settings
+        __props__["description"] = description
+        __props__["desiredNumberOfDomainControllers"] = desired_number_of_domain_controllers
+        __props__["dnsIpAddresses"] = dns_ip_addresses
+        __props__["edition"] = edition
+        __props__["enableDirectoryDataAccess"] = enable_directory_data_access
+        __props__["enableSso"] = enable_sso
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["region"] = region
+        __props__["securityGroupId"] = security_group_id
+        __props__["shortName"] = short_name
+        __props__["size"] = size
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["vpcSettings"] = vpc_settings
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservice/directory:Directory', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessUrl")
     def access_url(self) -> pulumi.Output[_builtins.str]:

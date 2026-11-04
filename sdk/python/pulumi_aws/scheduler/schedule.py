@@ -827,6 +827,42 @@ class Schedule(pulumi.CustomResource):
         __props__.__dict__["target"] = target
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_after_completion: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            flexible_time_window: pulumi.Input[Optional[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict', 'outputs.ScheduleFlexibleTimeWindow']]] = None,
+            group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict', 'outputs.ScheduleTarget']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionAfterCompletion"] = action_after_completion
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["endDate"] = end_date
+        __props__["flexibleTimeWindow"] = flexible_time_window
+        __props__["groupName"] = group_name
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["scheduleExpression"] = schedule_expression
+        __props__["scheduleExpressionTimezone"] = schedule_expression_timezone
+        __props__["startDate"] = start_date
+        __props__["state"] = state
+        __props__["target"] = target
+        return pulumi.runtime.exists_resource(None, 'aws:scheduler/schedule:Schedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionAfterCompletion")
     def action_after_completion(self) -> pulumi.Output[_builtins.str]:

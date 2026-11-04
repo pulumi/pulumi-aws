@@ -133,6 +133,12 @@ func (VaultLockConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultLockConfigurationState)(nil)).Elem()
 }
 
+// VaultLockConfigurationExists checks whether an existing VaultLockConfiguration resource with the given ID exists.
+func VaultLockConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VaultLockConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/vaultLockConfiguration:VaultLockConfiguration", id, state, "", opts...)
+}
+
 type vaultLockConfigurationArgs struct {
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName string `pulumi:"backupVaultName"`

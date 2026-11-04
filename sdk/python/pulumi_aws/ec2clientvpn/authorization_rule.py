@@ -404,6 +404,24 @@ class AuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["target_network_cidr"] = target_network_cidr
         return AuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorize_all_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_vpn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_cidr: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessGroupId"] = access_group_id
+        __props__["authorizeAllGroups"] = authorize_all_groups
+        __props__["clientVpnEndpointId"] = client_vpn_endpoint_id
+        __props__["description"] = description
+        __props__["region"] = region
+        __props__["targetNetworkCidr"] = target_network_cidr
+        return pulumi.runtime.exists_resource(None, 'aws:ec2clientvpn/authorizationRule:AuthorizationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessGroupId")
     def access_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:

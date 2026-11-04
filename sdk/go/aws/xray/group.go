@@ -150,6 +150,12 @@ func (GroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupState)(nil)).Elem()
 }
 
+// GroupExists checks whether an existing Group resource with the given ID exists.
+func GroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:xray/group:Group", id, state, "", opts...)
+}
+
 type groupArgs struct {
 	// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression string `pulumi:"filterExpression"`

@@ -126,6 +126,12 @@ func (SmsPreferencesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsPreferencesState)(nil)).Elem()
 }
 
+// SmsPreferencesExists checks whether an existing SmsPreferences resource with the given ID exists.
+func SmsPreferencesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SmsPreferencesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sns/smsPreferences:SmsPreferences", id, state, "", opts...)
+}
+
 type smsPreferencesArgs struct {
 	// A string, such as your business brand, that is displayed as the sender on the receiving device.
 	DefaultSenderId *string `pulumi:"defaultSenderId"`

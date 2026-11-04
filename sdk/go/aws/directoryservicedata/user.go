@@ -189,6 +189,12 @@ func (UserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userState)(nil)).Elem()
 }
 
+// UserExists checks whether an existing User resource with the given ID exists.
+func UserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservicedata/user:User", id, state, "", opts...)
+}
+
 type userArgs struct {
 	// ID of the Directory that's associated with the user.
 	DirectoryId string `pulumi:"directoryId"`

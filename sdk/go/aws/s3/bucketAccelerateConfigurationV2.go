@@ -154,6 +154,12 @@ func (BucketAccelerateConfigurationV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketAccelerateConfigurationV2State)(nil)).Elem()
 }
 
+// BucketAccelerateConfigurationV2Exists checks whether an existing BucketAccelerateConfigurationV2 resource with the given ID exists.
+func BucketAccelerateConfigurationV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketAccelerateConfigurationV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2", id, state, "", opts...)
+}
+
 type bucketAccelerateConfigurationV2Args struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`

@@ -173,6 +173,12 @@ func (LocalGatewayRouteTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGatewayRouteTableState)(nil)).Elem()
 }
 
+// LocalGatewayRouteTableExists checks whether an existing LocalGatewayRouteTable resource with the given ID exists.
+func LocalGatewayRouteTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalGatewayRouteTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/localGatewayRouteTable:LocalGatewayRouteTable", id, state, "", opts...)
+}
+
 type localGatewayRouteTableArgs struct {
 	// Identifier of the EC2 Local Gateway.
 	LocalGatewayId string `pulumi:"localGatewayId"`

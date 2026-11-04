@@ -336,6 +336,12 @@ func (AnalyticsApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsApplicationState)(nil)).Elem()
 }
 
+// AnalyticsApplicationExists checks whether an existing AnalyticsApplication resource with the given ID exists.
+func AnalyticsApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnalyticsApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kinesis/analyticsApplication:AnalyticsApplication", id, state, "", opts...)
+}
+
 type analyticsApplicationArgs struct {
 	// CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
 	CloudwatchLoggingOptions *AnalyticsApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`

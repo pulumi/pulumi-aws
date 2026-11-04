@@ -206,6 +206,12 @@ func (WorkforceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workforceState)(nil)).Elem()
 }
 
+// WorkforceExists checks whether an existing Workforce resource with the given ID exists.
+func WorkforceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkforceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/workforce:Workforce", id, state, "", opts...)
+}
+
 type workforceArgs struct {
 	// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
 	CognitoConfig *WorkforceCognitoConfig `pulumi:"cognitoConfig"`

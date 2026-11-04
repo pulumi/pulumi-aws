@@ -393,6 +393,24 @@ class IpRestriction(pulumi.CustomResource):
         __props__.__dict__["vpc_id_restriction_rule_map"] = vpc_id_restriction_rule_map
         return IpRestriction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_restriction_rule_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_id_restriction_rule_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id_restriction_rule_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsAccountId"] = aws_account_id
+        __props__["enabled"] = enabled
+        __props__["ipRestrictionRuleMap"] = ip_restriction_rule_map
+        __props__["region"] = region
+        __props__["vpcEndpointIdRestrictionRuleMap"] = vpc_endpoint_id_restriction_rule_map
+        __props__["vpcIdRestrictionRuleMap"] = vpc_id_restriction_rule_map
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/ipRestriction:IpRestriction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:

@@ -517,6 +517,32 @@ class TrustStore(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return TrustStore(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificates_bundle_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificates_bundle_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificates_bundle_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["arnSuffix"] = arn_suffix
+        __props__["caCertificatesBundleS3Bucket"] = ca_certificates_bundle_s3_bucket
+        __props__["caCertificatesBundleS3Key"] = ca_certificates_bundle_s3_key
+        __props__["caCertificatesBundleS3ObjectVersion"] = ca_certificates_bundle_s3_object_version
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:lb/trustStore:TrustStore', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

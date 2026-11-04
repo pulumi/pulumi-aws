@@ -241,14 +241,14 @@ public class Alias extends com.pulumi.resources.CustomResource {
         return this.functionName;
     }
     /**
-     * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+     * Lambda function version for which you are creating the alias. Pattern: `(&#92;$LATEST|[0-9]+)`.
      * 
      */
     @Export(name="functionVersion", refs={String.class}, tree="[0]")
     private Output<String> functionVersion;
 
     /**
-     * @return Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+     * @return Lambda function version for which you are creating the alias. Pattern: `(&#92;$LATEST|[0-9]+)`.
      * 
      */
     public Output<String> functionVersion() {

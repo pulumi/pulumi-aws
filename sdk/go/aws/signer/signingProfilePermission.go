@@ -178,6 +178,12 @@ func (SigningProfilePermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signingProfilePermissionState)(nil)).Elem()
 }
 
+// SigningProfilePermissionExists checks whether an existing SigningProfilePermission resource with the given ID exists.
+func SigningProfilePermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SigningProfilePermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:signer/signingProfilePermission:SigningProfilePermission", id, state, "", opts...)
+}
+
 type signingProfilePermissionArgs struct {
 	// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
 	Action string `pulumi:"action"`

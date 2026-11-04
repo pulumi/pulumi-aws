@@ -490,6 +490,30 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
         return HostedPrivateVirtualInterfaceAccepter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dxGatewayId"] = dx_gateway_id
+        __props__["prefixPoolAllocatedCountIpv4"] = prefix_pool_allocated_count_ipv4
+        __props__["prefixPoolAllocatedCountIpv6"] = prefix_pool_allocated_count_ipv6
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["virtualInterfaceId"] = virtual_interface_id
+        __props__["vpnGatewayId"] = vpn_gateway_id
+        return pulumi.runtime.exists_resource(None, 'aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -160,6 +160,12 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyState)(nil)).Elem()
 }
 
+// ResourcePolicyExists checks whether an existing ResourcePolicy resource with the given ID exists.
+func ResourcePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourcePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:organizations/resourcePolicy:ResourcePolicy", id, state, "", opts...)
+}
+
 type resourcePolicyArgs struct {
 	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
 	Content string `pulumi:"content"`

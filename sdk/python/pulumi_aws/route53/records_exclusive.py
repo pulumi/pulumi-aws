@@ -344,6 +344,18 @@ class RecordsExclusive(pulumi.CustomResource):
         __props__.__dict__["zone_id"] = zone_id
         return RecordsExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            resource_record_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict', 'outputs.RecordsExclusiveResourceRecordSet']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['RecordsExclusiveTimeoutsArgs', 'RecordsExclusiveTimeoutsArgsDict', 'outputs.RecordsExclusiveTimeouts']]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["resourceRecordSets"] = resource_record_sets
+        __props__["timeouts"] = timeouts
+        __props__["zoneId"] = zone_id
+        return pulumi.runtime.exists_resource(None, 'aws:route53/recordsExclusive:RecordsExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="resourceRecordSets")
     def resource_record_sets(self) -> pulumi.Output[Optional[Sequence['outputs.RecordsExclusiveResourceRecordSet']]]:

@@ -495,6 +495,22 @@ class ResourcePolicy(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return ResourcePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revision_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ResourcePolicyTimeoutsArgs', 'ResourcePolicyTimeoutsArgsDict', 'outputs.ResourcePolicyTimeouts']]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["policyDocument"] = policy_document
+        __props__["region"] = region
+        __props__["revisionId"] = revision_id
+        __props__["timeouts"] = timeouts
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:amp/resourcePolicy:ResourcePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[_builtins.str]:

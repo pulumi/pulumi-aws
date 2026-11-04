@@ -274,6 +274,12 @@ func (ConfigurationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationPolicyState)(nil)).Elem()
 }
 
+// ConfigurationPolicyExists checks whether an existing ConfigurationPolicy resource with the given ID exists.
+func ConfigurationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/configurationPolicy:ConfigurationPolicy", id, state, "", opts...)
+}
+
 type configurationPolicyArgs struct {
 	// Defines how Security Hub is configured. See below.
 	ConfigurationPolicy ConfigurationPolicyConfigurationPolicy `pulumi:"configurationPolicy"`

@@ -728,6 +728,34 @@ class Target(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Target(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+            service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended_state: pulumi.Input[Optional[Union['TargetSuspendedStateArgs', 'TargetSuspendedStateArgsDict', 'outputs.TargetSuspendedState']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["maxCapacity"] = max_capacity
+        __props__["minCapacity"] = min_capacity
+        __props__["region"] = region
+        __props__["resourceId"] = resource_id
+        __props__["roleArn"] = role_arn
+        __props__["scalableDimension"] = scalable_dimension
+        __props__["serviceNamespace"] = service_namespace
+        __props__["suspendedState"] = suspended_state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:appautoscaling/target:Target', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -694,12 +694,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .templateConfiguration(DataSourceConfigurationTemplateConfigurationArgs.builder()
@@ -713,7 +713,7 @@ import javax.annotation.Nullable;
  *                                 ))
  *                             )),
  *                             jsonProperty("additionalProperties", jsonObject(
- *                                 jsonProperty("inclusionURLIndexPatterns", jsonArray("https:\\/\\/registry[.]terraform[.]io\\/providers\\/hashicorp\\/aws\\/latest\\/docs\\/resources\\/kendra_index"))
+ *                                 jsonProperty("inclusionURLIndexPatterns", jsonArray("https:}&#92;&#92;{@code /}&#92;&#92;{@code /registry[.]terraform[.]io}&#92;&#92;{@code /providers}&#92;&#92;{@code /hashicorp}&#92;&#92;{@code /aws}&#92;&#92;{@code /latest}&#92;&#92;{@code /docs}&#92;&#92;{@code /resources}&#92;&#92;{@code /kendra_index"))
  *                             )),
  *                             jsonProperty("version", "1.0.0"),
  *                             jsonProperty("syncMode", "FULL_CRAWL"),
@@ -727,8 +727,8 @@ import javax.annotation.Nullable;
  *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

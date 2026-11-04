@@ -142,6 +142,12 @@ func (AppregistryAttributeGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appregistryAttributeGroupAssociationState)(nil)).Elem()
 }
 
+// AppregistryAttributeGroupAssociationExists checks whether an existing AppregistryAttributeGroupAssociation resource with the given ID exists.
+func AppregistryAttributeGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppregistryAttributeGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation", id, state, "", opts...)
+}
+
 type appregistryAttributeGroupAssociationArgs struct {
 	// ID of the application.
 	ApplicationId string `pulumi:"applicationId"`

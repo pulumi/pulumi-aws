@@ -463,6 +463,22 @@ class PipelineDefinition(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return PipelineDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            parameter_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict', 'outputs.PipelineDefinitionParameterObject']]]]] = None,
+            parameter_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict', 'outputs.PipelineDefinitionParameterValue']]]]] = None,
+            pipeline_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict', 'outputs.PipelineDefinitionPipelineObject']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["parameterObjects"] = parameter_objects
+        __props__["parameterValues"] = parameter_values
+        __props__["pipelineId"] = pipeline_id
+        __props__["pipelineObjects"] = pipeline_objects
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:datapipeline/pipelineDefinition:PipelineDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="parameterObjects")
     def parameter_objects(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineDefinitionParameterObject']]]:

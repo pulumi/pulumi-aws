@@ -130,6 +130,12 @@ func (IndexingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*indexingRuleState)(nil)).Elem()
 }
 
+// IndexingRuleExists checks whether an existing IndexingRule resource with the given ID exists.
+func IndexingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IndexingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:xray/indexingRule:IndexingRule", id, state, "", opts...)
+}
+
 type indexingRuleArgs struct {
 	// Indexing rule name.
 	Name *string `pulumi:"name"`

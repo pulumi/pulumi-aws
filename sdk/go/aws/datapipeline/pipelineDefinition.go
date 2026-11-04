@@ -195,6 +195,12 @@ func (PipelineDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineDefinitionState)(nil)).Elem()
 }
 
+// PipelineDefinitionExists checks whether an existing PipelineDefinition resource with the given ID exists.
+func PipelineDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datapipeline/pipelineDefinition:PipelineDefinition", id, state, "", opts...)
+}
+
 type pipelineDefinitionArgs struct {
 	// Configuration block for the parameter objects used in the pipeline definition. See below
 	ParameterObjects []PipelineDefinitionParameterObject `pulumi:"parameterObjects"`

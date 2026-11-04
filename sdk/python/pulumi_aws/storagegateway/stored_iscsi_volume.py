@@ -803,6 +803,54 @@ class StoredIscsiVolume(pulumi.CustomResource):
         __props__.__dict__["volume_type"] = volume_type
         return StoredIscsiVolume(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            chap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+            lun_number: pulumi.Input[Optional[_builtins.int]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_port: pulumi.Input[Optional[_builtins.int]] = None,
+            preserve_existing_data: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            target_name: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_attachment_status: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_status: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["chapEnabled"] = chap_enabled
+        __props__["diskId"] = disk_id
+        __props__["gatewayArn"] = gateway_arn
+        __props__["kmsEncrypted"] = kms_encrypted
+        __props__["kmsKey"] = kms_key
+        __props__["lunNumber"] = lun_number
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["networkInterfacePort"] = network_interface_port
+        __props__["preserveExistingData"] = preserve_existing_data
+        __props__["region"] = region
+        __props__["snapshotId"] = snapshot_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetArn"] = target_arn
+        __props__["targetName"] = target_name
+        __props__["volumeAttachmentStatus"] = volume_attachment_status
+        __props__["volumeId"] = volume_id
+        __props__["volumeSizeInBytes"] = volume_size_in_bytes
+        __props__["volumeStatus"] = volume_status
+        __props__["volumeType"] = volume_type
+        return pulumi.runtime.exists_resource(None, 'aws:storagegateway/storedIscsiVolume:StoredIscsiVolume', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

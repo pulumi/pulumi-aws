@@ -350,6 +350,20 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return LoadBalancerBackendServerPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            instance_port: pulumi.Input[Optional[_builtins.int]] = None,
+            load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["instancePort"] = instance_port
+        __props__["loadBalancerName"] = load_balancer_name
+        __props__["policyNames"] = policy_names
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="instancePort")
     def instance_port(self) -> pulumi.Output[_builtins.int]:

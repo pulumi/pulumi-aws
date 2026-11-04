@@ -188,11 +188,10 @@ public class SavingsPlan extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the offering.
      * 
-     * @deprecated
-     * offering_id is deprecated. Use savingsPlanOfferingId instead.
+     * @deprecated offering_id is deprecated. Use savingsPlanOfferingId instead.
      * 
      */
-    @Deprecated /* offering_id is deprecated. Use savingsPlanOfferingId instead. */
+    @Deprecated
     @Export(name="offeringId", refs={String.class}, tree="[0]")
     private Output<String> offeringId;
 

@@ -160,6 +160,12 @@ func (IamPolicyAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iamPolicyAssignmentState)(nil)).Elem()
 }
 
+// IamPolicyAssignmentExists checks whether an existing IamPolicyAssignment resource with the given ID exists.
+func IamPolicyAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IamPolicyAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment", id, state, "", opts...)
+}
+
 type iamPolicyAssignmentArgs struct {
 	// Name of the assignment.
 	AssignmentName string `pulumi:"assignmentName"`

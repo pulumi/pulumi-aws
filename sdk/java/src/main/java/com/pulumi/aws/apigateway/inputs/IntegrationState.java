@@ -95,14 +95,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+     * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::&#92;*:user/&#92;*`.
      * 
      */
     @Import(name="credentials")
     private @Nullable Output<String> credentials;
 
     /**
-     * @return Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+     * @return Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::&#92;*:user/&#92;*`.
      * 
      */
     public Optional<Output<String>> credentials() {
@@ -478,7 +478,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentials Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+         * @param credentials Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::&#92;*:user/&#92;*`.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentials Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+         * @param credentials Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::&#92;*:user/&#92;*`.
          * 
          * @return builder
          * 

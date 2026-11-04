@@ -351,6 +351,26 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict', 'outputs.ClusterClusterEndpoint']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["clusterEndpoints"] = cluster_endpoints
+        __props__["name"] = name
+        __props__["networkType"] = network_type
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:route53recoverycontrol/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

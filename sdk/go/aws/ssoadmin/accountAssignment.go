@@ -261,6 +261,12 @@ func (AccountAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountAssignmentState)(nil)).Elem()
 }
 
+// AccountAssignmentExists checks whether an existing AccountAssignment resource with the given ID exists.
+func AccountAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/accountAssignment:AccountAssignment", id, state, "", opts...)
+}
+
 type accountAssignmentArgs struct {
 	// ARN of the SSO Instance.
 	InstanceArn string `pulumi:"instanceArn"`

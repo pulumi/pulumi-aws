@@ -279,27 +279,27 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
  *             .authenticationType("AWS_IAM")
  *             .name("example")
  *             .schema("""
- * schema {
- * \tquery: Query
- * }
- * type Query {
+ * schema }{{@code
+ * }&#92;{@code tquery: Query
+ * }}{@code
+ * type Query }{{@code
  *   test: Int
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

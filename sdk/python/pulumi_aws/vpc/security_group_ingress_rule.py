@@ -701,6 +701,40 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         __props__.__dict__["to_port"] = to_port
         return SecurityGroupIngressRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cidr_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+            cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            from_port: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            referenced_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            to_port: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cidrIpv4"] = cidr_ipv4
+        __props__["cidrIpv6"] = cidr_ipv6
+        __props__["description"] = description
+        __props__["fromPort"] = from_port
+        __props__["ipProtocol"] = ip_protocol
+        __props__["prefixListId"] = prefix_list_id
+        __props__["referencedSecurityGroupId"] = referenced_security_group_id
+        __props__["region"] = region
+        __props__["securityGroupId"] = security_group_id
+        __props__["securityGroupRuleId"] = security_group_rule_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["toPort"] = to_port
+        return pulumi.runtime.exists_resource(None, 'aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

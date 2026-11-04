@@ -234,6 +234,16 @@ class ManagedNotificationAdditionalChannelAssociation(pulumi.CustomResource):
         __props__.__dict__["managed_notification_arn"] = managed_notification_arn
         return ManagedNotificationAdditionalChannelAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_notification_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["channelArn"] = channel_arn
+        __props__["managedNotificationArn"] = managed_notification_arn
+        return pulumi.runtime.exists_resource(None, 'aws:notifications/managedNotificationAdditionalChannelAssociation:ManagedNotificationAdditionalChannelAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="channelArn")
     def channel_arn(self) -> pulumi.Output[_builtins.str]:

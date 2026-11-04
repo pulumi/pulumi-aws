@@ -440,6 +440,28 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ServerlessSecurityConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_federation_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamFederationOptions']]] = None,
+            iam_identity_center_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamIdentityCenterOptions']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict', 'outputs.ServerlessSecurityConfigSamlOptions']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configVersion"] = config_version
+        __props__["description"] = description
+        __props__["iamFederationOptions"] = iam_federation_options
+        __props__["iamIdentityCenterOptions"] = iam_identity_center_options
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["samlOptions"] = saml_options
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configVersion")
     def config_version(self) -> pulumi.Output[_builtins.str]:

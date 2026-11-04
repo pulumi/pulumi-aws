@@ -492,11 +492,10 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
     /**
      * ARN of the IAM role that the memory service assumes to perform operations.
      * 
-     * @deprecated
-     * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
+     * @deprecated memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
      * 
      */
-    @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
+    @Deprecated
     @Export(name="memoryExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> memoryExecutionRoleArn;
 
@@ -580,11 +579,10 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
     /**
      * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
-     * @deprecated
-     * namespaces is deprecated. Use namespaceTemplates instead.
+     * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
      * 
      */
-    @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
+    @Deprecated
     @Export(name="namespaces", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> namespaces;
 

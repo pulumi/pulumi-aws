@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new OrganizationCustomPolicyRule("example", OrganizationCustomPolicyRuleArgs.builder()
  *             .name("example_rule_name")
  *             .policyRuntime("guard-2.x.x")
@@ -53,22 +53,22 @@ import javax.annotation.Nullable;
  * let status = ['ACTIVE']
  * 
  * rule tableisactive when
- *     resourceType == \"AWS::DynamoDB::Table\" {
+ *     resourceType == }&#92;{@code "AWS::DynamoDB::Table}&#92;{@code " }{{@code
  *     configuration.tableStatus == %status
- * }
+ * }}{@code
  * 
  * rule checkcompliance when
- *     resourceType == \"AWS::DynamoDB::Table\"
- *     tableisactive {
+ *     resourceType == }&#92;{@code "AWS::DynamoDB::Table}&#92;{@code "
+ *     tableisactive }{{@code
  *         let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
- *         %pitr == \"ENABLED\"
- *     }
+ *         %pitr == }&#92;{@code "ENABLED}&#92;{@code "
+ *     }}{@code
  *             """)
  *             .resourceTypesScopes("AWS::DynamoDB::Table")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

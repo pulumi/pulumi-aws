@@ -115,6 +115,12 @@ func (SnapshotBlockPublicAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotBlockPublicAccessState)(nil)).Elem()
 }
 
+// SnapshotBlockPublicAccessExists checks whether an existing SnapshotBlockPublicAccess resource with the given ID exists.
+func SnapshotBlockPublicAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotBlockPublicAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess", id, state, "", opts...)
+}
+
 type snapshotBlockPublicAccessArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

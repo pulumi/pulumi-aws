@@ -304,6 +304,12 @@ func (EndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointState)(nil)).Elem()
 }
 
+// EndpointExists checks whether an existing Endpoint resource with the given ID exists.
+func EndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dms/endpoint:Endpoint", id, state, "", opts...)
+}
+
 type endpointArgs struct {
 	// ARN for the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`

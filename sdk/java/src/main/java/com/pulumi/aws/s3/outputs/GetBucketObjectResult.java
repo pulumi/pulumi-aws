@@ -26,11 +26,10 @@ public final class GetBucketObjectResult {
      */
     private String body;
     /**
-     * @deprecated
-     * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
+     * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      * 
      */
-    @Deprecated /* bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead. */
+    @Deprecated
     private String bucket;
     /**
      * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -162,11 +161,10 @@ public final class GetBucketObjectResult {
         return this.body;
     }
     /**
-     * @deprecated
-     * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
+     * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      * 
      */
-    @Deprecated /* bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead. */
+    @Deprecated
     public String bucket() {
         return this.bucket;
     }

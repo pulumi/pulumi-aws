@@ -594,6 +594,12 @@ func (ScheduledQueryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryState)(nil)).Elem()
 }
 
+// ScheduledQueryExists checks whether an existing ScheduledQuery resource with the given ID exists.
+func ScheduledQueryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledQueryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:timestreamquery/scheduledQuery:ScheduledQuery", id, state, "", opts...)
+}
+
 type scheduledQueryArgs struct {
 	// Configuration block for error reporting configuration. See below.
 	ErrorReportConfiguration ScheduledQueryErrorReportConfiguration `pulumi:"errorReportConfiguration"`

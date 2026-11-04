@@ -505,6 +505,12 @@ func (WebAclRuleGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclRuleGroupAssociationState)(nil)).Elem()
 }
 
+// WebAclRuleGroupAssociationExists checks whether an existing WebAclRuleGroupAssociation resource with the given ID exists.
+func WebAclRuleGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAclRuleGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation", id, state, "", opts...)
+}
+
 type webAclRuleGroupAssociationArgs struct {
 	// Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
 	ManagedRuleGroup *WebAclRuleGroupAssociationManagedRuleGroup `pulumi:"managedRuleGroup"`

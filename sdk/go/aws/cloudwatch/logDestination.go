@@ -152,6 +152,12 @@ func (LogDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDestinationState)(nil)).Elem()
 }
 
+// LogDestinationExists checks whether an existing LogDestination resource with the given ID exists.
+func LogDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logDestination:LogDestination", id, state, "", opts...)
+}
+
 type logDestinationArgs struct {
 	// A name for the log destination.
 	Name *string `pulumi:"name"`

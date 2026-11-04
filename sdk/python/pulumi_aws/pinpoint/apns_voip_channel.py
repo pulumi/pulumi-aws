@@ -545,6 +545,32 @@ class ApnsVoipChannel(pulumi.CustomResource):
         __props__.__dict__["token_key_id"] = token_key_id
         return ApnsVoipChannel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            default_authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            token_key: pulumi.Input[Optional[_builtins.str]] = None,
+            token_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["bundleId"] = bundle_id
+        __props__["certificate"] = certificate
+        __props__["defaultAuthenticationMethod"] = default_authentication_method
+        __props__["enabled"] = enabled
+        __props__["privateKey"] = private_key
+        __props__["region"] = region
+        __props__["teamId"] = team_id
+        __props__["tokenKey"] = token_key
+        __props__["tokenKeyId"] = token_key_id
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/apnsVoipChannel:ApnsVoipChannel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

@@ -322,6 +322,12 @@ func (WorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceState)(nil)).Elem()
 }
 
+// WorkspaceExists checks whether an existing Workspace resource with the given ID exists.
+func WorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:grafana/workspace:Workspace", id, state, "", opts...)
+}
+
 type workspaceArgs struct {
 	// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType string `pulumi:"accountAccessType"`

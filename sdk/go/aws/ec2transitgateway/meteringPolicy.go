@@ -201,6 +201,12 @@ func (MeteringPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*meteringPolicyState)(nil)).Elem()
 }
 
+// MeteringPolicyExists checks whether an existing MeteringPolicy resource with the given ID exists.
+func MeteringPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MeteringPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/meteringPolicy:MeteringPolicy", id, state, "", opts...)
+}
+
 type meteringPolicyArgs struct {
 	// Set of Transit Gateway attachment IDs to designate as middlebox attachments for this metering policy.
 	MiddleboxAttachmentIds []string `pulumi:"middleboxAttachmentIds"`

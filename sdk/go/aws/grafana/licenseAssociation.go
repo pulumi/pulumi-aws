@@ -174,6 +174,12 @@ func (LicenseAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licenseAssociationState)(nil)).Elem()
 }
 
+// LicenseAssociationExists checks whether an existing LicenseAssociation resource with the given ID exists.
+func LicenseAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicenseAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:grafana/licenseAssociation:LicenseAssociation", id, state, "", opts...)
+}
+
 type licenseAssociationArgs struct {
 	// Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
 	GrafanaToken *string `pulumi:"grafanaToken"`

@@ -341,6 +341,12 @@ func (AgentAgentActionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentAgentActionGroupState)(nil)).Elem()
 }
 
+// AgentAgentActionGroupExists checks whether an existing AgentAgentActionGroup resource with the given ID exists.
+func AgentAgentActionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentAgentActionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup", id, state, "", opts...)
+}
+
 type agentAgentActionGroupArgs struct {
 	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
 	ActionGroupExecutor *AgentAgentActionGroupActionGroupExecutor `pulumi:"actionGroupExecutor"`

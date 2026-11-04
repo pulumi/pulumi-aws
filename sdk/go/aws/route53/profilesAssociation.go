@@ -174,6 +174,12 @@ func (ProfilesAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profilesAssociationState)(nil)).Elem()
 }
 
+// ProfilesAssociationExists checks whether an existing ProfilesAssociation resource with the given ID exists.
+func ProfilesAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfilesAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/profilesAssociation:ProfilesAssociation", id, state, "", opts...)
+}
+
 type profilesAssociationArgs struct {
 	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
 	Name *string `pulumi:"name"`

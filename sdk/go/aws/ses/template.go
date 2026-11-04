@@ -129,6 +129,12 @@ func (TemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateState)(nil)).Elem()
 }
 
+// TemplateExists checks whether an existing Template resource with the given ID exists.
+func TemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/template:Template", id, state, "", opts...)
+}
+
 type templateArgs struct {
 	// HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
 	Html *string `pulumi:"html"`

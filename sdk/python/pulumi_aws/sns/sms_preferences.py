@@ -405,6 +405,26 @@ class SmsPreferences(pulumi.CustomResource):
         __props__.__dict__["usage_report_s3_bucket"] = usage_report_s3_bucket
         return SmsPreferences(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_sms_type: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_status_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_status_success_sampling_rate: pulumi.Input[Optional[_builtins.str]] = None,
+            monthly_spend_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_report_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultSenderId"] = default_sender_id
+        __props__["defaultSmsType"] = default_sms_type
+        __props__["deliveryStatusIamRoleArn"] = delivery_status_iam_role_arn
+        __props__["deliveryStatusSuccessSamplingRate"] = delivery_status_success_sampling_rate
+        __props__["monthlySpendLimit"] = monthly_spend_limit
+        __props__["region"] = region
+        __props__["usageReportS3Bucket"] = usage_report_s3_bucket
+        return pulumi.runtime.exists_resource(None, 'aws:sns/smsPreferences:SmsPreferences', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultSenderId")
     def default_sender_id(self) -> pulumi.Output[Optional[_builtins.str]]:

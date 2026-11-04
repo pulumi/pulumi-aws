@@ -531,6 +531,32 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         __props__.__dict__["require_uppercase_characters"] = require_uppercase_characters
         return AccountPasswordPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_users_to_change_password: pulumi.Input[Optional[_builtins.bool]] = None,
+            expire_passwords: pulumi.Input[Optional[_builtins.bool]] = None,
+            hard_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
+            max_password_age: pulumi.Input[Optional[_builtins.int]] = None,
+            minimum_password_length: pulumi.Input[Optional[_builtins.int]] = None,
+            password_reuse_prevention: pulumi.Input[Optional[_builtins.int]] = None,
+            require_lowercase_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_numbers: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_symbols: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_uppercase_characters: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowUsersToChangePassword"] = allow_users_to_change_password
+        __props__["expirePasswords"] = expire_passwords
+        __props__["hardExpiry"] = hard_expiry
+        __props__["maxPasswordAge"] = max_password_age
+        __props__["minimumPasswordLength"] = minimum_password_length
+        __props__["passwordReusePrevention"] = password_reuse_prevention
+        __props__["requireLowercaseCharacters"] = require_lowercase_characters
+        __props__["requireNumbers"] = require_numbers
+        __props__["requireSymbols"] = require_symbols
+        __props__["requireUppercaseCharacters"] = require_uppercase_characters
+        return pulumi.runtime.exists_resource(None, 'aws:iam/accountPasswordPolicy:AccountPasswordPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowUsersToChangePassword")
     def allow_users_to_change_password(self) -> pulumi.Output[Optional[_builtins.bool]]:

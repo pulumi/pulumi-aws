@@ -1183,6 +1183,62 @@ class Branch(pulumi.CustomResource):
         __props__.__dict__["ttl"] = ttl
         return Branch(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            backend_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            basic_auth_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+            branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_skew_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            framework: pulumi.Input[Optional[_builtins.str]] = None,
+            pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            stage: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["arn"] = arn
+        __props__["associatedResources"] = associated_resources
+        __props__["backendEnvironmentArn"] = backend_environment_arn
+        __props__["basicAuthCredentials"] = basic_auth_credentials
+        __props__["branchName"] = branch_name
+        __props__["customDomains"] = custom_domains
+        __props__["description"] = description
+        __props__["destinationBranch"] = destination_branch
+        __props__["displayName"] = display_name
+        __props__["enableAutoBuild"] = enable_auto_build
+        __props__["enableBasicAuth"] = enable_basic_auth
+        __props__["enableNotification"] = enable_notification
+        __props__["enablePerformanceMode"] = enable_performance_mode
+        __props__["enablePullRequestPreview"] = enable_pull_request_preview
+        __props__["enableSkewProtection"] = enable_skew_protection
+        __props__["environmentVariables"] = environment_variables
+        __props__["framework"] = framework
+        __props__["pullRequestEnvironmentName"] = pull_request_environment_name
+        __props__["region"] = region
+        __props__["sourceBranch"] = source_branch
+        __props__["stage"] = stage
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["ttl"] = ttl
+        return pulumi.runtime.exists_resource(None, 'aws:amplify/branch:Branch', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

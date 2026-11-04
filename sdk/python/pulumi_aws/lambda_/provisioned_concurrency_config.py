@@ -388,6 +388,22 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         __props__.__dict__["skip_destroy"] = skip_destroy
         return ProvisionedConcurrencyConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
+            qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["functionName"] = function_name
+        __props__["provisionedConcurrentExecutions"] = provisioned_concurrent_executions
+        __props__["qualifier"] = qualifier
+        __props__["region"] = region
+        __props__["skipDestroy"] = skip_destroy
+        return pulumi.runtime.exists_resource(None, 'aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[_builtins.str]:

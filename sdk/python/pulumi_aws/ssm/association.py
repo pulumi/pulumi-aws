@@ -1297,6 +1297,52 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["wait_for_success_timeout_seconds"] = wait_for_success_timeout_seconds
         return Association(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_only_at_cron_interval: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            association_name: pulumi.Input[Optional[_builtins.str]] = None,
+            automation_target_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+            calendar_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            compliance_severity: pulumi.Input[Optional[_builtins.str]] = None,
+            document_version: pulumi.Input[Optional[_builtins.str]] = None,
+            max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+            max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_location: pulumi.Input[Optional[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict', 'outputs.AssociationOutputLocation']]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_compliance: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict', 'outputs.AssociationTarget']]]]] = None,
+            wait_for_success_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyOnlyAtCronInterval"] = apply_only_at_cron_interval
+        __props__["arn"] = arn
+        __props__["associationId"] = association_id
+        __props__["associationName"] = association_name
+        __props__["automationTargetParameterName"] = automation_target_parameter_name
+        __props__["calendarNames"] = calendar_names
+        __props__["complianceSeverity"] = compliance_severity
+        __props__["documentVersion"] = document_version
+        __props__["maxConcurrency"] = max_concurrency
+        __props__["maxErrors"] = max_errors
+        __props__["name"] = name
+        __props__["outputLocation"] = output_location
+        __props__["parameters"] = parameters
+        __props__["region"] = region
+        __props__["scheduleExpression"] = schedule_expression
+        __props__["syncCompliance"] = sync_compliance
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targets"] = targets
+        __props__["waitForSuccessTimeoutSeconds"] = wait_for_success_timeout_seconds
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/association:Association', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyOnlyAtCronInterval")
     def apply_only_at_cron_interval(self) -> pulumi.Output[Optional[_builtins.bool]]:

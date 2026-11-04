@@ -1008,6 +1008,58 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["vpc_config"] = vpc_config
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disconnect_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']]] = None,
+            enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_disconnect_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            image_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            max_sessions_per_instance: pulumi.Input[Optional[_builtins.int]] = None,
+            max_user_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_view: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["computeCapacity"] = compute_capacity
+        __props__["createdTime"] = created_time
+        __props__["description"] = description
+        __props__["disconnectTimeoutInSeconds"] = disconnect_timeout_in_seconds
+        __props__["displayName"] = display_name
+        __props__["domainJoinInfo"] = domain_join_info
+        __props__["enableDefaultInternetAccess"] = enable_default_internet_access
+        __props__["fleetType"] = fleet_type
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["idleDisconnectTimeoutInSeconds"] = idle_disconnect_timeout_in_seconds
+        __props__["imageArn"] = image_arn
+        __props__["imageName"] = image_name
+        __props__["instanceType"] = instance_type
+        __props__["maxSessionsPerInstance"] = max_sessions_per_instance
+        __props__["maxUserDurationInSeconds"] = max_user_duration_in_seconds
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["streamView"] = stream_view
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcConfig"] = vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:appstream/fleet:Fleet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -581,6 +581,34 @@ class SafetyRule(pulumi.CustomResource):
         __props__.__dict__["wait_period_ms"] = wait_period_ms
         return SafetyRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            asserted_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict', 'outputs.SafetyRuleRuleConfig']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            wait_period_ms: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["assertedControls"] = asserted_controls
+        __props__["controlPanelArn"] = control_panel_arn
+        __props__["gatingControls"] = gating_controls
+        __props__["name"] = name
+        __props__["ruleConfig"] = rule_config
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetControls"] = target_controls
+        __props__["waitPeriodMs"] = wait_period_ms
+        return pulumi.runtime.exists_resource(None, 'aws:route53recoverycontrol/safetyRule:SafetyRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

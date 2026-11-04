@@ -720,6 +720,36 @@ class Method(pulumi.CustomResource):
         __props__.__dict__["rest_api"] = rest_api
         return Method(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            authorization: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            http_method: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.bool]]]] = None,
+            request_validator_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKeyRequired"] = api_key_required
+        __props__["authorization"] = authorization
+        __props__["authorizationScopes"] = authorization_scopes
+        __props__["authorizerId"] = authorizer_id
+        __props__["httpMethod"] = http_method
+        __props__["operationName"] = operation_name
+        __props__["region"] = region
+        __props__["requestModels"] = request_models
+        __props__["requestParameters"] = request_parameters
+        __props__["requestValidatorId"] = request_validator_id
+        __props__["resourceId"] = resource_id
+        __props__["restApi"] = rest_api
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/method:Method', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKeyRequired")
     def api_key_required(self) -> pulumi.Output[Optional[_builtins.bool]]:

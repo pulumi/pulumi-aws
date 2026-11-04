@@ -185,6 +185,12 @@ func (ServerlessCollectionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessCollectionGroupState)(nil)).Elem()
 }
 
+// ServerlessCollectionGroupExists checks whether an existing ServerlessCollectionGroup resource with the given ID exists.
+func ServerlessCollectionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessCollectionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/serverlessCollectionGroup:ServerlessCollectionGroup", id, state, "", opts...)
+}
+
 type serverlessCollectionGroupArgs struct {
 	// Configuration block for the collection group's indexing and search capacity limits. See `capacityLimits` below for details.
 	CapacityLimits []ServerlessCollectionGroupCapacityLimit `pulumi:"capacityLimits"`

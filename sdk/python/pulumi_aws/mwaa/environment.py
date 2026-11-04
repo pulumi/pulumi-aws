@@ -1571,6 +1571,84 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["worker_replacement_strategy"] = worker_replacement_strategy
         return Environment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            airflow_configuration_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            airflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            dag_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            database_vpc_endpoint_service: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_management: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_class: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updateds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentLastUpdatedArgs', 'EnvironmentLastUpdatedArgsDict', 'outputs.EnvironmentLastUpdated']]]]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']]] = None,
+            max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+            max_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+            min_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']]] = None,
+            plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requirements_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            requirements_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            schedulers: pulumi.Input[Optional[_builtins.int]] = None,
+            service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            source_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            startup_script_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            startup_script_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            webserver_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            webserver_url: pulumi.Input[Optional[_builtins.str]] = None,
+            webserver_vpc_endpoint_service: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_replacement_strategy: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["airflowConfigurationOptions"] = airflow_configuration_options
+        __props__["airflowVersion"] = airflow_version
+        __props__["arn"] = arn
+        __props__["createdAt"] = created_at
+        __props__["dagS3Path"] = dag_s3_path
+        __props__["databaseVpcEndpointService"] = database_vpc_endpoint_service
+        __props__["endpointManagement"] = endpoint_management
+        __props__["environmentClass"] = environment_class
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["kmsKey"] = kms_key
+        __props__["lastUpdateds"] = last_updateds
+        __props__["loggingConfiguration"] = logging_configuration
+        __props__["maxWebservers"] = max_webservers
+        __props__["maxWorkers"] = max_workers
+        __props__["minWebservers"] = min_webservers
+        __props__["minWorkers"] = min_workers
+        __props__["name"] = name
+        __props__["networkConfiguration"] = network_configuration
+        __props__["pluginsS3ObjectVersion"] = plugins_s3_object_version
+        __props__["pluginsS3Path"] = plugins_s3_path
+        __props__["region"] = region
+        __props__["requirementsS3ObjectVersion"] = requirements_s3_object_version
+        __props__["requirementsS3Path"] = requirements_s3_path
+        __props__["schedulers"] = schedulers
+        __props__["serviceRoleArn"] = service_role_arn
+        __props__["sourceBucketArn"] = source_bucket_arn
+        __props__["startupScriptS3ObjectVersion"] = startup_script_s3_object_version
+        __props__["startupScriptS3Path"] = startup_script_s3_path
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["webserverAccessMode"] = webserver_access_mode
+        __props__["webserverUrl"] = webserver_url
+        __props__["webserverVpcEndpointService"] = webserver_vpc_endpoint_service
+        __props__["weeklyMaintenanceWindowStart"] = weekly_maintenance_window_start
+        __props__["workerReplacementStrategy"] = worker_replacement_strategy
+        return pulumi.runtime.exists_resource(None, 'aws:mwaa/environment:Environment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="airflowConfigurationOptions")
     def airflow_configuration_options(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

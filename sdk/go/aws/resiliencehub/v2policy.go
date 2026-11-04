@@ -289,6 +289,12 @@ func (V2PolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2policyState)(nil)).Elem()
 }
 
+// V2PolicyExists checks whether an existing V2Policy resource with the given ID exists.
+func V2PolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2PolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resiliencehub/v2Policy:V2Policy", id, state, "", opts...)
+}
+
 type v2policyArgs struct {
 	// Availability SLO configuration. See `availabilitySlo` Block below.
 	AvailabilitySlo *V2PolicyAvailabilitySlo `pulumi:"availabilitySlo"`

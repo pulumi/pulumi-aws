@@ -49,6 +49,17 @@ export class Build extends pulumi.CustomResource {
         return new Build(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Build resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: BuildState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:gamelift/build:Build", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:gamelift/build:Build';
 

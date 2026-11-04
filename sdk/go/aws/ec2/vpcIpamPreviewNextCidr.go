@@ -154,6 +154,12 @@ func (VpcIpamPreviewNextCidrState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamPreviewNextCidrState)(nil)).Elem()
 }
 
+// VpcIpamPreviewNextCidrExists checks whether an existing VpcIpamPreviewNextCidr resource with the given ID exists.
+func VpcIpamPreviewNextCidrExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamPreviewNextCidrState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr", id, state, "", opts...)
+}
+
 type vpcIpamPreviewNextCidrArgs struct {
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`

@@ -385,6 +385,20 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return PermissionsBoundaryAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions_boundary: pulumi.Input[Optional[Union['PermissionsBoundaryAttachmentPermissionsBoundaryArgs', 'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict', 'outputs.PermissionsBoundaryAttachmentPermissionsBoundary']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["instanceArn"] = instance_arn
+        __props__["permissionSetArn"] = permission_set_arn
+        __props__["permissionsBoundary"] = permissions_boundary
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:

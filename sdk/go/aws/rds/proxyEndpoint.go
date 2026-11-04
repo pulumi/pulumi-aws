@@ -181,6 +181,12 @@ func (ProxyEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyEndpointState)(nil)).Elem()
 }
 
+// ProxyEndpointExists checks whether an existing ProxyEndpoint resource with the given ID exists.
+func ProxyEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProxyEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/proxyEndpoint:ProxyEndpoint", id, state, "", opts...)
+}
+
 type proxyEndpointArgs struct {
 	// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName string `pulumi:"dbProxyEndpointName"`

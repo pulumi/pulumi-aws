@@ -33,22 +33,20 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
      * 
-     * @deprecated
-     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
      * @return (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
      * 
-     * @deprecated
-     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -56,22 +54,20 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Full name of the region to select. Use `region` instead.
      * 
-     * @deprecated
-     * name is deprecated. Use region instead.
+     * @deprecated name is deprecated. Use region instead.
      * 
      */
-    @Deprecated /* name is deprecated. Use region instead. */
+    @Deprecated
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Full name of the region to select. Use `region` instead.
      * 
-     * @deprecated
-     * name is deprecated. Use region instead.
+     * @deprecated name is deprecated. Use region instead.
      * 
      */
-    @Deprecated /* name is deprecated. Use region instead. */
+    @Deprecated
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -144,11 +140,10 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+         * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
@@ -159,11 +154,10 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+         * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder id(String id) {
             return id(Output.of(id));
         }
@@ -173,11 +167,10 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * name is deprecated. Use region instead.
+         * @deprecated name is deprecated. Use region instead.
          * 
          */
-        @Deprecated /* name is deprecated. Use region instead. */
+        @Deprecated
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -188,11 +181,10 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * name is deprecated. Use region instead.
+         * @deprecated name is deprecated. Use region instead.
          * 
          */
-        @Deprecated /* name is deprecated. Use region instead. */
+        @Deprecated
         public Builder name(String name) {
             return name(Output.of(name));
         }

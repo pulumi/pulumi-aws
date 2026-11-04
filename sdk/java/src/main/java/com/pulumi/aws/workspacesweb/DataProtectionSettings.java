@@ -128,12 +128,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Key("example", KeyArgs.builder()
  *             .description("KMS key for WorkSpaces Web Data Protection Settings")
  *             .deletionWindowInDays(7)
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *                     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
  *                         .customPattern(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs.builder()
  *                             .patternName("CustomPattern")
- *                             .patternRegex("/\\d{3}-\\d{2}-\\d{4}/g")
+ *                             .patternRegex("/}&#92;&#92;{@code d}{{@code 3}}{@code -}&#92;&#92;{@code d}{{@code 2}}{@code -}&#92;&#92;{@code d}{{@code 4}}{@code /g")
  *                             .keywordRegex("/SSN|Social Security/gi")
  *                             .patternDescription("Custom SSN pattern")
  *                             .build())
@@ -177,8 +177,8 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "example-data-protection-settings"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

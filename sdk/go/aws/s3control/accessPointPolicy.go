@@ -169,6 +169,12 @@ func (AccessPointPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPointPolicyState)(nil)).Elem()
 }
 
+// AccessPointPolicyExists checks whether an existing AccessPointPolicy resource with the given ID exists.
+func AccessPointPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPointPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/accessPointPolicy:AccessPointPolicy", id, state, "", opts...)
+}
+
 type accessPointPolicyArgs struct {
 	// ARN of the access point that you want to associate with the specified policy.
 	AccessPointArn string `pulumi:"accessPointArn"`

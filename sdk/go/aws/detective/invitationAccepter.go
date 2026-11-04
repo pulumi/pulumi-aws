@@ -121,6 +121,12 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*invitationAccepterState)(nil)).Elem()
 }
 
+// InvitationAccepterExists checks whether an existing InvitationAccepter resource with the given ID exists.
+func InvitationAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InvitationAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:detective/invitationAccepter:InvitationAccepter", id, state, "", opts...)
+}
+
 type invitationAccepterArgs struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn string `pulumi:"graphArn"`

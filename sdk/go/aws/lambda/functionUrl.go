@@ -210,6 +210,12 @@ func (FunctionUrlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionUrlState)(nil)).Elem()
 }
 
+// FunctionUrlExists checks whether an existing FunctionUrl resource with the given ID exists.
+func FunctionUrlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionUrlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/functionUrl:FunctionUrl", id, state, "", opts...)
+}
+
 type functionUrlArgs struct {
 	// Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
 	AuthorizationType string `pulumi:"authorizationType"`

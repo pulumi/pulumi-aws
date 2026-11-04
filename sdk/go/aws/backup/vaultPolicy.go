@@ -162,6 +162,12 @@ func (VaultPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultPolicyState)(nil)).Elem()
 }
 
+// VaultPolicyExists checks whether an existing VaultPolicy resource with the given ID exists.
+func VaultPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VaultPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/vaultPolicy:VaultPolicy", id, state, "", opts...)
+}
+
 type vaultPolicyArgs struct {
 	// Name of the backup vault to add policy for.
 	BackupVaultName string `pulumi:"backupVaultName"`

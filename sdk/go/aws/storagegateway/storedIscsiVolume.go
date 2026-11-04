@@ -271,6 +271,12 @@ func (StoredIscsiVolumeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storedIscsiVolumeState)(nil)).Elem()
 }
 
+// StoredIscsiVolumeExists checks whether an existing StoredIscsiVolume resource with the given ID exists.
+func StoredIscsiVolumeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StoredIscsiVolumeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume", id, state, "", opts...)
+}
+
 type storedIscsiVolumeArgs struct {
 	// The unique identifier for the gateway local disk that is configured as a stored volume.
 	DiskId string `pulumi:"diskId"`

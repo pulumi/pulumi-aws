@@ -182,6 +182,12 @@ func (StorageLensConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageLensConfigurationState)(nil)).Elem()
 }
 
+// StorageLensConfigurationExists checks whether an existing StorageLensConfiguration resource with the given ID exists.
+func StorageLensConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageLensConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/storageLensConfiguration:StorageLensConfiguration", id, state, "", opts...)
+}
+
 type storageLensConfigurationArgs struct {
 	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`

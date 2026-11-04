@@ -194,27 +194,27 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Rule("example", RuleArgs.builder()
  *             .source(RuleSourceArgs.builder()
  *                 .customPolicyDetails(RuleSourceCustomPolicyDetailsArgs.builder()
  *                     .policyRuntime("guard-2.x.x")
  *                     .policyText("""
- * \t  rule tableisactive when
- * \t\t  resourceType == \"AWS::DynamoDB::Table\" {
- * \t\t  configuration.tableStatus == ['ACTIVE']
- * \t  }
- * \t  
- * \t  rule checkcompliance when
- * \t\t  resourceType == \"AWS::DynamoDB::Table\"
- * \t\t  tableisactive {
- * \t\t\t  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \"ENABLED\"
- * \t  }
+ * }&#92;{@code t  rule tableisactive when
+ * }&#92;{@code t}&#92;{@code t  resourceType == }&#92;{@code "AWS::DynamoDB::Table}&#92;{@code " }{{@code
+ * }&#92;{@code t}&#92;{@code t  configuration.tableStatus == ['ACTIVE']
+ * }&#92;{@code t  }}{@code
+ * }&#92;{@code t  
+ * }&#92;{@code t  rule checkcompliance when
+ * }&#92;{@code t}&#92;{@code t  resourceType == }&#92;{@code "AWS::DynamoDB::Table}&#92;{@code "
+ * }&#92;{@code t}&#92;{@code t  tableisactive }{{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == }&#92;{@code "ENABLED}&#92;{@code "
+ * }&#92;{@code t  }}{@code
  *                     """)
  *                     .build())
  *                 .sourceDetails(RuleSourceSourceDetailArgs.builder()
@@ -225,8 +225,8 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

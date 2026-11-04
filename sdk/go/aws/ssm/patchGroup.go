@@ -137,6 +137,12 @@ func (PatchGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*patchGroupState)(nil)).Elem()
 }
 
+// PatchGroupExists checks whether an existing PatchGroup resource with the given ID exists.
+func PatchGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PatchGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/patchGroup:PatchGroup", id, state, "", opts...)
+}
+
 type patchGroupArgs struct {
 	// The ID of the patch baseline to register the patch group with.
 	BaselineId string `pulumi:"baselineId"`

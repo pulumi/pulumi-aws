@@ -411,6 +411,24 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         __props__.__dict__["trigger_value"] = trigger_value
         return SdkvoiceSipRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SdkvoiceSipRuleTargetApplicationArgs', 'SdkvoiceSipRuleTargetApplicationArgsDict', 'outputs.SdkvoiceSipRuleTargetApplication']]]]] = None,
+            trigger_type: pulumi.Input[Optional[_builtins.str]] = None,
+            trigger_value: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["disabled"] = disabled
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["targetApplications"] = target_applications
+        __props__["triggerType"] = trigger_type
+        __props__["triggerValue"] = trigger_value
+        return pulumi.runtime.exists_resource(None, 'aws:chime/sdkvoiceSipRule:SdkvoiceSipRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

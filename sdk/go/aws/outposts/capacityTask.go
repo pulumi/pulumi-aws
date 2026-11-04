@@ -250,6 +250,12 @@ func (CapacityTaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityTaskState)(nil)).Elem()
 }
 
+// CapacityTaskExists checks whether an existing CapacityTask resource with the given ID exists.
+func CapacityTaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityTaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:outposts/capacityTask:CapacityTask", id, state, "", opts...)
+}
+
 type capacityTaskArgs struct {
 	// ID of a specific Outposts asset (hardware server) to target for the capacity task. If omitted, AWS selects an appropriate asset automatically. Discover valid asset IDs with the `outposts.getAssets` data source. Changing this value forces a new resource.
 	AssetId *string `pulumi:"assetId"`

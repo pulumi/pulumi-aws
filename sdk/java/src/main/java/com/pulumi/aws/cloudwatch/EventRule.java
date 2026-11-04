@@ -192,11 +192,10 @@ public class EventRule extends com.pulumi.resources.CustomResource {
     /**
      * Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
      * 
-     * @deprecated
-     * is_enabled is deprecated. Use state instead.
+     * @deprecated is_enabled is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* is_enabled is deprecated. Use state instead. */
+    @Deprecated
     @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEnabled;
 

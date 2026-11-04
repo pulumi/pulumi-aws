@@ -297,11 +297,10 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * (**Deprecated** use `state` instead) Status of the account in the organization.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 

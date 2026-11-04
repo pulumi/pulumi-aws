@@ -778,6 +778,48 @@ class ContainerService(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return ContainerService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            power: pulumi.Input[Optional[_builtins.str]] = None,
+            power_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            private_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict', 'outputs.ContainerServicePrivateRegistryAccess']]] = None,
+            public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict', 'outputs.ContainerServicePublicDomainNames']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            scale: pulumi.Input[Optional[_builtins.int]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["createdAt"] = created_at
+        __props__["isDisabled"] = is_disabled
+        __props__["name"] = name
+        __props__["power"] = power
+        __props__["powerId"] = power_id
+        __props__["principalArn"] = principal_arn
+        __props__["privateDomainName"] = private_domain_name
+        __props__["privateRegistryAccess"] = private_registry_access
+        __props__["publicDomainNames"] = public_domain_names
+        __props__["region"] = region
+        __props__["resourceType"] = resource_type
+        __props__["scale"] = scale
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'aws:lightsail/containerService:ContainerService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -723,6 +723,58 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            iops: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snapshot_type: pulumi.Input[Optional[_builtins.str]] = None,
+            source_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            source_region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocatedStorage"] = allocated_storage
+        __props__["availabilityZone"] = availability_zone
+        __props__["dbInstanceIdentifier"] = db_instance_identifier
+        __props__["dbSnapshotArn"] = db_snapshot_arn
+        __props__["dbSnapshotIdentifier"] = db_snapshot_identifier
+        __props__["encrypted"] = encrypted
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["iops"] = iops
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["licenseModel"] = license_model
+        __props__["optionGroupName"] = option_group_name
+        __props__["port"] = port
+        __props__["region"] = region
+        __props__["sharedAccounts"] = shared_accounts
+        __props__["snapshotType"] = snapshot_type
+        __props__["sourceDbSnapshotIdentifier"] = source_db_snapshot_identifier
+        __props__["sourceRegion"] = source_region
+        __props__["status"] = status
+        __props__["storageType"] = storage_type
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:rds/snapshot:Snapshot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[_builtins.int]:

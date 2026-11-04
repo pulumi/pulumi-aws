@@ -432,6 +432,22 @@ class PolicyTableEntry(pulumi.CustomResource):
         __props__.__dict__["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         return PolicyTableEntry(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy_rule: pulumi.Input[Optional[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict', 'outputs.PolicyTableEntryPolicyRule']]] = None,
+            policy_rule_number: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_policy_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["policyRule"] = policy_rule
+        __props__["policyRuleNumber"] = policy_rule_number
+        __props__["region"] = region
+        __props__["targetRouteTableId"] = target_route_table_id
+        __props__["transitGatewayPolicyTableId"] = transit_gateway_policy_table_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/policyTableEntry:PolicyTableEntry', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="policyRule")
     def policy_rule(self) -> pulumi.Output[Optional['outputs.PolicyTableEntryPolicyRule']]:

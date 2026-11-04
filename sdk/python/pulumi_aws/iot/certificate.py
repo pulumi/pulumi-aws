@@ -502,6 +502,30 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            csr: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["arn"] = arn
+        __props__["caCertificateId"] = ca_certificate_id
+        __props__["caPem"] = ca_pem
+        __props__["certificatePem"] = certificate_pem
+        __props__["csr"] = csr
+        __props__["privateKey"] = private_key
+        __props__["publicKey"] = public_key
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:iot/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[_builtins.bool]:

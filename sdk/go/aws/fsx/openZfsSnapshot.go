@@ -196,6 +196,12 @@ func (OpenZfsSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openZfsSnapshotState)(nil)).Elem()
 }
 
+// OpenZfsSnapshotExists checks whether an existing OpenZfsSnapshot resource with the given ID exists.
+func OpenZfsSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenZfsSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/openZfsSnapshot:OpenZfsSnapshot", id, state, "", opts...)
+}
+
 type openZfsSnapshotArgs struct {
 	// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name *string `pulumi:"name"`

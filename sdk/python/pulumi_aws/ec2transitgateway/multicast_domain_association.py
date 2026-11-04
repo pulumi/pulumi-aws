@@ -301,6 +301,20 @@ class MulticastDomainAssociation(pulumi.CustomResource):
         __props__.__dict__["transit_gateway_multicast_domain_id"] = transit_gateway_multicast_domain_id
         return MulticastDomainAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_multicast_domain_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["subnetId"] = subnet_id
+        __props__["transitGatewayAttachmentId"] = transit_gateway_attachment_id
+        __props__["transitGatewayMulticastDomainId"] = transit_gateway_multicast_domain_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

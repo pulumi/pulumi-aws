@@ -206,6 +206,12 @@ func (InstanceAutomatedBackupsReplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceAutomatedBackupsReplicationState)(nil)).Elem()
 }
 
+// InstanceAutomatedBackupsReplicationExists checks whether an existing InstanceAutomatedBackupsReplication resource with the given ID exists.
+func InstanceAutomatedBackupsReplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceAutomatedBackupsReplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication", id, state, "", opts...)
+}
+
 type instanceAutomatedBackupsReplicationArgs struct {
 	// AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`

@@ -165,6 +165,12 @@ func (GameSessionQueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gameSessionQueueState)(nil)).Elem()
 }
 
+// GameSessionQueueExists checks whether an existing GameSessionQueue resource with the given ID exists.
+func GameSessionQueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GameSessionQueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:gamelift/gameSessionQueue:GameSessionQueue", id, state, "", opts...)
+}
+
 type gameSessionQueueArgs struct {
 	// Information to be added to all events that are related to this game session queue.
 	CustomEventData *string `pulumi:"customEventData"`

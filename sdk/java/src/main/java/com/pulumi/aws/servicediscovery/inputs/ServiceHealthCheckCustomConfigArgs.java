@@ -18,22 +18,20 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
     /**
      * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
      * 
-     * @deprecated
-     * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
+     * @deprecated failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
      */
-    @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
+    @Deprecated
     @Import(name="failureThreshold")
     private @Nullable Output<Integer> failureThreshold;
 
     /**
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
      * 
-     * @deprecated
-     * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
+     * @deprecated failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
      */
-    @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
+    @Deprecated
     public Optional<Output<Integer>> failureThreshold() {
         return Optional.ofNullable(this.failureThreshold);
     }
@@ -67,11 +65,10 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
+         * @deprecated failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
          * 
          */
-        @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
+        @Deprecated
         public Builder failureThreshold(@Nullable Output<Integer> failureThreshold) {
             $.failureThreshold = failureThreshold;
             return this;
@@ -82,11 +79,10 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
+         * @deprecated failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
          * 
          */
-        @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
+        @Deprecated
         public Builder failureThreshold(Integer failureThreshold) {
             return failureThreshold(Output.of(failureThreshold));
         }

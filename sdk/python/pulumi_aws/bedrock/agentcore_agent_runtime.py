@@ -1101,6 +1101,52 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         __props__.__dict__["workload_identity_details"] = workload_identity_details
         return AgentcoreAgentRuntime(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_runtime_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_runtime_artifact: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs', 'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict', 'outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']]] = None,
+            agent_runtime_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeAuthorizerConfiguration']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]]] = None,
+            lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]]]] = None,
+            network_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeNetworkConfiguration']]] = None,
+            platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeProtocolConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_header_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeTimeoutsArgs', 'AgentcoreAgentRuntimeTimeoutsArgsDict', 'outputs.AgentcoreAgentRuntimeTimeouts']]] = None,
+            workload_identity_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeWorkloadIdentityDetailArgs', 'AgentcoreAgentRuntimeWorkloadIdentityDetailArgsDict', 'outputs.AgentcoreAgentRuntimeWorkloadIdentityDetail']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentRuntimeArn"] = agent_runtime_arn
+        __props__["agentRuntimeArtifact"] = agent_runtime_artifact
+        __props__["agentRuntimeId"] = agent_runtime_id
+        __props__["agentRuntimeName"] = agent_runtime_name
+        __props__["agentRuntimeVersion"] = agent_runtime_version
+        __props__["authorizerConfiguration"] = authorizer_configuration
+        __props__["description"] = description
+        __props__["environmentVariables"] = environment_variables
+        __props__["filesystemConfigurations"] = filesystem_configurations
+        __props__["lifecycleConfigurations"] = lifecycle_configurations
+        __props__["networkConfiguration"] = network_configuration
+        __props__["platformVersion"] = platform_version
+        __props__["protocolConfiguration"] = protocol_configuration
+        __props__["region"] = region
+        __props__["requestHeaderConfiguration"] = request_header_configuration
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["workloadIdentityDetails"] = workload_identity_details
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArn")
     def agent_runtime_arn(self) -> pulumi.Output[_builtins.str]:

@@ -222,6 +222,12 @@ func (HostedTransitVirtualInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedTransitVirtualInterfaceState)(nil)).Elem()
 }
 
+// HostedTransitVirtualInterfaceExists checks whether an existing HostedTransitVirtualInterface resource with the given ID exists.
+func HostedTransitVirtualInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostedTransitVirtualInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface", id, state, "", opts...)
+}
+
 type hostedTransitVirtualInterfaceArgs struct {
 	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily string `pulumi:"addressFamily"`

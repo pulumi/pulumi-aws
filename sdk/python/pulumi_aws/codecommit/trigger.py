@@ -279,6 +279,20 @@ class Trigger(pulumi.CustomResource):
         __props__.__dict__["triggers"] = triggers
         return Trigger(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict', 'outputs.TriggerTrigger']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configurationId"] = configuration_id
+        __props__["region"] = region
+        __props__["repositoryName"] = repository_name
+        __props__["triggers"] = triggers
+        return pulumi.runtime.exists_resource(None, 'aws:codecommit/trigger:Trigger', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configurationId")
     def configuration_id(self) -> pulumi.Output[_builtins.str]:

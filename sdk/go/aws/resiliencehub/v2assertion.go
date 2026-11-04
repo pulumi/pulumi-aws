@@ -144,6 +144,12 @@ func (V2AssertionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2assertionState)(nil)).Elem()
 }
 
+// V2AssertionExists checks whether an existing V2Assertion resource with the given ID exists.
+func V2AssertionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2AssertionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resiliencehub/v2Assertion:V2Assertion", id, state, "", opts...)
+}
+
 type v2assertionArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -607,6 +607,30 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return WebAcl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict', 'outputs.WebAclDefaultAction']]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['WebAclLoggingConfigurationArgs', 'WebAclLoggingConfigurationArgsDict', 'outputs.WebAclLoggingConfiguration']]] = None,
+            metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict', 'outputs.WebAclRule']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["defaultAction"] = default_action
+        __props__["loggingConfiguration"] = logging_configuration
+        __props__["metricName"] = metric_name
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["rules"] = rules
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:wafregional/webAcl:WebAcl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -154,6 +154,12 @@ func (VpcEndpointPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointPolicyState)(nil)).Elem()
 }
 
+// VpcEndpointPolicyExists checks whether an existing VpcEndpointPolicy resource with the given ID exists.
+func VpcEndpointPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy", id, state, "", opts...)
+}
+
 type vpcEndpointPolicyArgs struct {
 	// Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy *string `pulumi:"policy"`

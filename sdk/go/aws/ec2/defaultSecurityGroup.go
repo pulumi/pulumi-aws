@@ -247,6 +247,12 @@ func (DefaultSecurityGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultSecurityGroupState)(nil)).Elem()
 }
 
+// DefaultSecurityGroupExists checks whether an existing DefaultSecurityGroup resource with the given ID exists.
+func DefaultSecurityGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultSecurityGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", id, state, "", opts...)
+}
+
 type defaultSecurityGroupArgs struct {
 	// Configuration block. Detailed below.
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`

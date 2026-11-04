@@ -142,6 +142,12 @@ func (PackageAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packageAssociationState)(nil)).Elem()
 }
 
+// PackageAssociationExists checks whether an existing PackageAssociation resource with the given ID exists.
+func PackageAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PackageAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/packageAssociation:PackageAssociation", id, state, "", opts...)
+}
+
 type packageAssociationArgs struct {
 	// Name of the domain to associate the package with.
 	DomainName string `pulumi:"domainName"`

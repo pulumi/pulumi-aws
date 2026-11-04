@@ -291,6 +291,12 @@ func (DataProtectionSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataProtectionSettingsState)(nil)).Elem()
 }
 
+// DataProtectionSettingsExists checks whether an existing DataProtectionSettings resource with the given ID exists.
+func DataProtectionSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataProtectionSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/dataProtectionSettings:DataProtectionSettings", id, state, "", opts...)
+}
+
 type dataProtectionSettingsArgs struct {
 	// Additional encryption context for the data protection settings.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`

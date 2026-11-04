@@ -620,6 +620,36 @@ class CompositeAlarm(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CompositeAlarm(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            actions_suppressor: pulumi.Input[Optional[Union['CompositeAlarmActionsSuppressorArgs', 'CompositeAlarmActionsSuppressorArgsDict', 'outputs.CompositeAlarmActionsSuppressor']]] = None,
+            alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
+            alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+            alarm_rule: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionsEnabled"] = actions_enabled
+        __props__["actionsSuppressor"] = actions_suppressor
+        __props__["alarmActions"] = alarm_actions
+        __props__["alarmDescription"] = alarm_description
+        __props__["alarmName"] = alarm_name
+        __props__["alarmRule"] = alarm_rule
+        __props__["arn"] = arn
+        __props__["insufficientDataActions"] = insufficient_data_actions
+        __props__["okActions"] = ok_actions
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/compositeAlarm:CompositeAlarm', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

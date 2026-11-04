@@ -1232,6 +1232,56 @@ class V2modelsIntent(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return V2modelsIntent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+            closing_setting: pulumi.Input[Optional[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict', 'outputs.V2modelsIntentClosingSetting']]] = None,
+            confirmation_setting: pulumi.Input[Optional[Union['V2modelsIntentConfirmationSettingArgs', 'V2modelsIntentConfirmationSettingArgsDict', 'outputs.V2modelsIntentConfirmationSetting']]] = None,
+            creation_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dialog_code_hook: pulumi.Input[Optional[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict', 'outputs.V2modelsIntentDialogCodeHook']]] = None,
+            fulfillment_code_hook: pulumi.Input[Optional[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict', 'outputs.V2modelsIntentFulfillmentCodeHook']]] = None,
+            initial_response_setting: pulumi.Input[Optional[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict', 'outputs.V2modelsIntentInitialResponseSetting']]] = None,
+            input_contexts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict', 'outputs.V2modelsIntentInputContext']]]]] = None,
+            intent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kendra_configuration: pulumi.Input[Optional[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict', 'outputs.V2modelsIntentKendraConfiguration']]] = None,
+            last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_contexts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict', 'outputs.V2modelsIntentOutputContext']]]]] = None,
+            parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+            qna_intent_configuration: pulumi.Input[Optional[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict', 'outputs.V2modelsIntentQnaIntentConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict', 'outputs.V2modelsIntentSampleUtterance']]]]] = None,
+            slot_priorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict', 'outputs.V2modelsIntentSlotPriority']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict', 'outputs.V2modelsIntentTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botId"] = bot_id
+        __props__["botVersion"] = bot_version
+        __props__["closingSetting"] = closing_setting
+        __props__["confirmationSetting"] = confirmation_setting
+        __props__["creationDateTime"] = creation_date_time
+        __props__["description"] = description
+        __props__["dialogCodeHook"] = dialog_code_hook
+        __props__["fulfillmentCodeHook"] = fulfillment_code_hook
+        __props__["initialResponseSetting"] = initial_response_setting
+        __props__["inputContexts"] = input_contexts
+        __props__["intentId"] = intent_id
+        __props__["kendraConfiguration"] = kendra_configuration
+        __props__["lastUpdatedDateTime"] = last_updated_date_time
+        __props__["localeId"] = locale_id
+        __props__["name"] = name
+        __props__["outputContexts"] = output_contexts
+        __props__["parentIntentSignature"] = parent_intent_signature
+        __props__["qnaIntentConfiguration"] = qna_intent_configuration
+        __props__["region"] = region
+        __props__["sampleUtterances"] = sample_utterances
+        __props__["slotPriorities"] = slot_priorities
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:lex/v2modelsIntent:V2modelsIntent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:

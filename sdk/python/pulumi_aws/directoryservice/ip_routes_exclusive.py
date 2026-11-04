@@ -472,6 +472,22 @@ class IpRoutesExclusive(pulumi.CustomResource):
         __props__.__dict__["update_security_group_for_directory_controllers"] = update_security_group_for_directory_controllers
         return IpRoutesExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpRoutesExclusiveIpRouteArgs', 'IpRoutesExclusiveIpRouteArgsDict', 'outputs.IpRoutesExclusiveIpRoute']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['IpRoutesExclusiveTimeoutsArgs', 'IpRoutesExclusiveTimeoutsArgsDict', 'outputs.IpRoutesExclusiveTimeouts']]] = None,
+            update_security_group_for_directory_controllers: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["directoryId"] = directory_id
+        __props__["ipRoutes"] = ip_routes
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        __props__["updateSecurityGroupForDirectoryControllers"] = update_security_group_for_directory_controllers
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservice/ipRoutesExclusive:IpRoutesExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:

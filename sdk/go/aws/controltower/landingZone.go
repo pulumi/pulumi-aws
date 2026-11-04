@@ -126,6 +126,12 @@ func (LandingZoneState) ElementType() reflect.Type {
 	return reflect.TypeOf((*landingZoneState)(nil)).Elem()
 }
 
+// LandingZoneExists checks whether an existing LandingZone resource with the given ID exists.
+func LandingZoneExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LandingZoneState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:controltower/landingZone:LandingZone", id, state, "", opts...)
+}
+
 type landingZoneArgs struct {
 	// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
 	ManifestJson string `pulumi:"manifestJson"`

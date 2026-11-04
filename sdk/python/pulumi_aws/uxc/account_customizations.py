@@ -325,6 +325,18 @@ class AccountCustomizations(pulumi.CustomResource):
         __props__.__dict__["visible_services"] = visible_services
         return AccountCustomizations(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_color: pulumi.Input[Optional[_builtins.str]] = None,
+            visible_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            visible_services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountColor"] = account_color
+        __props__["visibleRegions"] = visible_regions
+        __props__["visibleServices"] = visible_services
+        return pulumi.runtime.exists_resource(None, 'aws:uxc/accountCustomizations:AccountCustomizations', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountColor")
     def account_color(self) -> pulumi.Output[_builtins.str]:

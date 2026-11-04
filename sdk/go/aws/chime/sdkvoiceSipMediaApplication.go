@@ -151,6 +151,12 @@ func (SdkvoiceSipMediaApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sdkvoiceSipMediaApplicationState)(nil)).Elem()
 }
 
+// SdkvoiceSipMediaApplicationExists checks whether an existing SdkvoiceSipMediaApplication resource with the given ID exists.
+func SdkvoiceSipMediaApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SdkvoiceSipMediaApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication", id, state, "", opts...)
+}
+
 type sdkvoiceSipMediaApplicationArgs struct {
 	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
 	AwsRegion string `pulumi:"awsRegion"`

@@ -194,6 +194,12 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigurationState)(nil)).Elem()
 }
 
+// OrganizationConfigurationExists checks whether an existing OrganizationConfiguration resource with the given ID exists.
+func OrganizationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/organizationConfiguration:OrganizationConfiguration", id, state, "", opts...)
+}
+
 type organizationConfigurationArgs struct {
 	// Whether to automatically enable Security Hub for new accounts in the organization.
 	AutoEnable bool `pulumi:"autoEnable"`

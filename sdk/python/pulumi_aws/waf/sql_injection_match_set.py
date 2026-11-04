@@ -254,6 +254,18 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         __props__.__dict__["sql_injection_match_tuples"] = sql_injection_match_tuples
         return SqlInjectionMatchSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict', 'outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["sqlInjectionMatchTuples"] = sql_injection_match_tuples
+        return pulumi.runtime.exists_resource(None, 'aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

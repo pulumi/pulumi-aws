@@ -293,6 +293,12 @@ func (ParameterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*parameterState)(nil)).Elem()
 }
 
+// ParameterExists checks whether an existing Parameter resource with the given ID exists.
+func ParameterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ParameterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/parameter:Parameter", id, state, "", opts...)
+}
+
 type parameterArgs struct {
 	// Regular expression used to validate the parameter value.
 	AllowedPattern *string `pulumi:"allowedPattern"`

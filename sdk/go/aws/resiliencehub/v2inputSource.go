@@ -257,6 +257,12 @@ func (V2InputSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2inputSourceState)(nil)).Elem()
 }
 
+// V2InputSourceExists checks whether an existing V2InputSource resource with the given ID exists.
+func V2InputSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2InputSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resiliencehub/v2InputSource:V2InputSource", id, state, "", opts...)
+}
+
 type v2inputSourceArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

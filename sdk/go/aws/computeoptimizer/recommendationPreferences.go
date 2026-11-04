@@ -207,6 +207,12 @@ func (RecommendationPreferencesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recommendationPreferencesState)(nil)).Elem()
 }
 
+// RecommendationPreferencesExists checks whether an existing RecommendationPreferences resource with the given ID exists.
+func RecommendationPreferencesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecommendationPreferencesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:computeoptimizer/recommendationPreferences:RecommendationPreferences", id, state, "", opts...)
+}
+
 type recommendationPreferencesArgs struct {
 	// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
 	EnhancedInfrastructureMetrics *string `pulumi:"enhancedInfrastructureMetrics"`

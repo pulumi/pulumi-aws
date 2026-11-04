@@ -425,6 +425,26 @@ class CustomLogSource(pulumi.CustomResource):
         __props__.__dict__["source_version"] = source_version
         return CustomLogSource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict', 'outputs.CustomLogSourceAttribute']]]]] = None,
+            configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict', 'outputs.CustomLogSourceConfiguration']]] = None,
+            event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict', 'outputs.CustomLogSourceProviderDetail']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attributes"] = attributes
+        __props__["configuration"] = configuration
+        __props__["eventClasses"] = event_classes
+        __props__["providerDetails"] = provider_details
+        __props__["region"] = region
+        __props__["sourceName"] = source_name
+        __props__["sourceVersion"] = source_version
+        return pulumi.runtime.exists_resource(None, 'aws:securitylake/customLogSource:CustomLogSource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Sequence['outputs.CustomLogSourceAttribute']]:

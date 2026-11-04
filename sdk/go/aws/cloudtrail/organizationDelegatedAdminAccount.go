@@ -131,6 +131,12 @@ func (OrganizationDelegatedAdminAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationDelegatedAdminAccountState)(nil)).Elem()
 }
 
+// OrganizationDelegatedAdminAccountExists checks whether an existing OrganizationDelegatedAdminAccount resource with the given ID exists.
+func OrganizationDelegatedAdminAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationDelegatedAdminAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount", id, state, "", opts...)
+}
+
 type organizationDelegatedAdminAccountArgs struct {
 	// An organization member account ID that you want to designate as a delegated administrator.
 	AccountId string `pulumi:"accountId"`

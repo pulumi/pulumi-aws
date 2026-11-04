@@ -722,6 +722,36 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Registry(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']]] = None,
+            auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict', 'outputs.RegistryAutoDetectionConfiguration']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict', 'outputs.RegistryEncryptionConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['RegistryTimeoutsArgs', 'RegistryTimeoutsArgsDict', 'outputs.RegistryTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["approvalConfiguration"] = approval_configuration
+        __props__["autoDetectionConfiguration"] = auto_detection_configuration
+        __props__["description"] = description
+        __props__["discoveryConfiguration"] = discovery_configuration
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["registryArn"] = registry_arn
+        __props__["registryId"] = registry_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:agentregistry/registry:Registry', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="approvalConfiguration")
     def approval_configuration(self) -> pulumi.Output[Optional['outputs.RegistryApprovalConfiguration']]:

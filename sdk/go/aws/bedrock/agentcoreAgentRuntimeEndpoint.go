@@ -161,6 +161,12 @@ func (AgentcoreAgentRuntimeEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreAgentRuntimeEndpointState)(nil)).Elem()
 }
 
+// AgentcoreAgentRuntimeEndpointExists checks whether an existing AgentcoreAgentRuntimeEndpoint resource with the given ID exists.
+func AgentcoreAgentRuntimeEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreAgentRuntimeEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint", id, state, "", opts...)
+}
+
 type agentcoreAgentRuntimeEndpointArgs struct {
 	// ID of the agent runtime this endpoint belongs to.
 	AgentRuntimeId string `pulumi:"agentRuntimeId"`

@@ -569,6 +569,32 @@ class CostCategory(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CostCategory(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_value: pulumi.Input[Optional[_builtins.str]] = None,
+            effective_end: pulumi.Input[Optional[_builtins.str]] = None,
+            effective_start: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_version: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict', 'outputs.CostCategoryRule']]]]] = None,
+            split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict', 'outputs.CostCategorySplitChargeRule']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["defaultValue"] = default_value
+        __props__["effectiveEnd"] = effective_end
+        __props__["effectiveStart"] = effective_start
+        __props__["name"] = name
+        __props__["ruleVersion"] = rule_version
+        __props__["rules"] = rules
+        __props__["splitChargeRules"] = split_charge_rules
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:costexplorer/costCategory:CostCategory', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

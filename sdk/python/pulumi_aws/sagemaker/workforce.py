@@ -487,6 +487,28 @@ class Workforce(pulumi.CustomResource):
         __props__.__dict__["workforce_vpc_config"] = workforce_vpc_config
         return Workforce(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cognito_config: pulumi.Input[Optional[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict', 'outputs.WorkforceCognitoConfig']]] = None,
+            oidc_config: pulumi.Input[Optional[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict', 'outputs.WorkforceOidcConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_ip_config: pulumi.Input[Optional[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict', 'outputs.WorkforceSourceIpConfig']]] = None,
+            subdomain: pulumi.Input[Optional[_builtins.str]] = None,
+            workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workforce_vpc_config: pulumi.Input[Optional[Union['WorkforceWorkforceVpcConfigArgs', 'WorkforceWorkforceVpcConfigArgsDict', 'outputs.WorkforceWorkforceVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cognitoConfig"] = cognito_config
+        __props__["oidcConfig"] = oidc_config
+        __props__["region"] = region
+        __props__["sourceIpConfig"] = source_ip_config
+        __props__["subdomain"] = subdomain
+        __props__["workforceName"] = workforce_name
+        __props__["workforceVpcConfig"] = workforce_vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/workforce:Workforce', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

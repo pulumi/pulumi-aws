@@ -675,6 +675,36 @@ class User(pulumi.CustomResource):
         __props__.__dict__["user_name"] = user_name
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+            home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHomeDirectoryMappingArgs', 'UserHomeDirectoryMappingArgsDict', 'outputs.UserHomeDirectoryMapping']]]]] = None,
+            home_directory_type: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            posix_profile: pulumi.Input[Optional[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict', 'outputs.UserPosixProfile']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["homeDirectory"] = home_directory
+        __props__["homeDirectoryMappings"] = home_directory_mappings
+        __props__["homeDirectoryType"] = home_directory_type
+        __props__["policy"] = policy
+        __props__["posixProfile"] = posix_profile
+        __props__["region"] = region
+        __props__["role"] = role
+        __props__["serverId"] = server_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userName"] = user_name
+        return pulumi.runtime.exists_resource(None, 'aws:transfer/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

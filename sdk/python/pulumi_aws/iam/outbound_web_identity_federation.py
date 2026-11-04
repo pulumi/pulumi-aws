@@ -176,6 +176,14 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
         __props__.__dict__["issuer_identifier"] = issuer_identifier
         return OutboundWebIdentityFederation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            issuer_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["issuerIdentifier"] = issuer_identifier
+        return pulumi.runtime.exists_resource(None, 'aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="issuerIdentifier")
     def issuer_identifier(self) -> pulumi.Output[_builtins.str]:

@@ -400,6 +400,26 @@ class Ingestion(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Ingestion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ingestion_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ingestion_status: pulumi.Input[Optional[_builtins.str]] = None,
+            ingestion_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsAccountId"] = aws_account_id
+        __props__["dataSetId"] = data_set_id
+        __props__["ingestionId"] = ingestion_id
+        __props__["ingestionStatus"] = ingestion_status
+        __props__["ingestionType"] = ingestion_type
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/ingestion:Ingestion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

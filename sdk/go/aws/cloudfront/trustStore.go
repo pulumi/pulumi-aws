@@ -188,6 +188,12 @@ func (TrustStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustStoreState)(nil)).Elem()
 }
 
+// TrustStoreExists checks whether an existing TrustStore resource with the given ID exists.
+func TrustStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/trustStore:TrustStore", id, state, "", opts...)
+}
+
 type trustStoreArgs struct {
 	// Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
 	//

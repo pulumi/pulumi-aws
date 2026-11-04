@@ -323,6 +323,12 @@ func (AmiCopyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiCopyState)(nil)).Elem()
 }
 
+// AmiCopyExists checks whether an existing AmiCopy resource with the given ID exists.
+func AmiCopyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AmiCopyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/amiCopy:AmiCopy", id, state, "", opts...)
+}
+
 type amiCopyArgs struct {
 	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime *string `pulumi:"deprecationTime"`

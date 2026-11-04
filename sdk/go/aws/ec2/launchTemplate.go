@@ -337,6 +337,12 @@ func (LaunchTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchTemplateState)(nil)).Elem()
 }
 
+// LaunchTemplateExists checks whether an existing LaunchTemplate resource with the given ID exists.
+func LaunchTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/launchTemplate:LaunchTemplate", id, state, "", opts...)
+}
+
 type launchTemplateArgs struct {
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.

@@ -515,6 +515,32 @@ class ChannelNamespace(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ChannelNamespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_namespace_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code_handlers: pulumi.Input[Optional[_builtins.str]] = None,
+            handler_configs: pulumi.Input[Optional[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict', 'outputs.ChannelNamespaceHandlerConfigs']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            publish_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespacePublishAuthModeArgs', 'ChannelNamespacePublishAuthModeArgsDict', 'outputs.ChannelNamespacePublishAuthMode']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subscribe_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceSubscribeAuthModeArgs', 'ChannelNamespaceSubscribeAuthModeArgsDict', 'outputs.ChannelNamespaceSubscribeAuthMode']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["channelNamespaceArn"] = channel_namespace_arn
+        __props__["codeHandlers"] = code_handlers
+        __props__["handlerConfigs"] = handler_configs
+        __props__["name"] = name
+        __props__["publishAuthModes"] = publish_auth_modes
+        __props__["region"] = region
+        __props__["subscribeAuthModes"] = subscribe_auth_modes
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/channelNamespace:ChannelNamespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

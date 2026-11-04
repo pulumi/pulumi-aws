@@ -149,6 +149,12 @@ func (BrowserSettingsAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*browserSettingsAssociationState)(nil)).Elem()
 }
 
+// BrowserSettingsAssociationExists checks whether an existing BrowserSettingsAssociation resource with the given ID exists.
+func BrowserSettingsAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrowserSettingsAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation", id, state, "", opts...)
+}
+
 type browserSettingsAssociationArgs struct {
 	// ARN of the browser settings to associate with the portal. Forces replacement if changed.
 	BrowserSettingsArn string `pulumi:"browserSettingsArn"`

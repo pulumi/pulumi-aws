@@ -223,6 +223,12 @@ func (AgentcorePolicyEngineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcorePolicyEngineState)(nil)).Elem()
 }
 
+// AgentcorePolicyEngineExists checks whether an existing AgentcorePolicyEngine resource with the given ID exists.
+func AgentcorePolicyEngineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcorePolicyEngineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcorePolicyEngine:AgentcorePolicyEngine", id, state, "", opts...)
+}
+
 type agentcorePolicyEngineArgs struct {
 	// Description of the policy engine.
 	Description *string `pulumi:"description"`

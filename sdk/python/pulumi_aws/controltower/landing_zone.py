@@ -403,6 +403,30 @@ class LandingZone(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return LandingZone(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            drift_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LandingZoneDriftStatusArgs', 'LandingZoneDriftStatusArgsDict', 'outputs.LandingZoneDriftStatus']]]]] = None,
+            latest_available_version: pulumi.Input[Optional[_builtins.str]] = None,
+            manifest_json: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remediation_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["driftStatuses"] = drift_statuses
+        __props__["latestAvailableVersion"] = latest_available_version
+        __props__["manifestJson"] = manifest_json
+        __props__["region"] = region
+        __props__["remediationTypes"] = remediation_types
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:controltower/landingZone:LandingZone', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -124,6 +124,12 @@ func (ApplicationLayerAutomaticResponseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationLayerAutomaticResponseState)(nil)).Elem()
 }
 
+// ApplicationLayerAutomaticResponseExists checks whether an existing ApplicationLayerAutomaticResponse resource with the given ID exists.
+func ApplicationLayerAutomaticResponseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationLayerAutomaticResponseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse", id, state, "", opts...)
+}
+
 type applicationLayerAutomaticResponseArgs struct {
 	// One of `COUNT` or `BLOCK`
 	Action string `pulumi:"action"`

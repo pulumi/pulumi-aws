@@ -172,6 +172,12 @@ func (LoggingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggingState)(nil)).Elem()
 }
 
+// LoggingExists checks whether an existing Logging resource with the given ID exists.
+func LoggingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoggingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/logging:Logging", id, state, "", opts...)
+}
+
 type loggingArgs struct {
 	// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
 	BucketName *string `pulumi:"bucketName"`

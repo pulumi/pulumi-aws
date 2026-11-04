@@ -115,6 +115,12 @@ func (CertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateState)(nil)).Elem()
 }
 
+// CertificateExists checks whether an existing Certificate resource with the given ID exists.
+func CertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/certificate:Certificate", id, state, "", opts...)
+}
+
 type certificateArgs struct {
 	// Certificate identifier. For example, `rds-ca-rsa4096-g1`. Refer to [AWS RDS (Relational Database) Certificate Identifier](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificateIdentifier) for more information.
 	CertificateIdentifier string `pulumi:"certificateIdentifier"`

@@ -1190,6 +1190,66 @@ class OntapFileSystem(pulumi.CustomResource):
         __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
         return OntapFileSystem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_iops_configuration: pulumi.Input[Optional[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict', 'outputs.OntapFileSystemDiskIopsConfiguration']]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OntapFileSystemEndpointArgs', 'OntapFileSystemEndpointArgsDict', 'outputs.OntapFileSystemEndpoint']]]]] = None,
+            fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            throughput_capacity_per_ha_pair: pulumi.Input[Optional[_builtins.int]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["automaticBackupRetentionDays"] = automatic_backup_retention_days
+        __props__["dailyAutomaticBackupStartTime"] = daily_automatic_backup_start_time
+        __props__["deploymentType"] = deployment_type
+        __props__["diskIopsConfiguration"] = disk_iops_configuration
+        __props__["dnsName"] = dns_name
+        __props__["endpointIpAddressRange"] = endpoint_ip_address_range
+        __props__["endpoints"] = endpoints
+        __props__["fsxAdminPassword"] = fsx_admin_password
+        __props__["haPairs"] = ha_pairs
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["networkInterfaceIds"] = network_interface_ids
+        __props__["networkType"] = network_type
+        __props__["ownerId"] = owner_id
+        __props__["preferredSubnetId"] = preferred_subnet_id
+        __props__["region"] = region
+        __props__["routeTableIds"] = route_table_ids
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["storageCapacity"] = storage_capacity
+        __props__["storageType"] = storage_type
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throughputCapacity"] = throughput_capacity
+        __props__["throughputCapacityPerHaPair"] = throughput_capacity_per_ha_pair
+        __props__["vpcId"] = vpc_id
+        __props__["weeklyMaintenanceStartTime"] = weekly_maintenance_start_time
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/ontapFileSystem:OntapFileSystem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

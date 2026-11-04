@@ -655,6 +655,40 @@ class LocationObjectStorage(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return LocationObjectStorage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+            server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            server_port: pulumi.Input[Optional[_builtins.int]] = None,
+            server_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessKey"] = access_key
+        __props__["agentArns"] = agent_arns
+        __props__["arn"] = arn
+        __props__["bucketName"] = bucket_name
+        __props__["region"] = region
+        __props__["secretKey"] = secret_key
+        __props__["serverCertificate"] = server_certificate
+        __props__["serverHostname"] = server_hostname
+        __props__["serverPort"] = server_port
+        __props__["serverProtocol"] = server_protocol
+        __props__["subdirectory"] = subdirectory
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/locationObjectStorage:LocationObjectStorage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessKey")
     def access_key(self) -> pulumi.Output[Optional[_builtins.str]]:

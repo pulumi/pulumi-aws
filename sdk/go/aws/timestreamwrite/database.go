@@ -168,6 +168,12 @@ func (DatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseState)(nil)).Elem()
 }
 
+// DatabaseExists checks whether an existing Database resource with the given ID exists.
+func DatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:timestreamwrite/database:Database", id, state, "", opts...)
+}
+
 type databaseArgs struct {
 	// Name of the Timestream database. Minimum length of 3. Maximum length of 64.
 	DatabaseName string `pulumi:"databaseName"`

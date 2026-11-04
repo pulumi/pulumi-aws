@@ -568,6 +568,34 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_config_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            grouping_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoConfigEnabled"] = auto_config_enabled
+        __props__["autoCreate"] = auto_create
+        __props__["cweMonitorEnabled"] = cwe_monitor_enabled
+        __props__["groupingType"] = grouping_type
+        __props__["opsCenterEnabled"] = ops_center_enabled
+        __props__["opsItemSnsTopicArn"] = ops_item_sns_topic_arn
+        __props__["region"] = region
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:applicationinsights/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

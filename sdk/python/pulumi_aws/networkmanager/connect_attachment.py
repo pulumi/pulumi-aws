@@ -672,6 +672,44 @@ class ConnectAttachment(pulumi.CustomResource):
         __props__.__dict__["transport_attachment_id"] = transport_attachment_id
         return ConnectAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            attachment_policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+            attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+            segment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transport_attachment_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["attachmentId"] = attachment_id
+        __props__["attachmentPolicyRuleNumber"] = attachment_policy_rule_number
+        __props__["attachmentType"] = attachment_type
+        __props__["coreNetworkArn"] = core_network_arn
+        __props__["coreNetworkId"] = core_network_id
+        __props__["edgeLocation"] = edge_location
+        __props__["options"] = options
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["resourceArn"] = resource_arn
+        __props__["routingPolicyLabel"] = routing_policy_label
+        __props__["segmentName"] = segment_name
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["transportAttachmentId"] = transport_attachment_id
+        return pulumi.runtime.exists_resource(None, 'aws:networkmanager/connectAttachment:ConnectAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

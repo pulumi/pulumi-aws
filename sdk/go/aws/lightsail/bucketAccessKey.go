@@ -141,6 +141,12 @@ func (BucketAccessKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketAccessKeyState)(nil)).Elem()
 }
 
+// BucketAccessKeyExists checks whether an existing BucketAccessKey resource with the given ID exists.
+func BucketAccessKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketAccessKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/bucketAccessKey:BucketAccessKey", id, state, "", opts...)
+}
+
 type bucketAccessKeyArgs struct {
 	// Name of the bucket that the access key will belong to and grant access to.
 	BucketName string `pulumi:"bucketName"`

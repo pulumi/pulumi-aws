@@ -556,6 +556,32 @@ class RadiusSettings(pulumi.CustomResource):
         __props__.__dict__["use_same_username"] = use_same_username
         return RadiusSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_label: pulumi.Input[Optional[_builtins.str]] = None,
+            radius_port: pulumi.Input[Optional[_builtins.int]] = None,
+            radius_retries: pulumi.Input[Optional[_builtins.int]] = None,
+            radius_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            radius_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            use_same_username: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationProtocol"] = authentication_protocol
+        __props__["directoryId"] = directory_id
+        __props__["displayLabel"] = display_label
+        __props__["radiusPort"] = radius_port
+        __props__["radiusRetries"] = radius_retries
+        __props__["radiusServers"] = radius_servers
+        __props__["radiusTimeout"] = radius_timeout
+        __props__["region"] = region
+        __props__["sharedSecret"] = shared_secret
+        __props__["useSameUsername"] = use_same_username
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservice/radiusSettings:RadiusSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationProtocol")
     def authentication_protocol(self) -> pulumi.Output[_builtins.str]:

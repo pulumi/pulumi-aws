@@ -112,6 +112,12 @@ func (OrganizationAdminAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationAdminAccountState)(nil)).Elem()
 }
 
+// OrganizationAdminAccountExists checks whether an existing OrganizationAdminAccount resource with the given ID exists.
+func OrganizationAdminAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationAdminAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie2/organizationAdminAccount:OrganizationAdminAccount", id, state, "", opts...)
+}
+
 type organizationAdminAccountArgs struct {
 	// AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
 	AdminAccountId string `pulumi:"adminAccountId"`

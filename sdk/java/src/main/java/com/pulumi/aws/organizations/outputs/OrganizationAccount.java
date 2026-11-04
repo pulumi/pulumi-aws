@@ -49,11 +49,10 @@ public final class OrganizationAccount {
     /**
      * @return Status of the policy type as it relates to the associated root.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     private @Nullable String status;
 
     private OrganizationAccount() {}
@@ -109,11 +108,10 @@ public final class OrganizationAccount {
     /**
      * @return Status of the policy type as it relates to the associated root.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

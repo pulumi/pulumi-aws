@@ -247,6 +247,12 @@ func (CustomKeyStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customKeyStoreState)(nil)).Elem()
 }
 
+// CustomKeyStoreExists checks whether an existing CustomKeyStore resource with the given ID exists.
+func CustomKeyStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomKeyStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kms/customKeyStore:CustomKeyStore", id, state, "", opts...)
+}
+
 type customKeyStoreArgs struct {
 	// Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 	CloudHsmClusterId *string `pulumi:"cloudHsmClusterId"`

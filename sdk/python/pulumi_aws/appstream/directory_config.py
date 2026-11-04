@@ -380,6 +380,24 @@ class DirectoryConfig(pulumi.CustomResource):
         __props__.__dict__["service_account_credentials"] = service_account_credentials
         return DirectoryConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict', 'outputs.DirectoryConfigCertificateBasedAuthProperties']]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+            organizational_unit_distinguished_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account_credentials: pulumi.Input[Optional[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict', 'outputs.DirectoryConfigServiceAccountCredentials']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateBasedAuthProperties"] = certificate_based_auth_properties
+        __props__["createdTime"] = created_time
+        __props__["directoryName"] = directory_name
+        __props__["organizationalUnitDistinguishedNames"] = organizational_unit_distinguished_names
+        __props__["region"] = region
+        __props__["serviceAccountCredentials"] = service_account_credentials
+        return pulumi.runtime.exists_resource(None, 'aws:appstream/directoryConfig:DirectoryConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
     def certificate_based_auth_properties(self) -> pulumi.Output[Optional['outputs.DirectoryConfigCertificateBasedAuthProperties']]:

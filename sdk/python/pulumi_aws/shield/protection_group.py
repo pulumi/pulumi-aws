@@ -497,6 +497,28 @@ class ProtectionGroup(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ProtectionGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aggregation: pulumi.Input[Optional[_builtins.str]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            protection_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            protection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aggregation"] = aggregation
+        __props__["members"] = members
+        __props__["pattern"] = pattern
+        __props__["protectionGroupArn"] = protection_group_arn
+        __props__["protectionGroupId"] = protection_group_id
+        __props__["resourceType"] = resource_type
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:shield/protectionGroup:ProtectionGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aggregation(self) -> pulumi.Output[_builtins.str]:

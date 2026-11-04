@@ -331,6 +331,12 @@ func (ParameterGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*parameterGroupState)(nil)).Elem()
 }
 
+// ParameterGroupExists checks whether an existing ParameterGroup resource with the given ID exists.
+func ParameterGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ParameterGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/parameterGroup:ParameterGroup", id, state, "", opts...)
+}
+
 type parameterGroupArgs struct {
 	// Description of the DB parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`

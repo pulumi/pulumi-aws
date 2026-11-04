@@ -187,6 +187,12 @@ func (LocationFsxWindowsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationFsxWindowsState)(nil)).Elem()
 }
 
+// LocationFsxWindowsExists checks whether an existing LocationFsxWindows resource with the given ID exists.
+func LocationFsxWindowsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationFsxWindowsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datasync/locationFsxWindows:LocationFsxWindows", id, state, "", opts...)
+}
+
 type locationFsxWindowsArgs struct {
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain *string `pulumi:"domain"`

@@ -1139,6 +1139,32 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreGatewayTarget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            credential_provider_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetCredentialProviderConfiguration']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetMetadataConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict', 'outputs.AgentcoreGatewayTargetPrivateEndpoint']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetTargetConfiguration']]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict', 'outputs.AgentcoreGatewayTargetTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["credentialProviderConfiguration"] = credential_provider_configuration
+        __props__["description"] = description
+        __props__["gatewayIdentifier"] = gateway_identifier
+        __props__["metadataConfiguration"] = metadata_configuration
+        __props__["name"] = name
+        __props__["privateEndpoint"] = private_endpoint
+        __props__["region"] = region
+        __props__["targetConfiguration"] = target_configuration
+        __props__["targetId"] = target_id
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="credentialProviderConfiguration")
     def credential_provider_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfiguration']]:

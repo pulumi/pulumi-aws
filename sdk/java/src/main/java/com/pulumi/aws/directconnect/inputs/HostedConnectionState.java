@@ -215,22 +215,20 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
     /**
      * (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use connectionRegion instead.
+     * @deprecated region is deprecated. Use connectionRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use connectionRegion instead. */
+    @Deprecated
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
      * @return (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use connectionRegion instead.
+     * @deprecated region is deprecated. Use connectionRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use connectionRegion instead. */
+    @Deprecated
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -582,11 +580,10 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use connectionRegion instead.
+         * @deprecated region is deprecated. Use connectionRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use connectionRegion instead. */
+        @Deprecated
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
@@ -597,11 +594,10 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use connectionRegion instead.
+         * @deprecated region is deprecated. Use connectionRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use connectionRegion instead. */
+        @Deprecated
         public Builder region(String region) {
             return region(Output.of(region));
         }

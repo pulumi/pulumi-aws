@@ -156,6 +156,12 @@ func (ConnectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectState)(nil)).Elem()
 }
 
+// ConnectExists checks whether an existing Connect resource with the given ID exists.
+func ConnectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/connect:Connect", id, state, "", opts...)
+}
+
 type connectArgs struct {
 	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol *string `pulumi:"protocol"`

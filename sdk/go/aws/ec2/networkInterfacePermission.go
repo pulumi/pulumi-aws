@@ -153,6 +153,12 @@ func (NetworkInterfacePermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfacePermissionState)(nil)).Elem()
 }
 
+// NetworkInterfacePermissionExists checks whether an existing NetworkInterfacePermission resource with the given ID exists.
+func NetworkInterfacePermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfacePermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/networkInterfacePermission:NetworkInterfacePermission", id, state, "", opts...)
+}
+
 type networkInterfacePermissionArgs struct {
 	// The Amazon Web Services account ID.
 	AwsAccountId string `pulumi:"awsAccountId"`

@@ -156,6 +156,12 @@ func (InstancePublicPortsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instancePublicPortsState)(nil)).Elem()
 }
 
+// InstancePublicPortsExists checks whether an existing InstancePublicPorts resource with the given ID exists.
+func InstancePublicPortsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstancePublicPortsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/instancePublicPorts:InstancePublicPorts", id, state, "", opts...)
+}
+
 type instancePublicPortsArgs struct {
 	// Name of the instance for which to open ports.
 	InstanceName string `pulumi:"instanceName"`

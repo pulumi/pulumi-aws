@@ -343,6 +343,22 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return OrganizationConfigurationFeature(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict', 'outputs.OrganizationConfigurationFeatureAdditionalConfiguration']]]]] = None,
+            auto_enable: pulumi.Input[Optional[_builtins.str]] = None,
+            detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalConfigurations"] = additional_configurations
+        __props__["autoEnable"] = auto_enable
+        __props__["detectorId"] = detector_id
+        __props__["name"] = name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalConfigurations")
     def additional_configurations(self) -> pulumi.Output[Sequence['outputs.OrganizationConfigurationFeatureAdditionalConfiguration']]:

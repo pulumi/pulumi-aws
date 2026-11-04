@@ -883,6 +883,46 @@ class Proxy(pulumi.CustomResource):
         __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
         return Proxy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict', 'outputs.ProxyAuth']]]]] = None,
+            debug_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_auth_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_family: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            require_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_connection_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["auths"] = auths
+        __props__["debugLogging"] = debug_logging
+        __props__["defaultAuthScheme"] = default_auth_scheme
+        __props__["endpoint"] = endpoint
+        __props__["endpointNetworkType"] = endpoint_network_type
+        __props__["engineFamily"] = engine_family
+        __props__["idleClientTimeout"] = idle_client_timeout
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["requireTls"] = require_tls
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetConnectionNetworkType"] = target_connection_network_type
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        __props__["vpcSubnetIds"] = vpc_subnet_ids
+        return pulumi.runtime.exists_resource(None, 'aws:rds/proxy:Proxy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

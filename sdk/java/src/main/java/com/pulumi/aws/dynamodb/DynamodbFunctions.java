@@ -541,25 +541,25 @@ public final class DynamodbFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
-     * {
-     * \t\"hashKey\": {\"S\": \"example\"}
-     * }
+     * }{{@code
+     * }&#92;{@code t}&#92;{@code "hashKey}&#92;{@code ": }{&#92;{@code "S}&#92;{@code ": }&#92;{@code "example}&#92;{@code "}}{@code
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -590,25 +590,25 @@ public final class DynamodbFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
-     * {
-     * \t\"hashKey\": {\"S\": \"example\"}
-     * }
+     * }{{@code
+     * }&#92;{@code t}&#92;{@code "hashKey}&#92;{@code ": }{&#92;{@code "S}&#92;{@code ": }&#92;{@code "example}&#92;{@code "}}{@code
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -639,25 +639,25 @@ public final class DynamodbFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
-     * {
-     * \t\"hashKey\": {\"S\": \"example\"}
-     * }
+     * }{{@code
+     * }&#92;{@code t}&#92;{@code "hashKey}&#92;{@code ": }{&#92;{@code "S}&#92;{@code ": }&#92;{@code "example}&#92;{@code "}}{@code
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -688,25 +688,25 @@ public final class DynamodbFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
-     * {
-     * \t\"hashKey\": {\"S\": \"example\"}
-     * }
+     * }{{@code
+     * }&#92;{@code t}&#92;{@code "hashKey}&#92;{@code ": }{&#92;{@code "S}&#92;{@code ": }&#92;{@code "example}&#92;{@code "}}{@code
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -737,25 +737,25 @@ public final class DynamodbFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
-     * {
-     * \t\"hashKey\": {\"S\": \"example\"}
-     * }
+     * }{{@code
+     * }&#92;{@code t}&#92;{@code "hashKey}&#92;{@code ": }{&#92;{@code "S}&#92;{@code ": }&#92;{@code "example}&#92;{@code "}}{@code
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 

@@ -337,6 +337,20 @@ class ArchiveRule(pulumi.CustomResource):
         __props__.__dict__["rule_name"] = rule_name
         return ArchiveRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict', 'outputs.ArchiveRuleFilter']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["analyzerName"] = analyzer_name
+        __props__["filters"] = filters
+        __props__["region"] = region
+        __props__["ruleName"] = rule_name
+        return pulumi.runtime.exists_resource(None, 'aws:accessanalyzer/archiveRule:ArchiveRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="analyzerName")
     def analyzer_name(self) -> pulumi.Output[_builtins.str]:

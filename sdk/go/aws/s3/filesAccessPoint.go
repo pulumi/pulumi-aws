@@ -180,6 +180,12 @@ func (FilesAccessPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*filesAccessPointState)(nil)).Elem()
 }
 
+// FilesAccessPointExists checks whether an existing FilesAccessPoint resource with the given ID exists.
+func FilesAccessPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FilesAccessPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/filesAccessPoint:FilesAccessPoint", id, state, "", opts...)
+}
+
 type filesAccessPointArgs struct {
 	// File system ID. Changing this value forces replacement.
 	FileSystemId string `pulumi:"fileSystemId"`

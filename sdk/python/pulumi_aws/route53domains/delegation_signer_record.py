@@ -411,6 +411,20 @@ class DelegationSignerRecord(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return DelegationSignerRecord(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dnssec_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_attributes: pulumi.Input[Optional[Union['DelegationSignerRecordSigningAttributesArgs', 'DelegationSignerRecordSigningAttributesArgsDict', 'outputs.DelegationSignerRecordSigningAttributes']]] = None,
+            timeouts: pulumi.Input[Optional[Union['DelegationSignerRecordTimeoutsArgs', 'DelegationSignerRecordTimeoutsArgsDict', 'outputs.DelegationSignerRecordTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dnssecKeyId"] = dnssec_key_id
+        __props__["domainName"] = domain_name
+        __props__["signingAttributes"] = signing_attributes
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:route53domains/delegationSignerRecord:DelegationSignerRecord', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dnssecKeyId")
     def dnssec_key_id(self) -> pulumi.Output[_builtins.str]:

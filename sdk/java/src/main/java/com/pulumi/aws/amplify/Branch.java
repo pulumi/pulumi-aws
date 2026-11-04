@@ -201,7 +201,7 @@ import javax.annotation.Nullable;
  *                     Map.entry("branch", "$.detail.branchName"),
  *                     Map.entry("status", "$.detail.jobStatus")
  *                 ))
- *                 .inputTemplate("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"")
+ *                 .inputTemplate("}&#92;{@code "Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. }&#92;{@code "")
  *                 .build())
  *             .rule(amplifyAppMasterEventRule.name())
  *             .targetId(master.branchName())

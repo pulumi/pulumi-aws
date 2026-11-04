@@ -579,6 +579,36 @@ class Smsvoicev2SenderId(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Smsvoicev2SenderId(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            iso_country_code: pulumi.Input[Optional[_builtins.str]] = None,
+            message_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            monthly_leasing_price: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registered: pulumi.Input[Optional[_builtins.bool]] = None,
+            registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['Smsvoicev2SenderIdTimeoutsArgs', 'Smsvoicev2SenderIdTimeoutsArgsDict', 'outputs.Smsvoicev2SenderIdTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deletionProtectionEnabled"] = deletion_protection_enabled
+        __props__["isoCountryCode"] = iso_country_code
+        __props__["messageTypes"] = message_types
+        __props__["monthlyLeasingPrice"] = monthly_leasing_price
+        __props__["region"] = region
+        __props__["registered"] = registered
+        __props__["registrationId"] = registration_id
+        __props__["senderId"] = sender_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/smsvoicev2SenderId:Smsvoicev2SenderId', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

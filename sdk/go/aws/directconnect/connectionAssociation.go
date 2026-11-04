@@ -124,6 +124,12 @@ func (ConnectionAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionAssociationState)(nil)).Elem()
 }
 
+// ConnectionAssociationExists checks whether an existing ConnectionAssociation resource with the given ID exists.
+func ConnectionAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/connectionAssociation:ConnectionAssociation", id, state, "", opts...)
+}
+
 type connectionAssociationArgs struct {
 	// The ID of the connection.
 	ConnectionId string `pulumi:"connectionId"`

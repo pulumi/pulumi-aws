@@ -323,6 +323,20 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return ClusterCapacityProviders(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["capacityProviders"] = capacity_providers
+        __props__["clusterName"] = cluster_name
+        __props__["defaultCapacityProviderStrategies"] = default_capacity_provider_strategies
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:ecs/clusterCapacityProviders:ClusterCapacityProviders', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

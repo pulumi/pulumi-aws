@@ -183,6 +183,12 @@ func (QuerySuggestionsBlockListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*querySuggestionsBlockListState)(nil)).Elem()
 }
 
+// QuerySuggestionsBlockListExists checks whether an existing QuerySuggestionsBlockList resource with the given ID exists.
+func QuerySuggestionsBlockListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QuerySuggestionsBlockListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList", id, state, "", opts...)
+}
+
 type querySuggestionsBlockListArgs struct {
 	// Description for a block list.
 	Description *string `pulumi:"description"`

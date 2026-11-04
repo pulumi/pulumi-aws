@@ -409,6 +409,24 @@ class Model(pulumi.CustomResource):
         __props__.__dict__["schema"] = schema
         return Model(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["contentType"] = content_type
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["schema"] = schema
+        return pulumi.runtime.exists_resource(None, 'aws:apigatewayv2/model:Model', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

@@ -154,6 +154,12 @@ func (AuthPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authPolicyState)(nil)).Elem()
 }
 
+// AuthPolicyExists checks whether an existing AuthPolicy resource with the given ID exists.
+func AuthPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/authPolicy:AuthPolicy", id, state, "", opts...)
+}
+
 type authPolicyArgs struct {
 	// Auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy string `pulumi:"policy"`

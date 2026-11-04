@@ -146,6 +146,12 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyAttachmentState)(nil)).Elem()
 }
 
+// PolicyAttachmentExists checks whether an existing PolicyAttachment resource with the given ID exists.
+func PolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/policyAttachment:PolicyAttachment", id, state, "", opts...)
+}
+
 type policyAttachmentArgs struct {
 	// The name of the policy to attach.
 	Policy interface{} `pulumi:"policy"`

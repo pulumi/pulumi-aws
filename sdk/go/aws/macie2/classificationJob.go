@@ -216,6 +216,12 @@ func (ClassificationJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*classificationJobState)(nil)).Elem()
 }
 
+// ClassificationJobExists checks whether an existing ClassificationJob resource with the given ID exists.
+func ClassificationJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClassificationJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie2/classificationJob:ClassificationJob", id, state, "", opts...)
+}
+
 type classificationJobArgs struct {
 	// Custom data identifiers to use for data analysis and classification.
 	CustomDataIdentifierIds []string `pulumi:"customDataIdentifierIds"`

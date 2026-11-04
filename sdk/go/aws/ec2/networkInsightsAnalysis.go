@@ -204,6 +204,12 @@ func (NetworkInsightsAnalysisState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInsightsAnalysisState)(nil)).Elem()
 }
 
+// NetworkInsightsAnalysisExists checks whether an existing NetworkInsightsAnalysis resource with the given ID exists.
+func NetworkInsightsAnalysisExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInsightsAnalysisState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis", id, state, "", opts...)
+}
+
 type networkInsightsAnalysisArgs struct {
 	// A list of ARNs for resources the path must traverse.
 	FilterInArns []string `pulumi:"filterInArns"`

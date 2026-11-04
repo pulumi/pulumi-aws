@@ -16,20 +16,18 @@ public final class GetDefaultTagsArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDefaultTagsArgs Empty = new GetDefaultTagsArgs();
 
     /**
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -61,11 +59,10 @@ public final class GetDefaultTagsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future version of the provider.
+         * @deprecated This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
@@ -74,11 +71,10 @@ public final class GetDefaultTagsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future version of the provider.
+         * @deprecated This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder id(String id) {
             return id(Output.of(id));
         }

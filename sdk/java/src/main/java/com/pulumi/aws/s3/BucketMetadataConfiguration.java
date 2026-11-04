@@ -108,11 +108,10 @@ public class BucketMetadataConfiguration extends com.pulumi.resources.CustomReso
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

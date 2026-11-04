@@ -123,6 +123,12 @@ func (ClusterIamRolesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterIamRolesState)(nil)).Elem()
 }
 
+// ClusterIamRolesExists checks whether an existing ClusterIamRoles resource with the given ID exists.
+func ClusterIamRolesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterIamRolesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/clusterIamRoles:ClusterIamRoles", id, state, "", opts...)
+}
+
 type clusterIamRolesArgs struct {
 	// The name of the Redshift Cluster IAM Roles.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`

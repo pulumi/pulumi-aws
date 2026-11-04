@@ -136,6 +136,12 @@ func (CellState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cellState)(nil)).Elem()
 }
 
+// CellExists checks whether an existing Cell resource with the given ID exists.
+func CellExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CellState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53recoveryreadiness/cell:Cell", id, state, "", opts...)
+}
+
 type cellArgs struct {
 	// Unique name describing the cell.
 	//

@@ -186,6 +186,12 @@ func (ManagedPrefixListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPrefixListState)(nil)).Elem()
 }
 
+// ManagedPrefixListExists checks whether an existing ManagedPrefixList resource with the given ID exists.
+func ManagedPrefixListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedPrefixListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/managedPrefixList:ManagedPrefixList", id, state, "", opts...)
+}
+
 type managedPrefixListArgs struct {
 	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily string `pulumi:"addressFamily"`

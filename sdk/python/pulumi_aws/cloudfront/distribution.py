@@ -2104,6 +2104,86 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["web_acl_id"] = web_acl_id
         return Distribution(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict', 'outputs.DistributionCacheTagConfig']]] = None,
+            caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict', 'outputs.DistributionConnectionFunctionAssociation']]] = None,
+            continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict', 'outputs.DistributionCustomErrorResponse']]]]] = None,
+            default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']]] = None,
+            default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            http_version: pulumi.Input[Optional[_builtins.str]] = None,
+            in_progress_validation_batches: pulumi.Input[Optional[_builtins.int]] = None,
+            is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict', 'outputs.DistributionLoggingConfig']]] = None,
+            logging_v1_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict', 'outputs.DistributionOrderedCacheBehavior']]]]] = None,
+            origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict', 'outputs.DistributionOriginGroup']]]]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]]]] = None,
+            price_class: pulumi.Input[Optional[_builtins.str]] = None,
+            restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict', 'outputs.DistributionRestrictions']]] = None,
+            retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            staging: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict', 'outputs.DistributionTrustedKeyGroup']]]]] = None,
+            trusted_signers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict', 'outputs.DistributionTrustedSigner']]]]] = None,
+            viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict', 'outputs.DistributionViewerCertificate']]] = None,
+            viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict', 'outputs.DistributionViewerMtlsConfig']]] = None,
+            wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+            web_acl_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aliases"] = aliases
+        __props__["anycastIpListId"] = anycast_ip_list_id
+        __props__["arn"] = arn
+        __props__["cacheTagConfig"] = cache_tag_config
+        __props__["callerReference"] = caller_reference
+        __props__["comment"] = comment
+        __props__["connectionFunctionAssociation"] = connection_function_association
+        __props__["continuousDeploymentPolicyId"] = continuous_deployment_policy_id
+        __props__["customErrorResponses"] = custom_error_responses
+        __props__["defaultCacheBehavior"] = default_cache_behavior
+        __props__["defaultRootObject"] = default_root_object
+        __props__["domainName"] = domain_name
+        __props__["enabled"] = enabled
+        __props__["etag"] = etag
+        __props__["hostedZoneId"] = hosted_zone_id
+        __props__["httpVersion"] = http_version
+        __props__["inProgressValidationBatches"] = in_progress_validation_batches
+        __props__["isIpv6Enabled"] = is_ipv6_enabled
+        __props__["lastModifiedTime"] = last_modified_time
+        __props__["loggingConfig"] = logging_config
+        __props__["loggingV1Enabled"] = logging_v1_enabled
+        __props__["orderedCacheBehaviors"] = ordered_cache_behaviors
+        __props__["originGroups"] = origin_groups
+        __props__["origins"] = origins
+        __props__["priceClass"] = price_class
+        __props__["restrictions"] = restrictions
+        __props__["retainOnDelete"] = retain_on_delete
+        __props__["staging"] = staging
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["trustedKeyGroups"] = trusted_key_groups
+        __props__["trustedSigners"] = trusted_signers
+        __props__["viewerCertificate"] = viewer_certificate
+        __props__["viewerMtlsConfig"] = viewer_mtls_config
+        __props__["waitForDeployment"] = wait_for_deployment
+        __props__["webAclId"] = web_acl_id
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/distribution:Distribution', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aliases(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

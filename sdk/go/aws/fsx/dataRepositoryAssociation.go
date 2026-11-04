@@ -219,6 +219,12 @@ func (DataRepositoryAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataRepositoryAssociationState)(nil)).Elem()
 }
 
+// DataRepositoryAssociationExists checks whether an existing DataRepositoryAssociation resource with the given ID exists.
+func DataRepositoryAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataRepositoryAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", id, state, "", opts...)
+}
+
 type dataRepositoryAssociationArgs struct {
 	// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
 	BatchImportMetaDataOnCreate *bool `pulumi:"batchImportMetaDataOnCreate"`

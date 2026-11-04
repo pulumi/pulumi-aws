@@ -239,6 +239,12 @@ func (ListenerPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerPolicyState)(nil)).Elem()
 }
 
+// ListenerPolicyExists checks whether an existing ListenerPolicy resource with the given ID exists.
+func ListenerPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ListenerPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elb/listenerPolicy:ListenerPolicy", id, state, "", opts...)
+}
+
 type listenerPolicyArgs struct {
 	// The load balancer to attach the policy to.
 	LoadBalancerName string `pulumi:"loadBalancerName"`

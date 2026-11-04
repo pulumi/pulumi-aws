@@ -17,20 +17,18 @@ public final class BucketLoggingTargetGrantGranteeArgs extends com.pulumi.resour
     public static final BucketLoggingTargetGrantGranteeArgs Empty = new BucketLoggingTargetGrantGranteeArgs();
 
     /**
-     * @deprecated
-     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * @deprecated display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
      */
-    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
+    @Deprecated
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @deprecated
-     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * @deprecated display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
      */
-    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
+    @Deprecated
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
@@ -126,11 +124,10 @@ public final class BucketLoggingTargetGrantGranteeArgs extends com.pulumi.resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+         * @deprecated display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
          * 
          */
-        @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
+        @Deprecated
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
@@ -139,11 +136,10 @@ public final class BucketLoggingTargetGrantGranteeArgs extends com.pulumi.resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+         * @deprecated display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
          * 
          */
-        @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
+        @Deprecated
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }

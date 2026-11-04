@@ -127,6 +127,12 @@ func (EventSourcesConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSourcesConfigState)(nil)).Elem()
 }
 
+// EventSourcesConfigExists checks whether an existing EventSourcesConfig resource with the given ID exists.
+func EventSourcesConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventSourcesConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:devopsguru/eventSourcesConfig:EventSourcesConfig", id, state, "", opts...)
+}
+
 type eventSourcesConfigArgs struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources []EventSourcesConfigEventSource `pulumi:"eventSources"`

@@ -395,6 +395,22 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         return Route(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+            destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blackhole"] = blackhole
+        __props__["destinationCidrBlock"] = destination_cidr_block
+        __props__["region"] = region
+        __props__["transitGatewayAttachmentId"] = transit_gateway_attachment_id
+        __props__["transitGatewayRouteTableId"] = transit_gateway_route_table_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/route:Route', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def blackhole(self) -> pulumi.Output[Optional[_builtins.bool]]:

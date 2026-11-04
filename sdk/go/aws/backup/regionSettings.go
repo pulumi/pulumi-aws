@@ -143,6 +143,12 @@ func (RegionSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*regionSettingsState)(nil)).Elem()
 }
 
+// RegionSettingsExists checks whether an existing RegionSettings resource with the given ID exists.
+func RegionSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegionSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/regionSettings:RegionSettings", id, state, "", opts...)
+}
+
 type regionSettingsArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

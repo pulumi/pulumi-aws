@@ -278,6 +278,12 @@ func (ConnectionFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionFunctionState)(nil)).Elem()
 }
 
+// ConnectionFunctionExists checks whether an existing ConnectionFunction resource with the given ID exists.
+func ConnectionFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/connectionFunction:ConnectionFunction", id, state, "", opts...)
+}
+
 type connectionFunctionArgs struct {
 	// Code for the connection function. Maximum length is 40960 characters.
 	ConnectionFunctionCode string `pulumi:"connectionFunctionCode"`

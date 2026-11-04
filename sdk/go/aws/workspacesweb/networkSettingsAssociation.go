@@ -201,6 +201,12 @@ func (NetworkSettingsAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSettingsAssociationState)(nil)).Elem()
 }
 
+// NetworkSettingsAssociationExists checks whether an existing NetworkSettingsAssociation resource with the given ID exists.
+func NetworkSettingsAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSettingsAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/networkSettingsAssociation:NetworkSettingsAssociation", id, state, "", opts...)
+}
+
 type networkSettingsAssociationArgs struct {
 	// ARN of the network settings to associate with the portal. Forces replacement if changed.
 	NetworkSettingsArn string `pulumi:"networkSettingsArn"`

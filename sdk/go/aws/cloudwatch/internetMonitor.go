@@ -166,6 +166,12 @@ func (InternetMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*internetMonitorState)(nil)).Elem()
 }
 
+// InternetMonitorExists checks whether an existing InternetMonitor resource with the given ID exists.
+func InternetMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InternetMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/internetMonitor:InternetMonitor", id, state, "", opts...)
+}
+
 type internetMonitorArgs struct {
 	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
 	HealthEventsConfig *InternetMonitorHealthEventsConfig `pulumi:"healthEventsConfig"`

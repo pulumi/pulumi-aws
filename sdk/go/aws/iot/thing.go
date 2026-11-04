@@ -135,6 +135,12 @@ func (ThingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingState)(nil)).Elem()
 }
 
+// ThingExists checks whether an existing Thing resource with the given ID exists.
+func ThingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/thing:Thing", id, state, "", opts...)
+}
+
 type thingArgs struct {
 	// Map of attributes of the thing.
 	Attributes map[string]string `pulumi:"attributes"`

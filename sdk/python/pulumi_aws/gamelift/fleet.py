@@ -868,6 +868,54 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            build_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            build_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_configuration: pulumi.Input[Optional[Union['FleetCertificateConfigurationArgs', 'FleetCertificateConfigurationArgsDict', 'outputs.FleetCertificateConfiguration']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ec2_inbound_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetEc2InboundPermissionArgs', 'FleetEc2InboundPermissionArgsDict', 'outputs.FleetEc2InboundPermission']]]]] = None,
+            ec2_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            log_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            new_game_session_protection_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_creation_limit_policy: pulumi.Input[Optional[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict', 'outputs.FleetResourceCreationLimitPolicy']]] = None,
+            runtime_configuration: pulumi.Input[Optional[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict', 'outputs.FleetRuntimeConfiguration']]] = None,
+            script_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            script_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["buildArn"] = build_arn
+        __props__["buildId"] = build_id
+        __props__["certificateConfiguration"] = certificate_configuration
+        __props__["description"] = description
+        __props__["ec2InboundPermissions"] = ec2_inbound_permissions
+        __props__["ec2InstanceType"] = ec2_instance_type
+        __props__["fleetType"] = fleet_type
+        __props__["instanceRoleArn"] = instance_role_arn
+        __props__["logPaths"] = log_paths
+        __props__["metricGroups"] = metric_groups
+        __props__["name"] = name
+        __props__["newGameSessionProtectionPolicy"] = new_game_session_protection_policy
+        __props__["operatingSystem"] = operating_system
+        __props__["region"] = region
+        __props__["resourceCreationLimitPolicy"] = resource_creation_limit_policy
+        __props__["runtimeConfiguration"] = runtime_configuration
+        __props__["scriptArn"] = script_arn
+        __props__["scriptId"] = script_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:gamelift/fleet:Fleet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

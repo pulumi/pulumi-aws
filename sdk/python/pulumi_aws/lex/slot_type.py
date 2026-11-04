@@ -544,6 +544,32 @@ class SlotType(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return SlotType(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            checksum: pulumi.Input[Optional[_builtins.str]] = None,
+            create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict', 'outputs.SlotTypeEnumerationValue']]]]] = None,
+            last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            value_selection_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["checksum"] = checksum
+        __props__["createVersion"] = create_version
+        __props__["createdDate"] = created_date
+        __props__["description"] = description
+        __props__["enumerationValues"] = enumeration_values
+        __props__["lastUpdatedDate"] = last_updated_date
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["valueSelectionStrategy"] = value_selection_strategy
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:lex/slotType:SlotType', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> pulumi.Output[_builtins.str]:

@@ -717,6 +717,44 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Stage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_log_settings: pulumi.Input[Optional[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']]] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_deploy: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_route_settings: pulumi.Input[Optional[Union['StageDefaultRouteSettingsArgs', 'StageDefaultRouteSettingsArgsDict', 'outputs.StageDefaultRouteSettings']]] = None,
+            deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            invoke_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict', 'outputs.StageRouteSetting']]]]] = None,
+            stage_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessLogSettings"] = access_log_settings
+        __props__["apiId"] = api_id
+        __props__["arn"] = arn
+        __props__["autoDeploy"] = auto_deploy
+        __props__["clientCertificateId"] = client_certificate_id
+        __props__["defaultRouteSettings"] = default_route_settings
+        __props__["deploymentId"] = deployment_id
+        __props__["description"] = description
+        __props__["executionArn"] = execution_arn
+        __props__["invokeUrl"] = invoke_url
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["routeSettings"] = route_settings
+        __props__["stageVariables"] = stage_variables
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:apigatewayv2/stage:Stage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Output[Optional['outputs.StageAccessLogSettings']]:

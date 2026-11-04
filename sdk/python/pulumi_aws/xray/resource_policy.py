@@ -401,6 +401,24 @@ class ResourcePolicy(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return ResourcePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bypass_policy_lockout_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bypassPolicyLockoutCheck"] = bypass_policy_lockout_check
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["policyDocument"] = policy_document
+        __props__["policyName"] = policy_name
+        __props__["policyRevisionId"] = policy_revision_id
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:xray/resourcePolicy:ResourcePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutCheck")
     def bypass_policy_lockout_check(self) -> pulumi.Output[Optional[_builtins.bool]]:

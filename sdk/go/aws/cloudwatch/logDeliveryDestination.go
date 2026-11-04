@@ -181,6 +181,12 @@ func (LogDeliveryDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDeliveryDestinationState)(nil)).Elem()
 }
 
+// LogDeliveryDestinationExists checks whether an existing LogDeliveryDestination resource with the given ID exists.
+func LogDeliveryDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogDeliveryDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination", id, state, "", opts...)
+}
+
 type logDeliveryDestinationArgs struct {
 	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration *LogDeliveryDestinationDeliveryDestinationConfiguration `pulumi:"deliveryDestinationConfiguration"`

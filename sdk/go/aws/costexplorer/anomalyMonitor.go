@@ -196,6 +196,12 @@ func (AnomalyMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*anomalyMonitorState)(nil)).Elem()
 }
 
+// AnomalyMonitorExists checks whether an existing AnomalyMonitor resource with the given ID exists.
+func AnomalyMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnomalyMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:costexplorer/anomalyMonitor:AnomalyMonitor", id, state, "", opts...)
+}
+
 type anomalyMonitorArgs struct {
 	// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
 	MonitorDimension *string `pulumi:"monitorDimension"`

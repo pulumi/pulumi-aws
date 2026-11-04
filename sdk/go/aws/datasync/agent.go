@@ -225,6 +225,12 @@ func (AgentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentState)(nil)).Elem()
 }
 
+// AgentExists checks whether an existing Agent resource with the given ID exists.
+func AgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datasync/agent:Agent", id, state, "", opts...)
+}
+
 type agentArgs struct {
 	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey *string `pulumi:"activationKey"`

@@ -352,6 +352,20 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
         __props__.__dict__["total_size_in_bytes"] = total_size_in_bytes
         return KeyvaluestoreKeysExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict', 'outputs.KeyvaluestoreKeysExclusiveResourceKeyValuePair']]]]] = None,
+            total_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["keyValueStoreArn"] = key_value_store_arn
+        __props__["maxBatchSize"] = max_batch_size
+        __props__["resourceKeyValuePairs"] = resource_key_value_pairs
+        __props__["totalSizeInBytes"] = total_size_in_bytes
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="keyValueStoreArn")
     def key_value_store_arn(self) -> pulumi.Output[_builtins.str]:

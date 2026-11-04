@@ -975,6 +975,38 @@ class Permissions(pulumi.CustomResource):
         __props__.__dict__["table_with_columns"] = table_with_columns
         return Permissions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_resource: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_cells_filter: pulumi.Input[Optional[Union['PermissionsDataCellsFilterArgs', 'PermissionsDataCellsFilterArgsDict', 'outputs.PermissionsDataCellsFilter']]] = None,
+            data_location: pulumi.Input[Optional[Union['PermissionsDataLocationArgs', 'PermissionsDataLocationArgsDict', 'outputs.PermissionsDataLocation']]] = None,
+            database: pulumi.Input[Optional[Union['PermissionsDatabaseArgs', 'PermissionsDatabaseArgsDict', 'outputs.PermissionsDatabase']]] = None,
+            lf_tag: pulumi.Input[Optional[Union['PermissionsLfTagArgs', 'PermissionsLfTagArgsDict', 'outputs.PermissionsLfTag']]] = None,
+            lf_tag_policy: pulumi.Input[Optional[Union['PermissionsLfTagPolicyArgs', 'PermissionsLfTagPolicyArgsDict', 'outputs.PermissionsLfTagPolicy']]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            permissions_with_grant_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[Union['PermissionsTableArgs', 'PermissionsTableArgsDict', 'outputs.PermissionsTable']]] = None,
+            table_with_columns: pulumi.Input[Optional[Union['PermissionsTableWithColumnsArgs', 'PermissionsTableWithColumnsArgsDict', 'outputs.PermissionsTableWithColumns']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogId"] = catalog_id
+        __props__["catalogResource"] = catalog_resource
+        __props__["dataCellsFilter"] = data_cells_filter
+        __props__["dataLocation"] = data_location
+        __props__["database"] = database
+        __props__["lfTag"] = lf_tag
+        __props__["lfTagPolicy"] = lf_tag_policy
+        __props__["permissions"] = permissions
+        __props__["permissionsWithGrantOptions"] = permissions_with_grant_options
+        __props__["principal"] = principal
+        __props__["region"] = region
+        __props__["table"] = table
+        __props__["tableWithColumns"] = table_with_columns
+        return pulumi.runtime.exists_resource(None, 'aws:lakeformation/permissions:Permissions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[Optional[_builtins.str]]:

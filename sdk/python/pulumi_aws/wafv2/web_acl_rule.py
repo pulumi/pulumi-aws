@@ -1380,6 +1380,36 @@ class WebAclRule(pulumi.CustomResource):
         __props__.__dict__["web_acl_arn"] = web_acl_arn
         return WebAclRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict', 'outputs.WebAclRuleAction']]] = None,
+            captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict', 'outputs.WebAclRuleCaptchaConfig']]] = None,
+            challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict', 'outputs.WebAclRuleChallengeConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict', 'outputs.WebAclRuleOverrideAction']]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict', 'outputs.WebAclRuleRuleLabel']]]]] = None,
+            statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict', 'outputs.WebAclRuleStatement']]] = None,
+            timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict', 'outputs.WebAclRuleTimeouts']]] = None,
+            visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict', 'outputs.WebAclRuleVisibilityConfig']]] = None,
+            web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["captchaConfig"] = captcha_config
+        __props__["challengeConfig"] = challenge_config
+        __props__["name"] = name
+        __props__["overrideAction"] = override_action
+        __props__["priority"] = priority
+        __props__["region"] = region
+        __props__["ruleLabels"] = rule_labels
+        __props__["statement"] = statement
+        __props__["timeouts"] = timeouts
+        __props__["visibilityConfig"] = visibility_config
+        __props__["webAclArn"] = web_acl_arn
+        return pulumi.runtime.exists_resource(None, 'aws:wafv2/webAclRule:WebAclRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional['outputs.WebAclRuleAction']]:

@@ -118,6 +118,12 @@ func (TelemetryEnrichmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*telemetryEnrichmentState)(nil)).Elem()
 }
 
+// TelemetryEnrichmentExists checks whether an existing TelemetryEnrichment resource with the given ID exists.
+func TelemetryEnrichmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TelemetryEnrichmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:observabilityadmin/telemetryEnrichment:TelemetryEnrichment", id, state, "", opts...)
+}
+
 type telemetryEnrichmentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                      `pulumi:"region"`

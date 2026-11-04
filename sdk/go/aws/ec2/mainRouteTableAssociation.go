@@ -117,6 +117,12 @@ func (MainRouteTableAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mainRouteTableAssociationState)(nil)).Elem()
 }
 
+// MainRouteTableAssociationExists checks whether an existing MainRouteTableAssociation resource with the given ID exists.
+func MainRouteTableAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MainRouteTableAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", id, state, "", opts...)
+}
+
 type mainRouteTableAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

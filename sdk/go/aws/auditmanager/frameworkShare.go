@@ -157,6 +157,12 @@ func (FrameworkShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frameworkShareState)(nil)).Elem()
 }
 
+// FrameworkShareExists checks whether an existing FrameworkShare resource with the given ID exists.
+func FrameworkShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrameworkShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:auditmanager/frameworkShare:FrameworkShare", id, state, "", opts...)
+}
+
 type frameworkShareArgs struct {
 	// Comment from the sender about the share request.
 	Comment *string `pulumi:"comment"`

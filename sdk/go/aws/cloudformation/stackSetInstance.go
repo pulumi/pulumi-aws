@@ -304,6 +304,12 @@ func (StackSetInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetInstanceState)(nil)).Elem()
 }
 
+// StackSetInstanceExists checks whether an existing StackSetInstance resource with the given ID exists.
+func StackSetInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StackSetInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudformation/stackSetInstance:StackSetInstance", id, state, "", opts...)
+}
+
 type stackSetInstanceArgs struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId *string `pulumi:"accountId"`

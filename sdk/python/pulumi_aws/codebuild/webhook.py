@@ -651,6 +651,34 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Webhook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            build_type: pulumi.Input[Optional[_builtins.str]] = None,
+            filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict', 'outputs.WebhookFilterGroup']]]]] = None,
+            manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+            payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+            project_name: pulumi.Input[Optional[_builtins.str]] = None,
+            pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict', 'outputs.WebhookPullRequestBuildPolicy']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict', 'outputs.WebhookScopeConfiguration']]] = None,
+            secret: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["branchFilter"] = branch_filter
+        __props__["buildType"] = build_type
+        __props__["filterGroups"] = filter_groups
+        __props__["manualCreation"] = manual_creation
+        __props__["payloadUrl"] = payload_url
+        __props__["projectName"] = project_name
+        __props__["pullRequestBuildPolicy"] = pull_request_build_policy
+        __props__["region"] = region
+        __props__["scopeConfiguration"] = scope_configuration
+        __props__["secret"] = secret
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'aws:codebuild/webhook:Webhook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="branchFilter")
     def branch_filter(self) -> pulumi.Output[Optional[_builtins.str]]:

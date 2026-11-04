@@ -22,22 +22,20 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
      * 
-     * @deprecated
-     * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Import(name="emailTemplates")
     private @Nullable Output<List<EmailTemplateEmailTemplateArgs>> emailTemplates;
 
     /**
      * @return Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
      * 
-     * @deprecated
-     * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     public Optional<Output<List<EmailTemplateEmailTemplateArgs>>> emailTemplates() {
         return Optional.ofNullable(this.emailTemplates);
     }
@@ -75,22 +73,20 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
-     * @deprecated
-     * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Import(name="templateName", required=true)
     private Output<String> templateName;
 
     /**
      * @return Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
-     * @deprecated
-     * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     public Output<String> templateName() {
         return this.templateName;
     }
@@ -127,11 +123,10 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * @deprecated email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated
         public Builder emailTemplates(@Nullable Output<List<EmailTemplateEmailTemplateArgs>> emailTemplates) {
             $.emailTemplates = emailTemplates;
             return this;
@@ -142,11 +137,10 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * @deprecated email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated
         public Builder emailTemplates(List<EmailTemplateEmailTemplateArgs> emailTemplates) {
             return emailTemplates(Output.of(emailTemplates));
         }
@@ -156,11 +150,10 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * @deprecated email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated
         public Builder emailTemplates(EmailTemplateEmailTemplateArgs... emailTemplates) {
             return emailTemplates(List.of(emailTemplates));
         }
@@ -212,11 +205,10 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * @deprecated template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated
         public Builder templateName(Output<String> templateName) {
             $.templateName = templateName;
             return this;
@@ -227,11 +219,10 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * @deprecated template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated
         public Builder templateName(String templateName) {
             return templateName(Output.of(templateName));
         }

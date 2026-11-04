@@ -754,6 +754,40 @@ class Trust(pulumi.CustomResource):
         __props__.__dict__["trust_type"] = trust_type
         return Trust(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            conditional_forwarder_ip_addrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_associated_conditional_forwarder: pulumi.Input[Optional[_builtins.bool]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            selective_auth: pulumi.Input[Optional[_builtins.str]] = None,
+            state_last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_direction: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_password: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_state: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_state_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditionalForwarderIpAddrs"] = conditional_forwarder_ip_addrs
+        __props__["createdDateTime"] = created_date_time
+        __props__["deleteAssociatedConditionalForwarder"] = delete_associated_conditional_forwarder
+        __props__["directoryId"] = directory_id
+        __props__["lastUpdatedDateTime"] = last_updated_date_time
+        __props__["region"] = region
+        __props__["remoteDomainName"] = remote_domain_name
+        __props__["selectiveAuth"] = selective_auth
+        __props__["stateLastUpdatedDateTime"] = state_last_updated_date_time
+        __props__["trustDirection"] = trust_direction
+        __props__["trustPassword"] = trust_password
+        __props__["trustState"] = trust_state
+        __props__["trustStateReason"] = trust_state_reason
+        __props__["trustType"] = trust_type
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservice/trust:Trust', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="conditionalForwarderIpAddrs")
     def conditional_forwarder_ip_addrs(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

@@ -148,6 +148,12 @@ func (PrefixListAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*prefixListAssociationState)(nil)).Elem()
 }
 
+// PrefixListAssociationExists checks whether an existing PrefixListAssociation resource with the given ID exists.
+func PrefixListAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrefixListAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/prefixListAssociation:PrefixListAssociation", id, state, "", opts...)
+}
+
 type prefixListAssociationArgs struct {
 	// The ID of the core network to associate the prefix list with.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

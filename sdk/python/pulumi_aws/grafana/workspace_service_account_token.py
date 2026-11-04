@@ -430,6 +430,30 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceServiceAccountToken(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            seconds_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+            service_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account_token_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["expiresAt"] = expires_at
+        __props__["key"] = key
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["secondsToLive"] = seconds_to_live
+        __props__["serviceAccountId"] = service_account_id
+        __props__["serviceAccountTokenId"] = service_account_token_id
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

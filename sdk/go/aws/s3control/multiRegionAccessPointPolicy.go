@@ -189,6 +189,12 @@ func (MultiRegionAccessPointPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiRegionAccessPointPolicyState)(nil)).Elem()
 }
 
+// MultiRegionAccessPointPolicyExists checks whether an existing MultiRegionAccessPointPolicy resource with the given ID exists.
+func MultiRegionAccessPointPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiRegionAccessPointPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy", id, state, "", opts...)
+}
+
 type multiRegionAccessPointPolicyArgs struct {
 	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`

@@ -318,6 +318,18 @@ class DomainSamlOptions(pulumi.CustomResource):
         __props__.__dict__["saml_options"] = saml_options
         return DomainSamlOptions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict', 'outputs.DomainSamlOptionsSamlOptions']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domainName"] = domain_name
+        __props__["region"] = region
+        __props__["samlOptions"] = saml_options
+        return pulumi.runtime.exists_resource(None, 'aws:elasticsearch/domainSamlOptions:DomainSamlOptions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:

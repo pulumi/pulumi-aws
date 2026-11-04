@@ -135,6 +135,12 @@ func (ConnectionAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionAliasState)(nil)).Elem()
 }
 
+// ConnectionAliasExists checks whether an existing ConnectionAlias resource with the given ID exists.
+func ConnectionAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspaces/connectionAlias:ConnectionAlias", id, state, "", opts...)
+}
+
 type connectionAliasArgs struct {
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
 	ConnectionString string `pulumi:"connectionString"`

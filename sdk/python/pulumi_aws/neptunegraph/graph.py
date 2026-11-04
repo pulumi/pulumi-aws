@@ -670,6 +670,40 @@ class Graph(pulumi.CustomResource):
         __props__.__dict__["vector_search_configuration"] = vector_search_configuration
         return Graph(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+            graph_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
+            public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['GraphTimeoutsArgs', 'GraphTimeoutsArgsDict', 'outputs.GraphTimeouts']]] = None,
+            vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deletionProtection"] = deletion_protection
+        __props__["endpoint"] = endpoint
+        __props__["graphName"] = graph_name
+        __props__["graphNamePrefix"] = graph_name_prefix
+        __props__["kmsKeyIdentifier"] = kms_key_identifier
+        __props__["provisionedMemory"] = provisioned_memory
+        __props__["publicConnectivity"] = public_connectivity
+        __props__["region"] = region
+        __props__["replicaCount"] = replica_count
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["vectorSearchConfiguration"] = vector_search_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:neptunegraph/graph:Graph', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

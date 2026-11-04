@@ -1266,6 +1266,72 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict', 'outputs.NetworkInterfaceAttachment']]]]] = None,
+            connection_tracking_specification: pulumi.Input[Optional[Union['NetworkInterfaceConnectionTrackingSpecificationArgs', 'NetworkInterfaceConnectionTrackingSpecificationArgsDict', 'outputs.NetworkInterfaceConnectionTrackingSpecification']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict', 'outputs.NetworkInterfaceEnaSrdSpecification']]] = None,
+            enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+            interface_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv4_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipv6_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_address_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ipv6_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipv6_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            private_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_ips_count: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["attachments"] = attachments
+        __props__["connectionTrackingSpecification"] = connection_tracking_specification
+        __props__["description"] = description
+        __props__["enaSrdSpecification"] = ena_srd_specification
+        __props__["enablePrimaryIpv6"] = enable_primary_ipv6
+        __props__["interfaceType"] = interface_type
+        __props__["ipv4PrefixCount"] = ipv4_prefix_count
+        __props__["ipv4Prefixes"] = ipv4_prefixes
+        __props__["ipv6AddressCount"] = ipv6_address_count
+        __props__["ipv6AddressListEnabled"] = ipv6_address_list_enabled
+        __props__["ipv6AddressLists"] = ipv6_address_lists
+        __props__["ipv6Addresses"] = ipv6_addresses
+        __props__["ipv6PrefixCount"] = ipv6_prefix_count
+        __props__["ipv6Prefixes"] = ipv6_prefixes
+        __props__["macAddress"] = mac_address
+        __props__["outpostArn"] = outpost_arn
+        __props__["ownerId"] = owner_id
+        __props__["privateDnsName"] = private_dns_name
+        __props__["privateIp"] = private_ip
+        __props__["privateIpListEnabled"] = private_ip_list_enabled
+        __props__["privateIpLists"] = private_ip_lists
+        __props__["privateIps"] = private_ips
+        __props__["privateIpsCount"] = private_ips_count
+        __props__["region"] = region
+        __props__["securityGroups"] = security_groups
+        __props__["sourceDestCheck"] = source_dest_check
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/networkInterface:NetworkInterface', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

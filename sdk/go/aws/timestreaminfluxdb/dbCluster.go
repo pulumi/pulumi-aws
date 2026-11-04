@@ -525,6 +525,12 @@ func (DbClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbClusterState)(nil)).Elem()
 }
 
+// DbClusterExists checks whether an existing DbCluster resource with the given ID exists.
+func DbClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:timestreaminfluxdb/dbCluster:DbCluster", id, state, "", opts...)
+}
+
 type dbClusterArgs struct {
 	// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `dbStorageType` places restrictions on this argument's minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` "InfluxIOIncludedT1":  `20` ,  `"InfluxIOIncludedT2" and ` "InfluxIOIncludedT3":  `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
 	AllocatedStorage *int `pulumi:"allocatedStorage"`

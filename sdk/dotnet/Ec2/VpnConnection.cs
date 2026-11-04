@@ -358,7 +358,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.VpnConnectionTunnel1LogOptions> Tunnel1LogOptions { get; private set; } = null!;
 
         /// <summary>
-        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         /// </summary>
         [Output("tunnel1Phase1DhGroupNumbers")]
         public Output<ImmutableArray<int>> Tunnel1Phase1DhGroupNumbers { get; private set; } = null!;
@@ -508,7 +508,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.VpnConnectionTunnel2LogOptions> Tunnel2LogOptions { get; private set; } = null!;
 
         /// <summary>
-        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         /// </summary>
         [Output("tunnel2Phase1DhGroupNumbers")]
         public Output<ImmutableArray<int>> Tunnel2Phase1DhGroupNumbers { get; private set; } = null!;
@@ -815,7 +815,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<int>? _tunnel1Phase1DhGroupNumbers;
 
         /// <summary>
-        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         /// </summary>
         public InputList<int> Tunnel1Phase1DhGroupNumbers
         {
@@ -987,7 +987,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<int>? _tunnel2Phase1DhGroupNumbers;
 
         /// <summary>
-        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         /// </summary>
         public InputList<int> Tunnel2Phase1DhGroupNumbers
         {
@@ -1375,7 +1375,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<int>? _tunnel1Phase1DhGroupNumbers;
 
         /// <summary>
-        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         /// </summary>
         public InputList<int> Tunnel1Phase1DhGroupNumbers
         {
@@ -1577,7 +1577,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<int>? _tunnel2Phase1DhGroupNumbers;
 
         /// <summary>
-        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         /// </summary>
         public InputList<int> Tunnel2Phase1DhGroupNumbers
         {

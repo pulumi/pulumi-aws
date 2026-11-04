@@ -508,6 +508,32 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["search_service_endpoint"] = search_service_endpoint
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            document_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']]] = None,
+            index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict', 'outputs.DomainIndexField']]]]] = None,
+            multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict', 'outputs.DomainScalingParameters']]] = None,
+            search_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["documentServiceEndpoint"] = document_service_endpoint
+        __props__["domainId"] = domain_id
+        __props__["endpointOptions"] = endpoint_options
+        __props__["indexFields"] = index_fields
+        __props__["multiAz"] = multi_az
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["scalingParameters"] = scaling_parameters
+        __props__["searchServiceEndpoint"] = search_service_endpoint
+        return pulumi.runtime.exists_resource(None, 'aws:cloudsearch/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

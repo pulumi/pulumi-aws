@@ -396,6 +396,26 @@ class IamRoleAssociation(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return IamRoleAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['IamRoleAssociationTimeoutsArgs', 'IamRoleAssociationTimeoutsArgsDict', 'outputs.IamRoleAssociationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsIntegration"] = aws_integration
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:odb/iamRoleAssociation:IamRoleAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsIntegration")
     def aws_integration(self) -> pulumi.Output[_builtins.str]:

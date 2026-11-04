@@ -270,6 +270,18 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
         __props__.__dict__["token_vault_id"] = token_vault_id
         return AgentcoreTokenVaultCmk(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict', 'outputs.AgentcoreTokenVaultCmkKmsConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            token_vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["kmsConfiguration"] = kms_configuration
+        __props__["region"] = region
+        __props__["tokenVaultId"] = token_vault_id
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="kmsConfiguration")
     def kms_configuration(self) -> pulumi.Output['outputs.AgentcoreTokenVaultCmkKmsConfiguration']:

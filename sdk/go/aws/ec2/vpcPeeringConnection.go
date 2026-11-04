@@ -303,6 +303,12 @@ func (VpcPeeringConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcPeeringConnectionState)(nil)).Elem()
 }
 
+// VpcPeeringConnectionExists checks whether an existing VpcPeeringConnection resource with the given ID exists.
+func VpcPeeringConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcPeeringConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", id, state, "", opts...)
+}
+
 type vpcPeeringConnectionArgs struct {
 	// Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
 	Accepter *VpcPeeringConnectionAccepterType `pulumi:"accepter"`

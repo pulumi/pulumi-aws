@@ -126,6 +126,12 @@ func (CidrLocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cidrLocationState)(nil)).Elem()
 }
 
+// CidrLocationExists checks whether an existing CidrLocation resource with the given ID exists.
+func CidrLocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CidrLocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/cidrLocation:CidrLocation", id, state, "", opts...)
+}
+
 type cidrLocationArgs struct {
 	// CIDR blocks for the location.
 	CidrBlocks []string `pulumi:"cidrBlocks"`

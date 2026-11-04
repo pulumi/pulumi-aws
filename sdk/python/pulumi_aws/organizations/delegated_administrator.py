@@ -386,6 +386,30 @@ class DelegatedAdministrator(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return DelegatedAdministrator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delegation_enabled_date: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            joined_method: pulumi.Input[Optional[_builtins.str]] = None,
+            joined_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["arn"] = arn
+        __props__["delegationEnabledDate"] = delegation_enabled_date
+        __props__["email"] = email
+        __props__["joinedMethod"] = joined_method
+        __props__["joinedTimestamp"] = joined_timestamp
+        __props__["name"] = name
+        __props__["servicePrincipal"] = service_principal
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:organizations/delegatedAdministrator:DelegatedAdministrator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

@@ -389,6 +389,20 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["service_id"] = service_id
         return Instance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attributes"] = attributes
+        __props__["instanceId"] = instance_id
+        __props__["region"] = region
+        __props__["serviceId"] = service_id
+        return pulumi.runtime.exists_resource(None, 'aws:servicediscovery/instance:Instance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

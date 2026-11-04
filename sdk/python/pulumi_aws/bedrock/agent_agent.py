@@ -949,6 +949,54 @@ class AgentAgent(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentAgent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_collaboration: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_resource_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            foundation_model: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict', 'outputs.AgentAgentGuardrailConfiguration']]]]] = None,
+            idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            instruction: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]]] = None,
+            prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+            prepared_at: pulumi.Input[Optional[_builtins.str]] = None,
+            prompt_override_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict', 'outputs.AgentAgentPromptOverrideConfiguration']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_resource_in_use_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict', 'outputs.AgentAgentTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentArn"] = agent_arn
+        __props__["agentCollaboration"] = agent_collaboration
+        __props__["agentId"] = agent_id
+        __props__["agentName"] = agent_name
+        __props__["agentResourceRoleArn"] = agent_resource_role_arn
+        __props__["agentVersion"] = agent_version
+        __props__["customerEncryptionKeyArn"] = customer_encryption_key_arn
+        __props__["description"] = description
+        __props__["foundationModel"] = foundation_model
+        __props__["guardrailConfigurations"] = guardrail_configurations
+        __props__["idleSessionTtlInSeconds"] = idle_session_ttl_in_seconds
+        __props__["instruction"] = instruction
+        __props__["memoryConfigurations"] = memory_configurations
+        __props__["prepareAgent"] = prepare_agent
+        __props__["preparedAt"] = prepared_at
+        __props__["promptOverrideConfigurations"] = prompt_override_configurations
+        __props__["region"] = region
+        __props__["skipResourceInUseCheck"] = skip_resource_in_use_check
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentAgent:AgentAgent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentArn")
     def agent_arn(self) -> pulumi.Output[_builtins.str]:

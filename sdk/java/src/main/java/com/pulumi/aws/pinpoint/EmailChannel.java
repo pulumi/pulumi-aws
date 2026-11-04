@@ -118,11 +118,10 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * Application ID.
      * 
-     * @deprecated
-     * application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
@@ -136,11 +135,10 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      * 
-     * @deprecated
-     * configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="configurationSet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationSet;
 
@@ -154,11 +152,10 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
-     * @deprecated
-     * enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
@@ -172,11 +169,10 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * Email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
-     * @deprecated
-     * from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="fromAddress", refs={String.class}, tree="[0]")
     private Output<String> fromAddress;
 
@@ -190,11 +186,10 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * ARN of an identity verified with SES.
      * 
-     * @deprecated
-     * identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
@@ -208,11 +203,10 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * (**Deprecated**) Messages per second that can be sent.
      * 
-     * @deprecated
-     * messages_per_second is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated messages_per_second is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* messages_per_second is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="messagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> messagesPerSecond;
 
@@ -226,11 +220,10 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * ARN of an IAM role for AWS End User Messaging to use to send email from your campaigns or journeys through Amazon SES.
      * 
-     * @deprecated
-     * orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="orchestrationSendingRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orchestrationSendingRoleArn;
 
@@ -258,11 +251,10 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
-     * @deprecated
-     * role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 

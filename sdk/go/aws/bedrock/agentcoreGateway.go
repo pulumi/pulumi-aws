@@ -370,6 +370,12 @@ func (AgentcoreGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreGatewayState)(nil)).Elem()
 }
 
+// AgentcoreGatewayExists checks whether an existing AgentcoreGateway resource with the given ID exists.
+func AgentcoreGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreGateway:AgentcoreGateway", id, state, "", opts...)
+}
+
 type agentcoreGatewayArgs struct {
 	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
 	AuthorizerConfiguration *AgentcoreGatewayAuthorizerConfiguration `pulumi:"authorizerConfiguration"`

@@ -221,6 +221,12 @@ func (CapacityBlockReservationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityBlockReservationState)(nil)).Elem()
 }
 
+// CapacityBlockReservationExists checks whether an existing CapacityBlockReservation resource with the given ID exists.
+func CapacityBlockReservationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityBlockReservationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/capacityBlockReservation:CapacityBlockReservation", id, state, "", opts...)
+}
+
 type capacityBlockReservationArgs struct {
 	// The Capacity Block Reservation ID.
 	CapacityBlockOfferingId string `pulumi:"capacityBlockOfferingId"`

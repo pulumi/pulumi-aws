@@ -191,6 +191,12 @@ func (AccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessState)(nil)).Elem()
 }
 
+// AccessExists checks whether an existing Access resource with the given ID exists.
+func AccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/access:Access", id, state, "", opts...)
+}
+
 type accessArgs struct {
 	// SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
 	ExternalId string `pulumi:"externalId"`

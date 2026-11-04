@@ -227,6 +227,12 @@ func (HubContentReferenceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubContentReferenceState)(nil)).Elem()
 }
 
+// HubContentReferenceExists checks whether an existing HubContentReference resource with the given ID exists.
+func HubContentReferenceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HubContentReferenceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/hubContentReference:HubContentReference", id, state, "", opts...)
+}
+
 type hubContentReferenceArgs struct {
 	// Name of the hub content reference.
 	HubContentName string `pulumi:"hubContentName"`

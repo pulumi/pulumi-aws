@@ -358,6 +358,24 @@ class PolicyTemplate(pulumi.CustomResource):
         __props__.__dict__["statement"] = statement
         return PolicyTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            statement: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdDate"] = created_date
+        __props__["description"] = description
+        __props__["policyStoreId"] = policy_store_id
+        __props__["policyTemplateId"] = policy_template_id
+        __props__["region"] = region
+        __props__["statement"] = statement
+        return pulumi.runtime.exists_resource(None, 'aws:verifiedpermissions/policyTemplate:PolicyTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[_builtins.str]:

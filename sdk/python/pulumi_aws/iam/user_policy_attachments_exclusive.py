@@ -266,6 +266,16 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
         __props__.__dict__["user_name"] = user_name
         return UserPolicyAttachmentsExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["policyArns"] = policy_arns
+        __props__["userName"] = user_name
+        return pulumi.runtime.exists_resource(None, 'aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:

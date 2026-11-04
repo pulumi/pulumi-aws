@@ -408,6 +408,24 @@ class AlternativeContact(pulumi.CustomResource):
         __props__.__dict__["title"] = title
         return AlternativeContact(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            alternate_contact_type: pulumi.Input[Optional[_builtins.str]] = None,
+            email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["alternateContactType"] = alternate_contact_type
+        __props__["emailAddress"] = email_address
+        __props__["name"] = name
+        __props__["phoneNumber"] = phone_number
+        __props__["title"] = title
+        return pulumi.runtime.exists_resource(None, 'aws:account/alternativeContact:AlternativeContact', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -131,6 +131,12 @@ func (EgressOnlyInternetGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*egressOnlyInternetGatewayState)(nil)).Elem()
 }
 
+// EgressOnlyInternetGatewayExists checks whether an existing EgressOnlyInternetGateway resource with the given ID exists.
+func EgressOnlyInternetGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EgressOnlyInternetGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", id, state, "", opts...)
+}
+
 type egressOnlyInternetGatewayArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

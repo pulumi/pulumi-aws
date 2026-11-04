@@ -216,6 +216,12 @@ func (CertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateState)(nil)).Elem()
 }
 
+// CertificateExists checks whether an existing Certificate resource with the given ID exists.
+func CertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:acmpca/certificate:Certificate", id, state, "", opts...)
+}
+
 type certificateArgs struct {
 	// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
 	ApiPassthrough *string `pulumi:"apiPassthrough"`

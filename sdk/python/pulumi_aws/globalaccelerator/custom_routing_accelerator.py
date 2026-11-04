@@ -506,6 +506,34 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CustomRoutingAccelerator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attributes: pulumi.Input[Optional[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict', 'outputs.CustomRoutingAcceleratorAttributes']]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ip_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingAcceleratorIpSetArgs', 'CustomRoutingAcceleratorIpSetArgsDict', 'outputs.CustomRoutingAcceleratorIpSet']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["attributes"] = attributes
+        __props__["dnsName"] = dns_name
+        __props__["enabled"] = enabled
+        __props__["hostedZoneId"] = hosted_zone_id
+        __props__["ipAddressType"] = ip_address_type
+        __props__["ipAddresses"] = ip_addresses
+        __props__["ipSets"] = ip_sets
+        __props__["name"] = name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -21,22 +21,20 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The replication set&#39;s Regions. Use `regions` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use regions instead.
+     * @deprecated region is deprecated. Use regions instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use regions instead. */
+    @Deprecated
     @Import(name="region")
     private @Nullable Output<List<ReplicationSetRegionArgs>> region;
 
     /**
      * @return The replication set&#39;s Regions. Use `regions` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use regions instead.
+     * @deprecated region is deprecated. Use regions instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use regions instead. */
+    @Deprecated
     public Optional<Output<List<ReplicationSetRegionArgs>>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -126,11 +124,10 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use regions instead.
+         * @deprecated region is deprecated. Use regions instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use regions instead. */
+        @Deprecated
         public Builder region(@Nullable Output<List<ReplicationSetRegionArgs>> region) {
             $.region = region;
             return this;
@@ -141,11 +138,10 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use regions instead.
+         * @deprecated region is deprecated. Use regions instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use regions instead. */
+        @Deprecated
         public Builder region(List<ReplicationSetRegionArgs> region) {
             return region(Output.of(region));
         }
@@ -155,11 +151,10 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use regions instead.
+         * @deprecated region is deprecated. Use regions instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use regions instead. */
+        @Deprecated
         public Builder region(ReplicationSetRegionArgs... region) {
             return region(List.of(region));
         }

@@ -155,6 +155,12 @@ func (AccessGrantsLocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessGrantsLocationState)(nil)).Elem()
 }
 
+// AccessGrantsLocationExists checks whether an existing AccessGrantsLocation resource with the given ID exists.
+func AccessGrantsLocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessGrantsLocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/accessGrantsLocation:AccessGrantsLocation", id, state, "", opts...)
+}
+
 type accessGrantsLocationArgs struct {
 	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`

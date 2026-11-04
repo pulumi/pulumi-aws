@@ -62,14 +62,14 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+     * Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ &#92; ] ^ _ ` { | } ~ .``
      * 
      */
     @Import(name="excludePunctuation")
     private @Nullable Boolean excludePunctuation;
 
     /**
-     * @return Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+     * @return Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ &#92; ] ^ _ ` { | } ~ .``
      * 
      */
     public Optional<Boolean> excludePunctuation() {
@@ -217,7 +217,7 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param excludePunctuation Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ &#92; ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 

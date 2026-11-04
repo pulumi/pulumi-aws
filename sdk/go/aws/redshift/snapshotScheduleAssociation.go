@@ -134,6 +134,12 @@ func (SnapshotScheduleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotScheduleAssociationState)(nil)).Elem()
 }
 
+// SnapshotScheduleAssociationExists checks whether an existing SnapshotScheduleAssociation resource with the given ID exists.
+func SnapshotScheduleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotScheduleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation", id, state, "", opts...)
+}
+
 type snapshotScheduleAssociationArgs struct {
 	// The cluster identifier.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`

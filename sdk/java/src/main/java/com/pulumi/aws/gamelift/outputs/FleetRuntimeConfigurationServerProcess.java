@@ -19,7 +19,7 @@ public final class FleetRuntimeConfigurationServerProcess {
      */
     private Integer concurrentExecutions;
     /**
-     * @return Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
+     * @return Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:&#92;game`, and for Linux instances `/local/game`.
      * 
      */
     private String launchPath;
@@ -38,7 +38,7 @@ public final class FleetRuntimeConfigurationServerProcess {
         return this.concurrentExecutions;
     }
     /**
-     * @return Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
+     * @return Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:&#92;game`, and for Linux instances `/local/game`.
      * 
      */
     public String launchPath() {

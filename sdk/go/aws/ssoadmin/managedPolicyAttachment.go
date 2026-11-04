@@ -212,6 +212,12 @@ func (ManagedPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPolicyAttachmentState)(nil)).Elem()
 }
 
+// ManagedPolicyAttachmentExists checks whether an existing ManagedPolicyAttachment resource with the given ID exists.
+func ManagedPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment", id, state, "", opts...)
+}
+
 type managedPolicyAttachmentArgs struct {
 	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn string `pulumi:"instanceArn"`

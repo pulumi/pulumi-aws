@@ -873,6 +873,32 @@ class AgentDataSource(pulumi.CustomResource):
         __props__.__dict__["vector_ingestion_configuration"] = vector_ingestion_configuration
         return AgentDataSource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']]] = None,
+            data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict', 'outputs.AgentDataSourceTimeouts']]] = None,
+            vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataDeletionPolicy"] = data_deletion_policy
+        __props__["dataSourceConfiguration"] = data_source_configuration
+        __props__["dataSourceId"] = data_source_id
+        __props__["description"] = description
+        __props__["knowledgeBaseId"] = knowledge_base_id
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["serverSideEncryptionConfiguration"] = server_side_encryption_configuration
+        __props__["timeouts"] = timeouts
+        __props__["vectorIngestionConfiguration"] = vector_ingestion_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentDataSource:AgentDataSource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataDeletionPolicy")
     def data_deletion_policy(self) -> pulumi.Output[_builtins.str]:

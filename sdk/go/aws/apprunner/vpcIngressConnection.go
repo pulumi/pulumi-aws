@@ -165,6 +165,12 @@ func (VpcIngressConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIngressConnectionState)(nil)).Elem()
 }
 
+// VpcIngressConnectionExists checks whether an existing VpcIngressConnection resource with the given ID exists.
+func VpcIngressConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIngressConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apprunner/vpcIngressConnection:VpcIngressConnection", id, state, "", opts...)
+}
+
 type vpcIngressConnectionArgs struct {
 	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfiguration `pulumi:"ingressVpcConfiguration"`

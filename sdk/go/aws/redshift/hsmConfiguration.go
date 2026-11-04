@@ -181,6 +181,12 @@ func (HsmConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hsmConfigurationState)(nil)).Elem()
 }
 
+// HsmConfigurationExists checks whether an existing HsmConfiguration resource with the given ID exists.
+func HsmConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HsmConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/hsmConfiguration:HsmConfiguration", id, state, "", opts...)
+}
+
 type hsmConfigurationArgs struct {
 	// A text description of the HSM configuration to be created.
 	Description string `pulumi:"description"`

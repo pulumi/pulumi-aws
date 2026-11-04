@@ -153,6 +153,12 @@ func (SdkvoiceSipRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sdkvoiceSipRuleState)(nil)).Elem()
 }
 
+// SdkvoiceSipRuleExists checks whether an existing SdkvoiceSipRule resource with the given ID exists.
+func SdkvoiceSipRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SdkvoiceSipRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/sdkvoiceSipRule:SdkvoiceSipRule", id, state, "", opts...)
+}
+
 type sdkvoiceSipRuleArgs struct {
 	// Enables or disables a rule. You must disable rules before you can delete them.
 	Disabled *bool `pulumi:"disabled"`

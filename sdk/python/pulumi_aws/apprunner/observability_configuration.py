@@ -425,6 +425,30 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         __props__.__dict__["trace_configuration"] = trace_configuration
         return ObservabilityConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            latest: pulumi.Input[Optional[_builtins.bool]] = None,
+            observability_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            observability_configuration_revision: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trace_configuration: pulumi.Input[Optional[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict', 'outputs.ObservabilityConfigurationTraceConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["latest"] = latest
+        __props__["observabilityConfigurationName"] = observability_configuration_name
+        __props__["observabilityConfigurationRevision"] = observability_configuration_revision
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["traceConfiguration"] = trace_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:apprunner/observabilityConfiguration:ObservabilityConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

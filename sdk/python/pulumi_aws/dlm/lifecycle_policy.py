@@ -888,6 +888,30 @@ class LifecyclePolicy(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return LifecyclePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_details: pulumi.Input[Optional[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict', 'outputs.LifecyclePolicyPolicyDetails']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["defaultPolicy"] = default_policy
+        __props__["description"] = description
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["policyDetails"] = policy_details
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:dlm/lifecyclePolicy:LifecyclePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

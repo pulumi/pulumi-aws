@@ -191,6 +191,12 @@ func (PolicyTableEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyTableEntryState)(nil)).Elem()
 }
 
+// PolicyTableEntryExists checks whether an existing PolicyTableEntry resource with the given ID exists.
+func PolicyTableEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyTableEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/policyTableEntry:PolicyTableEntry", id, state, "", opts...)
+}
+
 type policyTableEntryArgs struct {
 	// Matching criteria for the policy table entry. See below.
 	PolicyRule *PolicyTableEntryPolicyRule `pulumi:"policyRule"`

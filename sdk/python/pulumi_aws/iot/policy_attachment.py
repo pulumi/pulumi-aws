@@ -271,6 +271,18 @@ class PolicyAttachment(pulumi.CustomResource):
         __props__.__dict__["target"] = target
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["target"] = target
+        return pulumi.runtime.exists_resource(None, 'aws:iot/policyAttachment:PolicyAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:

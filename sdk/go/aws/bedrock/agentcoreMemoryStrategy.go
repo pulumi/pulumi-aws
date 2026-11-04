@@ -530,6 +530,12 @@ func (AgentcoreMemoryStrategyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreMemoryStrategyState)(nil)).Elem()
 }
 
+// AgentcoreMemoryStrategyExists checks whether an existing AgentcoreMemoryStrategy resource with the given ID exists.
+func AgentcoreMemoryStrategyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreMemoryStrategyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy", id, state, "", opts...)
+}
+
 type agentcoreMemoryStrategyArgs struct {
 	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration *AgentcoreMemoryStrategyConfiguration `pulumi:"configuration"`

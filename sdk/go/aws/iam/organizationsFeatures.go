@@ -115,6 +115,12 @@ func (OrganizationsFeaturesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationsFeaturesState)(nil)).Elem()
 }
 
+// OrganizationsFeaturesExists checks whether an existing OrganizationsFeatures resource with the given ID exists.
+func OrganizationsFeaturesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationsFeaturesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/organizationsFeatures:OrganizationsFeatures", id, state, "", opts...)
+}
+
 type organizationsFeaturesArgs struct {
 	// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
 	EnabledFeatures []string `pulumi:"enabledFeatures"`

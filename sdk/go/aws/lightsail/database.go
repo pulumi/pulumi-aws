@@ -446,6 +446,12 @@ func (DatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseState)(nil)).Elem()
 }
 
+// DatabaseExists checks whether an existing Database resource with the given ID exists.
+func DatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/database:Database", id, state, "", opts...)
+}
+
 type databaseArgs struct {
 	// Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`

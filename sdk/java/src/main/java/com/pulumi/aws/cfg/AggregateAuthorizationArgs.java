@@ -50,22 +50,20 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
     /**
      * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
-     * @deprecated
-     * region is deprecated. Use authorizedAwsRegion instead.
+     * @deprecated region is deprecated. Use authorizedAwsRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
+    @Deprecated
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
      * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
-     * @deprecated
-     * region is deprecated. Use authorizedAwsRegion instead.
+     * @deprecated region is deprecated. Use authorizedAwsRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
+    @Deprecated
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -159,11 +157,10 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use authorizedAwsRegion instead.
+         * @deprecated region is deprecated. Use authorizedAwsRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
+        @Deprecated
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
@@ -174,11 +171,10 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use authorizedAwsRegion instead.
+         * @deprecated region is deprecated. Use authorizedAwsRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
+        @Deprecated
         public Builder region(String region) {
             return region(Output.of(region));
         }

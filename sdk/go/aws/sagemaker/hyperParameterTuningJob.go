@@ -278,6 +278,12 @@ func (HyperParameterTuningJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hyperParameterTuningJobState)(nil)).Elem()
 }
 
+// HyperParameterTuningJobExists checks whether an existing HyperParameterTuningJob resource with the given ID exists.
+func HyperParameterTuningJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HyperParameterTuningJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/hyperParameterTuningJob:HyperParameterTuningJob", id, state, "", opts...)
+}
+
 type hyperParameterTuningJobArgs struct {
 	// Autotune settings. See `autotune`.
 	Autotune *HyperParameterTuningJobAutotune `pulumi:"autotune"`

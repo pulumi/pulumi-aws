@@ -629,6 +629,36 @@ class IdentityPool(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return IdentityPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_classic_flow: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_unauthenticated_identities: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict', 'outputs.IdentityPoolCognitoIdentityProvider']]]]] = None,
+            developer_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+            openid_connect_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            supported_login_providers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowClassicFlow"] = allow_classic_flow
+        __props__["allowUnauthenticatedIdentities"] = allow_unauthenticated_identities
+        __props__["arn"] = arn
+        __props__["cognitoIdentityProviders"] = cognito_identity_providers
+        __props__["developerProviderName"] = developer_provider_name
+        __props__["identityPoolName"] = identity_pool_name
+        __props__["openidConnectProviderArns"] = openid_connect_provider_arns
+        __props__["region"] = region
+        __props__["samlProviderArns"] = saml_provider_arns
+        __props__["supportedLoginProviders"] = supported_login_providers
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/identityPool:IdentityPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowClassicFlow")
     def allow_classic_flow(self) -> pulumi.Output[Optional[_builtins.bool]]:

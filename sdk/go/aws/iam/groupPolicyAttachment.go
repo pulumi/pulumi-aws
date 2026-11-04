@@ -137,6 +137,12 @@ func (GroupPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupPolicyAttachmentState)(nil)).Elem()
 }
 
+// GroupPolicyAttachmentExists checks whether an existing GroupPolicyAttachment resource with the given ID exists.
+func GroupPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", id, state, "", opts...)
+}
+
 type groupPolicyAttachmentArgs struct {
 	// The group the policy should be applied to
 	Group interface{} `pulumi:"group"`

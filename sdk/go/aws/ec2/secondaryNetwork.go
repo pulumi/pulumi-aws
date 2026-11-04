@@ -175,6 +175,12 @@ func (SecondaryNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secondaryNetworkState)(nil)).Elem()
 }
 
+// SecondaryNetworkExists checks whether an existing SecondaryNetwork resource with the given ID exists.
+func SecondaryNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecondaryNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/secondaryNetwork:SecondaryNetwork", id, state, "", opts...)
+}
+
 type secondaryNetworkArgs struct {
 	// IPv4 CIDR block for the secondary network. The CIDR block size must be between `/12` and `/28`.
 	Ipv4CidrBlock string `pulumi:"ipv4CidrBlock"`

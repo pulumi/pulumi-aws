@@ -356,6 +356,24 @@ class VpcOrigin(pulumi.CustomResource):
         __props__.__dict__["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
         return VpcOrigin(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['VpcOriginTimeoutsArgs', 'VpcOriginTimeoutsArgsDict', 'outputs.VpcOriginTimeouts']]] = None,
+            vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginVpcOriginEndpointConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["etag"] = etag
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["vpcOriginEndpointConfig"] = vpc_origin_endpoint_config
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/vpcOrigin:VpcOrigin', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

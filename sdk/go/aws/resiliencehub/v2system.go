@@ -203,6 +203,12 @@ func (V2SystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2systemState)(nil)).Elem()
 }
 
+// V2SystemExists checks whether an existing V2System resource with the given ID exists.
+func V2SystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2SystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resiliencehub/v2System:V2System", id, state, "", opts...)
+}
+
 type v2systemArgs struct {
 	// Description of the system.
 	Description *string `pulumi:"description"`

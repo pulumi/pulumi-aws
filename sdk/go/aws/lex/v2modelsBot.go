@@ -219,6 +219,12 @@ func (V2modelsBotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2modelsBotState)(nil)).Elem()
 }
 
+// V2modelsBotExists checks whether an existing V2modelsBot resource with the given ID exists.
+func V2modelsBotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2modelsBotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/v2modelsBot:V2modelsBot", id, state, "", opts...)
+}
+
 type v2modelsBotArgs struct {
 	// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
 	DataPrivacies []V2modelsBotDataPrivacy `pulumi:"dataPrivacies"`

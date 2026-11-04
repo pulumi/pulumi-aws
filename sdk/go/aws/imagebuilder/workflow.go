@@ -229,6 +229,12 @@ func (WorkflowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowState)(nil)).Elem()
 }
 
+// WorkflowExists checks whether an existing Workflow resource with the given ID exists.
+func WorkflowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkflowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:imagebuilder/workflow:Workflow", id, state, "", opts...)
+}
+
 type workflowArgs struct {
 	// Change description of the workflow.
 	ChangeDescription *string `pulumi:"changeDescription"`

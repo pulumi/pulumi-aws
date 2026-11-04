@@ -424,6 +424,30 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
         __props__.__dict__["tags_all"] = tags_all
         return LocalGatewayRouteTableVirtualInterfaceGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            local_gateway_route_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["localGatewayId"] = local_gateway_id
+        __props__["localGatewayRouteTableArn"] = local_gateway_route_table_arn
+        __props__["localGatewayRouteTableId"] = local_gateway_route_table_id
+        __props__["localGatewayVirtualInterfaceGroupId"] = local_gateway_virtual_interface_group_id
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation:LocalGatewayRouteTableVirtualInterfaceGroupAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> pulumi.Output[_builtins.str]:

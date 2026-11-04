@@ -328,6 +328,12 @@ func (BucketAclV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketAclV2State)(nil)).Elem()
 }
 
+// BucketAclV2Exists checks whether an existing BucketAclV2 resource with the given ID exists.
+func BucketAclV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketAclV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketAclV2:BucketAclV2", id, state, "", opts...)
+}
+
 type bucketAclV2Args struct {
 	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy *BucketAclV2AccessControlPolicy `pulumi:"accessControlPolicy"`

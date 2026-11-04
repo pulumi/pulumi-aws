@@ -549,6 +549,12 @@ func (ClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterState)(nil)).Elem()
 }
 
+// ClusterExists checks whether an existing Cluster resource with the given ID exists.
+func ClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elasticache/cluster:Cluster", id, state, "", opts...)
+}
+
 type clusterArgs struct {
 	// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
 	ApplyImmediately *bool `pulumi:"applyImmediately"`

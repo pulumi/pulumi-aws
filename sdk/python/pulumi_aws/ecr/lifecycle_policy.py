@@ -501,6 +501,20 @@ class LifecyclePolicy(pulumi.CustomResource):
         __props__.__dict__["repository"] = repository
         return LifecyclePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy: pulumi.Input[Optional[Union[_builtins.str, Union['LifecyclePolicyDocumentArgs', 'LifecyclePolicyDocumentArgsDict']]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["registryId"] = registry_id
+        __props__["repository"] = repository
+        return pulumi.runtime.exists_resource(None, 'aws:ecr/lifecyclePolicy:LifecyclePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:

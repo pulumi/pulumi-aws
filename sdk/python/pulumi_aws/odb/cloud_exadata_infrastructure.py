@@ -1196,6 +1196,94 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         __props__.__dict__["total_storage_size_in_gbs"] = total_storage_size_in_gbs
         return CloudExadataInfrastructure(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activated_storage_count: pulumi.Input[Optional[_builtins.int]] = None,
+            additional_storage_count: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            available_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            compute_count: pulumi.Input[Optional[_builtins.int]] = None,
+            compute_model: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_contacts_to_send_to_ocis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict', 'outputs.CloudExadataInfrastructureCustomerContactsToSendToOci']]]]] = None,
+            data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+            database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
+            db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            db_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            last_maintenance_run_id: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.CloudExadataInfrastructureMaintenanceWindow']]] = None,
+            max_cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            max_data_storage_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+            max_db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            max_memory_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            monthly_db_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+            monthly_storage_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+            next_maintenance_run_id: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_resource_anchor_name: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_url: pulumi.Input[Optional[_builtins.str]] = None,
+            ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            percent_progress: pulumi.Input[Optional[_builtins.float]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shape: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_count: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_server_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['CloudExadataInfrastructureTimeoutsArgs', 'CloudExadataInfrastructureTimeoutsArgsDict', 'outputs.CloudExadataInfrastructureTimeouts']]] = None,
+            total_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activatedStorageCount"] = activated_storage_count
+        __props__["additionalStorageCount"] = additional_storage_count
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["availabilityZoneId"] = availability_zone_id
+        __props__["availableStorageSizeInGbs"] = available_storage_size_in_gbs
+        __props__["computeCount"] = compute_count
+        __props__["computeModel"] = compute_model
+        __props__["cpuCount"] = cpu_count
+        __props__["createdAt"] = created_at
+        __props__["customerContactsToSendToOcis"] = customer_contacts_to_send_to_ocis
+        __props__["dataStorageSizeInTbs"] = data_storage_size_in_tbs
+        __props__["databaseServerType"] = database_server_type
+        __props__["dbNodeStorageSizeInGbs"] = db_node_storage_size_in_gbs
+        __props__["dbServerVersion"] = db_server_version
+        __props__["displayName"] = display_name
+        __props__["lastMaintenanceRunId"] = last_maintenance_run_id
+        __props__["maintenanceWindow"] = maintenance_window
+        __props__["maxCpuCount"] = max_cpu_count
+        __props__["maxDataStorageInTbs"] = max_data_storage_in_tbs
+        __props__["maxDbNodeStorageSizeInGbs"] = max_db_node_storage_size_in_gbs
+        __props__["maxMemoryInGbs"] = max_memory_in_gbs
+        __props__["memorySizeInGbs"] = memory_size_in_gbs
+        __props__["monthlyDbServerVersion"] = monthly_db_server_version
+        __props__["monthlyStorageServerVersion"] = monthly_storage_server_version
+        __props__["nextMaintenanceRunId"] = next_maintenance_run_id
+        __props__["ociResourceAnchorName"] = oci_resource_anchor_name
+        __props__["ociUrl"] = oci_url
+        __props__["ocid"] = ocid
+        __props__["percentProgress"] = percent_progress
+        __props__["region"] = region
+        __props__["shape"] = shape
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        __props__["storageCount"] = storage_count
+        __props__["storageServerType"] = storage_server_type
+        __props__["storageServerVersion"] = storage_server_version
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["totalStorageSizeInGbs"] = total_storage_size_in_gbs
+        return pulumi.runtime.exists_resource(None, 'aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activatedStorageCount")
     def activated_storage_count(self) -> pulumi.Output[_builtins.int]:

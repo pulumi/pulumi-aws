@@ -253,6 +253,12 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyState)(nil)).Elem()
 }
 
+// ResourcePolicyExists checks whether an existing ResourcePolicy resource with the given ID exists.
+func ResourcePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourcePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/resourcePolicy:ResourcePolicy", id, state, "", opts...)
+}
+
 type resourcePolicyArgs struct {
 	// JSON-formatted resource-based policy document to attach to the Lambda resource. This replaces the entire policy on the resource. Maximum 20,480 characters.
 	Policy string `pulumi:"policy"`

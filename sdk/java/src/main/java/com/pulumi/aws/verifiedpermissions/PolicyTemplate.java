@@ -37,19 +37,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new PolicyTemplate("example", PolicyTemplateArgs.builder()
  *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.get("id"))
- *             .statement("permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };")
+ *             .statement("permit (principal in ?principal, action in PhotoFlash::Action::}&#92;{@code "FullPhotoAccess}&#92;{@code ", resource == ?resource) unless }{{@code  resource.IsPrivate }}{@code ;")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

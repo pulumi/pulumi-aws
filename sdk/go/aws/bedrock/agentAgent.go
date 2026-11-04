@@ -316,6 +316,12 @@ func (AgentAgentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentAgentState)(nil)).Elem()
 }
 
+// AgentAgentExists checks whether an existing AgentAgent resource with the given ID exists.
+func AgentAgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentAgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentAgent:AgentAgent", id, state, "", opts...)
+}
+
 type agentAgentArgs struct {
 	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
 	AgentCollaboration *string `pulumi:"agentCollaboration"`

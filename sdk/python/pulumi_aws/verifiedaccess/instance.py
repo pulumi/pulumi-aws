@@ -480,6 +480,32 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["verified_access_trust_providers"] = verified_access_trust_providers
         return Instance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr_endpoints_custom_subdomain: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            verified_access_trust_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict', 'outputs.InstanceVerifiedAccessTrustProvider']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidrEndpointsCustomSubdomain"] = cidr_endpoints_custom_subdomain
+        __props__["creationTime"] = creation_time
+        __props__["description"] = description
+        __props__["fipsEnabled"] = fips_enabled
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["nameServers"] = name_servers
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["verifiedAccessTrustProviders"] = verified_access_trust_providers
+        return pulumi.runtime.exists_resource(None, 'aws:verifiedaccess/instance:Instance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cidrEndpointsCustomSubdomain")
     def cidr_endpoints_custom_subdomain(self) -> pulumi.Output[Optional[_builtins.str]]:

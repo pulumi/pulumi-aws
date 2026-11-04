@@ -220,6 +220,12 @@ func (SnapshotCopyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyState)(nil)).Elem()
 }
 
+// SnapshotCopyExists checks whether an existing SnapshotCopy resource with the given ID exists.
+func SnapshotCopyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotCopyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ebs/snapshotCopy:SnapshotCopy", id, state, "", opts...)
+}
+
 type snapshotCopyArgs struct {
 	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
 	CompletionDurationMinutes *int `pulumi:"completionDurationMinutes"`

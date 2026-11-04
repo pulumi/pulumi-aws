@@ -155,6 +155,12 @@ func (RegionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*regionState)(nil)).Elem()
 }
 
+// RegionExists checks whether an existing Region resource with the given ID exists.
+func RegionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/region:Region", id, state, "", opts...)
+}
+
 type regionArgs struct {
 	// ARN of the IAM Identity Center instance.
 	InstanceArn string `pulumi:"instanceArn"`

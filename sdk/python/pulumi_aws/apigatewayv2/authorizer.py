@@ -619,6 +619,34 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Authorizer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_result_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict', 'outputs.AuthorizerJwtConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["authorizerCredentialsArn"] = authorizer_credentials_arn
+        __props__["authorizerPayloadFormatVersion"] = authorizer_payload_format_version
+        __props__["authorizerResultTtlInSeconds"] = authorizer_result_ttl_in_seconds
+        __props__["authorizerType"] = authorizer_type
+        __props__["authorizerUri"] = authorizer_uri
+        __props__["enableSimpleResponses"] = enable_simple_responses
+        __props__["identitySources"] = identity_sources
+        __props__["jwtConfiguration"] = jwt_configuration
+        __props__["name"] = name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:apigatewayv2/authorizer:Authorizer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

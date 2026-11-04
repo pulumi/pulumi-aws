@@ -228,6 +228,12 @@ func (UserPoolDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolDomainState)(nil)).Elem()
 }
 
+// UserPoolDomainExists checks whether an existing UserPoolDomain resource with the given ID exists.
+func UserPoolDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/userPoolDomain:UserPoolDomain", id, state, "", opts...)
+}
+
 type userPoolDomainArgs struct {
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn *string `pulumi:"certificateArn"`

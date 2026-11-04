@@ -165,6 +165,12 @@ func (NfsLocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nfsLocationState)(nil)).Elem()
 }
 
+// NfsLocationExists checks whether an existing NfsLocation resource with the given ID exists.
+func NfsLocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NfsLocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datasync/nfsLocation:NfsLocation", id, state, "", opts...)
+}
+
 type nfsLocationArgs struct {
 	// Configuration block containing mount options used by DataSync to access the NFS Server.
 	MountOptions *NfsLocationMountOptions `pulumi:"mountOptions"`

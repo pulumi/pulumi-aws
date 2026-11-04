@@ -119,6 +119,12 @@ func (ManagedNotificationAdditionalChannelAssociationState) ElementType() reflec
 	return reflect.TypeOf((*managedNotificationAdditionalChannelAssociationState)(nil)).Elem()
 }
 
+// ManagedNotificationAdditionalChannelAssociationExists checks whether an existing ManagedNotificationAdditionalChannelAssociation resource with the given ID exists.
+func ManagedNotificationAdditionalChannelAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedNotificationAdditionalChannelAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:notifications/managedNotificationAdditionalChannelAssociation:ManagedNotificationAdditionalChannelAssociation", id, state, "", opts...)
+}
+
 type managedNotificationAdditionalChannelAssociationArgs struct {
 	// ARN of the channel to associate with the managed notification.
 	ChannelArn string `pulumi:"channelArn"`

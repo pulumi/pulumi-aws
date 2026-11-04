@@ -184,6 +184,12 @@ func (TableReplicaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableReplicaState)(nil)).Elem()
 }
 
+// TableReplicaExists checks whether an existing TableReplica resource with the given ID exists.
+func TableReplicaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableReplicaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dynamodb/tableReplica:TableReplica", id, state, "", opts...)
+}
+
 type tableReplicaArgs struct {
 	// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`

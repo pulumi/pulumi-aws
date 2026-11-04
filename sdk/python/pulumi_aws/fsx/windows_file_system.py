@@ -1345,6 +1345,74 @@ class WindowsFileSystem(pulumi.CustomResource):
         __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
         return WindowsFileSystem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            audit_log_configuration: pulumi.Input[Optional[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict', 'outputs.WindowsFileSystemAuditLogConfiguration']]] = None,
+            automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_iops_configuration: pulumi.Input[Optional[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict', 'outputs.WindowsFileSystemDiskIopsConfiguration']]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_file_server_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_administration_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            self_managed_active_directory: pulumi.Input[Optional[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict', 'outputs.WindowsFileSystemSelfManagedActiveDirectory']]] = None,
+            skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activeDirectoryId"] = active_directory_id
+        __props__["aliases"] = aliases
+        __props__["arn"] = arn
+        __props__["auditLogConfiguration"] = audit_log_configuration
+        __props__["automaticBackupRetentionDays"] = automatic_backup_retention_days
+        __props__["backupId"] = backup_id
+        __props__["copyTagsToBackups"] = copy_tags_to_backups
+        __props__["dailyAutomaticBackupStartTime"] = daily_automatic_backup_start_time
+        __props__["deploymentType"] = deployment_type
+        __props__["diskIopsConfiguration"] = disk_iops_configuration
+        __props__["dnsName"] = dns_name
+        __props__["finalBackupTags"] = final_backup_tags
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["networkInterfaceIds"] = network_interface_ids
+        __props__["networkType"] = network_type
+        __props__["ownerId"] = owner_id
+        __props__["preferredFileServerIp"] = preferred_file_server_ip
+        __props__["preferredSubnetId"] = preferred_subnet_id
+        __props__["region"] = region
+        __props__["remoteAdministrationEndpoint"] = remote_administration_endpoint
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["selfManagedActiveDirectory"] = self_managed_active_directory
+        __props__["skipFinalBackup"] = skip_final_backup
+        __props__["storageCapacity"] = storage_capacity
+        __props__["storageType"] = storage_type
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throughputCapacity"] = throughput_capacity
+        __props__["vpcId"] = vpc_id
+        __props__["weeklyMaintenanceStartTime"] = weekly_maintenance_start_time
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/windowsFileSystem:WindowsFileSystem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activeDirectoryId")
     def active_directory_id(self) -> pulumi.Output[Optional[_builtins.str]]:

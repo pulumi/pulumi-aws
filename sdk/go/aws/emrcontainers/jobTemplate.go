@@ -147,6 +147,12 @@ func (JobTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobTemplateState)(nil)).Elem()
 }
 
+// JobTemplateExists checks whether an existing JobTemplate resource with the given ID exists.
+func JobTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:emrcontainers/jobTemplate:JobTemplate", id, state, "", opts...)
+}
+
 type jobTemplateArgs struct {
 	// The job template data which holds values of StartJobRun API request.
 	JobTemplateData JobTemplateJobTemplateData `pulumi:"jobTemplateData"`

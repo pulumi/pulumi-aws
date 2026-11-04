@@ -260,6 +260,12 @@ func (ServerCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverCertificateState)(nil)).Elem()
 }
 
+// ServerCertificateExists checks whether an existing ServerCertificate resource with the given ID exists.
+func ServerCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/serverCertificate:ServerCertificate", id, state, "", opts...)
+}
+
 type serverCertificateArgs struct {
 	// The contents of the public key certificate in
 	// PEM-encoded format.

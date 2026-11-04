@@ -301,6 +301,18 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return VoiceConnectorGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict', 'outputs.VoiceConnectorGroupConnector']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectors"] = connectors
+        __props__["name"] = name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:chime/voiceConnectorGroup:VoiceConnectorGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def connectors(self) -> pulumi.Output[Optional[Sequence['outputs.VoiceConnectorGroupConnector']]]:

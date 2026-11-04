@@ -655,6 +655,36 @@ class ProvisioningTemplate(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ProvisioningTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_version_id: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict', 'outputs.ProvisioningTemplatePreProvisioningHook']]] = None,
+            provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_body: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["defaultVersionId"] = default_version_id
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["preProvisioningHook"] = pre_provisioning_hook
+        __props__["provisioningRoleArn"] = provisioning_role_arn
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["templateBody"] = template_body
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:iot/provisioningTemplate:ProvisioningTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

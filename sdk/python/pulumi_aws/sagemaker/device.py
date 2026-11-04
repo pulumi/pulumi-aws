@@ -308,6 +308,22 @@ class Device(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Device(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            device: pulumi.Input[Optional[Union['DeviceDeviceArgs', 'DeviceDeviceArgsDict', 'outputs.DeviceDevice']]] = None,
+            device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentVersion"] = agent_version
+        __props__["arn"] = arn
+        __props__["device"] = device
+        __props__["deviceFleetName"] = device_fleet_name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/device:Device', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Output[_builtins.str]:

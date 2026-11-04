@@ -138,6 +138,12 @@ func (ListenerRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerRuleState)(nil)).Elem()
 }
 
+// ListenerRuleExists checks whether an existing ListenerRule resource with the given ID exists.
+func ListenerRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ListenerRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lb/listenerRule:ListenerRule", id, state, "", opts...)
+}
+
 type listenerRuleArgs struct {
 	// An Action block. Action blocks are documented below.
 	Actions []ListenerRuleAction `pulumi:"actions"`

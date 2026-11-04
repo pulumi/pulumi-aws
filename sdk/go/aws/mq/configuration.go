@@ -226,6 +226,12 @@ func (ConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationState)(nil)).Elem()
 }
 
+// ConfigurationExists checks whether an existing Configuration resource with the given ID exists.
+func ConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mq/configuration:Configuration", id, state, "", opts...)
+}
+
 type configurationArgs struct {
 	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
 	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`

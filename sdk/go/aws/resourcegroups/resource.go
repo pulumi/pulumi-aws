@@ -140,6 +140,12 @@ func (ResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceState)(nil)).Elem()
 }
 
+// ResourceExists checks whether an existing Resource resource with the given ID exists.
+func ResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resourcegroups/resource:Resource", id, state, "", opts...)
+}
+
 type resourceArgs struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn string `pulumi:"groupArn"`

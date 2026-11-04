@@ -98,6 +98,12 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigurationState)(nil)).Elem()
 }
 
+// OrganizationConfigurationExists checks whether an existing OrganizationConfiguration resource with the given ID exists.
+func OrganizationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie2/organizationConfiguration:OrganizationConfiguration", id, state, "", opts...)
+}
+
 type organizationConfigurationArgs struct {
 	// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
 	AutoEnable bool `pulumi:"autoEnable"`

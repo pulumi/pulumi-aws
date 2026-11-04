@@ -454,6 +454,28 @@ class UserProfile(pulumi.CustomResource):
         __props__.__dict__["user_type"] = user_type
         return UserProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserProfileDetailArgs', 'UserProfileDetailArgsDict', 'outputs.UserProfileDetail']]]]] = None,
+            domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict', 'outputs.UserProfileTimeouts']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["details"] = details
+        __props__["domainIdentifier"] = domain_identifier
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["timeouts"] = timeouts
+        __props__["type"] = type
+        __props__["userIdentifier"] = user_identifier
+        __props__["userType"] = user_type
+        return pulumi.runtime.exists_resource(None, 'aws:datazone/userProfile:UserProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def details(self) -> pulumi.Output[Sequence['outputs.UserProfileDetail']]:

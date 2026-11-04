@@ -143,6 +143,12 @@ func (QueryLoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryLoggingConfigurationState)(nil)).Elem()
 }
 
+// QueryLoggingConfigurationExists checks whether an existing QueryLoggingConfiguration resource with the given ID exists.
+func QueryLoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueryLoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration", id, state, "", opts...)
+}
+
 type queryLoggingConfigurationArgs struct {
 	// Configuration block for the logging destinations. See `destination` Block.
 	Destinations []QueryLoggingConfigurationDestination `pulumi:"destinations"`

@@ -136,6 +136,12 @@ func (VoiceConnectorGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*voiceConnectorGroupState)(nil)).Elem()
 }
 
+// VoiceConnectorGroupExists checks whether an existing VoiceConnectorGroup resource with the given ID exists.
+func VoiceConnectorGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VoiceConnectorGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/voiceConnectorGroup:VoiceConnectorGroup", id, state, "", opts...)
+}
+
 type voiceConnectorGroupArgs struct {
 	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors []VoiceConnectorGroupConnector `pulumi:"connectors"`

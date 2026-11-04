@@ -580,6 +580,30 @@ class ConnectorProfile(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return ConnectorProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_profile_config: pulumi.Input[Optional[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict', 'outputs.ConnectorProfileConnectorProfileConfig']]] = None,
+            connector_type: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["connectionMode"] = connection_mode
+        __props__["connectorLabel"] = connector_label
+        __props__["connectorProfileConfig"] = connector_profile_config
+        __props__["connectorType"] = connector_type
+        __props__["credentialsArn"] = credentials_arn
+        __props__["kmsArn"] = kms_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:appflow/connectorProfile:ConnectorProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

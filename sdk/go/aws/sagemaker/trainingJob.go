@@ -647,6 +647,12 @@ func (TrainingJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trainingJobState)(nil)).Elem()
 }
 
+// TrainingJobExists checks whether an existing TrainingJob resource with the given ID exists.
+func TrainingJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrainingJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/trainingJob:TrainingJob", id, state, "", opts...)
+}
+
 type trainingJobArgs struct {
 	// Algorithm-related parameters of the training job. See `algorithmSpecification` below. Conflicts with `serverlessJobConfig`.
 	AlgorithmSpecification *TrainingJobAlgorithmSpecification `pulumi:"algorithmSpecification"`

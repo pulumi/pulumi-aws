@@ -153,6 +153,12 @@ func (ServerlessVpcEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessVpcEndpointState)(nil)).Elem()
 }
 
+// ServerlessVpcEndpointExists checks whether an existing ServerlessVpcEndpoint resource with the given ID exists.
+func ServerlessVpcEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessVpcEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint", id, state, "", opts...)
+}
+
 type serverlessVpcEndpointArgs struct {
 	// Name of the interface endpoint.
 	Name *string `pulumi:"name"`

@@ -121,6 +121,12 @@ func (VpcEndpointServiceAllowedPrincipleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointServiceAllowedPrincipleState)(nil)).Elem()
 }
 
+// VpcEndpointServiceAllowedPrincipleExists checks whether an existing VpcEndpointServiceAllowedPrinciple resource with the given ID exists.
+func VpcEndpointServiceAllowedPrincipleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointServiceAllowedPrincipleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple", id, state, "", opts...)
+}
+
 type vpcEndpointServiceAllowedPrincipleArgs struct {
 	// ARN of the principal to allow permissions.
 	PrincipalArn string `pulumi:"principalArn"`

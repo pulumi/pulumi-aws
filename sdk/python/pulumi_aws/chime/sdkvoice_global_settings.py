@@ -190,6 +190,14 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         __props__.__dict__["voice_connector"] = voice_connector
         return SdkvoiceGlobalSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            voice_connector: pulumi.Input[Optional[Union['SdkvoiceGlobalSettingsVoiceConnectorArgs', 'SdkvoiceGlobalSettingsVoiceConnectorArgsDict', 'outputs.SdkvoiceGlobalSettingsVoiceConnector']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["voiceConnector"] = voice_connector
+        return pulumi.runtime.exists_resource(None, 'aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="voiceConnector")
     def voice_connector(self) -> pulumi.Output['outputs.SdkvoiceGlobalSettingsVoiceConnector']:

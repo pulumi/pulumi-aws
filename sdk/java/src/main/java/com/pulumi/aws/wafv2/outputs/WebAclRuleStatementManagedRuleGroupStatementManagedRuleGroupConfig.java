@@ -22,32 +22,28 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet;
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet login_path
+     * @deprecated Use awsManagedRulesAtpRuleSet login_path
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet login_path */
+    @Deprecated
     private @Nullable String loginPath;
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection password_field
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection password_field
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection password_field */
+    @Deprecated
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField passwordField;
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection payload_type
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection payload_type
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection payload_type */
+    @Deprecated
     private @Nullable String payloadType;
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection username_field
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection username_field
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection username_field */
+    @Deprecated
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig() {}
@@ -64,38 +60,34 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return Optional.ofNullable(this.awsManagedRulesBotControlRuleSet);
     }
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet login_path
+     * @deprecated Use awsManagedRulesAtpRuleSet login_path
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet login_path */
+    @Deprecated
     public Optional<String> loginPath() {
         return Optional.ofNullable(this.loginPath);
     }
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection password_field
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection password_field
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection password_field */
+    @Deprecated
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField> passwordField() {
         return Optional.ofNullable(this.passwordField);
     }
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection payload_type
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection payload_type
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection payload_type */
+    @Deprecated
     public Optional<String> payloadType() {
         return Optional.ofNullable(this.payloadType);
     }
     /**
-     * @deprecated
-     * Use awsManagedRulesAtpRuleSet request_inspection username_field
+     * @deprecated Use awsManagedRulesAtpRuleSet request_inspection username_field
      * 
      */
-    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection username_field */
+    @Deprecated
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField> usernameField() {
         return Optional.ofNullable(this.usernameField);
     }

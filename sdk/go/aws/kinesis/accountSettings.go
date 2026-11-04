@@ -113,6 +113,12 @@ func (AccountSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountSettingsState)(nil)).Elem()
 }
 
+// AccountSettingsExists checks whether an existing AccountSettings resource with the given ID exists.
+func AccountSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kinesis/accountSettings:AccountSettings", id, state, "", opts...)
+}
+
 type accountSettingsArgs struct {
 	// Minimum throughput billing commitment configuration. Detailed below.
 	MinimumThroughputBillingCommitment *AccountSettingsMinimumThroughputBillingCommitment `pulumi:"minimumThroughputBillingCommitment"`

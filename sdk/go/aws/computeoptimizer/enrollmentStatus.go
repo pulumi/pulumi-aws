@@ -121,6 +121,12 @@ func (EnrollmentStatusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enrollmentStatusState)(nil)).Elem()
 }
 
+// EnrollmentStatusExists checks whether an existing EnrollmentStatus resource with the given ID exists.
+func EnrollmentStatusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnrollmentStatusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:computeoptimizer/enrollmentStatus:EnrollmentStatus", id, state, "", opts...)
+}
+
 type enrollmentStatusArgs struct {
 	// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
 	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`

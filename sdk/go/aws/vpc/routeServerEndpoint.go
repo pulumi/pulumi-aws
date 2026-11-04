@@ -172,6 +172,12 @@ func (RouteServerEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerEndpointState)(nil)).Elem()
 }
 
+// RouteServerEndpointExists checks whether an existing RouteServerEndpoint resource with the given ID exists.
+func RouteServerEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpc/routeServerEndpoint:RouteServerEndpoint", id, state, "", opts...)
+}
+
 type routeServerEndpointArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

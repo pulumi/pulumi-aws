@@ -116,6 +116,12 @@ func (GcmChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gcmChannelState)(nil)).Elem()
 }
 
+// GcmChannelExists checks whether an existing GcmChannel resource with the given ID exists.
+func GcmChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GcmChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/gcmChannel:GcmChannel", id, state, "", opts...)
+}
+
 type gcmChannelArgs struct {
 	// Platform credential API key from Google. Conflicts with `serviceJson`.
 	ApiKey *string `pulumi:"apiKey"`

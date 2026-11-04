@@ -508,6 +508,12 @@ func (RecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordState)(nil)).Elem()
 }
 
+// RecordExists checks whether an existing Record resource with the given ID exists.
+func RecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/record:Record", id, state, "", opts...)
+}
+
 type recordArgs struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Documented below.

@@ -16,11 +16,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetBucketObjectsResult {
     /**
-     * @deprecated
-     * bucket is deprecated. Use the aws.s3.getObjects data source instead.
+     * @deprecated bucket is deprecated. Use the aws.s3.getObjects data source instead.
      * 
      */
-    @Deprecated /* bucket is deprecated. Use the aws.s3.getObjects data source instead. */
+    @Deprecated
     private String bucket;
     /**
      * @return List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` &#34;directory&#34;); the list is only returned when you specify `delimiter`
@@ -52,11 +51,10 @@ public final class GetBucketObjectsResult {
 
     private GetBucketObjectsResult() {}
     /**
-     * @deprecated
-     * bucket is deprecated. Use the aws.s3.getObjects data source instead.
+     * @deprecated bucket is deprecated. Use the aws.s3.getObjects data source instead.
      * 
      */
-    @Deprecated /* bucket is deprecated. Use the aws.s3.getObjects data source instead. */
+    @Deprecated
     public String bucket() {
         return this.bucket;
     }

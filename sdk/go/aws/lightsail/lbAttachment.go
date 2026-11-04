@@ -157,6 +157,12 @@ func (LbAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lbAttachmentState)(nil)).Elem()
 }
 
+// LbAttachmentExists checks whether an existing LbAttachment resource with the given ID exists.
+func LbAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LbAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/lbAttachment:LbAttachment", id, state, "", opts...)
+}
+
 type lbAttachmentArgs struct {
 	// Name of the instance to attach to the load balancer.
 	InstanceName string `pulumi:"instanceName"`

@@ -319,6 +319,12 @@ func (ContainerServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerServiceState)(nil)).Elem()
 }
 
+// ContainerServiceExists checks whether an existing ContainerService resource with the given ID exists.
+func ContainerServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/containerService:ContainerService", id, state, "", opts...)
+}
+
 type containerServiceArgs struct {
 	// Whether to disable the container service. Defaults to `false`.
 	IsDisabled *bool `pulumi:"isDisabled"`

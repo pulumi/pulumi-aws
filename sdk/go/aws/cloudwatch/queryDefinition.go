@@ -146,6 +146,12 @@ func (QueryDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryDefinitionState)(nil)).Elem()
 }
 
+// QueryDefinitionExists checks whether an existing QueryDefinition resource with the given ID exists.
+func QueryDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueryDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/queryDefinition:QueryDefinition", id, state, "", opts...)
+}
+
 type queryDefinitionArgs struct {
 	// Specific log groups to use with the query.
 	LogGroupNames []string `pulumi:"logGroupNames"`

@@ -124,6 +124,12 @@ func (RetentionConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*retentionConfigurationState)(nil)).Elem()
 }
 
+// RetentionConfigurationExists checks whether an existing RetentionConfiguration resource with the given ID exists.
+func RetentionConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RetentionConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/retentionConfiguration:RetentionConfiguration", id, state, "", opts...)
+}
+
 type retentionConfigurationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

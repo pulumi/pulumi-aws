@@ -167,6 +167,12 @@ func (UploadState) ElementType() reflect.Type {
 	return reflect.TypeOf((*uploadState)(nil)).Elem()
 }
 
+// UploadExists checks whether an existing Upload resource with the given ID exists.
+func UploadExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UploadState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:devicefarm/upload:Upload", id, state, "", opts...)
+}
+
 type uploadArgs struct {
 	// The upload's content type (for example, application/octet-stream).
 	ContentType *string `pulumi:"contentType"`

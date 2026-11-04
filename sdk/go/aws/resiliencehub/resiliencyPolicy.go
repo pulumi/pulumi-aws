@@ -196,6 +196,12 @@ func (ResiliencyPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resiliencyPolicyState)(nil)).Elem()
 }
 
+// ResiliencyPolicyExists checks whether an existing ResiliencyPolicy resource with the given ID exists.
+func ResiliencyPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResiliencyPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy", id, state, "", opts...)
+}
+
 type resiliencyPolicyArgs struct {
 	// Data Location Constraint of the Policy.
 	// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.

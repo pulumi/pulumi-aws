@@ -500,6 +500,22 @@ class ScalingPlan(pulumi.CustomResource):
         __props__.__dict__["scaling_plan_version"] = scaling_plan_version
         return ScalingPlan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_source: pulumi.Input[Optional[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict', 'outputs.ScalingPlanApplicationSource']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict', 'outputs.ScalingPlanScalingInstruction']]]]] = None,
+            scaling_plan_version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationSource"] = application_source
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["scalingInstructions"] = scaling_instructions
+        __props__["scalingPlanVersion"] = scaling_plan_version
+        return pulumi.runtime.exists_resource(None, 'aws:autoscalingplans/scalingPlan:ScalingPlan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationSource")
     def application_source(self) -> pulumi.Output['outputs.ScalingPlanApplicationSource']:

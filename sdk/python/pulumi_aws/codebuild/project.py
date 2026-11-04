@@ -1726,6 +1726,70 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["vpc_config"] = vpc_config
         return Project(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            artifacts: pulumi.Input[Optional[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict', 'outputs.ProjectArtifacts']]] = None,
+            auto_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            badge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            badge_url: pulumi.Input[Optional[_builtins.str]] = None,
+            build_batch_config: pulumi.Input[Optional[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict', 'outputs.ProjectBuildBatchConfig']]] = None,
+            build_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            cache: pulumi.Input[Optional[Union['ProjectCacheArgs', 'ProjectCacheArgsDict', 'outputs.ProjectCache']]] = None,
+            concurrent_build_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict', 'outputs.ProjectEnvironment']]] = None,
+            file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict', 'outputs.ProjectFileSystemLocation']]]]] = None,
+            logs_config: pulumi.Input[Optional[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict', 'outputs.ProjectLogsConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_visibility: pulumi.Input[Optional[_builtins.str]] = None,
+            public_project_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            queued_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict', 'outputs.ProjectSecondaryArtifact']]]]] = None,
+            secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict', 'outputs.ProjectSecondarySourceVersion']]]]] = None,
+            secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict', 'outputs.ProjectSecondarySource']]]]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union['ProjectSourceArgs', 'ProjectSourceArgsDict', 'outputs.ProjectSource']]] = None,
+            source_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict', 'outputs.ProjectVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["artifacts"] = artifacts
+        __props__["autoRetryLimit"] = auto_retry_limit
+        __props__["badgeEnabled"] = badge_enabled
+        __props__["badgeUrl"] = badge_url
+        __props__["buildBatchConfig"] = build_batch_config
+        __props__["buildTimeout"] = build_timeout
+        __props__["cache"] = cache
+        __props__["concurrentBuildLimit"] = concurrent_build_limit
+        __props__["description"] = description
+        __props__["encryptionKey"] = encryption_key
+        __props__["environment"] = environment
+        __props__["fileSystemLocations"] = file_system_locations
+        __props__["logsConfig"] = logs_config
+        __props__["name"] = name
+        __props__["projectVisibility"] = project_visibility
+        __props__["publicProjectAlias"] = public_project_alias
+        __props__["queuedTimeout"] = queued_timeout
+        __props__["region"] = region
+        __props__["resourceAccessRole"] = resource_access_role
+        __props__["secondaryArtifacts"] = secondary_artifacts
+        __props__["secondarySourceVersions"] = secondary_source_versions
+        __props__["secondarySources"] = secondary_sources
+        __props__["serviceRole"] = service_role
+        __props__["source"] = source
+        __props__["sourceVersion"] = source_version
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcConfig"] = vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:codebuild/project:Project', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

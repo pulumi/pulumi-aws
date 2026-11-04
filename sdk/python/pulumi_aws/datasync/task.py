@@ -796,6 +796,40 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["task_report_config"] = task_report_config
         return Task(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            excludes: pulumi.Input[Optional[Union['TaskExcludesArgs', 'TaskExcludesArgsDict', 'outputs.TaskExcludes']]] = None,
+            includes: pulumi.Input[Optional[Union['TaskIncludesArgs', 'TaskIncludesArgsDict', 'outputs.TaskIncludes']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['TaskOptionsArgs', 'TaskOptionsArgsDict', 'outputs.TaskOptions']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['TaskScheduleArgs', 'TaskScheduleArgsDict', 'outputs.TaskSchedule']]] = None,
+            source_location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            task_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            task_report_config: pulumi.Input[Optional[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict', 'outputs.TaskTaskReportConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cloudwatchLogGroupArn"] = cloudwatch_log_group_arn
+        __props__["destinationLocationArn"] = destination_location_arn
+        __props__["excludes"] = excludes
+        __props__["includes"] = includes
+        __props__["name"] = name
+        __props__["options"] = options
+        __props__["region"] = region
+        __props__["schedule"] = schedule
+        __props__["sourceLocationArn"] = source_location_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["taskMode"] = task_mode
+        __props__["taskReportConfig"] = task_report_config
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/task:Task', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

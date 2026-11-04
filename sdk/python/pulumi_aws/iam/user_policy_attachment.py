@@ -260,6 +260,16 @@ class UserPolicyAttachment(pulumi.CustomResource):
         __props__.__dict__["user"] = user
         return UserPolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["policyArn"] = policy_arn
+        __props__["user"] = user
+        return pulumi.runtime.exists_resource(None, 'aws:iam/userPolicyAttachment:UserPolicyAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Output[_builtins.str]:

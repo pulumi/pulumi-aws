@@ -98,6 +98,12 @@ func (ConnectionConfirmationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionConfirmationState)(nil)).Elem()
 }
 
+// ConnectionConfirmationExists checks whether an existing ConnectionConfirmation resource with the given ID exists.
+func ConnectionConfirmationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionConfirmationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/connectionConfirmation:ConnectionConfirmation", id, state, "", opts...)
+}
+
 type connectionConfirmationArgs struct {
 	// The ID of the hosted connection.
 	ConnectionId string `pulumi:"connectionId"`

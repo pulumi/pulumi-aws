@@ -663,6 +663,38 @@ class CapacityTask(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return CapacityTask(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            asset_id: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+            completion_date: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict', 'outputs.CapacityTaskInstancePool']]]]] = None,
+            instances_to_exclude: pulumi.Input[Optional[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict', 'outputs.CapacityTaskInstancesToExclude']]] = None,
+            order_id: pulumi.Input[Optional[_builtins.str]] = None,
+            outpost_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            task_action_on_blocking_instances: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict', 'outputs.CapacityTaskTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assetId"] = asset_id
+        __props__["capacityTaskId"] = capacity_task_id
+        __props__["completionDate"] = completion_date
+        __props__["creationDate"] = creation_date
+        __props__["failureReason"] = failure_reason
+        __props__["instancePools"] = instance_pools
+        __props__["instancesToExclude"] = instances_to_exclude
+        __props__["orderId"] = order_id
+        __props__["outpostIdentifier"] = outpost_identifier
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["taskActionOnBlockingInstances"] = task_action_on_blocking_instances
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:outposts/capacityTask:CapacityTask', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assetId")
     def asset_id(self) -> pulumi.Output[_builtins.str]:

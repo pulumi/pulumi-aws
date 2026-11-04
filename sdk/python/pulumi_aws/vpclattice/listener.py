@@ -721,6 +721,38 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Listener(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            default_action: pulumi.Input[Optional[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]] = None,
+            last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            listener_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdAt"] = created_at
+        __props__["defaultAction"] = default_action
+        __props__["lastUpdatedAt"] = last_updated_at
+        __props__["listenerId"] = listener_id
+        __props__["name"] = name
+        __props__["port"] = port
+        __props__["protocol"] = protocol
+        __props__["region"] = region
+        __props__["serviceArn"] = service_arn
+        __props__["serviceIdentifier"] = service_identifier
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:vpclattice/listener:Listener', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

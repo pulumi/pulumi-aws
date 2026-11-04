@@ -1113,6 +1113,62 @@ class MultitenantDistribution(pulumi.CustomResource):
         __props__.__dict__["web_acl_id"] = web_acl_id
         return MultitenantDistribution(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active_trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict', 'outputs.MultitenantDistributionActiveTrustedKeyGroup']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict', 'outputs.MultitenantDistributionCacheBehavior']]]]] = None,
+            caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict', 'outputs.MultitenantDistributionCustomErrorResponse']]]]] = None,
+            default_cache_behavior: pulumi.Input[Optional[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict', 'outputs.MultitenantDistributionDefaultCacheBehavior']]] = None,
+            default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            http_version: pulumi.Input[Optional[_builtins.str]] = None,
+            in_progress_invalidation_batches: pulumi.Input[Optional[_builtins.int]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict', 'outputs.MultitenantDistributionOriginGroup']]]]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict', 'outputs.MultitenantDistributionOrigin']]]]] = None,
+            restrictions: pulumi.Input[Optional[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict', 'outputs.MultitenantDistributionRestrictions']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_config: pulumi.Input[Optional[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict', 'outputs.MultitenantDistributionTenantConfig']]] = None,
+            timeouts: pulumi.Input[Optional[Union['MultitenantDistributionTimeoutsArgs', 'MultitenantDistributionTimeoutsArgsDict', 'outputs.MultitenantDistributionTimeouts']]] = None,
+            viewer_certificate: pulumi.Input[Optional[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict', 'outputs.MultitenantDistributionViewerCertificate']]] = None,
+            web_acl_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activeTrustedKeyGroups"] = active_trusted_key_groups
+        __props__["arn"] = arn
+        __props__["cacheBehaviors"] = cache_behaviors
+        __props__["callerReference"] = caller_reference
+        __props__["comment"] = comment
+        __props__["connectionMode"] = connection_mode
+        __props__["customErrorResponses"] = custom_error_responses
+        __props__["defaultCacheBehavior"] = default_cache_behavior
+        __props__["defaultRootObject"] = default_root_object
+        __props__["domainName"] = domain_name
+        __props__["enabled"] = enabled
+        __props__["etag"] = etag
+        __props__["httpVersion"] = http_version
+        __props__["inProgressInvalidationBatches"] = in_progress_invalidation_batches
+        __props__["lastModifiedTime"] = last_modified_time
+        __props__["originGroups"] = origin_groups
+        __props__["origins"] = origins
+        __props__["restrictions"] = restrictions
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tenantConfig"] = tenant_config
+        __props__["timeouts"] = timeouts
+        __props__["viewerCertificate"] = viewer_certificate
+        __props__["webAclId"] = web_acl_id
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/multitenantDistribution:MultitenantDistribution', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activeTrustedKeyGroups")
     def active_trusted_key_groups(self) -> pulumi.Output[Optional[Sequence['outputs.MultitenantDistributionActiveTrustedKeyGroup']]]:

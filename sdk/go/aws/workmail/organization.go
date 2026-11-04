@@ -214,6 +214,12 @@ func (OrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationState)(nil)).Elem()
 }
 
+// OrganizationExists checks whether an existing Organization resource with the given ID exists.
+func OrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workmail/organization:Organization", id, state, "", opts...)
+}
+
 type organizationArgs struct {
 	// Whether to delete the AWS Directory Service directory associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
 	DeleteDirectory *bool `pulumi:"deleteDirectory"`

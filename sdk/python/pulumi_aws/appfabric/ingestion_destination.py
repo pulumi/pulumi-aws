@@ -483,6 +483,30 @@ class IngestionDestination(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return IngestionDestination(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_configuration: pulumi.Input[Optional[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict', 'outputs.IngestionDestinationDestinationConfiguration']]] = None,
+            ingestion_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            processing_configuration: pulumi.Input[Optional[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict', 'outputs.IngestionDestinationProcessingConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict', 'outputs.IngestionDestinationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appBundleArn"] = app_bundle_arn
+        __props__["arn"] = arn
+        __props__["destinationConfiguration"] = destination_configuration
+        __props__["ingestionArn"] = ingestion_arn
+        __props__["processingConfiguration"] = processing_configuration
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:appfabric/ingestionDestination:IngestionDestination', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Output[_builtins.str]:

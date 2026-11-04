@@ -723,6 +723,12 @@ func (BucketNotificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketNotificationState)(nil)).Elem()
 }
 
+// BucketNotificationExists checks whether an existing BucketNotification resource with the given ID exists.
+func BucketNotificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketNotificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketNotification:BucketNotification", id, state, "", opts...)
+}
+
 type bucketNotificationArgs struct {
 	// Name of the bucket for notification configuration.
 	//

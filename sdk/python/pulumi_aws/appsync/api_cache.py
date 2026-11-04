@@ -431,6 +431,26 @@ class ApiCache(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ApiCache(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_caching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiCachingBehavior"] = api_caching_behavior
+        __props__["apiId"] = api_id
+        __props__["atRestEncryptionEnabled"] = at_rest_encryption_enabled
+        __props__["region"] = region
+        __props__["transitEncryptionEnabled"] = transit_encryption_enabled
+        __props__["ttl"] = ttl
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/apiCache:ApiCache', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiCachingBehavior")
     def api_caching_behavior(self) -> pulumi.Output[_builtins.str]:

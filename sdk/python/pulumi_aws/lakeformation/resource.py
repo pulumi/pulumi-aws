@@ -454,6 +454,28 @@ class Resource(pulumi.CustomResource):
         __props__.__dict__["with_privileged_access"] = with_privileged_access
         return Resource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            hybrid_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            use_service_linked_role: pulumi.Input[Optional[_builtins.bool]] = None,
+            with_federation: pulumi.Input[Optional[_builtins.bool]] = None,
+            with_privileged_access: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["hybridAccessEnabled"] = hybrid_access_enabled
+        __props__["lastModified"] = last_modified
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["useServiceLinkedRole"] = use_service_linked_role
+        __props__["withFederation"] = with_federation
+        __props__["withPrivilegedAccess"] = with_privileged_access
+        return pulumi.runtime.exists_resource(None, 'aws:lakeformation/resource:Resource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

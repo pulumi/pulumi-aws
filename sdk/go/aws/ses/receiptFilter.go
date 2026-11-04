@@ -129,6 +129,12 @@ func (ReceiptFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptFilterState)(nil)).Elem()
 }
 
+// ReceiptFilterExists checks whether an existing ReceiptFilter resource with the given ID exists.
+func ReceiptFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReceiptFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/receiptFilter:ReceiptFilter", id, state, "", opts...)
+}
+
 type receiptFilterArgs struct {
 	// IP address or address range to filter, in CIDR notation
 	Cidr string `pulumi:"cidr"`

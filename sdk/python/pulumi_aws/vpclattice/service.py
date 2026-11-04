@@ -517,6 +517,34 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict', 'outputs.ServiceDnsEntry']]]]] = None,
+            idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["authType"] = auth_type
+        __props__["certificateArn"] = certificate_arn
+        __props__["customDomainName"] = custom_domain_name
+        __props__["dnsEntries"] = dns_entries
+        __props__["idleTimeoutSeconds"] = idle_timeout_seconds
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:vpclattice/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

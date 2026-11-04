@@ -536,11 +536,10 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
-     * @deprecated
-     * network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      * 
      */
-    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
+    @Deprecated
     @Export(name="networkInterfaces", refs={List.class,SpotInstanceRequestNetworkInterface.class}, tree="[0,1]")
     private Output<List<SpotInstanceRequestNetworkInterface>> networkInterfaces;
 

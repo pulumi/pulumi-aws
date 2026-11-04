@@ -99,12 +99,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new BucketWebsiteConfiguration("example", BucketWebsiteConfigurationArgs.builder()
  *             .indexDocument(BucketWebsiteConfigurationIndexDocumentArgs.builder()
  *                 .suffix("index.html")
@@ -114,19 +114,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .bucket(exampleAwsS3Bucket.get("id"))
  *             .routingRuleDetails("""
- * [{
- *     \"Condition\": {
- *         \"KeyPrefixEquals\": \"docs/\"
- *     },
- *     \"Redirect\": {
- *         \"ReplaceKeyPrefixWith\": \"\"
- *     }
- * }]
+ * [}{{@code
+ *     }&#92;{@code "Condition}&#92;{@code ": }{{@code
+ *         }&#92;{@code "KeyPrefixEquals}&#92;{@code ": }&#92;{@code "docs/}&#92;{@code "
+ *     }}{@code ,
+ *     }&#92;{@code "Redirect}&#92;{@code ": }{{@code
+ *         }&#92;{@code "ReplaceKeyPrefixWith}&#92;{@code ": }&#92;{@code "}&#92;{@code "
+ *     }}{@code
+ * }}{@code ]
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -193,11 +193,10 @@ public class BucketWebsiteConfiguration extends com.pulumi.resources.CustomResou
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

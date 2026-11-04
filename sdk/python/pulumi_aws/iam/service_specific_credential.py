@@ -476,6 +476,34 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         __props__.__dict__["user_name"] = user_name
         return ServiceSpecificCredential(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            create_date: pulumi.Input[Optional[_builtins.str]] = None,
+            credential_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            service_credential_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            service_credential_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_password: pulumi.Input[Optional[_builtins.str]] = None,
+            service_specific_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createDate"] = create_date
+        __props__["credentialAgeDays"] = credential_age_days
+        __props__["expirationDate"] = expiration_date
+        __props__["serviceCredentialAlias"] = service_credential_alias
+        __props__["serviceCredentialSecret"] = service_credential_secret
+        __props__["serviceName"] = service_name
+        __props__["servicePassword"] = service_password
+        __props__["serviceSpecificCredentialId"] = service_specific_credential_id
+        __props__["serviceUserName"] = service_user_name
+        __props__["status"] = status
+        __props__["userName"] = user_name
+        return pulumi.runtime.exists_resource(None, 'aws:iam/serviceSpecificCredential:ServiceSpecificCredential', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createDate")
     def create_date(self) -> pulumi.Output[_builtins.str]:

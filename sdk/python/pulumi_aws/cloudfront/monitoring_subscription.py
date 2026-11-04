@@ -234,6 +234,16 @@ class MonitoringSubscription(pulumi.CustomResource):
         __props__.__dict__["monitoring_subscription"] = monitoring_subscription
         return MonitoringSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_subscription: pulumi.Input[Optional[Union['MonitoringSubscriptionMonitoringSubscriptionArgs', 'MonitoringSubscriptionMonitoringSubscriptionArgsDict', 'outputs.MonitoringSubscriptionMonitoringSubscription']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["distributionId"] = distribution_id
+        __props__["monitoringSubscription"] = monitoring_subscription
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/monitoringSubscription:MonitoringSubscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="distributionId")
     def distribution_id(self) -> pulumi.Output[_builtins.str]:

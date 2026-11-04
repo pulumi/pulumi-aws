@@ -260,6 +260,12 @@ func (DataSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceState)(nil)).Elem()
 }
 
+// DataSourceExists checks whether an existing DataSource resource with the given ID exists.
+func DataSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appsync/dataSource:DataSource", id, state, "", opts...)
+}
+
 type dataSourceArgs struct {
 	// API ID for the GraphQL API for the data source.
 	ApiId string `pulumi:"apiId"`

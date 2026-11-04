@@ -751,6 +751,42 @@ class ConnectPeer(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ConnectPeer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']]] = None,
+            configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict', 'outputs.ConnectPeerConfiguration']]]]] = None,
+            connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connect_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+            inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["bgpOptions"] = bgp_options
+        __props__["configurations"] = configurations
+        __props__["connectAttachmentId"] = connect_attachment_id
+        __props__["connectPeerId"] = connect_peer_id
+        __props__["coreNetworkAddress"] = core_network_address
+        __props__["coreNetworkId"] = core_network_id
+        __props__["createdAt"] = created_at
+        __props__["edgeLocation"] = edge_location
+        __props__["insideCidrBlocks"] = inside_cidr_blocks
+        __props__["peerAddress"] = peer_address
+        __props__["state"] = state
+        __props__["subnetArn"] = subnet_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:networkmanager/connectPeer:ConnectPeer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

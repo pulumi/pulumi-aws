@@ -211,6 +211,12 @@ func (NetworkSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSettingsState)(nil)).Elem()
 }
 
+// NetworkSettingsExists checks whether an existing NetworkSettings resource with the given ID exists.
+func NetworkSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/networkSettings:NetworkSettings", id, state, "", opts...)
+}
+
 type networkSettingsArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

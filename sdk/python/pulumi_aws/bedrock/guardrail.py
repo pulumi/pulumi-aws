@@ -942,6 +942,54 @@ class Guardrail(pulumi.CustomResource):
         __props__.__dict__["word_policy_config"] = word_policy_config
         return Guardrail(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blocked_input_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+            blocked_outputs_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+            content_policy_config: pulumi.Input[Optional[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict', 'outputs.GuardrailContentPolicyConfig']]] = None,
+            contextual_grounding_policy_config: pulumi.Input[Optional[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict', 'outputs.GuardrailContextualGroundingPolicyConfig']]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            cross_region_config: pulumi.Input[Optional[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict', 'outputs.GuardrailCrossRegionConfig']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sensitive_information_policy_config: pulumi.Input[Optional[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict', 'outputs.GuardrailSensitiveInformationPolicyConfig']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict', 'outputs.GuardrailTimeouts']]] = None,
+            topic_policy_config: pulumi.Input[Optional[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict', 'outputs.GuardrailTopicPolicyConfig']]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            word_policy_config: pulumi.Input[Optional[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict', 'outputs.GuardrailWordPolicyConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blockedInputMessaging"] = blocked_input_messaging
+        __props__["blockedOutputsMessaging"] = blocked_outputs_messaging
+        __props__["contentPolicyConfig"] = content_policy_config
+        __props__["contextualGroundingPolicyConfig"] = contextual_grounding_policy_config
+        __props__["createdAt"] = created_at
+        __props__["crossRegionConfig"] = cross_region_config
+        __props__["description"] = description
+        __props__["guardrailArn"] = guardrail_arn
+        __props__["guardrailId"] = guardrail_id
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["sensitiveInformationPolicyConfig"] = sensitive_information_policy_config
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["topicPolicyConfig"] = topic_policy_config
+        __props__["updatedAt"] = updated_at
+        __props__["version"] = version
+        __props__["wordPolicyConfig"] = word_policy_config
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/guardrail:Guardrail', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blockedInputMessaging")
     def blocked_input_messaging(self) -> pulumi.Output[_builtins.str]:

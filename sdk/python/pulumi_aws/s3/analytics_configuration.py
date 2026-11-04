@@ -410,6 +410,22 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         __props__.__dict__["storage_class_analysis"] = storage_class_analysis
         return AnalyticsConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict', 'outputs.AnalyticsConfigurationFilter']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_class_analysis: pulumi.Input[Optional[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict', 'outputs.AnalyticsConfigurationStorageClassAnalysis']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bucket"] = bucket
+        __props__["filter"] = filter
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["storageClassAnalysis"] = storage_class_analysis
+        return pulumi.runtime.exists_resource(None, 'aws:s3/analyticsConfiguration:AnalyticsConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:

@@ -1324,6 +1324,50 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            container_properties: pulumi.Input[Optional[_builtins.str]] = None,
+            deregister_on_new_revision: pulumi.Input[Optional[_builtins.bool]] = None,
+            ecs_properties: pulumi.Input[Optional[_builtins.str]] = None,
+            eks_properties: pulumi.Input[Optional[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict', 'outputs.JobDefinitionEksProperties']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_properties: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            platform_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            propagate_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retry_strategy: pulumi.Input[Optional[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict', 'outputs.JobDefinitionRetryStrategy']]] = None,
+            revision: pulumi.Input[Optional[_builtins.int]] = None,
+            scheduling_priority: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout: pulumi.Input[Optional[Union['JobDefinitionTimeoutArgs', 'JobDefinitionTimeoutArgsDict', 'outputs.JobDefinitionTimeout']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["arnPrefix"] = arn_prefix
+        __props__["containerProperties"] = container_properties
+        __props__["deregisterOnNewRevision"] = deregister_on_new_revision
+        __props__["ecsProperties"] = ecs_properties
+        __props__["eksProperties"] = eks_properties
+        __props__["name"] = name
+        __props__["nodeProperties"] = node_properties
+        __props__["parameters"] = parameters
+        __props__["platformCapabilities"] = platform_capabilities
+        __props__["propagateTags"] = propagate_tags
+        __props__["region"] = region
+        __props__["retryStrategy"] = retry_strategy
+        __props__["revision"] = revision
+        __props__["schedulingPriority"] = scheduling_priority
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeout"] = timeout
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:batch/jobDefinition:JobDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

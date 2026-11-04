@@ -266,6 +266,12 @@ func (BackupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupState)(nil)).Elem()
 }
 
+// BackupExists checks whether an existing Backup resource with the given ID exists.
+func BackupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/backup:Backup", id, state, "", opts...)
+}
+
 type backupArgs struct {
 	// ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId *string `pulumi:"fileSystemId"`

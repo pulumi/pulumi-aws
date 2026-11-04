@@ -222,6 +222,12 @@ func (DeliveryChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deliveryChannelState)(nil)).Elem()
 }
 
+// DeliveryChannelExists checks whether an existing DeliveryChannel resource with the given ID exists.
+func DeliveryChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeliveryChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/deliveryChannel:DeliveryChannel", id, state, "", opts...)
+}
+
 type deliveryChannelArgs struct {
 	// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
 	Name *string `pulumi:"name"`

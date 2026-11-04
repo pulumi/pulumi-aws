@@ -621,6 +621,50 @@ class CapacityBlockReservation(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return CapacityBlockReservation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_block_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            end_date_type: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            reservation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict', 'outputs.CapacityBlockReservationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["capacityBlockOfferingId"] = capacity_block_offering_id
+        __props__["createdDate"] = created_date
+        __props__["ebsOptimized"] = ebs_optimized
+        __props__["endDate"] = end_date
+        __props__["endDateType"] = end_date_type
+        __props__["instanceCount"] = instance_count
+        __props__["instancePlatform"] = instance_platform
+        __props__["instanceType"] = instance_type
+        __props__["outpostArn"] = outpost_arn
+        __props__["placementGroupArn"] = placement_group_arn
+        __props__["region"] = region
+        __props__["reservationType"] = reservation_type
+        __props__["startDate"] = start_date
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tenancy"] = tenancy
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/capacityBlockReservation:CapacityBlockReservation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

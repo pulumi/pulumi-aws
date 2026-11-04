@@ -171,6 +171,12 @@ func (CustomerManagedPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerManagedPolicyAttachmentState)(nil)).Elem()
 }
 
+// CustomerManagedPolicyAttachmentExists checks whether an existing CustomerManagedPolicyAttachment resource with the given ID exists.
+func CustomerManagedPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomerManagedPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment", id, state, "", opts...)
+}
+
 type customerManagedPolicyAttachmentArgs struct {
 	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`

@@ -1164,6 +1164,68 @@ class User(pulumi.CustomResource):
         __props__.__dict__["zip_code"] = zip_code
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            city: pulumi.Input[Optional[_builtins.str]] = None,
+            company: pulumi.Input[Optional[_builtins.str]] = None,
+            country: pulumi.Input[Optional[_builtins.str]] = None,
+            department: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled_date: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_date: pulumi.Input[Optional[_builtins.str]] = None,
+            first_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hidden_from_global_address_list: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity_provider_identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+            initials: pulumi.Input[Optional[_builtins.str]] = None,
+            job_title: pulumi.Input[Optional[_builtins.str]] = None,
+            last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mailbox_deprovisioned_date: pulumi.Input[Optional[_builtins.str]] = None,
+            mailbox_provisioned_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            office: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            street: pulumi.Input[Optional[_builtins.str]] = None,
+            telephone: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_role: pulumi.Input[Optional[_builtins.str]] = None,
+            zip_code: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["city"] = city
+        __props__["company"] = company
+        __props__["country"] = country
+        __props__["department"] = department
+        __props__["disabledDate"] = disabled_date
+        __props__["displayName"] = display_name
+        __props__["email"] = email
+        __props__["enabledDate"] = enabled_date
+        __props__["firstName"] = first_name
+        __props__["hiddenFromGlobalAddressList"] = hidden_from_global_address_list
+        __props__["identityProviderIdentityStoreId"] = identity_provider_identity_store_id
+        __props__["identityProviderUserId"] = identity_provider_user_id
+        __props__["initials"] = initials
+        __props__["jobTitle"] = job_title
+        __props__["lastName"] = last_name
+        __props__["mailboxDeprovisionedDate"] = mailbox_deprovisioned_date
+        __props__["mailboxProvisionedDate"] = mailbox_provisioned_date
+        __props__["name"] = name
+        __props__["office"] = office
+        __props__["organizationId"] = organization_id
+        __props__["password"] = password
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["street"] = street
+        __props__["telephone"] = telephone
+        __props__["userId"] = user_id
+        __props__["userRole"] = user_role
+        __props__["zipCode"] = zip_code
+        return pulumi.runtime.exists_resource(None, 'aws:workmail/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def city(self) -> pulumi.Output[Optional[_builtins.str]]:

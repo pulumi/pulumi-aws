@@ -204,22 +204,20 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     /**
      * (**Deprecated** use `state` instead) Status of the account in the organization.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return (**Deprecated** use `state` instead) Status of the account in the organization.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -553,11 +551,10 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * status is deprecated. Use state instead.
+         * @deprecated status is deprecated. Use state instead.
          * 
          */
-        @Deprecated /* status is deprecated. Use state instead. */
+        @Deprecated
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
@@ -568,11 +565,10 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * status is deprecated. Use state instead.
+         * @deprecated status is deprecated. Use state instead.
          * 
          */
-        @Deprecated /* status is deprecated. Use state instead. */
+        @Deprecated
         public Builder status(String status) {
             return status(Output.of(status));
         }

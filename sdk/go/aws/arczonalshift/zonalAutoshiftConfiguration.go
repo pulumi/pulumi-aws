@@ -281,6 +281,12 @@ func (ZonalAutoshiftConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zonalAutoshiftConfigurationState)(nil)).Elem()
 }
 
+// ZonalAutoshiftConfigurationExists checks whether an existing ZonalAutoshiftConfiguration resource with the given ID exists.
+func ZonalAutoshiftConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZonalAutoshiftConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:arczonalshift/zonalAutoshiftConfiguration:ZonalAutoshiftConfiguration", id, state, "", opts...)
+}
+
 type zonalAutoshiftConfigurationArgs struct {
 	// List of time windows during which practice runs are allowed, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:09:00-Mon:17:00`). Cannot be used together with `blockedWindows`.
 	AllowedWindows []string `pulumi:"allowedWindows"`

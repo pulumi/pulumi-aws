@@ -1033,6 +1033,48 @@ class Intent(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Intent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum: pulumi.Input[Optional[_builtins.str]] = None,
+            conclusion_statement: pulumi.Input[Optional[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict', 'outputs.IntentConclusionStatement']]] = None,
+            confirmation_prompt: pulumi.Input[Optional[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict', 'outputs.IntentConfirmationPrompt']]] = None,
+            create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dialog_code_hook: pulumi.Input[Optional[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict', 'outputs.IntentDialogCodeHook']]] = None,
+            follow_up_prompt: pulumi.Input[Optional[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict', 'outputs.IntentFollowUpPrompt']]] = None,
+            fulfillment_activity: pulumi.Input[Optional[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict', 'outputs.IntentFulfillmentActivity']]] = None,
+            last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rejection_statement: pulumi.Input[Optional[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict', 'outputs.IntentRejectionStatement']]] = None,
+            sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            slots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict', 'outputs.IntentSlot']]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["checksum"] = checksum
+        __props__["conclusionStatement"] = conclusion_statement
+        __props__["confirmationPrompt"] = confirmation_prompt
+        __props__["createVersion"] = create_version
+        __props__["createdDate"] = created_date
+        __props__["description"] = description
+        __props__["dialogCodeHook"] = dialog_code_hook
+        __props__["followUpPrompt"] = follow_up_prompt
+        __props__["fulfillmentActivity"] = fulfillment_activity
+        __props__["lastUpdatedDate"] = last_updated_date
+        __props__["name"] = name
+        __props__["parentIntentSignature"] = parent_intent_signature
+        __props__["region"] = region
+        __props__["rejectionStatement"] = rejection_statement
+        __props__["sampleUtterances"] = sample_utterances
+        __props__["slots"] = slots
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:lex/intent:Intent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

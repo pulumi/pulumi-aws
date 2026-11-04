@@ -127,6 +127,12 @@ func (RequestValidatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestValidatorState)(nil)).Elem()
 }
 
+// RequestValidatorExists checks whether an existing RequestValidator resource with the given ID exists.
+func RequestValidatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequestValidatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/requestValidator:RequestValidator", id, state, "", opts...)
+}
+
 type requestValidatorArgs struct {
 	// Name of the request validator
 	Name *string `pulumi:"name"`

@@ -171,6 +171,12 @@ func (ReportPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportPlanState)(nil)).Elem()
 }
 
+// ReportPlanExists checks whether an existing ReportPlan resource with the given ID exists.
+func ReportPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReportPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/reportPlan:ReportPlan", id, state, "", opts...)
+}
+
 type reportPlanArgs struct {
 	// Description of the report plan with a maximum of 1,024 characters.
 	Description *string `pulumi:"description"`

@@ -173,6 +173,12 @@ func (ActivityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityState)(nil)).Elem()
 }
 
+// ActivityExists checks whether an existing Activity resource with the given ID exists.
+func ActivityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActivityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sfn/activity:Activity", id, state, "", opts...)
+}
+
 type activityArgs struct {
 	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration *ActivityEncryptionConfiguration `pulumi:"encryptionConfiguration"`

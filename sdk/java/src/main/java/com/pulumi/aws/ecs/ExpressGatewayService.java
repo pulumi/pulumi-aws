@@ -243,11 +243,10 @@ public class ExpressGatewayService extends com.pulumi.resources.CustomResource {
     /**
      * (**Deprecated**) ARN of the current deployment.
      * 
-     * @deprecated
-     * This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="currentDeployment", refs={String.class}, tree="[0]")
     private Output<String> currentDeployment;
 

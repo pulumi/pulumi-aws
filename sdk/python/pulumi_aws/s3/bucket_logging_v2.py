@@ -590,6 +590,26 @@ class BucketLoggingV2(pulumi.CustomResource):
         __props__.__dict__["target_prefix"] = target_prefix
         return BucketLoggingV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict', 'outputs.BucketLoggingV2TargetGrant']]]]] = None,
+            target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingV2TargetObjectKeyFormat']]] = None,
+            target_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bucket"] = bucket
+        __props__["expectedBucketOwner"] = expected_bucket_owner
+        __props__["region"] = region
+        __props__["targetBucket"] = target_bucket
+        __props__["targetGrants"] = target_grants
+        __props__["targetObjectKeyFormat"] = target_object_key_format
+        __props__["targetPrefix"] = target_prefix
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketLoggingV2:BucketLoggingV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:

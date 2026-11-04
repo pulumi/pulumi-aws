@@ -464,6 +464,12 @@ func (CrawlerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*crawlerState)(nil)).Elem()
 }
 
+// CrawlerExists checks whether an existing Crawler resource with the given ID exists.
+func CrawlerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CrawlerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/crawler:Crawler", id, state, "", opts...)
+}
+
 type crawlerArgs struct {
 	// List of nested AWS Glue Data Catalog target arguments. See `catalogTarget` below.
 	CatalogTargets []CrawlerCatalogTarget `pulumi:"catalogTargets"`

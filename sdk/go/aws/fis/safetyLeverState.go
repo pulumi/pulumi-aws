@@ -131,6 +131,12 @@ func (SafetyLeverStateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*safetyLeverStateState)(nil)).Elem()
 }
 
+// SafetyLeverStateExists checks whether an existing SafetyLeverState resource with the given ID exists.
+func SafetyLeverStateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SafetyLeverStateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fis/safetyLeverState:SafetyLeverState", id, state, "", opts...)
+}
+
 type safetyLeverStateArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

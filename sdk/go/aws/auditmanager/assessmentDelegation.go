@@ -162,6 +162,12 @@ func (AssessmentDelegationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentDelegationState)(nil)).Elem()
 }
 
+// AssessmentDelegationExists checks whether an existing AssessmentDelegation resource with the given ID exists.
+func AssessmentDelegationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssessmentDelegationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:auditmanager/assessmentDelegation:AssessmentDelegation", id, state, "", opts...)
+}
+
 type assessmentDelegationArgs struct {
 	// Identifier for the assessment.
 	AssessmentId string `pulumi:"assessmentId"`

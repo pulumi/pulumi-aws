@@ -230,6 +230,12 @@ func (ReplicationSubnetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationSubnetGroupState)(nil)).Elem()
 }
 
+// ReplicationSubnetGroupExists checks whether an existing ReplicationSubnetGroup resource with the given ID exists.
+func ReplicationSubnetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationSubnetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", id, state, "", opts...)
+}
+
 type replicationSubnetGroupArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

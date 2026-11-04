@@ -123,6 +123,12 @@ func (InstanceDesiredStateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceDesiredStateState)(nil)).Elem()
 }
 
+// InstanceDesiredStateExists checks whether an existing InstanceDesiredState resource with the given ID exists.
+func InstanceDesiredStateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceDesiredStateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/instanceDesiredState:InstanceDesiredState", id, state, "", opts...)
+}
+
 type instanceDesiredStateArgs struct {
 	// DB Instance Identifier
 	Identifier string `pulumi:"identifier"`

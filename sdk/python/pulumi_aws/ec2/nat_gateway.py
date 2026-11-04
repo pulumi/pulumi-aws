@@ -989,6 +989,54 @@ class NatGateway(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return NatGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_provision_zones: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_ips: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]]] = None,
+            connectivity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regional_nat_gateway_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayRegionalNatGatewayAddressArgs', 'NatGatewayRegionalNatGatewayAddressArgsDict', 'outputs.NatGatewayRegionalNatGatewayAddress']]]]] = None,
+            regional_nat_gateway_auto_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_allocation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            secondary_private_ip_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+            secondary_private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocationId"] = allocation_id
+        __props__["associationId"] = association_id
+        __props__["autoProvisionZones"] = auto_provision_zones
+        __props__["autoScalingIps"] = auto_scaling_ips
+        __props__["availabilityMode"] = availability_mode
+        __props__["availabilityZoneAddresses"] = availability_zone_addresses
+        __props__["connectivityType"] = connectivity_type
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["privateIp"] = private_ip
+        __props__["publicIp"] = public_ip
+        __props__["region"] = region
+        __props__["regionalNatGatewayAddresses"] = regional_nat_gateway_addresses
+        __props__["regionalNatGatewayAutoMode"] = regional_nat_gateway_auto_mode
+        __props__["routeTableId"] = route_table_id
+        __props__["secondaryAllocationIds"] = secondary_allocation_ids
+        __props__["secondaryPrivateIpAddressCount"] = secondary_private_ip_address_count
+        __props__["secondaryPrivateIpAddresses"] = secondary_private_ip_addresses
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/natGateway:NatGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[Optional[_builtins.str]]:

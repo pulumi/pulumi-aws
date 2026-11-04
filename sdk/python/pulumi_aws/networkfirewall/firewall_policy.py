@@ -721,6 +721,30 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["update_token"] = update_token
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict', 'outputs.FirewallPolicyEncryptionConfiguration']]] = None,
+            firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict', 'outputs.FirewallPolicyFirewallPolicy']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            update_token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["firewallPolicy"] = firewall_policy
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["updateToken"] = update_token
+        return pulumi.runtime.exists_resource(None, 'aws:networkfirewall/firewallPolicy:FirewallPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

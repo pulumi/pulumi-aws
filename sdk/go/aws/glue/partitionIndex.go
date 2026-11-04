@@ -219,6 +219,12 @@ func (PartitionIndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*partitionIndexState)(nil)).Elem()
 }
 
+// PartitionIndexExists checks whether an existing PartitionIndex resource with the given ID exists.
+func PartitionIndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PartitionIndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/partitionIndex:PartitionIndex", id, state, "", opts...)
+}
+
 type partitionIndexArgs struct {
 	// Catalog ID where the table resides.
 	CatalogId *string `pulumi:"catalogId"`

@@ -130,6 +130,12 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigurationState)(nil)).Elem()
 }
 
+// OrganizationConfigurationExists checks whether an existing OrganizationConfiguration resource with the given ID exists.
+func OrganizationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:detective/organizationConfiguration:OrganizationConfiguration", id, state, "", opts...)
+}
+
 type organizationConfigurationArgs struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
 	AutoEnable bool `pulumi:"autoEnable"`

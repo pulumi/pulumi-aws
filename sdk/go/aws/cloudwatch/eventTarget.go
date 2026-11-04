@@ -1108,6 +1108,12 @@ func (EventTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventTargetState)(nil)).Elem()
 }
 
+// EventTargetExists checks whether an existing EventTarget resource with the given ID exists.
+func EventTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/eventTarget:EventTarget", id, state, "", opts...)
+}
+
 type eventTargetArgs struct {
 	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
 	AppsyncTarget *EventTargetAppsyncTarget `pulumi:"appsyncTarget"`

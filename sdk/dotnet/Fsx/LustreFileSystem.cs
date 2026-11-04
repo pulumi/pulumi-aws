@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
+        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and `  SSD ` StorageType are 125, 250, 500, 1000.
         /// </summary>
         [Output("perUnitStorageThroughput")]
         public Output<int?> PerUnitStorageThroughput { get; private set; } = null!;
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.LustreFileSystemMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
 
         /// <summary>
-        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
+        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and `  SSD ` StorageType are 125, 250, 500, 1000.
         /// </summary>
         [Input("perUnitStorageThroughput")]
         public Input<int>? PerUnitStorageThroughput { get; set; }
@@ -686,7 +686,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
+        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and `  SSD ` StorageType are 125, 250, 500, 1000.
         /// </summary>
         [Input("perUnitStorageThroughput")]
         public Input<int>? PerUnitStorageThroughput { get; set; }

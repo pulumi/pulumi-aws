@@ -154,6 +154,12 @@ func (TagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagState)(nil)).Elem()
 }
 
+// TagExists checks whether an existing Tag resource with the given ID exists.
+func TagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dynamodb/tag:Tag", id, state, "", opts...)
+}
+
 type tagArgs struct {
 	// Tag name.
 	Key string `pulumi:"key"`

@@ -311,6 +311,20 @@ class Attachment(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Attachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            elb: pulumi.Input[Optional[_builtins.str]] = None,
+            lb_target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoscalingGroupName"] = autoscaling_group_name
+        __props__["elb"] = elb
+        __props__["lbTargetGroupArn"] = lb_target_group_arn
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:autoscaling/attachment:Attachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[_builtins.str]:

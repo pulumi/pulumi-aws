@@ -116,6 +116,12 @@ func (GlobalNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalNetworkState)(nil)).Elem()
 }
 
+// GlobalNetworkExists checks whether an existing GlobalNetwork resource with the given ID exists.
+func GlobalNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/globalNetwork:GlobalNetwork", id, state, "", opts...)
+}
+
 type globalNetworkArgs struct {
 	// Description of the Global Network.
 	Description *string `pulumi:"description"`

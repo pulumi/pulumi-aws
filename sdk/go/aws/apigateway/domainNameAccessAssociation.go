@@ -150,6 +150,12 @@ func (DomainNameAccessAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameAccessAssociationState)(nil)).Elem()
 }
 
+// DomainNameAccessAssociationExists checks whether an existing DomainNameAccessAssociation resource with the given ID exists.
+func DomainNameAccessAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainNameAccessAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation", id, state, "", opts...)
+}
+
 type domainNameAccessAssociationArgs struct {
 	// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
 	AccessAssociationSource string `pulumi:"accessAssociationSource"`

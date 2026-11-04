@@ -581,6 +581,36 @@ class LocationSmb(pulumi.CustomResource):
         __props__.__dict__["user"] = user
         return LocationSmb(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            mount_options: pulumi.Input[Optional[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict', 'outputs.LocationSmbMountOptions']]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentArns"] = agent_arns
+        __props__["arn"] = arn
+        __props__["domain"] = domain
+        __props__["mountOptions"] = mount_options
+        __props__["password"] = password
+        __props__["region"] = region
+        __props__["serverHostname"] = server_hostname
+        __props__["subdirectory"] = subdirectory
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uri"] = uri
+        __props__["user"] = user
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/locationSmb:LocationSmb', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -295,6 +295,12 @@ func (ConnectAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectAttachmentState)(nil)).Elem()
 }
 
+// ConnectAttachmentExists checks whether an existing ConnectAttachment resource with the given ID exists.
+func ConnectAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/connectAttachment:ConnectAttachment", id, state, "", opts...)
+}
+
 type connectAttachmentArgs struct {
 	// ID of a core network where you want to create the attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

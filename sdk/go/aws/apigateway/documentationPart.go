@@ -142,6 +142,12 @@ func (DocumentationPartState) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentationPartState)(nil)).Elem()
 }
 
+// DocumentationPartExists checks whether an existing DocumentationPart resource with the given ID exists.
+func DocumentationPartExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DocumentationPartState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/documentationPart:DocumentationPart", id, state, "", opts...)
+}
+
 type documentationPartArgs struct {
 	// Location of the targeted API entity of the to-be-created documentation part. See below.
 	Location DocumentationPartLocation `pulumi:"location"`

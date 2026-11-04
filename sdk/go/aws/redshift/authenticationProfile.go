@@ -127,6 +127,12 @@ func (AuthenticationProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authenticationProfileState)(nil)).Elem()
 }
 
+// AuthenticationProfileExists checks whether an existing AuthenticationProfile resource with the given ID exists.
+func AuthenticationProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthenticationProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/authenticationProfile:AuthenticationProfile", id, state, "", opts...)
+}
+
 type authenticationProfileArgs struct {
 	// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
 	AuthenticationProfileContent string `pulumi:"authenticationProfileContent"`

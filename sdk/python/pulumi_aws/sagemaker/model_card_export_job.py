@@ -413,6 +413,28 @@ class ModelCardExportJob(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ModelCardExportJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            export_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelCardExportJobExportArtifactArgs', 'ModelCardExportJobExportArtifactArgsDict', 'outputs.ModelCardExportJobExportArtifact']]]]] = None,
+            model_card_export_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            model_card_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
+            model_card_version: pulumi.Input[Optional[_builtins.int]] = None,
+            output_config: pulumi.Input[Optional[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict', 'outputs.ModelCardExportJobOutputConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ModelCardExportJobTimeoutsArgs', 'ModelCardExportJobTimeoutsArgsDict', 'outputs.ModelCardExportJobTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["exportArtifacts"] = export_artifacts
+        __props__["modelCardExportJobArn"] = model_card_export_job_arn
+        __props__["modelCardExportJobName"] = model_card_export_job_name
+        __props__["modelCardName"] = model_card_name
+        __props__["modelCardVersion"] = model_card_version
+        __props__["outputConfig"] = output_config
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/modelCardExportJob:ModelCardExportJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="exportArtifacts")
     def export_artifacts(self) -> pulumi.Output[Sequence['outputs.ModelCardExportJobExportArtifact']]:

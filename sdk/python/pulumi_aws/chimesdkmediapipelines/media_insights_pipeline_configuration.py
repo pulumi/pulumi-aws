@@ -919,6 +919,28 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return MediaInsightsPipelineConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict', 'outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["elements"] = elements
+        __props__["name"] = name
+        __props__["realTimeAlertConfiguration"] = real_time_alert_configuration
+        __props__["region"] = region
+        __props__["resourceAccessRoleArn"] = resource_access_role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

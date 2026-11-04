@@ -192,6 +192,12 @@ func (TrafficPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficPolicyState)(nil)).Elem()
 }
 
+// TrafficPolicyExists checks whether an existing TrafficPolicy resource with the given ID exists.
+func TrafficPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mailmanager/trafficPolicy:TrafficPolicy", id, state, "", opts...)
+}
+
 type trafficPolicyArgs struct {
 	// Default action for traffic that does not match any policy statement. Valid values are `ALLOW` and `DENY`.
 	DefaultAction string `pulumi:"defaultAction"`

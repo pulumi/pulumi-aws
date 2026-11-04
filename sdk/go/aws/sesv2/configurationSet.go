@@ -179,6 +179,12 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationSetState)(nil)).Elem()
 }
 
+// ConfigurationSetExists checks whether an existing ConfigurationSet resource with the given ID exists.
+func ConfigurationSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sesv2/configurationSet:ConfigurationSet", id, state, "", opts...)
+}
+
 type configurationSetArgs struct {
 	// Name of the configuration set.
 	ConfigurationSetName string `pulumi:"configurationSetName"`

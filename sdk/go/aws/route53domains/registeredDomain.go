@@ -259,6 +259,12 @@ func (RegisteredDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registeredDomainState)(nil)).Elem()
 }
 
+// RegisteredDomainExists checks whether an existing RegisteredDomain resource with the given ID exists.
+func RegisteredDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegisteredDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53domains/registeredDomain:RegisteredDomain", id, state, "", opts...)
+}
+
 type registeredDomainArgs struct {
 	// Details about the domain administrative contact. See Contact Blocks for more details.
 	AdminContact *RegisteredDomainAdminContact `pulumi:"adminContact"`

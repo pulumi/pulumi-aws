@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var cluster = new Cluster("cluster", ClusterArgs.builder()
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
  *                 .subnetId(main.get("id"))
@@ -82,37 +82,37 @@ import javax.annotation.Nullable;
  *                 .instanceCount(1)
  *                 .bidPrice("0.30")
  *                 .autoscalingPolicy("""
- * {
- * \"Constraints\": {
- *   \"MinCapacity\": 1,
- *   \"MaxCapacity\": 2
- * },
- * \"Rules\": [
- *   {
- *     \"Name\": \"ScaleOutMemoryPercentage\",
- *     \"Description\": \"Scale out if YARNMemoryAvailablePercentage is less than 15\",
- *     \"Action\": {
- *       \"SimpleScalingPolicyConfiguration\": {
- *         \"AdjustmentType\": \"CHANGE_IN_CAPACITY\",
- *         \"ScalingAdjustment\": 1,
- *         \"CoolDown\": 300
- *       }
- *     },
- *     \"Trigger\": {
- *       \"CloudWatchAlarmDefinition\": {
- *         \"ComparisonOperator\": \"LESS_THAN\",
- *         \"EvaluationPeriods\": 1,
- *         \"MetricName\": \"YARNMemoryAvailablePercentage\",
- *         \"Namespace\": \"AWS/ElasticMapReduce\",
- *         \"Period\": 300,
- *         \"Statistic\": \"AVERAGE\",
- *         \"Threshold\": 15.0,
- *         \"Unit\": \"PERCENT\"
- *       }
- *     }
- *   }
+ * }{{@code
+ * }&#92;{@code "Constraints}&#92;{@code ": }{{@code
+ *   }&#92;{@code "MinCapacity}&#92;{@code ": 1,
+ *   }&#92;{@code "MaxCapacity}&#92;{@code ": 2
+ * }}{@code ,
+ * }&#92;{@code "Rules}&#92;{@code ": [
+ *   }{{@code
+ *     }&#92;{@code "Name}&#92;{@code ": }&#92;{@code "ScaleOutMemoryPercentage}&#92;{@code ",
+ *     }&#92;{@code "Description}&#92;{@code ": }&#92;{@code "Scale out if YARNMemoryAvailablePercentage is less than 15}&#92;{@code ",
+ *     }&#92;{@code "Action}&#92;{@code ": }{{@code
+ *       }&#92;{@code "SimpleScalingPolicyConfiguration}&#92;{@code ": }{{@code
+ *         }&#92;{@code "AdjustmentType}&#92;{@code ": }&#92;{@code "CHANGE_IN_CAPACITY}&#92;{@code ",
+ *         }&#92;{@code "ScalingAdjustment}&#92;{@code ": 1,
+ *         }&#92;{@code "CoolDown}&#92;{@code ": 300
+ *       }}{@code
+ *     }}{@code ,
+ *     }&#92;{@code "Trigger}&#92;{@code ": }{{@code
+ *       }&#92;{@code "CloudWatchAlarmDefinition}&#92;{@code ": }{{@code
+ *         }&#92;{@code "ComparisonOperator}&#92;{@code ": }&#92;{@code "LESS_THAN}&#92;{@code ",
+ *         }&#92;{@code "EvaluationPeriods}&#92;{@code ": 1,
+ *         }&#92;{@code "MetricName}&#92;{@code ": }&#92;{@code "YARNMemoryAvailablePercentage}&#92;{@code ",
+ *         }&#92;{@code "Namespace}&#92;{@code ": }&#92;{@code "AWS/ElasticMapReduce}&#92;{@code ",
+ *         }&#92;{@code "Period}&#92;{@code ": 300,
+ *         }&#92;{@code "Statistic}&#92;{@code ": }&#92;{@code "AVERAGE}&#92;{@code ",
+ *         }&#92;{@code "Threshold}&#92;{@code ": 15.0,
+ *         }&#92;{@code "Unit}&#92;{@code ": }&#92;{@code "PERCENT}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
+ *   }}{@code
  * ]
- * }
+ * }}{@code
  *                 """)
  *                 .build())
  *             .bootstrapActions(ClusterBootstrapActionArgs.builder()
@@ -126,12 +126,12 @@ import javax.annotation.Nullable;
  *             .releaseLabel("emr-4.6.0")
  *             .applications("Spark")
  *             .additionalInfo("""
- * {
- *   \"instanceAwsClientConfiguration\": {
- *     \"proxyPort\": 8099,
- *     \"proxyHost\": \"myproxy.example.com\"
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "instanceAwsClientConfiguration}&#92;{@code ": }{{@code
+ *     }&#92;{@code "proxyPort}&#92;{@code ": 8099,
+ *     }&#92;{@code "proxyHost}&#92;{@code ": }&#92;{@code "myproxy.example.com}&#92;{@code "
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .terminationProtection(false)
  *             .keepJobFlowAliveWhenNoSteps(true)
@@ -142,37 +142,37 @@ import javax.annotation.Nullable;
  *             ))
  *             .configurationsJson("""
  *   [
- *     {
- *       \"Classification\": \"hadoop-env\",
- *       \"Configurations\": [
- *         {
- *           \"Classification\": \"export\",
- *           \"Properties\": {
- *             \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
- *           }
- *         }
+ *     }{{@code
+ *       }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "hadoop-env}&#92;{@code ",
+ *       }&#92;{@code "Configurations}&#92;{@code ": [
+ *         }{{@code
+ *           }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "export}&#92;{@code ",
+ *           }&#92;{@code "Properties}&#92;{@code ": }{{@code
+ *             }&#92;{@code "JAVA_HOME}&#92;{@code ": }&#92;{@code "/usr/lib/jvm/java-1.8.0}&#92;{@code "
+ *           }}{@code
+ *         }}{@code
  *       ],
- *       \"Properties\": {}
- *     },
- *     {
- *       \"Classification\": \"spark-env\",
- *       \"Configurations\": [
- *         {
- *           \"Classification\": \"export\",
- *           \"Properties\": {
- *             \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
- *           }
- *         }
+ *       }&#92;{@code "Properties}&#92;{@code ": }{}{@code
+ *     }}{@code ,
+ *     }{{@code
+ *       }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "spark-env}&#92;{@code ",
+ *       }&#92;{@code "Configurations}&#92;{@code ": [
+ *         }{{@code
+ *           }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "export}&#92;{@code ",
+ *           }&#92;{@code "Properties}&#92;{@code ": }{{@code
+ *             }&#92;{@code "JAVA_HOME}&#92;{@code ": }&#92;{@code "/usr/lib/jvm/java-1.8.0}&#92;{@code "
+ *           }}{@code
+ *         }}{@code
  *       ],
- *       \"Properties\": {}
- *     }
+ *       }&#92;{@code "Properties}&#92;{@code ": }{}{@code
+ *     }}{@code
  *   ]
  *             """)
  *             .serviceRole(iamEmrServiceRole.get("arn"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -584,33 +584,33 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var cluster = new Cluster("cluster", ClusterArgs.builder()
      *             .configurationsJson("""
      * [
-     * {
-     * \"Classification\": \"hadoop-env\",
-     * \"Configurations\": [
-     * {
-     * \"Classification\": \"export\",
-     * \"Properties\": {
-     * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
-     * }
-     * }
+     * }{{@code
+     * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "hadoop-env}&#92;{@code ",
+     * }&#92;{@code "Configurations}&#92;{@code ": [
+     * }{{@code
+     * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "export}&#92;{@code ",
+     * }&#92;{@code "Properties}&#92;{@code ": }{{@code
+     * }&#92;{@code "JAVA_HOME}&#92;{@code ": }&#92;{@code "/usr/lib/jvm/java-1.8.0}&#92;{@code "
+     * }}{@code
+     * }}{@code
      * ],
-     * \"Properties\": {}
-     * }
+     * }&#92;{@code "Properties}&#92;{@code ": }{}{@code
+     * }}{@code
      * ]
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -639,33 +639,33 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var cluster = new Cluster("cluster", ClusterArgs.builder()
      *             .configurationsJson("""
      * [
-     * {
-     * \"Classification\": \"hadoop-env\",
-     * \"Configurations\": [
-     * {
-     * \"Classification\": \"export\",
-     * \"Properties\": {
-     * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
-     * }
-     * }
+     * }{{@code
+     * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "hadoop-env}&#92;{@code ",
+     * }&#92;{@code "Configurations}&#92;{@code ": [
+     * }{{@code
+     * }&#92;{@code "Classification}&#92;{@code ": }&#92;{@code "export}&#92;{@code ",
+     * }&#92;{@code "Properties}&#92;{@code ": }{{@code
+     * }&#92;{@code "JAVA_HOME}&#92;{@code ": }&#92;{@code "/usr/lib/jvm/java-1.8.0}&#92;{@code "
+     * }}{@code
+     * }}{@code
      * ],
-     * \"Properties\": {}
-     * }
+     * }&#92;{@code "Properties}&#92;{@code ": }{}{@code
+     * }}{@code
      * ]
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 

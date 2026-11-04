@@ -295,6 +295,12 @@ func (AgentAgentCollaboratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentAgentCollaboratorState)(nil)).Elem()
 }
 
+// AgentAgentCollaboratorExists checks whether an existing AgentAgentCollaborator resource with the given ID exists.
+func AgentAgentCollaboratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentAgentCollaboratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator", id, state, "", opts...)
+}
+
 type agentAgentCollaboratorArgs struct {
 	// Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
 	AgentDescriptor AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`

@@ -279,6 +279,12 @@ func (FaqState) ElementType() reflect.Type {
 	return reflect.TypeOf((*faqState)(nil)).Elem()
 }
 
+// FaqExists checks whether an existing Faq resource with the given ID exists.
+func FaqExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FaqState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kendra/faq:Faq", id, state, "", opts...)
+}
+
 type faqArgs struct {
 	// Description for a FAQ.
 	Description *string `pulumi:"description"`

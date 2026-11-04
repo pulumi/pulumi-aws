@@ -334,6 +334,22 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceServiceAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            grafana_role: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["grafanaRole"] = grafana_role
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["serviceAccountId"] = service_account_id
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="grafanaRole")
     def grafana_role(self) -> pulumi.Output[_builtins.str]:

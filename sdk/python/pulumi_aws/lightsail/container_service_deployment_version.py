@@ -432,6 +432,26 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return ContainerServiceDeploymentVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict', 'outputs.ContainerServiceDeploymentVersionContainer']]]]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            public_endpoint: pulumi.Input[Optional[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict', 'outputs.ContainerServiceDeploymentVersionPublicEndpoint']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containers"] = containers
+        __props__["createdAt"] = created_at
+        __props__["publicEndpoint"] = public_endpoint
+        __props__["region"] = region
+        __props__["serviceName"] = service_name
+        __props__["state"] = state
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def containers(self) -> pulumi.Output[Sequence['outputs.ContainerServiceDeploymentVersionContainer']]:

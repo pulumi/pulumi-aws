@@ -794,6 +794,12 @@ func (ListenerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerState)(nil)).Elem()
 }
 
+// ListenerExists checks whether an existing Listener resource with the given ID exists.
+func ListenerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ListenerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:alb/listener:Listener", id, state, "", opts...)
+}
+
 type listenerArgs struct {
 	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
 	AlpnPolicy *string `pulumi:"alpnPolicy"`

@@ -950,6 +950,30 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
         __props__.__dict__["web_acl_arn"] = web_acl_arn
         return WebAclRuleGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            managed_rule_group: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationManagedRuleGroupArgs', 'WebAclRuleGroupAssociationManagedRuleGroupArgsDict', 'outputs.WebAclRuleGroupAssociationManagedRuleGroup']]] = None,
+            override_action: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_group_reference: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationRuleGroupReferenceArgs', 'WebAclRuleGroupAssociationRuleGroupReferenceArgsDict', 'outputs.WebAclRuleGroupAssociationRuleGroupReference']]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationTimeoutsArgs', 'WebAclRuleGroupAssociationTimeoutsArgsDict', 'outputs.WebAclRuleGroupAssociationTimeouts']]] = None,
+            visibility_config: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationVisibilityConfigArgs', 'WebAclRuleGroupAssociationVisibilityConfigArgsDict', 'outputs.WebAclRuleGroupAssociationVisibilityConfig']]] = None,
+            web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["managedRuleGroup"] = managed_rule_group
+        __props__["overrideAction"] = override_action
+        __props__["priority"] = priority
+        __props__["region"] = region
+        __props__["ruleGroupReference"] = rule_group_reference
+        __props__["ruleName"] = rule_name
+        __props__["timeouts"] = timeouts
+        __props__["visibilityConfig"] = visibility_config
+        __props__["webAclArn"] = web_acl_arn
+        return pulumi.runtime.exists_resource(None, 'aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="managedRuleGroup")
     def managed_rule_group(self) -> pulumi.Output[Optional['outputs.WebAclRuleGroupAssociationManagedRuleGroup']]:

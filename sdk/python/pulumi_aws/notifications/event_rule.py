@@ -411,6 +411,24 @@ class EventRule(pulumi.CustomResource):
         __props__.__dict__["source"] = source
         return EventRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            event_type: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["eventPattern"] = event_pattern
+        __props__["eventType"] = event_type
+        __props__["notificationConfigurationArn"] = notification_configuration_arn
+        __props__["regions"] = regions
+        __props__["source"] = source
+        return pulumi.runtime.exists_resource(None, 'aws:notifications/eventRule:EventRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

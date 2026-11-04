@@ -158,6 +158,12 @@ func (DomainPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainPolicyState)(nil)).Elem()
 }
 
+// DomainPolicyExists checks whether an existing DomainPolicy resource with the given ID exists.
+func DomainPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/domainPolicy:DomainPolicy", id, state, "", opts...)
+}
+
 type domainPolicyArgs struct {
 	// IAM policy document specifying the access policies for the domain
 	AccessPolicies string `pulumi:"accessPolicies"`

@@ -442,6 +442,12 @@ func (AgentcoreAgentRuntimeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreAgentRuntimeState)(nil)).Elem()
 }
 
+// AgentcoreAgentRuntimeExists checks whether an existing AgentcoreAgentRuntime resource with the given ID exists.
+func AgentcoreAgentRuntimeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreAgentRuntimeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime", id, state, "", opts...)
+}
+
 type agentcoreAgentRuntimeArgs struct {
 	// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
 	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifact `pulumi:"agentRuntimeArtifact"`

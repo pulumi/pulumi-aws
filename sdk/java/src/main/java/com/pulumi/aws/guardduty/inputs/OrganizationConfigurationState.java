@@ -34,22 +34,20 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
     /**
      * Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
-     * @deprecated
-     * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+     * @deprecated datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
      * 
      */
-    @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
+    @Deprecated
     @Import(name="datasources")
     private @Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources;
 
     /**
      * @return Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
-     * @deprecated
-     * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+     * @deprecated datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
      * 
      */
-    @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
+    @Deprecated
     public Optional<Output<OrganizationConfigurationDatasourcesArgs>> datasources() {
         return Optional.ofNullable(this.datasources);
     }
@@ -141,11 +139,10 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
          * 
          * @return builder
          * 
-         * @deprecated
-         * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+         * @deprecated datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
          * 
          */
-        @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
+        @Deprecated
         public Builder datasources(@Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources) {
             $.datasources = datasources;
             return this;
@@ -156,11 +153,10 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
          * 
          * @return builder
          * 
-         * @deprecated
-         * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+         * @deprecated datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
          * 
          */
-        @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
+        @Deprecated
         public Builder datasources(OrganizationConfigurationDatasourcesArgs datasources) {
             return datasources(Output.of(datasources));
         }

@@ -177,6 +177,12 @@ func (FindingsFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*findingsFilterState)(nil)).Elem()
 }
 
+// FindingsFilterExists checks whether an existing FindingsFilter resource with the given ID exists.
+func FindingsFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FindingsFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie/findingsFilter:FindingsFilter", id, state, "", opts...)
+}
+
 type findingsFilterArgs struct {
 	// Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
 	Action string `pulumi:"action"`

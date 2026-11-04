@@ -276,6 +276,12 @@ func (RouteTablePropagationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeTablePropagationState)(nil)).Elem()
 }
 
+// RouteTablePropagationExists checks whether an existing RouteTablePropagation resource with the given ID exists.
+func RouteTablePropagationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteTablePropagationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation", id, state, "", opts...)
+}
+
 type routeTablePropagationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

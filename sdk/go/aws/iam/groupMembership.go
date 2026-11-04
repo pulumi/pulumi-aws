@@ -137,6 +137,12 @@ func (GroupMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupMembershipState)(nil)).Elem()
 }
 
+// GroupMembershipExists checks whether an existing GroupMembership resource with the given ID exists.
+func GroupMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/groupMembership:GroupMembership", id, state, "", opts...)
+}
+
 type groupMembershipArgs struct {
 	// The IAM Group name to attach the list of `users` to
 	Group string `pulumi:"group"`

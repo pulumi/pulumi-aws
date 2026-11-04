@@ -790,6 +790,44 @@ class ReceiptRule(pulumi.CustomResource):
         __props__.__dict__["workmail_actions"] = workmail_actions
         return ReceiptRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            add_header_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReceiptRuleAddHeaderActionArgs', 'ReceiptRuleAddHeaderActionArgsDict', 'outputs.ReceiptRuleAddHeaderAction']]]]] = None,
+            after: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bounce_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReceiptRuleBounceActionArgs', 'ReceiptRuleBounceActionArgsDict', 'outputs.ReceiptRuleBounceAction']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            lambda_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReceiptRuleLambdaActionArgs', 'ReceiptRuleLambdaActionArgsDict', 'outputs.ReceiptRuleLambdaAction']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReceiptRuleS3ActionArgs', 'ReceiptRuleS3ActionArgsDict', 'outputs.ReceiptRuleS3Action']]]]] = None,
+            scan_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sns_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReceiptRuleSnsActionArgs', 'ReceiptRuleSnsActionArgsDict', 'outputs.ReceiptRuleSnsAction']]]]] = None,
+            stop_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReceiptRuleStopActionArgs', 'ReceiptRuleStopActionArgsDict', 'outputs.ReceiptRuleStopAction']]]]] = None,
+            tls_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            workmail_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReceiptRuleWorkmailActionArgs', 'ReceiptRuleWorkmailActionArgsDict', 'outputs.ReceiptRuleWorkmailAction']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addHeaderActions"] = add_header_actions
+        __props__["after"] = after
+        __props__["arn"] = arn
+        __props__["bounceActions"] = bounce_actions
+        __props__["enabled"] = enabled
+        __props__["lambdaActions"] = lambda_actions
+        __props__["name"] = name
+        __props__["recipients"] = recipients
+        __props__["region"] = region
+        __props__["ruleSetName"] = rule_set_name
+        __props__["s3Actions"] = s3_actions
+        __props__["scanEnabled"] = scan_enabled
+        __props__["snsActions"] = sns_actions
+        __props__["stopActions"] = stop_actions
+        __props__["tlsPolicy"] = tls_policy
+        __props__["workmailActions"] = workmail_actions
+        return pulumi.runtime.exists_resource(None, 'aws:ses/receiptRule:ReceiptRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addHeaderActions")
     def add_header_actions(self) -> pulumi.Output[Optional[Sequence['outputs.ReceiptRuleAddHeaderAction']]]:

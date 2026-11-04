@@ -485,6 +485,12 @@ func (ObjectCopyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*objectCopyState)(nil)).Elem()
 }
 
+// ObjectCopyExists checks whether an existing ObjectCopy resource with the given ID exists.
+func ObjectCopyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObjectCopyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/objectCopy:ObjectCopy", id, state, "", opts...)
+}
+
 type objectCopyArgs struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
 	Acl *string `pulumi:"acl"`

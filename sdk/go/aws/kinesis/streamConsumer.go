@@ -156,6 +156,12 @@ func (StreamConsumerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamConsumerState)(nil)).Elem()
 }
 
+// StreamConsumerExists checks whether an existing StreamConsumer resource with the given ID exists.
+func StreamConsumerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamConsumerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kinesis/streamConsumer:StreamConsumer", id, state, "", opts...)
+}
+
 type streamConsumerArgs struct {
 	// Name of the stream consumer.
 	Name *string `pulumi:"name"`

@@ -606,6 +606,12 @@ func (BucketObjectv2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketObjectv2State)(nil)).Elem()
 }
 
+// BucketObjectv2Exists checks whether an existing BucketObjectv2 resource with the given ID exists.
+func BucketObjectv2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketObjectv2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketObjectv2:BucketObjectv2", id, state, "", opts...)
+}
+
 type bucketObjectv2Args struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl *string `pulumi:"acl"`

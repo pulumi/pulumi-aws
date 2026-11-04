@@ -174,6 +174,12 @@ func (ProactiveEngagementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*proactiveEngagementState)(nil)).Elem()
 }
 
+// ProactiveEngagementExists checks whether an existing ProactiveEngagement resource with the given ID exists.
+func ProactiveEngagementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProactiveEngagementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:shield/proactiveEngagement:ProactiveEngagement", id, state, "", opts...)
+}
+
 type proactiveEngagementArgs struct {
 	// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
 	EmergencyContacts []ProactiveEngagementEmergencyContact `pulumi:"emergencyContacts"`

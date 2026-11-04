@@ -188,6 +188,12 @@ func (VolumeCopyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeCopyState)(nil)).Elem()
 }
 
+// VolumeCopyExists checks whether an existing VolumeCopy resource with the given ID exists.
+func VolumeCopyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeCopyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ebs/volumeCopy:VolumeCopy", id, state, "", opts...)
+}
+
 type volumeCopyArgs struct {
 	// Provisioned IOPS for the copied volume. Use only with volume types that support provisioned IOPS, such as `gp3`.
 	Iops *int `pulumi:"iops"`

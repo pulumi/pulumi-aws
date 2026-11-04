@@ -142,6 +142,12 @@ func (ResourceShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceShareState)(nil)).Elem()
 }
 
+// ResourceShareExists checks whether an existing ResourceShare resource with the given ID exists.
+func ResourceShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ram/resourceShare:ResourceShare", id, state, "", opts...)
+}
+
 type resourceShareArgs struct {
 	// Whether principals outside your organization can be associated with a resource share.
 	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`

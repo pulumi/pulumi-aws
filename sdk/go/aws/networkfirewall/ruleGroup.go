@@ -663,6 +663,12 @@ func (RuleGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleGroupState)(nil)).Elem()
 }
 
+// RuleGroupExists checks whether an existing RuleGroup resource with the given ID exists.
+func RuleGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkfirewall/ruleGroup:RuleGroup", id, state, "", opts...)
+}
+
 type ruleGroupArgs struct {
 	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
 	Capacity int `pulumi:"capacity"`

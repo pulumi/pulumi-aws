@@ -1946,6 +1946,80 @@ class TrainingJob(pulumi.CustomResource):
         __props__.__dict__["vpc_config"] = vpc_config
         return TrainingJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            algorithm_specification: pulumi.Input[Optional[Union['TrainingJobAlgorithmSpecificationArgs', 'TrainingJobAlgorithmSpecificationArgsDict', 'outputs.TrainingJobAlgorithmSpecification']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            checkpoint_config: pulumi.Input[Optional[Union['TrainingJobCheckpointConfigArgs', 'TrainingJobCheckpointConfigArgsDict', 'outputs.TrainingJobCheckpointConfig']]] = None,
+            debug_hook_config: pulumi.Input[Optional[Union['TrainingJobDebugHookConfigArgs', 'TrainingJobDebugHookConfigArgsDict', 'outputs.TrainingJobDebugHookConfig']]] = None,
+            debug_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobDebugRuleConfigurationArgs', 'TrainingJobDebugRuleConfigurationArgsDict', 'outputs.TrainingJobDebugRuleConfiguration']]]]] = None,
+            delete_model_packages_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_vpc_enis_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_inter_container_traffic_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_managed_spot_training: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+            environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            experiment_config: pulumi.Input[Optional[Union['TrainingJobExperimentConfigArgs', 'TrainingJobExperimentConfigArgsDict', 'outputs.TrainingJobExperimentConfig']]] = None,
+            hyper_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            infra_check_config: pulumi.Input[Optional[Union['TrainingJobInfraCheckConfigArgs', 'TrainingJobInfraCheckConfigArgsDict', 'outputs.TrainingJobInfraCheckConfig']]] = None,
+            input_data_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobInputDataConfigArgs', 'TrainingJobInputDataConfigArgsDict', 'outputs.TrainingJobInputDataConfig']]]]] = None,
+            mlflow_config: pulumi.Input[Optional[Union['TrainingJobMlflowConfigArgs', 'TrainingJobMlflowConfigArgsDict', 'outputs.TrainingJobMlflowConfig']]] = None,
+            model_package_config: pulumi.Input[Optional[Union['TrainingJobModelPackageConfigArgs', 'TrainingJobModelPackageConfigArgsDict', 'outputs.TrainingJobModelPackageConfig']]] = None,
+            output_data_config: pulumi.Input[Optional[Union['TrainingJobOutputDataConfigArgs', 'TrainingJobOutputDataConfigArgsDict', 'outputs.TrainingJobOutputDataConfig']]] = None,
+            profiler_config: pulumi.Input[Optional[Union['TrainingJobProfilerConfigArgs', 'TrainingJobProfilerConfigArgsDict', 'outputs.TrainingJobProfilerConfig']]] = None,
+            profiler_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobProfilerRuleConfigurationArgs', 'TrainingJobProfilerRuleConfigurationArgsDict', 'outputs.TrainingJobProfilerRuleConfiguration']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_debug_config: pulumi.Input[Optional[Union['TrainingJobRemoteDebugConfigArgs', 'TrainingJobRemoteDebugConfigArgsDict', 'outputs.TrainingJobRemoteDebugConfig']]] = None,
+            resource_config: pulumi.Input[Optional[Union['TrainingJobResourceConfigArgs', 'TrainingJobResourceConfigArgsDict', 'outputs.TrainingJobResourceConfig']]] = None,
+            retry_strategy: pulumi.Input[Optional[Union['TrainingJobRetryStrategyArgs', 'TrainingJobRetryStrategyArgsDict', 'outputs.TrainingJobRetryStrategy']]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_job_config: pulumi.Input[Optional[Union['TrainingJobServerlessJobConfigArgs', 'TrainingJobServerlessJobConfigArgsDict', 'outputs.TrainingJobServerlessJobConfig']]] = None,
+            session_chaining_config: pulumi.Input[Optional[Union['TrainingJobSessionChainingConfigArgs', 'TrainingJobSessionChainingConfigArgsDict', 'outputs.TrainingJobSessionChainingConfig']]] = None,
+            stopping_condition: pulumi.Input[Optional[Union['TrainingJobStoppingConditionArgs', 'TrainingJobStoppingConditionArgsDict', 'outputs.TrainingJobStoppingCondition']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tensor_board_output_config: pulumi.Input[Optional[Union['TrainingJobTensorBoardOutputConfigArgs', 'TrainingJobTensorBoardOutputConfigArgsDict', 'outputs.TrainingJobTensorBoardOutputConfig']]] = None,
+            timeouts: pulumi.Input[Optional[Union['TrainingJobTimeoutsArgs', 'TrainingJobTimeoutsArgsDict', 'outputs.TrainingJobTimeouts']]] = None,
+            training_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_config: pulumi.Input[Optional[Union['TrainingJobVpcConfigArgs', 'TrainingJobVpcConfigArgsDict', 'outputs.TrainingJobVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["algorithmSpecification"] = algorithm_specification
+        __props__["arn"] = arn
+        __props__["checkpointConfig"] = checkpoint_config
+        __props__["debugHookConfig"] = debug_hook_config
+        __props__["debugRuleConfigurations"] = debug_rule_configurations
+        __props__["deleteModelPackagesOnDestroy"] = delete_model_packages_on_destroy
+        __props__["deleteVpcEnisOnDestroy"] = delete_vpc_enis_on_destroy
+        __props__["enableInterContainerTrafficEncryption"] = enable_inter_container_traffic_encryption
+        __props__["enableManagedSpotTraining"] = enable_managed_spot_training
+        __props__["enableNetworkIsolation"] = enable_network_isolation
+        __props__["environment"] = environment
+        __props__["experimentConfig"] = experiment_config
+        __props__["hyperParameters"] = hyper_parameters
+        __props__["infraCheckConfig"] = infra_check_config
+        __props__["inputDataConfigs"] = input_data_configs
+        __props__["mlflowConfig"] = mlflow_config
+        __props__["modelPackageConfig"] = model_package_config
+        __props__["outputDataConfig"] = output_data_config
+        __props__["profilerConfig"] = profiler_config
+        __props__["profilerRuleConfigurations"] = profiler_rule_configurations
+        __props__["region"] = region
+        __props__["remoteDebugConfig"] = remote_debug_config
+        __props__["resourceConfig"] = resource_config
+        __props__["retryStrategy"] = retry_strategy
+        __props__["roleArn"] = role_arn
+        __props__["serverlessJobConfig"] = serverless_job_config
+        __props__["sessionChainingConfig"] = session_chaining_config
+        __props__["stoppingCondition"] = stopping_condition
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tensorBoardOutputConfig"] = tensor_board_output_config
+        __props__["timeouts"] = timeouts
+        __props__["trainingJobName"] = training_job_name
+        __props__["vpcConfig"] = vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/trainingJob:TrainingJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="algorithmSpecification")
     def algorithm_specification(self) -> pulumi.Output[Optional['outputs.TrainingJobAlgorithmSpecification']]:

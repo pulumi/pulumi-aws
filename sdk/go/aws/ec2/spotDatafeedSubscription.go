@@ -123,6 +123,12 @@ func (SpotDatafeedSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotDatafeedSubscriptionState)(nil)).Elem()
 }
 
+// SpotDatafeedSubscriptionExists checks whether an existing SpotDatafeedSubscription resource with the given ID exists.
+func SpotDatafeedSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpotDatafeedSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription", id, state, "", opts...)
+}
+
 type spotDatafeedSubscriptionArgs struct {
 	// The Amazon S3 bucket in which to store the Spot instance data feed.
 	Bucket string `pulumi:"bucket"`

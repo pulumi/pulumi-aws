@@ -217,6 +217,12 @@ func (DataProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataProviderState)(nil)).Elem()
 }
 
+// DataProviderExists checks whether an existing DataProvider resource with the given ID exists.
+func DataProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dms/dataProvider:DataProvider", id, state, "", opts...)
+}
+
 type dataProviderArgs struct {
 	// Description of the data provider.
 	Description *string `pulumi:"description"`

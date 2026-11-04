@@ -176,6 +176,12 @@ func (KeyvaluestoreKeysExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyvaluestoreKeysExclusiveState)(nil)).Elem()
 }
 
+// KeyvaluestoreKeysExclusiveExists checks whether an existing KeyvaluestoreKeysExclusive resource with the given ID exists.
+func KeyvaluestoreKeysExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyvaluestoreKeysExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive", id, state, "", opts...)
+}
+
 type keyvaluestoreKeysExclusiveArgs struct {
 	// ARN of the Key Value Store.
 	//

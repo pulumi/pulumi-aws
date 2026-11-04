@@ -495,6 +495,12 @@ func (PermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionState)(nil)).Elem()
 }
 
+// PermissionExists checks whether an existing Permission resource with the given ID exists.
+func PermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/permission:Permission", id, state, "", opts...)
+}
+
 type permissionArgs struct {
 	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
 	Action string `pulumi:"action"`

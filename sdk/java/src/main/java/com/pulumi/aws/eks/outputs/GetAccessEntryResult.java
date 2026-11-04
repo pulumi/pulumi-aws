@@ -44,11 +44,10 @@ public final class GetAccessEntryResult {
     /**
      * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
-     * @deprecated
-     * tags_all is deprecated.
+     * @deprecated tags_all is deprecated.
      * 
      */
-    @Deprecated /* tags_all is deprecated. */
+    @Deprecated
     private Map<String,String> tagsAll;
     /**
      * @return Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
@@ -112,11 +111,10 @@ public final class GetAccessEntryResult {
     /**
      * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
-     * @deprecated
-     * tags_all is deprecated.
+     * @deprecated tags_all is deprecated.
      * 
      */
-    @Deprecated /* tags_all is deprecated. */
+    @Deprecated
     public Map<String,String> tagsAll() {
         return this.tagsAll;
     }

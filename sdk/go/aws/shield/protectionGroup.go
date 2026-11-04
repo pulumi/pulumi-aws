@@ -245,6 +245,12 @@ func (ProtectionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionGroupState)(nil)).Elem()
 }
 
+// ProtectionGroupExists checks whether an existing ProtectionGroup resource with the given ID exists.
+func ProtectionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:shield/protectionGroup:ProtectionGroup", id, state, "", opts...)
+}
+
 type protectionGroupArgs struct {
 	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 	Aggregation string `pulumi:"aggregation"`

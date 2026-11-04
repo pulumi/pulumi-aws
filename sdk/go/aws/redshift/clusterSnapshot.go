@@ -163,6 +163,12 @@ func (ClusterSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSnapshotState)(nil)).Elem()
 }
 
+// ClusterSnapshotExists checks whether an existing ClusterSnapshot resource with the given ID exists.
+func ClusterSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/clusterSnapshot:ClusterSnapshot", id, state, "", opts...)
+}
+
 type clusterSnapshotArgs struct {
 	// The cluster identifier for which you want a snapshot.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`

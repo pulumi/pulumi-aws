@@ -352,6 +352,24 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return FieldLevelEncryptionProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_entities: pulumi.Input[Optional[Union['FieldLevelEncryptionProfileEncryptionEntitiesArgs', 'FieldLevelEncryptionProfileEncryptionEntitiesArgsDict', 'outputs.FieldLevelEncryptionProfileEncryptionEntities']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["callerReference"] = caller_reference
+        __props__["comment"] = comment
+        __props__["encryptionEntities"] = encryption_entities
+        __props__["etag"] = etag
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

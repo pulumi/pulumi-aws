@@ -594,6 +594,30 @@ class EventDestination(pulumi.CustomResource):
         __props__.__dict__["sns_destination"] = sns_destination
         return EventDestination(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDestinationCloudwatchDestinationArgs', 'EventDestinationCloudwatchDestinationArgsDict', 'outputs.EventDestinationCloudwatchDestination']]]]] = None,
+            configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            kinesis_destination: pulumi.Input[Optional[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict', 'outputs.EventDestinationKinesisDestination']]] = None,
+            matching_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_destination: pulumi.Input[Optional[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict', 'outputs.EventDestinationSnsDestination']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cloudwatchDestinations"] = cloudwatch_destinations
+        __props__["configurationSetName"] = configuration_set_name
+        __props__["enabled"] = enabled
+        __props__["kinesisDestination"] = kinesis_destination
+        __props__["matchingTypes"] = matching_types
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["snsDestination"] = sns_destination
+        return pulumi.runtime.exists_resource(None, 'aws:ses/eventDestination:EventDestination', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

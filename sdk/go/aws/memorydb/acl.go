@@ -144,6 +144,12 @@ func (AclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aclState)(nil)).Elem()
 }
 
+// AclExists checks whether an existing Acl resource with the given ID exists.
+func AclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:memorydb/acl:Acl", id, state, "", opts...)
+}
+
 type aclArgs struct {
 	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`

@@ -571,6 +571,36 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']]] = None,
+            iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_center_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["attachmentsConfiguration"] = attachments_configuration
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["iamServiceRoleArn"] = iam_service_role_arn
+        __props__["identityCenterApplicationArn"] = identity_center_application_arn
+        __props__["identityCenterInstanceArn"] = identity_center_instance_arn
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:qbusiness/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

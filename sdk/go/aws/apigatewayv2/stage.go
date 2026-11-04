@@ -202,6 +202,12 @@ func (StageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageState)(nil)).Elem()
 }
 
+// StageExists checks whether an existing Stage resource with the given ID exists.
+func StageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigatewayv2/stage:Stage", id, state, "", opts...)
+}
+
 type stageArgs struct {
 	// Settings for logging access in this stage. Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`

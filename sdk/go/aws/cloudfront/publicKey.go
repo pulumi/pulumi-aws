@@ -145,6 +145,12 @@ func (PublicKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicKeyState)(nil)).Elem()
 }
 
+// PublicKeyExists checks whether an existing PublicKey resource with the given ID exists.
+func PublicKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublicKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/publicKey:PublicKey", id, state, "", opts...)
+}
+
 type publicKeyArgs struct {
 	// An optional comment about the public key.
 	Comment *string `pulumi:"comment"`

@@ -183,6 +183,12 @@ func (OrganizationalUnitAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationalUnitAssociationState)(nil)).Elem()
 }
 
+// OrganizationalUnitAssociationExists checks whether an existing OrganizationalUnitAssociation resource with the given ID exists.
+func OrganizationalUnitAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationalUnitAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:notifications/organizationalUnitAssociation:OrganizationalUnitAssociation", id, state, "", opts...)
+}
+
 type organizationalUnitAssociationArgs struct {
 	// ARN of the notification configuration to associate the organizational unit with.
 	NotificationConfigurationArn string `pulumi:"notificationConfigurationArn"`

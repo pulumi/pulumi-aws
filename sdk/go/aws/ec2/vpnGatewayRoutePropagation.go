@@ -112,6 +112,12 @@ func (VpnGatewayRoutePropagationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayRoutePropagationState)(nil)).Elem()
 }
 
+// VpnGatewayRoutePropagationExists checks whether an existing VpnGatewayRoutePropagation resource with the given ID exists.
+func VpnGatewayRoutePropagationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnGatewayRoutePropagationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", id, state, "", opts...)
+}
+
 type vpnGatewayRoutePropagationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

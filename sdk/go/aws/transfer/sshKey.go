@@ -217,6 +217,12 @@ func (SshKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sshKeyState)(nil)).Elem()
 }
 
+// SshKeyExists checks whether an existing SshKey resource with the given ID exists.
+func SshKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SshKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/sshKey:SshKey", id, state, "", opts...)
+}
+
 type sshKeyArgs struct {
 	// Public key portion of an SSH key pair.
 	Body string `pulumi:"body"`

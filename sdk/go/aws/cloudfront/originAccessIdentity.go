@@ -256,6 +256,12 @@ func (OriginAccessIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*originAccessIdentityState)(nil)).Elem()
 }
 
+// OriginAccessIdentityExists checks whether an existing OriginAccessIdentity resource with the given ID exists.
+func OriginAccessIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OriginAccessIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", id, state, "", opts...)
+}
+
 type originAccessIdentityArgs struct {
 	// An optional comment for the origin access identity.
 	Comment *string `pulumi:"comment"`

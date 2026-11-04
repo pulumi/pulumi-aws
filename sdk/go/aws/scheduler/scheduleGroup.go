@@ -148,6 +148,12 @@ func (ScheduleGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleGroupState)(nil)).Elem()
 }
 
+// ScheduleGroupExists checks whether an existing ScheduleGroup resource with the given ID exists.
+func ScheduleGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduleGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:scheduler/scheduleGroup:ScheduleGroup", id, state, "", opts...)
+}
+
 type scheduleGroupArgs struct {
 	// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`

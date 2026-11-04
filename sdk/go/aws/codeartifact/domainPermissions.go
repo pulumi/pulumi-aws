@@ -173,6 +173,12 @@ func (DomainPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainPermissionsState)(nil)).Elem()
 }
 
+// DomainPermissionsExists checks whether an existing DomainPermissions resource with the given ID exists.
+func DomainPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codeartifact/domainPermissions:DomainPermissions", id, state, "", opts...)
+}
+
 type domainPermissionsArgs struct {
 	// The name of the domain on which to set the resource policy.
 	Domain string `pulumi:"domain"`

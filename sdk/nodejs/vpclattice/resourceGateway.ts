@@ -81,6 +81,17 @@ export class ResourceGateway extends pulumi.CustomResource {
         return new ResourceGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing ResourceGateway resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ResourceGatewayState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:vpclattice/resourceGateway:ResourceGateway", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:vpclattice/resourceGateway:ResourceGateway';
 

@@ -123,6 +123,12 @@ func (TelemetryPipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*telemetryPipelineState)(nil)).Elem()
 }
 
+// TelemetryPipelineExists checks whether an existing TelemetryPipeline resource with the given ID exists.
+func TelemetryPipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TelemetryPipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:observabilityadmin/telemetryPipeline:TelemetryPipeline", id, state, "", opts...)
+}
+
 type telemetryPipelineArgs struct {
 	// Configuration block for the telemetry pipeline. See `configuration` below.
 	//

@@ -335,6 +335,22 @@ class CustomDomainAssociation(pulumi.CustomResource):
         __props__.__dict__["workgroup_name"] = workgroup_name
         return CustomDomainAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_certificate_expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            workgroup_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customDomainCertificateArn"] = custom_domain_certificate_arn
+        __props__["customDomainCertificateExpiryTime"] = custom_domain_certificate_expiry_time
+        __props__["customDomainName"] = custom_domain_name
+        __props__["region"] = region
+        __props__["workgroupName"] = workgroup_name
+        return pulumi.runtime.exists_resource(None, 'aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customDomainCertificateArn")
     def custom_domain_certificate_arn(self) -> pulumi.Output[_builtins.str]:

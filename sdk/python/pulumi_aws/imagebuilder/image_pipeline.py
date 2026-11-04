@@ -909,6 +909,58 @@ class ImagePipeline(pulumi.CustomResource):
         __props__.__dict__["workflows"] = workflows
         return ImagePipeline(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            container_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            date_created: pulumi.Input[Optional[_builtins.str]] = None,
+            date_last_run: pulumi.Input[Optional[_builtins.str]] = None,
+            date_next_run: pulumi.Input[Optional[_builtins.str]] = None,
+            date_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            distribution_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enhanced_image_metadata_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+            image_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict', 'outputs.ImagePipelineImageScanningConfiguration']]] = None,
+            image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict', 'outputs.ImagePipelineImageTestsConfiguration']]] = None,
+            infrastructure_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict', 'outputs.ImagePipelineLoggingConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict', 'outputs.ImagePipelineSchedule']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict', 'outputs.ImagePipelineWorkflow']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["containerRecipeArn"] = container_recipe_arn
+        __props__["dateCreated"] = date_created
+        __props__["dateLastRun"] = date_last_run
+        __props__["dateNextRun"] = date_next_run
+        __props__["dateUpdated"] = date_updated
+        __props__["description"] = description
+        __props__["distributionConfigurationArn"] = distribution_configuration_arn
+        __props__["enhancedImageMetadataEnabled"] = enhanced_image_metadata_enabled
+        __props__["executionRole"] = execution_role
+        __props__["imageRecipeArn"] = image_recipe_arn
+        __props__["imageScanningConfiguration"] = image_scanning_configuration
+        __props__["imageTestsConfiguration"] = image_tests_configuration
+        __props__["infrastructureConfigurationArn"] = infrastructure_configuration_arn
+        __props__["loggingConfiguration"] = logging_configuration
+        __props__["name"] = name
+        __props__["platform"] = platform
+        __props__["region"] = region
+        __props__["schedule"] = schedule
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["workflows"] = workflows
+        return pulumi.runtime.exists_resource(None, 'aws:imagebuilder/imagePipeline:ImagePipeline', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -120,6 +120,12 @@ func (AttachmentRoutingPolicyLabelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachmentRoutingPolicyLabelState)(nil)).Elem()
 }
 
+// AttachmentRoutingPolicyLabelExists checks whether an existing AttachmentRoutingPolicyLabel resource with the given ID exists.
+func AttachmentRoutingPolicyLabelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AttachmentRoutingPolicyLabelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/attachmentRoutingPolicyLabel:AttachmentRoutingPolicyLabel", id, state, "", opts...)
+}
+
 type attachmentRoutingPolicyLabelArgs struct {
 	// The ID of the attachment to apply the routing policy label to.
 	AttachmentId string `pulumi:"attachmentId"`

@@ -193,6 +193,12 @@ func (VpcEndpointConnectionNotificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointConnectionNotificationState)(nil)).Elem()
 }
 
+// VpcEndpointConnectionNotificationExists checks whether an existing VpcEndpointConnectionNotification resource with the given ID exists.
+func VpcEndpointConnectionNotificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointConnectionNotificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", id, state, "", opts...)
+}
+
 type vpcEndpointConnectionNotificationArgs struct {
 	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
 	ConnectionEvents []string `pulumi:"connectionEvents"`

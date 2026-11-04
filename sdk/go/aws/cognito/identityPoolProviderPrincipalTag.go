@@ -172,6 +172,12 @@ func (IdentityPoolProviderPrincipalTagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolProviderPrincipalTagState)(nil)).Elem()
 }
 
+// IdentityPoolProviderPrincipalTagExists checks whether an existing IdentityPoolProviderPrincipalTag resource with the given ID exists.
+func IdentityPoolProviderPrincipalTagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityPoolProviderPrincipalTagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag", id, state, "", opts...)
+}
+
 type identityPoolProviderPrincipalTagArgs struct {
 	// An identity pool ID.
 	IdentityPoolId string `pulumi:"identityPoolId"`

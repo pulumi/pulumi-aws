@@ -118,6 +118,12 @@ func (InstanceMetadataDefaultsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceMetadataDefaultsState)(nil)).Elem()
 }
 
+// InstanceMetadataDefaultsExists checks whether an existing InstanceMetadataDefaults resource with the given ID exists.
+func InstanceMetadataDefaultsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceMetadataDefaultsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults", id, state, "", opts...)
+}
+
 type instanceMetadataDefaultsArgs struct {
 	// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`

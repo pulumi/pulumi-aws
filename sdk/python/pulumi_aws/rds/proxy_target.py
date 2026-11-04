@@ -463,6 +463,34 @@ class ProxyTarget(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ProxyTarget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            rds_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tracked_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dbClusterIdentifier"] = db_cluster_identifier
+        __props__["dbInstanceIdentifier"] = db_instance_identifier
+        __props__["dbProxyName"] = db_proxy_name
+        __props__["endpoint"] = endpoint
+        __props__["port"] = port
+        __props__["rdsResourceId"] = rds_resource_id
+        __props__["region"] = region
+        __props__["targetArn"] = target_arn
+        __props__["targetGroupName"] = target_group_name
+        __props__["trackedClusterId"] = tracked_cluster_id
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:rds/proxyTarget:ProxyTarget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:

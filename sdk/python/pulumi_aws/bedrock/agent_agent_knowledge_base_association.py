@@ -433,6 +433,26 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentAgentKnowledgeBaseAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+            knowledge_base_state: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict', 'outputs.AgentAgentKnowledgeBaseAssociationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentId"] = agent_id
+        __props__["agentVersion"] = agent_version
+        __props__["description"] = description
+        __props__["knowledgeBaseId"] = knowledge_base_id
+        __props__["knowledgeBaseState"] = knowledge_base_state
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Output[_builtins.str]:

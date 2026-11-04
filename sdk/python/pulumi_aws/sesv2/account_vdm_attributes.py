@@ -329,6 +329,20 @@ class AccountVdmAttributes(pulumi.CustomResource):
         __props__.__dict__["vdm_enabled"] = vdm_enabled
         return AccountVdmAttributes(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dashboard_attributes: pulumi.Input[Optional[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict', 'outputs.AccountVdmAttributesDashboardAttributes']]] = None,
+            guardian_attributes: pulumi.Input[Optional[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict', 'outputs.AccountVdmAttributesGuardianAttributes']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vdm_enabled: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dashboardAttributes"] = dashboard_attributes
+        __props__["guardianAttributes"] = guardian_attributes
+        __props__["region"] = region
+        __props__["vdmEnabled"] = vdm_enabled
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/accountVdmAttributes:AccountVdmAttributes', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dashboardAttributes")
     def dashboard_attributes(self) -> pulumi.Output['outputs.AccountVdmAttributesDashboardAttributes']:

@@ -357,6 +357,12 @@ func (DocumentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentState)(nil)).Elem()
 }
 
+// DocumentExists checks whether an existing Document resource with the given ID exists.
+func DocumentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DocumentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/document:Document", id, state, "", opts...)
+}
+
 type documentArgs struct {
 	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources []DocumentAttachmentsSource `pulumi:"attachmentsSources"`

@@ -285,6 +285,20 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["token_domains"] = token_domains
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["region"] = region
+        __props__["scope"] = scope
+        __props__["tokenDomains"] = token_domains
+        return pulumi.runtime.exists_resource(None, 'aws:wafv2/apiKey:ApiKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[_builtins.str]:

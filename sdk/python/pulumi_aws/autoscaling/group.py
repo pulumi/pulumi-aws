@@ -2926,6 +2926,104 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["warm_pool_size"] = warm_pool_size
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_distribution: pulumi.Input[Optional[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict', 'outputs.GroupAvailabilityZoneDistribution']]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity_reservation_specification: pulumi.Input[Optional[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict', 'outputs.GroupCapacityReservationSpecification']]] = None,
+            context: pulumi.Input[Optional[_builtins.str]] = None,
+            default_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+            default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+            desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_delete_warm_pool: pulumi.Input[Optional[_builtins.bool]] = None,
+            health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+            health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_failed_scaling_activities: pulumi.Input[Optional[_builtins.bool]] = None,
+            initial_lifecycle_hooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitialLifecycleHookArgs', 'GroupInitialLifecycleHookArgsDict', 'outputs.GroupInitialLifecycleHook']]]]] = None,
+            instance_lifecycle_policy: pulumi.Input[Optional[Union['GroupInstanceLifecyclePolicyArgs', 'GroupInstanceLifecyclePolicyArgsDict', 'outputs.GroupInstanceLifecyclePolicy']]] = None,
+            instance_maintenance_policy: pulumi.Input[Optional[Union['GroupInstanceMaintenancePolicyArgs', 'GroupInstanceMaintenancePolicyArgsDict', 'outputs.GroupInstanceMaintenancePolicy']]] = None,
+            instance_refresh: pulumi.Input[Optional[Union['GroupInstanceRefreshArgs', 'GroupInstanceRefreshArgsDict', 'outputs.GroupInstanceRefresh']]] = None,
+            launch_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            launch_template: pulumi.Input[Optional[Union['GroupLaunchTemplateArgs', 'GroupLaunchTemplateArgsDict', 'outputs.GroupLaunchTemplate']]] = None,
+            load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            metrics_granularity: pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]] = None,
+            min_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            min_size: pulumi.Input[Optional[_builtins.int]] = None,
+            mixed_instances_policy: pulumi.Input[Optional[Union['GroupMixedInstancesPolicyArgs', 'GroupMixedInstancesPolicyArgsDict', 'outputs.GroupMixedInstancesPolicy']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+            predicted_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            protect_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended_processes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict', 'outputs.GroupTag']]]]] = None,
+            target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupTrafficSourceArgs', 'GroupTrafficSourceArgsDict', 'outputs.GroupTrafficSource']]]]] = None,
+            vpc_zone_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            wait_for_capacity_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            wait_for_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            warm_pool: pulumi.Input[Optional[Union['GroupWarmPoolArgs', 'GroupWarmPoolArgsDict', 'outputs.GroupWarmPool']]] = None,
+            warm_pool_size: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZoneDistribution"] = availability_zone_distribution
+        __props__["availabilityZones"] = availability_zones
+        __props__["capacityRebalance"] = capacity_rebalance
+        __props__["capacityReservationSpecification"] = capacity_reservation_specification
+        __props__["context"] = context
+        __props__["defaultCooldown"] = default_cooldown
+        __props__["defaultInstanceWarmup"] = default_instance_warmup
+        __props__["desiredCapacity"] = desired_capacity
+        __props__["desiredCapacityType"] = desired_capacity_type
+        __props__["enabledMetrics"] = enabled_metrics
+        __props__["forceDelete"] = force_delete
+        __props__["forceDeleteWarmPool"] = force_delete_warm_pool
+        __props__["healthCheckGracePeriod"] = health_check_grace_period
+        __props__["healthCheckType"] = health_check_type
+        __props__["ignoreFailedScalingActivities"] = ignore_failed_scaling_activities
+        __props__["initialLifecycleHooks"] = initial_lifecycle_hooks
+        __props__["instanceLifecyclePolicy"] = instance_lifecycle_policy
+        __props__["instanceMaintenancePolicy"] = instance_maintenance_policy
+        __props__["instanceRefresh"] = instance_refresh
+        __props__["launchConfiguration"] = launch_configuration
+        __props__["launchTemplate"] = launch_template
+        __props__["loadBalancers"] = load_balancers
+        __props__["maxInstanceLifetime"] = max_instance_lifetime
+        __props__["maxSize"] = max_size
+        __props__["metricsGranularity"] = metrics_granularity
+        __props__["minElbCapacity"] = min_elb_capacity
+        __props__["minSize"] = min_size
+        __props__["mixedInstancesPolicy"] = mixed_instances_policy
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["placementGroup"] = placement_group
+        __props__["predictedCapacity"] = predicted_capacity
+        __props__["protectFromScaleIn"] = protect_from_scale_in
+        __props__["region"] = region
+        __props__["serviceLinkedRoleArn"] = service_linked_role_arn
+        __props__["suspendedProcesses"] = suspended_processes
+        __props__["tags"] = tags
+        __props__["targetGroupArns"] = target_group_arns
+        __props__["terminationPolicies"] = termination_policies
+        __props__["trafficSources"] = traffic_sources
+        __props__["vpcZoneIdentifiers"] = vpc_zone_identifiers
+        __props__["waitForCapacityTimeout"] = wait_for_capacity_timeout
+        __props__["waitForElbCapacity"] = wait_for_elb_capacity
+        __props__["warmPool"] = warm_pool
+        __props__["warmPoolSize"] = warm_pool_size
+        return pulumi.runtime.exists_resource(None, 'aws:autoscaling/group:Group', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

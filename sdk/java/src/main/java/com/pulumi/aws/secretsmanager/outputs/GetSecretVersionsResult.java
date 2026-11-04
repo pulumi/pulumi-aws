@@ -18,21 +18,19 @@ public final class GetSecretVersionsResult {
     /**
      * @return (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
-     * @deprecated
-     * arn is deprecated. Use secretArn instead.
+     * @deprecated arn is deprecated. Use secretArn instead.
      * 
      */
-    @Deprecated /* arn is deprecated. Use secretArn instead. */
+    @Deprecated
     private String arn;
     private @Nullable Boolean includeDeprecated;
     /**
      * @return (**Deprecated**) Name of the secret. Use `secretName` instead.
      * 
-     * @deprecated
-     * name is deprecated. Use secretName instead.
+     * @deprecated name is deprecated. Use secretName instead.
      * 
      */
-    @Deprecated /* name is deprecated. Use secretName instead. */
+    @Deprecated
     private String name;
     private String region;
     /**
@@ -56,11 +54,10 @@ public final class GetSecretVersionsResult {
     /**
      * @return (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
-     * @deprecated
-     * arn is deprecated. Use secretArn instead.
+     * @deprecated arn is deprecated. Use secretArn instead.
      * 
      */
-    @Deprecated /* arn is deprecated. Use secretArn instead. */
+    @Deprecated
     public String arn() {
         return this.arn;
     }
@@ -70,11 +67,10 @@ public final class GetSecretVersionsResult {
     /**
      * @return (**Deprecated**) Name of the secret. Use `secretName` instead.
      * 
-     * @deprecated
-     * name is deprecated. Use secretName instead.
+     * @deprecated name is deprecated. Use secretName instead.
      * 
      */
-    @Deprecated /* name is deprecated. Use secretName instead. */
+    @Deprecated
     public String name() {
         return this.name;
     }

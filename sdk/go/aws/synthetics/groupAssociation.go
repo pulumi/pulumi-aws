@@ -127,6 +127,12 @@ func (GroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupAssociationState)(nil)).Elem()
 }
 
+// GroupAssociationExists checks whether an existing GroupAssociation resource with the given ID exists.
+func GroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:synthetics/groupAssociation:GroupAssociation", id, state, "", opts...)
+}
+
 type groupAssociationArgs struct {
 	// ARN of the canary.
 	CanaryArn string `pulumi:"canaryArn"`

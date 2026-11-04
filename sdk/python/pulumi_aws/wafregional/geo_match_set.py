@@ -281,6 +281,18 @@ class GeoMatchSet(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return GeoMatchSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            geo_match_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict', 'outputs.GeoMatchSetGeoMatchConstraint']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["geoMatchConstraints"] = geo_match_constraints
+        __props__["name"] = name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:wafregional/geoMatchSet:GeoMatchSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="geoMatchConstraints")
     def geo_match_constraints(self) -> pulumi.Output[Optional[Sequence['outputs.GeoMatchSetGeoMatchConstraint']]]:

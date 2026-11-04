@@ -245,14 +245,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
+     * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `&#92;n`).
      * 
      */
     @Import(name="csvRowDelimiter")
     private @Nullable Output<String> csvRowDelimiter;
 
     /**
-     * @return Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
+     * @return Delimiter used to separate rows in the source files. Default is newline (_i.e._, `&#92;n`).
      * 
      */
     public Optional<Output<String>> csvRowDelimiter() {
@@ -532,22 +532,20 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
-     * @deprecated
-     * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+     * @deprecated kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
      * 
      */
-    @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
+    @Deprecated
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
      * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
-     * @deprecated
-     * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+     * @deprecated kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
      * 
      */
-    @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
+    @Deprecated
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -1154,7 +1152,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csvRowDelimiter Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
+         * @param csvRowDelimiter Delimiter used to separate rows in the source files. Default is newline (_i.e._, `&#92;n`).
          * 
          * @return builder
          * 
@@ -1165,7 +1163,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csvRowDelimiter Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
+         * @param csvRowDelimiter Delimiter used to separate rows in the source files. Default is newline (_i.e._, `&#92;n`).
          * 
          * @return builder
          * 
@@ -1557,11 +1555,10 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+         * @deprecated kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
          * 
          */
-        @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
+        @Deprecated
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
@@ -1572,11 +1569,10 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+         * @deprecated kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
          * 
          */
-        @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
+        @Deprecated
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

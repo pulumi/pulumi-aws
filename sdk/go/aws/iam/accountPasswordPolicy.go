@@ -159,6 +159,12 @@ func (AccountPasswordPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountPasswordPolicyState)(nil)).Elem()
 }
 
+// AccountPasswordPolicyExists checks whether an existing AccountPasswordPolicy resource with the given ID exists.
+func AccountPasswordPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountPasswordPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", id, state, "", opts...)
+}
+
 type accountPasswordPolicyArgs struct {
 	// Whether to allow users to change their own password
 	AllowUsersToChangePassword *bool `pulumi:"allowUsersToChangePassword"`

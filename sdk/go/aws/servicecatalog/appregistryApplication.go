@@ -176,6 +176,12 @@ func (AppregistryApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appregistryApplicationState)(nil)).Elem()
 }
 
+// AppregistryApplicationExists checks whether an existing AppregistryApplication resource with the given ID exists.
+func AppregistryApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppregistryApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/appregistryApplication:AppregistryApplication", id, state, "", opts...)
+}
+
 type appregistryApplicationArgs struct {
 	// Description of the application.
 	Description *string `pulumi:"description"`

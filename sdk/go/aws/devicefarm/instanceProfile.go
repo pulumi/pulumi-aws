@@ -152,6 +152,12 @@ func (InstanceProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceProfileState)(nil)).Elem()
 }
 
+// InstanceProfileExists checks whether an existing InstanceProfile resource with the given ID exists.
+func InstanceProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:devicefarm/instanceProfile:InstanceProfile", id, state, "", opts...)
+}
+
 type instanceProfileArgs struct {
 	// The description of the instance profile.
 	Description *string `pulumi:"description"`

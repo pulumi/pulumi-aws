@@ -119,6 +119,12 @@ func (ByteMatchSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*byteMatchSetState)(nil)).Elem()
 }
 
+// ByteMatchSetExists checks whether an existing ByteMatchSet resource with the given ID exists.
+func ByteMatchSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ByteMatchSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafregional/byteMatchSet:ByteMatchSet", id, state, "", opts...)
+}
+
 type byteMatchSetArgs struct {
 	// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 	ByteMatchTuples []ByteMatchSetByteMatchTuple `pulumi:"byteMatchTuples"`

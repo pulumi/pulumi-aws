@@ -324,6 +324,12 @@ func (SmbFileShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smbFileShareState)(nil)).Elem()
 }
 
+// SmbFileShareExists checks whether an existing SmbFileShare resource with the given ID exists.
+func SmbFileShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SmbFileShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/smbFileShare:SmbFileShare", id, state, "", opts...)
+}
+
 type smbFileShareArgs struct {
 	// The files and folders on this share will only be visible to users with read access. Default value is `false`.
 	AccessBasedEnumeration *bool `pulumi:"accessBasedEnumeration"`

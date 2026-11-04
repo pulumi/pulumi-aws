@@ -140,6 +140,12 @@ func (FolderMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*folderMembershipState)(nil)).Elem()
 }
 
+// FolderMembershipExists checks whether an existing FolderMembership resource with the given ID exists.
+func FolderMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FolderMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/folderMembership:FolderMembership", id, state, "", opts...)
+}
+
 type folderMembershipArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

@@ -148,6 +148,12 @@ func (ModelCardExportJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelCardExportJobState)(nil)).Elem()
 }
 
+// ModelCardExportJobExists checks whether an existing ModelCardExportJob resource with the given ID exists.
+func ModelCardExportJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelCardExportJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/modelCardExportJob:ModelCardExportJob", id, state, "", opts...)
+}
+
 type modelCardExportJobArgs struct {
 	// Name of the model card export job.
 	ModelCardExportJobName string `pulumi:"modelCardExportJobName"`

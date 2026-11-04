@@ -264,6 +264,12 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeTableAssociationState)(nil)).Elem()
 }
 
+// RouteTableAssociationExists checks whether an existing RouteTableAssociation resource with the given ID exists.
+func RouteTableAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteTableAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", id, state, "", opts...)
+}
+
 type routeTableAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

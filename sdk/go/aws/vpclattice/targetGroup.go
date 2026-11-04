@@ -268,6 +268,12 @@ func (TargetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupState)(nil)).Elem()
 }
 
+// TargetGroupExists checks whether an existing TargetGroup resource with the given ID exists.
+func TargetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TargetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/targetGroup:TargetGroup", id, state, "", opts...)
+}
+
 type targetGroupArgs struct {
 	// Target group configuration. See `config` Block below.
 	Config *TargetGroupConfig `pulumi:"config"`

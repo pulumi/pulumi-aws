@@ -494,6 +494,32 @@ class SourceApiAssociation(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return SourceApiAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            merged_api_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            merged_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_api_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            source_api_association_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SourceApiAssociationSourceApiAssociationConfigArgs', 'SourceApiAssociationSourceApiAssociationConfigArgsDict', 'outputs.SourceApiAssociationSourceApiAssociationConfig']]]]] = None,
+            source_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['SourceApiAssociationTimeoutsArgs', 'SourceApiAssociationTimeoutsArgsDict', 'outputs.SourceApiAssociationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["associationId"] = association_id
+        __props__["description"] = description
+        __props__["mergedApiArn"] = merged_api_arn
+        __props__["mergedApiId"] = merged_api_id
+        __props__["region"] = region
+        __props__["sourceApiArn"] = source_api_arn
+        __props__["sourceApiAssociationConfigs"] = source_api_association_configs
+        __props__["sourceApiId"] = source_api_id
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/sourceApiAssociation:SourceApiAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

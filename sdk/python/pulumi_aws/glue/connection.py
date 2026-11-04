@@ -1185,6 +1185,38 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Connection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            athena_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            authentication_configuration: pulumi.Input[Optional[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict', 'outputs.ConnectionAuthenticationConfiguration']]] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            match_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            physical_connection_requirements: pulumi.Input[Optional[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict', 'outputs.ConnectionPhysicalConnectionRequirements']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["athenaProperties"] = athena_properties
+        __props__["authenticationConfiguration"] = authentication_configuration
+        __props__["catalogId"] = catalog_id
+        __props__["connectionProperties"] = connection_properties
+        __props__["connectionType"] = connection_type
+        __props__["description"] = description
+        __props__["matchCriterias"] = match_criterias
+        __props__["name"] = name
+        __props__["physicalConnectionRequirements"] = physical_connection_requirements
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:glue/connection:Connection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

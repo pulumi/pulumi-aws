@@ -932,6 +932,56 @@ class TransitVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["vlan"] = vlan
         return TransitVirtualInterface(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_family: pulumi.Input[Optional[_builtins.str]] = None,
+            amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+            amazon_side_asn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_device: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            bgp_asn_long: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_address: pulumi.Input[Optional[_builtins.str]] = None,
+            dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+            mtu: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sitelink_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vlan: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressFamily"] = address_family
+        __props__["amazonAddress"] = amazon_address
+        __props__["amazonSideAsn"] = amazon_side_asn
+        __props__["arn"] = arn
+        __props__["awsDevice"] = aws_device
+        __props__["bgpAsn"] = bgp_asn
+        __props__["bgpAsnLong"] = bgp_asn_long
+        __props__["bgpAuthKey"] = bgp_auth_key
+        __props__["connectionId"] = connection_id
+        __props__["customerAddress"] = customer_address
+        __props__["dxGatewayId"] = dx_gateway_id
+        __props__["jumboFrameCapable"] = jumbo_frame_capable
+        __props__["mtu"] = mtu
+        __props__["name"] = name
+        __props__["prefixPoolAllocatedCountIpv4"] = prefix_pool_allocated_count_ipv4
+        __props__["prefixPoolAllocatedCountIpv6"] = prefix_pool_allocated_count_ipv6
+        __props__["rateLimit"] = rate_limit
+        __props__["region"] = region
+        __props__["sitelinkEnabled"] = sitelink_enabled
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vlan"] = vlan
+        return pulumi.runtime.exists_resource(None, 'aws:directconnect/transitVirtualInterface:TransitVirtualInterface', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[_builtins.str]:

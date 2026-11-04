@@ -148,6 +148,12 @@ func (ProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileState)(nil)).Elem()
 }
 
+// ProfileExists checks whether an existing Profile resource with the given ID exists.
+func ProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/profile:Profile", id, state, "", opts...)
+}
+
 type profileArgs struct {
 	// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
 	As2Id string `pulumi:"as2Id"`

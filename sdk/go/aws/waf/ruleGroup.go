@@ -147,6 +147,12 @@ func (RuleGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleGroupState)(nil)).Elem()
 }
 
+// RuleGroupExists checks whether an existing RuleGroup resource with the given ID exists.
+func RuleGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:waf/ruleGroup:RuleGroup", id, state, "", opts...)
+}
+
 type ruleGroupArgs struct {
 	// A list of activated rules, see below
 	ActivatedRules []RuleGroupActivatedRule `pulumi:"activatedRules"`

@@ -641,6 +641,38 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            current_version: pulumi.Input[Optional[_builtins.int]] = None,
+            definition: pulumi.Input[Optional[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict', 'outputs.ApplicationDefinition']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["arn"] = arn
+        __props__["currentVersion"] = current_version
+        __props__["definition"] = definition
+        __props__["description"] = description
+        __props__["engineType"] = engine_type
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:m2/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

@@ -19,11 +19,10 @@ public final class GetTemplatesResult {
     /**
      * @return AWS Region to which the template applies.
      * 
-     * @deprecated
-     * region is deprecated. Use aws.getRegion instead.
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Deprecated
     private @Nullable String region;
     /**
      * @return A list of quota increase templates for specified region. See `templates`.
@@ -41,11 +40,10 @@ public final class GetTemplatesResult {
     /**
      * @return AWS Region to which the template applies.
      * 
-     * @deprecated
-     * region is deprecated. Use aws.getRegion instead.
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Deprecated
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

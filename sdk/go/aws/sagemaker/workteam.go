@@ -216,6 +216,12 @@ func (WorkteamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workteamState)(nil)).Elem()
 }
 
+// WorkteamExists checks whether an existing Workteam resource with the given ID exists.
+func WorkteamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkteamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/workteam:Workteam", id, state, "", opts...)
+}
+
 type workteamArgs struct {
 	// A description of the work team.
 	Description string `pulumi:"description"`

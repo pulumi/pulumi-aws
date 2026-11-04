@@ -600,6 +600,32 @@ class RecommendationPreferences(pulumi.CustomResource):
         __props__.__dict__["utilization_preferences"] = utilization_preferences
         return RecommendationPreferences(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enhanced_infrastructure_metrics: pulumi.Input[Optional[_builtins.str]] = None,
+            external_metrics_preference: pulumi.Input[Optional[Union['RecommendationPreferencesExternalMetricsPreferenceArgs', 'RecommendationPreferencesExternalMetricsPreferenceArgsDict', 'outputs.RecommendationPreferencesExternalMetricsPreference']]] = None,
+            inferred_workload_types: pulumi.Input[Optional[_builtins.str]] = None,
+            look_back_period: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict', 'outputs.RecommendationPreferencesPreferredResource']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            savings_estimation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict', 'outputs.RecommendationPreferencesScope']]] = None,
+            utilization_preferences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict', 'outputs.RecommendationPreferencesUtilizationPreference']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enhancedInfrastructureMetrics"] = enhanced_infrastructure_metrics
+        __props__["externalMetricsPreference"] = external_metrics_preference
+        __props__["inferredWorkloadTypes"] = inferred_workload_types
+        __props__["lookBackPeriod"] = look_back_period
+        __props__["preferredResources"] = preferred_resources
+        __props__["region"] = region
+        __props__["resourceType"] = resource_type
+        __props__["savingsEstimationMode"] = savings_estimation_mode
+        __props__["scope"] = scope
+        __props__["utilizationPreferences"] = utilization_preferences
+        return pulumi.runtime.exists_resource(None, 'aws:computeoptimizer/recommendationPreferences:RecommendationPreferences', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="enhancedInfrastructureMetrics")
     def enhanced_infrastructure_metrics(self) -> pulumi.Output[Optional[_builtins.str]]:

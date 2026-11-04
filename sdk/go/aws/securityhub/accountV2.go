@@ -152,6 +152,12 @@ func (AccountV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountV2State)(nil)).Elem()
 }
 
+// AccountV2Exists checks whether an existing AccountV2 resource with the given ID exists.
+func AccountV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/accountV2:AccountV2", id, state, "", opts...)
+}
+
 type accountV2Args struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -154,6 +154,12 @@ func (DataProtectionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataProtectionPolicyState)(nil)).Elem()
 }
 
+// DataProtectionPolicyExists checks whether an existing DataProtectionPolicy resource with the given ID exists.
+func DataProtectionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataProtectionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sns/dataProtectionPolicy:DataProtectionPolicy", id, state, "", opts...)
+}
+
 type dataProtectionPolicyArgs struct {
 	// The ARN of the SNS topic
 	Arn string `pulumi:"arn"`

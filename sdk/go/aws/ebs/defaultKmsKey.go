@@ -113,6 +113,12 @@ func (DefaultKmsKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultKmsKeyState)(nil)).Elem()
 }
 
+// DefaultKmsKeyExists checks whether an existing DefaultKmsKey resource with the given ID exists.
+func DefaultKmsKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultKmsKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ebs/defaultKmsKey:DefaultKmsKey", id, state, "", opts...)
+}
+
 type defaultKmsKeyArgs struct {
 	// ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
 	KeyArn string `pulumi:"keyArn"`

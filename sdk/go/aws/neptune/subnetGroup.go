@@ -152,6 +152,12 @@ func (SubnetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetGroupState)(nil)).Elem()
 }
 
+// SubnetGroupExists checks whether an existing SubnetGroup resource with the given ID exists.
+func SubnetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:neptune/subnetGroup:SubnetGroup", id, state, "", opts...)
+}
+
 type subnetGroupArgs struct {
 	// The description of the neptune subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`

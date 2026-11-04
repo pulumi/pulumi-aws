@@ -1914,6 +1914,76 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["tcp_idle_timeout_seconds"] = tcp_idle_timeout_seconds
         return Listener(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]]]] = None,
+            load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_subject_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_validity_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_tls_cipher_suite_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_tls_version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_allow_credentials_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_allow_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_allow_methods_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_allow_origin_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_expose_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_max_age_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_content_security_policy_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_server_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            routing_http_response_strict_transport_security_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_x_content_type_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_x_frame_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tcp_idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alpnPolicy"] = alpn_policy
+        __props__["arn"] = arn
+        __props__["certificateArn"] = certificate_arn
+        __props__["defaultActions"] = default_actions
+        __props__["loadBalancerArn"] = load_balancer_arn
+        __props__["mutualAuthentication"] = mutual_authentication
+        __props__["port"] = port
+        __props__["protocol"] = protocol
+        __props__["region"] = region
+        __props__["routingHttpRequestXAmznMtlsClientcertHeaderName"] = routing_http_request_x_amzn_mtls_clientcert_header_name
+        __props__["routingHttpRequestXAmznMtlsClientcertIssuerHeaderName"] = routing_http_request_x_amzn_mtls_clientcert_issuer_header_name
+        __props__["routingHttpRequestXAmznMtlsClientcertLeafHeaderName"] = routing_http_request_x_amzn_mtls_clientcert_leaf_header_name
+        __props__["routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName"] = routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name
+        __props__["routingHttpRequestXAmznMtlsClientcertSubjectHeaderName"] = routing_http_request_x_amzn_mtls_clientcert_subject_header_name
+        __props__["routingHttpRequestXAmznMtlsClientcertValidityHeaderName"] = routing_http_request_x_amzn_mtls_clientcert_validity_header_name
+        __props__["routingHttpRequestXAmznTlsCipherSuiteHeaderName"] = routing_http_request_x_amzn_tls_cipher_suite_header_name
+        __props__["routingHttpRequestXAmznTlsVersionHeaderName"] = routing_http_request_x_amzn_tls_version_header_name
+        __props__["routingHttpResponseAccessControlAllowCredentialsHeaderValue"] = routing_http_response_access_control_allow_credentials_header_value
+        __props__["routingHttpResponseAccessControlAllowHeadersHeaderValue"] = routing_http_response_access_control_allow_headers_header_value
+        __props__["routingHttpResponseAccessControlAllowMethodsHeaderValue"] = routing_http_response_access_control_allow_methods_header_value
+        __props__["routingHttpResponseAccessControlAllowOriginHeaderValue"] = routing_http_response_access_control_allow_origin_header_value
+        __props__["routingHttpResponseAccessControlExposeHeadersHeaderValue"] = routing_http_response_access_control_expose_headers_header_value
+        __props__["routingHttpResponseAccessControlMaxAgeHeaderValue"] = routing_http_response_access_control_max_age_header_value
+        __props__["routingHttpResponseContentSecurityPolicyHeaderValue"] = routing_http_response_content_security_policy_header_value
+        __props__["routingHttpResponseServerEnabled"] = routing_http_response_server_enabled
+        __props__["routingHttpResponseStrictTransportSecurityHeaderValue"] = routing_http_response_strict_transport_security_header_value
+        __props__["routingHttpResponseXContentTypeOptionsHeaderValue"] = routing_http_response_x_content_type_options_header_value
+        __props__["routingHttpResponseXFrameOptionsHeaderValue"] = routing_http_response_x_frame_options_header_value
+        __props__["sslPolicy"] = ssl_policy
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tcpIdleTimeoutSeconds"] = tcp_idle_timeout_seconds
+        return pulumi.runtime.exists_resource(None, 'aws:lb/listener:Listener', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alpnPolicy")
     def alpn_policy(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -182,6 +182,12 @@ func (VocabularyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vocabularyState)(nil)).Elem()
 }
 
+// VocabularyExists checks whether an existing Vocabulary resource with the given ID exists.
+func VocabularyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VocabularyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/vocabulary:Vocabulary", id, state, "", opts...)
+}
+
 type vocabularyArgs struct {
 	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
 	Content string `pulumi:"content"`

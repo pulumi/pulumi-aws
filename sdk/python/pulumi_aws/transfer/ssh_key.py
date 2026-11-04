@@ -401,6 +401,22 @@ class SshKey(pulumi.CustomResource):
         __props__.__dict__["user_name"] = user_name
         return SshKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ssh_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["body"] = body
+        __props__["region"] = region
+        __props__["serverId"] = server_id
+        __props__["sshKeyId"] = ssh_key_id
+        __props__["userName"] = user_name
+        return pulumi.runtime.exists_resource(None, 'aws:transfer/sshKey:SshKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Output[_builtins.str]:

@@ -970,6 +970,58 @@ class Vpc(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Vpc(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            assign_generated_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+            cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            default_network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dhcp_options_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_dns_hostnames: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_dns_support: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_network_address_usage_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_cidr_block_network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            main_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["assignGeneratedIpv6CidrBlock"] = assign_generated_ipv6_cidr_block
+        __props__["cidrBlock"] = cidr_block
+        __props__["defaultNetworkAclId"] = default_network_acl_id
+        __props__["defaultRouteTableId"] = default_route_table_id
+        __props__["defaultSecurityGroupId"] = default_security_group_id
+        __props__["dhcpOptionsId"] = dhcp_options_id
+        __props__["enableDnsHostnames"] = enable_dns_hostnames
+        __props__["enableDnsSupport"] = enable_dns_support
+        __props__["enableNetworkAddressUsageMetrics"] = enable_network_address_usage_metrics
+        __props__["instanceTenancy"] = instance_tenancy
+        __props__["ipv4IpamPoolId"] = ipv4_ipam_pool_id
+        __props__["ipv4NetmaskLength"] = ipv4_netmask_length
+        __props__["ipv6AssociationId"] = ipv6_association_id
+        __props__["ipv6CidrBlock"] = ipv6_cidr_block
+        __props__["ipv6CidrBlockNetworkBorderGroup"] = ipv6_cidr_block_network_border_group
+        __props__["ipv6IpamPoolId"] = ipv6_ipam_pool_id
+        __props__["ipv6NetmaskLength"] = ipv6_netmask_length
+        __props__["mainRouteTableId"] = main_route_table_id
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpc:Vpc', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

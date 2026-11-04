@@ -242,6 +242,12 @@ func (ContinuousDeploymentPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*continuousDeploymentPolicyState)(nil)).Elem()
 }
 
+// ContinuousDeploymentPolicyExists checks whether an existing ContinuousDeploymentPolicy resource with the given ID exists.
+func ContinuousDeploymentPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContinuousDeploymentPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy", id, state, "", opts...)
+}
+
 type continuousDeploymentPolicyArgs struct {
 	// Whether this continuous deployment policy is enabled.
 	Enabled bool `pulumi:"enabled"`

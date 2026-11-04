@@ -546,6 +546,12 @@ func (BucketReplicationConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketReplicationConfigState)(nil)).Elem()
 }
 
+// BucketReplicationConfigExists checks whether an existing BucketReplicationConfig resource with the given ID exists.
+func BucketReplicationConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketReplicationConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketReplicationConfig:BucketReplicationConfig", id, state, "", opts...)
+}
+
 type bucketReplicationConfigArgs struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket string `pulumi:"bucket"`
