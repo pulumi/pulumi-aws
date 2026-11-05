@@ -19,6 +19,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -151,6 +153,8 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 	skipIfNotShort(t)
 	unsetAWSEnv()
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
+	// Without the AWS CLI, no sign-in is offered.
+	t.Setenv("PATH", t.TempDir())
 
 	replaySequence(t, strings.ReplaceAll(`
 	[{
@@ -176,6 +180,53 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 			"name": "aws"
 		}
 	}]`, "'''", "`"))
+}
+
+// TestMissingCredentialsRemediation checks that the provider offers to run `aws login` when the AWS CLI on PATH
+// supports it.
+func TestMissingCredentialsRemediation(t *testing.T) {
+	skipIfNotShort(t)
+	if runtime.GOOS == "windows" {
+		t.Skip("the fake AWS CLI is a shell script")
+	}
+	unsetAWSEnv()
+	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
+	t.Setenv("SSH_CONNECTION", "")
+	t.Setenv("SSH_TTY", "")
+	bin := t.TempDir()
+	script := "#!/bin/sh\necho 'aws-cli/2.32.0 Python/3.13.9 Linux/6.8.0 exe/x86_64'\n"
+	//nolint:gosec // The fake AWS CLI must be executable.
+	require.NoError(t, os.WriteFile(filepath.Join(bin, "aws"), []byte(script), 0o700))
+	t.Setenv("PATH", bin)
+
+	replaySequence(t, `
+	[{
+		"method": "/pulumirpc.ResourceProvider/CheckConfig",
+		"request": {
+			"urn": "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
+			"olds": {},
+			"news": {
+				"version": "6.18.2",
+				"region": "us-west-2"
+			}
+		},
+		"response": {
+			"inputs": "*",
+			"failures": [
+				{
+					"reason": "*",
+					"remediations": [
+						{
+							"description": "Sign in to AWS",
+							"command": ["aws", "login", "--region", "us-west-2"],
+							"env": {"AWS_CLI_AGENT_TOOLKIT_HINT_DISABLED": "true"},
+							"interactive": true
+						}
+					]
+				}
+			]
+		}
+	}]`)
 }
 
 func TestMissingRegionErrorMessage(t *testing.T) {
