@@ -56,10 +56,13 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 		credentials string
 		profile     string
 		expected    string
+		// signIn is the command offered as a remediation, or nil when none is.
+		signIn []string
 	}{
 		{
 			name:     "no credentials",
 			expected: "No valid credential sources found.\n" + loginHint + "\n" + docsHint + "\n" + escHint,
+			signIn:   []string{"aws", "login", "--region", "us-west-2"},
 		},
 		{
 			name:        "profiles configured but none selected",
@@ -69,6 +72,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 				"No AWS profile is selected, but these profiles are configured: myproj, corp, legacy.\n" +
 				"To use one, run `pulumi config set aws:profile <name>` or set AWS_PROFILE.\n" +
 				loginHint + "\n" + docsHint + "\n" + escHint,
+			signIn: []string{"aws", "login", "--region", "us-west-2"},
 		},
 		{
 			name:    "login session not signed in",
@@ -76,12 +80,14 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			profile: "myproj",
 			expected: "The AWS login session for profile \"myproj\" has expired or was not found.\n" +
 				"Run `aws login --profile myproj` to sign in again, then retry.",
+			signIn: []string{"aws", "login", "--profile", "myproj", "--region", "us-west-2"},
 		},
 		{
 			name:   "default profile login session not signed in",
 			config: "[default]\nlogin_session = arn:aws:iam::123456789012:user/test\n",
 			expected: "The AWS login session for the default profile has expired or was not found.\n" +
 				"Run `aws login` to sign in again, then retry.",
+			signIn: []string{"aws", "login", "--region", "us-west-2"},
 		},
 		{
 			name:    "SSO session not signed in",
@@ -89,6 +95,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			profile: "corp",
 			expected: "The AWS SSO session for profile \"corp\" has expired or was not found.\n" +
 				"Run `aws sso login --profile corp` to sign in again, then retry.\n" + escHint,
+			signIn: []string{"aws", "sso", "login", "--profile", "corp"},
 		},
 		{
 			name: "legacy SSO profile not signed in",
@@ -97,6 +104,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			profile: "old",
 			expected: "The AWS SSO session for profile \"old\" has expired or was not found.\n" +
 				"Run `aws sso login --profile old` to sign in again, then retry.\n" + escHint,
+			signIn: []string{"aws", "sso", "login", "--profile", "old"},
 		},
 		{
 			name:    "profile not found",
@@ -141,12 +149,18 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 				vars["profile"] = resource.NewProperty(tt.profile)
 			}
 
-			err := validateCredentials(vars, nil)
+			err := validateCredentialsWith(vars, fakeAWSCLI(supportedAWSCLI, nil))
 
 			var failure tfbridge.CheckFailureError
 			require.ErrorAs(t, err, &failure)
 			require.Len(t, failure.Failures, 1)
 			require.Equal(t, tt.expected, failure.Failures[0].Reason)
+			if tt.signIn == nil {
+				require.Empty(t, failure.Failures[0].Remediations)
+			} else {
+				require.Equal(t, []tfbridge.CommandRemediation{signInRemediation(tt.signIn...)},
+					failure.Failures[0].Remediations)
+			}
 		})
 	}
 }
@@ -159,6 +173,7 @@ func TestCredentialsFailureReason(t *testing.T) {
 		diag     string
 		profile  string
 		expected string
+		signIn   *awsSignInCommand
 	}{
 		{
 			name: "login session expired",
@@ -168,6 +183,7 @@ func TestCredentialsFailureReason(t *testing.T) {
 			profile: "myproj",
 			expected: "The AWS login session for profile \"myproj\" has expired or was not found.\n" +
 				"Run `aws login --profile myproj` to sign in again, then retry.",
+			signIn: awsLogin,
 		},
 		{
 			name: "SSO token expired",
@@ -176,6 +192,7 @@ func TestCredentialsFailureReason(t *testing.T) {
 			profile: "corp",
 			expected: "The AWS SSO session for profile \"corp\" has expired or was not found.\n" +
 				"Run `aws sso login --profile corp` to sign in again, then retry.\n" + escHint,
+			signIn: awsSSOLogin,
 		},
 		{
 			name: "invalid credentials",
@@ -217,8 +234,9 @@ func TestCredentialsFailureReason(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			actual := credentialsFailureReason(tt.diag, &awsbase.Config{Profile: tt.profile})
+			actual, signIn := credentialsFailureReason(tt.diag, &awsbase.Config{Profile: tt.profile})
 			require.Equal(t, tt.expected, actual)
+			require.Same(t, tt.signIn, signIn)
 		})
 	}
 }
