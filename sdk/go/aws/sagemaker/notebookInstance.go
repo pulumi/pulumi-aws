@@ -268,6 +268,12 @@ func (NotebookInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookInstanceState)(nil)).Elem()
 }
 
+// NotebookInstanceExists checks whether an existing NotebookInstance resource with the given ID exists.
+func NotebookInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotebookInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/notebookInstance:NotebookInstance", id, state, "", opts...)
+}
+
 type notebookInstanceArgs struct {
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.

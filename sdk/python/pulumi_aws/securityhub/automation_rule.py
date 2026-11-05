@@ -591,6 +591,34 @@ class AutomationRule(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return AutomationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict', 'outputs.AutomationRuleAction']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict', 'outputs.AutomationRuleCriteria']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_order: pulumi.Input[Optional[_builtins.int]] = None,
+            rule_status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["arn"] = arn
+        __props__["criteria"] = criteria
+        __props__["description"] = description
+        __props__["isTerminal"] = is_terminal
+        __props__["region"] = region
+        __props__["ruleName"] = rule_name
+        __props__["ruleOrder"] = rule_order
+        __props__["ruleStatus"] = rule_status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:securityhub/automationRule:AutomationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.AutomationRuleAction']]:

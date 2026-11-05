@@ -210,6 +210,12 @@ func (VpcDhcpOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcDhcpOptionsState)(nil)).Elem()
 }
 
+// VpcDhcpOptionsExists checks whether an existing VpcDhcpOptions resource with the given ID exists.
+func VpcDhcpOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcDhcpOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", id, state, "", opts...)
+}
+
 type vpcDhcpOptionsArgs struct {
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 	DomainName *string `pulumi:"domainName"`

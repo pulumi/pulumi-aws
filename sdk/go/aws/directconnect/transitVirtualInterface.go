@@ -250,6 +250,12 @@ func (TransitVirtualInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitVirtualInterfaceState)(nil)).Elem()
 }
 
+// TransitVirtualInterfaceExists checks whether an existing TransitVirtualInterface resource with the given ID exists.
+func TransitVirtualInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitVirtualInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/transitVirtualInterface:TransitVirtualInterface", id, state, "", opts...)
+}
+
 type transitVirtualInterfaceArgs struct {
 	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 	AddressFamily string `pulumi:"addressFamily"`

@@ -178,6 +178,12 @@ func (ZoneAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneAssociationState)(nil)).Elem()
 }
 
+// ZoneAssociationExists checks whether an existing ZoneAssociation resource with the given ID exists.
+func ZoneAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZoneAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/zoneAssociation:ZoneAssociation", id, state, "", opts...)
+}
+
 type zoneAssociationArgs struct {
 	// The VPC to associate with the private hosted zone.
 	VpcId string `pulumi:"vpcId"`

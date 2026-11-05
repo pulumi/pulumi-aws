@@ -502,6 +502,30 @@ class DomainAssociation(pulumi.CustomResource):
         __props__.__dict__["wait_for_verification"] = wait_for_verification
         return DomainAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_settings: pulumi.Input[Optional[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict', 'outputs.DomainAssociationCertificateSettings']]] = None,
+            certificate_verification_dns_record: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict', 'outputs.DomainAssociationSubDomain']]]]] = None,
+            wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["arn"] = arn
+        __props__["certificateSettings"] = certificate_settings
+        __props__["certificateVerificationDnsRecord"] = certificate_verification_dns_record
+        __props__["domainName"] = domain_name
+        __props__["enableAutoSubDomain"] = enable_auto_sub_domain
+        __props__["region"] = region
+        __props__["subDomains"] = sub_domains
+        __props__["waitForVerification"] = wait_for_verification
+        return pulumi.runtime.exists_resource(None, 'aws:amplify/domainAssociation:DomainAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

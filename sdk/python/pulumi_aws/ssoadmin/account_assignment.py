@@ -547,6 +547,26 @@ class AccountAssignment(pulumi.CustomResource):
         __props__.__dict__["target_type"] = target_type
         return AccountAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["instanceArn"] = instance_arn
+        __props__["permissionSetArn"] = permission_set_arn
+        __props__["principalId"] = principal_id
+        __props__["principalType"] = principal_type
+        __props__["region"] = region
+        __props__["targetId"] = target_id
+        __props__["targetType"] = target_type
+        return pulumi.runtime.exists_resource(None, 'aws:ssoadmin/accountAssignment:AccountAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:

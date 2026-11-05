@@ -156,6 +156,12 @@ func (AppregistryAttributeGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appregistryAttributeGroupState)(nil)).Elem()
 }
 
+// AppregistryAttributeGroupExists checks whether an existing AppregistryAttributeGroup resource with the given ID exists.
+func AppregistryAttributeGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppregistryAttributeGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup", id, state, "", opts...)
+}
+
 type appregistryAttributeGroupArgs struct {
 	// A JSON string of nested key-value pairs that represents the attributes of the group.
 	//

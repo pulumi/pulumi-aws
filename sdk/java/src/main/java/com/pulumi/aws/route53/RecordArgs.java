@@ -185,14 +185,14 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
+     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `&#92;&#34;&#92;&#34;` inside the provider configuration string (e.g., `&#34;first255characters&#92;&#34;&#92;&#34;morecharacters&#34;`).
      * 
      */
     @Import(name="records")
     private @Nullable Output<List<String>> records;
 
     /**
-     * @return A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
+     * @return A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `&#92;&#34;&#92;&#34;` inside the provider configuration string (e.g., `&#34;first255characters&#92;&#34;&#92;&#34;morecharacters&#34;`).
      * 
      */
     public Optional<Output<List<String>>> records() {
@@ -571,7 +571,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
+         * @param records A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `&#92;&#34;&#92;&#34;` inside the provider configuration string (e.g., `&#34;first255characters&#92;&#34;&#92;&#34;morecharacters&#34;`).
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
+         * @param records A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `&#92;&#34;&#92;&#34;` inside the provider configuration string (e.g., `&#34;first255characters&#92;&#34;&#92;&#34;morecharacters&#34;`).
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
+         * @param records A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `&#92;&#34;&#92;&#34;` inside the provider configuration string (e.g., `&#34;first255characters&#92;&#34;&#92;&#34;morecharacters&#34;`).
          * 
          * @return builder
          * 

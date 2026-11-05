@@ -184,6 +184,12 @@ func (AutoScalingConfigurationVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoScalingConfigurationVersionState)(nil)).Elem()
 }
 
+// AutoScalingConfigurationVersionExists checks whether an existing AutoScalingConfigurationVersion resource with the given ID exists.
+func AutoScalingConfigurationVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoScalingConfigurationVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", id, state, "", opts...)
+}
+
 type autoScalingConfigurationVersionArgs struct {
 	// Name of the auto scaling configuration.
 	AutoScalingConfigurationName string `pulumi:"autoScalingConfigurationName"`

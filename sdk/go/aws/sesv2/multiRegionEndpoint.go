@@ -150,6 +150,12 @@ func (MultiRegionEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiRegionEndpointState)(nil)).Elem()
 }
 
+// MultiRegionEndpointExists checks whether an existing MultiRegionEndpoint resource with the given ID exists.
+func MultiRegionEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiRegionEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sesv2/multiRegionEndpoint:MultiRegionEndpoint", id, state, "", opts...)
+}
+
 type multiRegionEndpointArgs struct {
 	// Configuration details for the endpoint. See `details` Block below.
 	Details *MultiRegionEndpointDetails `pulumi:"details"`

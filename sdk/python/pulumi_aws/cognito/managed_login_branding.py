@@ -480,6 +480,28 @@ class ManagedLoginBranding(pulumi.CustomResource):
         __props__.__dict__["user_pool_id"] = user_pool_id
         return ManagedLoginBranding(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict', 'outputs.ManagedLoginBrandingAsset']]]]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_login_branding_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[_builtins.str]] = None,
+            settings_all: pulumi.Input[Optional[_builtins.str]] = None,
+            use_cognito_provided_values: pulumi.Input[Optional[_builtins.bool]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assets"] = assets
+        __props__["clientId"] = client_id
+        __props__["managedLoginBrandingId"] = managed_login_branding_id
+        __props__["region"] = region
+        __props__["settings"] = settings
+        __props__["settingsAll"] = settings_all
+        __props__["useCognitoProvidedValues"] = use_cognito_provided_values
+        __props__["userPoolId"] = user_pool_id
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/managedLoginBranding:ManagedLoginBranding', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def assets(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedLoginBrandingAsset']]]:

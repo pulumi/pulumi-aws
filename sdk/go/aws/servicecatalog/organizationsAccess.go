@@ -96,6 +96,12 @@ func (OrganizationsAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationsAccessState)(nil)).Elem()
 }
 
+// OrganizationsAccessExists checks whether an existing OrganizationsAccess resource with the given ID exists.
+func OrganizationsAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationsAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/organizationsAccess:OrganizationsAccess", id, state, "", opts...)
+}
+
 type organizationsAccessArgs struct {
 	// Whether to enable AWS Organizations access.
 	Enabled bool `pulumi:"enabled"`

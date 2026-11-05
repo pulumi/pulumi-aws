@@ -157,6 +157,12 @@ func (ThingGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingGroupState)(nil)).Elem()
 }
 
+// ThingGroupExists checks whether an existing ThingGroup resource with the given ID exists.
+func ThingGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThingGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/thingGroup:ThingGroup", id, state, "", opts...)
+}
+
 type thingGroupArgs struct {
 	// The name of the Thing Group.
 	Name *string `pulumi:"name"`

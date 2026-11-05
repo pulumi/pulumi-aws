@@ -308,6 +308,20 @@ class PackageAssociation(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return PackageAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            package_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reference_path: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domainName"] = domain_name
+        __props__["packageId"] = package_id
+        __props__["referencePath"] = reference_path
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:opensearch/packageAssociation:PackageAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:

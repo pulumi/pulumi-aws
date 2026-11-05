@@ -199,6 +199,12 @@ func (RestoreTestingSelectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restoreTestingSelectionState)(nil)).Elem()
 }
 
+// RestoreTestingSelectionExists checks whether an existing RestoreTestingSelection resource with the given ID exists.
+func RestoreTestingSelectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestoreTestingSelectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/restoreTestingSelection:RestoreTestingSelection", id, state, "", opts...)
+}
+
 type restoreTestingSelectionArgs struct {
 	// ARN of the IAM role.
 	IamRoleArn string `pulumi:"iamRoleArn"`

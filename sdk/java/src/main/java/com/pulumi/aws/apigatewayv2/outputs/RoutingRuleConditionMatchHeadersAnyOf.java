@@ -16,7 +16,7 @@ public final class RoutingRuleConditionMatchHeadersAnyOf {
      */
     private String header;
     /**
-     * @return Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+     * @return Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: &#92;*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for &#92;*prefix-match, suffix-match*, or &#92;*infix*-match.
      * 
      */
     private String valueGlob;
@@ -30,7 +30,7 @@ public final class RoutingRuleConditionMatchHeadersAnyOf {
         return this.header;
     }
     /**
-     * @return Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+     * @return Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: &#92;*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for &#92;*prefix-match, suffix-match*, or &#92;*infix*-match.
      * 
      */
     public String valueGlob() {

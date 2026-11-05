@@ -1127,6 +1127,56 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["visibility_timeout_seconds"] = visibility_timeout_seconds
         return Queue(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+            deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+            fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            max_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+            message_retention_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            receive_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            redrive_allow_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["contentBasedDeduplication"] = content_based_deduplication
+        __props__["deduplicationScope"] = deduplication_scope
+        __props__["delaySeconds"] = delay_seconds
+        __props__["fifoQueue"] = fifo_queue
+        __props__["fifoThroughputLimit"] = fifo_throughput_limit
+        __props__["kmsDataKeyReusePeriodSeconds"] = kms_data_key_reuse_period_seconds
+        __props__["kmsMasterKeyId"] = kms_master_key_id
+        __props__["maxMessageSize"] = max_message_size
+        __props__["messageRetentionSeconds"] = message_retention_seconds
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["policy"] = policy
+        __props__["receiveWaitTimeSeconds"] = receive_wait_time_seconds
+        __props__["redriveAllowPolicy"] = redrive_allow_policy
+        __props__["redrivePolicy"] = redrive_policy
+        __props__["region"] = region
+        __props__["sqsManagedSseEnabled"] = sqs_managed_sse_enabled
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["url"] = url
+        __props__["visibilityTimeoutSeconds"] = visibility_timeout_seconds
+        return pulumi.runtime.exists_resource(None, 'aws:sqs/queue:Queue', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -668,6 +668,38 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return DataQualityJobDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_quality_app_specification: pulumi.Input[Optional[Union['DataQualityJobDefinitionDataQualityAppSpecificationArgs', 'DataQualityJobDefinitionDataQualityAppSpecificationArgsDict', 'outputs.DataQualityJobDefinitionDataQualityAppSpecification']]] = None,
+            data_quality_baseline_config: pulumi.Input[Optional[Union['DataQualityJobDefinitionDataQualityBaselineConfigArgs', 'DataQualityJobDefinitionDataQualityBaselineConfigArgsDict', 'outputs.DataQualityJobDefinitionDataQualityBaselineConfig']]] = None,
+            data_quality_job_input: pulumi.Input[Optional[Union['DataQualityJobDefinitionDataQualityJobInputArgs', 'DataQualityJobDefinitionDataQualityJobInputArgsDict', 'outputs.DataQualityJobDefinitionDataQualityJobInput']]] = None,
+            data_quality_job_output_config: pulumi.Input[Optional[Union['DataQualityJobDefinitionDataQualityJobOutputConfigArgs', 'DataQualityJobDefinitionDataQualityJobOutputConfigArgsDict', 'outputs.DataQualityJobDefinitionDataQualityJobOutputConfig']]] = None,
+            job_resources: pulumi.Input[Optional[Union['DataQualityJobDefinitionJobResourcesArgs', 'DataQualityJobDefinitionJobResourcesArgsDict', 'outputs.DataQualityJobDefinitionJobResources']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_config: pulumi.Input[Optional[Union['DataQualityJobDefinitionNetworkConfigArgs', 'DataQualityJobDefinitionNetworkConfigArgsDict', 'outputs.DataQualityJobDefinitionNetworkConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            stopping_condition: pulumi.Input[Optional[Union['DataQualityJobDefinitionStoppingConditionArgs', 'DataQualityJobDefinitionStoppingConditionArgsDict', 'outputs.DataQualityJobDefinitionStoppingCondition']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dataQualityAppSpecification"] = data_quality_app_specification
+        __props__["dataQualityBaselineConfig"] = data_quality_baseline_config
+        __props__["dataQualityJobInput"] = data_quality_job_input
+        __props__["dataQualityJobOutputConfig"] = data_quality_job_output_config
+        __props__["jobResources"] = job_resources
+        __props__["name"] = name
+        __props__["networkConfig"] = network_config
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["stoppingCondition"] = stopping_condition
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

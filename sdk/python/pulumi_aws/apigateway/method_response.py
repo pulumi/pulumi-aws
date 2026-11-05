@@ -597,6 +597,26 @@ class MethodResponse(pulumi.CustomResource):
         __props__.__dict__["status_code"] = status_code
         return MethodResponse(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            http_method: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            response_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.bool]]]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            status_code: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["httpMethod"] = http_method
+        __props__["region"] = region
+        __props__["resourceId"] = resource_id
+        __props__["responseModels"] = response_models
+        __props__["responseParameters"] = response_parameters
+        __props__["restApi"] = rest_api
+        __props__["statusCode"] = status_code
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/methodResponse:MethodResponse', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Output[_builtins.str]:

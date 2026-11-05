@@ -1856,6 +1856,86 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["uuid"] = uuid
         return EventSourceMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            amazon_managed_kafka_event_source_config: pulumi.Input[Optional[Union['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs', 'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict', 'outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+            bisect_batch_on_function_error: pulumi.Input[Optional[_builtins.bool]] = None,
+            destination_config: pulumi.Input[Optional[Union['EventSourceMappingDestinationConfigArgs', 'EventSourceMappingDestinationConfigArgsDict', 'outputs.EventSourceMappingDestinationConfig']]] = None,
+            document_db_event_source_config: pulumi.Input[Optional[Union['EventSourceMappingDocumentDbEventSourceConfigArgs', 'EventSourceMappingDocumentDbEventSourceConfigArgsDict', 'outputs.EventSourceMappingDocumentDbEventSourceConfig']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            filter_criteria: pulumi.Input[Optional[Union['EventSourceMappingFilterCriteriaArgs', 'EventSourceMappingFilterCriteriaArgsDict', 'outputs.EventSourceMappingFilterCriteria']]] = None,
+            function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            function_response_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            last_processing_result: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_batching_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_record_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            metrics_config: pulumi.Input[Optional[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict', 'outputs.EventSourceMappingMetricsConfig']]] = None,
+            parallelization_factor: pulumi.Input[Optional[_builtins.int]] = None,
+            provisioned_poller_config: pulumi.Input[Optional[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict', 'outputs.EventSourceMappingProvisionedPollerConfig']]] = None,
+            queues: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_config: pulumi.Input[Optional[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict', 'outputs.EventSourceMappingScalingConfig']]] = None,
+            self_managed_event_source: pulumi.Input[Optional[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict', 'outputs.EventSourceMappingSelfManagedEventSource']]] = None,
+            self_managed_kafka_event_source_config: pulumi.Input[Optional[Union['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs', 'EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict', 'outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig']]] = None,
+            source_access_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventSourceMappingSourceAccessConfigurationArgs', 'EventSourceMappingSourceAccessConfigurationArgsDict', 'outputs.EventSourceMappingSourceAccessConfiguration']]]]] = None,
+            starting_position: pulumi.Input[Optional[_builtins.str]] = None,
+            starting_position_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            state_transition_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tumbling_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
+            uuid: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["amazonManagedKafkaEventSourceConfig"] = amazon_managed_kafka_event_source_config
+        __props__["arn"] = arn
+        __props__["batchSize"] = batch_size
+        __props__["bisectBatchOnFunctionError"] = bisect_batch_on_function_error
+        __props__["destinationConfig"] = destination_config
+        __props__["documentDbEventSourceConfig"] = document_db_event_source_config
+        __props__["enabled"] = enabled
+        __props__["eventSourceArn"] = event_source_arn
+        __props__["filterCriteria"] = filter_criteria
+        __props__["functionArn"] = function_arn
+        __props__["functionName"] = function_name
+        __props__["functionResponseTypes"] = function_response_types
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["lastModified"] = last_modified
+        __props__["lastProcessingResult"] = last_processing_result
+        __props__["maximumBatchingWindowInSeconds"] = maximum_batching_window_in_seconds
+        __props__["maximumRecordAgeInSeconds"] = maximum_record_age_in_seconds
+        __props__["maximumRetryAttempts"] = maximum_retry_attempts
+        __props__["metricsConfig"] = metrics_config
+        __props__["parallelizationFactor"] = parallelization_factor
+        __props__["provisionedPollerConfig"] = provisioned_poller_config
+        __props__["queues"] = queues
+        __props__["region"] = region
+        __props__["scalingConfig"] = scaling_config
+        __props__["selfManagedEventSource"] = self_managed_event_source
+        __props__["selfManagedKafkaEventSourceConfig"] = self_managed_kafka_event_source_config
+        __props__["sourceAccessConfigurations"] = source_access_configurations
+        __props__["startingPosition"] = starting_position
+        __props__["startingPositionTimestamp"] = starting_position_timestamp
+        __props__["state"] = state
+        __props__["stateTransitionReason"] = state_transition_reason
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["topics"] = topics
+        __props__["tumblingWindowInSeconds"] = tumbling_window_in_seconds
+        __props__["useResourceTimeoutForPropagation"] = use_resource_timeout_for_propagation
+        __props__["uuid"] = uuid
+        return pulumi.runtime.exists_resource(None, 'aws:lambda/eventSourceMapping:EventSourceMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="amazonManagedKafkaEventSourceConfig")
     def amazon_managed_kafka_event_source_config(self) -> pulumi.Output['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig']:

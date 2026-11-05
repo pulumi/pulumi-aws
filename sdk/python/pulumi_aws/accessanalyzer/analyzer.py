@@ -582,6 +582,26 @@ class Analyzer(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Analyzer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict', 'outputs.AnalyzerConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["analyzerName"] = analyzer_name
+        __props__["arn"] = arn
+        __props__["configuration"] = configuration
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:accessanalyzer/analyzer:Analyzer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="analyzerName")
     def analyzer_name(self) -> pulumi.Output[_builtins.str]:

@@ -20,11 +20,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
     /**
      * @return The preferred edge to use.
      * 
-     * @deprecated
-     * use_edge is deprecated. Use useEdgeLocation instead.
+     * @deprecated use_edge is deprecated. Use useEdgeLocation instead.
      * 
      */
-    @Deprecated /* use_edge is deprecated. Use useEdgeLocation instead. */
+    @Deprecated
     private @Nullable String useEdge;
     /**
      * @return The preferred edge to use.
@@ -43,11 +42,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
     /**
      * @return The preferred edge to use.
      * 
-     * @deprecated
-     * use_edge is deprecated. Use useEdgeLocation instead.
+     * @deprecated use_edge is deprecated. Use useEdgeLocation instead.
      * 
      */
-    @Deprecated /* use_edge is deprecated. Use useEdgeLocation instead. */
+    @Deprecated
     public Optional<String> useEdge() {
         return Optional.ofNullable(this.useEdge);
     }

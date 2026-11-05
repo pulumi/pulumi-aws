@@ -158,6 +158,12 @@ func (NotificationChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationChannelState)(nil)).Elem()
 }
 
+// NotificationChannelExists checks whether an existing NotificationChannel resource with the given ID exists.
+func NotificationChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:devopsguru/notificationChannel:NotificationChannel", id, state, "", opts...)
+}
+
 type notificationChannelArgs struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters *NotificationChannelFilters `pulumi:"filters"`

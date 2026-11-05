@@ -164,6 +164,12 @@ func (UploadBufferState) ElementType() reflect.Type {
 	return reflect.TypeOf((*uploadBufferState)(nil)).Elem()
 }
 
+// UploadBufferExists checks whether an existing UploadBuffer resource with the given ID exists.
+func UploadBufferExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UploadBufferState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/uploadBuffer:UploadBuffer", id, state, "", opts...)
+}
+
 type uploadBufferArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId *string `pulumi:"diskId"`

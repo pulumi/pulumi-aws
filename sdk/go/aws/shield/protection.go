@@ -155,6 +155,12 @@ func (ProtectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionState)(nil)).Elem()
 }
 
+// ProtectionExists checks whether an existing Protection resource with the given ID exists.
+func ProtectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:shield/protection:Protection", id, state, "", opts...)
+}
+
 type protectionArgs struct {
 	// A friendly name for the Protection you are creating.
 	Name *string `pulumi:"name"`

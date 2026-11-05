@@ -1770,6 +1770,78 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["zonal_shift_config"] = zonal_shift_config
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict', 'outputs.ClusterAccessConfig']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_self_managed_addons: pulumi.Input[Optional[_builtins.bool]] = None,
+            certificate_authority: pulumi.Input[Optional[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict', 'outputs.ClusterCertificateAuthority']]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict', 'outputs.ClusterComputeConfig']]] = None,
+            control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict', 'outputs.ClusterControlPlaneScalingConfig']]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            default_addons_to_removes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled_cluster_log_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict', 'outputs.ClusterEncryptionConfig']]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']]]]] = None,
+            kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict', 'outputs.ClusterKubeApiServerConfig']]] = None,
+            kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict', 'outputs.ClusterKubeControllerManagerConfig']]] = None,
+            kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict', 'outputs.ClusterKubeSchedulerConfig']]] = None,
+            kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict', 'outputs.ClusterKubernetesNetworkConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict', 'outputs.ClusterOutpostConfig']]] = None,
+            platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_network_config: pulumi.Input[Optional[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict', 'outputs.ClusterRemoteNetworkConfig']]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_config: pulumi.Input[Optional[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict', 'outputs.ClusterStorageConfig']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            upgrade_policy: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict', 'outputs.ClusterUpgradePolicy']]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']]] = None,
+            zonal_shift_config: pulumi.Input[Optional[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict', 'outputs.ClusterZonalShiftConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessConfig"] = access_config
+        __props__["arn"] = arn
+        __props__["bootstrapSelfManagedAddons"] = bootstrap_self_managed_addons
+        __props__["certificateAuthority"] = certificate_authority
+        __props__["clusterId"] = cluster_id
+        __props__["computeConfig"] = compute_config
+        __props__["controlPlaneScalingConfig"] = control_plane_scaling_config
+        __props__["createdAt"] = created_at
+        __props__["defaultAddonsToRemoves"] = default_addons_to_removes
+        __props__["deletionProtection"] = deletion_protection
+        __props__["enabledClusterLogTypes"] = enabled_cluster_log_types
+        __props__["encryptionConfig"] = encryption_config
+        __props__["endpoint"] = endpoint
+        __props__["forceUpdateVersion"] = force_update_version
+        __props__["identities"] = identities
+        __props__["kubeApiServerConfig"] = kube_api_server_config
+        __props__["kubeControllerManagerConfig"] = kube_controller_manager_config
+        __props__["kubeSchedulerConfig"] = kube_scheduler_config
+        __props__["kubernetesNetworkConfig"] = kubernetes_network_config
+        __props__["name"] = name
+        __props__["outpostConfig"] = outpost_config
+        __props__["platformVersion"] = platform_version
+        __props__["region"] = region
+        __props__["remoteNetworkConfig"] = remote_network_config
+        __props__["roleArn"] = role_arn
+        __props__["status"] = status
+        __props__["storageConfig"] = storage_config
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["upgradePolicy"] = upgrade_policy
+        __props__["version"] = version
+        __props__["vpcConfig"] = vpc_config
+        __props__["zonalShiftConfig"] = zonal_shift_config
+        return pulumi.runtime.exists_resource(None, 'aws:eks/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessConfig")
     def access_config(self) -> pulumi.Output['outputs.ClusterAccessConfig']:

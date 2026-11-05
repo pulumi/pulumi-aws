@@ -234,6 +234,12 @@ func (NetworkInsightsAccessScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInsightsAccessScopeState)(nil)).Elem()
 }
 
+// NetworkInsightsAccessScopeExists checks whether an existing NetworkInsightsAccessScope resource with the given ID exists.
+func NetworkInsightsAccessScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInsightsAccessScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/networkInsightsAccessScope:NetworkInsightsAccessScope", id, state, "", opts...)
+}
+
 type networkInsightsAccessScopeArgs struct {
 	// Set of access scope path statements to exclude.
 	// See `excludePaths` below for details.

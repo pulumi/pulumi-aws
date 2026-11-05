@@ -128,6 +128,12 @@ func (ApiKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyState)(nil)).Elem()
 }
 
+// ApiKeyExists checks whether an existing ApiKey resource with the given ID exists.
+func ApiKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafv2/apiKey:ApiKey", id, state, "", opts...)
+}
+
 type apiKeyArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

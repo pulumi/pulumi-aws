@@ -149,6 +149,12 @@ func (NotebookInstanceLifecycleConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookInstanceLifecycleConfigurationState)(nil)).Elem()
 }
 
+// NotebookInstanceLifecycleConfigurationExists checks whether an existing NotebookInstanceLifecycleConfiguration resource with the given ID exists.
+func NotebookInstanceLifecycleConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotebookInstanceLifecycleConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", id, state, "", opts...)
+}
+
 type notebookInstanceLifecycleConfigurationArgs struct {
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`

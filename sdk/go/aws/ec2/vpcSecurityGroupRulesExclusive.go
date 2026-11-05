@@ -204,6 +204,12 @@ func (VpcSecurityGroupRulesExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcSecurityGroupRulesExclusiveState)(nil)).Elem()
 }
 
+// VpcSecurityGroupRulesExclusiveExists checks whether an existing VpcSecurityGroupRulesExclusive resource with the given ID exists.
+func VpcSecurityGroupRulesExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcSecurityGroupRulesExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive", id, state, "", opts...)
+}
+
 type vpcSecurityGroupRulesExclusiveArgs struct {
 	// Egress rule IDs.
 	EgressRuleIds []string `pulumi:"egressRuleIds"`

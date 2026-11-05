@@ -120,6 +120,12 @@ func (TrafficSourceAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficSourceAttachmentState)(nil)).Elem()
 }
 
+// TrafficSourceAttachmentExists checks whether an existing TrafficSourceAttachment resource with the given ID exists.
+func TrafficSourceAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficSourceAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment", id, state, "", opts...)
+}
+
 type trafficSourceAttachmentArgs struct {
 	// The name of the Auto Scaling group.
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`

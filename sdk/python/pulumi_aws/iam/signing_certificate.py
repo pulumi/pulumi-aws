@@ -319,6 +319,20 @@ class SigningCertificate(pulumi.CustomResource):
         __props__.__dict__["user_name"] = user_name
         return SigningCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateBody"] = certificate_body
+        __props__["certificateId"] = certificate_id
+        __props__["status"] = status
+        __props__["userName"] = user_name
+        return pulumi.runtime.exists_resource(None, 'aws:iam/signingCertificate:SigningCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> pulumi.Output[_builtins.str]:

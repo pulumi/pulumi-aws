@@ -624,6 +624,36 @@ class InstanceProfile(pulumi.CustomResource):
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return InstanceProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["description"] = description
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["name"] = name
+        __props__["networkType"] = network_type
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["region"] = region
+        __props__["subnetGroupIdentifier"] = subnet_group_identifier
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        return pulumi.runtime.exists_resource(None, 'aws:dms/instanceProfile:InstanceProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

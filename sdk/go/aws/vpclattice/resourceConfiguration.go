@@ -385,6 +385,12 @@ func (ResourceConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceConfigurationState)(nil)).Elem()
 }
 
+// ResourceConfigurationExists checks whether an existing ResourceConfiguration resource with the given ID exists.
+func ResourceConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/resourceConfiguration:ResourceConfiguration", id, state, "", opts...)
+}
+
 type resourceConfigurationArgs struct {
 	// Allow or Deny the association of this resource to a shareable service network.
 	AllowAssociationToShareableServiceNetwork *bool `pulumi:"allowAssociationToShareableServiceNetwork"`

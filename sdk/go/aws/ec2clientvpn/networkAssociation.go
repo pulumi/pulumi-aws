@@ -129,6 +129,12 @@ func (NetworkAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAssociationState)(nil)).Elem()
 }
 
+// NetworkAssociationExists checks whether an existing NetworkAssociation resource with the given ID exists.
+func NetworkAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2clientvpn/networkAssociation:NetworkAssociation", id, state, "", opts...)
+}
+
 type networkAssociationArgs struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`

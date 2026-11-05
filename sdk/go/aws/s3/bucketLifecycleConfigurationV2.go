@@ -638,6 +638,12 @@ func (BucketLifecycleConfigurationV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketLifecycleConfigurationV2State)(nil)).Elem()
 }
 
+// BucketLifecycleConfigurationV2Exists checks whether an existing BucketLifecycleConfigurationV2 resource with the given ID exists.
+func BucketLifecycleConfigurationV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketLifecycleConfigurationV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2", id, state, "", opts...)
+}
+
 type bucketLifecycleConfigurationV2Args struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket string `pulumi:"bucket"`

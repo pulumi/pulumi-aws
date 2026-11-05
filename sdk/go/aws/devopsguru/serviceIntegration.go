@@ -185,6 +185,12 @@ func (ServiceIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceIntegrationState)(nil)).Elem()
 }
 
+// ServiceIntegrationExists checks whether an existing ServiceIntegration resource with the given ID exists.
+func ServiceIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:devopsguru/serviceIntegration:ServiceIntegration", id, state, "", opts...)
+}
+
 type serviceIntegrationArgs struct {
 	// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
 	KmsServerSideEncryption ServiceIntegrationKmsServerSideEncryption `pulumi:"kmsServerSideEncryption"`

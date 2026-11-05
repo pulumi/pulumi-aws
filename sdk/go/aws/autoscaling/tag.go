@@ -95,6 +95,12 @@ func (TagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagState)(nil)).Elem()
 }
 
+// TagExists checks whether an existing Tag resource with the given ID exists.
+func TagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:autoscaling/tag:Tag", id, state, "", opts...)
+}
+
 type tagArgs struct {
 	// Name of the Auto Scaling group to apply the tag to.
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`

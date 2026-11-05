@@ -168,6 +168,12 @@ func (PrefixListReferenceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*prefixListReferenceState)(nil)).Elem()
 }
 
+// PrefixListReferenceExists checks whether an existing PrefixListReference resource with the given ID exists.
+func PrefixListReferenceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrefixListReferenceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/prefixListReference:PrefixListReference", id, state, "", opts...)
+}
+
 type prefixListReferenceArgs struct {
 	// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
 	Blackhole *bool `pulumi:"blackhole"`

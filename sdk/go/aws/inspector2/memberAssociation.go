@@ -126,6 +126,12 @@ func (MemberAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*memberAssociationState)(nil)).Elem()
 }
 
+// MemberAssociationExists checks whether an existing MemberAssociation resource with the given ID exists.
+func MemberAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MemberAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:inspector2/memberAssociation:MemberAssociation", id, state, "", opts...)
+}
+
 type memberAssociationArgs struct {
 	// ID of the account to associate
 	AccountId string `pulumi:"accountId"`

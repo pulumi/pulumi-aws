@@ -168,6 +168,12 @@ func (SecretPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretPolicyState)(nil)).Elem()
 }
 
+// SecretPolicyExists checks whether an existing SecretPolicy resource with the given ID exists.
+func SecretPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:secretsmanager/secretPolicy:SecretPolicy", id, state, "", opts...)
+}
+
 type secretPolicyArgs struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`

@@ -40,32 +40,32 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ModelCard("example", ModelCardArgs.builder()
  *             .modelCardName("my-model-card")
  *             .modelCardStatus("Draft")
  *             .content("""
- * {
- *   \"business_details\": {
- *     \"business_problem\": \"Quality\"
- *   },
- *   \"intended_uses\": {
- *     \"intended_uses\": \"Testing\"
- *   },
- *   \"additional_information\": {
- *     \"caveats_and_recommendations\": \"Use this\"
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "business_details}&#92;{@code ": }{{@code
+ *     }&#92;{@code "business_problem}&#92;{@code ": }&#92;{@code "Quality}&#92;{@code "
+ *   }}{@code ,
+ *   }&#92;{@code "intended_uses}&#92;{@code ": }{{@code
+ *     }&#92;{@code "intended_uses}&#92;{@code ": }&#92;{@code "Testing}&#92;{@code "
+ *   }}{@code ,
+ *   }&#92;{@code "additional_information}&#92;{@code ": }{{@code
+ *     }&#92;{@code "caveats_and_recommendations}&#92;{@code ": }&#92;{@code "Use this}&#92;{@code "
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

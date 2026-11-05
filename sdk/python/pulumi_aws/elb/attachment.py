@@ -265,6 +265,18 @@ class Attachment(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Attachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            elb: pulumi.Input[Optional[_builtins.str]] = None,
+            instance: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["elb"] = elb
+        __props__["instance"] = instance
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:elb/attachment:Attachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def elb(self) -> pulumi.Output[_builtins.str]:

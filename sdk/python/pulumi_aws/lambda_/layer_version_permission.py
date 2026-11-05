@@ -663,6 +663,32 @@ class LayerVersionPermission(pulumi.CustomResource):
         __props__.__dict__["version_number"] = version_number
         return LayerVersionPermission(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revision_id: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version_number: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["layerName"] = layer_name
+        __props__["organizationId"] = organization_id
+        __props__["policy"] = policy
+        __props__["principal"] = principal
+        __props__["region"] = region
+        __props__["revisionId"] = revision_id
+        __props__["skipDestroy"] = skip_destroy
+        __props__["statementId"] = statement_id
+        __props__["versionNumber"] = version_number
+        return pulumi.runtime.exists_resource(None, 'aws:lambda/layerVersionPermission:LayerVersionPermission', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:

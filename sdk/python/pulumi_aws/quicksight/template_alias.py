@@ -380,6 +380,24 @@ class TemplateAlias(pulumi.CustomResource):
         __props__.__dict__["template_version_number"] = template_version_number
         return TemplateAlias(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            template_id: pulumi.Input[Optional[_builtins.str]] = None,
+            template_version_number: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aliasName"] = alias_name
+        __props__["arn"] = arn
+        __props__["awsAccountId"] = aws_account_id
+        __props__["region"] = region
+        __props__["templateId"] = template_id
+        __props__["templateVersionNumber"] = template_version_number
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/templateAlias:TemplateAlias', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Output[_builtins.str]:

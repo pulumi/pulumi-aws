@@ -309,6 +309,12 @@ func (EventBusPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventBusPolicyState)(nil)).Elem()
 }
 
+// EventBusPolicyExists checks whether an existing EventBusPolicy resource with the given ID exists.
+func EventBusPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventBusPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/eventBusPolicy:EventBusPolicy", id, state, "", opts...)
+}
+
 type eventBusPolicyArgs struct {
 	// The name of the event bus to set the permissions on.
 	// If you omit this, the permissions are set on the `default` event bus.

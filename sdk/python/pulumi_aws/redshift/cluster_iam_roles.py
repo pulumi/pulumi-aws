@@ -305,6 +305,20 @@ class ClusterIamRoles(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return ClusterIamRoles(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterIdentifier"] = cluster_identifier
+        __props__["defaultIamRoleArn"] = default_iam_role_arn
+        __props__["iamRoleArns"] = iam_role_arns
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/clusterIamRoles:ClusterIamRoles', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:

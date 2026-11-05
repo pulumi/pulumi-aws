@@ -169,6 +169,12 @@ func (LbCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lbCertificateState)(nil)).Elem()
 }
 
+// LbCertificateExists checks whether an existing LbCertificate resource with the given ID exists.
+func LbCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LbCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/lbCertificate:LbCertificate", id, state, "", opts...)
+}
+
 type lbCertificateArgs struct {
 	// Domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName *string `pulumi:"domainName"`

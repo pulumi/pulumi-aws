@@ -145,6 +145,12 @@ func (ApplicationAccessScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationAccessScopeState)(nil)).Elem()
 }
 
+// ApplicationAccessScopeExists checks whether an existing ApplicationAccessScope resource with the given ID exists.
+func ApplicationAccessScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationAccessScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope", id, state, "", opts...)
+}
+
 type applicationAccessScopeArgs struct {
 	// Specifies the ARN of the application with the access scope with the targets to add or update.
 	ApplicationArn string `pulumi:"applicationArn"`

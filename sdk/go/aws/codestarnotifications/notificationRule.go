@@ -221,6 +221,12 @@ func (NotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationRuleState)(nil)).Elem()
 }
 
+// NotificationRuleExists checks whether an existing NotificationRule resource with the given ID exists.
+func NotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codestarnotifications/notificationRule:NotificationRule", id, state, "", opts...)
+}
+
 type notificationRuleArgs struct {
 	// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
 	DetailType string `pulumi:"detailType"`

@@ -758,6 +758,40 @@ class AgentcoreBrowser(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreBrowser(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            browser_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_id: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict', 'outputs.AgentcoreBrowserBrowserSigning']]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict', 'outputs.AgentcoreBrowserCertificate']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict', 'outputs.AgentcoreBrowserEnterprisePolicy']]]]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict', 'outputs.AgentcoreBrowserNetworkConfiguration']]] = None,
+            recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict', 'outputs.AgentcoreBrowserRecording']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict', 'outputs.AgentcoreBrowserTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["browserArn"] = browser_arn
+        __props__["browserId"] = browser_id
+        __props__["browserSigning"] = browser_signing
+        __props__["certificates"] = certificates
+        __props__["description"] = description
+        __props__["enterprisePolicies"] = enterprise_policies
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["name"] = name
+        __props__["networkConfiguration"] = network_configuration
+        __props__["recording"] = recording
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreBrowser:AgentcoreBrowser', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="browserArn")
     def browser_arn(self) -> pulumi.Output[_builtins.str]:

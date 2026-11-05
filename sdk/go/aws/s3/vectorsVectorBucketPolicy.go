@@ -147,6 +147,12 @@ func (VectorsVectorBucketPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vectorsVectorBucketPolicyState)(nil)).Elem()
 }
 
+// VectorsVectorBucketPolicyExists checks whether an existing VectorsVectorBucketPolicy resource with the given ID exists.
+func VectorsVectorBucketPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VectorsVectorBucketPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy", id, state, "", opts...)
+}
+
 type vectorsVectorBucketPolicyArgs struct {
 	// Policy document.
 	Policy string `pulumi:"policy"`

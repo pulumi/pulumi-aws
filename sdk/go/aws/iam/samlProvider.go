@@ -150,6 +150,12 @@ func (SamlProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlProviderState)(nil)).Elem()
 }
 
+// SamlProviderExists checks whether an existing SamlProvider resource with the given ID exists.
+func SamlProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SamlProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/samlProvider:SamlProvider", id, state, "", opts...)
+}
+
 type samlProviderArgs struct {
 	// The name of the provider to create.
 	Name *string `pulumi:"name"`

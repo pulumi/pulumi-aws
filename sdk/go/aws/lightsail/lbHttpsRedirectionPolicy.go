@@ -150,6 +150,12 @@ func (LbHttpsRedirectionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lbHttpsRedirectionPolicyState)(nil)).Elem()
 }
 
+// LbHttpsRedirectionPolicyExists checks whether an existing LbHttpsRedirectionPolicy resource with the given ID exists.
+func LbHttpsRedirectionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LbHttpsRedirectionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy", id, state, "", opts...)
+}
+
 type lbHttpsRedirectionPolicyArgs struct {
 	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 	Enabled bool `pulumi:"enabled"`

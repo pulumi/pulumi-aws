@@ -172,6 +172,12 @@ func (ServerlessClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessClusterState)(nil)).Elem()
 }
 
+// ServerlessClusterExists checks whether an existing ServerlessCluster resource with the given ID exists.
+func ServerlessClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:msk/serverlessCluster:ServerlessCluster", id, state, "", opts...)
+}
+
 type serverlessClusterArgs struct {
 	// Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`

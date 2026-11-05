@@ -164,6 +164,12 @@ func (ProtectionHealthCheckAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionHealthCheckAssociationState)(nil)).Elem()
 }
 
+// ProtectionHealthCheckAssociationExists checks whether an existing ProtectionHealthCheckAssociation resource with the given ID exists.
+func ProtectionHealthCheckAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectionHealthCheckAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation", id, state, "", opts...)
+}
+
 type protectionHealthCheckAssociationArgs struct {
 	// ARN of the Route53 Health Check resource which will be associated to the protected resource.
 	HealthCheckArn string `pulumi:"healthCheckArn"`

@@ -541,6 +541,38 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return AutoScalingConfigurationVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_configuration_revision: pulumi.Input[Optional[_builtins.int]] = None,
+            has_associated_service: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            latest: pulumi.Input[Optional[_builtins.bool]] = None,
+            max_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+            max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            min_size: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoScalingConfigurationName"] = auto_scaling_configuration_name
+        __props__["autoScalingConfigurationRevision"] = auto_scaling_configuration_revision
+        __props__["hasAssociatedService"] = has_associated_service
+        __props__["isDefault"] = is_default
+        __props__["latest"] = latest
+        __props__["maxConcurrency"] = max_concurrency
+        __props__["maxSize"] = max_size
+        __props__["minSize"] = min_size
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

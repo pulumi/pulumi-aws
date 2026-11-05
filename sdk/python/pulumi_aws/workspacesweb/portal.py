@@ -878,6 +878,62 @@ class Portal(pulumi.CustomResource):
         __props__.__dict__["user_settings_arn"] = user_settings_arn
         return Portal(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_type: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+            data_protection_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_access_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            max_concurrent_sessions: pulumi.Input[Optional[_builtins.int]] = None,
+            network_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            renderer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict', 'outputs.PortalTimeouts']]] = None,
+            trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            user_access_logging_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            user_settings_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalEncryptionContext"] = additional_encryption_context
+        __props__["authenticationType"] = authentication_type
+        __props__["browserSettingsArn"] = browser_settings_arn
+        __props__["browserType"] = browser_type
+        __props__["creationDate"] = creation_date
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["dataProtectionSettingsArn"] = data_protection_settings_arn
+        __props__["displayName"] = display_name
+        __props__["instanceType"] = instance_type
+        __props__["ipAccessSettingsArn"] = ip_access_settings_arn
+        __props__["maxConcurrentSessions"] = max_concurrent_sessions
+        __props__["networkSettingsArn"] = network_settings_arn
+        __props__["portalArn"] = portal_arn
+        __props__["portalEndpoint"] = portal_endpoint
+        __props__["portalStatus"] = portal_status
+        __props__["region"] = region
+        __props__["rendererType"] = renderer_type
+        __props__["sessionLoggerArn"] = session_logger_arn
+        __props__["statusReason"] = status_reason
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["trustStoreArn"] = trust_store_arn
+        __props__["userAccessLoggingSettingsArn"] = user_access_logging_settings_arn
+        __props__["userSettingsArn"] = user_settings_arn
+        return pulumi.runtime.exists_resource(None, 'aws:workspacesweb/portal:Portal', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

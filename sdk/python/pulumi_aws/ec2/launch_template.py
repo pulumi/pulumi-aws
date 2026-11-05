@@ -1716,6 +1716,94 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return LaunchTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict', 'outputs.LaunchTemplateBlockDeviceMapping']]]]] = None,
+            capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict', 'outputs.LaunchTemplateCapacityReservationSpecification']]] = None,
+            cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict', 'outputs.LaunchTemplateCpuOptions']]] = None,
+            credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict', 'outputs.LaunchTemplateCreditSpecification']]] = None,
+            default_version: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+            ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
+            enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict', 'outputs.LaunchTemplateEnclaveOptions']]] = None,
+            hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict', 'outputs.LaunchTemplateHibernationOptions']]] = None,
+            iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict', 'outputs.LaunchTemplateIamInstanceProfile']]] = None,
+            image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict', 'outputs.LaunchTemplateInstanceMarketOptions']]] = None,
+            instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict', 'outputs.LaunchTemplateInstanceRequirements']]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_version: pulumi.Input[Optional[_builtins.int]] = None,
+            license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict', 'outputs.LaunchTemplateLicenseSpecification']]]]] = None,
+            maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict', 'outputs.LaunchTemplateMaintenanceOptions']]] = None,
+            metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict', 'outputs.LaunchTemplateMetadataOptions']]] = None,
+            monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict', 'outputs.LaunchTemplateMonitoring']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict', 'outputs.LaunchTemplateNetworkInterface']]]]] = None,
+            network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict', 'outputs.LaunchTemplateNetworkPerformanceOptions']]] = None,
+            placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict', 'outputs.LaunchTemplatePlacement']]] = None,
+            private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict', 'outputs.LaunchTemplatePrivateDnsNameOptions']]] = None,
+            ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict', 'outputs.LaunchTemplateSecondaryInterface']]]]] = None,
+            security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["blockDeviceMappings"] = block_device_mappings
+        __props__["capacityReservationSpecification"] = capacity_reservation_specification
+        __props__["cpuOptions"] = cpu_options
+        __props__["creditSpecification"] = credit_specification
+        __props__["defaultVersion"] = default_version
+        __props__["description"] = description
+        __props__["disableApiStop"] = disable_api_stop
+        __props__["disableApiTermination"] = disable_api_termination
+        __props__["ebsOptimized"] = ebs_optimized
+        __props__["enclaveOptions"] = enclave_options
+        __props__["hibernationOptions"] = hibernation_options
+        __props__["iamInstanceProfile"] = iam_instance_profile
+        __props__["imageId"] = image_id
+        __props__["instanceInitiatedShutdownBehavior"] = instance_initiated_shutdown_behavior
+        __props__["instanceMarketOptions"] = instance_market_options
+        __props__["instanceRequirements"] = instance_requirements
+        __props__["instanceType"] = instance_type
+        __props__["kernelId"] = kernel_id
+        __props__["keyName"] = key_name
+        __props__["latestVersion"] = latest_version
+        __props__["licenseSpecifications"] = license_specifications
+        __props__["maintenanceOptions"] = maintenance_options
+        __props__["metadataOptions"] = metadata_options
+        __props__["monitoring"] = monitoring
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["networkInterfaces"] = network_interfaces
+        __props__["networkPerformanceOptions"] = network_performance_options
+        __props__["placement"] = placement
+        __props__["privateDnsNameOptions"] = private_dns_name_options
+        __props__["ramDiskId"] = ram_disk_id
+        __props__["region"] = region
+        __props__["secondaryInterfaces"] = secondary_interfaces
+        __props__["securityGroupNames"] = security_group_names
+        __props__["tagSpecifications"] = tag_specifications
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["updateDefaultVersion"] = update_default_version
+        __props__["userData"] = user_data
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/launchTemplate:LaunchTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

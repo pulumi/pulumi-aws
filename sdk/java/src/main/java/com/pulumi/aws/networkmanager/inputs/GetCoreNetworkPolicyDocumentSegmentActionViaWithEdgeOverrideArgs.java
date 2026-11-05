@@ -34,22 +34,20 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
     /**
      * The preferred edge to use.
      * 
-     * @deprecated
-     * use_edge is deprecated. Use useEdgeLocation instead.
+     * @deprecated use_edge is deprecated. Use useEdgeLocation instead.
      * 
      */
-    @Deprecated /* use_edge is deprecated. Use useEdgeLocation instead. */
+    @Deprecated
     @Import(name="useEdge")
     private @Nullable Output<String> useEdge;
 
     /**
      * @return The preferred edge to use.
      * 
-     * @deprecated
-     * use_edge is deprecated. Use useEdgeLocation instead.
+     * @deprecated use_edge is deprecated. Use useEdgeLocation instead.
      * 
      */
-    @Deprecated /* use_edge is deprecated. Use useEdgeLocation instead. */
+    @Deprecated
     public Optional<Output<String>> useEdge() {
         return Optional.ofNullable(this.useEdge);
     }
@@ -131,11 +129,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
          * 
          * @return builder
          * 
-         * @deprecated
-         * use_edge is deprecated. Use useEdgeLocation instead.
+         * @deprecated use_edge is deprecated. Use useEdgeLocation instead.
          * 
          */
-        @Deprecated /* use_edge is deprecated. Use useEdgeLocation instead. */
+        @Deprecated
         public Builder useEdge(@Nullable Output<String> useEdge) {
             $.useEdge = useEdge;
             return this;
@@ -146,11 +143,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
          * 
          * @return builder
          * 
-         * @deprecated
-         * use_edge is deprecated. Use useEdgeLocation instead.
+         * @deprecated use_edge is deprecated. Use useEdgeLocation instead.
          * 
          */
-        @Deprecated /* use_edge is deprecated. Use useEdgeLocation instead. */
+        @Deprecated
         public Builder useEdge(String useEdge) {
             return useEdge(Output.of(useEdge));
         }

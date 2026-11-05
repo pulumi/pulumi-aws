@@ -107,11 +107,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
  * ```
  * 
- * @deprecated
- * aws.s3/bucketcorsconfigurationv2.BucketCorsConfigurationV2 has been deprecated in favor of aws.s3/bucketcorsconfiguration.BucketCorsConfiguration
+ * @deprecated aws.s3/bucketcorsconfigurationv2.BucketCorsConfigurationV2 has been deprecated in favor of aws.s3/bucketcorsconfiguration.BucketCorsConfiguration
  * 
  */
-@Deprecated /* aws.s3/bucketcorsconfigurationv2.BucketCorsConfigurationV2 has been deprecated in favor of aws.s3/bucketcorsconfiguration.BucketCorsConfiguration */
+@Deprecated
 @ResourceType(type="aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")
 public class BucketCorsConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -145,11 +144,10 @@ public class BucketCorsConfigurationV2 extends com.pulumi.resources.CustomResour
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

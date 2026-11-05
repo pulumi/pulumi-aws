@@ -673,6 +673,38 @@ class PrimaryContact(pulumi.CustomResource):
         __props__.__dict__["website_url"] = website_url
         return PrimaryContact(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            address_line1: pulumi.Input[Optional[_builtins.str]] = None,
+            address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+            address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+            city: pulumi.Input[Optional[_builtins.str]] = None,
+            company_name: pulumi.Input[Optional[_builtins.str]] = None,
+            country_code: pulumi.Input[Optional[_builtins.str]] = None,
+            district_or_county: pulumi.Input[Optional[_builtins.str]] = None,
+            full_name: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+            state_or_region: pulumi.Input[Optional[_builtins.str]] = None,
+            website_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["addressLine1"] = address_line1
+        __props__["addressLine2"] = address_line2
+        __props__["addressLine3"] = address_line3
+        __props__["city"] = city
+        __props__["companyName"] = company_name
+        __props__["countryCode"] = country_code
+        __props__["districtOrCounty"] = district_or_county
+        __props__["fullName"] = full_name
+        __props__["phoneNumber"] = phone_number
+        __props__["postalCode"] = postal_code
+        __props__["stateOrRegion"] = state_or_region
+        __props__["websiteUrl"] = website_url
+        return pulumi.runtime.exists_resource(None, 'aws:account/primaryContact:PrimaryContact', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[_builtins.str]]:

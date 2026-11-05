@@ -265,6 +265,12 @@ func (WebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookState)(nil)).Elem()
 }
 
+// WebhookExists checks whether an existing Webhook resource with the given ID exists.
+func WebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codepipeline/webhook:Webhook", id, state, "", opts...)
+}
+
 type webhookArgs struct {
 	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
 	Authentication string `pulumi:"authentication"`

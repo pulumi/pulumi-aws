@@ -266,6 +266,12 @@ func (GlobalClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalClusterState)(nil)).Elem()
 }
 
+// GlobalClusterExists checks whether an existing GlobalCluster resource with the given ID exists.
+func GlobalClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:neptune/globalCluster:GlobalCluster", id, state, "", opts...)
+}
+
 type globalClusterArgs struct {
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`

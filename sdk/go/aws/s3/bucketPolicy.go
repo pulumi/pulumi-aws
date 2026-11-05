@@ -166,6 +166,12 @@ func (BucketPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketPolicyState)(nil)).Elem()
 }
 
+// BucketPolicyExists checks whether an existing BucketPolicy resource with the given ID exists.
+func BucketPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketPolicy:BucketPolicy", id, state, "", opts...)
+}
+
 type bucketPolicyArgs struct {
 	// Name of the bucket to which to apply the policy.
 	Bucket string `pulumi:"bucket"`

@@ -279,6 +279,12 @@ func (SecretVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretVersionState)(nil)).Elem()
 }
 
+// SecretVersionExists checks whether an existing SecretVersion resource with the given ID exists.
+func SecretVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:secretsmanager/secretVersion:SecretVersion", id, state, "", opts...)
+}
+
 type secretVersionArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

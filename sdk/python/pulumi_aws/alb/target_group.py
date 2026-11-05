@@ -1465,6 +1465,70 @@ class TargetGroup(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return TargetGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+            deregistration_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            health_check: pulumi.Input[Optional[Union['TargetGroupHealthCheckArgs', 'TargetGroupHealthCheckArgsDict', 'outputs.TargetGroupHealthCheck']]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_multi_value_headers_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            load_balancing_algorithm_type: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_anomaly_mitigation: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_cross_zone_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            preserve_client_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol_version: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_protocol_v2: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            slow_start: pulumi.Input[Optional[_builtins.int]] = None,
+            stickiness: pulumi.Input[Optional[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict', 'outputs.TargetGroupStickiness']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_control_port: pulumi.Input[Optional[_builtins.int]] = None,
+            target_failovers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict', 'outputs.TargetGroupTargetFailover']]]]] = None,
+            target_group_health: pulumi.Input[Optional[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict', 'outputs.TargetGroupTargetGroupHealth']]] = None,
+            target_health_states: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict', 'outputs.TargetGroupTargetHealthState']]]]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["arnSuffix"] = arn_suffix
+        __props__["connectionTermination"] = connection_termination
+        __props__["deregistrationDelay"] = deregistration_delay
+        __props__["healthCheck"] = health_check
+        __props__["ipAddressType"] = ip_address_type
+        __props__["lambdaMultiValueHeadersEnabled"] = lambda_multi_value_headers_enabled
+        __props__["loadBalancerArns"] = load_balancer_arns
+        __props__["loadBalancingAlgorithmType"] = load_balancing_algorithm_type
+        __props__["loadBalancingAnomalyMitigation"] = load_balancing_anomaly_mitigation
+        __props__["loadBalancingCrossZoneEnabled"] = load_balancing_cross_zone_enabled
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["port"] = port
+        __props__["preserveClientIp"] = preserve_client_ip
+        __props__["protocol"] = protocol
+        __props__["protocolVersion"] = protocol_version
+        __props__["proxyProtocolV2"] = proxy_protocol_v2
+        __props__["region"] = region
+        __props__["slowStart"] = slow_start
+        __props__["stickiness"] = stickiness
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetControlPort"] = target_control_port
+        __props__["targetFailovers"] = target_failovers
+        __props__["targetGroupHealth"] = target_group_health
+        __props__["targetHealthStates"] = target_health_states
+        __props__["targetType"] = target_type
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:alb/targetGroup:TargetGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

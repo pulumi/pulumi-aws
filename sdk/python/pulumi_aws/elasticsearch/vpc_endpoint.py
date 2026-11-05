@@ -307,6 +307,20 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__.__dict__["vpc_options"] = vpc_options
         return VpcEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_options: pulumi.Input[Optional[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict', 'outputs.VpcEndpointVpcOptions']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domainArn"] = domain_arn
+        __props__["endpoint"] = endpoint
+        __props__["region"] = region
+        __props__["vpcOptions"] = vpc_options
+        return pulumi.runtime.exists_resource(None, 'aws:elasticsearch/vpcEndpoint:VpcEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="domainArn")
     def domain_arn(self) -> pulumi.Output[_builtins.str]:

@@ -1100,6 +1100,46 @@ class Pipe(pulumi.CustomResource):
         __props__.__dict__["target_parameters"] = target_parameters
         return Pipe(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            desired_state: pulumi.Input[Optional[_builtins.str]] = None,
+            enrichment: pulumi.Input[Optional[_builtins.str]] = None,
+            enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict', 'outputs.PipeEnrichmentParameters']]] = None,
+            kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict', 'outputs.PipeLogConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict', 'outputs.PipeSourceParameters']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None,
+            target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict', 'outputs.PipeTargetParameters']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["desiredState"] = desired_state
+        __props__["enrichment"] = enrichment
+        __props__["enrichmentParameters"] = enrichment_parameters
+        __props__["kmsKeyIdentifier"] = kms_key_identifier
+        __props__["logConfiguration"] = log_configuration
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["source"] = source
+        __props__["sourceParameters"] = source_parameters
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["target"] = target
+        __props__["targetParameters"] = target_parameters
+        return pulumi.runtime.exists_resource(None, 'aws:pipes/pipe:Pipe', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

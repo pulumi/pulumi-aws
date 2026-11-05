@@ -499,6 +499,28 @@ class AppImageConfig(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return AppImageConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict', 'outputs.AppImageConfigCodeEditorAppImageConfig']]] = None,
+            jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict', 'outputs.AppImageConfigJupyterLabImageConfig']]] = None,
+            kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict', 'outputs.AppImageConfigKernelGatewayImageConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appImageConfigName"] = app_image_config_name
+        __props__["arn"] = arn
+        __props__["codeEditorAppImageConfig"] = code_editor_app_image_config
+        __props__["jupyterLabImageConfig"] = jupyter_lab_image_config
+        __props__["kernelGatewayImageConfig"] = kernel_gateway_image_config
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/appImageConfig:AppImageConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appImageConfigName")
     def app_image_config_name(self) -> pulumi.Output[_builtins.str]:

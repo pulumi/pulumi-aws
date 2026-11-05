@@ -411,6 +411,26 @@ class Ciphertext(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Ciphertext(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ciphertext_blob: pulumi.Input[Optional[_builtins.str]] = None,
+            context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            plaintext: pulumi.Input[Optional[_builtins.str]] = None,
+            plaintext_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            plaintext_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["ciphertextBlob"] = ciphertext_blob
+        __props__["context"] = context
+        __props__["keyId"] = key_id
+        __props__["plaintext"] = plaintext
+        __props__["plaintextWo"] = plaintext_wo
+        __props__["plaintextWoVersion"] = plaintext_wo_version
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:kms/ciphertext:Ciphertext', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="ciphertextBlob")
     def ciphertext_blob(self) -> pulumi.Output[_builtins.str]:

@@ -835,6 +835,42 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreOnlineEvaluationConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_source_config: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigDataSourceConfig']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            evaluation_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigEvaluator']]]]] = None,
+            execution_status: pulumi.Input[Optional[_builtins.str]] = None,
+            online_evaluation_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            online_evaluation_config_id: pulumi.Input[Optional[_builtins.str]] = None,
+            online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigOutputConfigArgs', 'AgentcoreOnlineEvaluationConfigOutputConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigOutputConfig']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigRule']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigTimeoutsArgs', 'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataSourceConfig"] = data_source_config
+        __props__["description"] = description
+        __props__["enableOnCreate"] = enable_on_create
+        __props__["evaluationExecutionRoleArn"] = evaluation_execution_role_arn
+        __props__["evaluators"] = evaluators
+        __props__["executionStatus"] = execution_status
+        __props__["onlineEvaluationConfigArn"] = online_evaluation_config_arn
+        __props__["onlineEvaluationConfigId"] = online_evaluation_config_id
+        __props__["onlineEvaluationConfigName"] = online_evaluation_config_name
+        __props__["outputConfigs"] = output_configs
+        __props__["region"] = region
+        __props__["rule"] = rule
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreOnlineEvaluationConfig:AgentcoreOnlineEvaluationConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataSourceConfig")
     def data_source_config(self) -> pulumi.Output['outputs.AgentcoreOnlineEvaluationConfigDataSourceConfig']:

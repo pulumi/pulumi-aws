@@ -157,6 +157,12 @@ func (LoadBalancerCookieStickinessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerCookieStickinessPolicyState)(nil)).Elem()
 }
 
+// LoadBalancerCookieStickinessPolicyExists checks whether an existing LoadBalancerCookieStickinessPolicy resource with the given ID exists.
+func LoadBalancerCookieStickinessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerCookieStickinessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", id, state, "", opts...)
+}
+
 type loadBalancerCookieStickinessPolicyArgs struct {
 	// The time period after which
 	// the session cookie should be considered stale, expressed in seconds.

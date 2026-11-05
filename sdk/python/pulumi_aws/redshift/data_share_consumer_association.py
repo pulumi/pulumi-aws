@@ -457,6 +457,28 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return DataShareConsumerAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_writes: pulumi.Input[Optional[_builtins.bool]] = None,
+            associate_entire_account: pulumi.Input[Optional[_builtins.bool]] = None,
+            consumer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            consumer_region: pulumi.Input[Optional[_builtins.str]] = None,
+            data_share_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+            producer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowWrites"] = allow_writes
+        __props__["associateEntireAccount"] = associate_entire_account
+        __props__["consumerArn"] = consumer_arn
+        __props__["consumerRegion"] = consumer_region
+        __props__["dataShareArn"] = data_share_arn
+        __props__["managedBy"] = managed_by
+        __props__["producerArn"] = producer_arn
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowWrites")
     def allow_writes(self) -> pulumi.Output[Optional[_builtins.bool]]:

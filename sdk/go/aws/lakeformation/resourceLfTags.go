@@ -229,6 +229,12 @@ func (ResourceLfTagsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceLfTagsState)(nil)).Elem()
 }
 
+// ResourceLfTagsExists checks whether an existing ResourceLfTags resource with the given ID exists.
+func ResourceLfTagsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceLfTagsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lakeformation/resourceLfTags:ResourceLfTags", id, state, "", opts...)
+}
+
 type resourceLfTagsArgs struct {
 	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId *string `pulumi:"catalogId"`

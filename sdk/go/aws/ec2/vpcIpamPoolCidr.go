@@ -217,6 +217,12 @@ func (VpcIpamPoolCidrState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamPoolCidrState)(nil)).Elem()
 }
 
+// VpcIpamPoolCidrExists checks whether an existing VpcIpamPoolCidr resource with the given ID exists.
+func VpcIpamPoolCidrExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamPoolCidrState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr", id, state, "", opts...)
+}
+
 type vpcIpamPoolCidrArgs struct {
 	// CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
 	Cidr *string `pulumi:"cidr"`

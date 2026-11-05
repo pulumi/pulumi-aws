@@ -353,6 +353,12 @@ func (LustreFileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lustreFileSystemState)(nil)).Elem()
 }
 
+// LustreFileSystemExists checks whether an existing LustreFileSystem resource with the given ID exists.
+func LustreFileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LustreFileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/lustreFileSystem:LustreFileSystem", id, state, "", opts...)
+}
+
 type lustreFileSystemArgs struct {
 	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
 	AutoImportPolicy *string `pulumi:"autoImportPolicy"`

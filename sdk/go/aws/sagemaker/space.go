@@ -172,6 +172,12 @@ func (SpaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spaceState)(nil)).Elem()
 }
 
+// SpaceExists checks whether an existing Space resource with the given ID exists.
+func SpaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/space:Space", id, state, "", opts...)
+}
+
 type spaceArgs struct {
 	// The ID of the associated Domain.
 	DomainId string `pulumi:"domainId"`

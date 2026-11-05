@@ -362,6 +362,26 @@ class Tenant(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = tenant_name
         return Tenant(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sending_status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["sendingStatus"] = sending_status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tenantArn"] = tenant_arn
+        __props__["tenantId"] = tenant_id
+        __props__["tenantName"] = tenant_name
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/tenant:Tenant', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

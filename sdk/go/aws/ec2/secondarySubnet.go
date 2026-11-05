@@ -264,6 +264,12 @@ func (SecondarySubnetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secondarySubnetState)(nil)).Elem()
 }
 
+// SecondarySubnetExists checks whether an existing SecondarySubnet resource with the given ID exists.
+func SecondarySubnetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecondarySubnetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/secondarySubnet:SecondarySubnet", id, state, "", opts...)
+}
+
 type secondarySubnetArgs struct {
 	// Availability Zone for the secondary subnet. Cannot be specified with `availabilityZoneId`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`

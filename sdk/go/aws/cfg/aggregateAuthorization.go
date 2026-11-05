@@ -137,6 +137,12 @@ func (AggregateAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aggregateAuthorizationState)(nil)).Elem()
 }
 
+// AggregateAuthorizationExists checks whether an existing AggregateAuthorization resource with the given ID exists.
+func AggregateAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AggregateAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/aggregateAuthorization:AggregateAuthorization", id, state, "", opts...)
+}
+
 type aggregateAuthorizationArgs struct {
 	// Account ID.
 	AccountId string `pulumi:"accountId"`

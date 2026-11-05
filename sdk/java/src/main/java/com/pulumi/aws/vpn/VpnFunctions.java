@@ -92,11 +92,10 @@ public final class VpnFunctions {
      * }
      * </pre>
      * 
-     * @deprecated
-     * aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
+     * @deprecated aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
      * 
      */
-    @Deprecated /* aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection */
+    @Deprecated
     public static Output<GetConnectionResult> getConnection() {
         return getConnection(GetConnectionArgs.Empty, InvokeOptions.Empty);
     }
@@ -177,11 +176,10 @@ public final class VpnFunctions {
      * }
      * </pre>
      * 
-     * @deprecated
-     * aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
+     * @deprecated aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
      * 
      */
-    @Deprecated /* aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection */
+    @Deprecated
     public static CompletableFuture<GetConnectionResult> getConnectionPlain() {
         return getConnectionPlain(GetConnectionPlainArgs.Empty, InvokeOptions.Empty);
     }
@@ -262,11 +260,10 @@ public final class VpnFunctions {
      * }
      * </pre>
      * 
-     * @deprecated
-     * aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
+     * @deprecated aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
      * 
      */
-    @Deprecated /* aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection */
+    @Deprecated
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args) {
         return getConnection(args, InvokeOptions.Empty);
     }
@@ -347,11 +344,10 @@ public final class VpnFunctions {
      * }
      * </pre>
      * 
-     * @deprecated
-     * aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
+     * @deprecated aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
      * 
      */
-    @Deprecated /* aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection */
+    @Deprecated
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args) {
         return getConnectionPlain(args, InvokeOptions.Empty);
     }
@@ -432,11 +428,10 @@ public final class VpnFunctions {
      * }
      * </pre>
      * 
-     * @deprecated
-     * aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
+     * @deprecated aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
      * 
      */
-    @Deprecated /* aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection */
+    @Deprecated
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:vpn/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
@@ -517,11 +512,10 @@ public final class VpnFunctions {
      * }
      * </pre>
      * 
-     * @deprecated
-     * aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
+     * @deprecated aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
      * 
      */
-    @Deprecated /* aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection */
+    @Deprecated
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:vpn/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
@@ -602,11 +596,10 @@ public final class VpnFunctions {
      * }
      * </pre>
      * 
-     * @deprecated
-     * aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
+     * @deprecated aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
      * 
      */
-    @Deprecated /* aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection */
+    @Deprecated
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:vpn/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }

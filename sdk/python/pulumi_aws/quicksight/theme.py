@@ -679,6 +679,42 @@ class Theme(pulumi.CustomResource):
         __props__.__dict__["version_number"] = version_number
         return Theme(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            base_theme_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration: pulumi.Input[Optional[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict', 'outputs.ThemeConfiguration']]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict', 'outputs.ThemePermission']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            theme_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version_description: pulumi.Input[Optional[_builtins.str]] = None,
+            version_number: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsAccountId"] = aws_account_id
+        __props__["baseThemeId"] = base_theme_id
+        __props__["configuration"] = configuration
+        __props__["createdTime"] = created_time
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["name"] = name
+        __props__["permissions"] = permissions
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["themeId"] = theme_id
+        __props__["versionDescription"] = version_description
+        __props__["versionNumber"] = version_number
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/theme:Theme', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

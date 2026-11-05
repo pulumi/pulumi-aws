@@ -40,24 +40,24 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new DevicePool("example", DevicePoolArgs.builder()
  *             .rules(DevicePoolRuleArgs.builder()
  *                 .attribute("OS_VERSION")
  *                 .operator("EQUALS")
- *                 .value("\"AVAILABLE\"")
+ *                 .value("}&#92;{@code "AVAILABLE}&#92;{@code "")
  *                 .build())
  *             .name("example")
  *             .projectArn(exampleAwsDevicefarmProject.get("arn"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

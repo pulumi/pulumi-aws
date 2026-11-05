@@ -190,6 +190,12 @@ func (AnalyticsConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsConfigurationState)(nil)).Elem()
 }
 
+// AnalyticsConfigurationExists checks whether an existing AnalyticsConfiguration resource with the given ID exists.
+func AnalyticsConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnalyticsConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/analyticsConfiguration:AnalyticsConfiguration", id, state, "", opts...)
+}
+
 type analyticsConfigurationArgs struct {
 	// Name of the bucket this analytics configuration is associated with.
 	Bucket string `pulumi:"bucket"`

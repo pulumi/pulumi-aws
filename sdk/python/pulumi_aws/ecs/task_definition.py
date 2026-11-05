@@ -1460,6 +1460,60 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["volumes"] = volumes
         return TaskDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn_without_revision: pulumi.Input[Optional[_builtins.str]] = None,
+            container_definitions: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_fault_injection: pulumi.Input[Optional[_builtins.bool]] = None,
+            ephemeral_storage: pulumi.Input[Optional[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict', 'outputs.TaskDefinitionEphemeralStorage']]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            family: pulumi.Input[Optional[_builtins.str]] = None,
+            ipc_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            memory: pulumi.Input[Optional[_builtins.str]] = None,
+            network_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            pid_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict', 'outputs.TaskDefinitionPlacementConstraint']]]]] = None,
+            proxy_configuration: pulumi.Input[Optional[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict', 'outputs.TaskDefinitionProxyConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requires_compatibilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            revision: pulumi.Input[Optional[_builtins.int]] = None,
+            runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict', 'outputs.TaskDefinitionRuntimePlatform']]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            track_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict', 'outputs.TaskDefinitionVolume']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["arnWithoutRevision"] = arn_without_revision
+        __props__["containerDefinitions"] = container_definitions
+        __props__["cpu"] = cpu
+        __props__["enableFaultInjection"] = enable_fault_injection
+        __props__["ephemeralStorage"] = ephemeral_storage
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["family"] = family
+        __props__["ipcMode"] = ipc_mode
+        __props__["memory"] = memory
+        __props__["networkMode"] = network_mode
+        __props__["pidMode"] = pid_mode
+        __props__["placementConstraints"] = placement_constraints
+        __props__["proxyConfiguration"] = proxy_configuration
+        __props__["region"] = region
+        __props__["requiresCompatibilities"] = requires_compatibilities
+        __props__["revision"] = revision
+        __props__["runtimePlatform"] = runtime_platform
+        __props__["skipDestroy"] = skip_destroy
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["taskRoleArn"] = task_role_arn
+        __props__["trackLatest"] = track_latest
+        __props__["volumes"] = volumes
+        return pulumi.runtime.exists_resource(None, 'aws:ecs/taskDefinition:TaskDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

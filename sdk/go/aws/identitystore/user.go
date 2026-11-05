@@ -236,6 +236,12 @@ func (UserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userState)(nil)).Elem()
 }
 
+// UserExists checks whether an existing User resource with the given ID exists.
+func UserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:identitystore/user:User", id, state, "", opts...)
+}
+
 type userArgs struct {
 	// Details about the user's address. At most 1 address is allowed. Detailed below.
 	Addresses *UserAddresses `pulumi:"addresses"`

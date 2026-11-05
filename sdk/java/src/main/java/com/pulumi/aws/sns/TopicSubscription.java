@@ -258,40 +258,40 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleWithDeliveryPolicy = new TopicSubscription("exampleWithDeliveryPolicy", TopicSubscriptionArgs.builder()
  *             .topic("arn:aws:sns:us-west-2:123456789012:my-topic")
  *             .protocol("https")
  *             .endpoint("https://example.com/endpoint")
  *             .rawMessageDelivery(true)
  *             .deliveryPolicy("""
- * {
- *   \"healthyRetryPolicy\": {
- *     \"minDelayTarget\": 20,
- *     \"maxDelayTarget\": 20,
- *     \"numRetries\": 3,
- *     \"numMaxDelayRetries\": 0,
- *     \"numNoDelayRetries\": 0,
- *     \"numMinDelayRetries\": 0,
- *     \"backoffFunction\": \"linear\"
- *   },
- *   \"sicklyRetryPolicy\": null,
- *   \"throttlePolicy\": null,
- *   \"requestPolicy\": {
- *     \"headerContentType\": \"text/plain; application/json\"
- *   },
- *   \"guaranteed\": false
- * }
+ * }{{@code
+ *   }&#92;{@code "healthyRetryPolicy}&#92;{@code ": }{{@code
+ *     }&#92;{@code "minDelayTarget}&#92;{@code ": 20,
+ *     }&#92;{@code "maxDelayTarget}&#92;{@code ": 20,
+ *     }&#92;{@code "numRetries}&#92;{@code ": 3,
+ *     }&#92;{@code "numMaxDelayRetries}&#92;{@code ": 0,
+ *     }&#92;{@code "numNoDelayRetries}&#92;{@code ": 0,
+ *     }&#92;{@code "numMinDelayRetries}&#92;{@code ": 0,
+ *     }&#92;{@code "backoffFunction}&#92;{@code ": }&#92;{@code "linear}&#92;{@code "
+ *   }}{@code ,
+ *   }&#92;{@code "sicklyRetryPolicy}&#92;{@code ": null,
+ *   }&#92;{@code "throttlePolicy}&#92;{@code ": null,
+ *   }&#92;{@code "requestPolicy}&#92;{@code ": }{{@code
+ *     }&#92;{@code "headerContentType}&#92;{@code ": }&#92;{@code "text/plain; application/json}&#92;{@code "
+ *   }}{@code ,
+ *   }&#92;{@code "guaranteed}&#92;{@code ": false
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

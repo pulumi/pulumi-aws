@@ -206,12 +206,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Launch("example", LaunchArgs.builder()
  *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
  *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
@@ -228,7 +228,7 @@ import javax.annotation.Nullable;
  *                 LaunchMetricMonitorArgs.builder()
  *                     .metricDefinition(LaunchMetricMonitorMetricDefinitionArgs.builder()
  *                         .entityIdKey("entity_id_key1")
- *                         .eventPattern("{\"Price\":[{\"numeric\":[\">\",11,\"<=\",22]}]}")
+ *                         .eventPattern("}{&#92;{@code "Price}&#92;{@code ":[}{&#92;{@code "numeric}&#92;{@code ":[}&#92;{@code ">}&#92;{@code ",11,}&#92;{@code "<=}&#92;{@code ",22]}}{@code ]}}{@code ")
  *                         .name("name1")
  *                         .unitLabel("unit_label1")
  *                         .valueKey("value_key1")
@@ -237,7 +237,7 @@ import javax.annotation.Nullable;
  *                 LaunchMetricMonitorArgs.builder()
  *                     .metricDefinition(LaunchMetricMonitorMetricDefinitionArgs.builder()
  *                         .entityIdKey("entity_id_key2")
- *                         .eventPattern("{\"Price\":[{\"numeric\":[\">\",9,\"<=\",19]}]}")
+ *                         .eventPattern("}{&#92;{@code "Price}&#92;{@code ":[}{&#92;{@code "numeric}&#92;{@code ":[}&#92;{@code ">}&#92;{@code ",9,}&#92;{@code "<=}&#92;{@code ",19]}}{@code ]}}{@code ")
  *                         .name("name2")
  *                         .unitLabel("unit_label2")
  *                         .valueKey("value_key2")
@@ -247,8 +247,8 @@ import javax.annotation.Nullable;
  *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

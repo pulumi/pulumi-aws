@@ -228,6 +228,12 @@ func (ClusterEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterEndpointState)(nil)).Elem()
 }
 
+// ClusterEndpointExists checks whether an existing ClusterEndpoint resource with the given ID exists.
+func ClusterEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/clusterEndpoint:ClusterEndpoint", id, state, "", opts...)
+}
+
 type clusterEndpointArgs struct {
 	// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier string `pulumi:"clusterEndpointIdentifier"`

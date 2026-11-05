@@ -791,6 +791,40 @@ class AgentFlow(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return AgentFlow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict', 'outputs.AgentFlowTimeouts']]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdAt"] = created_at
+        __props__["customerEncryptionKeyArn"] = customer_encryption_key_arn
+        __props__["definition"] = definition
+        __props__["description"] = description
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["updatedAt"] = updated_at
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentFlow:AgentFlow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

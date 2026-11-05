@@ -238,6 +238,12 @@ func (FrameworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frameworkState)(nil)).Elem()
 }
 
+// FrameworkExists checks whether an existing Framework resource with the given ID exists.
+func FrameworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrameworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/framework:Framework", id, state, "", opts...)
+}
+
 type frameworkArgs struct {
 	// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
 	Controls []FrameworkControl `pulumi:"controls"`

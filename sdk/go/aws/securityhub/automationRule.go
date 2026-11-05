@@ -205,6 +205,12 @@ func (AutomationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationRuleState)(nil)).Elem()
 }
 
+// AutomationRuleExists checks whether an existing AutomationRule resource with the given ID exists.
+func AutomationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/automationRule:AutomationRule", id, state, "", opts...)
+}
+
 type automationRuleArgs struct {
 	// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
 	Actions []AutomationRuleAction `pulumi:"actions"`

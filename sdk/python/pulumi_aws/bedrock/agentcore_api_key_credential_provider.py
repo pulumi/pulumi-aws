@@ -626,6 +626,34 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return AgentcoreApiKeyCredentialProvider(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn']]]]] = None,
+            api_key_secret_config: pulumi.Input[Optional[Union['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']]] = None,
+            api_key_secret_source: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["apiKeySecretArns"] = api_key_secret_arns
+        __props__["apiKeySecretConfig"] = api_key_secret_config
+        __props__["apiKeySecretSource"] = api_key_secret_source
+        __props__["apiKeyWo"] = api_key_wo
+        __props__["apiKeyWoVersion"] = api_key_wo_version
+        __props__["credentialProviderArn"] = credential_provider_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:

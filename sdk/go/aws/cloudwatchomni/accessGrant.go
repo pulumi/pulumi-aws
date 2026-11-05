@@ -274,6 +274,12 @@ func (AccessGrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessGrantState)(nil)).Elem()
 }
 
+// AccessGrantExists checks whether an existing AccessGrant resource with the given ID exists.
+func AccessGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatchomni/accessGrant:AccessGrant", id, state, "", opts...)
+}
+
 type accessGrantArgs struct {
 	// ID of the CloudWatch Omni domain that contains the space. Changing this forces a new resource.
 	DomainId string `pulumi:"domainId"`

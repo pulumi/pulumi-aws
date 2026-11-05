@@ -126,6 +126,12 @@ func (ClusterRoleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterRoleAssociationState)(nil)).Elem()
 }
 
+// ClusterRoleAssociationExists checks whether an existing ClusterRoleAssociation resource with the given ID exists.
+func ClusterRoleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterRoleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/clusterRoleAssociation:ClusterRoleAssociation", id, state, "", opts...)
+}
+
 type clusterRoleAssociationArgs struct {
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`

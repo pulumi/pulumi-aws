@@ -139,6 +139,12 @@ func (TableBucketPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableBucketPolicyState)(nil)).Elem()
 }
 
+// TableBucketPolicyExists checks whether an existing TableBucketPolicy resource with the given ID exists.
+func TableBucketPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableBucketPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3tables/tableBucketPolicy:TableBucketPolicy", id, state, "", opts...)
+}
+
 type tableBucketPolicyArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

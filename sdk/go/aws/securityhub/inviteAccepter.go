@@ -132,6 +132,12 @@ func (InviteAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inviteAccepterState)(nil)).Elem()
 }
 
+// InviteAccepterExists checks whether an existing InviteAccepter resource with the given ID exists.
+func InviteAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InviteAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/inviteAccepter:InviteAccepter", id, state, "", opts...)
+}
+
 type inviteAccepterArgs struct {
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId string `pulumi:"masterId"`

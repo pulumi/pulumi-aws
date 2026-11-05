@@ -149,6 +149,12 @@ func (ProfilesProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profilesProfileState)(nil)).Elem()
 }
 
+// ProfilesProfileExists checks whether an existing ProfilesProfile resource with the given ID exists.
+func ProfilesProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfilesProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/profilesProfile:ProfilesProfile", id, state, "", opts...)
+}
+
 type profilesProfileArgs struct {
 	// Name of the Profile.
 	Name *string `pulumi:"name"`

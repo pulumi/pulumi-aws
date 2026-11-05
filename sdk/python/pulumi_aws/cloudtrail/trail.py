@@ -1382,6 +1382,54 @@ class Trail(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Trail(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict', 'outputs.TrailAdvancedEventSelector']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_watch_logs_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_watch_logs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_log_file_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict', 'outputs.TrailEventSelector']]]]] = None,
+            home_region: pulumi.Input[Optional[_builtins.str]] = None,
+            include_global_service_events: pulumi.Input[Optional[_builtins.bool]] = None,
+            insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict', 'outputs.TrailInsightSelector']]]]] = None,
+            is_multi_region_trail: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_organization_trail: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["advancedEventSelectors"] = advanced_event_selectors
+        __props__["arn"] = arn
+        __props__["cloudWatchLogsGroupArn"] = cloud_watch_logs_group_arn
+        __props__["cloudWatchLogsRoleArn"] = cloud_watch_logs_role_arn
+        __props__["enableLogFileValidation"] = enable_log_file_validation
+        __props__["enableLogging"] = enable_logging
+        __props__["eventSelectors"] = event_selectors
+        __props__["homeRegion"] = home_region
+        __props__["includeGlobalServiceEvents"] = include_global_service_events
+        __props__["insightSelectors"] = insight_selectors
+        __props__["isMultiRegionTrail"] = is_multi_region_trail
+        __props__["isOrganizationTrail"] = is_organization_trail
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["s3BucketName"] = s3_bucket_name
+        __props__["s3KeyPrefix"] = s3_key_prefix
+        __props__["snsTopicArn"] = sns_topic_arn
+        __props__["snsTopicName"] = sns_topic_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cloudtrail/trail:Trail', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="advancedEventSelectors")
     def advanced_event_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.TrailAdvancedEventSelector']]]:

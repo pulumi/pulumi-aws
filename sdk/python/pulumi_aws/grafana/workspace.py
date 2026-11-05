@@ -1031,6 +1031,56 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["vpc_configuration"] = vpc_configuration
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']]] = None,
+            notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            permission_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_configuration_status: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountAccessType"] = account_access_type
+        __props__["arn"] = arn
+        __props__["authenticationProviders"] = authentication_providers
+        __props__["configuration"] = configuration
+        __props__["dataSources"] = data_sources
+        __props__["description"] = description
+        __props__["endpoint"] = endpoint
+        __props__["grafanaVersion"] = grafana_version
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["name"] = name
+        __props__["networkAccessControl"] = network_access_control
+        __props__["notificationDestinations"] = notification_destinations
+        __props__["organizationRoleName"] = organization_role_name
+        __props__["organizationalUnits"] = organizational_units
+        __props__["permissionType"] = permission_type
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["samlConfigurationStatus"] = saml_configuration_status
+        __props__["stackSetName"] = stack_set_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcConfiguration"] = vpc_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:grafana/workspace:Workspace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountAccessType")
     def account_access_type(self) -> pulumi.Output[_builtins.str]:

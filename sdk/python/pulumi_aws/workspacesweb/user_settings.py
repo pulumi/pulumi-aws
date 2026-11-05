@@ -915,6 +915,46 @@ class UserSettings(pulumi.CustomResource):
         __props__.__dict__["user_settings_arn"] = user_settings_arn
         return UserSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            associated_portal_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cookie_synchronization_configuration: pulumi.Input[Optional[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict', 'outputs.UserSettingsCookieSynchronizationConfiguration']]] = None,
+            copy_allowed: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+            deep_link_allowed: pulumi.Input[Optional[_builtins.str]] = None,
+            disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            download_allowed: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            paste_allowed: pulumi.Input[Optional[_builtins.str]] = None,
+            print_allowed: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            toolbar_configuration: pulumi.Input[Optional[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict', 'outputs.UserSettingsToolbarConfiguration']]] = None,
+            upload_allowed: pulumi.Input[Optional[_builtins.str]] = None,
+            user_settings_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalEncryptionContext"] = additional_encryption_context
+        __props__["associatedPortalArns"] = associated_portal_arns
+        __props__["cookieSynchronizationConfiguration"] = cookie_synchronization_configuration
+        __props__["copyAllowed"] = copy_allowed
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["deepLinkAllowed"] = deep_link_allowed
+        __props__["disconnectTimeoutInMinutes"] = disconnect_timeout_in_minutes
+        __props__["downloadAllowed"] = download_allowed
+        __props__["idleDisconnectTimeoutInMinutes"] = idle_disconnect_timeout_in_minutes
+        __props__["pasteAllowed"] = paste_allowed
+        __props__["printAllowed"] = print_allowed
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["toolbarConfiguration"] = toolbar_configuration
+        __props__["uploadAllowed"] = upload_allowed
+        __props__["userSettingsArn"] = user_settings_arn
+        return pulumi.runtime.exists_resource(None, 'aws:workspacesweb/userSettings:UserSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

@@ -130,6 +130,12 @@ func (HsmClientCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hsmClientCertificateState)(nil)).Elem()
 }
 
+// HsmClientCertificateExists checks whether an existing HsmClientCertificate resource with the given ID exists.
+func HsmClientCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HsmClientCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/hsmClientCertificate:HsmClientCertificate", id, state, "", opts...)
+}
+
 type hsmClientCertificateArgs struct {
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier string `pulumi:"hsmClientCertificateIdentifier"`

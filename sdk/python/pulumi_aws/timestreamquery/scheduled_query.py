@@ -1291,6 +1291,50 @@ class ScheduledQuery(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ScheduledQuery(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict', 'outputs.ScheduledQueryErrorReportConfiguration']]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_run_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict', 'outputs.ScheduledQueryLastRunSummary']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            next_invocation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict', 'outputs.ScheduledQueryNotificationConfiguration']]] = None,
+            previous_invocation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            query_string: pulumi.Input[Optional[_builtins.str]] = None,
+            recently_failed_runs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict', 'outputs.ScheduledQueryRecentlyFailedRun']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict', 'outputs.ScheduledQueryScheduleConfiguration']]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict', 'outputs.ScheduledQueryTargetConfiguration']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ScheduledQueryTimeoutsArgs', 'ScheduledQueryTimeoutsArgsDict', 'outputs.ScheduledQueryTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["creationTime"] = creation_time
+        __props__["errorReportConfiguration"] = error_report_configuration
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["lastRunSummaries"] = last_run_summaries
+        __props__["name"] = name
+        __props__["nextInvocationTime"] = next_invocation_time
+        __props__["notificationConfiguration"] = notification_configuration
+        __props__["previousInvocationTime"] = previous_invocation_time
+        __props__["queryString"] = query_string
+        __props__["recentlyFailedRuns"] = recently_failed_runs
+        __props__["region"] = region
+        __props__["scheduleConfiguration"] = schedule_configuration
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetConfiguration"] = target_configuration
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:timestreamquery/scheduledQuery:ScheduledQuery', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

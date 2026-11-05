@@ -978,6 +978,52 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["verified_access_instance_id"] = verified_access_instance_id
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cidr_options: pulumi.Input[Optional[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict', 'outputs.EndpointCidrOptions']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            device_validation_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_options: pulumi.Input[Optional[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict', 'outputs.EndpointLoadBalancerOptions']]] = None,
+            network_interface_options: pulumi.Input[Optional[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict', 'outputs.EndpointNetworkInterfaceOptions']]] = None,
+            policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            rds_options: pulumi.Input[Optional[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict', 'outputs.EndpointRdsOptions']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sse_specification: pulumi.Input[Optional[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict', 'outputs.EndpointSseSpecification']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            verified_access_instance_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationDomain"] = application_domain
+        __props__["attachmentType"] = attachment_type
+        __props__["cidrOptions"] = cidr_options
+        __props__["description"] = description
+        __props__["deviceValidationDomain"] = device_validation_domain
+        __props__["domainCertificateArn"] = domain_certificate_arn
+        __props__["endpointDomain"] = endpoint_domain
+        __props__["endpointDomainPrefix"] = endpoint_domain_prefix
+        __props__["endpointType"] = endpoint_type
+        __props__["loadBalancerOptions"] = load_balancer_options
+        __props__["networkInterfaceOptions"] = network_interface_options
+        __props__["policyDocument"] = policy_document
+        __props__["rdsOptions"] = rds_options
+        __props__["region"] = region
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["sseSpecification"] = sse_specification
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["verifiedAccessGroupId"] = verified_access_group_id
+        __props__["verifiedAccessInstanceId"] = verified_access_instance_id
+        return pulumi.runtime.exists_resource(None, 'aws:verifiedaccess/endpoint:Endpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationDomain")
     def application_domain(self) -> pulumi.Output[Optional[_builtins.str]]:

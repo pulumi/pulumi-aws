@@ -1396,6 +1396,66 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
         return DbCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            db_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            db_parameter_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+            failover_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            influx_auth_parameters_secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            log_delivery_configuration: pulumi.Input[Optional[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict', 'outputs.DbClusterLogDeliveryConfiguration']]] = None,
+            maintenance_schedule: pulumi.Input[Optional[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict', 'outputs.DbClusterMaintenanceSchedule']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            organization: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            reader_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['DbClusterTimeoutsArgs', 'DbClusterTimeoutsArgsDict', 'outputs.DbClusterTimeouts']]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocatedStorage"] = allocated_storage
+        __props__["arn"] = arn
+        __props__["bucket"] = bucket
+        __props__["dbInstanceType"] = db_instance_type
+        __props__["dbParameterGroupIdentifier"] = db_parameter_group_identifier
+        __props__["dbStorageType"] = db_storage_type
+        __props__["deploymentType"] = deployment_type
+        __props__["endpoint"] = endpoint
+        __props__["engineType"] = engine_type
+        __props__["failoverMode"] = failover_mode
+        __props__["influxAuthParametersSecretArn"] = influx_auth_parameters_secret_arn
+        __props__["logDeliveryConfiguration"] = log_delivery_configuration
+        __props__["maintenanceSchedule"] = maintenance_schedule
+        __props__["name"] = name
+        __props__["networkType"] = network_type
+        __props__["organization"] = organization
+        __props__["password"] = password
+        __props__["port"] = port
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["readerEndpoint"] = reader_endpoint
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["username"] = username
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        __props__["vpcSubnetIds"] = vpc_subnet_ids
+        return pulumi.runtime.exists_resource(None, 'aws:timestreaminfluxdb/dbCluster:DbCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[Optional[_builtins.int]]:

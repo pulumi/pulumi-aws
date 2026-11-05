@@ -41,20 +41,20 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Segment("example", SegmentArgs.builder()
  *             .name("example")
- *             .pattern("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}")
+ *             .pattern("}{&#92;{@code "Price}&#92;{@code ":[}{&#92;{@code "numeric}&#92;{@code ":[}&#92;{@code ">}&#92;{@code ",10,}&#92;{@code "<=}&#92;{@code ",20]}}{@code ]}}{@code ")
  *             .tags(Map.of("Key1", "example Segment"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -76,28 +76,28 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Segment("example", SegmentArgs.builder()
  *             .name("example")
  *             .pattern("""
- *   {
- *     \"Price\": [
- *       {
- *         \"numeric\": [\">\",10,\"<=\",20]
- *       }
+ *   }{{@code
+ *     }&#92;{@code "Price}&#92;{@code ": [
+ *       }{{@code
+ *         }&#92;{@code "numeric}&#92;{@code ": [}&#92;{@code ">}&#92;{@code ",10,}&#92;{@code "<=}&#92;{@code ",20]
+ *       }}{@code
  *     ]
- *   }
+ *   }}{@code
  *             """)
  *             .tags(Map.of("Key1", "example Segment"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -119,20 +119,20 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Segment("example", SegmentArgs.builder()
  *             .name("example")
- *             .pattern("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}")
+ *             .pattern("}{&#92;{@code "Price}&#92;{@code ":[}{&#92;{@code "numeric}&#92;{@code ":[}&#92;{@code ">}&#92;{@code ",10,}&#92;{@code "<=}&#92;{@code ",20]}}{@code ]}}{@code ")
  *             .description("example")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

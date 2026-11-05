@@ -1665,6 +1665,74 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["vpc_options"] = vpc_options
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_policies: pulumi.Input[Optional[_builtins.str]] = None,
+            advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict', 'outputs.DomainAdvancedSecurityOptions']]] = None,
+            aiml_options: pulumi.Input[Optional[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict', 'outputs.DomainAimlOptions']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_tune_options: pulumi.Input[Optional[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict', 'outputs.DomainAutoTuneOptions']]] = None,
+            cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']]] = None,
+            cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']]] = None,
+            dashboard_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_endpoint_v2: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_strategy_options: pulumi.Input[Optional[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict', 'outputs.DomainDeploymentStrategyOptions']]] = None,
+            domain_endpoint_options: pulumi.Input[Optional[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict', 'outputs.DomainDomainEndpointOptions']]] = None,
+            domain_endpoint_v2_hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']]] = None,
+            encrypt_at_rest: pulumi.Input[Optional[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict', 'outputs.DomainEncryptAtRest']]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_v2: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_center_options: pulumi.Input[Optional[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict', 'outputs.DomainIdentityCenterOptions']]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            log_publishing_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]]] = None,
+            node_to_node_encryption: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict', 'outputs.DomainNodeToNodeEncryption']]] = None,
+            off_peak_window_options: pulumi.Input[Optional[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict', 'outputs.DomainOffPeakWindowOptions']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']]] = None,
+            software_update_options: pulumi.Input[Optional[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict', 'outputs.DomainSoftwareUpdateOptions']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessPolicies"] = access_policies
+        __props__["advancedOptions"] = advanced_options
+        __props__["advancedSecurityOptions"] = advanced_security_options
+        __props__["aimlOptions"] = aiml_options
+        __props__["arn"] = arn
+        __props__["autoTuneOptions"] = auto_tune_options
+        __props__["clusterConfig"] = cluster_config
+        __props__["cognitoOptions"] = cognito_options
+        __props__["dashboardEndpoint"] = dashboard_endpoint
+        __props__["dashboardEndpointV2"] = dashboard_endpoint_v2
+        __props__["deploymentStrategyOptions"] = deployment_strategy_options
+        __props__["domainEndpointOptions"] = domain_endpoint_options
+        __props__["domainEndpointV2HostedZoneId"] = domain_endpoint_v2_hosted_zone_id
+        __props__["domainId"] = domain_id
+        __props__["domainName"] = domain_name
+        __props__["ebsOptions"] = ebs_options
+        __props__["encryptAtRest"] = encrypt_at_rest
+        __props__["endpoint"] = endpoint
+        __props__["endpointV2"] = endpoint_v2
+        __props__["engineVersion"] = engine_version
+        __props__["identityCenterOptions"] = identity_center_options
+        __props__["ipAddressType"] = ip_address_type
+        __props__["logPublishingOptions"] = log_publishing_options
+        __props__["nodeToNodeEncryption"] = node_to_node_encryption
+        __props__["offPeakWindowOptions"] = off_peak_window_options
+        __props__["region"] = region
+        __props__["snapshotOptions"] = snapshot_options
+        __props__["softwareUpdateOptions"] = software_update_options
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcOptions"] = vpc_options
+        return pulumi.runtime.exists_resource(None, 'aws:opensearch/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> pulumi.Output[_builtins.str]:

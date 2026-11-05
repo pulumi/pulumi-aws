@@ -171,6 +171,12 @@ func (ContainerPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerPolicyState)(nil)).Elem()
 }
 
+// ContainerPolicyExists checks whether an existing ContainerPolicy resource with the given ID exists.
+func ContainerPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mediastore/containerPolicy:ContainerPolicy", id, state, "", opts...)
+}
+
 type containerPolicyArgs struct {
 	// Name of the container.
 	ContainerName string `pulumi:"containerName"`

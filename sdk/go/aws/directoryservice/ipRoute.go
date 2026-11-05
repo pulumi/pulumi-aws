@@ -200,6 +200,12 @@ func (IpRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipRouteState)(nil)).Elem()
 }
 
+// IpRouteExists checks whether an existing IpRoute resource with the given ID exists.
+func IpRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/ipRoute:IpRoute", id, state, "", opts...)
+}
+
 type ipRouteArgs struct {
 	// IPv4 CIDR block, such as `10.0.0.0/24`. For a single address, use a `/32` block, such as `10.0.0.0/32`. Exactly one of `cidrIp` or `cidrIpv6` must be set. Changing this forces a new resource to be created.
 	CidrIp *string `pulumi:"cidrIp"`

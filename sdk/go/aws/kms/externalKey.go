@@ -194,6 +194,12 @@ func (ExternalKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*externalKeyState)(nil)).Elem()
 }
 
+// ExternalKeyExists checks whether an existing ExternalKey resource with the given ID exists.
+func ExternalKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExternalKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kms/externalKey:ExternalKey", id, state, "", opts...)
+}
+
 type externalKeyArgs struct {
 	// Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
 	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`

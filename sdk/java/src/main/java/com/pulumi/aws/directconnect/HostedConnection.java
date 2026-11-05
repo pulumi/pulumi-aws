@@ -243,11 +243,10 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
     /**
      * (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use connectionRegion instead.
+     * @deprecated region is deprecated. Use connectionRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use connectionRegion instead. */
+    @Deprecated
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 

@@ -572,6 +572,32 @@ class Statement(pulumi.CustomResource):
         __props__.__dict__["workgroup_name"] = workgroup_name
         return Statement(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            db_user: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict', 'outputs.StatementParameter']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sql: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+            with_event: pulumi.Input[Optional[_builtins.bool]] = None,
+            workgroup_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterIdentifier"] = cluster_identifier
+        __props__["database"] = database
+        __props__["dbUser"] = db_user
+        __props__["parameters"] = parameters
+        __props__["region"] = region
+        __props__["secretArn"] = secret_arn
+        __props__["sql"] = sql
+        __props__["statementName"] = statement_name
+        __props__["withEvent"] = with_event
+        __props__["workgroupName"] = workgroup_name
+        return pulumi.runtime.exists_resource(None, 'aws:redshiftdata/statement:Statement', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:

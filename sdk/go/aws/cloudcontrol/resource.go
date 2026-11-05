@@ -160,6 +160,12 @@ func (ResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceState)(nil)).Elem()
 }
 
+// ResourceExists checks whether an existing Resource resource with the given ID exists.
+func ResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudcontrol/resource:Resource", id, state, "", opts...)
+}
+
 type resourceArgs struct {
 	// JSON string matching the CloudFormation resource type schema with desired configuration.
 	DesiredState string `pulumi:"desiredState"`

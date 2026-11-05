@@ -266,6 +266,12 @@ func (AuthorizerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizerState)(nil)).Elem()
 }
 
+// AuthorizerExists checks whether an existing Authorizer resource with the given ID exists.
+func AuthorizerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthorizerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/authorizer:Authorizer", id, state, "", opts...)
+}
+
 type authorizerArgs struct {
 	// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
 	AuthorizerCredentials *string `pulumi:"authorizerCredentials"`

@@ -288,6 +288,12 @@ func (DevEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*devEndpointState)(nil)).Elem()
 }
 
+// DevEndpointExists checks whether an existing DevEndpoint resource with the given ID exists.
+func DevEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DevEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/devEndpoint:DevEndpoint", id, state, "", opts...)
+}
+
 type devEndpointArgs struct {
 	// Map of arguments used to configure the endpoint.
 	Arguments map[string]string `pulumi:"arguments"`

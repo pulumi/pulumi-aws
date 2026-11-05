@@ -17,11 +17,10 @@ public final class GetArnResult {
     private String account;
     private String arn;
     /**
-     * @deprecated
-     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     private String id;
     /**
      * @return Partition that the resource is in.
@@ -58,11 +57,10 @@ public final class GetArnResult {
         return this.arn;
     }
     /**
-     * @deprecated
-     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public String id() {
         return this.id;
     }

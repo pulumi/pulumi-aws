@@ -2202,6 +2202,52 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         __props__.__dict__["version_id"] = version_id
         return FirehoseDeliveryStream(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_id: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticsearch_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamElasticsearchConfiguration']]] = None,
+            extended_s3_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamExtendedS3Configuration']]] = None,
+            http_endpoint_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamHttpEndpointConfiguration']]] = None,
+            iceberg_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamIcebergConfiguration']]] = None,
+            kinesis_source_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamKinesisSourceConfiguration']]] = None,
+            msk_source_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamMskSourceConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            opensearch_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamOpensearchConfiguration']]] = None,
+            opensearchserverless_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration']]] = None,
+            redshift_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamRedshiftConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_side_encryption: pulumi.Input[Optional[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict', 'outputs.FirehoseDeliveryStreamServerSideEncryption']]] = None,
+            snowflake_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamSnowflakeConfiguration']]] = None,
+            splunk_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamSplunkConfiguration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["destination"] = destination
+        __props__["destinationId"] = destination_id
+        __props__["elasticsearchConfiguration"] = elasticsearch_configuration
+        __props__["extendedS3Configuration"] = extended_s3_configuration
+        __props__["httpEndpointConfiguration"] = http_endpoint_configuration
+        __props__["icebergConfiguration"] = iceberg_configuration
+        __props__["kinesisSourceConfiguration"] = kinesis_source_configuration
+        __props__["mskSourceConfiguration"] = msk_source_configuration
+        __props__["name"] = name
+        __props__["opensearchConfiguration"] = opensearch_configuration
+        __props__["opensearchserverlessConfiguration"] = opensearchserverless_configuration
+        __props__["redshiftConfiguration"] = redshift_configuration
+        __props__["region"] = region
+        __props__["serverSideEncryption"] = server_side_encryption
+        __props__["snowflakeConfiguration"] = snowflake_configuration
+        __props__["splunkConfiguration"] = splunk_configuration
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["versionId"] = version_id
+        return pulumi.runtime.exists_resource(None, 'aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

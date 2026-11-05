@@ -269,6 +269,18 @@ class VpnConnectionRoute(pulumi.CustomResource):
         __props__.__dict__["vpn_connection_id"] = vpn_connection_id
         return VpnConnectionRoute(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vpn_connection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destinationCidrBlock"] = destination_cidr_block
+        __props__["region"] = region
+        __props__["vpnConnectionId"] = vpn_connection_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpnConnectionRoute:VpnConnectionRoute', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[_builtins.str]:

@@ -178,6 +178,12 @@ func (RecordsExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordsExclusiveState)(nil)).Elem()
 }
 
+// RecordsExclusiveExists checks whether an existing RecordsExclusive resource with the given ID exists.
+func RecordsExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecordsExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/recordsExclusive:RecordsExclusive", id, state, "", opts...)
+}
+
 type recordsExclusiveArgs struct {
 	// A list of all resource record sets associated with the hosted zone.
 	// See `resourceRecordSet` below.

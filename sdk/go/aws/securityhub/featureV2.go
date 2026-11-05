@@ -141,6 +141,12 @@ func (FeatureV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*featureV2State)(nil)).Elem()
 }
 
+// FeatureV2Exists checks whether an existing FeatureV2 resource with the given ID exists.
+func FeatureV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeatureV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/featureV2:FeatureV2", id, state, "", opts...)
+}
+
 type featureV2Args struct {
 	// Name of the opt-in feature to enable. Valid values: `NETWORK_SCANNING`. Changing this forces a new resource to be created.
 	FeatureName string `pulumi:"featureName"`

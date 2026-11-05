@@ -373,6 +373,22 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return LoadBalancerCookieStickinessPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cookie_expiration_period: pulumi.Input[Optional[_builtins.int]] = None,
+            lb_port: pulumi.Input[Optional[_builtins.int]] = None,
+            load_balancer: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cookieExpirationPeriod"] = cookie_expiration_period
+        __props__["lbPort"] = lb_port
+        __props__["loadBalancer"] = load_balancer
+        __props__["name"] = name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cookieExpirationPeriod")
     def cookie_expiration_period(self) -> pulumi.Output[Optional[_builtins.int]]:

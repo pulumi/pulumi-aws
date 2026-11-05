@@ -351,6 +351,26 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         __props__.__dict__["tag_option_id"] = tag_option_id
         return TagOptionResourceAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_description: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_option_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        __props__["resourceCreatedTime"] = resource_created_time
+        __props__["resourceDescription"] = resource_description
+        __props__["resourceId"] = resource_id
+        __props__["resourceName"] = resource_name_
+        __props__["tagOptionId"] = tag_option_id
+        return pulumi.runtime.exists_resource(None, 'aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

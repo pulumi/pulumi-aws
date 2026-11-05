@@ -1740,6 +1740,90 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["zone_id"] = zone_id
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict', 'outputs.LoadBalancerAccessLogs']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            client_keep_alive: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_logs: pulumi.Input[Optional[Union['LoadBalancerConnectionLogsArgs', 'LoadBalancerConnectionLogsArgsDict', 'outputs.LoadBalancerConnectionLogs']]] = None,
+            customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_record_client_routing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            drop_invalid_header_fields: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_prefix_for_ipv6_source_nat: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_zonal_shift: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_security_group_inbound_rules_on_private_link_traffic: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check_logs: pulumi.Input[Optional[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict', 'outputs.LoadBalancerHealthCheckLogs']]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            internal: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_address_type: pulumi.Input[Optional[Union[_builtins.str, 'IpAddressType']]] = None,
+            ipam_pools: pulumi.Input[Optional[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict', 'outputs.LoadBalancerIpamPools']]] = None,
+            load_balancer_type: pulumi.Input[Optional['LoadBalancerType']] = None,
+            minimum_load_balancer_capacity: pulumi.Input[Optional[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict', 'outputs.LoadBalancerMinimumLoadBalancerCapacity']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            preserve_host_header: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_ips_auto_assigned_per_subnet: pulumi.Input[Optional[_builtins.int]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict', 'outputs.LoadBalancerSubnetMapping']]]]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            xff_header_processing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessLogs"] = access_logs
+        __props__["arn"] = arn
+        __props__["arnSuffix"] = arn_suffix
+        __props__["clientKeepAlive"] = client_keep_alive
+        __props__["connectionLogs"] = connection_logs
+        __props__["customerOwnedIpv4Pool"] = customer_owned_ipv4_pool
+        __props__["desyncMitigationMode"] = desync_mitigation_mode
+        __props__["dnsName"] = dns_name
+        __props__["dnsRecordClientRoutingPolicy"] = dns_record_client_routing_policy
+        __props__["dropInvalidHeaderFields"] = drop_invalid_header_fields
+        __props__["enableCrossZoneLoadBalancing"] = enable_cross_zone_load_balancing
+        __props__["enableDeletionProtection"] = enable_deletion_protection
+        __props__["enableHttp2"] = enable_http2
+        __props__["enablePrefixForIpv6SourceNat"] = enable_prefix_for_ipv6_source_nat
+        __props__["enableTlsVersionAndCipherSuiteHeaders"] = enable_tls_version_and_cipher_suite_headers
+        __props__["enableWafFailOpen"] = enable_waf_fail_open
+        __props__["enableXffClientPort"] = enable_xff_client_port
+        __props__["enableZonalShift"] = enable_zonal_shift
+        __props__["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = enforce_security_group_inbound_rules_on_private_link_traffic
+        __props__["healthCheckLogs"] = health_check_logs
+        __props__["idleTimeout"] = idle_timeout
+        __props__["internal"] = internal
+        __props__["ipAddressType"] = ip_address_type
+        __props__["ipamPools"] = ipam_pools
+        __props__["loadBalancerType"] = load_balancer_type
+        __props__["minimumLoadBalancerCapacity"] = minimum_load_balancer_capacity
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["preserveHostHeader"] = preserve_host_header
+        __props__["region"] = region
+        __props__["secondaryIpsAutoAssignedPerSubnet"] = secondary_ips_auto_assigned_per_subnet
+        __props__["securityGroups"] = security_groups
+        __props__["subnetMappings"] = subnet_mappings
+        __props__["subnets"] = subnets
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        __props__["xffHeaderProcessingMode"] = xff_header_processing_mode
+        __props__["zoneId"] = zone_id
+        return pulumi.runtime.exists_resource(None, 'aws:alb/loadBalancer:LoadBalancer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Output[Optional['outputs.LoadBalancerAccessLogs']]:

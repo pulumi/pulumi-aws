@@ -137,6 +137,12 @@ func (SourceRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceRepositoryState)(nil)).Elem()
 }
 
+// SourceRepositoryExists checks whether an existing SourceRepository resource with the given ID exists.
+func SourceRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codecatalyst/sourceRepository:SourceRepository", id, state, "", opts...)
+}
+
 type sourceRepositoryArgs struct {
 	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description *string `pulumi:"description"`

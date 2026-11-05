@@ -483,6 +483,26 @@ class ConfigurationAggregator(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ConfigurationAggregator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorAccountAggregationSource']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorOrganizationAggregationSource']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountAggregationSource"] = account_aggregation_source
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["organizationAggregationSource"] = organization_aggregation_source
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cfg/configurationAggregator:ConfigurationAggregator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountAggregationSource")
     def account_aggregation_source(self) -> pulumi.Output[Optional['outputs.ConfigurationAggregatorAccountAggregationSource']]:

@@ -962,6 +962,38 @@ class Permission(pulumi.CustomResource):
         __props__.__dict__["statement_id_prefix"] = statement_id_prefix
         return Permission(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+            function: pulumi.Input[Optional[_builtins.str]] = None,
+            function_url_auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+            qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_account: pulumi.Input[Optional[_builtins.str]] = None,
+            source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_id_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["eventSourceToken"] = event_source_token
+        __props__["function"] = function
+        __props__["functionUrlAuthType"] = function_url_auth_type
+        __props__["invokedViaFunctionUrl"] = invoked_via_function_url
+        __props__["principal"] = principal
+        __props__["principalOrgId"] = principal_org_id
+        __props__["qualifier"] = qualifier
+        __props__["region"] = region
+        __props__["sourceAccount"] = source_account
+        __props__["sourceArn"] = source_arn
+        __props__["statementId"] = statement_id
+        __props__["statementIdPrefix"] = statement_id_prefix
+        return pulumi.runtime.exists_resource(None, 'aws:lambda/permission:Permission', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:

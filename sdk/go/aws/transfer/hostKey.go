@@ -170,6 +170,12 @@ func (HostKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostKeyState)(nil)).Elem()
 }
 
+// HostKeyExists checks whether an existing HostKey resource with the given ID exists.
+func HostKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/hostKey:HostKey", id, state, "", opts...)
+}
+
 type hostKeyArgs struct {
 	// Text description.
 	Description *string `pulumi:"description"`

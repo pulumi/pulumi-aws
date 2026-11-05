@@ -390,6 +390,24 @@ class V2modelsBotVersion(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return V2modelsBotVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            locale_specification: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict', 'outputs.V2modelsBotVersionLocaleSpecification']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict', 'outputs.V2modelsBotVersionTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botId"] = bot_id
+        __props__["botVersion"] = bot_version
+        __props__["description"] = description
+        __props__["localeSpecification"] = locale_specification
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:lex/v2modelsBotVersion:V2modelsBotVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:

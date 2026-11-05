@@ -420,6 +420,26 @@ class OriginRequestPolicy(pulumi.CustomResource):
         __props__.__dict__["query_strings_config"] = query_strings_config
         return OriginRequestPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            cookies_config: pulumi.Input[Optional[Union['OriginRequestPolicyCookiesConfigArgs', 'OriginRequestPolicyCookiesConfigArgsDict', 'outputs.OriginRequestPolicyCookiesConfig']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            headers_config: pulumi.Input[Optional[Union['OriginRequestPolicyHeadersConfigArgs', 'OriginRequestPolicyHeadersConfigArgsDict', 'outputs.OriginRequestPolicyHeadersConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_strings_config: pulumi.Input[Optional[Union['OriginRequestPolicyQueryStringsConfigArgs', 'OriginRequestPolicyQueryStringsConfigArgsDict', 'outputs.OriginRequestPolicyQueryStringsConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["comment"] = comment
+        __props__["cookiesConfig"] = cookies_config
+        __props__["etag"] = etag
+        __props__["headersConfig"] = headers_config
+        __props__["name"] = name
+        __props__["queryStringsConfig"] = query_strings_config
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/originRequestPolicy:OriginRequestPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -591,6 +591,38 @@ class IdcApplication(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return IdcApplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_type: pulumi.Input[Optional[_builtins.str]] = None,
+            authorized_token_issuer: pulumi.Input[Optional[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict', 'outputs.IdcApplicationAuthorizedTokenIssuer']]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            idc_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            idc_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            idc_managed_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            redshift_idc_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            redshift_idc_application_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_integration: pulumi.Input[Optional[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict', 'outputs.IdcApplicationServiceIntegration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationType"] = application_type
+        __props__["authorizedTokenIssuer"] = authorized_token_issuer
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["idcDisplayName"] = idc_display_name
+        __props__["idcInstanceArn"] = idc_instance_arn
+        __props__["idcManagedApplicationArn"] = idc_managed_application_arn
+        __props__["identityNamespace"] = identity_namespace
+        __props__["redshiftIdcApplicationArn"] = redshift_idc_application_arn
+        __props__["redshiftIdcApplicationName"] = redshift_idc_application_name
+        __props__["region"] = region
+        __props__["serviceIntegration"] = service_integration
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/idcApplication:IdcApplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> pulumi.Output[_builtins.str]:

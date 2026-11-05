@@ -303,6 +303,12 @@ func (FormTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*formTypeState)(nil)).Elem()
 }
 
+// FormTypeExists checks whether an existing FormType resource with the given ID exists.
+func FormTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FormTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datazone/formType:FormType", id, state, "", opts...)
+}
+
 type formTypeArgs struct {
 	// Description of form type. Must have a length of between 1 and 2048 characters.
 	Description *string `pulumi:"description"`

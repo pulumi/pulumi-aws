@@ -269,6 +269,12 @@ func (EntityRecognizerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entityRecognizerState)(nil)).Elem()
 }
 
+// EntityRecognizerExists checks whether an existing EntityRecognizer resource with the given ID exists.
+func EntityRecognizerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntityRecognizerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:comprehend/entityRecognizer:EntityRecognizer", id, state, "", opts...)
+}
+
 type entityRecognizerArgs struct {
 	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
 	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`

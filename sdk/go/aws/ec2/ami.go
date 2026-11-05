@@ -299,6 +299,12 @@ func (AmiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiState)(nil)).Elem()
 }
 
+// AmiExists checks whether an existing Ami resource with the given ID exists.
+func AmiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AmiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/ami:Ami", id, state, "", opts...)
+}
+
 type amiArgs struct {
 	// Machine architecture for created instances. Defaults to `x8664`.
 	Architecture *string `pulumi:"architecture"`

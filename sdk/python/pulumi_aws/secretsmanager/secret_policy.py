@@ -352,6 +352,20 @@ class SecretPolicy(pulumi.CustomResource):
         __props__.__dict__["secret_arn"] = secret_arn
         return SecretPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blockPublicPolicy"] = block_public_policy
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["secretArn"] = secret_arn
+        return pulumi.runtime.exists_resource(None, 'aws:secretsmanager/secretPolicy:SecretPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> pulumi.Output[Optional[_builtins.bool]]:

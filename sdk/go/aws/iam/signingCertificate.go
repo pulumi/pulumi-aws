@@ -159,6 +159,12 @@ func (SigningCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signingCertificateState)(nil)).Elem()
 }
 
+// SigningCertificateExists checks whether an existing SigningCertificate resource with the given ID exists.
+func SigningCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SigningCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/signingCertificate:SigningCertificate", id, state, "", opts...)
+}
+
 type signingCertificateArgs struct {
 	// The contents of the signing certificate in PEM-encoded format.
 	CertificateBody string `pulumi:"certificateBody"`

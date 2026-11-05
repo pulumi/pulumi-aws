@@ -179,6 +179,12 @@ func (AgentcoreWorkloadIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreWorkloadIdentityState)(nil)).Elem()
 }
 
+// AgentcoreWorkloadIdentityExists checks whether an existing AgentcoreWorkloadIdentity resource with the given ID exists.
+func AgentcoreWorkloadIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreWorkloadIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity", id, state, "", opts...)
+}
+
 type agentcoreWorkloadIdentityArgs struct {
 	// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
 	AllowedResourceOauth2ReturnUrls []string `pulumi:"allowedResourceOauth2ReturnUrls"`

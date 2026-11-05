@@ -548,6 +548,30 @@ class RestoreTestingSelection(pulumi.CustomResource):
         __props__.__dict__["validation_window_hours"] = validation_window_hours
         return RestoreTestingSelection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']]] = None,
+            protected_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_metadata_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_window_hours: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["name"] = name
+        __props__["protectedResourceArns"] = protected_resource_arns
+        __props__["protectedResourceConditions"] = protected_resource_conditions
+        __props__["protectedResourceType"] = protected_resource_type
+        __props__["region"] = region
+        __props__["restoreMetadataOverrides"] = restore_metadata_overrides
+        __props__["restoreTestingPlanName"] = restore_testing_plan_name
+        __props__["validationWindowHours"] = validation_window_hours
+        return pulumi.runtime.exists_resource(None, 'aws:backup/restoreTestingSelection:RestoreTestingSelection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:

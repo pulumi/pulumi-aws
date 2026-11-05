@@ -167,6 +167,12 @@ func (UserPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPolicyState)(nil)).Elem()
 }
 
+// UserPolicyExists checks whether an existing UserPolicy resource with the given ID exists.
+func UserPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/userPolicy:UserPolicy", id, state, "", opts...)
+}
+
 type userPolicyArgs struct {
 	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`

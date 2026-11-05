@@ -786,6 +786,48 @@ class Workgroup(pulumi.CustomResource):
         __props__.__dict__["workgroup_name"] = workgroup_name
         return Workgroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict', 'outputs.WorkgroupEndpoint']]]]] = None,
+            enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
+            max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            price_performance_target: pulumi.Input[Optional[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict', 'outputs.WorkgroupPricePerformanceTarget']]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            track_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workgroup_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workgroup_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["baseCapacity"] = base_capacity
+        __props__["configParameters"] = config_parameters
+        __props__["endpoints"] = endpoints
+        __props__["enhancedVpcRouting"] = enhanced_vpc_routing
+        __props__["maxCapacity"] = max_capacity
+        __props__["namespaceName"] = namespace_name
+        __props__["port"] = port
+        __props__["pricePerformanceTarget"] = price_performance_target
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["region"] = region
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["trackName"] = track_name
+        __props__["workgroupId"] = workgroup_id
+        __props__["workgroupName"] = workgroup_name
+        return pulumi.runtime.exists_resource(None, 'aws:redshiftserverless/workgroup:Workgroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

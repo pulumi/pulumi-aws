@@ -57,6 +57,17 @@ export class RegexPatternSet extends pulumi.CustomResource {
         return new RegexPatternSet(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing RegexPatternSet resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: RegexPatternSetState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:wafv2/regexPatternSet:RegexPatternSet", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:wafv2/regexPatternSet:RegexPatternSet';
 

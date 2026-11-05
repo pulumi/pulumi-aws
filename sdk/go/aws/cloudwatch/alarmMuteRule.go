@@ -284,6 +284,12 @@ func (AlarmMuteRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alarmMuteRuleState)(nil)).Elem()
 }
 
+// AlarmMuteRuleExists checks whether an existing AlarmMuteRule resource with the given ID exists.
+func AlarmMuteRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlarmMuteRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/alarmMuteRule:AlarmMuteRule", id, state, "", opts...)
+}
+
 type alarmMuteRuleArgs struct {
 	// Description of the alarm mute rule.
 	Description *string `pulumi:"description"`

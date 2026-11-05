@@ -587,6 +587,28 @@ class EnforcedGuardrailConfiguration(pulumi.CustomResource):
         __props__.__dict__["selective_content_guarding"] = selective_content_guarding
         return EnforcedGuardrailConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config_id: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_version: pulumi.Input[Optional[_builtins.str]] = None,
+            model_enforcement: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict', 'outputs.EnforcedGuardrailConfigurationModelEnforcement']]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            selective_content_guarding: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict', 'outputs.EnforcedGuardrailConfigurationSelectiveContentGuarding']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configId"] = config_id
+        __props__["guardrailArn"] = guardrail_arn
+        __props__["guardrailId"] = guardrail_id
+        __props__["guardrailVersion"] = guardrail_version
+        __props__["modelEnforcement"] = model_enforcement
+        __props__["owner"] = owner
+        __props__["region"] = region
+        __props__["selectiveContentGuarding"] = selective_content_guarding
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/enforcedGuardrailConfiguration:EnforcedGuardrailConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configId")
     def config_id(self) -> pulumi.Output[_builtins.str]:

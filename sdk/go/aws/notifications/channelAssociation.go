@@ -126,6 +126,12 @@ func (ChannelAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelAssociationState)(nil)).Elem()
 }
 
+// ChannelAssociationExists checks whether an existing ChannelAssociation resource with the given ID exists.
+func ChannelAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:notifications/channelAssociation:ChannelAssociation", id, state, "", opts...)
+}
+
 type channelAssociationArgs struct {
 	// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
 	Arn string `pulumi:"arn"`

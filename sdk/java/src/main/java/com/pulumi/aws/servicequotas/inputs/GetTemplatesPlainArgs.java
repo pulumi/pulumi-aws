@@ -32,22 +32,20 @@ public final class GetTemplatesPlainArgs extends com.pulumi.resources.InvokeArgs
     /**
      * AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use aws.getRegion instead.
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Deprecated
     @Import(name="region")
     private @Nullable String region;
 
     /**
      * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use aws.getRegion instead.
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Deprecated
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -93,11 +91,10 @@ public final class GetTemplatesPlainArgs extends com.pulumi.resources.InvokeArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use aws.getRegion instead.
+         * @deprecated region is deprecated. Use aws.getRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+        @Deprecated
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

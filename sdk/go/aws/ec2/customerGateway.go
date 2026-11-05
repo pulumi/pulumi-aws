@@ -162,6 +162,12 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerGatewayState)(nil)).Elem()
 }
 
+// CustomerGatewayExists checks whether an existing CustomerGateway resource with the given ID exists.
+func CustomerGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomerGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/customerGateway:CustomerGateway", id, state, "", opts...)
+}
+
 type customerGatewayArgs struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
 	BgpAsn *string `pulumi:"bgpAsn"`

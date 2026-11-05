@@ -900,6 +900,54 @@ class RestApi(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return RestApi(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            binary_media_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_configuration: pulumi.Input[Optional[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict', 'outputs.RestApiEndpointConfiguration']]] = None,
+            execution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+            minimum_compression_size: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            put_rest_api_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKeySource"] = api_key_source
+        __props__["arn"] = arn
+        __props__["binaryMediaTypes"] = binary_media_types
+        __props__["body"] = body
+        __props__["createdDate"] = created_date
+        __props__["description"] = description
+        __props__["disableExecuteApiEndpoint"] = disable_execute_api_endpoint
+        __props__["endpointAccessMode"] = endpoint_access_mode
+        __props__["endpointConfiguration"] = endpoint_configuration
+        __props__["executionArn"] = execution_arn
+        __props__["failOnWarnings"] = fail_on_warnings
+        __props__["minimumCompressionSize"] = minimum_compression_size
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["policy"] = policy
+        __props__["putRestApiMode"] = put_rest_api_mode
+        __props__["region"] = region
+        __props__["rootResourceId"] = root_resource_id
+        __props__["securityPolicy"] = security_policy
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/restApi:RestApi', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKeySource")
     def api_key_source(self) -> pulumi.Output[_builtins.str]:

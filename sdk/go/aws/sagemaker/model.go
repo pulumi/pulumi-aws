@@ -199,6 +199,12 @@ func (ModelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelState)(nil)).Elem()
 }
 
+// ModelExists checks whether an existing Model resource with the given ID exists.
+func ModelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/model:Model", id, state, "", opts...)
+}
+
 type modelArgs struct {
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers []ModelContainer `pulumi:"containers"`

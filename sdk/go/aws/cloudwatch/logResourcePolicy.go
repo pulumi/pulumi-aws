@@ -226,6 +226,12 @@ func (LogResourcePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logResourcePolicyState)(nil)).Elem()
 }
 
+// LogResourcePolicyExists checks whether an existing LogResourcePolicy resource with the given ID exists.
+func LogResourcePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogResourcePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", id, state, "", opts...)
+}
+
 type logResourcePolicyArgs struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument interface{} `pulumi:"policyDocument"`

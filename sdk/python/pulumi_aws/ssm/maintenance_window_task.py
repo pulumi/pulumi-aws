@@ -932,6 +932,42 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         __props__.__dict__["window_task_id"] = window_task_id
         return MaintenanceWindowTask(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cutoff_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+            max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]]] = None,
+            task_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']]] = None,
+            task_type: pulumi.Input[Optional[_builtins.str]] = None,
+            window_id: pulumi.Input[Optional[_builtins.str]] = None,
+            window_task_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cutoffBehavior"] = cutoff_behavior
+        __props__["description"] = description
+        __props__["maxConcurrency"] = max_concurrency
+        __props__["maxErrors"] = max_errors
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["region"] = region
+        __props__["serviceRoleArn"] = service_role_arn
+        __props__["targets"] = targets
+        __props__["taskArn"] = task_arn
+        __props__["taskInvocationParameters"] = task_invocation_parameters
+        __props__["taskType"] = task_type
+        __props__["windowId"] = window_id
+        __props__["windowTaskId"] = window_task_id
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/maintenanceWindowTask:MaintenanceWindowTask', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

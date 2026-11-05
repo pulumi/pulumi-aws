@@ -230,6 +230,12 @@ func (ResourceCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceCollectionState)(nil)).Elem()
 }
 
+// ResourceCollectionExists checks whether an existing ResourceCollection resource with the given ID exists.
+func ResourceCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:devopsguru/resourceCollection:ResourceCollection", id, state, "", opts...)
+}
+
 type resourceCollectionArgs struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation *ResourceCollectionCloudformation `pulumi:"cloudformation"`

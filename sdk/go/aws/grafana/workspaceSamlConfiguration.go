@@ -237,6 +237,12 @@ func (WorkspaceSamlConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceSamlConfigurationState)(nil)).Elem()
 }
 
+// WorkspaceSamlConfigurationExists checks whether an existing WorkspaceSamlConfiguration resource with the given ID exists.
+func WorkspaceSamlConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceSamlConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration", id, state, "", opts...)
+}
+
 type workspaceSamlConfigurationArgs struct {
 	// Admin role values.
 	AdminRoleValues []string `pulumi:"adminRoleValues"`

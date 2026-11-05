@@ -254,6 +254,12 @@ func (DataCatalogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCatalogState)(nil)).Elem()
 }
 
+// DataCatalogExists checks whether an existing DataCatalog resource with the given ID exists.
+func DataCatalogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataCatalogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:athena/dataCatalog:DataCatalog", id, state, "", opts...)
+}
+
 type dataCatalogArgs struct {
 	// Description of the data catalog.
 	Description string `pulumi:"description"`

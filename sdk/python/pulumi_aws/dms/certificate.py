@@ -390,6 +390,26 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_wallet: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateArn"] = certificate_arn
+        __props__["certificateId"] = certificate_id
+        __props__["certificatePem"] = certificate_pem
+        __props__["certificateWallet"] = certificate_wallet
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:dms/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[_builtins.str]:

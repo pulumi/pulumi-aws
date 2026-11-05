@@ -241,6 +241,12 @@ func (ImageRecipeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageRecipeState)(nil)).Elem()
 }
 
+// ImageRecipeExists checks whether an existing ImageRecipe resource with the given ID exists.
+func ImageRecipeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImageRecipeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:imagebuilder/imageRecipe:ImageRecipe", id, state, "", opts...)
+}
+
 type imageRecipeArgs struct {
 	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
 	AmiTags map[string]string `pulumi:"amiTags"`

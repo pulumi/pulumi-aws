@@ -160,6 +160,12 @@ func (ObjectLambdaAccessPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*objectLambdaAccessPointState)(nil)).Elem()
 }
 
+// ObjectLambdaAccessPointExists checks whether an existing ObjectLambdaAccessPoint resource with the given ID exists.
+func ObjectLambdaAccessPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObjectLambdaAccessPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint", id, state, "", opts...)
+}
+
 type objectLambdaAccessPointArgs struct {
 	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`

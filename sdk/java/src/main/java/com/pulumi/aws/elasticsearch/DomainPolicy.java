@@ -36,12 +36,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("tf-test")
  *             .elasticsearchVersion("2.3")
@@ -50,25 +50,25 @@ import javax.annotation.Nullable;
  *         var main = new DomainPolicy("main", DomainPolicyArgs.builder()
  *             .domainName(example.domainName())
  *             .accessPolicies(example.arn().applyValue(_arn -> """
- * {
- *     \"Version\": \"2012-10-17\",
- *     \"Statement\": [
- *         {
- *             \"Action\": \"es:*\",
- *             \"Principal\": \"*\",
- *             \"Effect\": \"Allow\",
- *             \"Condition\": {
- *                 \"IpAddress\": {\"aws:SourceIp\": \"127.0.0.1/32\"}
- *             },
- *             \"Resource\": \"%s/*\"
- *         }
+ * }{{@code
+ *     }&#92;{@code "Version}&#92;{@code ": }&#92;{@code "2012-10-17}&#92;{@code ",
+ *     }&#92;{@code "Statement}&#92;{@code ": [
+ *         }{{@code
+ *             }&#92;{@code "Action}&#92;{@code ": }&#92;{@code "es:*}&#92;{@code ",
+ *             }&#92;{@code "Principal}&#92;{@code ": }&#92;{@code "*}&#92;{@code ",
+ *             }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *             }&#92;{@code "Condition}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "IpAddress}&#92;{@code ": }{&#92;{@code "aws:SourceIp}&#92;{@code ": }&#92;{@code "127.0.0.1/32}&#92;{@code "}}{@code
+ *             }}{@code ,
+ *             }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "%s/*}&#92;{@code "
+ *         }}{@code
  *     ]
- * }
+ * }}{@code
  * ", _arn)))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

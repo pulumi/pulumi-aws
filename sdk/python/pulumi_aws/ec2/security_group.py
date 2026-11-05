@@ -885,6 +885,36 @@ class SecurityGroup(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return SecurityGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict', 'outputs.SecurityGroupEgress']]]]] = None,
+            ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict', 'outputs.SecurityGroupIngress']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revoke_rules_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["egress"] = egress
+        __props__["ingress"] = ingress
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["revokeRulesOnDelete"] = revoke_rules_on_delete
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/securityGroup:SecurityGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

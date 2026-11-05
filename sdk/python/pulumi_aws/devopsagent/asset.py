@@ -518,6 +518,32 @@ class Asset(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Asset(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
+            asset_id: pulumi.Input[Optional[_builtins.str]] = None,
+            asset_type: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[Union['AssetContentArgs', 'AssetContentArgsDict', 'outputs.AssetContent']]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_actual: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentSpaceId"] = agent_space_id
+        __props__["assetId"] = asset_id
+        __props__["assetType"] = asset_type
+        __props__["content"] = content
+        __props__["createdAt"] = created_at
+        __props__["metadata"] = metadata
+        __props__["metadataActual"] = metadata_actual
+        __props__["region"] = region
+        __props__["updatedAt"] = updated_at
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:devopsagent/asset:Asset', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentSpaceId")
     def agent_space_id(self) -> pulumi.Output[_builtins.str]:

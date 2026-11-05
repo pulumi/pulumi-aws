@@ -255,6 +255,12 @@ func (AgentAgentAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentAgentAliasState)(nil)).Elem()
 }
 
+// AgentAgentAliasExists checks whether an existing AgentAgentAlias resource with the given ID exists.
+func AgentAgentAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentAgentAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentAgentAlias:AgentAgentAlias", id, state, "", opts...)
+}
+
 type agentAgentAliasArgs struct {
 	// Name of the alias.
 	AgentAliasName string `pulumi:"agentAliasName"`

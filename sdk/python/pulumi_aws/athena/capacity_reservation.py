@@ -432,6 +432,30 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return CapacityReservation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocated_dpus: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_dpus: pulumi.Input[Optional[_builtins.int]] = None,
+            timeouts: pulumi.Input[Optional[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict', 'outputs.CapacityReservationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocatedDpus"] = allocated_dpus
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetDpus"] = target_dpus
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:athena/capacityReservation:CapacityReservation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocatedDpus")
     def allocated_dpus(self) -> pulumi.Output[_builtins.int]:

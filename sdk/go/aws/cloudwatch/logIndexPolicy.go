@@ -146,6 +146,12 @@ func (LogIndexPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logIndexPolicyState)(nil)).Elem()
 }
 
+// LogIndexPolicyExists checks whether an existing LogIndexPolicy resource with the given ID exists.
+func LogIndexPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogIndexPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logIndexPolicy:LogIndexPolicy", id, state, "", opts...)
+}
+
 type logIndexPolicyArgs struct {
 	// Log group name to set the policy for.
 	LogGroupName string `pulumi:"logGroupName"`

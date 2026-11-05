@@ -676,6 +676,38 @@ class VpcConnection(pulumi.CustomResource):
         __props__.__dict__["vpc_connection_id"] = vpc_connection_id
         return VpcConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_status: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_resolvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict', 'outputs.VpcConnectionTimeouts']]] = None,
+            vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityStatus"] = availability_status
+        __props__["awsAccountId"] = aws_account_id
+        __props__["dnsResolvers"] = dns_resolvers
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["vpcConnectionId"] = vpc_connection_id
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/vpcConnection:VpcConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

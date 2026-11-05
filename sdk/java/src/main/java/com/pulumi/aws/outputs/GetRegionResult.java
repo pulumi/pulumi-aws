@@ -19,18 +19,16 @@ public final class GetRegionResult {
     /**
      * @return (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
      * 
-     * @deprecated
-     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     private String id;
     /**
-     * @deprecated
-     * name is deprecated. Use region instead.
+     * @deprecated name is deprecated. Use region instead.
      * 
      */
-    @Deprecated /* name is deprecated. Use region instead. */
+    @Deprecated
     private String name;
     private String region;
 
@@ -48,20 +46,18 @@ public final class GetRegionResult {
     /**
      * @return (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
      * 
-     * @deprecated
-     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public String id() {
         return this.id;
     }
     /**
-     * @deprecated
-     * name is deprecated. Use region instead.
+     * @deprecated name is deprecated. Use region instead.
      * 
      */
-    @Deprecated /* name is deprecated. Use region instead. */
+    @Deprecated
     public String name() {
         return this.name;
     }

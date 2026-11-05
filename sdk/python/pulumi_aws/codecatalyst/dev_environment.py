@@ -516,6 +516,30 @@ class DevEnvironment(pulumi.CustomResource):
         __props__.__dict__["space_name"] = space_name
         return DevEnvironment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict', 'outputs.DevEnvironmentIdes']]] = None,
+            inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict', 'outputs.DevEnvironmentPersistentStorage']]] = None,
+            project_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict', 'outputs.DevEnvironmentRepository']]]]] = None,
+            space_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alias"] = alias
+        __props__["ides"] = ides
+        __props__["inactivityTimeoutMinutes"] = inactivity_timeout_minutes
+        __props__["instanceType"] = instance_type
+        __props__["persistentStorage"] = persistent_storage
+        __props__["projectName"] = project_name
+        __props__["region"] = region
+        __props__["repositories"] = repositories
+        __props__["spaceName"] = space_name
+        return pulumi.runtime.exists_resource(None, 'aws:codecatalyst/devEnvironment:DevEnvironment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[Optional[_builtins.str]]:

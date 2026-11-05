@@ -170,12 +170,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
  *         // Example here being a snowflake jdbc connector with a secret having user and password as keys
  *         final var example = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
@@ -189,7 +189,7 @@ import javax.annotation.Nullable;
  *                 Map.entry("CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver"),
  *                 Map.entry("CONNECTOR_TYPE", "Jdbc"),
  *                 Map.entry("CONNECTOR_URL", "s3://example/snowflake-jdbc.jar"),
- *                 Map.entry("JDBC_CONNECTION_URL", "[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]")
+ *                 Map.entry("JDBC_CONNECTION_URL", "[[}&#92;{@code "default=jdbc:snowflake://example.com/?user=$}{{@code user}}{@code &password=$}{{@code password}}&#92;{@code "],}&#92;{@code ",}&#92;{@code "]")
  *             ))
  *             .matchCriterias("template-connection")
  *             .build());
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *                 Map.entry("CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver"),
  *                 Map.entry("CONNECTOR_TYPE", "Jdbc"),
  *                 Map.entry("CONNECTOR_URL", "s3://example/snowflake-jdbc.jar"),
- *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=${user}&password=${password}"),
+ *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=$}{{@code user}}{@code &password=$}{{@code password}}{@code "),
  *                 Map.entry("SECRET_ID", example.name())
  *             ))
  *             .matchCriterias(            
@@ -210,8 +210,8 @@ import javax.annotation.Nullable;
  *                 example1.name())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -377,19 +377,19 @@ import javax.annotation.Nullable;
  *                     jsonProperty("credentials", StdFunctions.base64encode(Base64encodeArgs.builder()
  *                         .input("""
  * }{{@code
- *   \"type\": \"service_account\",
- *   \"project_id\": \"example-project\",
- *   \"private_key_id\": \"example-key\",
- *   \"private_key\": \"-----BEGIN RSA PRIVATE KEY-----\
- * REDACTED\
- * -----END RSA PRIVATE KEY-----\",
- *   \"client_email\": \"example-project}{@literal @}{@code appspot.gserviceaccount.com\",
- *   \"client_id\": example-client\",
- *   \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",
- *   \"token_uri\": \"https://oauth2.googleapis.com/token\",
- *   \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",
- *   \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com\",
- *   \"universe_domain\": \"googleapis.com\"
+ *   }&#92;{@code "type}&#92;{@code ": }&#92;{@code "service_account}&#92;{@code ",
+ *   }&#92;{@code "project_id}&#92;{@code ": }&#92;{@code "example-project}&#92;{@code ",
+ *   }&#92;{@code "private_key_id}&#92;{@code ": }&#92;{@code "example-key}&#92;{@code ",
+ *   }&#92;{@code "private_key}&#92;{@code ": }&#92;{@code "-----BEGIN RSA PRIVATE KEY-----}&#92;{@code
+ * REDACTED}&#92;{@code
+ * -----END RSA PRIVATE KEY-----}&#92;{@code ",
+ *   }&#92;{@code "client_email}&#92;{@code ": }&#92;{@code "example-project}{@literal @}{@code appspot.gserviceaccount.com}&#92;{@code ",
+ *   }&#92;{@code "client_id}&#92;{@code ": example-client}&#92;{@code ",
+ *   }&#92;{@code "auth_uri}&#92;{@code ": }&#92;{@code "https://accounts.google.com/o/oauth2/auth}&#92;{@code ",
+ *   }&#92;{@code "token_uri}&#92;{@code ": }&#92;{@code "https://oauth2.googleapis.com/token}&#92;{@code ",
+ *   }&#92;{@code "auth_provider_x509_cert_url}&#92;{@code ": }&#92;{@code "https://www.googleapis.com/oauth2/v1/certs}&#92;{@code ",
+ *   }&#92;{@code "client_x509_cert_url}&#92;{@code ": }&#92;{@code "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com}&#92;{@code ",
+ *   }&#92;{@code "universe_domain}&#92;{@code ": }&#92;{@code "googleapis.com}&#92;{@code "
  * }}{@code
  *                         """)
  *                         .build()).result())

@@ -353,6 +353,24 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return LocalGatewayRouteTableVpcAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["localGatewayId"] = local_gateway_id
+        __props__["localGatewayRouteTableId"] = local_gateway_route_table_id
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> pulumi.Output[_builtins.str]:

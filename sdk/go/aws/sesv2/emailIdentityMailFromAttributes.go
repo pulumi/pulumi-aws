@@ -132,6 +132,12 @@ func (EmailIdentityMailFromAttributesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIdentityMailFromAttributesState)(nil)).Elem()
 }
 
+// EmailIdentityMailFromAttributesExists checks whether an existing EmailIdentityMailFromAttributes resource with the given ID exists.
+func EmailIdentityMailFromAttributesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailIdentityMailFromAttributesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", id, state, "", opts...)
+}
+
 type emailIdentityMailFromAttributesArgs struct {
 	// Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`

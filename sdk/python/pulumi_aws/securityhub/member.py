@@ -369,6 +369,24 @@ class Member(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Member(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            invite: pulumi.Input[Optional[_builtins.bool]] = None,
+            master_id: pulumi.Input[Optional[_builtins.str]] = None,
+            member_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["email"] = email
+        __props__["invite"] = invite
+        __props__["masterId"] = master_id
+        __props__["memberStatus"] = member_status
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:securityhub/member:Member', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

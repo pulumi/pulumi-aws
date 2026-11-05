@@ -256,6 +256,12 @@ func (RecorderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recorderState)(nil)).Elem()
 }
 
+// RecorderExists checks whether an existing Recorder resource with the given ID exists.
+func RecorderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecorderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/recorder:Recorder", id, state, "", opts...)
+}
+
 type recorderArgs struct {
 	// The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
 	Name *string `pulumi:"name"`

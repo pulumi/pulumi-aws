@@ -40,31 +40,31 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Permission("example", PermissionArgs.builder()
  *             .name("custom-backup")
  *             .policyTemplate("""
- * {
- *     \"Effect\": \"Allow\",
- *     \"Action\": [
- * \t\"backup:ListProtectedResourcesByBackupVault\",
- * \t\"backup:ListRecoveryPointsByBackupVault\",
- * \t\"backup:DescribeRecoveryPoint\",
- * \t\"backup:DescribeBackupVault\"
+ * }{{@code
+ *     }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *     }&#92;{@code "Action}&#92;{@code ": [
+ * }&#92;{@code t}&#92;{@code "backup:ListProtectedResourcesByBackupVault}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code "backup:ListRecoveryPointsByBackupVault}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code "backup:DescribeRecoveryPoint}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code "backup:DescribeBackupVault}&#92;{@code "
  *     ]
- * }
+ * }}{@code
  *             """)
  *             .resourceType("backup:BackupVault")
  *             .tags(Map.of("Name", "custom-backup"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

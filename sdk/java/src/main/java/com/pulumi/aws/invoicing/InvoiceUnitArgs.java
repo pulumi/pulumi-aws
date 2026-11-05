@@ -69,22 +69,20 @@ public final class InvoiceUnitArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -244,11 +242,10 @@ public final class InvoiceUnitArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future version of the provider.
+         * @deprecated This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
@@ -259,11 +256,10 @@ public final class InvoiceUnitArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future version of the provider.
+         * @deprecated This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder region(String region) {
             return region(Output.of(region));
         }

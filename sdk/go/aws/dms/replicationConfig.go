@@ -213,6 +213,12 @@ func (ReplicationConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationConfigState)(nil)).Elem()
 }
 
+// ReplicationConfigExists checks whether an existing ReplicationConfig resource with the given ID exists.
+func ReplicationConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dms/replicationConfig:ReplicationConfig", id, state, "", opts...)
+}
+
 type replicationConfigArgs struct {
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfig `pulumi:"computeConfig"`

@@ -258,6 +258,12 @@ func (ResolverFirewallRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverFirewallRuleState)(nil)).Elem()
 }
 
+// ResolverFirewallRuleExists checks whether an existing ResolverFirewallRule resource with the given ID exists.
+func ResolverFirewallRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverFirewallRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverFirewallRule:ResolverFirewallRule", id, state, "", opts...)
+}
+
 type resolverFirewallRuleArgs struct {
 	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
 	Action string `pulumi:"action"`

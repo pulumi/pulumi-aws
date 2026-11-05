@@ -228,6 +228,14 @@ class UseCaseForModelAccess(pulumi.CustomResource):
         __props__.__dict__["form_data"] = form_data
         return UseCaseForModelAccess(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            form_data: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["formData"] = form_data
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/useCaseForModelAccess:UseCaseForModelAccess', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="formData")
     def form_data(self) -> pulumi.Output[_builtins.str]:

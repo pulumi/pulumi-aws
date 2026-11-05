@@ -118,6 +118,12 @@ func (ContributorInsightsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contributorInsightsState)(nil)).Elem()
 }
 
+// ContributorInsightsExists checks whether an existing ContributorInsights resource with the given ID exists.
+func ContributorInsightsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContributorInsightsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dynamodb/contributorInsights:ContributorInsights", id, state, "", opts...)
+}
+
 type contributorInsightsArgs struct {
 	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`

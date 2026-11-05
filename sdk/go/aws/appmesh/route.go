@@ -341,6 +341,12 @@ func (RouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeState)(nil)).Elem()
 }
 
+// RouteExists checks whether an existing Route resource with the given ID exists.
+func RouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appmesh/route:Route", id, state, "", opts...)
+}
+
 type routeArgs struct {
 	// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`

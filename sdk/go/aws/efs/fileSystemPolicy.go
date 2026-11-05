@@ -178,6 +178,12 @@ func (FileSystemPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemPolicyState)(nil)).Elem()
 }
 
+// FileSystemPolicyExists checks whether an existing FileSystemPolicy resource with the given ID exists.
+func FileSystemPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileSystemPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:efs/fileSystemPolicy:FileSystemPolicy", id, state, "", opts...)
+}
+
 type fileSystemPolicyArgs struct {
 	// A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
 	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`

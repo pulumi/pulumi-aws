@@ -164,6 +164,12 @@ func (VideoStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*videoStreamState)(nil)).Elem()
 }
 
+// VideoStreamExists checks whether an existing VideoStream resource with the given ID exists.
+func VideoStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VideoStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kinesis/videoStream:VideoStream", id, state, "", opts...)
+}
+
 type videoStreamArgs struct {
 	// Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
 	DataRetentionInHours *int `pulumi:"dataRetentionInHours"`

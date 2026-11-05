@@ -148,6 +148,12 @@ func (BaiduChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*baiduChannelState)(nil)).Elem()
 }
 
+// BaiduChannelExists checks whether an existing BaiduChannel resource with the given ID exists.
+func BaiduChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BaiduChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/baiduChannel:BaiduChannel", id, state, "", opts...)
+}
+
 type baiduChannelArgs struct {
 	// Platform credential API key from Baidu.
 	ApiKey string `pulumi:"apiKey"`

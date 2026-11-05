@@ -360,6 +360,12 @@ func (IntentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*intentState)(nil)).Elem()
 }
 
+// IntentExists checks whether an existing Intent resource with the given ID exists.
+func IntentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/intent:Intent", id, state, "", opts...)
+}
+
 type intentArgs struct {
 	// The statement that you want Amazon Lex to convey to the user
 	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if

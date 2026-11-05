@@ -644,6 +644,32 @@ class DataProtectionSettings(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return DataProtectionSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            associated_portal_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+            data_protection_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalEncryptionContext"] = additional_encryption_context
+        __props__["associatedPortalArns"] = associated_portal_arns
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["dataProtectionSettingsArn"] = data_protection_settings_arn
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["inlineRedactionConfiguration"] = inline_redaction_configuration
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:workspacesweb/dataProtectionSettings:DataProtectionSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

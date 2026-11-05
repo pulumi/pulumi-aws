@@ -421,6 +421,22 @@ class MultiplexProgram(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return MultiplexProgram(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            multiplex_id: pulumi.Input[Optional[_builtins.str]] = None,
+            multiplex_program_settings: pulumi.Input[Optional[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict', 'outputs.MultiplexProgramMultiplexProgramSettings']]] = None,
+            program_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['MultiplexProgramTimeoutsArgs', 'MultiplexProgramTimeoutsArgsDict', 'outputs.MultiplexProgramTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["multiplexId"] = multiplex_id
+        __props__["multiplexProgramSettings"] = multiplex_program_settings
+        __props__["programName"] = program_name
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:medialive/multiplexProgram:MultiplexProgram', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="multiplexId")
     def multiplex_id(self) -> pulumi.Output[_builtins.str]:

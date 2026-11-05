@@ -181,6 +181,12 @@ func (ThesaurusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*thesaurusState)(nil)).Elem()
 }
 
+// ThesaurusExists checks whether an existing Thesaurus resource with the given ID exists.
+func ThesaurusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThesaurusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kendra/thesaurus:Thesaurus", id, state, "", opts...)
+}
+
 type thesaurusArgs struct {
 	// Description for a thesaurus.
 	Description *string `pulumi:"description"`

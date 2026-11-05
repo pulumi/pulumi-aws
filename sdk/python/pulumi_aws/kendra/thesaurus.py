@@ -530,6 +530,34 @@ class Thesaurus(pulumi.CustomResource):
         __props__.__dict__["thesaurus_id"] = thesaurus_id
         return Thesaurus(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            index_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            source_s3_path: pulumi.Input[Optional[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            thesaurus_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["indexId"] = index_id
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["sourceS3Path"] = source_s3_path
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["thesaurusId"] = thesaurus_id
+        return pulumi.runtime.exists_resource(None, 'aws:kendra/thesaurus:Thesaurus', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

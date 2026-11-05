@@ -705,6 +705,12 @@ func (TrailState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trailState)(nil)).Elem()
 }
 
+// TrailExists checks whether an existing Trail resource with the given ID exists.
+func TrailExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrailState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudtrail/trail:Trail", id, state, "", opts...)
+}
+
 type trailArgs struct {
 	// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
 	AdvancedEventSelectors []TrailAdvancedEventSelector `pulumi:"advancedEventSelectors"`

@@ -139,6 +139,12 @@ func (InboundConnectionAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inboundConnectionAccepterState)(nil)).Elem()
 }
 
+// InboundConnectionAccepterExists checks whether an existing InboundConnectionAccepter resource with the given ID exists.
+func InboundConnectionAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InboundConnectionAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter", id, state, "", opts...)
+}
+
 type inboundConnectionAccepterArgs struct {
 	// Specifies the ID of the connection to accept.
 	ConnectionId string `pulumi:"connectionId"`

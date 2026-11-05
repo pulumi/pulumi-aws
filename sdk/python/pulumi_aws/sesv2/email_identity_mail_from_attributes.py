@@ -309,6 +309,20 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return EmailIdentityMailFromAttributes(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            behavior_on_mx_failure: pulumi.Input[Optional[_builtins.str]] = None,
+            email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            mail_from_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["behaviorOnMxFailure"] = behavior_on_mx_failure
+        __props__["emailIdentity"] = email_identity
+        __props__["mailFromDomain"] = mail_from_domain
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="behaviorOnMxFailure")
     def behavior_on_mx_failure(self) -> pulumi.Output[Optional[_builtins.str]]:

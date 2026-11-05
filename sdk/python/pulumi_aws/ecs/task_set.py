@@ -929,6 +929,54 @@ class TaskSet(pulumi.CustomResource):
         __props__.__dict__["wait_until_stable_timeout"] = wait_until_stable_timeout
         return TaskSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyArgs', 'TaskSetCapacityProviderStrategyArgsDict', 'outputs.TaskSetCapacityProviderStrategy']]]]] = None,
+            cluster: pulumi.Input[Optional[_builtins.str]] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            launch_type: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict', 'outputs.TaskSetLoadBalancer']]]]] = None,
+            network_configuration: pulumi.Input[Optional[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict', 'outputs.TaskSetNetworkConfiguration']]] = None,
+            platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scale: pulumi.Input[Optional[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict', 'outputs.TaskSetScale']]] = None,
+            service: pulumi.Input[Optional[_builtins.str]] = None,
+            service_registries: pulumi.Input[Optional[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict', 'outputs.TaskSetServiceRegistries']]] = None,
+            stability_status: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            task_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            task_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            wait_until_stable: pulumi.Input[Optional[_builtins.bool]] = None,
+            wait_until_stable_timeout: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["capacityProviderStrategies"] = capacity_provider_strategies
+        __props__["cluster"] = cluster
+        __props__["externalId"] = external_id
+        __props__["forceDelete"] = force_delete
+        __props__["launchType"] = launch_type
+        __props__["loadBalancers"] = load_balancers
+        __props__["networkConfiguration"] = network_configuration
+        __props__["platformVersion"] = platform_version
+        __props__["region"] = region
+        __props__["scale"] = scale
+        __props__["service"] = service
+        __props__["serviceRegistries"] = service_registries
+        __props__["stabilityStatus"] = stability_status
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["taskDefinition"] = task_definition
+        __props__["taskSetId"] = task_set_id
+        __props__["waitUntilStable"] = wait_until_stable
+        __props__["waitUntilStableTimeout"] = wait_until_stable_timeout
+        return pulumi.runtime.exists_resource(None, 'aws:ecs/taskSet:TaskSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

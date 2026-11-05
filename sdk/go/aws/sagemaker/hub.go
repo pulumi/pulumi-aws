@@ -154,6 +154,12 @@ func (HubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubState)(nil)).Elem()
 }
 
+// HubExists checks whether an existing Hub resource with the given ID exists.
+func HubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/hub:Hub", id, state, "", opts...)
+}
+
 type hubArgs struct {
 	// A description of the hub.
 	HubDescription string `pulumi:"hubDescription"`

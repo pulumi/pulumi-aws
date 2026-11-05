@@ -268,6 +268,18 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return EmailIdentityFeedbackAttributes(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            email_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["emailForwardingEnabled"] = email_forwarding_enabled
+        __props__["emailIdentity"] = email_identity
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="emailForwardingEnabled")
     def email_forwarding_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

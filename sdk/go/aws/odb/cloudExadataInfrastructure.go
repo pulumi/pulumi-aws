@@ -325,6 +325,12 @@ func (CloudExadataInfrastructureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudExadataInfrastructureState)(nil)).Elem()
 }
 
+// CloudExadataInfrastructureExists checks whether an existing CloudExadataInfrastructure resource with the given ID exists.
+func CloudExadataInfrastructureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudExadataInfrastructureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure", id, state, "", opts...)
+}
+
 type cloudExadataInfrastructureArgs struct {
 	// Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
 	AvailabilityZone *string `pulumi:"availabilityZone"`

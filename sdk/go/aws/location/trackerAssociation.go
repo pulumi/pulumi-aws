@@ -128,6 +128,12 @@ func (TrackerAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trackerAssociationState)(nil)).Elem()
 }
 
+// TrackerAssociationExists checks whether an existing TrackerAssociation resource with the given ID exists.
+func TrackerAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrackerAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:location/trackerAssociation:TrackerAssociation", id, state, "", opts...)
+}
+
 type trackerAssociationArgs struct {
 	// ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
 	ConsumerArn string `pulumi:"consumerArn"`

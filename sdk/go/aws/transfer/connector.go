@@ -247,6 +247,12 @@ func (ConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorState)(nil)).Elem()
 }
 
+// ConnectorExists checks whether an existing Connector resource with the given ID exists.
+func ConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/connector:Connector", id, state, "", opts...)
+}
+
 type connectorArgs struct {
 	// IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole string `pulumi:"accessRole"`

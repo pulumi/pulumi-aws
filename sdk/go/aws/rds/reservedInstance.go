@@ -230,6 +230,12 @@ func (ReservedInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reservedInstanceState)(nil)).Elem()
 }
 
+// ReservedInstanceExists checks whether an existing ReservedInstance resource with the given ID exists.
+func ReservedInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReservedInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/reservedInstance:ReservedInstance", id, state, "", opts...)
+}
+
 type reservedInstanceArgs struct {
 	// Number of instances to reserve. Default value is `1`.
 	InstanceCount *int `pulumi:"instanceCount"`

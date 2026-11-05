@@ -154,6 +154,12 @@ func (GroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupState)(nil)).Elem()
 }
 
+// GroupExists checks whether an existing Group resource with the given ID exists.
+func GroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resourcegroups/group:Group", id, state, "", opts...)
+}
+
 type groupArgs struct {
 	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
 	Configurations []GroupConfiguration `pulumi:"configurations"`

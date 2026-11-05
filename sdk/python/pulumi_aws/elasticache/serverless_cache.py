@@ -1054,6 +1054,58 @@ class ServerlessCache(pulumi.CustomResource):
         __props__.__dict__["user_group_id"] = user_group_id
         return ServerlessCache(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict', 'outputs.ServerlessCacheCacheUsageLimits']]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict', 'outputs.ServerlessCacheEndpoint']]]]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            full_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            reader_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict', 'outputs.ServerlessCacheReaderEndpoint']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict', 'outputs.ServerlessCacheTimeouts']]] = None,
+            user_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cacheUsageLimits"] = cache_usage_limits
+        __props__["createTime"] = create_time
+        __props__["dailySnapshotTime"] = daily_snapshot_time
+        __props__["description"] = description
+        __props__["endpoints"] = endpoints
+        __props__["engine"] = engine
+        __props__["fullEngineVersion"] = full_engine_version
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["majorEngineVersion"] = major_engine_version
+        __props__["name"] = name
+        __props__["networkType"] = network_type
+        __props__["readerEndpoints"] = reader_endpoints
+        __props__["region"] = region
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["snapshotArnsToRestores"] = snapshot_arns_to_restores
+        __props__["snapshotRetentionLimit"] = snapshot_retention_limit
+        __props__["status"] = status
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["userGroupId"] = user_group_id
+        return pulumi.runtime.exists_resource(None, 'aws:elasticache/serverlessCache:ServerlessCache', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

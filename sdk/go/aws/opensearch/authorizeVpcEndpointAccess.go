@@ -129,6 +129,12 @@ func (AuthorizeVpcEndpointAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizeVpcEndpointAccessState)(nil)).Elem()
 }
 
+// AuthorizeVpcEndpointAccessExists checks whether an existing AuthorizeVpcEndpointAccess resource with the given ID exists.
+func AuthorizeVpcEndpointAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthorizeVpcEndpointAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess", id, state, "", opts...)
+}
+
 type authorizeVpcEndpointAccessArgs struct {
 	// AWS account ID to grant access to.
 	Account string `pulumi:"account"`

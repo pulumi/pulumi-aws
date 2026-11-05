@@ -17,20 +17,18 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
     public static final GetPolicyDocumentPlainArgs Empty = new GetPolicyDocumentPlainArgs();
 
     /**
-     * @deprecated
-     * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+     * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+    @Deprecated
     @Import(name="overrideJson")
     private @Nullable String overrideJson;
 
     /**
-     * @deprecated
-     * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+     * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+    @Deprecated
     public Optional<String> overrideJson() {
         return Optional.ofNullable(this.overrideJson);
     }
@@ -66,20 +64,18 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * @deprecated
-     * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+     * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+    @Deprecated
     @Import(name="sourceJson")
     private @Nullable String sourceJson;
 
     /**
-     * @deprecated
-     * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+     * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+    @Deprecated
     public Optional<String> sourceJson() {
         return Optional.ofNullable(this.sourceJson);
     }
@@ -162,11 +158,10 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
         /**
          * @return builder
          * 
-         * @deprecated
-         * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+         * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
          * 
          */
-        @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+        @Deprecated
         public Builder overrideJson(@Nullable String overrideJson) {
             $.overrideJson = overrideJson;
             return this;
@@ -207,11 +202,10 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
         /**
          * @return builder
          * 
-         * @deprecated
-         * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
+         * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
          * 
          */
-        @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
+        @Deprecated
         public Builder sourceJson(@Nullable String sourceJson) {
             $.sourceJson = sourceJson;
             return this;

@@ -594,6 +594,36 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return VpcIpamPoolCidrAllocation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disallowed_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipam_pool_allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidr"] = cidr
+        __props__["description"] = description
+        __props__["disallowedCidrs"] = disallowed_cidrs
+        __props__["ipamPoolAllocationId"] = ipam_pool_allocation_id
+        __props__["ipamPoolId"] = ipam_pool_id
+        __props__["netmaskLength"] = netmask_length
+        __props__["region"] = region
+        __props__["resourceId"] = resource_id
+        __props__["resourceOwner"] = resource_owner
+        __props__["resourceType"] = resource_type
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[_builtins.str]:

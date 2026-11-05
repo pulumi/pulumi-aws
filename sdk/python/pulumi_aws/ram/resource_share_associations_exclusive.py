@@ -526,6 +526,22 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         __props__.__dict__["sources"] = sources
         return ResourceShareAssociationsExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_share_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["principals"] = principals
+        __props__["region"] = region
+        __props__["resourceArns"] = resource_arns
+        __props__["resourceShareArn"] = resource_share_arn
+        __props__["sources"] = sources
+        return pulumi.runtime.exists_resource(None, 'aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def principals(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

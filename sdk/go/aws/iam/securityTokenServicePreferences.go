@@ -92,6 +92,12 @@ func (SecurityTokenServicePreferencesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityTokenServicePreferencesState)(nil)).Elem()
 }
 
+// SecurityTokenServicePreferencesExists checks whether an existing SecurityTokenServicePreferences resource with the given ID exists.
+func SecurityTokenServicePreferencesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityTokenServicePreferencesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences", id, state, "", opts...)
+}
+
 type securityTokenServicePreferencesArgs struct {
 	// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
 	GlobalEndpointTokenVersion string `pulumi:"globalEndpointTokenVersion"`

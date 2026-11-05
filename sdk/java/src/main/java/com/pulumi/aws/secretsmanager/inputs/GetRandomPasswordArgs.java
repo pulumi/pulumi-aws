@@ -63,14 +63,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+     * Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ &#92; ] ^ _ ` { | } ~ .``
      * 
      */
     @Import(name="excludePunctuation")
     private @Nullable Output<Boolean> excludePunctuation;
 
     /**
-     * @return Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+     * @return Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ &#92; ] ^ _ ` { | } ~ .``
      * 
      */
     public Optional<Output<Boolean>> excludePunctuation() {
@@ -248,7 +248,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludePunctuation Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ &#92; ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludePunctuation Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ &#92; ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 

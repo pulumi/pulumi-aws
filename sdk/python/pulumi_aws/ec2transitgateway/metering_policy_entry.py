@@ -733,6 +733,40 @@ class MeteringPolicyEntry(pulumi.CustomResource):
         __props__.__dict__["transit_gateway_metering_policy_id"] = transit_gateway_metering_policy_id
         return MeteringPolicyEntry(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_transit_gateway_attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            metered_account: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+            source_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_transit_gateway_attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['MeteringPolicyEntryTimeoutsArgs', 'MeteringPolicyEntryTimeoutsArgsDict', 'outputs.MeteringPolicyEntryTimeouts']]] = None,
+            transit_gateway_metering_policy_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destinationCidrBlock"] = destination_cidr_block
+        __props__["destinationPortRange"] = destination_port_range
+        __props__["destinationTransitGatewayAttachmentId"] = destination_transit_gateway_attachment_id
+        __props__["destinationTransitGatewayAttachmentType"] = destination_transit_gateway_attachment_type
+        __props__["meteredAccount"] = metered_account
+        __props__["policyRuleNumber"] = policy_rule_number
+        __props__["protocol"] = protocol
+        __props__["region"] = region
+        __props__["sourceCidrBlock"] = source_cidr_block
+        __props__["sourcePortRange"] = source_port_range
+        __props__["sourceTransitGatewayAttachmentId"] = source_transit_gateway_attachment_id
+        __props__["sourceTransitGatewayAttachmentType"] = source_transit_gateway_attachment_type
+        __props__["timeouts"] = timeouts
+        __props__["transitGatewayMeteringPolicyId"] = transit_gateway_metering_policy_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/meteringPolicyEntry:MeteringPolicyEntry', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[Optional[_builtins.str]]:

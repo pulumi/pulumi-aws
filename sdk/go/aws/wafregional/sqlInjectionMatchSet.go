@@ -116,6 +116,12 @@ func (SqlInjectionMatchSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlInjectionMatchSetState)(nil)).Elem()
 }
 
+// SqlInjectionMatchSetExists checks whether an existing SqlInjectionMatchSet resource with the given ID exists.
+func SqlInjectionMatchSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlInjectionMatchSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet", id, state, "", opts...)
+}
+
 type sqlInjectionMatchSetArgs struct {
 	// The name or description of the SizeConstraintSet.
 	Name *string `pulumi:"name"`

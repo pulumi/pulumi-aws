@@ -426,7 +426,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> NetworkMode { get; private set; } = null!;
 
         /// <summary>
-        /// Process namespace to use for the containers in the task. Valid values: host`, `Task`.
+        /// Process namespace to use for the containers in the task. Valid values: host` ,  `Task`.
         /// </summary>
         [Output("pidMode")]
         public Output<string?> PidMode { get; private set; } = null!;
@@ -610,7 +610,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? NetworkMode { get; set; }
 
         /// <summary>
-        /// Process namespace to use for the containers in the task. Valid values: host`, `Task`.
+        /// Process namespace to use for the containers in the task. Valid values: host` ,  `Task`.
         /// </summary>
         [Input("pidMode")]
         public Input<string>? PidMode { get; set; }
@@ -780,7 +780,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? NetworkMode { get; set; }
 
         /// <summary>
-        /// Process namespace to use for the containers in the task. Valid values: host`, `Task`.
+        /// Process namespace to use for the containers in the task. Valid values: host` ,  `Task`.
         /// </summary>
         [Input("pidMode")]
         public Input<string>? PidMode { get; set; }

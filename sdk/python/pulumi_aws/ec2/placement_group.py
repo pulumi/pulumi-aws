@@ -442,6 +442,30 @@ class PlacementGroup(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return PlacementGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+            placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            spread_level: pulumi.Input[Optional[_builtins.str]] = None,
+            strategy: pulumi.Input[Optional[Union[_builtins.str, 'PlacementStrategy']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["partitionCount"] = partition_count
+        __props__["placementGroupId"] = placement_group_id
+        __props__["region"] = region
+        __props__["spreadLevel"] = spread_level
+        __props__["strategy"] = strategy
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/placementGroup:PlacementGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

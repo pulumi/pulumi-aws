@@ -122,6 +122,12 @@ func (RegionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*regionState)(nil)).Elem()
 }
 
+// RegionExists checks whether an existing Region resource with the given ID exists.
+func RegionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:account/region:Region", id, state, "", opts...)
+}
+
 type regionArgs struct {
 	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
 	AccountId *string `pulumi:"accountId"`

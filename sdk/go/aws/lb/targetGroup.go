@@ -496,6 +496,12 @@ func (TargetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupState)(nil)).Elem()
 }
 
+// TargetGroupExists checks whether an existing TargetGroup resource with the given ID exists.
+func TargetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TargetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lb/targetGroup:TargetGroup", id, state, "", opts...)
+}
+
 type targetGroupArgs struct {
 	// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
 	ConnectionTermination *bool `pulumi:"connectionTermination"`

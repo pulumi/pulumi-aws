@@ -169,6 +169,12 @@ func (VpcIpamScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamScopeState)(nil)).Elem()
 }
 
+// VpcIpamScopeExists checks whether an existing VpcIpamScope resource with the given ID exists.
+func VpcIpamScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpamScope:VpcIpamScope", id, state, "", opts...)
+}
+
 type vpcIpamScopeArgs struct {
 	// Description for the scope you're creating.
 	Description *string `pulumi:"description"`

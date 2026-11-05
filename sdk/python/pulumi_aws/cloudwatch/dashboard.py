@@ -371,6 +371,20 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dashboard_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_body: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dashboardArn"] = dashboard_arn
+        __props__["dashboardBody"] = dashboard_body
+        __props__["dashboardName"] = dashboard_name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/dashboard:Dashboard', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> pulumi.Output[_builtins.str]:

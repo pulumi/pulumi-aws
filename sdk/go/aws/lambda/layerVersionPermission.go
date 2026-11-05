@@ -308,6 +308,12 @@ func (LayerVersionPermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*layerVersionPermissionState)(nil)).Elem()
 }
 
+// LayerVersionPermissionExists checks whether an existing LayerVersionPermission resource with the given ID exists.
+func LayerVersionPermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LayerVersionPermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/layerVersionPermission:LayerVersionPermission", id, state, "", opts...)
+}
+
 type layerVersionPermissionArgs struct {
 	// Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
 	Action string `pulumi:"action"`

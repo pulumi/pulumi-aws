@@ -149,6 +149,12 @@ func (CostAllocationTagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*costAllocationTagState)(nil)).Elem()
 }
 
+// CostAllocationTagExists checks whether an existing CostAllocationTag resource with the given ID exists.
+func CostAllocationTagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CostAllocationTagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:costexplorer/costAllocationTag:CostAllocationTag", id, state, "", opts...)
+}
+
 type costAllocationTagArgs struct {
 	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status string `pulumi:"status"`

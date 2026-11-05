@@ -263,12 +263,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var stopInstances = new EventRule("stopInstances", EventRuleArgs.builder()
  *             .name("StopInstance")
  *             .description("Stop instances nightly")
@@ -282,13 +282,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .targetId("StopInstance")
  *             .arn(String.format("arn:aws:ssm:%s::document/AWS-RunShellScript", awsRegion))
- *             .input("{\"commands\":[\"halt\"]}")
+ *             .input("}{&#92;{@code "commands}&#92;{@code ":[}&#92;{@code "halt}&#92;{@code "]}}{@code ")
  *             .rule(stopInstances.name())
  *             .roleArn(ssmLifecycle.get("arn"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -322,12 +322,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -356,7 +356,7 @@ import javax.annotation.Nullable;
  *                     .actions("ecs:RunTask")
  *                     .resources(StdFunctions.replace(ReplaceArgs.builder()
  *                         .text(taskName.get("arn"))
- *                         .search("/:\\d+$/")
+ *                         .search("/:}&#92;&#92;{@code d+$/")
  *                         .replace(":*")
  *                         .build()).result())
  *                     .build())
@@ -389,8 +389,8 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -557,12 +557,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleEventRule = new EventRule("exampleEventRule");
  * 
  *         var example = new EventTarget("example", EventTargetArgs.builder()
@@ -572,18 +572,18 @@ import javax.annotation.Nullable;
  *                     Map.entry("status", "$.detail.status")
  *                 ))
  *                 .inputTemplate("""
- * {
- *   \"instance_id\": <instance>,
- *   \"instance_status\": <status>
- * }
+ * }{{@code
+ *   }&#92;{@code "instance_id}&#92;{@code ": <instance>,
+ *   }&#92;{@code "instance_status}&#92;{@code ": <status>
+ * }}{@code
  *                 """)
  *                 .build())
  *             .arn(exampleAwsLambdaFunction.get("arn"))
  *             .rule(exampleEventRule.name())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -607,12 +607,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleEventRule = new EventRule("exampleEventRule");
  * 
  *         var example = new EventTarget("example", EventTargetArgs.builder()
@@ -621,14 +621,14 @@ import javax.annotation.Nullable;
  *                     Map.entry("instance", "$.detail.instance"),
  *                     Map.entry("status", "$.detail.status")
  *                 ))
- *                 .inputTemplate("\"<instance> is in state <status>\"")
+ *                 .inputTemplate("}&#92;{@code "<instance> is in state <status>}&#92;{@code "")
  *                 .build())
  *             .arn(exampleAwsLambdaFunction.get("arn"))
  *             .rule(exampleEventRule.name())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -765,12 +765,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var invokeAppsyncMutation = new EventRule("invokeAppsyncMutation", EventRuleArgs.builder()
  *             .name("invoke-appsync-mutation")
  *             .description("schedule_batch_test")
@@ -796,26 +796,26 @@ import javax.annotation.Nullable;
  *             .name("api")
  *             .authenticationType("AWS_IAM")
  *             .schema("""
- *     schema {
+ *     schema }{{@code
  *       mutation: Mutation
  *       query: Query
- *     }
+ *     }}{@code
  * 
- *     type Query {
+ *     type Query }{{@code
  *       testQuery: String
- *     }
+ *     }}{@code
  * 
- *     type Mutation {
+ *     type Mutation }{{@code
  *       testMutation(input: MutationInput!): TestMutationResult
- *     }
+ *     }}{@code
  * 
- *     type TestMutationResult {
+ *     type TestMutationResult }{{@code
  *       test: String
- *     }
+ *     }}{@code
  * 
- *     input MutationInput {
+ *     input MutationInput }{{@code
  *       testInput: String
- *     }
+ *     }}{@code
  *             """)
  *             .build());
  * 
@@ -823,13 +823,13 @@ import javax.annotation.Nullable;
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
  *                 .inputPaths(Map.of("input", "$.detail.input"))
  *                 .inputTemplate("""
- *       {
- *         \"input\": <input>
- *       }
+ *       }{{@code
+ *         }&#92;{@code "input}&#92;{@code ": <input>
+ *       }}{@code
  *                 """)
  *                 .build())
  *             .appsyncTarget(EventTargetAppsyncTargetArgs.builder()
- *                 .graphqlOperation("mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}")
+ *                 .graphqlOperation("mutation TestMutation($input:MutationInput!)}{{@code testMutation(input: $input) }{{@code test}}}{@code ")
  *                 .build())
  *             .arn(StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(graphql_api.arn())
@@ -858,8 +858,8 @@ import javax.annotation.Nullable;
  *             .role(appsyncMutationRole.name())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

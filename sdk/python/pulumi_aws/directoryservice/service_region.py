@@ -525,6 +525,26 @@ class ServiceRegion(pulumi.CustomResource):
         __props__.__dict__["vpc_settings"] = vpc_settings
         return ServiceRegion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            desired_number_of_domain_controllers: pulumi.Input[Optional[_builtins.int]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            region_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_settings: pulumi.Input[Optional[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict', 'outputs.ServiceRegionVpcSettings']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["desiredNumberOfDomainControllers"] = desired_number_of_domain_controllers
+        __props__["directoryId"] = directory_id
+        __props__["region"] = region
+        __props__["regionName"] = region_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcSettings"] = vpc_settings
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservice/serviceRegion:ServiceRegion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
     def desired_number_of_domain_controllers(self) -> pulumi.Output[_builtins.int]:

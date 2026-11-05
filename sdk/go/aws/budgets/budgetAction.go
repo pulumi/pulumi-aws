@@ -296,6 +296,12 @@ func (BudgetActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetActionState)(nil)).Elem()
 }
 
+// BudgetActionExists checks whether an existing BudgetAction resource with the given ID exists.
+func BudgetActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BudgetActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:budgets/budgetAction:BudgetAction", id, state, "", opts...)
+}
+
 type budgetActionArgs struct {
 	// ID of the target account for the budget. Uses the current user's account ID by default if omitted.
 	AccountId *string `pulumi:"accountId"`

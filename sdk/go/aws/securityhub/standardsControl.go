@@ -189,6 +189,12 @@ func (StandardsControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*standardsControlState)(nil)).Elem()
 }
 
+// StandardsControlExists checks whether an existing StandardsControl resource with the given ID exists.
+func StandardsControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StandardsControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/standardsControl:StandardsControl", id, state, "", opts...)
+}
+
 type standardsControlArgs struct {
 	// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
 	ControlStatus string `pulumi:"controlStatus"`

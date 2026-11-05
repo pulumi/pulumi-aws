@@ -528,6 +528,12 @@ func (S3EndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*s3endpointState)(nil)).Elem()
 }
 
+// S3EndpointExists checks whether an existing S3Endpoint resource with the given ID exists.
+func S3EndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *S3EndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dms/s3Endpoint:S3Endpoint", id, state, "", opts...)
+}
+
 type s3endpointArgs struct {
 	// Whether to add column name information to the `.csv` output file. Default is `false`.
 	AddColumnName *bool `pulumi:"addColumnName"`

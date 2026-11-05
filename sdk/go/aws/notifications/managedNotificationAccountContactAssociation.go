@@ -112,6 +112,12 @@ func (ManagedNotificationAccountContactAssociationState) ElementType() reflect.T
 	return reflect.TypeOf((*managedNotificationAccountContactAssociationState)(nil)).Elem()
 }
 
+// ManagedNotificationAccountContactAssociationExists checks whether an existing ManagedNotificationAccountContactAssociation resource with the given ID exists.
+func ManagedNotificationAccountContactAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedNotificationAccountContactAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:notifications/managedNotificationAccountContactAssociation:ManagedNotificationAccountContactAssociation", id, state, "", opts...)
+}
+
 type managedNotificationAccountContactAssociationArgs struct {
 	// A unique value of an Account Contact Type to associate with the ManagedNotificationConfiguration. Valid values: `ACCOUNT_PRIMARY`, `ACCOUNT_ALTERNATE_BILLING`, `ACCOUNT_ALTERNATE_OPERATIONS`, `ACCOUNT_ALTERNATE_SECURITY`.
 	ContactIdentifier string `pulumi:"contactIdentifier"`

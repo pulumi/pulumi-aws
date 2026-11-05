@@ -803,6 +803,44 @@ class Analysis(pulumi.CustomResource):
         __props__.__dict__["theme_arn"] = theme_arn
         return Analysis(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            last_published_time: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]]] = None,
+            recovery_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            theme_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["analysisId"] = analysis_id
+        __props__["arn"] = arn
+        __props__["awsAccountId"] = aws_account_id
+        __props__["createdTime"] = created_time
+        __props__["lastPublishedTime"] = last_published_time
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["permissions"] = permissions
+        __props__["recoveryWindowInDays"] = recovery_window_in_days
+        __props__["region"] = region
+        __props__["sourceEntity"] = source_entity
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["themeArn"] = theme_arn
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/analysis:Analysis', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="analysisId")
     def analysis_id(self) -> pulumi.Output[_builtins.str]:

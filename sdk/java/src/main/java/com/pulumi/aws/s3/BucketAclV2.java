@@ -274,11 +274,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
  * ```
  * 
- * @deprecated
- * aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl
+ * @deprecated aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl
  * 
  */
-@Deprecated /* aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl */
+@Deprecated
 @ResourceType(type="aws:s3/bucketAclV2:BucketAclV2")
 public class BucketAclV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -326,11 +325,10 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

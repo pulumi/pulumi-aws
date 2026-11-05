@@ -476,6 +476,32 @@ class UsagePlan(pulumi.CustomResource):
         __props__.__dict__["throttle_settings"] = throttle_settings
         return UsagePlan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict', 'outputs.UsagePlanApiStage']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_code: pulumi.Input[Optional[_builtins.str]] = None,
+            quota_settings: pulumi.Input[Optional[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict', 'outputs.UsagePlanQuotaSettings']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throttle_settings: pulumi.Input[Optional[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict', 'outputs.UsagePlanThrottleSettings']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiStages"] = api_stages
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["productCode"] = product_code
+        __props__["quotaSettings"] = quota_settings
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throttleSettings"] = throttle_settings
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/usagePlan:UsagePlan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiStages")
     def api_stages(self) -> pulumi.Output[Optional[Sequence['outputs.UsagePlanApiStage']]]:

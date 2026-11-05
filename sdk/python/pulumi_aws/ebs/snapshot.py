@@ -633,6 +633,44 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["volume_size"] = volume_size
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_encryption_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            permanent_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            temporary_restore_days: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_size: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dataEncryptionKeyId"] = data_encryption_key_id
+        __props__["description"] = description
+        __props__["encrypted"] = encrypted
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["outpostArn"] = outpost_arn
+        __props__["ownerAlias"] = owner_alias
+        __props__["ownerId"] = owner_id
+        __props__["permanentRestore"] = permanent_restore
+        __props__["region"] = region
+        __props__["storageTier"] = storage_tier
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["temporaryRestoreDays"] = temporary_restore_days
+        __props__["volumeId"] = volume_id
+        __props__["volumeSize"] = volume_size
+        return pulumi.runtime.exists_resource(None, 'aws:ebs/snapshot:Snapshot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

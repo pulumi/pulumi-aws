@@ -135,6 +135,12 @@ func (ServiceNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceNetworkState)(nil)).Elem()
 }
 
+// ServiceNetworkExists checks whether an existing ServiceNetwork resource with the given ID exists.
+func ServiceNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/serviceNetwork:ServiceNetwork", id, state, "", opts...)
+}
+
 type serviceNetworkArgs struct {
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType *string `pulumi:"authType"`

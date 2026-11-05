@@ -351,6 +351,22 @@ class GroupMembership(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return GroupMembership(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            member_id: pulumi.Input[Optional[_builtins.str]] = None,
+            membership_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupId"] = group_id
+        __props__["identityStoreId"] = identity_store_id
+        __props__["memberId"] = member_id
+        __props__["membershipId"] = membership_id
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:identitystore/groupMembership:GroupMembership', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[_builtins.str]:

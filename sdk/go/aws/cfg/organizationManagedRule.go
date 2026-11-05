@@ -194,6 +194,12 @@ func (OrganizationManagedRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationManagedRuleState)(nil)).Elem()
 }
 
+// OrganizationManagedRuleExists checks whether an existing OrganizationManagedRule resource with the given ID exists.
+func OrganizationManagedRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationManagedRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/organizationManagedRule:OrganizationManagedRule", id, state, "", opts...)
+}
+
 type organizationManagedRuleArgs struct {
 	// Description of the rule
 	Description *string `pulumi:"description"`

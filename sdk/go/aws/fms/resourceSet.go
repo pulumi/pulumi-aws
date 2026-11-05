@@ -129,6 +129,12 @@ func (ResourceSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceSetState)(nil)).Elem()
 }
 
+// ResourceSetExists checks whether an existing ResourceSet resource with the given ID exists.
+func ResourceSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fms/resourceSet:ResourceSet", id, state, "", opts...)
+}
+
 type resourceSetArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -71,22 +71,20 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
     /**
      * (**Deprecated**) ARN of the current deployment.
      * 
-     * @deprecated
-     * This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future verion of the provider. */
+    @Deprecated
     @Import(name="currentDeployment")
     private @Nullable Output<String> currentDeployment;
 
     /**
      * @return (**Deprecated**) ARN of the current deployment.
      * 
-     * @deprecated
-     * This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future verion of the provider. */
+    @Deprecated
     public Optional<Output<String>> currentDeployment() {
         return Optional.ofNullable(this.currentDeployment);
     }
@@ -446,11 +444,10 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future verion of the provider.
+         * @deprecated This attribute will be removed in a future verion of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future verion of the provider. */
+        @Deprecated
         public Builder currentDeployment(@Nullable Output<String> currentDeployment) {
             $.currentDeployment = currentDeployment;
             return this;
@@ -461,11 +458,10 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future verion of the provider.
+         * @deprecated This attribute will be removed in a future verion of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future verion of the provider. */
+        @Deprecated
         public Builder currentDeployment(String currentDeployment) {
             return currentDeployment(Output.of(currentDeployment));
         }

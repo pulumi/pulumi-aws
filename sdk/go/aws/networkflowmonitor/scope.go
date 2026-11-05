@@ -159,6 +159,12 @@ func (ScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scopeState)(nil)).Elem()
 }
 
+// ScopeExists checks whether an existing Scope resource with the given ID exists.
+func ScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkflowmonitor/scope:Scope", id, state, "", opts...)
+}
+
 type scopeArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -386,6 +386,26 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["server_properties"] = server_properties
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            latest_revision: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_properties: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["kafkaVersions"] = kafka_versions
+        __props__["latestRevision"] = latest_revision
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["serverProperties"] = server_properties
+        return pulumi.runtime.exists_resource(None, 'aws:msk/configuration:Configuration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

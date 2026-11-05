@@ -356,6 +356,26 @@ class SamlProvider(pulumi.CustomResource):
         __props__.__dict__["valid_until"] = valid_until
         return SamlProvider(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_metadata_document: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_provider_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["samlMetadataDocument"] = saml_metadata_document
+        __props__["samlProviderUuid"] = saml_provider_uuid
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["validUntil"] = valid_until
+        return pulumi.runtime.exists_resource(None, 'aws:iam/samlProvider:SamlProvider', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

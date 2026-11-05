@@ -116,6 +116,12 @@ func (SingleScramSecretAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*singleScramSecretAssociationState)(nil)).Elem()
 }
 
+// SingleScramSecretAssociationExists checks whether an existing SingleScramSecretAssociation resource with the given ID exists.
+func SingleScramSecretAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SingleScramSecretAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation", id, state, "", opts...)
+}
+
 type singleScramSecretAssociationArgs struct {
 	// ARN of the MSK cluster.
 	ClusterArn string `pulumi:"clusterArn"`

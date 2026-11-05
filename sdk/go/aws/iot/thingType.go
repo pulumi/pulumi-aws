@@ -132,6 +132,12 @@ func (ThingTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingTypeState)(nil)).Elem()
 }
 
+// ThingTypeExists checks whether an existing ThingType resource with the given ID exists.
+func ThingTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThingTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/thingType:ThingType", id, state, "", opts...)
+}
+
 type thingTypeArgs struct {
 	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
 	Deprecated *bool `pulumi:"deprecated"`

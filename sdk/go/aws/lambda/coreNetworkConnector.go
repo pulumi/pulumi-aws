@@ -219,6 +219,12 @@ func (CoreNetworkConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*coreNetworkConnectorState)(nil)).Elem()
 }
 
+// CoreNetworkConnectorExists checks whether an existing CoreNetworkConnector resource with the given ID exists.
+func CoreNetworkConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CoreNetworkConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/coreNetworkConnector:CoreNetworkConnector", id, state, "", opts...)
+}
+
 type coreNetworkConnectorArgs struct {
 	// Network configuration of the connector. See `configuration` Block below.
 	Configuration CoreNetworkConnectorConfiguration `pulumi:"configuration"`

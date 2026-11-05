@@ -376,6 +376,24 @@ class TrustStoreRevocation(pulumi.CustomResource):
         __props__.__dict__["trust_store_arn"] = trust_store_arn
         return TrustStoreRevocation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_id: pulumi.Input[Optional[_builtins.int]] = None,
+            revocations_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            revocations_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+            revocations_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["revocationId"] = revocation_id
+        __props__["revocationsS3Bucket"] = revocations_s3_bucket
+        __props__["revocationsS3Key"] = revocations_s3_key
+        __props__["revocationsS3ObjectVersion"] = revocations_s3_object_version
+        __props__["trustStoreArn"] = trust_store_arn
+        return pulumi.runtime.exists_resource(None, 'aws:lb/trustStoreRevocation:TrustStoreRevocation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

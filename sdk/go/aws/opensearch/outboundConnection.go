@@ -170,6 +170,12 @@ func (OutboundConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outboundConnectionState)(nil)).Elem()
 }
 
+// OutboundConnectionExists checks whether an existing OutboundConnection resource with the given ID exists.
+func OutboundConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutboundConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/outboundConnection:OutboundConnection", id, state, "", opts...)
+}
+
 type outboundConnectionArgs struct {
 	// Accepts the connection.
 	AcceptConnection *bool `pulumi:"acceptConnection"`

@@ -137,6 +137,12 @@ func (LogStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logStreamState)(nil)).Elem()
 }
 
+// LogStreamExists checks whether an existing LogStream resource with the given ID exists.
+func LogStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logStream:LogStream", id, state, "", opts...)
+}
+
 type logStreamArgs struct {
 	// The name of the log group under which the log stream is to be created.
 	LogGroupName string `pulumi:"logGroupName"`

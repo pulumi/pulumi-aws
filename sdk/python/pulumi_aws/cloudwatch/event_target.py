@@ -1867,6 +1867,54 @@ class EventTarget(pulumi.CustomResource):
         __props__.__dict__["target_id"] = target_id
         return EventTarget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            appsync_target: pulumi.Input[Optional[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict', 'outputs.EventTargetAppsyncTarget']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            batch_target: pulumi.Input[Optional[Union['EventTargetBatchTargetArgs', 'EventTargetBatchTargetArgsDict', 'outputs.EventTargetBatchTarget']]] = None,
+            dead_letter_config: pulumi.Input[Optional[Union['EventTargetDeadLetterConfigArgs', 'EventTargetDeadLetterConfigArgsDict', 'outputs.EventTargetDeadLetterConfig']]] = None,
+            ecs_target: pulumi.Input[Optional[Union['EventTargetEcsTargetArgs', 'EventTargetEcsTargetArgsDict', 'outputs.EventTargetEcsTarget']]] = None,
+            event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            http_target: pulumi.Input[Optional[Union['EventTargetHttpTargetArgs', 'EventTargetHttpTargetArgsDict', 'outputs.EventTargetHttpTarget']]] = None,
+            input: pulumi.Input[Optional[_builtins.str]] = None,
+            input_path: pulumi.Input[Optional[_builtins.str]] = None,
+            input_transformer: pulumi.Input[Optional[Union['EventTargetInputTransformerArgs', 'EventTargetInputTransformerArgsDict', 'outputs.EventTargetInputTransformer']]] = None,
+            kinesis_target: pulumi.Input[Optional[Union['EventTargetKinesisTargetArgs', 'EventTargetKinesisTargetArgsDict', 'outputs.EventTargetKinesisTarget']]] = None,
+            redshift_target: pulumi.Input[Optional[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict', 'outputs.EventTargetRedshiftTarget']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retry_policy: pulumi.Input[Optional[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict', 'outputs.EventTargetRetryPolicy']]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[_builtins.str]] = None,
+            run_command_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTargetRunCommandTargetArgs', 'EventTargetRunCommandTargetArgsDict', 'outputs.EventTargetRunCommandTarget']]]]] = None,
+            sagemaker_pipeline_target: pulumi.Input[Optional[Union['EventTargetSagemakerPipelineTargetArgs', 'EventTargetSagemakerPipelineTargetArgsDict', 'outputs.EventTargetSagemakerPipelineTarget']]] = None,
+            sqs_target: pulumi.Input[Optional[Union['EventTargetSqsTargetArgs', 'EventTargetSqsTargetArgsDict', 'outputs.EventTargetSqsTarget']]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appsyncTarget"] = appsync_target
+        __props__["arn"] = arn
+        __props__["batchTarget"] = batch_target
+        __props__["deadLetterConfig"] = dead_letter_config
+        __props__["ecsTarget"] = ecs_target
+        __props__["eventBusName"] = event_bus_name
+        __props__["forceDestroy"] = force_destroy
+        __props__["httpTarget"] = http_target
+        __props__["input"] = input
+        __props__["inputPath"] = input_path
+        __props__["inputTransformer"] = input_transformer
+        __props__["kinesisTarget"] = kinesis_target
+        __props__["redshiftTarget"] = redshift_target
+        __props__["region"] = region
+        __props__["retryPolicy"] = retry_policy
+        __props__["roleArn"] = role_arn
+        __props__["rule"] = rule
+        __props__["runCommandTargets"] = run_command_targets
+        __props__["sagemakerPipelineTarget"] = sagemaker_pipeline_target
+        __props__["sqsTarget"] = sqs_target
+        __props__["targetId"] = target_id
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/eventTarget:EventTarget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appsyncTarget")
     def appsync_target(self) -> pulumi.Output[Optional['outputs.EventTargetAppsyncTarget']]:

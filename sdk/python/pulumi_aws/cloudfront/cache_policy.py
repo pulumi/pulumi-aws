@@ -467,6 +467,28 @@ class CachePolicy(pulumi.CustomResource):
         __props__.__dict__["parameters_in_cache_key_and_forwarded_to_origin"] = parameters_in_cache_key_and_forwarded_to_origin
         return CachePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            max_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            min_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters_in_cache_key_and_forwarded_to_origin: pulumi.Input[Optional[Union['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs', 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict', 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["comment"] = comment
+        __props__["defaultTtl"] = default_ttl
+        __props__["etag"] = etag
+        __props__["maxTtl"] = max_ttl
+        __props__["minTtl"] = min_ttl
+        __props__["name"] = name
+        __props__["parametersInCacheKeyAndForwardedToOrigin"] = parameters_in_cache_key_and_forwarded_to_origin
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/cachePolicy:CachePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

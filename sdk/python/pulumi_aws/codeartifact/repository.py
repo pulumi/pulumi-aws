@@ -608,6 +608,34 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["upstreams"] = upstreams
         return Repository(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_account: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict', 'outputs.RepositoryExternalConnections']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict', 'outputs.RepositoryUpstream']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administratorAccount"] = administrator_account
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["domain"] = domain
+        __props__["domainOwner"] = domain_owner
+        __props__["externalConnections"] = external_connections
+        __props__["region"] = region
+        __props__["repository"] = repository
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["upstreams"] = upstreams
+        return pulumi.runtime.exists_resource(None, 'aws:codeartifact/repository:Repository', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="administratorAccount")
     def administrator_account(self) -> pulumi.Output[_builtins.str]:

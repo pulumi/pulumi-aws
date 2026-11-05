@@ -601,6 +601,32 @@ class GatewayAssociation(pulumi.CustomResource):
         __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         return GatewayAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            associated_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dx_gateway_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dx_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            proposal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedPrefixes"] = allowed_prefixes
+        __props__["associatedGatewayId"] = associated_gateway_id
+        __props__["associatedGatewayOwnerAccountId"] = associated_gateway_owner_account_id
+        __props__["associatedGatewayType"] = associated_gateway_type
+        __props__["dxGatewayAssociationId"] = dx_gateway_association_id
+        __props__["dxGatewayId"] = dx_gateway_id
+        __props__["dxGatewayOwnerAccountId"] = dx_gateway_owner_account_id
+        __props__["proposalId"] = proposal_id
+        __props__["region"] = region
+        __props__["transitGatewayAttachmentId"] = transit_gateway_attachment_id
+        return pulumi.runtime.exists_resource(None, 'aws:directconnect/gatewayAssociation:GatewayAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedPrefixes")
     def allowed_prefixes(self) -> pulumi.Output[Sequence[_builtins.str]]:

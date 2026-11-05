@@ -509,6 +509,32 @@ class UserProfile(pulumi.CustomResource):
         __props__.__dict__["user_settings"] = user_settings
         return UserProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            home_efs_file_system_uid: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_user_value: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_settings: pulumi.Input[Optional[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict', 'outputs.UserProfileUserSettings']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["domainId"] = domain_id
+        __props__["homeEfsFileSystemUid"] = home_efs_file_system_uid
+        __props__["region"] = region
+        __props__["singleSignOnUserIdentifier"] = single_sign_on_user_identifier
+        __props__["singleSignOnUserValue"] = single_sign_on_user_value
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userProfileName"] = user_profile_name
+        __props__["userSettings"] = user_settings
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/userProfile:UserProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

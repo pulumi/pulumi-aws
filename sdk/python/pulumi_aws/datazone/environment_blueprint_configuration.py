@@ -523,6 +523,28 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         __props__.__dict__["regional_parameters"] = regional_parameters
         return EnvironmentBlueprintConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            environment_blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            global_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            manage_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regional_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domainId"] = domain_id
+        __props__["enabledRegions"] = enabled_regions
+        __props__["environmentBlueprintId"] = environment_blueprint_id
+        __props__["globalParameters"] = global_parameters
+        __props__["manageAccessRoleArn"] = manage_access_role_arn
+        __props__["provisioningRoleArn"] = provisioning_role_arn
+        __props__["region"] = region
+        __props__["regionalParameters"] = regional_parameters
+        return pulumi.runtime.exists_resource(None, 'aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[_builtins.str]:

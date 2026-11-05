@@ -653,6 +653,40 @@ class SecondarySubnet(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return SecondarySubnet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_cidr_block_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondarySubnetIpv4CidrBlockAssociationArgs', 'SecondarySubnetIpv4CidrBlockAssociationArgsDict', 'outputs.SecondarySubnetIpv4CidrBlockAssociation']]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict', 'outputs.SecondarySubnetTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["availabilityZoneId"] = availability_zone_id
+        __props__["ipv4CidrBlock"] = ipv4_cidr_block
+        __props__["ipv4CidrBlockAssociations"] = ipv4_cidr_block_associations
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["secondaryNetworkId"] = secondary_network_id
+        __props__["secondaryNetworkType"] = secondary_network_type
+        __props__["secondarySubnetId"] = secondary_subnet_id
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/secondarySubnet:SecondarySubnet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

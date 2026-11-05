@@ -465,6 +465,32 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict', 'outputs.EndpointNetworkInterface']]]]] = None,
+            outpost_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessType"] = access_type
+        __props__["arn"] = arn
+        __props__["cidrBlock"] = cidr_block
+        __props__["creationTime"] = creation_time
+        __props__["customerOwnedIpv4Pool"] = customer_owned_ipv4_pool
+        __props__["networkInterfaces"] = network_interfaces
+        __props__["outpostId"] = outpost_id
+        __props__["region"] = region
+        __props__["securityGroupId"] = security_group_id
+        __props__["subnetId"] = subnet_id
+        return pulumi.runtime.exists_resource(None, 'aws:s3outposts/endpoint:Endpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessType")
     def access_type(self) -> pulumi.Output[_builtins.str]:

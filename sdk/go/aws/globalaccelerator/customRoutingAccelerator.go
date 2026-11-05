@@ -172,6 +172,12 @@ func (CustomRoutingAcceleratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customRoutingAcceleratorState)(nil)).Elem()
 }
 
+// CustomRoutingAcceleratorExists checks whether an existing CustomRoutingAccelerator resource with the given ID exists.
+func CustomRoutingAcceleratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomRoutingAcceleratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator", id, state, "", opts...)
+}
+
 type customRoutingAcceleratorArgs struct {
 	// Configuration block with accelerator attributes. See `attributes` below.
 	Attributes *CustomRoutingAcceleratorAttributes `pulumi:"attributes"`

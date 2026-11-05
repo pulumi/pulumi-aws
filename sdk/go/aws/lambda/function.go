@@ -1351,6 +1351,12 @@ func (FunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionState)(nil)).Elem()
 }
 
+// FunctionExists checks whether an existing Function resource with the given ID exists.
+func FunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/function:Function", id, state, "", opts...)
+}
+
 type functionArgs struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stays the same.
 	Architectures []string `pulumi:"architectures"`

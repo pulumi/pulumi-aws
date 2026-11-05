@@ -820,6 +820,46 @@ class CertificateAuthority(pulumi.CustomResource):
         __props__.__dict__["usage_mode"] = usage_mode
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_authority_configuration: pulumi.Input[Optional[Union['CertificateAuthorityCertificateAuthorityConfigurationArgs', 'CertificateAuthorityCertificateAuthorityConfigurationArgsDict', 'outputs.CertificateAuthorityCertificateAuthorityConfiguration']]] = None,
+            certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_storage_security_standard: pulumi.Input[Optional[_builtins.str]] = None,
+            not_after: pulumi.Input[Optional[_builtins.str]] = None,
+            not_before: pulumi.Input[Optional[_builtins.str]] = None,
+            permanent_deletion_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_configuration: pulumi.Input[Optional[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict', 'outputs.CertificateAuthorityRevocationConfiguration']]] = None,
+            serial: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_mode: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["certificate"] = certificate
+        __props__["certificateAuthorityConfiguration"] = certificate_authority_configuration
+        __props__["certificateChain"] = certificate_chain
+        __props__["certificateSigningRequest"] = certificate_signing_request
+        __props__["enabled"] = enabled
+        __props__["keyStorageSecurityStandard"] = key_storage_security_standard
+        __props__["notAfter"] = not_after
+        __props__["notBefore"] = not_before
+        __props__["permanentDeletionTimeInDays"] = permanent_deletion_time_in_days
+        __props__["region"] = region
+        __props__["revocationConfiguration"] = revocation_configuration
+        __props__["serial"] = serial
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["usageMode"] = usage_mode
+        return pulumi.runtime.exists_resource(None, 'aws:acmpca/certificateAuthority:CertificateAuthority', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -357,6 +357,24 @@ class WorkspaceApiKey(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceApiKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_role: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            seconds_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["key"] = key
+        __props__["keyName"] = key_name
+        __props__["keyRole"] = key_role
+        __props__["region"] = region
+        __props__["secondsToLive"] = seconds_to_live
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:grafana/workspaceApiKey:WorkspaceApiKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:

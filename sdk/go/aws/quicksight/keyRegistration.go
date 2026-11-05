@@ -122,6 +122,12 @@ func (KeyRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyRegistrationState)(nil)).Elem()
 }
 
+// KeyRegistrationExists checks whether an existing KeyRegistration resource with the given ID exists.
+func KeyRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/keyRegistration:KeyRegistration", id, state, "", opts...)
+}
+
 type keyRegistrationArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

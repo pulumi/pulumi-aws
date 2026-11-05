@@ -298,6 +298,12 @@ func (TopicRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicRuleState)(nil)).Elem()
 }
 
+// TopicRuleExists checks whether an existing TopicRule resource with the given ID exists.
+func TopicRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/topicRule:TopicRule", id, state, "", opts...)
+}
+
 type topicRuleArgs struct {
 	CloudwatchAlarms  []TopicRuleCloudwatchAlarm  `pulumi:"cloudwatchAlarms"`
 	CloudwatchLogs    []TopicRuleCloudwatchLog    `pulumi:"cloudwatchLogs"`

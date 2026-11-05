@@ -788,6 +788,46 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["user_parameters"] = user_parameters
         return Environment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            account_region: pulumi.Input[Optional[_builtins.str]] = None,
+            blueprint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            last_deployments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentLastDeploymentArgs', 'EnvironmentLastDeploymentArgsDict', 'outputs.EnvironmentLastDeployment']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_environment: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProvisionedResourceArgs', 'EnvironmentProvisionedResourceArgsDict', 'outputs.EnvironmentProvisionedResource']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict', 'outputs.EnvironmentTimeouts']]] = None,
+            user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict', 'outputs.EnvironmentUserParameter']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountIdentifier"] = account_identifier
+        __props__["accountRegion"] = account_region
+        __props__["blueprintIdentifier"] = blueprint_identifier
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["description"] = description
+        __props__["domainIdentifier"] = domain_identifier
+        __props__["glossaryTerms"] = glossary_terms
+        __props__["lastDeployments"] = last_deployments
+        __props__["name"] = name
+        __props__["profileIdentifier"] = profile_identifier
+        __props__["projectIdentifier"] = project_identifier
+        __props__["providerEnvironment"] = provider_environment
+        __props__["provisionedResources"] = provisioned_resources
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        __props__["userParameters"] = user_parameters
+        return pulumi.runtime.exists_resource(None, 'aws:datazone/environment:Environment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountIdentifier")
     def account_identifier(self) -> pulumi.Output[_builtins.str]:

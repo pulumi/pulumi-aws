@@ -22,22 +22,20 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
      * 
-     * @deprecated
-     * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     @Import(name="campaignHook")
     private @Nullable Output<AppCampaignHookArgs> campaignHook;
 
     /**
      * @return Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
      * 
-     * @deprecated
-     * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     public Optional<Output<AppCampaignHookArgs>> campaignHook() {
         return Optional.ofNullable(this.campaignHook);
     }
@@ -45,22 +43,20 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
      * 
-     * @deprecated
-     * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     @Import(name="limits")
     private @Nullable Output<AppLimitsArgs> limits;
 
     /**
      * @return Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
      * 
-     * @deprecated
-     * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     public Optional<Output<AppLimitsArgs>> limits() {
         return Optional.ofNullable(this.limits);
     }
@@ -98,22 +94,20 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
      * 
-     * @deprecated
-     * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     @Import(name="quietTime")
     private @Nullable Output<AppQuietTimeArgs> quietTime;
 
     /**
      * @return Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
      * 
-     * @deprecated
-     * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     public Optional<Output<AppQuietTimeArgs>> quietTime() {
         return Optional.ofNullable(this.quietTime);
     }
@@ -183,11 +177,10 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * @deprecated campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated
         public Builder campaignHook(@Nullable Output<AppCampaignHookArgs> campaignHook) {
             $.campaignHook = campaignHook;
             return this;
@@ -198,11 +191,10 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * @deprecated campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated
         public Builder campaignHook(AppCampaignHookArgs campaignHook) {
             return campaignHook(Output.of(campaignHook));
         }
@@ -212,11 +204,10 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * @deprecated limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated
         public Builder limits(@Nullable Output<AppLimitsArgs> limits) {
             $.limits = limits;
             return this;
@@ -227,11 +218,10 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * @deprecated limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated
         public Builder limits(AppLimitsArgs limits) {
             return limits(Output.of(limits));
         }
@@ -283,11 +273,10 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * @deprecated quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated
         public Builder quietTime(@Nullable Output<AppQuietTimeArgs> quietTime) {
             $.quietTime = quietTime;
             return this;
@@ -298,11 +287,10 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * @deprecated quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated
         public Builder quietTime(AppQuietTimeArgs quietTime) {
             return quietTime(Output.of(quietTime));
         }

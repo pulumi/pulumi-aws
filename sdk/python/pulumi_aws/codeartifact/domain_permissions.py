@@ -398,6 +398,24 @@ class DomainPermissions(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = resource_arn
         return DomainPermissions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_revision: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domain"] = domain
+        __props__["domainOwner"] = domain_owner
+        __props__["policyDocument"] = policy_document
+        __props__["policyRevision"] = policy_revision
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        return pulumi.runtime.exists_resource(None, 'aws:codeartifact/domainPermissions:DomainPermissions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Output[_builtins.str]:

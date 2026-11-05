@@ -519,6 +519,32 @@ class ThreatIntelSet(pulumi.CustomResource):
         __props__.__dict__["threat_intel_set_id"] = threat_intel_set_id
         return ThreatIntelSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activate: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+            format: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threat_intel_set_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activate"] = activate
+        __props__["arn"] = arn
+        __props__["detectorId"] = detector_id
+        __props__["format"] = format
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["threatIntelSetId"] = threat_intel_set_id
+        return pulumi.runtime.exists_resource(None, 'aws:guardduty/threatIntelSet:ThreatIntelSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def activate(self) -> pulumi.Output[_builtins.bool]:

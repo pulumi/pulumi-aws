@@ -564,6 +564,36 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClusterCertificateArgs', 'ClusterClusterCertificateArgsDict', 'outputs.ClusterClusterCertificate']]]]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_state: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_type: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_backup_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterCertificates"] = cluster_certificates
+        __props__["clusterId"] = cluster_id
+        __props__["clusterState"] = cluster_state
+        __props__["hsmType"] = hsm_type
+        __props__["mode"] = mode
+        __props__["region"] = region
+        __props__["securityGroupId"] = security_group_id
+        __props__["sourceBackupIdentifier"] = source_backup_identifier
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:cloudhsmv2/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterCertificates")
     def cluster_certificates(self) -> pulumi.Output[Sequence['outputs.ClusterClusterCertificate']]:

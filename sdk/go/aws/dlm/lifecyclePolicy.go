@@ -536,6 +536,12 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecyclePolicyState)(nil)).Elem()
 }
 
+// LifecyclePolicyExists checks whether an existing LifecyclePolicy resource with the given ID exists.
+func LifecyclePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LifecyclePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", id, state, "", opts...)
+}
+
 type lifecyclePolicyArgs struct {
 	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
 	DefaultPolicy *string `pulumi:"defaultPolicy"`

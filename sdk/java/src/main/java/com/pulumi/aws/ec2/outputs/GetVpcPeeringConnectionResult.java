@@ -63,11 +63,10 @@ public final class GetVpcPeeringConnectionResult {
     /**
      * @return (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use requesterRegion instead.
+     * @deprecated region is deprecated. Use requesterRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use requesterRegion instead. */
+    @Deprecated
     private String region;
     /**
      * @return Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC. The map contains `allowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
@@ -154,11 +153,10 @@ public final class GetVpcPeeringConnectionResult {
     /**
      * @return (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use requesterRegion instead.
+     * @deprecated region is deprecated. Use requesterRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use requesterRegion instead. */
+    @Deprecated
     public String region() {
         return this.region;
     }

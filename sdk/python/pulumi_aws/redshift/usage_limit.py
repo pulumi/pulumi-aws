@@ -504,6 +504,32 @@ class UsageLimit(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return UsageLimit(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            amount: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            breach_action: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            feature_type: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_type: pulumi.Input[Optional[_builtins.str]] = None,
+            period: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["amount"] = amount
+        __props__["arn"] = arn
+        __props__["breachAction"] = breach_action
+        __props__["clusterIdentifier"] = cluster_identifier
+        __props__["featureType"] = feature_type
+        __props__["limitType"] = limit_type
+        __props__["period"] = period
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/usageLimit:UsageLimit', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def amount(self) -> pulumi.Output[_builtins.int]:

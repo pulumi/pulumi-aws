@@ -457,6 +457,22 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ScraperLoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            logging_destination: pulumi.Input[Optional[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict', 'outputs.ScraperLoggingConfigurationLoggingDestination']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scraper_components: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            scraper_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ScraperLoggingConfigurationTimeoutsArgs', 'ScraperLoggingConfigurationTimeoutsArgsDict', 'outputs.ScraperLoggingConfigurationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["loggingDestination"] = logging_destination
+        __props__["region"] = region
+        __props__["scraperComponents"] = scraper_components
+        __props__["scraperId"] = scraper_id
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:amp/scraperLoggingConfiguration:ScraperLoggingConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="loggingDestination")
     def logging_destination(self) -> pulumi.Output['outputs.ScraperLoggingConfigurationLoggingDestination']:

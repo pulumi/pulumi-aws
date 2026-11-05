@@ -363,6 +363,20 @@ class ZoneAssociation(pulumi.CustomResource):
         __props__.__dict__["zone_id"] = zone_id
         return ZoneAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            owning_account: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_region: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["owningAccount"] = owning_account
+        __props__["vpcId"] = vpc_id
+        __props__["vpcRegion"] = vpc_region
+        __props__["zoneId"] = zone_id
+        return pulumi.runtime.exists_resource(None, 'aws:route53/zoneAssociation:ZoneAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="owningAccount")
     def owning_account(self) -> pulumi.Output[_builtins.str]:

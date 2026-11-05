@@ -759,6 +759,48 @@ class TransitGateway(pulumi.CustomResource):
         __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
         return TransitGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_accept_shared_attachments: pulumi.Input[Optional[_builtins.str]] = None,
+            default_route_table_association: pulumi.Input[Optional[_builtins.str]] = None,
+            default_route_table_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_support: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_support: pulumi.Input[Optional[_builtins.str]] = None,
+            multicast_support: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            propagation_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_referencing_support: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transit_gateway_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vpn_ecmp_support: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["amazonSideAsn"] = amazon_side_asn
+        __props__["arn"] = arn
+        __props__["associationDefaultRouteTableId"] = association_default_route_table_id
+        __props__["autoAcceptSharedAttachments"] = auto_accept_shared_attachments
+        __props__["defaultRouteTableAssociation"] = default_route_table_association
+        __props__["defaultRouteTablePropagation"] = default_route_table_propagation
+        __props__["description"] = description
+        __props__["dnsSupport"] = dns_support
+        __props__["encryptionSupport"] = encryption_support
+        __props__["multicastSupport"] = multicast_support
+        __props__["ownerId"] = owner_id
+        __props__["propagationDefaultRouteTableId"] = propagation_default_route_table_id
+        __props__["region"] = region
+        __props__["securityGroupReferencingSupport"] = security_group_referencing_support
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["transitGatewayCidrBlocks"] = transit_gateway_cidr_blocks
+        __props__["vpnEcmpSupport"] = vpn_ecmp_support
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/transitGateway:TransitGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Output[Optional[_builtins.int]]:

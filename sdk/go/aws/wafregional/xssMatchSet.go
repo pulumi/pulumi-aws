@@ -122,6 +122,12 @@ func (XssMatchSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*xssMatchSetState)(nil)).Elem()
 }
 
+// XssMatchSetExists checks whether an existing XssMatchSet resource with the given ID exists.
+func XssMatchSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *XssMatchSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafregional/xssMatchSet:XssMatchSet", id, state, "", opts...)
+}
+
 type xssMatchSetArgs struct {
 	// The name of the set
 	Name *string `pulumi:"name"`

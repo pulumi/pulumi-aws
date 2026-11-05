@@ -128,6 +128,12 @@ func (RegexMatchSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*regexMatchSetState)(nil)).Elem()
 }
 
+// RegexMatchSetExists checks whether an existing RegexMatchSet resource with the given ID exists.
+func RegexMatchSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegexMatchSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafregional/regexMatchSet:RegexMatchSet", id, state, "", opts...)
+}
+
 type regexMatchSetArgs struct {
 	// The name or description of the Regex Match Set.
 	Name *string `pulumi:"name"`

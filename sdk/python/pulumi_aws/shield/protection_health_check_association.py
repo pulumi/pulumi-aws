@@ -276,6 +276,16 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         __props__.__dict__["shield_protection_id"] = shield_protection_id
         return ProtectionHealthCheckAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            health_check_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            shield_protection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["healthCheckArn"] = health_check_arn
+        __props__["shieldProtectionId"] = shield_protection_id
+        return pulumi.runtime.exists_resource(None, 'aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="healthCheckArn")
     def health_check_arn(self) -> pulumi.Output[_builtins.str]:

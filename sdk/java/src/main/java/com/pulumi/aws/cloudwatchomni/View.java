@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) }{{@code
  *         var example = new View("example", ViewArgs.builder()
  *             .name("view.app_errors")
- *             .definition("SELECT `}{@literal @}{@code timestamp`, `}{@literal @}{@code message` FROM \"logs.default\" WHERE `}{@literal @}{@code logGroupName` = '/my/app'")
+ *             .definition("SELECT `}{@literal @}{@code timestamp`, `}{@literal @}{@code message` FROM }&#92;{@code "logs.default}&#92;{@code " WHERE `}{@literal @}{@code logGroupName` = '/my/app'")
  *             .build());
  * 
  *     }}{@code
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) }{{@code
  *         var example = new View("example", ViewArgs.builder()
  *             .name("view.app_errors")
- *             .definition("SELECT `}{@literal @}{@code timestamp`, `}{@literal @}{@code message` FROM \"logs.default\" WHERE `}{@literal @}{@code logGroupName` = '/my/app'")
+ *             .definition("SELECT `}{@literal @}{@code timestamp`, `}{@literal @}{@code message` FROM }&#92;{@code "logs.default}&#92;{@code " WHERE `}{@literal @}{@code logGroupName` = '/my/app'")
  *             .description("Error lines from /my/app")
  *             .tags(Map.of("team", "payments"))
  *             .build());

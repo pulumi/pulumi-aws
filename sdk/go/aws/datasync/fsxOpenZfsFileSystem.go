@@ -170,6 +170,12 @@ func (FsxOpenZfsFileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fsxOpenZfsFileSystemState)(nil)).Elem()
 }
 
+// FsxOpenZfsFileSystemExists checks whether an existing FsxOpenZfsFileSystem resource with the given ID exists.
+func FsxOpenZfsFileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FsxOpenZfsFileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", id, state, "", opts...)
+}
+
 type fsxOpenZfsFileSystemArgs struct {
 	// ARN for the FSx for OpenZfs file system.
 	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`

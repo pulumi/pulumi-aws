@@ -1006,6 +1006,56 @@ class Eip(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Eip(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associate_with_private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            carrier_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_owned_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            instance: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            ptr_record: pulumi.Input[Optional[_builtins.str]] = None,
+            public_dns: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["address"] = address
+        __props__["allocationId"] = allocation_id
+        __props__["arn"] = arn
+        __props__["associateWithPrivateIp"] = associate_with_private_ip
+        __props__["associationId"] = association_id
+        __props__["carrierIp"] = carrier_ip
+        __props__["customerOwnedIp"] = customer_owned_ip
+        __props__["customerOwnedIpv4Pool"] = customer_owned_ipv4_pool
+        __props__["domain"] = domain
+        __props__["instance"] = instance
+        __props__["ipamPoolId"] = ipam_pool_id
+        __props__["networkBorderGroup"] = network_border_group
+        __props__["networkInterface"] = network_interface
+        __props__["privateDns"] = private_dns
+        __props__["privateIp"] = private_ip
+        __props__["ptrRecord"] = ptr_record
+        __props__["publicDns"] = public_dns
+        __props__["publicIp"] = public_ip
+        __props__["publicIpv4Pool"] = public_ipv4_pool
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/eip:Eip', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[Optional[_builtins.str]]:

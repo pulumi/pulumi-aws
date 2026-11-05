@@ -384,6 +384,20 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return LogS3TableIntegrationSource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_source: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict', 'outputs.LogS3TableIntegrationSourceDataSource']]] = None,
+            integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceTimeoutsArgs', 'LogS3TableIntegrationSourceTimeoutsArgsDict', 'outputs.LogS3TableIntegrationSourceTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataSource"] = data_source
+        __props__["integrationArn"] = integration_arn
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/logS3TableIntegrationSource:LogS3TableIntegrationSource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output['outputs.LogS3TableIntegrationSourceDataSource']:

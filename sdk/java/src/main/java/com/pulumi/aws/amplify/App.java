@@ -224,12 +224,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new App("example", AppArgs.builder()
  *             .customRules(            
  *                 AppCustomRuleArgs.builder()
@@ -238,15 +238,15 @@ import javax.annotation.Nullable;
  *                     .target("https://api.example.com/api/<*>")
  *                     .build(),
  *                 AppCustomRuleArgs.builder()
- *                     .source("</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>")
+ *                     .source("</^[^.]+$|}&#92;&#92;{@code .(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>")
  *                     .status("200")
  *                     .target("/index.html")
  *                     .build())
  *             .name("example")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -302,12 +302,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .customHeaders("""
@@ -323,12 +323,12 @@ import javax.annotation.Nullable;
  *       - key: 'X-Content-Type-Options'
  *         value: 'nosniff'
  *       - key: 'Content-Security-Policy'
- *         value: \"default-src 'self'\"
+ *         value: }&#92;{@code "default-src 'self'}&#92;{@code "
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

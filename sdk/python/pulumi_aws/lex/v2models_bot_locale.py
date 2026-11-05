@@ -545,6 +545,30 @@ class V2modelsBotLocale(pulumi.CustomResource):
         __props__.__dict__["voice_settings"] = voice_settings
         return V2modelsBotLocale(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+            n_lu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict', 'outputs.V2modelsBotLocaleTimeouts']]] = None,
+            voice_settings: pulumi.Input[Optional[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict', 'outputs.V2modelsBotLocaleVoiceSettings']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botId"] = bot_id
+        __props__["botVersion"] = bot_version
+        __props__["description"] = description
+        __props__["localeId"] = locale_id
+        __props__["nLuIntentConfidenceThreshold"] = n_lu_intent_confidence_threshold
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        __props__["voiceSettings"] = voice_settings
+        return pulumi.runtime.exists_resource(None, 'aws:lex/v2modelsBotLocale:V2modelsBotLocale', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:

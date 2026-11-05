@@ -195,6 +195,12 @@ func (ViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewState)(nil)).Elem()
 }
 
+// ViewExists checks whether an existing View resource with the given ID exists.
+func ViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:billing/view:View", id, state, "", opts...)
+}
+
 type viewArgs struct {
 	// Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
 	DataFilterExpression *ViewDataFilterExpression `pulumi:"dataFilterExpression"`

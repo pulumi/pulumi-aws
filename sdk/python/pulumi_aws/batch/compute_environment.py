@@ -869,6 +869,42 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__.__dict__["update_policy"] = update_policy
         return ComputeEnvironment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict', 'outputs.ComputeEnvironmentComputeResources']]] = None,
+            ecs_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict', 'outputs.ComputeEnvironmentEksConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["computeResources"] = compute_resources
+        __props__["ecsClusterArn"] = ecs_cluster_arn
+        __props__["eksConfiguration"] = eks_configuration
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["serviceRole"] = service_role
+        __props__["state"] = state
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["updatePolicy"] = update_policy
+        return pulumi.runtime.exists_resource(None, 'aws:batch/computeEnvironment:ComputeEnvironment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

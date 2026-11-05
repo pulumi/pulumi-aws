@@ -141,6 +141,12 @@ func (GatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayState)(nil)).Elem()
 }
 
+// GatewayExists checks whether an existing Gateway resource with the given ID exists.
+func GatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/gateway:Gateway", id, state, "", opts...)
+}
+
 type gatewayArgs struct {
 	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 	AmazonSideAsn string `pulumi:"amazonSideAsn"`

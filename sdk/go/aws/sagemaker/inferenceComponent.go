@@ -322,6 +322,12 @@ func (InferenceComponentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inferenceComponentState)(nil)).Elem()
 }
 
+// InferenceComponentExists checks whether an existing InferenceComponent resource with the given ID exists.
+func InferenceComponentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InferenceComponentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/inferenceComponent:InferenceComponent", id, state, "", opts...)
+}
+
 type inferenceComponentArgs struct {
 	// Deployment configuration for the inference component, which controls the rollout strategy and rollback behavior. This directive applies only when the inference component is **updated** — the `CreateInferenceComponent` API does not accept it, so it has no effect on initial creation. It is not returned by the API and is therefore not refreshed into state or verified on import. See `deploymentConfig` Block.
 	DeploymentConfig *InferenceComponentDeploymentConfig `pulumi:"deploymentConfig"`

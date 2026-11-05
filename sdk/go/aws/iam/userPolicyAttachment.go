@@ -137,6 +137,12 @@ func (UserPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPolicyAttachmentState)(nil)).Elem()
 }
 
+// UserPolicyAttachmentExists checks whether an existing UserPolicyAttachment resource with the given ID exists.
+func UserPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/userPolicyAttachment:UserPolicyAttachment", id, state, "", opts...)
+}
+
 type userPolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
 	PolicyArn string `pulumi:"policyArn"`

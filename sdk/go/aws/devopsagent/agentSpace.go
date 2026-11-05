@@ -234,6 +234,12 @@ func (AgentSpaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentSpaceState)(nil)).Elem()
 }
 
+// AgentSpaceExists checks whether an existing AgentSpace resource with the given ID exists.
+func AgentSpaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentSpaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:devopsagent/agentSpace:AgentSpace", id, state, "", opts...)
+}
+
 type agentSpaceArgs struct {
 	// Description of the Agent Space.
 	Description *string `pulumi:"description"`

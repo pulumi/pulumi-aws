@@ -316,6 +316,18 @@ class AllowedImagesSettings(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         return AllowedImagesSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict', 'outputs.AllowedImagesSettingsImageCriterion']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["imageCriterions"] = image_criterions
+        __props__["region"] = region
+        __props__["state"] = state
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/allowedImagesSettings:AllowedImagesSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="imageCriterions")
     def image_criterions(self) -> pulumi.Output[Optional[Sequence['outputs.AllowedImagesSettingsImageCriterion']]]:

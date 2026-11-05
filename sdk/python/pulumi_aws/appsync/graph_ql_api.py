@@ -1291,6 +1291,54 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["xray_enabled"] = xray_enabled
         return GraphQLApi(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_authentication_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict', 'outputs.GraphQLApiAdditionalAuthenticationProvider']]]]] = None,
+            api_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            enhanced_metrics_config: pulumi.Input[Optional[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict', 'outputs.GraphQLApiEnhancedMetricsConfig']]] = None,
+            introspection_config: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_authorizer_config: pulumi.Input[Optional[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict', 'outputs.GraphQLApiLambdaAuthorizerConfig']]] = None,
+            log_config: pulumi.Input[Optional[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict', 'outputs.GraphQLApiLogConfig']]] = None,
+            merged_api_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            openid_connect_config: pulumi.Input[Optional[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict', 'outputs.GraphQLApiOpenidConnectConfig']]] = None,
+            query_depth_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resolver_count_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uris: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_pool_config: pulumi.Input[Optional[Union['GraphQLApiUserPoolConfigArgs', 'GraphQLApiUserPoolConfigArgsDict', 'outputs.GraphQLApiUserPoolConfig']]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None,
+            xray_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalAuthenticationProviders"] = additional_authentication_providers
+        __props__["apiType"] = api_type
+        __props__["arn"] = arn
+        __props__["authenticationType"] = authentication_type
+        __props__["enhancedMetricsConfig"] = enhanced_metrics_config
+        __props__["introspectionConfig"] = introspection_config
+        __props__["lambdaAuthorizerConfig"] = lambda_authorizer_config
+        __props__["logConfig"] = log_config
+        __props__["mergedApiExecutionRoleArn"] = merged_api_execution_role_arn
+        __props__["name"] = name
+        __props__["openidConnectConfig"] = openid_connect_config
+        __props__["queryDepthLimit"] = query_depth_limit
+        __props__["region"] = region
+        __props__["resolverCountLimit"] = resolver_count_limit
+        __props__["schema"] = schema
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uris"] = uris
+        __props__["userPoolConfig"] = user_pool_config
+        __props__["visibility"] = visibility
+        __props__["xrayEnabled"] = xray_enabled
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/graphQLApi:GraphQLApi', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalAuthenticationProviders")
     def additional_authentication_providers(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQLApiAdditionalAuthenticationProvider']]]:

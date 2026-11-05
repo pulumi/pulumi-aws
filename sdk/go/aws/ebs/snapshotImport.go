@@ -204,6 +204,12 @@ func (SnapshotImportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotImportState)(nil)).Elem()
 }
 
+// SnapshotImportExists checks whether an existing SnapshotImport resource with the given ID exists.
+func SnapshotImportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotImportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ebs/snapshotImport:SnapshotImport", id, state, "", opts...)
+}
+
 type snapshotImportArgs struct {
 	// The client-specific data. Detailed below.
 	ClientData *SnapshotImportClientData `pulumi:"clientData"`

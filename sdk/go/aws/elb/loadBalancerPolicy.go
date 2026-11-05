@@ -230,6 +230,12 @@ func (LoadBalancerPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerPolicyState)(nil)).Elem()
 }
 
+// LoadBalancerPolicyExists checks whether an existing LoadBalancerPolicy resource with the given ID exists.
+func LoadBalancerPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elb/loadBalancerPolicy:LoadBalancerPolicy", id, state, "", opts...)
+}
+
 type loadBalancerPolicyArgs struct {
 	// The load balancer on which the policy is defined.
 	LoadBalancerName string `pulumi:"loadBalancerName"`

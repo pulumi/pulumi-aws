@@ -146,6 +146,12 @@ func (AuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationRuleState)(nil)).Elem()
 }
 
+// AuthorizationRuleExists checks whether an existing AuthorizationRule resource with the given ID exists.
+func AuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2clientvpn/authorizationRule:AuthorizationRule", id, state, "", opts...)
+}
+
 type authorizationRuleArgs struct {
 	// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
 	AccessGroupId *string `pulumi:"accessGroupId"`

@@ -223,6 +223,12 @@ func (BrowserSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*browserSettingsState)(nil)).Elem()
 }
 
+// BrowserSettingsExists checks whether an existing BrowserSettings resource with the given ID exists.
+func BrowserSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrowserSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/browserSettings:BrowserSettings", id, state, "", opts...)
+}
+
 type browserSettingsArgs struct {
 	// Additional encryption context for the browser settings.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`

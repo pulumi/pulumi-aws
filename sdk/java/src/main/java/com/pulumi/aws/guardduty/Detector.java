@@ -123,11 +123,10 @@ public class Detector extends com.pulumi.resources.CustomResource {
     /**
      * Data sources to enable for the detector. See `datasources` below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
-     * @deprecated
-     * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
+     * @deprecated datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      * 
      */
-    @Deprecated /* datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead. */
+    @Deprecated
     @Export(name="datasources", refs={DetectorDatasources.class}, tree="[0]")
     private Output<DetectorDatasources> datasources;
 

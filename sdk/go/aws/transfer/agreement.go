@@ -182,6 +182,12 @@ func (AgreementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agreementState)(nil)).Elem()
 }
 
+// AgreementExists checks whether an existing Agreement resource with the given ID exists.
+func AgreementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgreementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/agreement:Agreement", id, state, "", opts...)
+}
+
 type agreementArgs struct {
 	// IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole string `pulumi:"accessRole"`

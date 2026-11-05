@@ -313,19 +313,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
  *             .metricQueries(MetricAlarmMetricQueryArgs.builder()
  *                 .id("q1")
  *                 .expression("""
  * SELECT
  *   MAX(DBLoadRelativeToNumVCPUs)
- * FROM SCHEMA(\"AWS/RDS\", DBInstanceIdentifier)
+ * FROM SCHEMA(}&#92;{@code "AWS/RDS}&#92;{@code ", DBInstanceIdentifier)
  * WHERE DBInstanceIdentifier != 'example-rds-instance'
  * GROUP BY DBInstanceIdentifier
  * ORDER BY MIN() ASC
@@ -343,8 +343,8 @@ import javax.annotation.Nullable;
  *             .treatMissingData("notBreaching")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -94,12 +94,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var config = ctx.config();
  *         final var domain = config.get("domain").orElse("tf-test");
  *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
@@ -111,25 +111,25 @@ import javax.annotation.Nullable;
  *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName(domain)
  *             .accessPolicies("""
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Statement\": [
- *     {
- *       \"Action\": \"es:*\",
- *       \"Principal\": \"*\",
- *       \"Effect\": \"Allow\",
- *       \"Resource\": \"arn:aws:es:%s:%s:domain/%s/*\",
- *       \"Condition\": {
- *         \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}
- *       }
- *     }
+ * }{{@code
+ *   }&#92;{@code "Version}&#92;{@code ": }&#92;{@code "2012-10-17}&#92;{@code ",
+ *   }&#92;{@code "Statement}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "Action}&#92;{@code ": }&#92;{@code "es:*}&#92;{@code ",
+ *       }&#92;{@code "Principal}&#92;{@code ": }&#92;{@code "*}&#92;{@code ",
+ *       }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *       }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "arn:aws:es:%s:%s:domain/%s/*}&#92;{@code ",
+ *       }&#92;{@code "Condition}&#92;{@code ": }{{@code
+ *         }&#92;{@code "IpAddress}&#92;{@code ": }{&#92;{@code "aws:SourceIp}&#92;{@code ": [}&#92;{@code "66.193.100.22/32}&#92;{@code "]}}{@code
+ *       }}{@code
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  * ", current.region(),currentGetCallerIdentity.accountId(),domain))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -235,12 +235,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var config = ctx.config();
  *         final var vpc = config.requireObject("vpc", com.pulumi.core.TypeShape.map(String.class, Object.class));
  *         final var domain = config.get("domain").orElse("tf-test");
@@ -293,25 +293,25 @@ import javax.annotation.Nullable;
  *             .elasticsearchVersion("6.3")
  *             .advancedOptions(Map.of("rest.action.multi.allow_explicit_index", "true"))
  *             .accessPolicies("""
- * {
- * \t\"Version\": \"2012-10-17\",
- * \t\"Statement\": [
- * \t\t{
- * \t\t\t\"Action\": \"es:*\",
- * \t\t\t\"Principal\": \"*\",
- * \t\t\t\"Effect\": \"Allow\",
- * \t\t\t\"Resource\": \"arn:aws:es:%s:%s:domain/%s/*\"
- * \t\t}
- * \t]
- * }
+ * }{{@code
+ * }&#92;{@code t}&#92;{@code "Version}&#92;{@code ": }&#92;{@code "2012-10-17}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code "Statement}&#92;{@code ": [
+ * }&#92;{@code t}&#92;{@code t}{{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "Action}&#92;{@code ": }&#92;{@code "es:*}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "Principal}&#92;{@code ": }&#92;{@code "*}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "arn:aws:es:%s:%s:domain/%s/*}&#92;{@code "
+ * }&#92;{@code t}&#92;{@code t}}{@code
+ * }&#92;{@code t]
+ * }}{@code
  * ", current.region(),currentGetCallerIdentity.accountId(),domain))
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(esServiceLinkedRole)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

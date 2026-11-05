@@ -159,6 +159,12 @@ func (ClusterPeeringState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterPeeringState)(nil)).Elem()
 }
 
+// ClusterPeeringExists checks whether an existing ClusterPeering resource with the given ID exists.
+func ClusterPeeringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterPeeringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dsql/clusterPeering:ClusterPeering", id, state, "", opts...)
+}
+
 type clusterPeeringArgs struct {
 	// List of DSQL Cluster ARNs to be peered to this cluster.
 	Clusters []string `pulumi:"clusters"`

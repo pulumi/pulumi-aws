@@ -620,6 +620,32 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            dead_letter_queue_url: pulumi.Input[Optional[_builtins.str]] = None,
+            default_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+            default_expiration_days: pulumi.Input[Optional[_builtins.int]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict', 'outputs.DomainMatching']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict', 'outputs.DomainRuleBasedMatching']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deadLetterQueueUrl"] = dead_letter_queue_url
+        __props__["defaultEncryptionKey"] = default_encryption_key
+        __props__["defaultExpirationDays"] = default_expiration_days
+        __props__["domainName"] = domain_name
+        __props__["matching"] = matching
+        __props__["region"] = region
+        __props__["ruleBasedMatching"] = rule_based_matching
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:customerprofiles/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

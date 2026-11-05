@@ -132,6 +132,12 @@ func (TransitGatewayConnectPeerAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayConnectPeerAssociationState)(nil)).Elem()
 }
 
+// TransitGatewayConnectPeerAssociationExists checks whether an existing TransitGatewayConnectPeerAssociation resource with the given ID exists.
+func TransitGatewayConnectPeerAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayConnectPeerAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation", id, state, "", opts...)
+}
+
 type transitGatewayConnectPeerAssociationArgs struct {
 	// ID of the device.
 	DeviceId string `pulumi:"deviceId"`

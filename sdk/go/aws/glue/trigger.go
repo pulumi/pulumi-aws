@@ -352,6 +352,12 @@ func (TriggerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerState)(nil)).Elem()
 }
 
+// TriggerExists checks whether an existing Trigger resource with the given ID exists.
+func TriggerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TriggerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/trigger:Trigger", id, state, "", opts...)
+}
+
 type triggerArgs struct {
 	// List of actions initiated by this trigger when it fires. See `actions` below.
 	Actions []TriggerAction `pulumi:"actions"`

@@ -215,6 +215,12 @@ func (ReportDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportDefinitionState)(nil)).Elem()
 }
 
+// ReportDefinitionExists checks whether an existing ReportDefinition resource with the given ID exists.
+func ReportDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReportDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cur/reportDefinition:ReportDefinition", id, state, "", opts...)
+}
+
 type reportDefinitionArgs struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`

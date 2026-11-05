@@ -1094,6 +1094,46 @@ class PatchBaseline(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return PatchBaseline(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            approval_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineApprovalRuleArgs', 'PatchBaselineApprovalRuleArgsDict', 'outputs.PatchBaselineApprovalRule']]]]] = None,
+            approved_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            approved_patches_compliance_level: pulumi.Input[Optional[_builtins.str]] = None,
+            approved_patches_enable_non_security: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            available_security_updates_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            global_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict', 'outputs.PatchBaselineGlobalFilter']]]]] = None,
+            json: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rejected_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rejected_patches_action: pulumi.Input[Optional[_builtins.str]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict', 'outputs.PatchBaselineSource']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["approvalRules"] = approval_rules
+        __props__["approvedPatches"] = approved_patches
+        __props__["approvedPatchesComplianceLevel"] = approved_patches_compliance_level
+        __props__["approvedPatchesEnableNonSecurity"] = approved_patches_enable_non_security
+        __props__["arn"] = arn
+        __props__["availableSecurityUpdatesComplianceStatus"] = available_security_updates_compliance_status
+        __props__["description"] = description
+        __props__["globalFilters"] = global_filters
+        __props__["json"] = json
+        __props__["name"] = name
+        __props__["operatingSystem"] = operating_system
+        __props__["region"] = region
+        __props__["rejectedPatches"] = rejected_patches
+        __props__["rejectedPatchesAction"] = rejected_patches_action
+        __props__["sources"] = sources
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/patchBaseline:PatchBaseline', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> pulumi.Output[Optional[Sequence['outputs.PatchBaselineApprovalRule']]]:

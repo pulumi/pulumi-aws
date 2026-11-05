@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("exampleHashKey")
@@ -62,18 +62,18 @@ import javax.annotation.Nullable;
  *             .tableName(exampleTable.name())
  *             .hashKey(exampleTable.hashKey())
  *             .item("""
- * {
- *   \"exampleHashKey\": {\"S\": \"something\"},
- *   \"one\": {\"N\": \"11111\"},
- *   \"two\": {\"N\": \"22222\"},
- *   \"three\": {\"N\": \"33333\"},
- *   \"four\": {\"N\": \"44444\"}
- * }
+ * }{{@code
+ *   }&#92;{@code "exampleHashKey}&#92;{@code ": }{&#92;{@code "S}&#92;{@code ": }&#92;{@code "something}&#92;{@code "}}{@code ,
+ *   }&#92;{@code "one}&#92;{@code ": }{&#92;{@code "N}&#92;{@code ": }&#92;{@code "11111}&#92;{@code "}}{@code ,
+ *   }&#92;{@code "two}&#92;{@code ": }{&#92;{@code "N}&#92;{@code ": }&#92;{@code "22222}&#92;{@code "}}{@code ,
+ *   }&#92;{@code "three}&#92;{@code ": }{&#92;{@code "N}&#92;{@code ": }&#92;{@code "33333}&#92;{@code "}}{@code ,
+ *   }&#92;{@code "four}&#92;{@code ": }{&#92;{@code "N}&#92;{@code ": }&#92;{@code "44444}&#92;{@code "}}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

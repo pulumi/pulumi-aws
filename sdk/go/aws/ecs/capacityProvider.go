@@ -238,6 +238,12 @@ func (CapacityProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityProviderState)(nil)).Elem()
 }
 
+// CapacityProviderExists checks whether an existing CapacityProvider resource with the given ID exists.
+func CapacityProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecs/capacityProvider:CapacityProvider", id, state, "", opts...)
+}
+
 type capacityProviderArgs struct {
 	// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`

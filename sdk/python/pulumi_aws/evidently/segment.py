@@ -540,6 +540,34 @@ class Segment(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Segment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            experiment_count: pulumi.Input[Optional[_builtins.int]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            launch_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdTime"] = created_time
+        __props__["description"] = description
+        __props__["experimentCount"] = experiment_count
+        __props__["lastUpdatedTime"] = last_updated_time
+        __props__["launchCount"] = launch_count
+        __props__["name"] = name
+        __props__["pattern"] = pattern
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:evidently/segment:Segment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

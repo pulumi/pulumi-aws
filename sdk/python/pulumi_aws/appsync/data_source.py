@@ -749,6 +749,40 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return DataSource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamodb_config: pulumi.Input[Optional[Union['DataSourceDynamodbConfigArgs', 'DataSourceDynamodbConfigArgsDict', 'outputs.DataSourceDynamodbConfig']]] = None,
+            elasticsearch_config: pulumi.Input[Optional[Union['DataSourceElasticsearchConfigArgs', 'DataSourceElasticsearchConfigArgsDict', 'outputs.DataSourceElasticsearchConfig']]] = None,
+            event_bridge_config: pulumi.Input[Optional[Union['DataSourceEventBridgeConfigArgs', 'DataSourceEventBridgeConfigArgsDict', 'outputs.DataSourceEventBridgeConfig']]] = None,
+            http_config: pulumi.Input[Optional[Union['DataSourceHttpConfigArgs', 'DataSourceHttpConfigArgsDict', 'outputs.DataSourceHttpConfig']]] = None,
+            lambda_config: pulumi.Input[Optional[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict', 'outputs.DataSourceLambdaConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            opensearchservice_config: pulumi.Input[Optional[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict', 'outputs.DataSourceOpensearchserviceConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            relational_database_config: pulumi.Input[Optional[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict', 'outputs.DataSourceRelationalDatabaseConfig']]] = None,
+            service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["dynamodbConfig"] = dynamodb_config
+        __props__["elasticsearchConfig"] = elasticsearch_config
+        __props__["eventBridgeConfig"] = event_bridge_config
+        __props__["httpConfig"] = http_config
+        __props__["lambdaConfig"] = lambda_config
+        __props__["name"] = name
+        __props__["opensearchserviceConfig"] = opensearchservice_config
+        __props__["region"] = region
+        __props__["relationalDatabaseConfig"] = relational_database_config
+        __props__["serviceRoleArn"] = service_role_arn
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/dataSource:DataSource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

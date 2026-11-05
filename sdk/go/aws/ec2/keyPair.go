@@ -174,6 +174,12 @@ func (KeyPairState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyPairState)(nil)).Elem()
 }
 
+// KeyPairExists checks whether an existing KeyPair resource with the given ID exists.
+func KeyPairExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyPairState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/keyPair:KeyPair", id, state, "", opts...)
+}
+
 type keyPairArgs struct {
 	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyName *string `pulumi:"keyName"`

@@ -156,6 +156,12 @@ func (EndpointAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointAccessState)(nil)).Elem()
 }
 
+// EndpointAccessExists checks whether an existing EndpointAccess resource with the given ID exists.
+func EndpointAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/endpointAccess:EndpointAccess", id, state, "", opts...)
+}
+
 type endpointAccessArgs struct {
 	// The cluster identifier of the cluster to access.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`

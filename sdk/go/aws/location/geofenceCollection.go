@@ -151,6 +151,12 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*geofenceCollectionState)(nil)).Elem()
 }
 
+// GeofenceCollectionExists checks whether an existing GeofenceCollection resource with the given ID exists.
+func GeofenceCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GeofenceCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:location/geofenceCollection:GeofenceCollection", id, state, "", opts...)
+}
+
 type geofenceCollectionArgs struct {
 	// The name of the geofence collection.
 	//

@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .description("This is my API for demonstration purposes")
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
  *             .timeoutMilliseconds(29000)
  *             .requestParameters(Map.of("integration.request.header.X-Authorization", "'static'"))
  *             .requestTemplates(Map.of("application/xml", """
- * {
- *    \"body\" : $input.json('$')
- * }
+ * }{{@code
+ *    }&#92;{@code "body}&#92;{@code " : $input.json('$')
+ * }}{@code
  *             """))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -553,14 +553,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentHandling);
     }
     /**
-     * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+     * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::&#92;*:user/&#92;*`.
      * 
      */
     @Export(name="credentials", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentials;
 
     /**
-     * @return Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+     * @return Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::&#92;*:user/&#92;*`.
      * 
      */
     public Output<Optional<String>> credentials() {

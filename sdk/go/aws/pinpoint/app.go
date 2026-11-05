@@ -204,6 +204,12 @@ func (AppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appState)(nil)).Elem()
 }
 
+// AppExists checks whether an existing App resource with the given ID exists.
+func AppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/app:App", id, state, "", opts...)
+}
+
 type appArgs struct {
 	// Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
 	//

@@ -786,6 +786,50 @@ class FileCache(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return FileCache(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_repository_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            file_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+            file_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+            file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']]]]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["copyTagsToDataRepositoryAssociations"] = copy_tags_to_data_repository_associations
+        __props__["dataRepositoryAssociationIds"] = data_repository_association_ids
+        __props__["dataRepositoryAssociations"] = data_repository_associations
+        __props__["dnsName"] = dns_name
+        __props__["fileCacheId"] = file_cache_id
+        __props__["fileCacheType"] = file_cache_type
+        __props__["fileCacheTypeVersion"] = file_cache_type_version
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["lustreConfigurations"] = lustre_configurations
+        __props__["networkInterfaceIds"] = network_interface_ids
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["storageCapacity"] = storage_capacity
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/fileCache:FileCache', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -162,6 +162,12 @@ func (FilesFileSystemPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*filesFileSystemPolicyState)(nil)).Elem()
 }
 
+// FilesFileSystemPolicyExists checks whether an existing FilesFileSystemPolicy resource with the given ID exists.
+func FilesFileSystemPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FilesFileSystemPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/filesFileSystemPolicy:FilesFileSystemPolicy", id, state, "", opts...)
+}
+
 type filesFileSystemPolicyArgs struct {
 	// File system ID. Changing this value forces replacement.
 	FileSystemId string `pulumi:"fileSystemId"`

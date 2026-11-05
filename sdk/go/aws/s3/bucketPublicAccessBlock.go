@@ -161,6 +161,12 @@ func (BucketPublicAccessBlockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketPublicAccessBlockState)(nil)).Elem()
 }
 
+// BucketPublicAccessBlockExists checks whether an existing BucketPublicAccessBlock resource with the given ID exists.
+func BucketPublicAccessBlockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketPublicAccessBlockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock", id, state, "", opts...)
+}
+
 type bucketPublicAccessBlockArgs struct {
 	// Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL allows public access, and PUT Object calls fail if the request includes an object ACL.
 	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`

@@ -139,6 +139,12 @@ func (BucketLifecycleConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketLifecycleConfigurationState)(nil)).Elem()
 }
 
+// BucketLifecycleConfigurationExists checks whether an existing BucketLifecycleConfiguration resource with the given ID exists.
+func BucketLifecycleConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketLifecycleConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration", id, state, "", opts...)
+}
+
 type bucketLifecycleConfigurationArgs struct {
 	// ARN of the bucket.
 	Bucket string `pulumi:"bucket"`

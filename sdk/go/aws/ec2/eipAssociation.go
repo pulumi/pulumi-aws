@@ -175,6 +175,12 @@ func (EipAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipAssociationState)(nil)).Elem()
 }
 
+// EipAssociationExists checks whether an existing EipAssociation resource with the given ID exists.
+func EipAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EipAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/eipAssociation:EipAssociation", id, state, "", opts...)
+}
+
 type eipAssociationArgs struct {
 	// ID of the associated Elastic IP.
 	// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.

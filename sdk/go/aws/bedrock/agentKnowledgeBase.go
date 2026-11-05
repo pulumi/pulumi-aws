@@ -532,6 +532,12 @@ func (AgentKnowledgeBaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentKnowledgeBaseState)(nil)).Elem()
 }
 
+// AgentKnowledgeBaseExists checks whether an existing AgentKnowledgeBase resource with the given ID exists.
+func AgentKnowledgeBaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentKnowledgeBaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase", id, state, "", opts...)
+}
+
 type agentKnowledgeBaseArgs struct {
 	// Description of the knowledge base.
 	Description *string `pulumi:"description"`

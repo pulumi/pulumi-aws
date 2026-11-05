@@ -444,6 +444,28 @@ class Package(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Package(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            available_package_version: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            package_description: pulumi.Input[Optional[_builtins.str]] = None,
+            package_id: pulumi.Input[Optional[_builtins.str]] = None,
+            package_name: pulumi.Input[Optional[_builtins.str]] = None,
+            package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict', 'outputs.PackagePackageSource']]] = None,
+            package_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["availablePackageVersion"] = available_package_version
+        __props__["engineVersion"] = engine_version
+        __props__["packageDescription"] = package_description
+        __props__["packageId"] = package_id
+        __props__["packageName"] = package_name
+        __props__["packageSource"] = package_source
+        __props__["packageType"] = package_type
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:opensearch/package:Package', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="availablePackageVersion")
     def available_package_version(self) -> pulumi.Output[_builtins.str]:

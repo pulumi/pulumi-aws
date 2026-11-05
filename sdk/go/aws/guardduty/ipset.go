@@ -201,6 +201,12 @@ func (IPSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipsetState)(nil)).Elem()
 }
 
+// IPSetExists checks whether an existing IPSet resource with the given ID exists.
+func IPSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IPSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/iPSet:IPSet", id, state, "", opts...)
+}
+
 type ipsetArgs struct {
 	// Whether to start using the uploaded IPSet.
 	Activate bool `pulumi:"activate"`

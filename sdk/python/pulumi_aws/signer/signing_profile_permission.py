@@ -466,6 +466,26 @@ class SigningProfilePermission(pulumi.CustomResource):
         __props__.__dict__["statement_id_prefix"] = statement_id_prefix
         return SigningProfilePermission(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_id_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["principal"] = principal
+        __props__["profileName"] = profile_name
+        __props__["profileVersion"] = profile_version
+        __props__["region"] = region
+        __props__["statementId"] = statement_id
+        __props__["statementIdPrefix"] = statement_id_prefix
+        return pulumi.runtime.exists_resource(None, 'aws:signer/signingProfilePermission:SigningProfilePermission', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:

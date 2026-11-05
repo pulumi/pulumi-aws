@@ -323,6 +323,22 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         __props__.__dict__["status_reason"] = status_reason
         return InstanceAccessControlAttributes(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict', 'outputs.InstanceAccessControlAttributesAttribute']]]]] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attributes"] = attributes
+        __props__["instanceArn"] = instance_arn
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        return pulumi.runtime.exists_resource(None, 'aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Sequence['outputs.InstanceAccessControlAttributesAttribute']]:

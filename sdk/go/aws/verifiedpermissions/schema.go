@@ -138,6 +138,12 @@ func (SchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaState)(nil)).Elem()
 }
 
+// SchemaExists checks whether an existing Schema resource with the given ID exists.
+func SchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:verifiedpermissions/schema:Schema", id, state, "", opts...)
+}
+
 type schemaArgs struct {
 	// Definition of the schema. See Definition below.
 	Definition SchemaDefinition `pulumi:"definition"`

@@ -597,6 +597,38 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Key(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            exportable: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict', 'outputs.KeyKeyAttribute']]]]] = None,
+            key_check_value: pulumi.Input[Optional[_builtins.str]] = None,
+            key_check_value_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            key_origin: pulumi.Input[Optional[_builtins.str]] = None,
+            key_state: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict', 'outputs.KeyTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deletionWindowInDays"] = deletion_window_in_days
+        __props__["enabled"] = enabled
+        __props__["exportable"] = exportable
+        __props__["keyAttributes"] = key_attributes
+        __props__["keyCheckValue"] = key_check_value
+        __props__["keyCheckValueAlgorithm"] = key_check_value_algorithm
+        __props__["keyOrigin"] = key_origin
+        __props__["keyState"] = key_state
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:paymentcryptography/key:Key', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

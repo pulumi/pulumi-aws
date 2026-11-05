@@ -899,6 +899,48 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return GlobalReplicationGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_token_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
+            global_node_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict', 'outputs.GlobalReplicationGroupGlobalNodeGroup']]]]] = None,
+            global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+            global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+            parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["atRestEncryptionEnabled"] = at_rest_encryption_enabled
+        __props__["authTokenEnabled"] = auth_token_enabled
+        __props__["automaticFailoverEnabled"] = automatic_failover_enabled
+        __props__["cacheNodeType"] = cache_node_type
+        __props__["clusterEnabled"] = cluster_enabled
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["engineVersionActual"] = engine_version_actual
+        __props__["globalNodeGroups"] = global_node_groups
+        __props__["globalReplicationGroupDescription"] = global_replication_group_description
+        __props__["globalReplicationGroupId"] = global_replication_group_id
+        __props__["globalReplicationGroupIdSuffix"] = global_replication_group_id_suffix
+        __props__["numNodeGroups"] = num_node_groups
+        __props__["parameterGroupName"] = parameter_group_name
+        __props__["primaryReplicationGroupId"] = primary_replication_group_id
+        __props__["region"] = region
+        __props__["transitEncryptionEnabled"] = transit_encryption_enabled
+        return pulumi.runtime.exists_resource(None, 'aws:elasticache/globalReplicationGroup:GlobalReplicationGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

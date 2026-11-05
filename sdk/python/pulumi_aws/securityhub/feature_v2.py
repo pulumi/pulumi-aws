@@ -305,6 +305,18 @@ class FeatureV2(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return FeatureV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+            feature_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["featureName"] = feature_name
+        __props__["featureStatus"] = feature_status
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:securityhub/featureV2:FeatureV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="featureName")
     def feature_name(self) -> pulumi.Output[_builtins.str]:

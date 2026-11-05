@@ -639,6 +639,34 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Authorizer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_result_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_source: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_validation_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["authorizerCredentials"] = authorizer_credentials
+        __props__["authorizerResultTtlInSeconds"] = authorizer_result_ttl_in_seconds
+        __props__["authorizerUri"] = authorizer_uri
+        __props__["identitySource"] = identity_source
+        __props__["identityValidationExpression"] = identity_validation_expression
+        __props__["name"] = name
+        __props__["providerArns"] = provider_arns
+        __props__["region"] = region
+        __props__["restApi"] = rest_api
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/authorizer:Authorizer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

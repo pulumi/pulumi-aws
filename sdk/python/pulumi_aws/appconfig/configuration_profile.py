@@ -616,6 +616,38 @@ class ConfigurationProfile(pulumi.CustomResource):
         __props__.__dict__["validators"] = validators
         return ConfigurationProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retrieval_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict', 'outputs.ConfigurationProfileValidator']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["arn"] = arn
+        __props__["configurationProfileId"] = configuration_profile_id
+        __props__["description"] = description
+        __props__["kmsKeyIdentifier"] = kms_key_identifier
+        __props__["locationUri"] = location_uri
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["retrievalRoleArn"] = retrieval_role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["validators"] = validators
+        return pulumi.runtime.exists_resource(None, 'aws:appconfig/configurationProfile:ConfigurationProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

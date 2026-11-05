@@ -675,6 +675,36 @@ class AnomalyDetector(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return AnomalyDetector(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluation_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AnomalyDetectorTimeoutsArgs', 'AnomalyDetectorTimeoutsArgsDict', 'outputs.AnomalyDetectorTimeouts']]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alias"] = alias
+        __props__["arn"] = arn
+        __props__["configuration"] = configuration
+        __props__["createdAt"] = created_at
+        __props__["evaluationIntervalInSeconds"] = evaluation_interval_in_seconds
+        __props__["labels"] = labels
+        __props__["missingDataAction"] = missing_data_action
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:amp/anomalyDetector:AnomalyDetector', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[_builtins.str]:

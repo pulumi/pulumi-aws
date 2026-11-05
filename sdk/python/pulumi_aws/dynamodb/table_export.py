@@ -837,6 +837,48 @@ class TableExport(pulumi.CustomResource):
         __props__.__dict__["table_arn"] = table_arn
         return TableExport(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            billed_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            export_format: pulumi.Input[Optional[_builtins.str]] = None,
+            export_status: pulumi.Input[Optional[_builtins.str]] = None,
+            export_time: pulumi.Input[Optional[_builtins.str]] = None,
+            export_type: pulumi.Input[Optional[_builtins.str]] = None,
+            incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict', 'outputs.TableExportIncrementalExportSpecification']]] = None,
+            item_count: pulumi.Input[Optional[_builtins.int]] = None,
+            manifest_files_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_sse_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_sse_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            table_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["billedSizeInBytes"] = billed_size_in_bytes
+        __props__["endTime"] = end_time
+        __props__["exportFormat"] = export_format
+        __props__["exportStatus"] = export_status
+        __props__["exportTime"] = export_time
+        __props__["exportType"] = export_type
+        __props__["incrementalExportSpecification"] = incremental_export_specification
+        __props__["itemCount"] = item_count
+        __props__["manifestFilesS3Key"] = manifest_files_s3_key
+        __props__["region"] = region
+        __props__["s3Bucket"] = s3_bucket
+        __props__["s3BucketOwner"] = s3_bucket_owner
+        __props__["s3Prefix"] = s3_prefix
+        __props__["s3SseAlgorithm"] = s3_sse_algorithm
+        __props__["s3SseKmsKeyId"] = s3_sse_kms_key_id
+        __props__["startTime"] = start_time
+        __props__["tableArn"] = table_arn
+        return pulumi.runtime.exists_resource(None, 'aws:dynamodb/tableExport:TableExport', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

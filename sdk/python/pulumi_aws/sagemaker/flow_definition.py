@@ -664,6 +664,32 @@ class FlowDefinition(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return FlowDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            flow_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+            human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict', 'outputs.FlowDefinitionHumanLoopActivationConfig']]] = None,
+            human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict', 'outputs.FlowDefinitionHumanLoopConfig']]] = None,
+            human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict', 'outputs.FlowDefinitionHumanLoopRequestSource']]] = None,
+            output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict', 'outputs.FlowDefinitionOutputConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["flowDefinitionName"] = flow_definition_name
+        __props__["humanLoopActivationConfig"] = human_loop_activation_config
+        __props__["humanLoopConfig"] = human_loop_config
+        __props__["humanLoopRequestSource"] = human_loop_request_source
+        __props__["outputConfig"] = output_config
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/flowDefinition:FlowDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -601,6 +601,12 @@ func (CoreNetworkPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*coreNetworkPolicyAttachmentState)(nil)).Elem()
 }
 
+// CoreNetworkPolicyAttachmentExists checks whether an existing CoreNetworkPolicyAttachment resource with the given ID exists.
+func CoreNetworkPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CoreNetworkPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment", id, state, "", opts...)
+}
+
 type coreNetworkPolicyAttachmentArgs struct {
 	// ID of the core network that a policy will be attached to and made `LIVE`.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

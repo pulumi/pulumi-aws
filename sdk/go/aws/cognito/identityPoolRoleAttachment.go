@@ -95,6 +95,12 @@ func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolRoleAttachmentState)(nil)).Elem()
 }
 
+// IdentityPoolRoleAttachmentExists checks whether an existing IdentityPoolRoleAttachment resource with the given ID exists.
+func IdentityPoolRoleAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityPoolRoleAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment", id, state, "", opts...)
+}
+
 type identityPoolRoleAttachmentArgs struct {
 	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId string `pulumi:"identityPoolId"`

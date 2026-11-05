@@ -529,6 +529,24 @@ class LogAccountPolicy(pulumi.CustomResource):
         __props__.__dict__["selection_criteria"] = selection_criteria
         return LogAccountPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            selection_criteria: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["policyDocument"] = policy_document
+        __props__["policyName"] = policy_name
+        __props__["policyType"] = policy_type
+        __props__["region"] = region
+        __props__["scope"] = scope
+        __props__["selectionCriteria"] = selection_criteria
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/logAccountPolicy:LogAccountPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[_builtins.str]:

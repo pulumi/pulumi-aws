@@ -151,6 +151,12 @@ func (TrafficPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficPolicyState)(nil)).Elem()
 }
 
+// TrafficPolicyExists checks whether an existing TrafficPolicy resource with the given ID exists.
+func TrafficPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/trafficPolicy:TrafficPolicy", id, state, "", opts...)
+}
+
 type trafficPolicyArgs struct {
 	// Comment for the traffic policy.
 	Comment *string `pulumi:"comment"`

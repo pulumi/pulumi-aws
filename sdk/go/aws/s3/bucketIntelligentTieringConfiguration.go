@@ -201,6 +201,12 @@ func (BucketIntelligentTieringConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketIntelligentTieringConfigurationState)(nil)).Elem()
 }
 
+// BucketIntelligentTieringConfigurationExists checks whether an existing BucketIntelligentTieringConfiguration resource with the given ID exists.
+func BucketIntelligentTieringConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketIntelligentTieringConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration", id, state, "", opts...)
+}
+
 type bucketIntelligentTieringConfigurationArgs struct {
 	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket string `pulumi:"bucket"`

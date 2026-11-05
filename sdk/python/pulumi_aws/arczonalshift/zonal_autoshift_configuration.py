@@ -608,6 +608,28 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         __props__.__dict__["zonal_autoshift_status"] = zonal_autoshift_status
         return ZonalAutoshiftConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationBlockingAlarm']]]]] = None,
+            outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationOutcomeAlarm']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            zonal_autoshift_status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedWindows"] = allowed_windows
+        __props__["blockedDates"] = blocked_dates
+        __props__["blockedWindows"] = blocked_windows
+        __props__["blockingAlarms"] = blocking_alarms
+        __props__["outcomeAlarms"] = outcome_alarms
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        __props__["zonalAutoshiftStatus"] = zonal_autoshift_status
+        return pulumi.runtime.exists_resource(None, 'aws:arczonalshift/zonalAutoshiftConfiguration:ZonalAutoshiftConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedWindows")
     def allowed_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

@@ -130,6 +130,12 @@ func (RecoveryGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recoveryGroupState)(nil)).Elem()
 }
 
+// RecoveryGroupExists checks whether an existing RecoveryGroup resource with the given ID exists.
+func RecoveryGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecoveryGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup", id, state, "", opts...)
+}
+
 type recoveryGroupArgs struct {
 	// List of cell arns to add as nested fault domains within this recovery group
 	Cells []string `pulumi:"cells"`

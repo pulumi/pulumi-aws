@@ -193,6 +193,12 @@ func (RepositoryPermissionsPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPermissionsPolicyState)(nil)).Elem()
 }
 
+// RepositoryPermissionsPolicyExists checks whether an existing RepositoryPermissionsPolicy resource with the given ID exists.
+func RepositoryPermissionsPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPermissionsPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy", id, state, "", opts...)
+}
+
 type repositoryPermissionsPolicyArgs struct {
 	// The name of the domain on which to set the resource policy.
 	Domain string `pulumi:"domain"`

@@ -292,6 +292,12 @@ func (AnalysisState) ElementType() reflect.Type {
 	return reflect.TypeOf((*analysisState)(nil)).Elem()
 }
 
+// AnalysisExists checks whether an existing Analysis resource with the given ID exists.
+func AnalysisExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnalysisState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/analysis:Analysis", id, state, "", opts...)
+}
+
 type analysisArgs struct {
 	// Identifier for the analysis.
 	AnalysisId string `pulumi:"analysisId"`

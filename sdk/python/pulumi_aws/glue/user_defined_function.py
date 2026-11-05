@@ -520,6 +520,32 @@ class UserDefinedFunction(pulumi.CustomResource):
         __props__.__dict__["resource_uris"] = resource_uris
         return UserDefinedFunction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            class_name: pulumi.Input[Optional[_builtins.str]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["catalogId"] = catalog_id
+        __props__["className"] = class_name
+        __props__["createTime"] = create_time
+        __props__["databaseName"] = database_name
+        __props__["name"] = name
+        __props__["ownerName"] = owner_name
+        __props__["ownerType"] = owner_type
+        __props__["region"] = region
+        __props__["resourceUris"] = resource_uris
+        return pulumi.runtime.exists_resource(None, 'aws:glue/userDefinedFunction:UserDefinedFunction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

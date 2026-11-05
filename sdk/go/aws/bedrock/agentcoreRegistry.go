@@ -232,6 +232,12 @@ func (AgentcoreRegistryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreRegistryState)(nil)).Elem()
 }
 
+// AgentcoreRegistryExists checks whether an existing AgentcoreRegistry resource with the given ID exists.
+func AgentcoreRegistryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreRegistryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreRegistry:AgentcoreRegistry", id, state, "", opts...)
+}
+
 type agentcoreRegistryArgs struct {
 	// Approval configuration for registry records. See below.
 	ApprovalConfigurations []AgentcoreRegistryApprovalConfiguration `pulumi:"approvalConfigurations"`

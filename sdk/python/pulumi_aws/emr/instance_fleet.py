@@ -540,6 +540,30 @@ class InstanceFleet(pulumi.CustomResource):
         __props__.__dict__["target_spot_capacity"] = target_spot_capacity
         return InstanceFleet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict', 'outputs.InstanceFleetInstanceTypeConfig']]]]] = None,
+            launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict', 'outputs.InstanceFleetLaunchSpecifications']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            provisioned_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            target_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterId"] = cluster_id
+        __props__["instanceTypeConfigs"] = instance_type_configs
+        __props__["launchSpecifications"] = launch_specifications
+        __props__["name"] = name
+        __props__["provisionedOnDemandCapacity"] = provisioned_on_demand_capacity
+        __props__["provisionedSpotCapacity"] = provisioned_spot_capacity
+        __props__["region"] = region
+        __props__["targetOnDemandCapacity"] = target_on_demand_capacity
+        __props__["targetSpotCapacity"] = target_spot_capacity
+        return pulumi.runtime.exists_resource(None, 'aws:emr/instanceFleet:InstanceFleet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.str]:

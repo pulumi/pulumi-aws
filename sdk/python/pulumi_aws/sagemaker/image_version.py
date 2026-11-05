@@ -684,6 +684,42 @@ class ImageVersion(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return ImageVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base_image: pulumi.Input[Optional[_builtins.str]] = None,
+            container_image: pulumi.Input[Optional[_builtins.str]] = None,
+            horovod: pulumi.Input[Optional[_builtins.bool]] = None,
+            image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            image_name: pulumi.Input[Optional[_builtins.str]] = None,
+            job_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ml_framework: pulumi.Input[Optional[_builtins.str]] = None,
+            processor: pulumi.Input[Optional[_builtins.str]] = None,
+            programming_lang: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_notes: pulumi.Input[Optional[_builtins.str]] = None,
+            vendor_guidance: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aliases"] = aliases
+        __props__["arn"] = arn
+        __props__["baseImage"] = base_image
+        __props__["containerImage"] = container_image
+        __props__["horovod"] = horovod
+        __props__["imageArn"] = image_arn
+        __props__["imageName"] = image_name
+        __props__["jobType"] = job_type
+        __props__["mlFramework"] = ml_framework
+        __props__["processor"] = processor
+        __props__["programmingLang"] = programming_lang
+        __props__["region"] = region
+        __props__["releaseNotes"] = release_notes
+        __props__["vendorGuidance"] = vendor_guidance
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/imageVersion:ImageVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aliases(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

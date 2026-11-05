@@ -244,6 +244,12 @@ func (VpcAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcAttachmentState)(nil)).Elem()
 }
 
+// VpcAttachmentExists checks whether an existing VpcAttachment resource with the given ID exists.
+func VpcAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/vpcAttachment:VpcAttachment", id, state, "", opts...)
+}
+
 type vpcAttachmentArgs struct {
 	// ID of a core network for the VPC attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

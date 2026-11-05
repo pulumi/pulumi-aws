@@ -465,6 +465,30 @@ class Hub(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Hub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_description: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_storage_config: pulumi.Input[Optional[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict', 'outputs.HubS3StorageConfig']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["hubDescription"] = hub_description
+        __props__["hubDisplayName"] = hub_display_name
+        __props__["hubName"] = hub_name
+        __props__["hubSearchKeywords"] = hub_search_keywords
+        __props__["region"] = region
+        __props__["s3StorageConfig"] = s3_storage_config
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/hub:Hub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

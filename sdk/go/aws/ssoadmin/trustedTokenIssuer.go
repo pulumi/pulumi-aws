@@ -186,6 +186,12 @@ func (TrustedTokenIssuerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustedTokenIssuerState)(nil)).Elem()
 }
 
+// TrustedTokenIssuerExists checks whether an existing TrustedTokenIssuer resource with the given ID exists.
+func TrustedTokenIssuerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustedTokenIssuerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer", id, state, "", opts...)
+}
+
 type trustedTokenIssuerArgs struct {
 	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 	ClientToken *string `pulumi:"clientToken"`

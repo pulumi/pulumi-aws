@@ -350,6 +350,12 @@ func (MultitenantDistributionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multitenantDistributionState)(nil)).Elem()
 }
 
+// MultitenantDistributionExists checks whether an existing MultitenantDistribution resource with the given ID exists.
+func MultitenantDistributionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultitenantDistributionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/multitenantDistribution:MultitenantDistribution", id, state, "", opts...)
+}
+
 type multitenantDistributionArgs struct {
 	// List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
 	ActiveTrustedKeyGroups []MultitenantDistributionActiveTrustedKeyGroup `pulumi:"activeTrustedKeyGroups"`

@@ -173,6 +173,12 @@ func (RuntimeManagementConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*runtimeManagementConfigState)(nil)).Elem()
 }
 
+// RuntimeManagementConfigExists checks whether an existing RuntimeManagementConfig resource with the given ID exists.
+func RuntimeManagementConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuntimeManagementConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig", id, state, "", opts...)
+}
+
 type runtimeManagementConfigArgs struct {
 	// Name or ARN of the Lambda function.
 	//

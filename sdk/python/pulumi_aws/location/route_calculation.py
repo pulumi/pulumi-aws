@@ -433,6 +433,30 @@ class RouteCalculation(pulumi.CustomResource):
         __props__.__dict__["update_time"] = update_time
         return RouteCalculation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            calculator_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            calculator_name: pulumi.Input[Optional[_builtins.str]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            data_source: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            update_time: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["calculatorArn"] = calculator_arn
+        __props__["calculatorName"] = calculator_name
+        __props__["createTime"] = create_time
+        __props__["dataSource"] = data_source
+        __props__["description"] = description
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["updateTime"] = update_time
+        return pulumi.runtime.exists_resource(None, 'aws:location/routeCalculation:RouteCalculation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="calculatorArn")
     def calculator_arn(self) -> pulumi.Output[_builtins.str]:

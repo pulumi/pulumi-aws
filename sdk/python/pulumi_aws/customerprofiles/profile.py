@@ -1056,6 +1056,58 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["shipping_address"] = shipping_address
         return Profile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_number: pulumi.Input[Optional[_builtins.str]] = None,
+            additional_information: pulumi.Input[Optional[_builtins.str]] = None,
+            address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict', 'outputs.ProfileAddress']]] = None,
+            attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict', 'outputs.ProfileBillingAddress']]] = None,
+            birth_date: pulumi.Input[Optional[_builtins.str]] = None,
+            business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            business_name: pulumi.Input[Optional[_builtins.str]] = None,
+            business_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            first_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gender_string: pulumi.Input[Optional[_builtins.str]] = None,
+            home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict', 'outputs.ProfileMailingAddress']]] = None,
+            middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
+            personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict', 'outputs.ProfileShippingAddress']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountNumber"] = account_number
+        __props__["additionalInformation"] = additional_information
+        __props__["address"] = address
+        __props__["attributes"] = attributes
+        __props__["billingAddress"] = billing_address
+        __props__["birthDate"] = birth_date
+        __props__["businessEmailAddress"] = business_email_address
+        __props__["businessName"] = business_name
+        __props__["businessPhoneNumber"] = business_phone_number
+        __props__["domainName"] = domain_name
+        __props__["emailAddress"] = email_address
+        __props__["firstName"] = first_name
+        __props__["genderString"] = gender_string
+        __props__["homePhoneNumber"] = home_phone_number
+        __props__["lastName"] = last_name
+        __props__["mailingAddress"] = mailing_address
+        __props__["middleName"] = middle_name
+        __props__["mobilePhoneNumber"] = mobile_phone_number
+        __props__["partyTypeString"] = party_type_string
+        __props__["personalEmailAddress"] = personal_email_address
+        __props__["phoneNumber"] = phone_number
+        __props__["region"] = region
+        __props__["shippingAddress"] = shipping_address
+        return pulumi.runtime.exists_resource(None, 'aws:customerprofiles/profile:Profile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountNumber")
     def account_number(self) -> pulumi.Output[Optional[_builtins.str]]:

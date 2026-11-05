@@ -153,6 +153,12 @@ func (CiphertextState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ciphertextState)(nil)).Elem()
 }
 
+// CiphertextExists checks whether an existing Ciphertext resource with the given ID exists.
+func CiphertextExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CiphertextState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kms/ciphertext:Ciphertext", id, state, "", opts...)
+}
+
 type ciphertextArgs struct {
 	// Mapping that makes up the encryption context.
 	Context map[string]string `pulumi:"context"`

@@ -128,6 +128,12 @@ func (SubnetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetGroupState)(nil)).Elem()
 }
 
+// SubnetGroupExists checks whether an existing SubnetGroup resource with the given ID exists.
+func SubnetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dax/subnetGroup:SubnetGroup", id, state, "", opts...)
+}
+
 type subnetGroupArgs struct {
 	// A description of the subnet group.
 	Description *string `pulumi:"description"`

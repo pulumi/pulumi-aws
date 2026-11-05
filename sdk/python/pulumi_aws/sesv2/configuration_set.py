@@ -575,6 +575,34 @@ class ConfigurationSet(pulumi.CustomResource):
         __props__.__dict__["vdm_options"] = vdm_options
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_options: pulumi.Input[Optional[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict', 'outputs.ConfigurationSetDeliveryOptions']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            reputation_options: pulumi.Input[Optional[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict', 'outputs.ConfigurationSetReputationOptions']]] = None,
+            sending_options: pulumi.Input[Optional[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict', 'outputs.ConfigurationSetSendingOptions']]] = None,
+            suppression_options: pulumi.Input[Optional[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict', 'outputs.ConfigurationSetSuppressionOptions']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tracking_options: pulumi.Input[Optional[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict', 'outputs.ConfigurationSetTrackingOptions']]] = None,
+            vdm_options: pulumi.Input[Optional[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict', 'outputs.ConfigurationSetVdmOptions']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["configurationSetName"] = configuration_set_name
+        __props__["deliveryOptions"] = delivery_options
+        __props__["region"] = region
+        __props__["reputationOptions"] = reputation_options
+        __props__["sendingOptions"] = sending_options
+        __props__["suppressionOptions"] = suppression_options
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["trackingOptions"] = tracking_options
+        __props__["vdmOptions"] = vdm_options
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/configurationSet:ConfigurationSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -122,6 +122,12 @@ func (AttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachmentState)(nil)).Elem()
 }
 
+// AttachmentExists checks whether an existing Attachment resource with the given ID exists.
+func AttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elb/attachment:Attachment", id, state, "", opts...)
+}
+
 type attachmentArgs struct {
 	// The name of the ELB.
 	Elb string `pulumi:"elb"`

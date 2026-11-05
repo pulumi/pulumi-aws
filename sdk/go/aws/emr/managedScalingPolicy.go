@@ -149,6 +149,12 @@ func (ManagedScalingPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedScalingPolicyState)(nil)).Elem()
 }
 
+// ManagedScalingPolicyExists checks whether an existing ManagedScalingPolicy resource with the given ID exists.
+func ManagedScalingPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedScalingPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:emr/managedScalingPolicy:ManagedScalingPolicy", id, state, "", opts...)
+}
+
 type managedScalingPolicyArgs struct {
 	// ID of the EMR cluster
 	ClusterId string `pulumi:"clusterId"`

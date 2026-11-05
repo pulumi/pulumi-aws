@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
  *             .build());
  * 
@@ -61,37 +61,37 @@ import javax.annotation.Nullable;
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("tags[\"CreatorId\"]", "tags[\"CreatorName\"]")
+ *                 .ignoreChanges("tags[}&#92;{@code "CreatorId}&#92;{@code "]", "tags[}&#92;{@code "CreatorName}&#92;{@code "]")
  *                 .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(example.bucket())
  *             .policy(example.arn().applyValue(_arn -> """
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Statement\": [
- *     {
- *       \"Effect\": \"Allow\",
- *       \"Principal\": {
- *         \"Service\": \"bedrock.amazonaws.com\"
- *       },
- *       \"Action\": [
- *         \"s3:*\"
+ * }{{@code
+ *   }&#92;{@code "Version}&#92;{@code ": }&#92;{@code "2012-10-17}&#92;{@code ",
+ *   }&#92;{@code "Statement}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *       }&#92;{@code "Principal}&#92;{@code ": }{{@code
+ *         }&#92;{@code "Service}&#92;{@code ": }&#92;{@code "bedrock.amazonaws.com}&#92;{@code "
+ *       }}{@code ,
+ *       }&#92;{@code "Action}&#92;{@code ": [
+ *         }&#92;{@code "s3:*}&#92;{@code "
  *       ],
- *       \"Resource\": [
- *         \"%s/*\"
+ *       }&#92;{@code "Resource}&#92;{@code ": [
+ *         }&#92;{@code "%s/*}&#92;{@code "
  *       ],
- *       \"Condition\": {
- *         \"StringEquals\": {
- *           \"aws:SourceAccount\": \"%s\"
- *         },
- *         \"ArnLike\": {
- *           \"aws:SourceArn\": \"arn:aws:bedrock:us-east-1:%s:*\"
- *         }
- *       }
- *     }
+ *       }&#92;{@code "Condition}&#92;{@code ": }{{@code
+ *         }&#92;{@code "StringEquals}&#92;{@code ": }{{@code
+ *           }&#92;{@code "aws:SourceAccount}&#92;{@code ": }&#92;{@code "%s}&#92;{@code "
+ *         }}{@code ,
+ *         }&#92;{@code "ArnLike}&#92;{@code ": }{{@code
+ *           }&#92;{@code "aws:SourceArn}&#92;{@code ": }&#92;{@code "arn:aws:bedrock:us-east-1:%s:*}&#92;{@code "
+ *         }}{@code
+ *       }}{@code
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  * ", _arn,current.accountId(),current.accountId())))
  *             .build());
  * 
@@ -110,8 +110,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleBucketPolicy)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -16,42 +16,38 @@ public final class BucketV2ObjectLockConfiguration {
     /**
      * @return Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
      * 
-     * @deprecated
-     * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
+     * @deprecated object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
      * 
      */
-    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
+    @Deprecated
     private @Nullable String objectLockEnabled;
     /**
      * @return Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
      * 
-     * @deprecated
-     * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
+     * @deprecated rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
-    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead. */
+    @Deprecated
     private @Nullable List<BucketV2ObjectLockConfigurationRule> rules;
 
     private BucketV2ObjectLockConfiguration() {}
     /**
      * @return Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
      * 
-     * @deprecated
-     * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
+     * @deprecated object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
      * 
      */
-    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
+    @Deprecated
     public Optional<String> objectLockEnabled() {
         return Optional.ofNullable(this.objectLockEnabled);
     }
     /**
      * @return Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
      * 
-     * @deprecated
-     * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
+     * @deprecated rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
-    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead. */
+    @Deprecated
     public List<BucketV2ObjectLockConfigurationRule> rules() {
         return this.rules == null ? List.of() : this.rules;
     }

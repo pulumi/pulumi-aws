@@ -893,6 +893,56 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["visibility_config"] = visibility_config
         return WebAcl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_integration_url: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_config: pulumi.Input[Optional[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict', 'outputs.WebAclAssociationConfig']]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            captcha_config: pulumi.Input[Optional[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict', 'outputs.WebAclCaptchaConfig']]] = None,
+            challenge_config: pulumi.Input[Optional[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict', 'outputs.WebAclChallengeConfig']]] = None,
+            custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict', 'outputs.WebAclCustomResponseBody']]]]] = None,
+            data_protection_config: pulumi.Input[Optional[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict', 'outputs.WebAclDataProtectionConfig']]] = None,
+            default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict', 'outputs.WebAclDefaultAction']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_token: pulumi.Input[Optional[_builtins.str]] = None,
+            monetization_config: pulumi.Input[Optional[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict', 'outputs.WebAclMonetizationConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_json: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict', 'outputs.WebAclRule']]]]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            visibility_config: pulumi.Input[Optional[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict', 'outputs.WebAclVisibilityConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationIntegrationUrl"] = application_integration_url
+        __props__["arn"] = arn
+        __props__["associationConfig"] = association_config
+        __props__["capacity"] = capacity
+        __props__["captchaConfig"] = captcha_config
+        __props__["challengeConfig"] = challenge_config
+        __props__["customResponseBodies"] = custom_response_bodies
+        __props__["dataProtectionConfig"] = data_protection_config
+        __props__["defaultAction"] = default_action
+        __props__["description"] = description
+        __props__["lockToken"] = lock_token
+        __props__["monetizationConfig"] = monetization_config
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["ruleJson"] = rule_json
+        __props__["rules"] = rules
+        __props__["scope"] = scope
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tokenDomains"] = token_domains
+        __props__["visibilityConfig"] = visibility_config
+        return pulumi.runtime.exists_resource(None, 'aws:wafv2/webAcl:WebAcl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationIntegrationUrl")
     def application_integration_url(self) -> pulumi.Output[_builtins.str]:

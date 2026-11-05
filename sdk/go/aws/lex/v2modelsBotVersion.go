@@ -140,6 +140,12 @@ func (V2modelsBotVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2modelsBotVersionState)(nil)).Elem()
 }
 
+// V2modelsBotVersionExists checks whether an existing V2modelsBotVersion resource with the given ID exists.
+func V2modelsBotVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2modelsBotVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/v2modelsBotVersion:V2modelsBotVersion", id, state, "", opts...)
+}
+
 type v2modelsBotVersionArgs struct {
 	// Idientifier of the bot to create the version for.
 	BotId string `pulumi:"botId"`

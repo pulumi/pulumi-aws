@@ -1449,6 +1449,62 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["worker_type"] = worker_type
         return Job(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict', 'outputs.JobCommand']]] = None,
+            connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict', 'outputs.JobExecutionProperty']]] = None,
+            glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+            job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+            max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict', 'outputs.JobNotificationProperty']]] = None,
+            number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict', 'outputs.JobSourceControlDetails']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            worker_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["command"] = command
+        __props__["connections"] = connections
+        __props__["defaultArguments"] = default_arguments
+        __props__["description"] = description
+        __props__["executionClass"] = execution_class
+        __props__["executionProperty"] = execution_property
+        __props__["glueVersion"] = glue_version
+        __props__["jobMode"] = job_mode
+        __props__["jobRunQueuingEnabled"] = job_run_queuing_enabled
+        __props__["maintenanceWindow"] = maintenance_window
+        __props__["maxCapacity"] = max_capacity
+        __props__["maxRetries"] = max_retries
+        __props__["name"] = name
+        __props__["nonOverridableArguments"] = non_overridable_arguments
+        __props__["notificationProperty"] = notification_property
+        __props__["numberOfWorkers"] = number_of_workers
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["securityConfiguration"] = security_configuration
+        __props__["sourceControlDetails"] = source_control_details
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeout"] = timeout
+        __props__["workerType"] = worker_type
+        return pulumi.runtime.exists_resource(None, 'aws:glue/job:Job', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

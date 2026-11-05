@@ -462,6 +462,12 @@ func (DeploymentGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentGroupState)(nil)).Elem()
 }
 
+// DeploymentGroupExists checks whether an existing DeploymentGroup resource with the given ID exists.
+func DeploymentGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codedeploy/deploymentGroup:DeploymentGroup", id, state, "", opts...)
+}
+
 type deploymentGroupArgs struct {
 	// Configuration block of alarms associated with the deployment group (documented below).
 	AlarmConfiguration *DeploymentGroupAlarmConfiguration `pulumi:"alarmConfiguration"`

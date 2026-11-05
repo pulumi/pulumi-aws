@@ -41,31 +41,31 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
  *             .build());
  * 
  *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()
  *             .pipelineName("example")
  *             .pipelineConfigurationBody("""
- * version: \"2\"
+ * version: }&#92;{@code "2}&#92;{@code "
  * example-pipeline:
  *   source:
  *     http:
- *       path: \"/example\"
+ *       path: }&#92;{@code "/example}&#92;{@code "
  *   sink:
  *     - s3:
  *         aws:
- *           sts_role_arn: \"arn:aws:iam::%s:role/Example\"
- *           region: \"us-east-1\"
- *         bucket: \"example\"
+ *           sts_role_arn: }&#92;{@code "arn:aws:iam::%s:role/Example}&#92;{@code "
+ *           region: }&#92;{@code "us-east-1}&#92;{@code "
+ *         bucket: }&#92;{@code "example}&#92;{@code "
  *         threshold:
- *           event_collect_timeout: \"60s\"
+ *           event_collect_timeout: }&#92;{@code "60s}&#92;{@code "
  *         codec:
  *           ndjson:
  * ", current.accountId()))
@@ -89,8 +89,8 @@ import javax.annotation.Nullable;
  *                 ))))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

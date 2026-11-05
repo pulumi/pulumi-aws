@@ -573,6 +573,34 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Profile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_role_session_name: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            require_instance_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+            role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            session_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptRoleSessionName"] = accept_role_session_name
+        __props__["arn"] = arn
+        __props__["durationSeconds"] = duration_seconds
+        __props__["enabled"] = enabled
+        __props__["managedPolicyArns"] = managed_policy_arns
+        __props__["name"] = name
+        __props__["requireInstanceProperties"] = require_instance_properties
+        __props__["roleArns"] = role_arns
+        __props__["sessionPolicy"] = session_policy
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:rolesanywhere/profile:Profile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptRoleSessionName")
     def accept_role_session_name(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -179,6 +179,12 @@ func (VolumeAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeAttachmentState)(nil)).Elem()
 }
 
+// VolumeAttachmentExists checks whether an existing VolumeAttachment resource with the given ID exists.
+func VolumeAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/volumeAttachment:VolumeAttachment", id, state, "", opts...)
+}
+
 type volumeAttachmentArgs struct {
 	// Device name to expose to the instance (for example, `/dev/sdh` or `xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
 	DeviceName string `pulumi:"deviceName"`

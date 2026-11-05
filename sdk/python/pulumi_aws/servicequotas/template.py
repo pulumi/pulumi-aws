@@ -442,6 +442,30 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["value"] = value
         return Template(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+            global_quota: pulumi.Input[Optional[_builtins.bool]] = None,
+            quota_code: pulumi.Input[Optional[_builtins.str]] = None,
+            quota_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_code: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            unit: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.float]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsRegion"] = aws_region
+        __props__["globalQuota"] = global_quota
+        __props__["quotaCode"] = quota_code
+        __props__["quotaName"] = quota_name
+        __props__["region"] = region
+        __props__["serviceCode"] = service_code
+        __props__["serviceName"] = service_name
+        __props__["unit"] = unit
+        __props__["value"] = value
+        return pulumi.runtime.exists_resource(None, 'aws:servicequotas/template:Template', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> pulumi.Output[_builtins.str]:

@@ -961,6 +961,52 @@ class LaunchConfiguration(pulumi.CustomResource):
         __props__.__dict__["user_data_base64"] = user_data_base64
         return LaunchConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+            ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict', 'outputs.LaunchConfigurationEbsBlockDevice']]]]] = None,
+            ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+            ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict', 'outputs.LaunchConfigurationEphemeralBlockDevice']]]]] = None,
+            iam_instance_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_options: pulumi.Input[Optional[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict', 'outputs.LaunchConfigurationMetadataOptions']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_block_device: pulumi.Input[Optional[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict', 'outputs.LaunchConfigurationRootBlockDevice']]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            spot_price: pulumi.Input[Optional[_builtins.str]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None,
+            user_data_base64: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["associatePublicIpAddress"] = associate_public_ip_address
+        __props__["ebsBlockDevices"] = ebs_block_devices
+        __props__["ebsOptimized"] = ebs_optimized
+        __props__["enableMonitoring"] = enable_monitoring
+        __props__["ephemeralBlockDevices"] = ephemeral_block_devices
+        __props__["iamInstanceProfile"] = iam_instance_profile
+        __props__["imageId"] = image_id
+        __props__["instanceType"] = instance_type
+        __props__["keyName"] = key_name
+        __props__["metadataOptions"] = metadata_options
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["placementTenancy"] = placement_tenancy
+        __props__["region"] = region
+        __props__["rootBlockDevice"] = root_block_device
+        __props__["securityGroups"] = security_groups
+        __props__["spotPrice"] = spot_price
+        __props__["userData"] = user_data
+        __props__["userDataBase64"] = user_data_base64
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/launchConfiguration:LaunchConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

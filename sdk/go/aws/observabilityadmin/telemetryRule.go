@@ -368,6 +368,12 @@ func (TelemetryRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*telemetryRuleState)(nil)).Elem()
 }
 
+// TelemetryRuleExists checks whether an existing TelemetryRule resource with the given ID exists.
+func TelemetryRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TelemetryRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:observabilityadmin/telemetryRule:TelemetryRule", id, state, "", opts...)
+}
+
 type telemetryRuleArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

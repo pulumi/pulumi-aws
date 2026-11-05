@@ -412,6 +412,12 @@ func (WindowsFileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsFileSystemState)(nil)).Elem()
 }
 
+// WindowsFileSystemExists checks whether an existing WindowsFileSystem resource with the given ID exists.
+func WindowsFileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WindowsFileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/windowsFileSystem:WindowsFileSystem", id, state, "", opts...)
+}
+
 type windowsFileSystemArgs struct {
 	// ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`

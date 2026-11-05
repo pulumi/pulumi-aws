@@ -175,6 +175,12 @@ func (ResourceMetricsConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceMetricsConfigurationState)(nil)).Elem()
 }
 
+// ResourceMetricsConfigurationExists checks whether an existing ResourceMetricsConfiguration resource with the given ID exists.
+func ResourceMetricsConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceMetricsConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/resourceMetricsConfiguration:ResourceMetricsConfiguration", id, state, "", opts...)
+}
+
 type resourceMetricsConfigurationArgs struct {
 	// Configuration block that limits which metrics CloudWatch collects. At most one block is supported. When omitted, CloudWatch collects all available detailed metrics for the resource. See `metricSelection` below.
 	MetricSelection *ResourceMetricsConfigurationMetricSelection `pulumi:"metricSelection"`

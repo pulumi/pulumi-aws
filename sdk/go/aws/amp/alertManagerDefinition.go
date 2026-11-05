@@ -127,6 +127,12 @@ func (AlertManagerDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertManagerDefinitionState)(nil)).Elem()
 }
 
+// AlertManagerDefinitionExists checks whether an existing AlertManagerDefinition resource with the given ID exists.
+func AlertManagerDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertManagerDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:amp/alertManagerDefinition:AlertManagerDefinition", id, state, "", opts...)
+}
+
 type alertManagerDefinitionArgs struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition string `pulumi:"definition"`

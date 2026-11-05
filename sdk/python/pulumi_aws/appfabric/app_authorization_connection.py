@@ -373,6 +373,26 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AppAuthorizationConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app: pulumi.Input[Optional[_builtins.str]] = None,
+            app_authorization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict', 'outputs.AppAuthorizationConnectionAuthRequest']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tenants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict', 'outputs.AppAuthorizationConnectionTenant']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict', 'outputs.AppAuthorizationConnectionTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["app"] = app
+        __props__["appAuthorizationArn"] = app_authorization_arn
+        __props__["appBundleArn"] = app_bundle_arn
+        __props__["authRequest"] = auth_request
+        __props__["region"] = region
+        __props__["tenants"] = tenants
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def app(self) -> pulumi.Output[_builtins.str]:

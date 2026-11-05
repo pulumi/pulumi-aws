@@ -644,6 +644,34 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         return MacsecKeyAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cak: pulumi.Input[Optional[_builtins.str]] = None,
+            cak_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            cak_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            ckn: pulumi.Input[Optional[_builtins.str]] = None,
+            ckn_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            ckn_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            start_on: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cak"] = cak
+        __props__["cakWo"] = cak_wo
+        __props__["cakWoVersion"] = cak_wo_version
+        __props__["ckn"] = ckn
+        __props__["cknWo"] = ckn_wo
+        __props__["cknWoVersion"] = ckn_wo_version
+        __props__["connectionId"] = connection_id
+        __props__["region"] = region
+        __props__["secretArn"] = secret_arn
+        __props__["startOn"] = start_on
+        __props__["state"] = state
+        return pulumi.runtime.exists_resource(None, 'aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cak(self) -> pulumi.Output[Optional[_builtins.str]]:

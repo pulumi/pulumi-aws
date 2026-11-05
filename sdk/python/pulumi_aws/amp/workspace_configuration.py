@@ -534,6 +534,26 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict', 'outputs.WorkspaceConfigurationLimitsPerLabelSet']]]]] = None,
+            out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict', 'outputs.WorkspaceConfigurationTimeouts']]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["limitsPerLabelSets"] = limits_per_label_sets
+        __props__["outOfOrderTimeWindowInSeconds"] = out_of_order_time_window_in_seconds
+        __props__["region"] = region
+        __props__["retentionPeriodInDays"] = retention_period_in_days
+        __props__["ruleQueryOffsetInSeconds"] = rule_query_offset_in_seconds
+        __props__["timeouts"] = timeouts
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:amp/workspaceConfiguration:WorkspaceConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="limitsPerLabelSets")
     def limits_per_label_sets(self) -> pulumi.Output[Optional[Sequence['outputs.WorkspaceConfigurationLimitsPerLabelSet']]]:

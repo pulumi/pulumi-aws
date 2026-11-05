@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .description("This is my API for demonstration purposes")
@@ -94,15 +94,15 @@ import javax.annotation.Nullable;
  *             .statusCode(response200.statusCode())
  *             .responseTemplates(Map.of("application/xml", """
  * #set($inputRoot = $input.path('$'))
- * <?xml version=\"1.0\" encoding=\"UTF-8\"?>
+ * <?xml version=}&#92;{@code "1.0}&#92;{@code " encoding=}&#92;{@code "UTF-8}&#92;{@code "?>
  * <message>
  *     $inputRoot.body
  * </message>
  *             """))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

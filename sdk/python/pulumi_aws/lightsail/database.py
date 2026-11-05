@@ -1218,6 +1218,70 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Database(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            backup_retention_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificate_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size: pulumi.Input[Optional[_builtins.float]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            master_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            master_endpoint_address: pulumi.Input[Optional[_builtins.str]] = None,
+            master_endpoint_port: pulumi.Input[Optional[_builtins.int]] = None,
+            master_password: pulumi.Input[Optional[_builtins.str]] = None,
+            master_username: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            ram_size: pulumi.Input[Optional[_builtins.float]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            relational_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+            support_code: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyImmediately"] = apply_immediately
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["backupRetentionEnabled"] = backup_retention_enabled
+        __props__["blueprintId"] = blueprint_id
+        __props__["bundleId"] = bundle_id
+        __props__["caCertificateIdentifier"] = ca_certificate_identifier
+        __props__["cpuCount"] = cpu_count
+        __props__["createdAt"] = created_at
+        __props__["diskSize"] = disk_size
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["finalSnapshotName"] = final_snapshot_name
+        __props__["masterDatabaseName"] = master_database_name
+        __props__["masterEndpointAddress"] = master_endpoint_address
+        __props__["masterEndpointPort"] = master_endpoint_port
+        __props__["masterPassword"] = master_password
+        __props__["masterUsername"] = master_username
+        __props__["preferredBackupWindow"] = preferred_backup_window
+        __props__["preferredMaintenanceWindow"] = preferred_maintenance_window
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["ramSize"] = ram_size
+        __props__["region"] = region
+        __props__["relationalDatabaseName"] = relational_database_name
+        __props__["secondaryAvailabilityZone"] = secondary_availability_zone
+        __props__["skipFinalSnapshot"] = skip_final_snapshot
+        __props__["supportCode"] = support_code
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:lightsail/database:Database', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[_builtins.bool]:

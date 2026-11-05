@@ -125,6 +125,12 @@ func (EndpointServicePrivateDnsVerificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointServicePrivateDnsVerificationState)(nil)).Elem()
 }
 
+// EndpointServicePrivateDnsVerificationExists checks whether an existing EndpointServicePrivateDnsVerification resource with the given ID exists.
+func EndpointServicePrivateDnsVerificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointServicePrivateDnsVerificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification", id, state, "", opts...)
+}
+
 type endpointServicePrivateDnsVerificationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

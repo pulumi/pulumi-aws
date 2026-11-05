@@ -342,6 +342,24 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            appsync_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appsyncDomainName"] = appsync_domain_name
+        __props__["certificateArn"] = certificate_arn
+        __props__["description"] = description
+        __props__["domainName"] = domain_name
+        __props__["hostedZoneId"] = hosted_zone_id
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/domainName:DomainName', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appsyncDomainName")
     def appsync_domain_name(self) -> pulumi.Output[_builtins.str]:

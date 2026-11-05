@@ -143,6 +143,12 @@ func (TrafficPolicyInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficPolicyInstanceState)(nil)).Elem()
 }
 
+// TrafficPolicyInstanceExists checks whether an existing TrafficPolicyInstance resource with the given ID exists.
+func TrafficPolicyInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficPolicyInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/trafficPolicyInstance:TrafficPolicyInstance", id, state, "", opts...)
+}
+
 type trafficPolicyInstanceArgs struct {
 	// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
 	HostedZoneId string `pulumi:"hostedZoneId"`

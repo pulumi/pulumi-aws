@@ -109,11 +109,10 @@ public final class GetUserPoolResult {
     /**
      * @return (Deprecated) Map of tags assigned to the resource.
      * 
-     * @deprecated
-     * Use the attribute &#34;tags&#34; instead
+     * @deprecated Use the attribute &#34;tags&#34; instead
      * 
      */
-    @Deprecated /* Use the attribute ""tags"" instead */
+    @Deprecated
     private Map<String,String> userPoolTags;
     /**
      * @return Specifies whether a user can use an email address or phone number as a username when they sign up.
@@ -259,11 +258,10 @@ public final class GetUserPoolResult {
     /**
      * @return (Deprecated) Map of tags assigned to the resource.
      * 
-     * @deprecated
-     * Use the attribute &#34;tags&#34; instead
+     * @deprecated Use the attribute &#34;tags&#34; instead
      * 
      */
-    @Deprecated /* Use the attribute ""tags"" instead */
+    @Deprecated
     public Map<String,String> userPoolTags() {
         return this.userPoolTags;
     }

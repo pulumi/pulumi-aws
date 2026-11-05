@@ -137,6 +137,12 @@ func (KeyGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyGroupState)(nil)).Elem()
 }
 
+// KeyGroupExists checks whether an existing KeyGroup resource with the given ID exists.
+func KeyGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/keyGroup:KeyGroup", id, state, "", opts...)
+}
+
 type keyGroupArgs struct {
 	// A comment to describe the key group..
 	Comment *string `pulumi:"comment"`

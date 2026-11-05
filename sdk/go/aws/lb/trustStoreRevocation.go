@@ -148,6 +148,12 @@ func (TrustStoreRevocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustStoreRevocationState)(nil)).Elem()
 }
 
+// TrustStoreRevocationExists checks whether an existing TrustStoreRevocation resource with the given ID exists.
+func TrustStoreRevocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustStoreRevocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lb/trustStoreRevocation:TrustStoreRevocation", id, state, "", opts...)
+}
+
 type trustStoreRevocationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

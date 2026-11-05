@@ -186,6 +186,12 @@ func (PipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineState)(nil)).Elem()
 }
 
+// PipelineExists checks whether an existing Pipeline resource with the given ID exists.
+func PipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/pipeline:Pipeline", id, state, "", opts...)
+}
+
 type pipelineArgs struct {
 	// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
 	ParallelismConfiguration *PipelineParallelismConfiguration `pulumi:"parallelismConfiguration"`

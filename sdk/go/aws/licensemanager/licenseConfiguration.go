@@ -172,6 +172,12 @@ func (LicenseConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licenseConfigurationState)(nil)).Elem()
 }
 
+// LicenseConfigurationExists checks whether an existing LicenseConfiguration resource with the given ID exists.
+func LicenseConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicenseConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:licensemanager/licenseConfiguration:LicenseConfiguration", id, state, "", opts...)
+}
+
 type licenseConfigurationArgs struct {
 	// Description of the license configuration.
 	Description *string `pulumi:"description"`

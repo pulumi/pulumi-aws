@@ -769,6 +769,40 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["warm_throughput_mib_ps"] = warm_throughput_mib_ps
         return Stream(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+            enforce_consumer_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            max_record_size_in_kib: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+            shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            stream_mode_details: pulumi.Input[Optional[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            warm_throughput_mib_ps: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["encryptionType"] = encryption_type
+        __props__["enforceConsumerDeletion"] = enforce_consumer_deletion
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["maxRecordSizeInKib"] = max_record_size_in_kib
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["retentionPeriod"] = retention_period
+        __props__["shardCount"] = shard_count
+        __props__["shardLevelMetrics"] = shard_level_metrics
+        __props__["streamModeDetails"] = stream_mode_details
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["warmThroughputMibPs"] = warm_throughput_mib_ps
+        return pulumi.runtime.exists_resource(None, 'aws:kinesis/stream:Stream', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -773,6 +773,38 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["topic_configuration"] = topic_configuration
         return Channel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict', 'outputs.ChannelEncryptionConfiguration']]] = None,
+            iceberg_destination: pulumi.Input[Optional[Union['ChannelIcebergDestinationArgs', 'ChannelIcebergDestinationArgsDict', 'outputs.ChannelIcebergDestination']]] = None,
+            logging_info: pulumi.Input[Optional[Union['ChannelLoggingInfoArgs', 'ChannelLoggingInfoArgsDict', 'outputs.ChannelLoggingInfo']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_destination: pulumi.Input[Optional[Union['ChannelS3DestinationArgs', 'ChannelS3DestinationArgsDict', 'outputs.ChannelS3Destination']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ChannelTimeoutsArgs', 'ChannelTimeoutsArgsDict', 'outputs.ChannelTimeouts']]] = None,
+            topic_configuration: pulumi.Input[Optional[Union['ChannelTopicConfigurationArgs', 'ChannelTopicConfigurationArgsDict', 'outputs.ChannelTopicConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["channelName"] = channel_name
+        __props__["clusterArn"] = cluster_arn
+        __props__["destinationType"] = destination_type
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["icebergDestination"] = iceberg_destination
+        __props__["loggingInfo"] = logging_info
+        __props__["region"] = region
+        __props__["s3Destination"] = s3_destination
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["topicConfiguration"] = topic_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:msk/channel:Channel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -209,6 +209,12 @@ func (DomainNameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameState)(nil)).Elem()
 }
 
+// DomainNameExists checks whether an existing DomainName resource with the given ID exists.
+func DomainNameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainNameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigatewayv2/domainName:DomainName", id, state, "", opts...)
+}
+
 type domainNameArgs struct {
 	// Domain name. Must be between 1 and 512 characters in length.
 	DomainName string `pulumi:"domainName"`

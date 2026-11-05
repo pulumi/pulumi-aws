@@ -243,6 +243,12 @@ func (PhoneNumberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*phoneNumberState)(nil)).Elem()
 }
 
+// PhoneNumberExists checks whether an existing PhoneNumber resource with the given ID exists.
+func PhoneNumberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PhoneNumberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/phoneNumber:PhoneNumber", id, state, "", opts...)
+}
+
 type phoneNumberArgs struct {
 	// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
 	CountryCode string `pulumi:"countryCode"`

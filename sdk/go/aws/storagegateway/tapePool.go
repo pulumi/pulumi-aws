@@ -146,6 +146,12 @@ func (TapePoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tapePoolState)(nil)).Elem()
 }
 
+// TapePoolExists checks whether an existing TapePool resource with the given ID exists.
+func TapePoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TapePoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/tapePool:TapePool", id, state, "", opts...)
+}
+
 type tapePoolArgs struct {
 	// The name of the new custom tape pool.
 	PoolName string `pulumi:"poolName"`

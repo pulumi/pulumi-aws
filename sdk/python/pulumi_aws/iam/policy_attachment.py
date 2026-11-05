@@ -390,6 +390,22 @@ class PolicyAttachment(pulumi.CustomResource):
         __props__.__dict__["users"] = users
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groups"] = groups
+        __props__["name"] = name
+        __props__["policyArn"] = policy_arn
+        __props__["roles"] = roles
+        __props__["users"] = users
+        return pulumi.runtime.exists_resource(None, 'aws:iam/policyAttachment:PolicyAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

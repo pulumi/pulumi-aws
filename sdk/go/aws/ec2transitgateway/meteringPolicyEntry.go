@@ -222,6 +222,12 @@ func (MeteringPolicyEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*meteringPolicyEntryState)(nil)).Elem()
 }
 
+// MeteringPolicyEntryExists checks whether an existing MeteringPolicyEntry resource with the given ID exists.
+func MeteringPolicyEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MeteringPolicyEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/meteringPolicyEntry:MeteringPolicyEntry", id, state, "", opts...)
+}
+
 type meteringPolicyEntryArgs struct {
 	// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`

@@ -420,6 +420,12 @@ func (EipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipState)(nil)).Elem()
 }
 
+// EipExists checks whether an existing Eip resource with the given ID exists.
+func EipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/eip:Eip", id, state, "", opts...)
+}
+
 type eipArgs struct {
 	// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
 	Address *string `pulumi:"address"`

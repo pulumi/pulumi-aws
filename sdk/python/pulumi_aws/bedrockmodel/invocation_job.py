@@ -789,6 +789,52 @@ class InvocationJob(pulumi.CustomResource):
         __props__.__dict__["vpc_config"] = vpc_config
         return InvocationJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            error_record_count: pulumi.Input[Optional[_builtins.int]] = None,
+            input_data_config: pulumi.Input[Optional[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict', 'outputs.InvocationJobInputDataConfig']]] = None,
+            job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            job_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+            job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            model_id: pulumi.Input[Optional[_builtins.str]] = None,
+            model_invocation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            output_data_config: pulumi.Input[Optional[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict', 'outputs.InvocationJobOutputDataConfig']]] = None,
+            processed_record_count: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            submit_time: pulumi.Input[Optional[_builtins.str]] = None,
+            success_record_count: pulumi.Input[Optional[_builtins.int]] = None,
+            timeout_duration_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            timeouts: pulumi.Input[Optional[Union['InvocationJobTimeoutsArgs', 'InvocationJobTimeoutsArgsDict', 'outputs.InvocationJobTimeouts']]] = None,
+            total_record_count: pulumi.Input[Optional[_builtins.int]] = None,
+            vpc_config: pulumi.Input[Optional[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict', 'outputs.InvocationJobVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endTime"] = end_time
+        __props__["errorRecordCount"] = error_record_count
+        __props__["inputDataConfig"] = input_data_config
+        __props__["jobArn"] = job_arn
+        __props__["jobExpirationTime"] = job_expiration_time
+        __props__["jobName"] = job_name
+        __props__["modelId"] = model_id
+        __props__["modelInvocationType"] = model_invocation_type
+        __props__["outputDataConfig"] = output_data_config
+        __props__["processedRecordCount"] = processed_record_count
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["skipDestroy"] = skip_destroy
+        __props__["status"] = status
+        __props__["submitTime"] = submit_time
+        __props__["successRecordCount"] = success_record_count
+        __props__["timeoutDurationInHours"] = timeout_duration_in_hours
+        __props__["timeouts"] = timeouts
+        __props__["totalRecordCount"] = total_record_count
+        __props__["vpcConfig"] = vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:bedrockmodel/invocationJob:InvocationJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Output[_builtins.str]:

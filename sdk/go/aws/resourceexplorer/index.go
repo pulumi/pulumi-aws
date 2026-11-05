@@ -133,6 +133,12 @@ func (IndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*indexState)(nil)).Elem()
 }
 
+// IndexExists checks whether an existing Index resource with the given ID exists.
+func IndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resourceexplorer/index:Index", id, state, "", opts...)
+}
+
 type indexArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -174,6 +174,12 @@ func (ExportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*exportState)(nil)).Elem()
 }
 
+// ExportExists checks whether an existing Export resource with the given ID exists.
+func ExportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bcmdata/export:Export", id, state, "", opts...)
+}
+
 type exportArgs struct {
 	// Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
 	Export *ExportExport `pulumi:"export"`

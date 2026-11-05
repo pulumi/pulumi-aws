@@ -138,6 +138,12 @@ func (UserAccessLoggingSettingsAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAccessLoggingSettingsAssociationState)(nil)).Elem()
 }
 
+// UserAccessLoggingSettingsAssociationExists checks whether an existing UserAccessLoggingSettingsAssociation resource with the given ID exists.
+func UserAccessLoggingSettingsAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserAccessLoggingSettingsAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/userAccessLoggingSettingsAssociation:UserAccessLoggingSettingsAssociation", id, state, "", opts...)
+}
+
 type userAccessLoggingSettingsAssociationArgs struct {
 	// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
 	//

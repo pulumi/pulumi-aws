@@ -441,6 +441,26 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["sid"] = sid
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            distinguished_name: pulumi.Input[Optional[_builtins.str]] = None,
+            group_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            group_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sam_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sid: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["directoryId"] = directory_id
+        __props__["distinguishedName"] = distinguished_name
+        __props__["groupScope"] = group_scope
+        __props__["groupType"] = group_type
+        __props__["region"] = region
+        __props__["samAccountName"] = sam_account_name
+        __props__["sid"] = sid
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservicedata/group:Group', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:

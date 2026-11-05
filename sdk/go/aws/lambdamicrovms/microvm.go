@@ -246,6 +246,12 @@ func (MicrovmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*microvmState)(nil)).Elem()
 }
 
+// MicrovmExists checks whether an existing Microvm resource with the given ID exists.
+func MicrovmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MicrovmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambdamicrovms/microvm:Microvm", id, state, "", opts...)
+}
+
 type microvmArgs struct {
 	// List of egress network connector ARNs for outbound connectivity. Changing this value creates a new resource.
 	EgressNetworkConnectors []string `pulumi:"egressNetworkConnectors"`

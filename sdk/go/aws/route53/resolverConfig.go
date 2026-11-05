@@ -131,6 +131,12 @@ func (ResolverConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverConfigState)(nil)).Elem()
 }
 
+// ResolverConfigExists checks whether an existing ResolverConfig resource with the given ID exists.
+func ResolverConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverConfig:ResolverConfig", id, state, "", opts...)
+}
+
 type resolverConfigArgs struct {
 	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag string `pulumi:"autodefinedReverseFlag"`

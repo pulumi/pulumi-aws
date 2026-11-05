@@ -36,38 +36,38 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new AccessGrantsInstance("example");
  * 
  *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", AccessGrantsInstanceResourcePolicyArgs.builder()
  *             .policy(example.accessGrantsInstanceArn().applyValue(_accessGrantsInstanceArn -> """
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Id\": \"S3AccessGrantsPolicy\",
- *   \"Statement\": [{
- *     \"Sid\": \"AllowAccessToS3AccessGrants\",
- *     \"Effect\": \"Allow\",
- *     \"Principal\": {
- *       \"AWS\": \"123456789456\"
- *     },
- *     \"Action\": [
- *       \"s3:ListAccessGrants\",
- *       \"s3:ListAccessGrantsLocations\",
- *       \"s3:GetDataAccess\"
+ * }{{@code
+ *   }&#92;{@code "Version}&#92;{@code ": }&#92;{@code "2012-10-17}&#92;{@code ",
+ *   }&#92;{@code "Id}&#92;{@code ": }&#92;{@code "S3AccessGrantsPolicy}&#92;{@code ",
+ *   }&#92;{@code "Statement}&#92;{@code ": [}{{@code
+ *     }&#92;{@code "Sid}&#92;{@code ": }&#92;{@code "AllowAccessToS3AccessGrants}&#92;{@code ",
+ *     }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *     }&#92;{@code "Principal}&#92;{@code ": }{{@code
+ *       }&#92;{@code "AWS}&#92;{@code ": }&#92;{@code "123456789456}&#92;{@code "
+ *     }}{@code ,
+ *     }&#92;{@code "Action}&#92;{@code ": [
+ *       }&#92;{@code "s3:ListAccessGrants}&#92;{@code ",
+ *       }&#92;{@code "s3:ListAccessGrantsLocations}&#92;{@code ",
+ *       }&#92;{@code "s3:GetDataAccess}&#92;{@code "
  *     ],
- *     \"Resource\": \"%s\"
- *   }]
- * }
+ *     }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "%s}&#92;{@code "
+ *   }}{@code ]
+ * }}{@code
  * ", _accessGrantsInstanceArn)))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

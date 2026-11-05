@@ -253,6 +253,12 @@ func (InvocationJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*invocationJobState)(nil)).Elem()
 }
 
+// InvocationJobExists checks whether an existing InvocationJob resource with the given ID exists.
+func InvocationJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InvocationJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrockmodel/invocationJob:InvocationJob", id, state, "", opts...)
+}
+
 type invocationJobArgs struct {
 	// Location of the input data for the batch inference job. See `inputDataConfig` Block below.
 	InputDataConfig InvocationJobInputDataConfig `pulumi:"inputDataConfig"`

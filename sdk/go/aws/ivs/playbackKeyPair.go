@@ -157,6 +157,12 @@ func (PlaybackKeyPairState) ElementType() reflect.Type {
 	return reflect.TypeOf((*playbackKeyPairState)(nil)).Elem()
 }
 
+// PlaybackKeyPairExists checks whether an existing PlaybackKeyPair resource with the given ID exists.
+func PlaybackKeyPairExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlaybackKeyPairState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ivs/playbackKeyPair:PlaybackKeyPair", id, state, "", opts...)
+}
+
 type playbackKeyPairArgs struct {
 	// Playback Key Pair name.
 	Name *string `pulumi:"name"`

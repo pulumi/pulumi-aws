@@ -24,22 +24,20 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     /**
      * Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
-     * @deprecated
-     * hash_key is deprecated. Use keySchema instead.
+     * @deprecated hash_key is deprecated. Use keySchema instead.
      * 
      */
-    @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+    @Deprecated
     @Import(name="hashKey")
     private @Nullable Output<String> hashKey;
 
     /**
      * @return Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
-     * @deprecated
-     * hash_key is deprecated. Use keySchema instead.
+     * @deprecated hash_key is deprecated. Use keySchema instead.
      * 
      */
-    @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+    @Deprecated
     public Optional<Output<String>> hashKey() {
         return Optional.ofNullable(this.hashKey);
     }
@@ -122,22 +120,20 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     /**
      * Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
-     * @deprecated
-     * range_key is deprecated. Use keySchema instead.
+     * @deprecated range_key is deprecated. Use keySchema instead.
      * 
      */
-    @Deprecated /* range_key is deprecated. Use keySchema instead. */
+    @Deprecated
     @Import(name="rangeKey")
     private @Nullable Output<String> rangeKey;
 
     /**
      * @return Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
-     * @deprecated
-     * range_key is deprecated. Use keySchema instead.
+     * @deprecated range_key is deprecated. Use keySchema instead.
      * 
      */
-    @Deprecated /* range_key is deprecated. Use keySchema instead. */
+    @Deprecated
     public Optional<Output<String>> rangeKey() {
         return Optional.ofNullable(this.rangeKey);
     }
@@ -225,11 +221,10 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
          * 
          * @return builder
          * 
-         * @deprecated
-         * hash_key is deprecated. Use keySchema instead.
+         * @deprecated hash_key is deprecated. Use keySchema instead.
          * 
          */
-        @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+        @Deprecated
         public Builder hashKey(@Nullable Output<String> hashKey) {
             $.hashKey = hashKey;
             return this;
@@ -240,11 +235,10 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
          * 
          * @return builder
          * 
-         * @deprecated
-         * hash_key is deprecated. Use keySchema instead.
+         * @deprecated hash_key is deprecated. Use keySchema instead.
          * 
          */
-        @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+        @Deprecated
         public Builder hashKey(String hashKey) {
             return hashKey(Output.of(hashKey));
         }
@@ -379,11 +373,10 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
          * 
          * @return builder
          * 
-         * @deprecated
-         * range_key is deprecated. Use keySchema instead.
+         * @deprecated range_key is deprecated. Use keySchema instead.
          * 
          */
-        @Deprecated /* range_key is deprecated. Use keySchema instead. */
+        @Deprecated
         public Builder rangeKey(@Nullable Output<String> rangeKey) {
             $.rangeKey = rangeKey;
             return this;
@@ -394,11 +387,10 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
          * 
          * @return builder
          * 
-         * @deprecated
-         * range_key is deprecated. Use keySchema instead.
+         * @deprecated range_key is deprecated. Use keySchema instead.
          * 
          */
-        @Deprecated /* range_key is deprecated. Use keySchema instead. */
+        @Deprecated
         public Builder rangeKey(String rangeKey) {
             return rangeKey(Output.of(rangeKey));
         }

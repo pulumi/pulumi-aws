@@ -136,6 +136,12 @@ func (RevisionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*revisionState)(nil)).Elem()
 }
 
+// RevisionExists checks whether an existing Revision resource with the given ID exists.
+func RevisionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RevisionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dataexchange/revision:Revision", id, state, "", opts...)
+}
+
 type revisionArgs struct {
 	// An optional comment about the revision.
 	Comment *string `pulumi:"comment"`

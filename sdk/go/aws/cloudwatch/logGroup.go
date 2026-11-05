@@ -183,6 +183,12 @@ func (LogGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logGroupState)(nil)).Elem()
 }
 
+// LogGroupExists checks whether an existing LogGroup resource with the given ID exists.
+func LogGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logGroup:LogGroup", id, state, "", opts...)
+}
+
 type logGroupArgs struct {
 	// Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`

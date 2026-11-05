@@ -352,6 +352,12 @@ func (ExpressGatewayServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressGatewayServiceState)(nil)).Elem()
 }
 
+// ExpressGatewayServiceExists checks whether an existing ExpressGatewayService resource with the given ID exists.
+func ExpressGatewayServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressGatewayServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecs/expressGatewayService:ExpressGatewayService", id, state, "", opts...)
+}
+
 type expressGatewayServiceArgs struct {
 	// Name or ARN of the ECS cluster. Defaults to `default`.
 	Cluster *string `pulumi:"cluster"`

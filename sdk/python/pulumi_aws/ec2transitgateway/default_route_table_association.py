@@ -297,6 +297,22 @@ class DefaultRouteTableAssociation(pulumi.CustomResource):
         __props__.__dict__["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         return DefaultRouteTableAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            original_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['DefaultRouteTableAssociationTimeoutsArgs', 'DefaultRouteTableAssociationTimeoutsArgsDict', 'outputs.DefaultRouteTableAssociationTimeouts']]] = None,
+            transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["originalDefaultRouteTableId"] = original_default_route_table_id
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        __props__["transitGatewayId"] = transit_gateway_id
+        __props__["transitGatewayRouteTableId"] = transit_gateway_route_table_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="originalDefaultRouteTableId")
     def original_default_route_table_id(self) -> pulumi.Output[_builtins.str]:

@@ -179,6 +179,12 @@ func (DetectorFeatureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*detectorFeatureState)(nil)).Elem()
 }
 
+// DetectorFeatureExists checks whether an existing DetectorFeature resource with the given ID exists.
+func DetectorFeatureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DetectorFeatureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/detectorFeature:DetectorFeature", id, state, "", opts...)
+}
+
 type detectorFeatureArgs struct {
 	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations []DetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`

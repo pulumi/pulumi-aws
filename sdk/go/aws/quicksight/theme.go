@@ -218,6 +218,12 @@ func (ThemeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*themeState)(nil)).Elem()
 }
 
+// ThemeExists checks whether an existing Theme resource with the given ID exists.
+func ThemeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThemeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/theme:Theme", id, state, "", opts...)
+}
+
 type themeArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

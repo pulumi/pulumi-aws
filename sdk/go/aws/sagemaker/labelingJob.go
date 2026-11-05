@@ -241,6 +241,12 @@ func (LabelingJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*labelingJobState)(nil)).Elem()
 }
 
+// LabelingJobExists checks whether an existing LabelingJob resource with the given ID exists.
+func LabelingJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LabelingJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/labelingJob:LabelingJob", id, state, "", opts...)
+}
+
 type labelingJobArgs struct {
 	// Configuration information required for human workers to complete a labeling task. Fields are documented below.
 	HumanTaskConfig LabelingJobHumanTaskConfig `pulumi:"humanTaskConfig"`

@@ -114,6 +114,12 @@ func (LoggingOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggingOptionsState)(nil)).Elem()
 }
 
+// LoggingOptionsExists checks whether an existing LoggingOptions resource with the given ID exists.
+func LoggingOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoggingOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/loggingOptions:LoggingOptions", id, state, "", opts...)
+}
+
 type loggingOptionsArgs struct {
 	// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
 	DefaultLogLevel string `pulumi:"defaultLogLevel"`

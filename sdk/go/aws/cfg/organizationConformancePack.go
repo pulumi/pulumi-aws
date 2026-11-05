@@ -265,6 +265,12 @@ func (OrganizationConformancePackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConformancePackState)(nil)).Elem()
 }
 
+// OrganizationConformancePackExists checks whether an existing OrganizationConformancePack resource with the given ID exists.
+func OrganizationConformancePackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConformancePackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/organizationConformancePack:OrganizationConformancePack", id, state, "", opts...)
+}
+
 type organizationConformancePackArgs struct {
 	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
 	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`

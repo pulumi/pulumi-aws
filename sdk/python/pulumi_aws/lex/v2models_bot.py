@@ -666,6 +666,38 @@ class V2modelsBot(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return V2modelsBot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_privacies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict', 'outputs.V2modelsBotDataPrivacy']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict', 'outputs.V2modelsBotMember']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            test_bot_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict', 'outputs.V2modelsBotTimeouts']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dataPrivacies"] = data_privacies
+        __props__["description"] = description
+        __props__["idleSessionTtlInSeconds"] = idle_session_ttl_in_seconds
+        __props__["members"] = members
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["testBotAliasTags"] = test_bot_alias_tags
+        __props__["timeouts"] = timeouts
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:lex/v2modelsBot:V2modelsBot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

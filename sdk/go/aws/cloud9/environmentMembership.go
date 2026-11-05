@@ -146,6 +146,12 @@ func (EnvironmentMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentMembershipState)(nil)).Elem()
 }
 
+// EnvironmentMembershipExists checks whether an existing EnvironmentMembership resource with the given ID exists.
+func EnvironmentMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloud9/environmentMembership:EnvironmentMembership", id, state, "", opts...)
+}
+
 type environmentMembershipArgs struct {
 	// The ID of the environment that contains the environment member you want to add.
 	EnvironmentId string `pulumi:"environmentId"`

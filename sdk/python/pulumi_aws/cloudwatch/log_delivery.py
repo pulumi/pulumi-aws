@@ -559,6 +559,30 @@ class LogDelivery(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return LogDelivery(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            record_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict', 'outputs.LogDeliveryS3DeliveryConfiguration']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deliveryDestinationArn"] = delivery_destination_arn
+        __props__["deliverySourceName"] = delivery_source_name
+        __props__["fieldDelimiter"] = field_delimiter
+        __props__["recordFields"] = record_fields
+        __props__["region"] = region
+        __props__["s3DeliveryConfigurations"] = s3_delivery_configurations
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/logDelivery:LogDelivery', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

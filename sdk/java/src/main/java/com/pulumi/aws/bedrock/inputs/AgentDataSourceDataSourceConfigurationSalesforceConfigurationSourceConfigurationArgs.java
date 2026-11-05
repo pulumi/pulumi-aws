@@ -45,14 +45,14 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
     }
 
     /**
-     * Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+     * Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^&#92;s]*$`.
      * 
      */
     @Import(name="hostUrl", required=true)
     private Output<String> hostUrl;
 
     /**
-     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^&#92;s]*$`.
      * 
      */
     public Output<String> hostUrl() {
@@ -128,7 +128,7 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
         }
 
         /**
-         * @param hostUrl Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+         * @param hostUrl Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^&#92;s]*$`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
         }
 
         /**
-         * @param hostUrl Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+         * @param hostUrl Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^&#92;s]*$`.
          * 
          * @return builder
          * 

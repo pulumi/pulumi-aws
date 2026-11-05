@@ -123,22 +123,20 @@ public final class OrganizationNonMasterAccountArgs extends com.pulumi.resources
     /**
      * Status of the policy type as it relates to the associated root.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return Status of the policy type as it relates to the associated root.
      * 
-     * @deprecated
-     * status is deprecated. Use state instead.
+     * @deprecated status is deprecated. Use state instead.
      * 
      */
-    @Deprecated /* status is deprecated. Use state instead. */
+    @Deprecated
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -326,11 +324,10 @@ public final class OrganizationNonMasterAccountArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * status is deprecated. Use state instead.
+         * @deprecated status is deprecated. Use state instead.
          * 
          */
-        @Deprecated /* status is deprecated. Use state instead. */
+        @Deprecated
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
@@ -341,11 +338,10 @@ public final class OrganizationNonMasterAccountArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * status is deprecated. Use state instead.
+         * @deprecated status is deprecated. Use state instead.
          * 
          */
-        @Deprecated /* status is deprecated. Use state instead. */
+        @Deprecated
         public Builder status(String status) {
             return status(Output.of(status));
         }

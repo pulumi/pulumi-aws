@@ -192,6 +192,12 @@ func (RolePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rolePolicyState)(nil)).Elem()
 }
 
+// RolePolicyExists checks whether an existing RolePolicy resource with the given ID exists.
+func RolePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RolePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/rolePolicy:RolePolicy", id, state, "", opts...)
+}
+
 type rolePolicyArgs struct {
 	// The name of the role policy.
 	// If omitted, the provider will assign a random, unique name.

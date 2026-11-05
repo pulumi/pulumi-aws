@@ -147,6 +147,12 @@ func (InstanceAccessControlAttributesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceAccessControlAttributesState)(nil)).Elem()
 }
 
+// InstanceAccessControlAttributesExists checks whether an existing InstanceAccessControlAttributes resource with the given ID exists.
+func InstanceAccessControlAttributesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceAccessControlAttributesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes", id, state, "", opts...)
+}
+
 type instanceAccessControlAttributesArgs struct {
 	// See AccessControlAttribute for more details.
 	Attributes []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`

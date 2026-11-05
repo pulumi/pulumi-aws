@@ -38,7 +38,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
      */
     private @Nullable String secretsManagerArn;
     /**
-     * @return Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
+     * @return Signing key URL. Valid pattern is `^(https?|ftp|file):&#92;/&#92;/([^&#92;s]*)`.
      * 
      */
     private @Nullable String url;
@@ -85,7 +85,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
         return Optional.ofNullable(this.secretsManagerArn);
     }
     /**
-     * @return Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
+     * @return Signing key URL. Valid pattern is `^(https?|ftp|file):&#92;/&#92;/([^&#92;s]*)`.
      * 
      */
     public Optional<String> url() {

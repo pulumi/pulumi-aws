@@ -180,6 +180,12 @@ func (UserLoginProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userLoginProfileState)(nil)).Elem()
 }
 
+// UserLoginProfileExists checks whether an existing UserLoginProfile resource with the given ID exists.
+func UserLoginProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserLoginProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/userLoginProfile:UserLoginProfile", id, state, "", opts...)
+}
+
 type userLoginProfileArgs struct {
 	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
 	PasswordLength *int `pulumi:"passwordLength"`

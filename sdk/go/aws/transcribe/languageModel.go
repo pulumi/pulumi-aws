@@ -243,6 +243,12 @@ func (LanguageModelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*languageModelState)(nil)).Elem()
 }
 
+// LanguageModelExists checks whether an existing LanguageModel resource with the given ID exists.
+func LanguageModelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LanguageModelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transcribe/languageModel:LanguageModel", id, state, "", opts...)
+}
+
 type languageModelArgs struct {
 	// Name of reference base model.
 	BaseModelName string `pulumi:"baseModelName"`

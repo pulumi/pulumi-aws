@@ -319,6 +319,18 @@ class Enabler(pulumi.CustomResource):
         __props__.__dict__["resource_types"] = resource_types
         return Enabler(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountIds"] = account_ids
+        __props__["region"] = region
+        __props__["resourceTypes"] = resource_types
+        return pulumi.runtime.exists_resource(None, 'aws:inspector2/enabler:Enabler', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

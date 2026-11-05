@@ -164,6 +164,12 @@ func (CustomLogSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customLogSourceState)(nil)).Elem()
 }
 
+// CustomLogSourceExists checks whether an existing CustomLogSource resource with the given ID exists.
+func CustomLogSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomLogSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securitylake/customLogSource:CustomLogSource", id, state, "", opts...)
+}
+
 type customLogSourceArgs struct {
 	// The configuration for the third-party custom source.
 	Configuration CustomLogSourceConfiguration `pulumi:"configuration"`

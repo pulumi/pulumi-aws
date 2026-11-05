@@ -638,6 +638,40 @@ class VpcAttachment(pulumi.CustomResource):
         __props__.__dict__["vpc_owner_id"] = vpc_owner_id
         return VpcAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            appliance_mode_support: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_support: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_support: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_referencing_support: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transit_gateway_default_route_table_association: pulumi.Input[Optional[_builtins.bool]] = None,
+            transit_gateway_default_route_table_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
+            transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_owner_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applianceModeSupport"] = appliance_mode_support
+        __props__["arn"] = arn
+        __props__["dnsSupport"] = dns_support
+        __props__["ipv6Support"] = ipv6_support
+        __props__["region"] = region
+        __props__["securityGroupReferencingSupport"] = security_group_referencing_support
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["transitGatewayDefaultRouteTableAssociation"] = transit_gateway_default_route_table_association
+        __props__["transitGatewayDefaultRouteTablePropagation"] = transit_gateway_default_route_table_propagation
+        __props__["transitGatewayId"] = transit_gateway_id
+        __props__["vpcId"] = vpc_id
+        __props__["vpcOwnerId"] = vpc_owner_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2transitgateway/vpcAttachment:VpcAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> pulumi.Output[Optional[_builtins.str]]:

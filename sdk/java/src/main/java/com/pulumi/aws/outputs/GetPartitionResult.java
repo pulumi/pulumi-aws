@@ -18,11 +18,10 @@ public final class GetPartitionResult {
     /**
      * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
      * 
-     * @deprecated
-     * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'partition' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     private String id;
     /**
      * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
@@ -46,11 +45,10 @@ public final class GetPartitionResult {
     /**
      * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
      * 
-     * @deprecated
-     * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'partition' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public String id() {
         return this.id;
     }

@@ -202,6 +202,12 @@ func (ThreatIntelSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*threatIntelSetState)(nil)).Elem()
 }
 
+// ThreatIntelSetExists checks whether an existing ThreatIntelSet resource with the given ID exists.
+func ThreatIntelSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThreatIntelSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/threatIntelSet:ThreatIntelSet", id, state, "", opts...)
+}
+
 type threatIntelSetArgs struct {
 	// Whether to start using the uploaded ThreatIntelSet.
 	Activate bool `pulumi:"activate"`

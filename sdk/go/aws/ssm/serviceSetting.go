@@ -134,6 +134,12 @@ func (ServiceSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceSettingState)(nil)).Elem()
 }
 
+// ServiceSettingExists checks whether an existing ServiceSetting resource with the given ID exists.
+func ServiceSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/serviceSetting:ServiceSetting", id, state, "", opts...)
+}
+
 type serviceSettingArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

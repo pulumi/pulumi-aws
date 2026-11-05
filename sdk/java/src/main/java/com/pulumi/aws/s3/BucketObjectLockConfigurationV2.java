@@ -99,11 +99,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
  * ```
  * 
- * @deprecated
- * aws.s3/bucketobjectlockconfigurationv2.BucketObjectLockConfigurationV2 has been deprecated in favor of aws.s3/bucketobjectlockconfiguration.BucketObjectLockConfiguration
+ * @deprecated aws.s3/bucketobjectlockconfigurationv2.BucketObjectLockConfigurationV2 has been deprecated in favor of aws.s3/bucketobjectlockconfiguration.BucketObjectLockConfiguration
  * 
  */
-@Deprecated /* aws.s3/bucketobjectlockconfigurationv2.BucketObjectLockConfigurationV2 has been deprecated in favor of aws.s3/bucketobjectlockconfiguration.BucketObjectLockConfiguration */
+@Deprecated
 @ResourceType(type="aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")
 public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -123,11 +122,10 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

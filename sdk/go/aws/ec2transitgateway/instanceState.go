@@ -164,6 +164,12 @@ func (InstanceStateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceStateState)(nil)).Elem()
 }
 
+// InstanceStateExists checks whether an existing InstanceState resource with the given ID exists.
+func InstanceStateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceStateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/instanceState:InstanceState", id, state, "", opts...)
+}
+
 type instanceStateArgs struct {
 	// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
 	Force *bool `pulumi:"force"`

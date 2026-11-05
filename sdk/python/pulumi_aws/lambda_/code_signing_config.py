@@ -608,6 +608,30 @@ class CodeSigningConfig(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CodeSigningConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_publishers: pulumi.Input[Optional[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict', 'outputs.CodeSigningConfigAllowedPublishers']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            config_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            policies: pulumi.Input[Optional[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict', 'outputs.CodeSigningConfigPolicies']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedPublishers"] = allowed_publishers
+        __props__["arn"] = arn
+        __props__["configId"] = config_id
+        __props__["description"] = description
+        __props__["lastModified"] = last_modified
+        __props__["policies"] = policies
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:lambda/codeSigningConfig:CodeSigningConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> pulumi.Output['outputs.CodeSigningConfigAllowedPublishers']:

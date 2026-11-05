@@ -139,11 +139,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:lambda/microvmsImage:MicrovmsImage example arn:aws:lambda:us-east-1:123456789012:microvm-image:example
  * ```
  * 
- * @deprecated
- * aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image
+ * @deprecated aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image
  * 
  */
-@Deprecated /* aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image */
+@Deprecated
 @ResourceType(type="aws:lambda/microvmsImage:MicrovmsImage")
 public class MicrovmsImage extends com.pulumi.resources.CustomResource {
     /**

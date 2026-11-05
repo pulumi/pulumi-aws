@@ -51,6 +51,17 @@ export class AppBundle extends pulumi.CustomResource {
         return new AppBundle(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing AppBundle resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: AppBundleState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:appfabric/appBundle:AppBundle", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:appfabric/appBundle:AppBundle';
 

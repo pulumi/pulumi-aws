@@ -142,6 +142,12 @@ func (SharedDirectoryAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedDirectoryAccepterState)(nil)).Elem()
 }
 
+// SharedDirectoryAccepterExists checks whether an existing SharedDirectoryAccepter resource with the given ID exists.
+func SharedDirectoryAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharedDirectoryAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter", id, state, "", opts...)
+}
+
 type sharedDirectoryAccepterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -814,6 +814,44 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["user_settings"] = user_settings
         return Stack(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict', 'outputs.StackAccessEndpoint']]]]] = None,
+            application_settings: pulumi.Input[Optional[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict', 'outputs.StackApplicationSettings']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            embed_host_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            feedback_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict', 'outputs.StackStorageConnector']]]]] = None,
+            streaming_experience_settings: pulumi.Input[Optional[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict', 'outputs.StackStreamingExperienceSettings']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict', 'outputs.StackUserSetting']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessEndpoints"] = access_endpoints
+        __props__["applicationSettings"] = application_settings
+        __props__["arn"] = arn
+        __props__["createdTime"] = created_time
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["embedHostDomains"] = embed_host_domains
+        __props__["feedbackUrl"] = feedback_url
+        __props__["name"] = name
+        __props__["redirectUrl"] = redirect_url
+        __props__["region"] = region
+        __props__["storageConnectors"] = storage_connectors
+        __props__["streamingExperienceSettings"] = streaming_experience_settings
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userSettings"] = user_settings
+        return pulumi.runtime.exists_resource(None, 'aws:appstream/stack:Stack', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Output[Sequence['outputs.StackAccessEndpoint']]:

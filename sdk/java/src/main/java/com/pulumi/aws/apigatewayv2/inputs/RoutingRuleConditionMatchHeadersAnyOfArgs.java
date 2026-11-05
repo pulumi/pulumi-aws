@@ -30,14 +30,14 @@ public final class RoutingRuleConditionMatchHeadersAnyOfArgs extends com.pulumi.
     }
 
     /**
-     * Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+     * Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: &#92;*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for &#92;*prefix-match, suffix-match*, or &#92;*infix*-match.
      * 
      */
     @Import(name="valueGlob", required=true)
     private Output<String> valueGlob;
 
     /**
-     * @return Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+     * @return Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: &#92;*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for &#92;*prefix-match, suffix-match*, or &#92;*infix*-match.
      * 
      */
     public Output<String> valueGlob() {
@@ -91,7 +91,7 @@ public final class RoutingRuleConditionMatchHeadersAnyOfArgs extends com.pulumi.
         }
 
         /**
-         * @param valueGlob Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+         * @param valueGlob Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: &#92;*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for &#92;*prefix-match, suffix-match*, or &#92;*infix*-match.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class RoutingRuleConditionMatchHeadersAnyOfArgs extends com.pulumi.
         }
 
         /**
-         * @param valueGlob Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+         * @param valueGlob Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: &#92;*?-!#$%&amp;&#39;.^_`|~. Wildcard matching is supported for header glob values but must be for &#92;*prefix-match, suffix-match*, or &#92;*infix*-match.
          * 
          * @return builder
          * 

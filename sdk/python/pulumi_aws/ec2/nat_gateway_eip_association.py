@@ -329,6 +329,22 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return NatGatewayEipAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict', 'outputs.NatGatewayEipAssociationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocationId"] = allocation_id
+        __props__["associationId"] = association_id
+        __props__["natGatewayId"] = nat_gateway_id
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[_builtins.str]:

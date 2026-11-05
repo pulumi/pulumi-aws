@@ -147,6 +147,12 @@ func (SdkvoiceVoiceProfileDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sdkvoiceVoiceProfileDomainState)(nil)).Elem()
 }
 
+// SdkvoiceVoiceProfileDomainExists checks whether an existing SdkvoiceVoiceProfileDomain resource with the given ID exists.
+func SdkvoiceVoiceProfileDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SdkvoiceVoiceProfileDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", id, state, "", opts...)
+}
+
 type sdkvoiceVoiceProfileDomainArgs struct {
 	// Description of Voice Profile Domain.
 	Description *string `pulumi:"description"`

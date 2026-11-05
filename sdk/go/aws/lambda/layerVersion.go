@@ -331,6 +331,12 @@ func (LayerVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*layerVersionState)(nil)).Elem()
 }
 
+// LayerVersionExists checks whether an existing LayerVersion resource with the given ID exists.
+func LayerVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LayerVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/layerVersion:LayerVersion", id, state, "", opts...)
+}
+
 type layerVersionArgs struct {
 	// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.Archive `pulumi:"code"`

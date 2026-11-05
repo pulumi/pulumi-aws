@@ -148,11 +148,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * No longer supported by the AWS API.
      * Always returns `auto`.
      * 
-     * @deprecated
-     * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+    @Deprecated
     @Export(name="aquaConfigurationStatus", refs={String.class}, tree="[0]")
     private Output<String> aquaConfigurationStatus;
 

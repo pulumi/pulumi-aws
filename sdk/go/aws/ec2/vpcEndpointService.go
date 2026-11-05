@@ -243,6 +243,12 @@ func (VpcEndpointServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointServiceState)(nil)).Elem()
 }
 
+// VpcEndpointServiceExists checks whether an existing VpcEndpointService resource with the given ID exists.
+func VpcEndpointServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcEndpointService:VpcEndpointService", id, state, "", opts...)
+}
+
 type vpcEndpointServiceArgs struct {
 	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
 	AcceptanceRequired bool `pulumi:"acceptanceRequired"`

@@ -186,6 +186,12 @@ func (PermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionState)(nil)).Elem()
 }
 
+// PermissionExists checks whether an existing Permission resource with the given ID exists.
+func PermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ram/permission:Permission", id, state, "", opts...)
+}
+
 type permissionArgs struct {
 	// Name of the customer managed permission. The name must be unique within the AWS Region.
 	Name *string `pulumi:"name"`

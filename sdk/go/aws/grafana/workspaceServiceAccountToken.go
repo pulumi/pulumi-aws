@@ -166,6 +166,12 @@ func (WorkspaceServiceAccountTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceServiceAccountTokenState)(nil)).Elem()
 }
 
+// WorkspaceServiceAccountTokenExists checks whether an existing WorkspaceServiceAccountToken resource with the given ID exists.
+func WorkspaceServiceAccountTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceServiceAccountTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken", id, state, "", opts...)
+}
+
 type workspaceServiceAccountTokenArgs struct {
 	// Name for the token to create. The name must be unique within the workspace.
 	Name *string `pulumi:"name"`

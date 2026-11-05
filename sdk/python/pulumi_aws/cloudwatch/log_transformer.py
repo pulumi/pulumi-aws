@@ -287,6 +287,18 @@ class LogTransformer(pulumi.CustomResource):
         __props__.__dict__["transformer_configs"] = transformer_configs
         return LogTransformer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict', 'outputs.LogTransformerTransformerConfig']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["logGroupArn"] = log_group_arn
+        __props__["region"] = region
+        __props__["transformerConfigs"] = transformer_configs
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/logTransformer:LogTransformer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Output[_builtins.str]:

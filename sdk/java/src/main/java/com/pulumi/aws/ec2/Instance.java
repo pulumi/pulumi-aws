@@ -837,11 +837,10 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
-     * @deprecated
-     * network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      * 
      */
-    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
+    @Deprecated
     @Export(name="networkInterfaces", refs={List.class,InstanceNetworkInterface.class}, tree="[0,1]")
     private Output<List<InstanceNetworkInterface>> networkInterfaces;
 
@@ -1081,11 +1080,10 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
      * 
-     * @deprecated
-     * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
+     * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      * 
      */
-    @Deprecated /* Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates. */
+    @Deprecated
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 

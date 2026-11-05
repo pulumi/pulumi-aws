@@ -909,6 +909,48 @@ class Parameter(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Parameter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            has_value_wo: pulumi.Input[Optional[_builtins.bool]] = None,
+            insecure_value: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[Union[_builtins.str, 'ParameterType']]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedPattern"] = allowed_pattern
+        __props__["arn"] = arn
+        __props__["dataType"] = data_type
+        __props__["description"] = description
+        __props__["hasValueWo"] = has_value_wo
+        __props__["insecureValue"] = insecure_value
+        __props__["keyId"] = key_id
+        __props__["name"] = name
+        __props__["overwrite"] = overwrite
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tier"] = tier
+        __props__["type"] = type
+        __props__["value"] = value
+        __props__["valueWo"] = value_wo
+        __props__["valueWoVersion"] = value_wo_version
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/parameter:Parameter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -133,6 +133,12 @@ func (ResolverRuleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverRuleAssociationState)(nil)).Elem()
 }
 
+// ResolverRuleAssociationExists checks whether an existing ResolverRuleAssociation resource with the given ID exists.
+func ResolverRuleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverRuleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", id, state, "", opts...)
+}
+
 type resolverRuleAssociationArgs struct {
 	// A name for the association that you're creating between a resolver rule and a VPC.
 	Name *string `pulumi:"name"`

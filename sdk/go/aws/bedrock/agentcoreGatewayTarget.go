@@ -649,6 +649,12 @@ func (AgentcoreGatewayTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreGatewayTargetState)(nil)).Elem()
 }
 
+// AgentcoreGatewayTargetExists checks whether an existing AgentcoreGatewayTarget resource with the given ID exists.
+func AgentcoreGatewayTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreGatewayTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget", id, state, "", opts...)
+}
+
 type agentcoreGatewayTargetArgs struct {
 	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration *AgentcoreGatewayTargetCredentialProviderConfiguration `pulumi:"credentialProviderConfiguration"`

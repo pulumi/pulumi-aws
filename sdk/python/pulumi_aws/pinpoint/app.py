@@ -546,6 +546,32 @@ class App(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return App(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            campaign_hook: pulumi.Input[Optional[Union['AppCampaignHookArgs', 'AppCampaignHookArgsDict', 'outputs.AppCampaignHook']]] = None,
+            limits: pulumi.Input[Optional[Union['AppLimitsArgs', 'AppLimitsArgsDict', 'outputs.AppLimits']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            quiet_time: pulumi.Input[Optional[Union['AppQuietTimeArgs', 'AppQuietTimeArgsDict', 'outputs.AppQuietTime']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["arn"] = arn
+        __props__["campaignHook"] = campaign_hook
+        __props__["limits"] = limits
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["quietTime"] = quiet_time
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/app:App', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

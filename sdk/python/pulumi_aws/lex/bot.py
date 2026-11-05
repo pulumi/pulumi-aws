@@ -929,6 +929,56 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["voice_id"] = voice_id
         return Bot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            abort_statement: pulumi.Input[Optional[Union['BotAbortStatementArgs', 'BotAbortStatementArgsDict', 'outputs.BotAbortStatement']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum: pulumi.Input[Optional[_builtins.str]] = None,
+            child_directed: pulumi.Input[Optional[_builtins.bool]] = None,
+            clarification_prompt: pulumi.Input[Optional[Union['BotClarificationPromptArgs', 'BotClarificationPromptArgsDict', 'outputs.BotClarificationPrompt']]] = None,
+            create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            detect_sentiment: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_model_improvements: pulumi.Input[Optional[_builtins.bool]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            intents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotIntentArgs', 'BotIntentArgsDict', 'outputs.BotIntent']]]]] = None,
+            last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nlu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            process_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            voice_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["abortStatement"] = abort_statement
+        __props__["arn"] = arn
+        __props__["checksum"] = checksum
+        __props__["childDirected"] = child_directed
+        __props__["clarificationPrompt"] = clarification_prompt
+        __props__["createVersion"] = create_version
+        __props__["createdDate"] = created_date
+        __props__["description"] = description
+        __props__["detectSentiment"] = detect_sentiment
+        __props__["enableModelImprovements"] = enable_model_improvements
+        __props__["failureReason"] = failure_reason
+        __props__["idleSessionTtlInSeconds"] = idle_session_ttl_in_seconds
+        __props__["intents"] = intents
+        __props__["lastUpdatedDate"] = last_updated_date
+        __props__["locale"] = locale
+        __props__["name"] = name
+        __props__["nluIntentConfidenceThreshold"] = nlu_intent_confidence_threshold
+        __props__["processBehavior"] = process_behavior
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["version"] = version
+        __props__["voiceId"] = voice_id
+        return pulumi.runtime.exists_resource(None, 'aws:lex/bot:Bot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="abortStatement")
     def abort_statement(self) -> pulumi.Output['outputs.BotAbortStatement']:

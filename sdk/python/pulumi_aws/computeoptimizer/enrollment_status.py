@@ -309,6 +309,22 @@ class EnrollmentStatus(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return EnrollmentStatus(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            include_member_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
+            number_of_member_accounts_opted_in: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict', 'outputs.EnrollmentStatusTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["includeMemberAccounts"] = include_member_accounts
+        __props__["numberOfMemberAccountsOptedIn"] = number_of_member_accounts_opted_in
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:computeoptimizer/enrollmentStatus:EnrollmentStatus', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="includeMemberAccounts")
     def include_member_accounts(self) -> pulumi.Output[_builtins.bool]:

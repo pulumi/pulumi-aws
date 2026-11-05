@@ -200,6 +200,12 @@ func (ManagedPolicyAttachmentsExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPolicyAttachmentsExclusiveState)(nil)).Elem()
 }
 
+// ManagedPolicyAttachmentsExclusiveExists checks whether an existing ManagedPolicyAttachmentsExclusive resource with the given ID exists.
+func ManagedPolicyAttachmentsExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedPolicyAttachmentsExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/managedPolicyAttachmentsExclusive:ManagedPolicyAttachmentsExclusive", id, state, "", opts...)
+}
+
 type managedPolicyAttachmentsExclusiveArgs struct {
 	// ARN of the SSO Instance.
 	InstanceArn string `pulumi:"instanceArn"`

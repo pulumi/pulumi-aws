@@ -21,22 +21,20 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
     /**
      * (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
-     * @deprecated
-     * arn is deprecated. Use secretArn instead.
+     * @deprecated arn is deprecated. Use secretArn instead.
      * 
      */
-    @Deprecated /* arn is deprecated. Use secretArn instead. */
+    @Deprecated
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
      * @return (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
-     * @deprecated
-     * arn is deprecated. Use secretArn instead.
+     * @deprecated arn is deprecated. Use secretArn instead.
      * 
      */
-    @Deprecated /* arn is deprecated. Use secretArn instead. */
+    @Deprecated
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -236,11 +234,10 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
-         * @deprecated
-         * arn is deprecated. Use secretArn instead.
+         * @deprecated arn is deprecated. Use secretArn instead.
          * 
          */
-        @Deprecated /* arn is deprecated. Use secretArn instead. */
+        @Deprecated
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
@@ -251,11 +248,10 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
-         * @deprecated
-         * arn is deprecated. Use secretArn instead.
+         * @deprecated arn is deprecated. Use secretArn instead.
          * 
          */
-        @Deprecated /* arn is deprecated. Use secretArn instead. */
+        @Deprecated
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

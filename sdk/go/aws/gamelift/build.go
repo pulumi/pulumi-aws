@@ -151,6 +151,12 @@ func (BuildState) ElementType() reflect.Type {
 	return reflect.TypeOf((*buildState)(nil)).Elem()
 }
 
+// BuildExists checks whether an existing Build resource with the given ID exists.
+func BuildExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BuildState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:gamelift/build:Build", id, state, "", opts...)
+}
+
 type buildArgs struct {
 	// Name of the build
 	Name *string `pulumi:"name"`

@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Key("example", KeyArgs.builder()
  *             .description("KMS symmetric key for RDS Custom for Oracle")
  *             .build());
@@ -57,9 +57,9 @@ import javax.annotation.Nullable;
  *             .engineVersion("19.cdb_cev1")
  *             .kmsKeyId(example.arn())
  *             .manifest("""
- *   {
- * \t\"databaseInstallationFileNames\":[\"V982063-01.zip\"]
- *   }
+ *   }{{@code
+ * }&#92;{@code t}&#92;{@code "databaseInstallationFileNames}&#92;{@code ":[}&#92;{@code "V982063-01.zip}&#92;{@code "]
+ *   }}{@code
  *             """)
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example"),
@@ -67,8 +67,8 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

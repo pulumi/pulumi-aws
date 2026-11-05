@@ -132,6 +132,12 @@ func (UserSettingsAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userSettingsAssociationState)(nil)).Elem()
 }
 
+// UserSettingsAssociationExists checks whether an existing UserSettingsAssociation resource with the given ID exists.
+func UserSettingsAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserSettingsAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/userSettingsAssociation:UserSettingsAssociation", id, state, "", opts...)
+}
+
 type userSettingsAssociationArgs struct {
 	// ARN of the portal to associate with the user settings. Forces replacement if changed.
 	//

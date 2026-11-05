@@ -130,6 +130,12 @@ func (SecurityGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupAssociationState)(nil)).Elem()
 }
 
+// SecurityGroupAssociationExists checks whether an existing SecurityGroupAssociation resource with the given ID exists.
+func SecurityGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/securityGroupAssociation:SecurityGroupAssociation", id, state, "", opts...)
+}
+
 type securityGroupAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -179,6 +179,12 @@ func (ControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*controlState)(nil)).Elem()
 }
 
+// ControlExists checks whether an existing Control resource with the given ID exists.
+func ControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:auditmanager/control:Control", id, state, "", opts...)
+}
+
 type controlArgs struct {
 	// Recommended actions to carry out if the control isn't fulfilled.
 	ActionPlanInstructions *string `pulumi:"actionPlanInstructions"`

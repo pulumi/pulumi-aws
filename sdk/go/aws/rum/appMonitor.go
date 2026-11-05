@@ -163,6 +163,12 @@ func (AppMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appMonitorState)(nil)).Elem()
 }
 
+// AppMonitorExists checks whether an existing AppMonitor resource with the given ID exists.
+func AppMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rum/appMonitor:AppMonitor", id, state, "", opts...)
+}
+
 type appMonitorArgs struct {
 	// configuration data for the app monitor. See appMonitorConfiguration below.
 	AppMonitorConfiguration *AppMonitorAppMonitorConfiguration `pulumi:"appMonitorConfiguration"`

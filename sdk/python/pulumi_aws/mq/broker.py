@@ -1346,6 +1346,68 @@ class Broker(pulumi.CustomResource):
         __props__.__dict__["users"] = users
         return Broker(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+            broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration: pulumi.Input[Optional[Union['BrokerConfigurationArgs', 'BrokerConfigurationArgsDict', 'outputs.BrokerConfiguration']]] = None,
+            data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            data_replication_primary_broker_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_options: pulumi.Input[Optional[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict', 'outputs.BrokerEncryptionOptions']]] = None,
+            engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            host_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            instances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerInstanceArgs', 'BrokerInstanceArgsDict', 'outputs.BrokerInstance']]]]] = None,
+            ldap_server_metadata: pulumi.Input[Optional[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict', 'outputs.BrokerLdapServerMetadata']]] = None,
+            logs: pulumi.Input[Optional[Union['BrokerLogsArgs', 'BrokerLogsArgsDict', 'outputs.BrokerLogs']]] = None,
+            maintenance_window_start_time: pulumi.Input[Optional[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict', 'outputs.BrokerMaintenanceWindowStartTime']]] = None,
+            pending_data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_share_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            shared_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerSharedResourceArgs', 'BrokerSharedResourceArgsDict', 'outputs.BrokerSharedResource']]]]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict', 'outputs.BrokerUser']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyImmediately"] = apply_immediately
+        __props__["arn"] = arn
+        __props__["authenticationStrategy"] = authentication_strategy
+        __props__["autoMinorVersionUpgrade"] = auto_minor_version_upgrade
+        __props__["brokerName"] = broker_name
+        __props__["configuration"] = configuration
+        __props__["dataReplicationMode"] = data_replication_mode
+        __props__["dataReplicationPrimaryBrokerArn"] = data_replication_primary_broker_arn
+        __props__["deploymentMode"] = deployment_mode
+        __props__["encryptionOptions"] = encryption_options
+        __props__["engineType"] = engine_type
+        __props__["engineVersion"] = engine_version
+        __props__["hostInstanceType"] = host_instance_type
+        __props__["instances"] = instances
+        __props__["ldapServerMetadata"] = ldap_server_metadata
+        __props__["logs"] = logs
+        __props__["maintenanceWindowStartTime"] = maintenance_window_start_time
+        __props__["pendingDataReplicationMode"] = pending_data_replication_mode
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["region"] = region
+        __props__["resourceShareArns"] = resource_share_arns
+        __props__["securityGroups"] = security_groups
+        __props__["sharedResources"] = shared_resources
+        __props__["storageType"] = storage_type
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["users"] = users
+        return pulumi.runtime.exists_resource(None, 'aws:mq/broker:Broker', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[Optional[_builtins.bool]]:

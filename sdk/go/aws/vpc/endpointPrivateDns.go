@@ -121,6 +121,12 @@ func (EndpointPrivateDnsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointPrivateDnsState)(nil)).Elem()
 }
 
+// EndpointPrivateDnsExists checks whether an existing EndpointPrivateDns resource with the given ID exists.
+func EndpointPrivateDnsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointPrivateDnsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpc/endpointPrivateDns:EndpointPrivateDns", id, state, "", opts...)
+}
+
 type endpointPrivateDnsArgs struct {
 	// Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
 	PrivateDnsEnabled bool `pulumi:"privateDnsEnabled"`

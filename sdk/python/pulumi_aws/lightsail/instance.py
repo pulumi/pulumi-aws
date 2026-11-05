@@ -845,6 +845,52 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return Instance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            add_on: pulumi.Input[Optional[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            is_static_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ram_size: pulumi.Input[Optional[_builtins.float]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addOn"] = add_on
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["blueprintId"] = blueprint_id
+        __props__["bundleId"] = bundle_id
+        __props__["cpuCount"] = cpu_count
+        __props__["createdAt"] = created_at
+        __props__["ipAddressType"] = ip_address_type
+        __props__["ipv6Addresses"] = ipv6_addresses
+        __props__["isStaticIp"] = is_static_ip
+        __props__["keyPairName"] = key_pair_name
+        __props__["name"] = name
+        __props__["privateIpAddress"] = private_ip_address
+        __props__["publicIpAddress"] = public_ip_address
+        __props__["ramSize"] = ram_size
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userData"] = user_data
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'aws:lightsail/instance:Instance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addOn")
     def add_on(self) -> pulumi.Output[Optional['outputs.InstanceAddOn']]:

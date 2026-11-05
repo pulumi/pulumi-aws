@@ -222,6 +222,12 @@ func (TableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableState)(nil)).Elem()
 }
 
+// TableExists checks whether an existing Table resource with the given ID exists.
+func TableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:timestreamwrite/table:Table", id, state, "", opts...)
+}
+
 type tableArgs struct {
 	// Name of the Timestream database.
 	DatabaseName string `pulumi:"databaseName"`

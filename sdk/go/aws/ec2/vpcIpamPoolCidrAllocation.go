@@ -263,6 +263,12 @@ func (VpcIpamPoolCidrAllocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamPoolCidrAllocationState)(nil)).Elem()
 }
 
+// VpcIpamPoolCidrAllocationExists checks whether an existing VpcIpamPoolCidrAllocation resource with the given ID exists.
+func VpcIpamPoolCidrAllocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamPoolCidrAllocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation", id, state, "", opts...)
+}
+
 type vpcIpamPoolCidrAllocationArgs struct {
 	// CIDR you want to assign to the pool.
 	Cidr *string `pulumi:"cidr"`

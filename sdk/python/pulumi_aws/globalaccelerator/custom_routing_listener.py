@@ -282,6 +282,18 @@ class CustomRoutingListener(pulumi.CustomResource):
         __props__.__dict__["port_ranges"] = port_ranges
         return CustomRoutingListener(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceleratorArn"] = accelerator_arn
+        __props__["arn"] = arn
+        __props__["portRanges"] = port_ranges
+        return pulumi.runtime.exists_resource(None, 'aws:globalaccelerator/customRoutingListener:CustomRoutingListener', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceleratorArn")
     def accelerator_arn(self) -> pulumi.Output[_builtins.str]:

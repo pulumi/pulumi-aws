@@ -520,6 +520,36 @@ class CustomActionType(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CustomActionType(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict', 'outputs.CustomActionTypeConfigurationProperty']]]]] = None,
+            input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict', 'outputs.CustomActionTypeInputArtifactDetails']]] = None,
+            output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict', 'outputs.CustomActionTypeOutputArtifactDetails']]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict', 'outputs.CustomActionTypeSettings']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["category"] = category
+        __props__["configurationProperties"] = configuration_properties
+        __props__["inputArtifactDetails"] = input_artifact_details
+        __props__["outputArtifactDetails"] = output_artifact_details
+        __props__["owner"] = owner
+        __props__["providerName"] = provider_name
+        __props__["region"] = region
+        __props__["settings"] = settings
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:codepipeline/customActionType:CustomActionType', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

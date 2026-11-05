@@ -122,6 +122,12 @@ func (DataCatalogEncryptionSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCatalogEncryptionSettingsState)(nil)).Elem()
 }
 
+// DataCatalogEncryptionSettingsExists checks whether an existing DataCatalogEncryptionSettings resource with the given ID exists.
+func DataCatalogEncryptionSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataCatalogEncryptionSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings", id, state, "", opts...)
+}
+
 type dataCatalogEncryptionSettingsArgs struct {
 	// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`

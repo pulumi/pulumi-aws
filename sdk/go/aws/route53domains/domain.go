@@ -308,6 +308,12 @@ func (DomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainState)(nil)).Elem()
 }
 
+// DomainExists checks whether an existing Domain resource with the given ID exists.
+func DomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53domains/domain:Domain", id, state, "", opts...)
+}
+
 type domainArgs struct {
 	// Details about the domain administrative contact. See Contact Blocks for more details.
 	AdminContact DomainAdminContact `pulumi:"adminContact"`

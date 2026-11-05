@@ -296,6 +296,12 @@ func (PublishingDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publishingDestinationState)(nil)).Elem()
 }
 
+// PublishingDestinationExists checks whether an existing PublishingDestination resource with the given ID exists.
+func PublishingDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublishingDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/publishingDestination:PublishingDestination", id, state, "", opts...)
+}
+
 type publishingDestinationArgs struct {
 	// Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn string `pulumi:"destinationArn"`

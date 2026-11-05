@@ -156,6 +156,12 @@ func (AppCookieStickinessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appCookieStickinessPolicyState)(nil)).Elem()
 }
 
+// AppCookieStickinessPolicyExists checks whether an existing AppCookieStickinessPolicy resource with the given ID exists.
+func AppCookieStickinessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppCookieStickinessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy", id, state, "", opts...)
+}
+
 type appCookieStickinessPolicyArgs struct {
 	// Application cookie whose lifetime the ELB's cookie should follow.
 	CookieName string `pulumi:"cookieName"`

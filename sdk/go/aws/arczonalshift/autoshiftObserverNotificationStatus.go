@@ -119,6 +119,12 @@ func (AutoshiftObserverNotificationStatusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoshiftObserverNotificationStatusState)(nil)).Elem()
 }
 
+// AutoshiftObserverNotificationStatusExists checks whether an existing AutoshiftObserverNotificationStatus resource with the given ID exists.
+func AutoshiftObserverNotificationStatusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoshiftObserverNotificationStatusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:arczonalshift/autoshiftObserverNotificationStatus:AutoshiftObserverNotificationStatus", id, state, "", opts...)
+}
+
 type autoshiftObserverNotificationStatusArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

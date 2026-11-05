@@ -90,7 +90,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<Void> arnBuild(String partition, String service, String region, String accountId, String resource, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:index/arnBuild:arnBuild", TypeShape.of(Void.class), ArnBuildArgs.builder().partition(partition).service(service).region(region).accountId(accountId).resource(resource).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("aws:index/arnBuild:arnBuild", TypeShape.of(Void.class), ArnBuildPlainArgs.builder().partition(partition).service(service).region(region).accountId(accountId).resource(resource).build(), Utilities.withVersion(options));
     }
     /**
      * Builds an ARN from its constituent parts.
@@ -101,7 +101,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<Void> arnBuild(String partition, String service, String region, String accountId, String resource, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:index/arnBuild:arnBuild", TypeShape.of(Void.class), ArnBuildArgs.builder().partition(partition).service(service).region(region).accountId(accountId).resource(resource).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("aws:index/arnBuild:arnBuild", TypeShape.of(Void.class), ArnBuildPlainArgs.builder().partition(partition).service(service).region(region).accountId(accountId).resource(resource).build(), Utilities.withVersion(options));
     }
     /**
      * Builds an ARN from its constituent parts.
@@ -145,7 +145,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<ArnParseResult> arnParse(String arn, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:index/arnParse:arnParse", TypeShape.of(ArnParseResult.class), ArnParseArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("aws:index/arnParse:arnParse", TypeShape.of(ArnParseResult.class), ArnParsePlainArgs.builder().arn(arn).build(), Utilities.withVersion(options));
     }
     /**
      * Parses an ARN into its constituent parts.
@@ -156,7 +156,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<ArnParseResult> arnParse(String arn, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:index/arnParse:arnParse", TypeShape.of(ArnParseResult.class), ArnParseArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("aws:index/arnParse:arnParse", TypeShape.of(ArnParseResult.class), ArnParsePlainArgs.builder().arn(arn).build(), Utilities.withVersion(options));
     }
     /**
      * Parses an ARN into its constituent parts.
@@ -6071,7 +6071,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<Void> trimIamRolePath(String arn, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathPlainArgs.builder().arn(arn).build(), Utilities.withVersion(options));
     }
     /**
      * Trims the path prefix from an IAM role ARN.
@@ -6083,7 +6083,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<Void> trimIamRolePath(String arn, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathPlainArgs.builder().arn(arn).build(), Utilities.withVersion(options));
     }
     /**
      * Trims the path prefix from an IAM role ARN.
@@ -6128,7 +6128,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<Void> userAgent(String productName, String productVersion, String comment, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:index/userAgent:userAgent", TypeShape.of(Void.class), UserAgentArgs.builder().productName(productName).productVersion(productVersion).comment(comment).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("aws:index/userAgent:userAgent", TypeShape.of(Void.class), UserAgentPlainArgs.builder().productName(productName).productVersion(productVersion).comment(comment).build(), Utilities.withVersion(options));
     }
     /**
      * Formats a User-Agent product for use with the `userAgent` argument in the `provider` block.
@@ -6139,7 +6139,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<Void> userAgent(String productName, String productVersion, String comment, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:index/userAgent:userAgent", TypeShape.of(Void.class), UserAgentArgs.builder().productName(productName).productVersion(productVersion).comment(comment).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("aws:index/userAgent:userAgent", TypeShape.of(Void.class), UserAgentPlainArgs.builder().productName(productName).productVersion(productVersion).comment(comment).build(), Utilities.withVersion(options));
     }
     /**
      * Formats a User-Agent product for use with the `userAgent` argument in the `provider` block.

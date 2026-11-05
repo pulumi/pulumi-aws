@@ -671,6 +671,30 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         __props__.__dict__["version_number"] = version_number
         return HostedConfigurationVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            version_label: pulumi.Input[Optional[_builtins.str]] = None,
+            version_number: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["arn"] = arn
+        __props__["configurationProfileId"] = configuration_profile_id
+        __props__["content"] = content
+        __props__["contentType"] = content_type
+        __props__["description"] = description
+        __props__["region"] = region
+        __props__["versionLabel"] = version_label
+        __props__["versionNumber"] = version_number
+        return pulumi.runtime.exists_resource(None, 'aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

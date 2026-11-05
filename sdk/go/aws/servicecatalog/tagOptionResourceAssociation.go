@@ -144,6 +144,12 @@ func (TagOptionResourceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagOptionResourceAssociationState)(nil)).Elem()
 }
 
+// TagOptionResourceAssociationExists checks whether an existing TagOptionResourceAssociation resource with the given ID exists.
+func TagOptionResourceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagOptionResourceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation", id, state, "", opts...)
+}
+
 type tagOptionResourceAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

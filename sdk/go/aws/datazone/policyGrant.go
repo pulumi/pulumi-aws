@@ -280,6 +280,12 @@ func (PolicyGrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyGrantState)(nil)).Elem()
 }
 
+// PolicyGrantExists checks whether an existing PolicyGrant resource with the given ID exists.
+func PolicyGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datazone/policyGrant:PolicyGrant", id, state, "", opts...)
+}
+
 type policyGrantArgs struct {
 	// Policy grant detail. Exactly one sub-block must be specified. See `detail` Block below.
 	Detail PolicyGrantDetail `pulumi:"detail"`

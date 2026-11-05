@@ -183,6 +183,12 @@ func (MedicalVocabularyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*medicalVocabularyState)(nil)).Elem()
 }
 
+// MedicalVocabularyExists checks whether an existing MedicalVocabulary resource with the given ID exists.
+func MedicalVocabularyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MedicalVocabularyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transcribe/medicalVocabulary:MedicalVocabulary", id, state, "", opts...)
+}
+
 type medicalVocabularyArgs struct {
 	// Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
 	LanguageCode string `pulumi:"languageCode"`

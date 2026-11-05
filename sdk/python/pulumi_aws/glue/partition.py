@@ -484,6 +484,32 @@ class Partition(pulumi.CustomResource):
         __props__.__dict__["table_name"] = table_name
         return Partition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            last_accessed_time: pulumi.Input[Optional[_builtins.str]] = None,
+            last_analyzed_time: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            partition_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_descriptor: pulumi.Input[Optional[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict', 'outputs.PartitionStorageDescriptor']]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogId"] = catalog_id
+        __props__["creationTime"] = creation_time
+        __props__["databaseName"] = database_name
+        __props__["lastAccessedTime"] = last_accessed_time
+        __props__["lastAnalyzedTime"] = last_analyzed_time
+        __props__["parameters"] = parameters
+        __props__["partitionValues"] = partition_values
+        __props__["region"] = region
+        __props__["storageDescriptor"] = storage_descriptor
+        __props__["tableName"] = table_name
+        return pulumi.runtime.exists_resource(None, 'aws:glue/partition:Partition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:

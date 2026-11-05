@@ -819,6 +819,42 @@ class Smsvoicev2Pool(pulumi.CustomResource):
         __props__.__dict__["two_way_enabled"] = two_way_enabled
         return Smsvoicev2Pool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            iso_country_code: pulumi.Input[Optional[_builtins.str]] = None,
+            message_type: pulumi.Input[Optional[_builtins.str]] = None,
+            opt_out_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+            origination_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            self_managed_opt_outs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            shared_routes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['Smsvoicev2PoolTimeoutsArgs', 'Smsvoicev2PoolTimeoutsArgsDict', 'outputs.Smsvoicev2PoolTimeouts']]] = None,
+            two_way_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None,
+            two_way_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deletionProtectionEnabled"] = deletion_protection_enabled
+        __props__["isoCountryCode"] = iso_country_code
+        __props__["messageType"] = message_type
+        __props__["optOutListName"] = opt_out_list_name
+        __props__["originationIdentities"] = origination_identities
+        __props__["region"] = region
+        __props__["selfManagedOptOutsEnabled"] = self_managed_opt_outs_enabled
+        __props__["sharedRoutesEnabled"] = shared_routes_enabled
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["twoWayChannelArn"] = two_way_channel_arn
+        __props__["twoWayChannelRole"] = two_way_channel_role
+        __props__["twoWayEnabled"] = two_way_enabled
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/smsvoicev2Pool:Smsvoicev2Pool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

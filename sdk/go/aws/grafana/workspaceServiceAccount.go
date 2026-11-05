@@ -134,6 +134,12 @@ func (WorkspaceServiceAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceServiceAccountState)(nil)).Elem()
 }
 
+// WorkspaceServiceAccountExists checks whether an existing WorkspaceServiceAccount resource with the given ID exists.
+func WorkspaceServiceAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceServiceAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount", id, state, "", opts...)
+}
+
 type workspaceServiceAccountArgs struct {
 	// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
 	GrafanaRole string `pulumi:"grafanaRole"`

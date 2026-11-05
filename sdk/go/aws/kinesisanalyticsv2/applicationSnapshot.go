@@ -129,6 +129,12 @@ func (ApplicationSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationSnapshotState)(nil)).Elem()
 }
 
+// ApplicationSnapshotExists checks whether an existing ApplicationSnapshot resource with the given ID exists.
+func ApplicationSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot", id, state, "", opts...)
+}
+
 type applicationSnapshotArgs struct {
 	// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName string `pulumi:"applicationName"`

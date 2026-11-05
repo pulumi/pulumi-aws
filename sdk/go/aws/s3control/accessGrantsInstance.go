@@ -165,6 +165,12 @@ func (AccessGrantsInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessGrantsInstanceState)(nil)).Elem()
 }
 
+// AccessGrantsInstanceExists checks whether an existing AccessGrantsInstance resource with the given ID exists.
+func AccessGrantsInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessGrantsInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/accessGrantsInstance:AccessGrantsInstance", id, state, "", opts...)
+}
+
 type accessGrantsInstanceArgs struct {
 	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`

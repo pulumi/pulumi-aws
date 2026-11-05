@@ -131,6 +131,12 @@ func (InstanceTrustProviderAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceTrustProviderAttachmentState)(nil)).Elem()
 }
 
+// InstanceTrustProviderAttachmentExists checks whether an existing InstanceTrustProviderAttachment resource with the given ID exists.
+func InstanceTrustProviderAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceTrustProviderAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment", id, state, "", opts...)
+}
+
 type instanceTrustProviderAttachmentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

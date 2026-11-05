@@ -387,6 +387,20 @@ class EventStream(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = role_arn
         return EventStream(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["destinationStreamArn"] = destination_stream_arn
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/eventStream:EventStream', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     @_utilities.deprecated("""application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.""")

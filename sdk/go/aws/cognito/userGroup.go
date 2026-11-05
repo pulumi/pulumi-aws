@@ -185,6 +185,12 @@ func (UserGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGroupState)(nil)).Elem()
 }
 
+// UserGroupExists checks whether an existing UserGroup resource with the given ID exists.
+func UserGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/userGroup:UserGroup", id, state, "", opts...)
+}
+
 type userGroupArgs struct {
 	// The description of the user group.
 	Description *string `pulumi:"description"`

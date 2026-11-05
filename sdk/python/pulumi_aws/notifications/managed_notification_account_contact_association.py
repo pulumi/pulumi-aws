@@ -228,6 +228,16 @@ class ManagedNotificationAccountContactAssociation(pulumi.CustomResource):
         __props__.__dict__["managed_notification_configuration_arn"] = managed_notification_configuration_arn
         return ManagedNotificationAccountContactAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            contact_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["contactIdentifier"] = contact_identifier
+        __props__["managedNotificationConfigurationArn"] = managed_notification_configuration_arn
+        return pulumi.runtime.exists_resource(None, 'aws:notifications/managedNotificationAccountContactAssociation:ManagedNotificationAccountContactAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="contactIdentifier")
     def contact_identifier(self) -> pulumi.Output[_builtins.str]:

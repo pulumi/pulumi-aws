@@ -551,6 +551,36 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["vpc_endpoint_service_name"] = vpc_endpoint_service_name
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict', 'outputs.ClusterEncryptionDetail']]]]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict', 'outputs.ClusterMultiRegionProperties']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict', 'outputs.ClusterTimeouts']]] = None,
+            vpc_endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deletionProtectionEnabled"] = deletion_protection_enabled
+        __props__["encryptionDetails"] = encryption_details
+        __props__["forceDestroy"] = force_destroy
+        __props__["identifier"] = identifier
+        __props__["kmsEncryptionKey"] = kms_encryption_key
+        __props__["multiRegionProperties"] = multi_region_properties
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["vpcEndpointServiceName"] = vpc_endpoint_service_name
+        return pulumi.runtime.exists_resource(None, 'aws:dsql/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

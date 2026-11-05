@@ -647,6 +647,36 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Connector(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_role: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            as2_config: pulumi.Input[Optional[Union['ConnectorAs2ConfigArgs', 'ConnectorAs2ConfigArgsDict', 'outputs.ConnectorAs2Config']]] = None,
+            connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+            egress_config: pulumi.Input[Optional[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict', 'outputs.ConnectorEgressConfig']]] = None,
+            logging_role: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sftp_config: pulumi.Input[Optional[Union['ConnectorSftpConfigArgs', 'ConnectorSftpConfigArgsDict', 'outputs.ConnectorSftpConfig']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessRole"] = access_role
+        __props__["arn"] = arn
+        __props__["as2Config"] = as2_config
+        __props__["connectorId"] = connector_id
+        __props__["egressConfig"] = egress_config
+        __props__["loggingRole"] = logging_role
+        __props__["region"] = region
+        __props__["securityPolicyName"] = security_policy_name
+        __props__["sftpConfig"] = sftp_config
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'aws:transfer/connector:Connector', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessRole")
     def access_role(self) -> pulumi.Output[_builtins.str]:

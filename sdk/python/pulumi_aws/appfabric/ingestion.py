@@ -436,6 +436,28 @@ class Ingestion(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return Ingestion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app: pulumi.Input[Optional[_builtins.str]] = None,
+            app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ingestion_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["app"] = app
+        __props__["appBundleArn"] = app_bundle_arn
+        __props__["arn"] = arn
+        __props__["ingestionType"] = ingestion_type
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'aws:appfabric/ingestion:Ingestion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def app(self) -> pulumi.Output[_builtins.str]:

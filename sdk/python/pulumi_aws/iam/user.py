@@ -461,6 +461,28 @@ class User(pulumi.CustomResource):
         __props__.__dict__["unique_id"] = unique_id
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions_boundary: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            unique_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["forceDestroy"] = force_destroy
+        __props__["name"] = name
+        __props__["path"] = path
+        __props__["permissionsBoundary"] = permissions_boundary
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uniqueId"] = unique_id
+        return pulumi.runtime.exists_resource(None, 'aws:iam/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

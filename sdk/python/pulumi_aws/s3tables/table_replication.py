@@ -350,6 +350,22 @@ class TableReplication(pulumi.CustomResource):
         __props__.__dict__["version_token"] = version_token
         return TableReplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict', 'outputs.TableReplicationRule']]] = None,
+            table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            version_token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["role"] = role
+        __props__["rule"] = rule
+        __props__["tableArn"] = table_arn
+        __props__["versionToken"] = version_token
+        return pulumi.runtime.exists_resource(None, 'aws:s3tables/tableReplication:TableReplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

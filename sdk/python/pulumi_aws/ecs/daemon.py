@@ -743,6 +743,42 @@ class Daemon(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Daemon(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']]] = None,
+            enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            propagate_tags: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['DaemonTimeoutsArgs', 'DaemonTimeoutsArgsDict', 'outputs.DaemonTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["capacityProviderArns"] = capacity_provider_arns
+        __props__["clusterArn"] = cluster_arn
+        __props__["daemonTaskDefinitionArn"] = daemon_task_definition_arn
+        __props__["deploymentArn"] = deployment_arn
+        __props__["deploymentConfiguration"] = deployment_configuration
+        __props__["enableEcsManagedTags"] = enable_ecs_managed_tags
+        __props__["enableExecuteCommand"] = enable_execute_command
+        __props__["name"] = name
+        __props__["propagateTags"] = propagate_tags
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ecs/daemon:Daemon', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

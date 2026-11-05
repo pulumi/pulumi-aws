@@ -184,6 +184,12 @@ func (AuthorizerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizerState)(nil)).Elem()
 }
 
+// AuthorizerExists checks whether an existing Authorizer resource with the given ID exists.
+func AuthorizerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthorizerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/authorizer:Authorizer", id, state, "", opts...)
+}
+
 type authorizerArgs struct {
 	// The ARN of the authorizer's Lambda function.
 	AuthorizerFunctionArn string `pulumi:"authorizerFunctionArn"`

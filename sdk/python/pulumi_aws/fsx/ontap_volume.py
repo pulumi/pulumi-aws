@@ -1091,6 +1091,62 @@ class OntapVolume(pulumi.CustomResource):
         __props__.__dict__["volume_type"] = volume_type
         return OntapVolume(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aggregate_configuration: pulumi.Input[Optional[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict', 'outputs.OntapVolumeAggregateConfiguration']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bypass_snaplock_enterprise_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+            copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            flexcache_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            junction_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ontap_volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_style: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_bytes: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
+            skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+            snaplock_configuration: pulumi.Input[Optional[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict', 'outputs.OntapVolumeSnaplockConfiguration']]] = None,
+            snapshot_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_efficiency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tiering_policy: pulumi.Input[Optional[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict', 'outputs.OntapVolumeTieringPolicy']]] = None,
+            uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_style: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aggregateConfiguration"] = aggregate_configuration
+        __props__["arn"] = arn
+        __props__["bypassSnaplockEnterpriseRetention"] = bypass_snaplock_enterprise_retention
+        __props__["copyTagsToBackups"] = copy_tags_to_backups
+        __props__["fileSystemId"] = file_system_id
+        __props__["finalBackupTags"] = final_backup_tags
+        __props__["flexcacheEndpointType"] = flexcache_endpoint_type
+        __props__["junctionPath"] = junction_path
+        __props__["name"] = name
+        __props__["ontapVolumeType"] = ontap_volume_type
+        __props__["region"] = region
+        __props__["securityStyle"] = security_style
+        __props__["sizeInBytes"] = size_in_bytes
+        __props__["sizeInMegabytes"] = size_in_megabytes
+        __props__["skipFinalBackup"] = skip_final_backup
+        __props__["snaplockConfiguration"] = snaplock_configuration
+        __props__["snapshotPolicy"] = snapshot_policy
+        __props__["storageEfficiencyEnabled"] = storage_efficiency_enabled
+        __props__["storageVirtualMachineId"] = storage_virtual_machine_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tieringPolicy"] = tiering_policy
+        __props__["uuid"] = uuid
+        __props__["volumeStyle"] = volume_style
+        __props__["volumeType"] = volume_type
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/ontapVolume:OntapVolume', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aggregateConfiguration")
     def aggregate_configuration(self) -> pulumi.Output[Optional['outputs.OntapVolumeAggregateConfiguration']]:

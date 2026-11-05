@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ScheduledQuery("example", ScheduledQueryArgs.builder()
  *             .errorReportConfiguration(ScheduledQueryErrorReportConfigurationArgs.builder()
  *                 .s3Configuration(ScheduledQueryErrorReportConfigurationS3ConfigurationArgs.builder()
@@ -124,10 +124,10 @@ import javax.annotation.Nullable;
  *             .name(exampleAwsTimestreamwriteTable.get("tableName"))
  *             .queryString("""
  * SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
- * \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+ * }&#92;{@code tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+ * }&#92;{@code tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+ * }&#92;{@code tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+ * }&#92;{@code tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
  * FROM exampledatabase.exampletable
  * WHERE measure_name = 'metrics' AND time > ago(2h)
  * GROUP BY region, hostname, az, BIN(time, 15s)
@@ -136,8 +136,8 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -344,12 +344,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ScheduledQuery("example", ScheduledQueryArgs.builder()
  *             .errorReportConfiguration(ScheduledQueryErrorReportConfigurationArgs.builder()
  *                 .s3Configuration(ScheduledQueryErrorReportConfigurationS3ConfigurationArgs.builder()
@@ -408,10 +408,10 @@ import javax.annotation.Nullable;
  *             .name(exampleAwsTimestreamwriteTable.get("tableName"))
  *             .queryString("""
  * SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
- * \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+ * }&#92;{@code tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+ * }&#92;{@code tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+ * }&#92;{@code tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+ * }&#92;{@code tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
  * FROM exampledatabase.exampletable
  * WHERE measure_name = 'metrics' AND time > ago(2h)
  * GROUP BY region, hostname, az, BIN(time, 15s)
@@ -420,8 +420,8 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -125,6 +125,12 @@ func (GraphState) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphState)(nil)).Elem()
 }
 
+// GraphExists checks whether an existing Graph resource with the given ID exists.
+func GraphExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GraphState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:detective/graph:Graph", id, state, "", opts...)
+}
+
 type graphArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

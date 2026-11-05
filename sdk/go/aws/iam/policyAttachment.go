@@ -198,6 +198,12 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyAttachmentState)(nil)).Elem()
 }
 
+// PolicyAttachmentExists checks whether an existing PolicyAttachment resource with the given ID exists.
+func PolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/policyAttachment:PolicyAttachment", id, state, "", opts...)
+}
+
 type policyAttachmentArgs struct {
 	// Group(s) the policy should be applied to.
 	Groups []interface{} `pulumi:"groups"`

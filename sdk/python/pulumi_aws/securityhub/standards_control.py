@@ -472,6 +472,34 @@ class StandardsControl(pulumi.CustomResource):
         __props__.__dict__["title"] = title
         return StandardsControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            control_id: pulumi.Input[Optional[_builtins.str]] = None,
+            control_status: pulumi.Input[Optional[_builtins.str]] = None,
+            control_status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            related_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            remediation_url: pulumi.Input[Optional[_builtins.str]] = None,
+            severity_rating: pulumi.Input[Optional[_builtins.str]] = None,
+            standards_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["controlId"] = control_id
+        __props__["controlStatus"] = control_status
+        __props__["controlStatusUpdatedAt"] = control_status_updated_at
+        __props__["description"] = description
+        __props__["disabledReason"] = disabled_reason
+        __props__["region"] = region
+        __props__["relatedRequirements"] = related_requirements
+        __props__["remediationUrl"] = remediation_url
+        __props__["severityRating"] = severity_rating
+        __props__["standardsControlArn"] = standards_control_arn
+        __props__["title"] = title
+        return pulumi.runtime.exists_resource(None, 'aws:securityhub/standardsControl:StandardsControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="controlId")
     def control_id(self) -> pulumi.Output[_builtins.str]:

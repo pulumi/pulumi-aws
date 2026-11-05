@@ -301,6 +301,18 @@ class Tag(pulumi.CustomResource):
         __props__.__dict__["tag"] = tag
         return Tag(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tag: pulumi.Input[Optional[Union['TagTagArgs', 'TagTagArgsDict', 'outputs.TagTag']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoscalingGroupName"] = autoscaling_group_name
+        __props__["region"] = region
+        __props__["tag"] = tag
+        return pulumi.runtime.exists_resource(None, 'aws:autoscaling/tag:Tag', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[_builtins.str]:

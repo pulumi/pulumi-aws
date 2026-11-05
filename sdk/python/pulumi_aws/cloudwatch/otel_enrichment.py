@@ -392,6 +392,20 @@ class OtelEnrichment(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return OtelEnrichment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtelEnrichmentExcludeFilterArgs', 'OtelEnrichmentExcludeFilterArgsDict', 'outputs.OtelEnrichmentExcludeFilter']]]]] = None,
+            include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtelEnrichmentIncludeFilterArgs', 'OtelEnrichmentIncludeFilterArgsDict', 'outputs.OtelEnrichmentIncludeFilter']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict', 'outputs.OtelEnrichmentTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["excludeFilters"] = exclude_filters
+        __props__["includeFilters"] = include_filters
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/otelEnrichment:OtelEnrichment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="excludeFilters")
     def exclude_filters(self) -> pulumi.Output[Optional[Sequence['outputs.OtelEnrichmentExcludeFilter']]]:

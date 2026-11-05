@@ -465,6 +465,30 @@ class RecordingConfiguration(pulumi.CustomResource):
         __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
         return RecordingConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_configuration: pulumi.Input[Optional[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict', 'outputs.RecordingConfigurationDestinationConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recording_reconnect_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            thumbnail_configuration: pulumi.Input[Optional[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict', 'outputs.RecordingConfigurationThumbnailConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["destinationConfiguration"] = destination_configuration
+        __props__["name"] = name
+        __props__["recordingReconnectWindowSeconds"] = recording_reconnect_window_seconds
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["thumbnailConfiguration"] = thumbnail_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:ivs/recordingConfiguration:RecordingConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

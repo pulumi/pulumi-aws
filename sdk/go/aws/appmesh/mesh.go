@@ -183,6 +183,12 @@ func (MeshState) ElementType() reflect.Type {
 	return reflect.TypeOf((*meshState)(nil)).Elem()
 }
 
+// MeshExists checks whether an existing Mesh resource with the given ID exists.
+func MeshExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MeshState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appmesh/mesh:Mesh", id, state, "", opts...)
+}
+
 type meshArgs struct {
 	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`

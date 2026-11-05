@@ -625,6 +625,12 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskDefinitionState)(nil)).Elem()
 }
 
+// TaskDefinitionExists checks whether an existing TaskDefinition resource with the given ID exists.
+func TaskDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TaskDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecs/taskDefinition:TaskDefinition", id, state, "", opts...)
+}
+
 type taskDefinitionArgs struct {
 	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions string `pulumi:"containerDefinitions"`

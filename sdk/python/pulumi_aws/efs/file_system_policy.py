@@ -374,6 +374,20 @@ class FileSystemPolicy(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return FileSystemPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bypassPolicyLockoutSafetyCheck"] = bypass_policy_lockout_safety_check
+        __props__["fileSystemId"] = file_system_id
+        __props__["policy"] = policy
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:efs/fileSystemPolicy:FileSystemPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Output[Optional[_builtins.bool]]:

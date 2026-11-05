@@ -938,6 +938,44 @@ class MetricStream(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return MetricStream(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict', 'outputs.MetricStreamExcludeFilter']]]]] = None,
+            firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict', 'outputs.MetricStreamIncludeFilter']]]]] = None,
+            include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_update_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            output_format: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["creationDate"] = creation_date
+        __props__["excludeFilters"] = exclude_filters
+        __props__["firehoseArn"] = firehose_arn
+        __props__["includeFilters"] = include_filters
+        __props__["includeLinkedAccountsMetrics"] = include_linked_accounts_metrics
+        __props__["lastUpdateDate"] = last_update_date
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["outputFormat"] = output_format
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["state"] = state
+        __props__["statisticsConfigurations"] = statistics_configurations
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/metricStream:MetricStream', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

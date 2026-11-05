@@ -388,6 +388,12 @@ func (VpcIpamPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamPoolState)(nil)).Elem()
 }
 
+// VpcIpamPoolExists checks whether an existing VpcIpamPool resource with the given ID exists.
+func VpcIpamPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpamPool:VpcIpamPool", id, state, "", opts...)
+}
+
 type vpcIpamPoolArgs struct {
 	// IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
 	AddressFamily string `pulumi:"addressFamily"`

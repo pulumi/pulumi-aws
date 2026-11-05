@@ -143,6 +143,12 @@ func (EipDomainNameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipDomainNameState)(nil)).Elem()
 }
 
+// EipDomainNameExists checks whether an existing EipDomainName resource with the given ID exists.
+func EipDomainNameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EipDomainNameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/eipDomainName:EipDomainName", id, state, "", opts...)
+}
+
 type eipDomainNameArgs struct {
 	// The allocation ID.
 	AllocationId string `pulumi:"allocationId"`

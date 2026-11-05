@@ -159,6 +159,12 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigurationState)(nil)).Elem()
 }
 
+// OrganizationConfigurationExists checks whether an existing OrganizationConfiguration resource with the given ID exists.
+func OrganizationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/organizationConfiguration:OrganizationConfiguration", id, state, "", opts...)
+}
+
 type organizationConfigurationArgs struct {
 	// Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
 	AutoEnableOrganizationMembers string `pulumi:"autoEnableOrganizationMembers"`

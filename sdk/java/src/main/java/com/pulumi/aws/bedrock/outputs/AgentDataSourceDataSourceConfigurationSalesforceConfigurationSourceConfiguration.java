@@ -21,7 +21,7 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
      */
     private String credentialsSecretArn;
     /**
-     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^&#92;s]*$`.
      * 
      */
     private String hostUrl;
@@ -42,7 +42,7 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
         return this.credentialsSecretArn;
     }
     /**
-     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+     * @return Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^&#92;s]*$`.
      * 
      */
     public String hostUrl() {

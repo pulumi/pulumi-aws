@@ -153,6 +153,12 @@ func (DeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentState)(nil)).Elem()
 }
 
+// DeploymentExists checks whether an existing Deployment resource with the given ID exists.
+func DeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:m2/deployment:Deployment", id, state, "", opts...)
+}
+
 type deploymentArgs struct {
 	// Application to deploy.
 	ApplicationId string `pulumi:"applicationId"`

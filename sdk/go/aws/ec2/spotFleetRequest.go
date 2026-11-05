@@ -559,6 +559,12 @@ func (SpotFleetRequestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotFleetRequestState)(nil)).Elem()
 }
 
+// SpotFleetRequestExists checks whether an existing SpotFleetRequest resource with the given ID exists.
+func SpotFleetRequestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpotFleetRequestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/spotFleetRequest:SpotFleetRequest", id, state, "", opts...)
+}
+
 type spotFleetRequestArgs struct {
 	// Indicates how to allocate the target capacity across
 	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is

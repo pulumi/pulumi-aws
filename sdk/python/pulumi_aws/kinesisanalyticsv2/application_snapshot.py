@@ -305,6 +305,22 @@ class ApplicationSnapshot(pulumi.CustomResource):
         __props__.__dict__["snapshot_name"] = snapshot_name
         return ApplicationSnapshot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_name: pulumi.Input[Optional[_builtins.str]] = None,
+            application_version_id: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_creation_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationName"] = application_name
+        __props__["applicationVersionId"] = application_version_id
+        __props__["region"] = region
+        __props__["snapshotCreationTimestamp"] = snapshot_creation_timestamp
+        __props__["snapshotName"] = snapshot_name
+        return pulumi.runtime.exists_resource(None, 'aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[_builtins.str]:

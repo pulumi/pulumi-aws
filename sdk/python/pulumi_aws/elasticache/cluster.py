@@ -1742,6 +1742,84 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCacheNodeArgs', 'ClusterCacheNodeArgsDict', 'outputs.ClusterCacheNode']]]]] = None,
+            cluster_address: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
+            final_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+            log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLogDeliveryConfigurationArgs', 'ClusterLogDeliveryConfigurationArgsDict', 'outputs.ClusterLogDeliveryConfiguration']]]]] = None,
+            maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            node_type: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            num_cache_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+            outpost_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            preferred_availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            preferred_outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snapshot_arns: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyImmediately"] = apply_immediately
+        __props__["arn"] = arn
+        __props__["autoMinorVersionUpgrade"] = auto_minor_version_upgrade
+        __props__["availabilityZone"] = availability_zone
+        __props__["azMode"] = az_mode
+        __props__["cacheNodes"] = cache_nodes
+        __props__["clusterAddress"] = cluster_address
+        __props__["clusterId"] = cluster_id
+        __props__["configurationEndpoint"] = configuration_endpoint
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["engineVersionActual"] = engine_version_actual
+        __props__["finalSnapshotIdentifier"] = final_snapshot_identifier
+        __props__["ipDiscovery"] = ip_discovery
+        __props__["logDeliveryConfigurations"] = log_delivery_configurations
+        __props__["maintenanceWindow"] = maintenance_window
+        __props__["networkType"] = network_type
+        __props__["nodeType"] = node_type
+        __props__["notificationTopicArn"] = notification_topic_arn
+        __props__["numCacheNodes"] = num_cache_nodes
+        __props__["outpostMode"] = outpost_mode
+        __props__["parameterGroupName"] = parameter_group_name
+        __props__["port"] = port
+        __props__["preferredAvailabilityZones"] = preferred_availability_zones
+        __props__["preferredOutpostArn"] = preferred_outpost_arn
+        __props__["region"] = region
+        __props__["replicationGroupId"] = replication_group_id
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["snapshotArns"] = snapshot_arns
+        __props__["snapshotName"] = snapshot_name
+        __props__["snapshotRetentionLimit"] = snapshot_retention_limit
+        __props__["snapshotWindow"] = snapshot_window
+        __props__["subnetGroupName"] = subnet_group_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["transitEncryptionEnabled"] = transit_encryption_enabled
+        return pulumi.runtime.exists_resource(None, 'aws:elasticache/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[_builtins.bool]:

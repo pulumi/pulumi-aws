@@ -243,6 +243,12 @@ func (DataCellsFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCellsFilterState)(nil)).Elem()
 }
 
+// DataCellsFilterExists checks whether an existing DataCellsFilter resource with the given ID exists.
+func DataCellsFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataCellsFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lakeformation/dataCellsFilter:DataCellsFilter", id, state, "", opts...)
+}
+
 type dataCellsFilterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

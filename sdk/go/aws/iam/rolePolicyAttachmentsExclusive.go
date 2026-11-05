@@ -151,6 +151,12 @@ func (RolePolicyAttachmentsExclusiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rolePolicyAttachmentsExclusiveState)(nil)).Elem()
 }
 
+// RolePolicyAttachmentsExclusiveExists checks whether an existing RolePolicyAttachmentsExclusive resource with the given ID exists.
+func RolePolicyAttachmentsExclusiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RolePolicyAttachmentsExclusiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive", id, state, "", opts...)
+}
+
 type rolePolicyAttachmentsExclusiveArgs struct {
 	// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
 	PolicyArns []string `pulumi:"policyArns"`

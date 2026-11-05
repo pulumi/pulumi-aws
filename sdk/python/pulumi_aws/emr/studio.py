@@ -817,6 +817,48 @@ class Studio(pulumi.CustomResource):
         __props__.__dict__["workspace_security_group_id"] = workspace_security_group_id
         return Studio(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            default_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            idp_auth_url: pulumi.Input[Optional[_builtins.str]] = None,
+            idp_relay_state_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            user_role: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_security_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["authMode"] = auth_mode
+        __props__["defaultS3Location"] = default_s3_location
+        __props__["description"] = description
+        __props__["encryptionKeyArn"] = encryption_key_arn
+        __props__["engineSecurityGroupId"] = engine_security_group_id
+        __props__["idpAuthUrl"] = idp_auth_url
+        __props__["idpRelayStateParameterName"] = idp_relay_state_parameter_name
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["serviceRole"] = service_role
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["url"] = url
+        __props__["userRole"] = user_role
+        __props__["vpcId"] = vpc_id
+        __props__["workspaceSecurityGroupId"] = workspace_security_group_id
+        return pulumi.runtime.exists_resource(None, 'aws:emr/studio:Studio', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

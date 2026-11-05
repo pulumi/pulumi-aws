@@ -71,37 +71,37 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()
  *             .name("user-updates-topic")
  *             .deliveryPolicy("""
- * {
- *   \"http\": {
- *     \"defaultHealthyRetryPolicy\": {
- *       \"minDelayTarget\": 20,
- *       \"maxDelayTarget\": 20,
- *       \"numRetries\": 3,
- *       \"numMaxDelayRetries\": 0,
- *       \"numNoDelayRetries\": 0,
- *       \"numMinDelayRetries\": 0,
- *       \"backoffFunction\": \"linear\"
- *     },
- *     \"disableSubscriptionOverrides\": false,
- *     \"defaultThrottlePolicy\": {
- *       \"maxReceivesPerSecond\": 1
- *     }
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "http}&#92;{@code ": }{{@code
+ *     }&#92;{@code "defaultHealthyRetryPolicy}&#92;{@code ": }{{@code
+ *       }&#92;{@code "minDelayTarget}&#92;{@code ": 20,
+ *       }&#92;{@code "maxDelayTarget}&#92;{@code ": 20,
+ *       }&#92;{@code "numRetries}&#92;{@code ": 3,
+ *       }&#92;{@code "numMaxDelayRetries}&#92;{@code ": 0,
+ *       }&#92;{@code "numNoDelayRetries}&#92;{@code ": 0,
+ *       }&#92;{@code "numMinDelayRetries}&#92;{@code ": 0,
+ *       }&#92;{@code "backoffFunction}&#92;{@code ": }&#92;{@code "linear}&#92;{@code "
+ *     }}{@code ,
+ *     }&#92;{@code "disableSubscriptionOverrides}&#92;{@code ": false,
+ *     }&#92;{@code "defaultThrottlePolicy}&#92;{@code ": }{{@code
+ *       }&#92;{@code "maxReceivesPerSecond}&#92;{@code ": 1
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

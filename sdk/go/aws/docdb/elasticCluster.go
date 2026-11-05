@@ -249,6 +249,12 @@ func (ElasticClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticClusterState)(nil)).Elem()
 }
 
+// ElasticClusterExists checks whether an existing ElasticCluster resource with the given ID exists.
+func ElasticClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ElasticClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:docdb/elasticCluster:ElasticCluster", id, state, "", opts...)
+}
+
 type elasticClusterArgs struct {
 	// Name of the Elastic DocumentDB cluster administrator
 	AdminUserName string `pulumi:"adminUserName"`

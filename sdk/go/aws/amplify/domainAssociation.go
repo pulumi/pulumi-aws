@@ -185,6 +185,12 @@ func (DomainAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainAssociationState)(nil)).Elem()
 }
 
+// DomainAssociationExists checks whether an existing DomainAssociation resource with the given ID exists.
+func DomainAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:amplify/domainAssociation:DomainAssociation", id, state, "", opts...)
+}
+
 type domainAssociationArgs struct {
 	// Unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`

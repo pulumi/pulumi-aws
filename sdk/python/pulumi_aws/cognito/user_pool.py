@@ -1519,6 +1519,86 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["web_authn_configuration"] = web_authn_configuration
         return UserPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_recovery_setting: pulumi.Input[Optional[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict', 'outputs.UserPoolAccountRecoverySetting']]] = None,
+            admin_create_user_config: pulumi.Input[Optional[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict', 'outputs.UserPoolAdminCreateUserConfig']]] = None,
+            alias_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_verified_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
+            device_configuration: pulumi.Input[Optional[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict', 'outputs.UserPoolDeviceConfiguration']]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            email_configuration: pulumi.Input[Optional[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict', 'outputs.UserPoolEmailConfiguration']]] = None,
+            email_mfa_configuration: pulumi.Input[Optional[Union['UserPoolEmailMfaConfigurationArgs', 'UserPoolEmailMfaConfigurationArgsDict', 'outputs.UserPoolEmailMfaConfiguration']]] = None,
+            email_verification_message: pulumi.Input[Optional[_builtins.str]] = None,
+            email_verification_subject: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            estimated_number_of_users: pulumi.Input[Optional[_builtins.int]] = None,
+            lambda_config: pulumi.Input[Optional[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict', 'outputs.UserPoolLambdaConfig']]] = None,
+            last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+            mfa_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password_policy: pulumi.Input[Optional[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict', 'outputs.UserPoolPasswordPolicy']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schemas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict', 'outputs.UserPoolSchema']]]]] = None,
+            sign_in_policy: pulumi.Input[Optional[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict', 'outputs.UserPoolSignInPolicy']]] = None,
+            sms_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
+            sms_configuration: pulumi.Input[Optional[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict', 'outputs.UserPoolSmsConfiguration']]] = None,
+            sms_verification_message: pulumi.Input[Optional[_builtins.str]] = None,
+            software_token_mfa_configuration: pulumi.Input[Optional[Union['UserPoolSoftwareTokenMfaConfigurationArgs', 'UserPoolSoftwareTokenMfaConfigurationArgsDict', 'outputs.UserPoolSoftwareTokenMfaConfiguration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_attribute_update_settings: pulumi.Input[Optional[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict', 'outputs.UserPoolUserAttributeUpdateSettings']]] = None,
+            user_pool_add_ons: pulumi.Input[Optional[Union['UserPoolUserPoolAddOnsArgs', 'UserPoolUserPoolAddOnsArgsDict', 'outputs.UserPoolUserPoolAddOns']]] = None,
+            user_pool_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            username_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            username_configuration: pulumi.Input[Optional[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict', 'outputs.UserPoolUsernameConfiguration']]] = None,
+            verification_message_template: pulumi.Input[Optional[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict', 'outputs.UserPoolVerificationMessageTemplate']]] = None,
+            web_authn_configuration: pulumi.Input[Optional[Union['UserPoolWebAuthnConfigurationArgs', 'UserPoolWebAuthnConfigurationArgsDict', 'outputs.UserPoolWebAuthnConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountRecoverySetting"] = account_recovery_setting
+        __props__["adminCreateUserConfig"] = admin_create_user_config
+        __props__["aliasAttributes"] = alias_attributes
+        __props__["arn"] = arn
+        __props__["autoVerifiedAttributes"] = auto_verified_attributes
+        __props__["creationDate"] = creation_date
+        __props__["customDomain"] = custom_domain
+        __props__["deletionProtection"] = deletion_protection
+        __props__["deviceConfiguration"] = device_configuration
+        __props__["domain"] = domain
+        __props__["emailConfiguration"] = email_configuration
+        __props__["emailMfaConfiguration"] = email_mfa_configuration
+        __props__["emailVerificationMessage"] = email_verification_message
+        __props__["emailVerificationSubject"] = email_verification_subject
+        __props__["endpoint"] = endpoint
+        __props__["estimatedNumberOfUsers"] = estimated_number_of_users
+        __props__["lambdaConfig"] = lambda_config
+        __props__["lastModifiedDate"] = last_modified_date
+        __props__["mfaConfiguration"] = mfa_configuration
+        __props__["name"] = name
+        __props__["passwordPolicy"] = password_policy
+        __props__["region"] = region
+        __props__["schemas"] = schemas
+        __props__["signInPolicy"] = sign_in_policy
+        __props__["smsAuthenticationMessage"] = sms_authentication_message
+        __props__["smsConfiguration"] = sms_configuration
+        __props__["smsVerificationMessage"] = sms_verification_message
+        __props__["softwareTokenMfaConfiguration"] = software_token_mfa_configuration
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userAttributeUpdateSettings"] = user_attribute_update_settings
+        __props__["userPoolAddOns"] = user_pool_add_ons
+        __props__["userPoolTier"] = user_pool_tier
+        __props__["usernameAttributes"] = username_attributes
+        __props__["usernameConfiguration"] = username_configuration
+        __props__["verificationMessageTemplate"] = verification_message_template
+        __props__["webAuthnConfiguration"] = web_authn_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/userPool:UserPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountRecoverySetting")
     def account_recovery_setting(self) -> pulumi.Output[Optional['outputs.UserPoolAccountRecoverySetting']]:

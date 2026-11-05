@@ -1121,6 +1121,36 @@ class Scraper(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Scraper(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']]] = None,
+            exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict', 'outputs.ScraperExporter']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']]] = None,
+            scrape_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict', 'outputs.ScraperTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alias"] = alias
+        __props__["arn"] = arn
+        __props__["destination"] = destination
+        __props__["exporter"] = exporter
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["roleConfiguration"] = role_configuration
+        __props__["scrapeConfiguration"] = scrape_configuration
+        __props__["source"] = source
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:amp/scraper:Scraper', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -172,6 +172,12 @@ func (PortfolioShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*portfolioShareState)(nil)).Elem()
 }
 
+// PortfolioShareExists checks whether an existing PortfolioShare resource with the given ID exists.
+func PortfolioShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PortfolioShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/portfolioShare:PortfolioShare", id, state, "", opts...)
+}
+
 type portfolioShareArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

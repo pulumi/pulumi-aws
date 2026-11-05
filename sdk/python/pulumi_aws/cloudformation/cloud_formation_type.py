@@ -600,6 +600,48 @@ class CloudFormationType(pulumi.CustomResource):
         __props__.__dict__["visibility"] = visibility
         return CloudFormationType(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            deprecated_status: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            documentation_url: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            logging_config: pulumi.Input[Optional[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict', 'outputs.CloudFormationTypeLoggingConfig']]] = None,
+            provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_handler_package: pulumi.Input[Optional[_builtins.str]] = None,
+            source_url: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            type_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["defaultVersionId"] = default_version_id
+        __props__["deprecatedStatus"] = deprecated_status
+        __props__["description"] = description
+        __props__["documentationUrl"] = documentation_url
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["isDefaultVersion"] = is_default_version
+        __props__["loggingConfig"] = logging_config
+        __props__["provisioningType"] = provisioning_type
+        __props__["region"] = region
+        __props__["schema"] = schema
+        __props__["schemaHandlerPackage"] = schema_handler_package
+        __props__["sourceUrl"] = source_url
+        __props__["type"] = type
+        __props__["typeArn"] = type_arn
+        __props__["typeName"] = type_name
+        __props__["versionId"] = version_id
+        __props__["visibility"] = visibility
+        return pulumi.runtime.exists_resource(None, 'aws:cloudformation/cloudFormationType:CloudFormationType', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

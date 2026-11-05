@@ -230,6 +230,12 @@ func (ClassifierState) ElementType() reflect.Type {
 	return reflect.TypeOf((*classifierState)(nil)).Elem()
 }
 
+// ClassifierExists checks whether an existing Classifier resource with the given ID exists.
+func ClassifierExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClassifierState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/classifier:Classifier", id, state, "", opts...)
+}
+
 type classifierArgs struct {
 	// Classifier for CSV content. Defined below.
 	CsvClassifier *ClassifierCsvClassifier `pulumi:"csvClassifier"`

@@ -718,6 +718,36 @@ class InstanceGroup(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return InstanceGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            autoscaling_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            bid_price: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict', 'outputs.InstanceGroupEbsConfig']]]]] = None,
+            ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            running_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoscalingPolicy"] = autoscaling_policy
+        __props__["bidPrice"] = bid_price
+        __props__["clusterId"] = cluster_id
+        __props__["configurationsJson"] = configurations_json
+        __props__["ebsConfigs"] = ebs_configs
+        __props__["ebsOptimized"] = ebs_optimized
+        __props__["instanceCount"] = instance_count
+        __props__["instanceType"] = instance_type
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["runningInstanceCount"] = running_instance_count
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:emr/instanceGroup:InstanceGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoscalingPolicy")
     def autoscaling_policy(self) -> pulumi.Output[Optional[_builtins.str]]:

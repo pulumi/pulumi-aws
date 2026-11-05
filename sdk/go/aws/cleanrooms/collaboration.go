@@ -226,6 +226,12 @@ func (CollaborationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*collaborationState)(nil)).Elem()
 }
 
+// CollaborationExists checks whether an existing Collaboration resource with the given ID exists.
+func CollaborationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CollaborationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cleanrooms/collaboration:Collaboration", id, state, "", opts...)
+}
+
 type collaborationArgs struct {
 	// Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
 	AnalyticsEngine *string `pulumi:"analyticsEngine"`

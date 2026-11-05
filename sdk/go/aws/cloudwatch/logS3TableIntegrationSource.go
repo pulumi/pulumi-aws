@@ -184,6 +184,12 @@ func (LogS3TableIntegrationSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logS3TableIntegrationSourceState)(nil)).Elem()
 }
 
+// LogS3TableIntegrationSourceExists checks whether an existing LogS3TableIntegrationSource resource with the given ID exists.
+func LogS3TableIntegrationSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogS3TableIntegrationSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logS3TableIntegrationSource:LogS3TableIntegrationSource", id, state, "", opts...)
+}
+
 type logS3TableIntegrationSourceArgs struct {
 	// Data source to associate with the S3 Table Integration. See `dataSource` Block below.
 	DataSource LogS3TableIntegrationSourceDataSource `pulumi:"dataSource"`

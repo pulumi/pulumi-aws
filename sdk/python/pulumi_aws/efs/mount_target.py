@@ -603,6 +603,40 @@ class MountTarget(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         return MountTarget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_address: pulumi.Input[Optional[_builtins.str]] = None,
+            mount_target_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["availabilityZoneId"] = availability_zone_id
+        __props__["availabilityZoneName"] = availability_zone_name
+        __props__["dnsName"] = dns_name
+        __props__["fileSystemArn"] = file_system_arn
+        __props__["fileSystemId"] = file_system_id
+        __props__["ipAddress"] = ip_address
+        __props__["ipAddressType"] = ip_address_type
+        __props__["ipv6Address"] = ipv6_address
+        __props__["mountTargetDnsName"] = mount_target_dns_name
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["securityGroups"] = security_groups
+        __props__["subnetId"] = subnet_id
+        return pulumi.runtime.exists_resource(None, 'aws:efs/mountTarget:MountTarget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[_builtins.str]:

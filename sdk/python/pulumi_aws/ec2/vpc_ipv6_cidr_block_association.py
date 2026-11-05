@@ -496,6 +496,30 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return VpcIpv6CidrBlockAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assign_generated_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_source: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_address_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assignGeneratedIpv6CidrBlock"] = assign_generated_ipv6_cidr_block
+        __props__["ipSource"] = ip_source
+        __props__["ipv6AddressAttribute"] = ipv6_address_attribute
+        __props__["ipv6CidrBlock"] = ipv6_cidr_block
+        __props__["ipv6IpamPoolId"] = ipv6_ipam_pool_id
+        __props__["ipv6NetmaskLength"] = ipv6_netmask_length
+        __props__["ipv6Pool"] = ipv6_pool
+        __props__["region"] = region
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
     def assign_generated_ipv6_cidr_block(self) -> pulumi.Output[_builtins.bool]:

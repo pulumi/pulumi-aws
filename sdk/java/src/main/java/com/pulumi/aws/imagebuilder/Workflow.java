@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Workflow("example", WorkflowArgs.builder()
  *             .name("example")
  *             .version("1.0.0")
@@ -64,24 +64,24 @@ import javax.annotation.Nullable;
  *     action: LaunchInstance
  *     onFailure: Abort
  *     inputs:
- *       waitFor: \"ssmAgent\"
+ *       waitFor: }&#92;{@code "ssmAgent}&#92;{@code "
  * 
  *   - name: TerminateTestInstance
  *     action: TerminateInstance
  *     onFailure: Continue
  *     inputs:
- *       instanceId.$: \"$.stepOutputs.LaunchTestInstance.instanceId\"
+ *       instanceId.$: }&#92;{@code "$.stepOutputs.LaunchTestInstance.instanceId}&#92;{@code "
  * 
  *   - name: WaitForActionAtEnd
  *     action: WaitForAction
  *     if:
  *       booleanEquals: true
- *       value: \"$.parameters.waitForActionAtEnd\"
+ *       value: }&#92;{@code "$.parameters.waitForActionAtEnd}&#92;{@code "
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

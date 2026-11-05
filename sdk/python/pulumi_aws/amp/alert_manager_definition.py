@@ -275,6 +275,18 @@ class AlertManagerDefinition(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return AlertManagerDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            definition: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["definition"] = definition
+        __props__["region"] = region
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:amp/alertManagerDefinition:AlertManagerDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def definition(self) -> pulumi.Output[_builtins.str]:

@@ -706,6 +706,36 @@ class V2Service(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return V2Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict', 'outputs.V2ServiceAssociatedSystem']]]]] = None,
+            dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_model: pulumi.Input[Optional[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict', 'outputs.V2ServicePermissionModel']]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["associatedSystems"] = associated_systems
+        __props__["dependencyDiscovery"] = dependency_discovery
+        __props__["description"] = description
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["name"] = name
+        __props__["permissionModel"] = permission_model
+        __props__["policyArn"] = policy_arn
+        __props__["region"] = region
+        __props__["regions"] = regions
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:resiliencehub/v2Service:V2Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

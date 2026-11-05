@@ -308,6 +308,20 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return QueryLoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict', 'outputs.QueryLoggingConfigurationDestination']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['QueryLoggingConfigurationTimeoutsArgs', 'QueryLoggingConfigurationTimeoutsArgsDict', 'outputs.QueryLoggingConfigurationTimeouts']]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destinations"] = destinations
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> pulumi.Output[Sequence['outputs.QueryLoggingConfigurationDestination']]:

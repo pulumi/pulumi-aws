@@ -429,6 +429,24 @@ class Logging(pulumi.CustomResource):
         __props__.__dict__["s3_key_prefix"] = s3_key_prefix
         return Logging(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            log_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+            log_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bucketName"] = bucket_name
+        __props__["clusterIdentifier"] = cluster_identifier
+        __props__["logDestinationType"] = log_destination_type
+        __props__["logExports"] = log_exports
+        __props__["region"] = region
+        __props__["s3KeyPrefix"] = s3_key_prefix
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/logging:Logging', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[Optional[_builtins.str]]:

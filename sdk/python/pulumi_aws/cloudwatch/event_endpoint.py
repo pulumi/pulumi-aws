@@ -529,6 +529,30 @@ class EventEndpoint(pulumi.CustomResource):
         __props__.__dict__["routing_config"] = routing_config
         return EventEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+            event_buses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict', 'outputs.EventEndpointEventBus']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_config: pulumi.Input[Optional[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict', 'outputs.EventEndpointReplicationConfig']]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_config: pulumi.Input[Optional[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict', 'outputs.EventEndpointRoutingConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["endpointUrl"] = endpoint_url
+        __props__["eventBuses"] = event_buses
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["replicationConfig"] = replication_config
+        __props__["roleArn"] = role_arn
+        __props__["routingConfig"] = routing_config
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/eventEndpoint:EventEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

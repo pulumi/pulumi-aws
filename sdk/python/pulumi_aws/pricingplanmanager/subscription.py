@@ -557,6 +557,34 @@ class Subscription(pulumi.CustomResource):
         __props__.__dict__["usage_level"] = usage_level
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            approval_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            plan_family: pulumi.Input[Optional[_builtins.str]] = None,
+            plan_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            scheduled_changes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionScheduledChangeArgs', 'SubscriptionScheduledChangeArgsDict', 'outputs.SubscriptionScheduledChange']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['SubscriptionTimeoutsArgs', 'SubscriptionTimeoutsArgsDict', 'outputs.SubscriptionTimeouts']]] = None,
+            usage_level: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["approvalMode"] = approval_mode
+        __props__["arn"] = arn
+        __props__["etag"] = etag
+        __props__["planFamily"] = plan_family
+        __props__["planTier"] = plan_tier
+        __props__["resourceArns"] = resource_arns
+        __props__["scheduledChanges"] = scheduled_changes
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        __props__["timeouts"] = timeouts
+        __props__["usageLevel"] = usage_level
+        return pulumi.runtime.exists_resource(None, 'aws:pricingplanmanager/subscription:Subscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="approvalMode")
     def approval_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -266,6 +266,12 @@ func (LinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkState)(nil)).Elem()
 }
 
+// LinkExists checks whether an existing Link resource with the given ID exists.
+func LinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:oam/link:Link", id, state, "", opts...)
+}
+
 type linkArgs struct {
 	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate string `pulumi:"labelTemplate"`

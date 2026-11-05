@@ -441,6 +441,28 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            application_version: pulumi.Input[Optional[_builtins.int]] = None,
+            deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            start: pulumi.Input[Optional[_builtins.bool]] = None,
+            timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict', 'outputs.DeploymentTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["applicationVersion"] = application_version
+        __props__["deploymentId"] = deployment_id
+        __props__["environmentId"] = environment_id
+        __props__["forceStop"] = force_stop
+        __props__["region"] = region
+        __props__["start"] = start
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:m2/deployment:Deployment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

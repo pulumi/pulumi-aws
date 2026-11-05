@@ -159,6 +159,12 @@ func (DomainIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainIdentityState)(nil)).Elem()
 }
 
+// DomainIdentityExists checks whether an existing DomainIdentity resource with the given ID exists.
+func DomainIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/domainIdentity:DomainIdentity", id, state, "", opts...)
+}
+
 type domainIdentityArgs struct {
 	// Domain name to assign to SES.
 	Domain string `pulumi:"domain"`

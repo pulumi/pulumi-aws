@@ -458,6 +458,32 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return VpcIpamResourceDiscovery(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_resource_discovery_region: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            operating_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict', 'outputs.VpcIpamResourceDiscoveryOperatingRegion']]]]] = None,
+            organizational_unit_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict', 'outputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusion']]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["ipamResourceDiscoveryRegion"] = ipam_resource_discovery_region
+        __props__["isDefault"] = is_default
+        __props__["operatingRegions"] = operating_regions
+        __props__["organizationalUnitExclusions"] = organizational_unit_exclusions
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

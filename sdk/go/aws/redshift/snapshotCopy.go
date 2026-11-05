@@ -142,6 +142,12 @@ func (SnapshotCopyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyState)(nil)).Elem()
 }
 
+// SnapshotCopyExists checks whether an existing SnapshotCopy resource with the given ID exists.
+func SnapshotCopyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotCopyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/snapshotCopy:SnapshotCopy", id, state, "", opts...)
+}
+
 type snapshotCopyArgs struct {
 	// Identifier of the source cluster.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`

@@ -236,6 +236,12 @@ func (DeploymentConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentConfigState)(nil)).Elem()
 }
 
+// DeploymentConfigExists checks whether an existing DeploymentConfig resource with the given ID exists.
+func DeploymentConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codedeploy/deploymentConfig:DeploymentConfig", id, state, "", opts...)
+}
+
 type deploymentConfigArgs struct {
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`

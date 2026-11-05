@@ -413,6 +413,20 @@ class ResourceCollection(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ResourceCollection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cloudformation: pulumi.Input[Optional[Union['ResourceCollectionCloudformationArgs', 'ResourceCollectionCloudformationArgsDict', 'outputs.ResourceCollectionCloudformation']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Union['ResourceCollectionTagsArgs', 'ResourceCollectionTagsArgsDict', 'outputs.ResourceCollectionTags']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cloudformation"] = cloudformation
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:devopsguru/resourceCollection:ResourceCollection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cloudformation(self) -> pulumi.Output[Optional['outputs.ResourceCollectionCloudformation']]:

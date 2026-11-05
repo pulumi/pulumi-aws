@@ -145,6 +145,12 @@ func (LedgerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ledgerState)(nil)).Elem()
 }
 
+// LedgerExists checks whether an existing Ledger resource with the given ID exists.
+func LedgerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LedgerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:qldb/ledger:Ledger", id, state, "", opts...)
+}
+
 type ledgerArgs struct {
 	// Whether to enable deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via the provider, this value must be configured to `false` and applied first before attempting deletion.
 	DeletionProtection *bool `pulumi:"deletionProtection"`

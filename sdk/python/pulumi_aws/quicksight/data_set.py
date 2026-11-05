@@ -1223,6 +1223,52 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["use_as"] = use_as
         return DataSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            column_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict', 'outputs.DataSetColumnGroup']]]]] = None,
+            column_level_permission_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict', 'outputs.DataSetColumnLevelPermissionRule']]]]] = None,
+            data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_set_usage_configuration: pulumi.Input[Optional[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict', 'outputs.DataSetDataSetUsageConfiguration']]] = None,
+            field_folders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict', 'outputs.DataSetFieldFolder']]]]] = None,
+            import_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            logical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict', 'outputs.DataSetLogicalTableMap']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetOutputColumnArgs', 'DataSetOutputColumnArgsDict', 'outputs.DataSetOutputColumn']]]]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict', 'outputs.DataSetPermission']]]]] = None,
+            physical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict', 'outputs.DataSetPhysicalTableMap']]]]] = None,
+            refresh_properties: pulumi.Input[Optional[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict', 'outputs.DataSetRefreshProperties']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            row_level_permission_data_set: pulumi.Input[Optional[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict', 'outputs.DataSetRowLevelPermissionDataSet']]] = None,
+            row_level_permission_tag_configuration: pulumi.Input[Optional[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict', 'outputs.DataSetRowLevelPermissionTagConfiguration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            use_as: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["awsAccountId"] = aws_account_id
+        __props__["columnGroups"] = column_groups
+        __props__["columnLevelPermissionRules"] = column_level_permission_rules
+        __props__["dataSetId"] = data_set_id
+        __props__["dataSetUsageConfiguration"] = data_set_usage_configuration
+        __props__["fieldFolders"] = field_folders
+        __props__["importMode"] = import_mode
+        __props__["logicalTableMaps"] = logical_table_maps
+        __props__["name"] = name
+        __props__["outputColumns"] = output_columns
+        __props__["permissions"] = permissions
+        __props__["physicalTableMaps"] = physical_table_maps
+        __props__["refreshProperties"] = refresh_properties
+        __props__["region"] = region
+        __props__["rowLevelPermissionDataSet"] = row_level_permission_data_set
+        __props__["rowLevelPermissionTagConfiguration"] = row_level_permission_tag_configuration
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["useAs"] = use_as
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/dataSet:DataSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

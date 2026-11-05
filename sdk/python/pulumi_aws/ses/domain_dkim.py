@@ -263,6 +263,18 @@ class DomainDkim(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return DomainDkim(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dkim_tokens: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dkimTokens"] = dkim_tokens
+        __props__["domain"] = domain
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:ses/domainDkim:DomainDkim', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dkimTokens")
     def dkim_tokens(self) -> pulumi.Output[Sequence[_builtins.str]]:

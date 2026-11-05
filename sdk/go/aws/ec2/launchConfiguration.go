@@ -255,6 +255,12 @@ func (LaunchConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchConfigurationState)(nil)).Elem()
 }
 
+// LaunchConfigurationExists checks whether an existing LaunchConfiguration resource with the given ID exists.
+func LaunchConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/launchConfiguration:LaunchConfiguration", id, state, "", opts...)
+}
+
 type launchConfigurationArgs struct {
 	// Associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`

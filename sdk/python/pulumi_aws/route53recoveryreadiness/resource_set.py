@@ -366,6 +366,24 @@ class ResourceSet(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ResourceSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_set_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict', 'outputs.ResourceSetResource']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["resourceSetName"] = resource_set_name
+        __props__["resourceSetType"] = resource_set_type
+        __props__["resources"] = resources
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:route53recoveryreadiness/resourceSet:ResourceSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

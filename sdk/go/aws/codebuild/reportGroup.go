@@ -217,6 +217,12 @@ func (ReportGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportGroupState)(nil)).Elem()
 }
 
+// ReportGroupExists checks whether an existing ReportGroup resource with the given ID exists.
+func ReportGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReportGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codebuild/reportGroup:ReportGroup", id, state, "", opts...)
+}
+
 type reportGroupArgs struct {
 	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
 	DeleteReports *bool `pulumi:"deleteReports"`

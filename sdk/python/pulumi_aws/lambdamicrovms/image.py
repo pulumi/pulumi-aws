@@ -914,6 +914,54 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return Image(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_os_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base_image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base_image_version: pulumi.Input[Optional[_builtins.str]] = None,
+            build_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code_artifact: pulumi.Input[Optional[Union['ImageCodeArtifactArgs', 'ImageCodeArtifactArgsDict', 'outputs.ImageCodeArtifact']]] = None,
+            cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageCpuConfigurationArgs', 'ImageCpuConfigurationArgsDict', 'outputs.ImageCpuConfiguration']]]]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            image_version: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_active_image_version: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_failed_image_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ImageTimeoutsArgs', 'ImageTimeoutsArgsDict', 'outputs.ImageTimeouts']]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalOsCapabilities"] = additional_os_capabilities
+        __props__["arn"] = arn
+        __props__["baseImageArn"] = base_image_arn
+        __props__["baseImageVersion"] = base_image_version
+        __props__["buildRoleArn"] = build_role_arn
+        __props__["codeArtifact"] = code_artifact
+        __props__["cpuConfigurations"] = cpu_configurations
+        __props__["createdAt"] = created_at
+        __props__["description"] = description
+        __props__["egressNetworkConnectors"] = egress_network_connectors
+        __props__["environmentVariables"] = environment_variables
+        __props__["imageVersion"] = image_version
+        __props__["latestActiveImageVersion"] = latest_active_image_version
+        __props__["latestFailedImageVersion"] = latest_failed_image_version
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'aws:lambdamicrovms/image:Image', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalOsCapabilities")
     def additional_os_capabilities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

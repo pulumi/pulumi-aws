@@ -913,6 +913,48 @@ class StackSet(pulumi.CustomResource):
         __props__.__dict__["template_url"] = template_url
         return StackSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']]] = None,
+            call_as: pulumi.Input[Optional[_builtins.str]] = None,
+            capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict', 'outputs.StackSetManagedExecution']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            permission_model: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_body: pulumi.Input[Optional[_builtins.str]] = None,
+            template_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administrationRoleArn"] = administration_role_arn
+        __props__["arn"] = arn
+        __props__["autoDeployment"] = auto_deployment
+        __props__["callAs"] = call_as
+        __props__["capabilities"] = capabilities
+        __props__["description"] = description
+        __props__["executionRoleName"] = execution_role_name
+        __props__["managedExecution"] = managed_execution
+        __props__["name"] = name
+        __props__["operationPreferences"] = operation_preferences
+        __props__["parameters"] = parameters
+        __props__["permissionModel"] = permission_model
+        __props__["region"] = region
+        __props__["stackSetId"] = stack_set_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["templateBody"] = template_body
+        __props__["templateUrl"] = template_url
+        return pulumi.runtime.exists_resource(None, 'aws:cloudformation/stackSet:StackSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="administrationRoleArn")
     def administration_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:

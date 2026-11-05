@@ -860,6 +860,40 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentAgentActionGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_group_executor: pulumi.Input[Optional[Union['AgentAgentActionGroupActionGroupExecutorArgs', 'AgentAgentActionGroupActionGroupExecutorArgsDict', 'outputs.AgentAgentActionGroupActionGroupExecutor']]] = None,
+            action_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            action_group_state: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            api_schema: pulumi.Input[Optional[Union['AgentAgentActionGroupApiSchemaArgs', 'AgentAgentActionGroupApiSchemaArgsDict', 'outputs.AgentAgentActionGroupApiSchema']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            function_schema: pulumi.Input[Optional[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict', 'outputs.AgentAgentActionGroupFunctionSchema']]] = None,
+            parent_action_group_signature: pulumi.Input[Optional[_builtins.str]] = None,
+            prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_resource_in_use_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentAgentActionGroupTimeoutsArgs', 'AgentAgentActionGroupTimeoutsArgsDict', 'outputs.AgentAgentActionGroupTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionGroupExecutor"] = action_group_executor
+        __props__["actionGroupId"] = action_group_id
+        __props__["actionGroupName"] = action_group_name
+        __props__["actionGroupState"] = action_group_state
+        __props__["agentId"] = agent_id
+        __props__["agentVersion"] = agent_version
+        __props__["apiSchema"] = api_schema
+        __props__["description"] = description
+        __props__["functionSchema"] = function_schema
+        __props__["parentActionGroupSignature"] = parent_action_group_signature
+        __props__["prepareAgent"] = prepare_agent
+        __props__["region"] = region
+        __props__["skipResourceInUseCheck"] = skip_resource_in_use_check
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionGroupExecutor")
     def action_group_executor(self) -> pulumi.Output[Optional['outputs.AgentAgentActionGroupActionGroupExecutor']]:

@@ -513,6 +513,30 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return QuicksetupConfigurationManager(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.QuicksetupConfigurationManagerConfigurationDefinition']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict', 'outputs.QuicksetupConfigurationManagerStatusSummary']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict', 'outputs.QuicksetupConfigurationManagerTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configurationDefinition"] = configuration_definition
+        __props__["description"] = description
+        __props__["managerArn"] = manager_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["statusSummaries"] = status_summaries
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configurationDefinition")
     def configuration_definition(self) -> pulumi.Output['outputs.QuicksetupConfigurationManagerConfigurationDefinition']:

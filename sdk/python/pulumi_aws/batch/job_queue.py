@@ -633,6 +633,34 @@ class JobQueue(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return JobQueue(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_environment_orders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict', 'outputs.JobQueueComputeEnvironmentOrder']]]]] = None,
+            job_state_time_limit_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict', 'outputs.JobQueueJobStateTimeLimitAction']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scheduling_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict', 'outputs.JobQueueTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["computeEnvironmentOrders"] = compute_environment_orders
+        __props__["jobStateTimeLimitActions"] = job_state_time_limit_actions
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["region"] = region
+        __props__["schedulingPolicyArn"] = scheduling_policy_arn
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:batch/jobQueue:JobQueue', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

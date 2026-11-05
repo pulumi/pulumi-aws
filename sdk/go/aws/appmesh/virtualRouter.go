@@ -176,6 +176,12 @@ func (VirtualRouterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualRouterState)(nil)).Elem()
 }
 
+// VirtualRouterExists checks whether an existing VirtualRouter resource with the given ID exists.
+func VirtualRouterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualRouterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appmesh/virtualRouter:VirtualRouter", id, state, "", opts...)
+}
+
 type virtualRouterArgs struct {
 	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`

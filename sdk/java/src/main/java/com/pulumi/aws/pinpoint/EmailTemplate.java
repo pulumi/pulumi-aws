@@ -93,11 +93,10 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
     /**
      * Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
      * 
-     * @deprecated
-     * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="emailTemplates", refs={List.class,EmailTemplateEmailTemplate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EmailTemplateEmailTemplate>> emailTemplates;
 
@@ -153,11 +152,10 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
     /**
      * Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
-     * @deprecated
-     * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * @deprecated template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated
     @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output<String> templateName;
 

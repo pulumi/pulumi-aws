@@ -732,6 +732,46 @@ class ClassificationJob(pulumi.CustomResource):
         __props__.__dict__["user_paused_details"] = user_paused_details
         return ClassificationJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_data_identifier_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            initial_run: pulumi.Input[Optional[_builtins.bool]] = None,
+            job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_status: pulumi.Input[Optional[_builtins.str]] = None,
+            job_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_job_definition: pulumi.Input[Optional[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict', 'outputs.ClassificationJobS3JobDefinition']]] = None,
+            sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            schedule_frequency: pulumi.Input[Optional[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict', 'outputs.ClassificationJobScheduleFrequency']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_paused_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClassificationJobUserPausedDetailArgs', 'ClassificationJobUserPausedDetailArgsDict', 'outputs.ClassificationJobUserPausedDetail']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["customDataIdentifierIds"] = custom_data_identifier_ids
+        __props__["description"] = description
+        __props__["initialRun"] = initial_run
+        __props__["jobArn"] = job_arn
+        __props__["jobId"] = job_id
+        __props__["jobStatus"] = job_status
+        __props__["jobType"] = job_type
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["s3JobDefinition"] = s3_job_definition
+        __props__["samplingPercentage"] = sampling_percentage
+        __props__["scheduleFrequency"] = schedule_frequency
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userPausedDetails"] = user_paused_details
+        return pulumi.runtime.exists_resource(None, 'aws:macie2/classificationJob:ClassificationJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

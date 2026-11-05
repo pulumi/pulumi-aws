@@ -465,6 +465,12 @@ func (SecurityGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupState)(nil)).Elem()
 }
 
+// SecurityGroupExists checks whether an existing SecurityGroup resource with the given ID exists.
+func SecurityGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/securityGroup:SecurityGroup", id, state, "", opts...)
+}
+
 type securityGroupArgs struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description *string `pulumi:"description"`

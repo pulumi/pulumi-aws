@@ -463,6 +463,30 @@ class ContactList(pulumi.CustomResource):
         __props__.__dict__["topics"] = topics
         return ContactList(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            contact_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+            created_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["contactListName"] = contact_list_name
+        __props__["createdTimestamp"] = created_timestamp
+        __props__["description"] = description
+        __props__["lastUpdatedTimestamp"] = last_updated_timestamp
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["topics"] = topics
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/contactList:ContactList', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

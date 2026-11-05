@@ -583,6 +583,34 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreCodeInterpreter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreCodeInterpreterCertificateArgs', 'AgentcoreCodeInterpreterCertificateArgsDict', 'outputs.AgentcoreCodeInterpreterCertificate']]]]] = None,
+            code_interpreter_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code_interpreter_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['AgentcoreCodeInterpreterNetworkConfigurationArgs', 'AgentcoreCodeInterpreterNetworkConfigurationArgsDict', 'outputs.AgentcoreCodeInterpreterNetworkConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreCodeInterpreterTimeoutsArgs', 'AgentcoreCodeInterpreterTimeoutsArgsDict', 'outputs.AgentcoreCodeInterpreterTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificates"] = certificates
+        __props__["codeInterpreterArn"] = code_interpreter_arn
+        __props__["codeInterpreterId"] = code_interpreter_id
+        __props__["description"] = description
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["name"] = name
+        __props__["networkConfiguration"] = network_configuration
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreCodeInterpreterCertificate']]]:

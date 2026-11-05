@@ -176,6 +176,12 @@ func (MlflowAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mlflowAppState)(nil)).Elem()
 }
 
+// MlflowAppExists checks whether an existing MlflowApp resource with the given ID exists.
+func MlflowAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MlflowAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/mlflowApp:MlflowApp", id, state, "", opts...)
+}
+
 type mlflowAppArgs struct {
 	// Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
 	AccountDefaultStatus *string `pulumi:"accountDefaultStatus"`

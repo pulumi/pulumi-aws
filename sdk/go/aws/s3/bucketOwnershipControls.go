@@ -137,6 +137,12 @@ func (BucketOwnershipControlsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketOwnershipControlsState)(nil)).Elem()
 }
 
+// BucketOwnershipControlsExists checks whether an existing BucketOwnershipControls resource with the given ID exists.
+func BucketOwnershipControlsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketOwnershipControlsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketOwnershipControls:BucketOwnershipControls", id, state, "", opts...)
+}
+
 type bucketOwnershipControlsArgs struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket string `pulumi:"bucket"`

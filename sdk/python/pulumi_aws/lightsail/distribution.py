@@ -993,6 +993,54 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Distribution(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alternative_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_behavior_settings: pulumi.Input[Optional[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict', 'outputs.DistributionCacheBehaviorSettings']]] = None,
+            cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict', 'outputs.DistributionCacheBehavior']]]]] = None,
+            certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict', 'outputs.DistributionLocation']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            origin: pulumi.Input[Optional[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]] = None,
+            origin_public_dns: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            support_code: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alternativeDomainNames"] = alternative_domain_names
+        __props__["arn"] = arn
+        __props__["bundleId"] = bundle_id
+        __props__["cacheBehaviorSettings"] = cache_behavior_settings
+        __props__["cacheBehaviors"] = cache_behaviors
+        __props__["certificateName"] = certificate_name
+        __props__["createdAt"] = created_at
+        __props__["defaultCacheBehavior"] = default_cache_behavior
+        __props__["domainName"] = domain_name
+        __props__["ipAddressType"] = ip_address_type
+        __props__["isEnabled"] = is_enabled
+        __props__["locations"] = locations
+        __props__["name"] = name
+        __props__["origin"] = origin
+        __props__["originPublicDns"] = origin_public_dns
+        __props__["region"] = region
+        __props__["resourceType"] = resource_type
+        __props__["status"] = status
+        __props__["supportCode"] = support_code
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:lightsail/distribution:Distribution', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alternativeDomainNames")
     def alternative_domain_names(self) -> pulumi.Output[Sequence[_builtins.str]]:

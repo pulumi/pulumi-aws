@@ -686,6 +686,34 @@ class GlossaryTerm(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return GlossaryTerm(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            glossary_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            long_description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            short_description: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict', 'outputs.GlossaryTermTermRelations']]] = None,
+            timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict', 'outputs.GlossaryTermTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["domainIdentifier"] = domain_identifier
+        __props__["glossaryIdentifier"] = glossary_identifier
+        __props__["longDescription"] = long_description
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["shortDescription"] = short_description
+        __props__["status"] = status
+        __props__["termRelations"] = term_relations
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:datazone/glossaryTerm:GlossaryTerm', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

@@ -579,6 +579,36 @@ class TrafficMirrorSession(pulumi.CustomResource):
         __props__.__dict__["virtual_network_id"] = virtual_network_id
         return TrafficMirrorSession(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            packet_length: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            session_number: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_mirror_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["ownerId"] = owner_id
+        __props__["packetLength"] = packet_length
+        __props__["region"] = region
+        __props__["sessionNumber"] = session_number
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["trafficMirrorFilterId"] = traffic_mirror_filter_id
+        __props__["trafficMirrorTargetId"] = traffic_mirror_target_id
+        __props__["virtualNetworkId"] = virtual_network_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/trafficMirrorSession:TrafficMirrorSession', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

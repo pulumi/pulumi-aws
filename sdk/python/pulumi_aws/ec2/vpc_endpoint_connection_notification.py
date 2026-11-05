@@ -433,6 +433,26 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         __props__.__dict__["vpc_endpoint_service_id"] = vpc_endpoint_service_id
         return VpcEndpointConnectionNotification(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connection_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectionEvents"] = connection_events
+        __props__["connectionNotificationArn"] = connection_notification_arn
+        __props__["notificationType"] = notification_type
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["vpcEndpointId"] = vpc_endpoint_id
+        __props__["vpcEndpointServiceId"] = vpc_endpoint_service_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connectionEvents")
     def connection_events(self) -> pulumi.Output[Sequence[_builtins.str]]:

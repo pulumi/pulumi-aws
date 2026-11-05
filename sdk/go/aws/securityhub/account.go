@@ -122,6 +122,12 @@ func (AccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountState)(nil)).Elem()
 }
 
+// AccountExists checks whether an existing Account resource with the given ID exists.
+func AccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/account:Account", id, state, "", opts...)
+}
+
 type accountArgs struct {
 	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
 	AutoEnableControls *bool `pulumi:"autoEnableControls"`

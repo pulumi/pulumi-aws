@@ -395,6 +395,12 @@ func (FunctionEventInvokeConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionEventInvokeConfigState)(nil)).Elem()
 }
 
+// FunctionEventInvokeConfigExists checks whether an existing FunctionEventInvokeConfig resource with the given ID exists.
+func FunctionEventInvokeConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionEventInvokeConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig", id, state, "", opts...)
+}
+
 type functionEventInvokeConfigArgs struct {
 	// Configuration block with destination configuration. See below.
 	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`

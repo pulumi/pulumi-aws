@@ -117,6 +117,12 @@ func (LambdaFunctionAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lambdaFunctionAssociationState)(nil)).Elem()
 }
 
+// LambdaFunctionAssociationExists checks whether an existing LambdaFunctionAssociation resource with the given ID exists.
+func LambdaFunctionAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LambdaFunctionAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation", id, state, "", opts...)
+}
+
 type lambdaFunctionAssociationArgs struct {
 	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn string `pulumi:"functionArn"`

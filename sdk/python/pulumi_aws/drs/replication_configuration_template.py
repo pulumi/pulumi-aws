@@ -934,6 +934,50 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         __props__.__dict__["use_dedicated_replication_server"] = use_dedicated_replication_server
         return ReplicationConfigurationTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associate_default_security_group: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_replicate_new_disks: pulumi.Input[Optional[_builtins.bool]] = None,
+            bandwidth_throttling: pulumi.Input[Optional[_builtins.int]] = None,
+            create_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_plane_routing: pulumi.Input[Optional[_builtins.str]] = None,
+            default_large_staging_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            pit_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict', 'outputs.ReplicationConfigurationTemplatePitPolicy']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_server_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_servers_security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict', 'outputs.ReplicationConfigurationTemplateTimeouts']]] = None,
+            use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["associateDefaultSecurityGroup"] = associate_default_security_group
+        __props__["autoReplicateNewDisks"] = auto_replicate_new_disks
+        __props__["bandwidthThrottling"] = bandwidth_throttling
+        __props__["createPublicIp"] = create_public_ip
+        __props__["dataPlaneRouting"] = data_plane_routing
+        __props__["defaultLargeStagingDiskType"] = default_large_staging_disk_type
+        __props__["ebsEncryption"] = ebs_encryption
+        __props__["ebsEncryptionKeyArn"] = ebs_encryption_key_arn
+        __props__["pitPolicies"] = pit_policies
+        __props__["region"] = region
+        __props__["replicationServerInstanceType"] = replication_server_instance_type
+        __props__["replicationServersSecurityGroupsIds"] = replication_servers_security_groups_ids
+        __props__["stagingAreaSubnetId"] = staging_area_subnet_id
+        __props__["stagingAreaTags"] = staging_area_tags
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["useDedicatedReplicationServer"] = use_dedicated_replication_server
+        return pulumi.runtime.exists_resource(None, 'aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

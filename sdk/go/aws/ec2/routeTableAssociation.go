@@ -172,6 +172,12 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeTableAssociationState)(nil)).Elem()
 }
 
+// RouteTableAssociationExists checks whether an existing RouteTableAssociation resource with the given ID exists.
+func RouteTableAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteTableAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/routeTableAssociation:RouteTableAssociation", id, state, "", opts...)
+}
+
 type routeTableAssociationArgs struct {
 	// The gateway ID to create an association. Conflicts with `subnetId`.
 	GatewayId *string `pulumi:"gatewayId"`

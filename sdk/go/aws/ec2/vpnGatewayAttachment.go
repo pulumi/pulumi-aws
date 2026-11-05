@@ -135,6 +135,12 @@ func (VpnGatewayAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayAttachmentState)(nil)).Elem()
 }
 
+// VpnGatewayAttachmentExists checks whether an existing VpnGatewayAttachment resource with the given ID exists.
+func VpnGatewayAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnGatewayAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", id, state, "", opts...)
+}
+
 type vpnGatewayAttachmentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

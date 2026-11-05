@@ -38,20 +38,20 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new ContributorInsightRule("test", ContributorInsightRuleArgs.builder()
  *             .ruleName("testing")
  *             .ruleState("ENABLED")
- *             .ruleDefinition("{\"Schema\":{\"Name\":\"CloudWatchLogRule\",\"Version\":1},\"AggregateOn\":\"Count\",\"Contribution\":{\"Filters\":[{\"In\":[\"some-keyword\"],\"Match\":\"$.message\"}],\"Keys\":[\"$.country\"]},\"LogFormat\":\"JSON\",\"LogGroupNames\":[\"/aws/lambda/api-prod\"]}")
+ *             .ruleDefinition("}{&#92;{@code "Schema}&#92;{@code ":}{&#92;{@code "Name}&#92;{@code ":}&#92;{@code "CloudWatchLogRule}&#92;{@code ",}&#92;{@code "Version}&#92;{@code ":1}}{@code ,}&#92;{@code "AggregateOn}&#92;{@code ":}&#92;{@code "Count}&#92;{@code ",}&#92;{@code "Contribution}&#92;{@code ":}{&#92;{@code "Filters}&#92;{@code ":[}{&#92;{@code "In}&#92;{@code ":[}&#92;{@code "some-keyword}&#92;{@code "],}&#92;{@code "Match}&#92;{@code ":}&#92;{@code "$.message}&#92;{@code "}}{@code ],}&#92;{@code "Keys}&#92;{@code ":[}&#92;{@code "$.country}&#92;{@code "]}}{@code ,}&#92;{@code "LogFormat}&#92;{@code ":}&#92;{@code "JSON}&#92;{@code ",}&#92;{@code "LogGroupNames}&#92;{@code ":[}&#92;{@code "/aws/lambda/api-prod}&#92;{@code "]}}{@code ")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

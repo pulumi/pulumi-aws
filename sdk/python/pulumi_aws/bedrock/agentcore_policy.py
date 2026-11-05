@@ -503,6 +503,30 @@ class AgentcorePolicy(pulumi.CustomResource):
         __props__.__dict__["validation_mode"] = validation_mode
         return AgentcorePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            definition: pulumi.Input[Optional[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict', 'outputs.AgentcorePolicyDefinition']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcorePolicyTimeoutsArgs', 'AgentcorePolicyTimeoutsArgsDict', 'outputs.AgentcorePolicyTimeouts']]] = None,
+            validation_mode: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["definition"] = definition
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["policyArn"] = policy_arn
+        __props__["policyEngineId"] = policy_engine_id
+        __props__["policyId"] = policy_id
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        __props__["validationMode"] = validation_mode
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcorePolicy:AgentcorePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def definition(self) -> pulumi.Output['outputs.AgentcorePolicyDefinition']:

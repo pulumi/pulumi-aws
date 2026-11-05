@@ -889,6 +889,30 @@ class EventConnection(pulumi.CustomResource):
         __props__.__dict__["secret_arn"] = secret_arn
         return EventConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_parameters: pulumi.Input[Optional[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict', 'outputs.EventConnectionAuthParameters']]] = None,
+            authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            invocation_connectivity_parameters: pulumi.Input[Optional[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict', 'outputs.EventConnectionInvocationConnectivityParameters']]] = None,
+            kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["authParameters"] = auth_parameters
+        __props__["authorizationType"] = authorization_type
+        __props__["description"] = description
+        __props__["invocationConnectivityParameters"] = invocation_connectivity_parameters
+        __props__["kmsKeyIdentifier"] = kms_key_identifier
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["secretArn"] = secret_arn
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/eventConnection:EventConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

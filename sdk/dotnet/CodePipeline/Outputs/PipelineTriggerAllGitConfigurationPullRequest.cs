@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerAllGitConfigurationPullRequestBranch> Branches;
         /// <summary>
-        /// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+        /// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
         /// </summary>
         public readonly ImmutableArray<string> Events;
         /// <summary>

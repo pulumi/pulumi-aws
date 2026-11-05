@@ -195,6 +195,12 @@ func (DxGatewayAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dxGatewayAttachmentState)(nil)).Elem()
 }
 
+// DxGatewayAttachmentExists checks whether an existing DxGatewayAttachment resource with the given ID exists.
+func DxGatewayAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DxGatewayAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment", id, state, "", opts...)
+}
+
 type dxGatewayAttachmentArgs struct {
 	// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

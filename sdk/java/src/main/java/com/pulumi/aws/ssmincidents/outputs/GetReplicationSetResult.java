@@ -42,11 +42,10 @@ public final class GetReplicationSetResult {
     /**
      * @return (**Deprecated**) The replication set&#39;s Regions. Use `regions` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use regions instead.
+     * @deprecated region is deprecated. Use regions instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use regions instead. */
+    @Deprecated
     private List<GetReplicationSetRegion> region;
     /**
      * @return The replication set&#39;s Regions.
@@ -104,11 +103,10 @@ public final class GetReplicationSetResult {
     /**
      * @return (**Deprecated**) The replication set&#39;s Regions. Use `regions` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use regions instead.
+     * @deprecated region is deprecated. Use regions instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use regions instead. */
+    @Deprecated
     public List<GetReplicationSetRegion> region() {
         return this.region;
     }

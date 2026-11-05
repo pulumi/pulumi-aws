@@ -155,6 +155,12 @@ func (ResolverQueryLogConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverQueryLogConfigState)(nil)).Elem()
 }
 
+// ResolverQueryLogConfigExists checks whether an existing ResolverQueryLogConfig resource with the given ID exists.
+func ResolverQueryLogConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverQueryLogConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig", id, state, "", opts...)
+}
+
 type resolverQueryLogConfigArgs struct {
 	// The ARN of the resource that you want Route 53 Resolver to send query logs.
 	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.

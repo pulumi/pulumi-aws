@@ -291,6 +291,20 @@ class ResolverConfig(pulumi.CustomResource):
         __props__.__dict__["resource_id"] = resource_id
         return ResolverConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            autodefined_reverse_flag: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autodefinedReverseFlag"] = autodefined_reverse_flag
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["resourceId"] = resource_id
+        return pulumi.runtime.exists_resource(None, 'aws:route53/resolverConfig:ResolverConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autodefinedReverseFlag")
     def autodefined_reverse_flag(self) -> pulumi.Output[_builtins.str]:

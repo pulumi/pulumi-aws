@@ -578,6 +578,44 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         __props__.__dict__["warning_message"] = warning_message
         return NetworkInsightsAnalysis(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alternate_path_hints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisAlternatePathHintArgs', 'NetworkInsightsAnalysisAlternatePathHintArgsDict', 'outputs.NetworkInsightsAnalysisAlternatePathHint']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            explanations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisExplanationArgs', 'NetworkInsightsAnalysisExplanationArgsDict', 'outputs.NetworkInsightsAnalysisExplanation']]]]] = None,
+            filter_in_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            forward_path_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisForwardPathComponentArgs', 'NetworkInsightsAnalysisForwardPathComponentArgsDict', 'outputs.NetworkInsightsAnalysisForwardPathComponent']]]]] = None,
+            network_insights_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+            path_found: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            return_path_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict', 'outputs.NetworkInsightsAnalysisReturnPathComponent']]]]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_message: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            wait_for_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+            warning_message: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alternatePathHints"] = alternate_path_hints
+        __props__["arn"] = arn
+        __props__["explanations"] = explanations
+        __props__["filterInArns"] = filter_in_arns
+        __props__["forwardPathComponents"] = forward_path_components
+        __props__["networkInsightsPathId"] = network_insights_path_id
+        __props__["pathFound"] = path_found
+        __props__["region"] = region
+        __props__["returnPathComponents"] = return_path_components
+        __props__["startDate"] = start_date
+        __props__["status"] = status
+        __props__["statusMessage"] = status_message
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["waitForCompletion"] = wait_for_completion
+        __props__["warningMessage"] = warning_message
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alternatePathHints")
     def alternate_path_hints(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisAlternatePathHint']]:

@@ -718,6 +718,12 @@ func (VpnConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnConnectionState)(nil)).Elem()
 }
 
+// VpnConnectionExists checks whether an existing VpnConnection resource with the given ID exists.
+func VpnConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpnConnection:VpnConnection", id, state, "", opts...)
+}
+
 type vpnConnectionArgs struct {
 	// ID of the customer gateway.
 	CustomerGatewayId string `pulumi:"customerGatewayId"`

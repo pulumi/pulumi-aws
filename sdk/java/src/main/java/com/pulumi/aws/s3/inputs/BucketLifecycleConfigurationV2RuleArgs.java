@@ -116,22 +116,20 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
     /**
      * Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
      * 
-     * @deprecated
-     * Specify a prefix using &#39;filter&#39; instead
+     * @deprecated Specify a prefix using &#39;filter&#39; instead
      * 
      */
-    @Deprecated /* Specify a prefix using 'filter' instead */
+    @Deprecated
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
      * @return Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
      * 
-     * @deprecated
-     * Specify a prefix using &#39;filter&#39; instead
+     * @deprecated Specify a prefix using &#39;filter&#39; instead
      * 
      */
-    @Deprecated /* Specify a prefix using 'filter' instead */
+    @Deprecated
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -339,11 +337,10 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Specify a prefix using &#39;filter&#39; instead
+         * @deprecated Specify a prefix using &#39;filter&#39; instead
          * 
          */
-        @Deprecated /* Specify a prefix using 'filter' instead */
+        @Deprecated
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
@@ -354,11 +351,10 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Specify a prefix using &#39;filter&#39; instead
+         * @deprecated Specify a prefix using &#39;filter&#39; instead
          * 
          */
-        @Deprecated /* Specify a prefix using 'filter' instead */
+        @Deprecated
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

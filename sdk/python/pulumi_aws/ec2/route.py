@@ -995,6 +995,52 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
         return Route(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            carrier_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            egress_only_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            origin: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_peering_connection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["carrierGatewayId"] = carrier_gateway_id
+        __props__["coreNetworkArn"] = core_network_arn
+        __props__["destinationCidrBlock"] = destination_cidr_block
+        __props__["destinationIpv6CidrBlock"] = destination_ipv6_cidr_block
+        __props__["destinationPrefixListId"] = destination_prefix_list_id
+        __props__["egressOnlyGatewayId"] = egress_only_gateway_id
+        __props__["gatewayId"] = gateway_id
+        __props__["instanceId"] = instance_id
+        __props__["instanceOwnerId"] = instance_owner_id
+        __props__["localGatewayId"] = local_gateway_id
+        __props__["natGatewayId"] = nat_gateway_id
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["odbNetworkArn"] = odb_network_arn
+        __props__["origin"] = origin
+        __props__["region"] = region
+        __props__["routeTableId"] = route_table_id
+        __props__["state"] = state
+        __props__["transitGatewayId"] = transit_gateway_id
+        __props__["vpcEndpointId"] = vpc_endpoint_id
+        __props__["vpcPeeringConnectionId"] = vpc_peering_connection_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/route:Route', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="carrierGatewayId")
     def carrier_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:

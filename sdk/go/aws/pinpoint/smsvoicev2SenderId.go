@@ -221,6 +221,12 @@ func (Smsvoicev2SenderIdState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsvoicev2SenderIdState)(nil)).Elem()
 }
 
+// Smsvoicev2SenderIdExists checks whether an existing Smsvoicev2SenderId resource with the given ID exists.
+func Smsvoicev2SenderIdExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Smsvoicev2SenderIdState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsvoicev2SenderId:Smsvoicev2SenderId", id, state, "", opts...)
+}
+
 type smsvoicev2SenderIdArgs struct {
 	// Whether deletion protection is enabled. When set to `true`, the sender ID cannot be deleted. Defaults to `false`.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`

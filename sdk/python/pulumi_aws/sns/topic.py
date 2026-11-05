@@ -1512,6 +1512,80 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["tracing_config"] = tracing_config
         return Topic(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            application_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            application_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            archive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            beginning_archive_time: pulumi.Input[Optional[_builtins.str]] = None,
+            content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+            delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+            firehose_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            firehose_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            firehose_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            http_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            http_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            http_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            signature_version: pulumi.Input[Optional[_builtins.int]] = None,
+            sqs_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sqs_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sqs_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tracing_config: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationFailureFeedbackRoleArn"] = application_failure_feedback_role_arn
+        __props__["applicationSuccessFeedbackRoleArn"] = application_success_feedback_role_arn
+        __props__["applicationSuccessFeedbackSampleRate"] = application_success_feedback_sample_rate
+        __props__["archivePolicy"] = archive_policy
+        __props__["arn"] = arn
+        __props__["beginningArchiveTime"] = beginning_archive_time
+        __props__["contentBasedDeduplication"] = content_based_deduplication
+        __props__["deliveryPolicy"] = delivery_policy
+        __props__["displayName"] = display_name
+        __props__["fifoThroughputScope"] = fifo_throughput_scope
+        __props__["fifoTopic"] = fifo_topic
+        __props__["firehoseFailureFeedbackRoleArn"] = firehose_failure_feedback_role_arn
+        __props__["firehoseSuccessFeedbackRoleArn"] = firehose_success_feedback_role_arn
+        __props__["firehoseSuccessFeedbackSampleRate"] = firehose_success_feedback_sample_rate
+        __props__["httpFailureFeedbackRoleArn"] = http_failure_feedback_role_arn
+        __props__["httpSuccessFeedbackRoleArn"] = http_success_feedback_role_arn
+        __props__["httpSuccessFeedbackSampleRate"] = http_success_feedback_sample_rate
+        __props__["kmsMasterKeyId"] = kms_master_key_id
+        __props__["lambdaFailureFeedbackRoleArn"] = lambda_failure_feedback_role_arn
+        __props__["lambdaSuccessFeedbackRoleArn"] = lambda_success_feedback_role_arn
+        __props__["lambdaSuccessFeedbackSampleRate"] = lambda_success_feedback_sample_rate
+        __props__["maximumMessageSize"] = maximum_message_size
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["owner"] = owner
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["signatureVersion"] = signature_version
+        __props__["sqsFailureFeedbackRoleArn"] = sqs_failure_feedback_role_arn
+        __props__["sqsSuccessFeedbackRoleArn"] = sqs_success_feedback_role_arn
+        __props__["sqsSuccessFeedbackSampleRate"] = sqs_success_feedback_sample_rate
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tracingConfig"] = tracing_config
+        return pulumi.runtime.exists_resource(None, 'aws:sns/topic:Topic', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationFailureFeedbackRoleArn")
     def application_failure_feedback_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:

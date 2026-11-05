@@ -134,6 +134,12 @@ func (Smsvoicev2ConfigurationSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsvoicev2ConfigurationSetState)(nil)).Elem()
 }
 
+// Smsvoicev2ConfigurationSetExists checks whether an existing Smsvoicev2ConfigurationSet resource with the given ID exists.
+func Smsvoicev2ConfigurationSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Smsvoicev2ConfigurationSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet", id, state, "", opts...)
+}
+
 type smsvoicev2ConfigurationSetArgs struct {
 	// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
 	DefaultMessageType *string `pulumi:"defaultMessageType"`

@@ -398,6 +398,26 @@ class CustomDomainAssociation(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return CustomDomainAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainAssociationCertificateValidationRecordArgs', 'CustomDomainAssociationCertificateValidationRecordArgsDict', 'outputs.CustomDomainAssociationCertificateValidationRecord']]]]] = None,
+            dns_target: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_www_subdomain: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateValidationRecords"] = certificate_validation_records
+        __props__["dnsTarget"] = dns_target
+        __props__["domainName"] = domain_name
+        __props__["enableWwwSubdomain"] = enable_www_subdomain
+        __props__["region"] = region
+        __props__["serviceArn"] = service_arn
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:apprunner/customDomainAssociation:CustomDomainAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateValidationRecords")
     def certificate_validation_records(self) -> pulumi.Output[Sequence['outputs.CustomDomainAssociationCertificateValidationRecord']]:

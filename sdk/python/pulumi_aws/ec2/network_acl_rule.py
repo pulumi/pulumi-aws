@@ -730,6 +730,36 @@ class NetworkAclRule(pulumi.CustomResource):
         __props__.__dict__["to_port"] = to_port
         return NetworkAclRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            egress: pulumi.Input[Optional[_builtins.bool]] = None,
+            from_port: pulumi.Input[Optional[_builtins.int]] = None,
+            icmp_code: pulumi.Input[Optional[_builtins.int]] = None,
+            icmp_type: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_action: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+            to_port: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidrBlock"] = cidr_block
+        __props__["egress"] = egress
+        __props__["fromPort"] = from_port
+        __props__["icmpCode"] = icmp_code
+        __props__["icmpType"] = icmp_type
+        __props__["ipv6CidrBlock"] = ipv6_cidr_block
+        __props__["networkAclId"] = network_acl_id
+        __props__["protocol"] = protocol
+        __props__["region"] = region
+        __props__["ruleAction"] = rule_action
+        __props__["ruleNumber"] = rule_number
+        __props__["toPort"] = to_port
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/networkAclRule:NetworkAclRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[Optional[_builtins.str]]:

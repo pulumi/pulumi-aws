@@ -419,6 +419,12 @@ func (AgentDataSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentDataSourceState)(nil)).Elem()
 }
 
+// AgentDataSourceExists checks whether an existing AgentDataSource resource with the given ID exists.
+func AgentDataSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentDataSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentDataSource:AgentDataSource", id, state, "", opts...)
+}
+
 type agentDataSourceArgs struct {
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy *string `pulumi:"dataDeletionPolicy"`

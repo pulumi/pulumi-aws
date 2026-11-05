@@ -1090,6 +1090,46 @@ class TopicSubscription(pulumi.CustomResource):
         __props__.__dict__["topic"] = topic
         return TopicSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            confirmation_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            confirmation_was_authenticated: pulumi.Input[Optional[_builtins.bool]] = None,
+            delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_auto_confirms: pulumi.Input[Optional[_builtins.bool]] = None,
+            filter_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pending_confirmation: pulumi.Input[Optional[_builtins.bool]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
+            redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replay_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            topic: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["confirmationTimeoutInMinutes"] = confirmation_timeout_in_minutes
+        __props__["confirmationWasAuthenticated"] = confirmation_was_authenticated
+        __props__["deliveryPolicy"] = delivery_policy
+        __props__["endpoint"] = endpoint
+        __props__["endpointAutoConfirms"] = endpoint_auto_confirms
+        __props__["filterPolicy"] = filter_policy
+        __props__["filterPolicyScope"] = filter_policy_scope
+        __props__["ownerId"] = owner_id
+        __props__["pendingConfirmation"] = pending_confirmation
+        __props__["protocol"] = protocol
+        __props__["rawMessageDelivery"] = raw_message_delivery
+        __props__["redrivePolicy"] = redrive_policy
+        __props__["region"] = region
+        __props__["replayPolicy"] = replay_policy
+        __props__["subscriptionRoleArn"] = subscription_role_arn
+        __props__["topic"] = topic
+        return pulumi.runtime.exists_resource(None, 'aws:sns/topicSubscription:TopicSubscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

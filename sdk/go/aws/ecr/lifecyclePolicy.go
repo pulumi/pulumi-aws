@@ -283,6 +283,12 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecyclePolicyState)(nil)).Elem()
 }
 
+// LifecyclePolicyExists checks whether an existing LifecyclePolicy resource with the given ID exists.
+func LifecyclePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LifecyclePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecr/lifecyclePolicy:LifecyclePolicy", id, state, "", opts...)
+}
+
 type lifecyclePolicyArgs struct {
 	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
 	Policy interface{} `pulumi:"policy"`

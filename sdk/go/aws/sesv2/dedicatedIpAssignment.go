@@ -120,6 +120,12 @@ func (DedicatedIpAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedIpAssignmentState)(nil)).Elem()
 }
 
+// DedicatedIpAssignmentExists checks whether an existing DedicatedIpAssignment resource with the given ID exists.
+func DedicatedIpAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DedicatedIpAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment", id, state, "", opts...)
+}
+
 type dedicatedIpAssignmentArgs struct {
 	// Dedicated IP address.
 	DestinationPoolName string `pulumi:"destinationPoolName"`

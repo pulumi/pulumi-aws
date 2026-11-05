@@ -145,6 +145,12 @@ func (DomainDkimState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainDkimState)(nil)).Elem()
 }
 
+// DomainDkimExists checks whether an existing DomainDkim resource with the given ID exists.
+func DomainDkimExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainDkimState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/domainDkim:DomainDkim", id, state, "", opts...)
+}
+
 type domainDkimArgs struct {
 	// Verified domain name to generate DKIM tokens for.
 	Domain string `pulumi:"domain"`

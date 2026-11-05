@@ -1016,6 +1016,54 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Environment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_changes_during_maintenance_window: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            force_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict', 'outputs.EnvironmentHighAvailabilityConfig']]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_configuration: pulumi.Input[Optional[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict', 'outputs.EnvironmentStorageConfiguration']]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict', 'outputs.EnvironmentTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyChangesDuringMaintenanceWindow"] = apply_changes_during_maintenance_window
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["engineType"] = engine_type
+        __props__["engineVersion"] = engine_version
+        __props__["environmentId"] = environment_id
+        __props__["forceUpdate"] = force_update
+        __props__["highAvailabilityConfig"] = high_availability_config
+        __props__["instanceType"] = instance_type
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["loadBalancerArn"] = load_balancer_arn
+        __props__["name"] = name
+        __props__["preferredMaintenanceWindow"] = preferred_maintenance_window
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["region"] = region
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["storageConfiguration"] = storage_configuration
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:m2/environment:Environment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyChangesDuringMaintenanceWindow")
     def apply_changes_during_maintenance_window(self) -> pulumi.Output[Optional[_builtins.bool]]:

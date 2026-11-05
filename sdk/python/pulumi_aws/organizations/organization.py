@@ -496,6 +496,36 @@ class Organization(pulumi.CustomResource):
         __props__.__dict__["roots"] = roots
         return Organization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationAccountArgs', 'OrganizationAccountArgsDict', 'outputs.OrganizationAccount']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_service_access_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled_policy_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            feature_set: pulumi.Input[Optional[_builtins.str]] = None,
+            master_account_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            master_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+            master_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            master_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            non_master_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationNonMasterAccountArgs', 'OrganizationNonMasterAccountArgsDict', 'outputs.OrganizationNonMasterAccount']]]]] = None,
+            return_organization_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            roots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationRootArgs', 'OrganizationRootArgsDict', 'outputs.OrganizationRoot']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accounts"] = accounts
+        __props__["arn"] = arn
+        __props__["awsServiceAccessPrincipals"] = aws_service_access_principals
+        __props__["enabledPolicyTypes"] = enabled_policy_types
+        __props__["featureSet"] = feature_set
+        __props__["masterAccountArn"] = master_account_arn
+        __props__["masterAccountEmail"] = master_account_email
+        __props__["masterAccountId"] = master_account_id
+        __props__["masterAccountName"] = master_account_name
+        __props__["nonMasterAccounts"] = non_master_accounts
+        __props__["returnOrganizationOnly"] = return_organization_only
+        __props__["roots"] = roots
+        return pulumi.runtime.exists_resource(None, 'aws:organizations/organization:Organization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> pulumi.Output[Sequence['outputs.OrganizationAccount']]:

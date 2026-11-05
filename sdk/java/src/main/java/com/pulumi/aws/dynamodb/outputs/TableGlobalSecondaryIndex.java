@@ -20,11 +20,10 @@ public final class TableGlobalSecondaryIndex {
     /**
      * @return Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
-     * @deprecated
-     * hash_key is deprecated. Use keySchema instead.
+     * @deprecated hash_key is deprecated. Use keySchema instead.
      * 
      */
-    @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+    @Deprecated
     private @Nullable String hashKey;
     /**
      * @return Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
@@ -54,11 +53,10 @@ public final class TableGlobalSecondaryIndex {
     /**
      * @return Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
-     * @deprecated
-     * range_key is deprecated. Use keySchema instead.
+     * @deprecated range_key is deprecated. Use keySchema instead.
      * 
      */
-    @Deprecated /* range_key is deprecated. Use keySchema instead. */
+    @Deprecated
     private @Nullable String rangeKey;
     /**
      * @return Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -80,11 +78,10 @@ public final class TableGlobalSecondaryIndex {
     /**
      * @return Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
-     * @deprecated
-     * hash_key is deprecated. Use keySchema instead.
+     * @deprecated hash_key is deprecated. Use keySchema instead.
      * 
      */
-    @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+    @Deprecated
     public Optional<String> hashKey() {
         return Optional.ofNullable(this.hashKey);
     }
@@ -126,11 +123,10 @@ public final class TableGlobalSecondaryIndex {
     /**
      * @return Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
-     * @deprecated
-     * range_key is deprecated. Use keySchema instead.
+     * @deprecated range_key is deprecated. Use keySchema instead.
      * 
      */
-    @Deprecated /* range_key is deprecated. Use keySchema instead. */
+    @Deprecated
     public Optional<String> rangeKey() {
         return Optional.ofNullable(this.rangeKey);
     }

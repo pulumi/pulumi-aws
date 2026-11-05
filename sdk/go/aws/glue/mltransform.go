@@ -300,6 +300,12 @@ func (MLTransformState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mltransformState)(nil)).Elem()
 }
 
+// MLTransformExists checks whether an existing MLTransform resource with the given ID exists.
+func MLTransformExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MLTransformState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/mLTransform:MLTransform", id, state, "", opts...)
+}
+
 type mltransformArgs struct {
 	// Description of the ML Transform.
 	Description *string `pulumi:"description"`

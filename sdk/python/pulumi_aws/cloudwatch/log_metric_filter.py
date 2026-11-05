@@ -427,6 +427,24 @@ class LogMetricFilter(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return LogMetricFilter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict', 'outputs.LogMetricFilterMetricTransformation']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyOnTransformedLogs"] = apply_on_transformed_logs
+        __props__["logGroupName"] = log_group_name
+        __props__["metricTransformation"] = metric_transformation
+        __props__["name"] = name
+        __props__["pattern"] = pattern
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/logMetricFilter:LogMetricFilter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
     def apply_on_transformed_logs(self) -> pulumi.Output[_builtins.bool]:

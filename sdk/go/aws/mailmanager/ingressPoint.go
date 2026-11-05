@@ -288,6 +288,12 @@ func (IngressPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ingressPointState)(nil)).Elem()
 }
 
+// IngressPointExists checks whether an existing IngressPoint resource with the given ID exists.
+func IngressPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IngressPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mailmanager/ingressPoint:IngressPoint", id, state, "", opts...)
+}
+
 type ingressPointArgs struct {
 	// Configuration used to authenticate with the ingress point. See `ingressPointConfiguration` Block for details.
 	IngressPointConfiguration *IngressPointIngressPointConfiguration `pulumi:"ingressPointConfiguration"`

@@ -1015,6 +1015,66 @@ class ProvisionedProduct(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ProvisionedProduct(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_dashboard_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_provisioning_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_successful_provisioning_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+            launch_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProvisionedProductOutputArgs', 'ProvisionedProductOutputArgsDict', 'outputs.ProvisionedProductOutput']]]]] = None,
+            path_id: pulumi.Input[Optional[_builtins.str]] = None,
+            path_name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            product_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict', 'outputs.ProvisionedProductProvisioningParameter']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retain_physical_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            stack_set_provisioning_preferences: pulumi.Input[Optional[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict', 'outputs.ProvisionedProductStackSetProvisioningPreferences']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_message: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptLanguage"] = accept_language
+        __props__["arn"] = arn
+        __props__["cloudwatchDashboardNames"] = cloudwatch_dashboard_names
+        __props__["createdTime"] = created_time
+        __props__["ignoreErrors"] = ignore_errors
+        __props__["lastProvisioningRecordId"] = last_provisioning_record_id
+        __props__["lastRecordId"] = last_record_id
+        __props__["lastSuccessfulProvisioningRecordId"] = last_successful_provisioning_record_id
+        __props__["launchRoleArn"] = launch_role_arn
+        __props__["name"] = name
+        __props__["notificationArns"] = notification_arns
+        __props__["outputs"] = outputs
+        __props__["pathId"] = path_id
+        __props__["pathName"] = path_name
+        __props__["productId"] = product_id
+        __props__["productName"] = product_name
+        __props__["provisioningArtifactId"] = provisioning_artifact_id
+        __props__["provisioningArtifactName"] = provisioning_artifact_name
+        __props__["provisioningParameters"] = provisioning_parameters
+        __props__["region"] = region
+        __props__["retainPhysicalResources"] = retain_physical_resources
+        __props__["stackSetProvisioningPreferences"] = stack_set_provisioning_preferences
+        __props__["status"] = status
+        __props__["statusMessage"] = status_message
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:servicecatalog/provisionedProduct:ProvisionedProduct', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:

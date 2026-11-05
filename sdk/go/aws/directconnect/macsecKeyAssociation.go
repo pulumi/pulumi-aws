@@ -279,6 +279,12 @@ func (MacsecKeyAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*macsecKeyAssociationState)(nil)).Elem()
 }
 
+// MacsecKeyAssociationExists checks whether an existing MacsecKeyAssociation resource with the given ID exists.
+func MacsecKeyAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MacsecKeyAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation", id, state, "", opts...)
+}
+
 type macsecKeyAssociationArgs struct {
 	// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
 	Cak *string `pulumi:"cak"`

@@ -205,6 +205,12 @@ func (ManagedLoginBrandingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedLoginBrandingState)(nil)).Elem()
 }
 
+// ManagedLoginBrandingExists checks whether an existing ManagedLoginBranding resource with the given ID exists.
+func ManagedLoginBrandingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedLoginBrandingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/managedLoginBranding:ManagedLoginBranding", id, state, "", opts...)
+}
+
 type managedLoginBrandingArgs struct {
 	// Image files to apply to roles like backgrounds, logos, and icons. See details below.
 	Assets []ManagedLoginBrandingAsset `pulumi:"assets"`

@@ -813,6 +813,34 @@ class ExperimentTemplate(pulumi.CustomResource):
         __props__.__dict__["targets"] = targets
         return ExperimentTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict', 'outputs.ExperimentTemplateAction']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict', 'outputs.ExperimentTemplateExperimentOptions']]] = None,
+            experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict', 'outputs.ExperimentTemplateExperimentReportConfiguration']]] = None,
+            log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict', 'outputs.ExperimentTemplateLogConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict', 'outputs.ExperimentTemplateStopCondition']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict', 'outputs.ExperimentTemplateTarget']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["description"] = description
+        __props__["experimentOptions"] = experiment_options
+        __props__["experimentReportConfiguration"] = experiment_report_configuration
+        __props__["logConfiguration"] = log_configuration
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["stopConditions"] = stop_conditions
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targets"] = targets
+        return pulumi.runtime.exists_resource(None, 'aws:fis/experimentTemplate:ExperimentTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.ExperimentTemplateAction']]:

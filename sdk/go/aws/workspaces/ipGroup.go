@@ -141,6 +141,12 @@ func (IpGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipGroupState)(nil)).Elem()
 }
 
+// IpGroupExists checks whether an existing IpGroup resource with the given ID exists.
+func IpGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspaces/ipGroup:IpGroup", id, state, "", opts...)
+}
+
 type ipGroupArgs struct {
 	// The description of the IP group.
 	Description *string `pulumi:"description"`

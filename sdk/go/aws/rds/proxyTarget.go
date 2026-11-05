@@ -149,6 +149,12 @@ func (ProxyTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyTargetState)(nil)).Elem()
 }
 
+// ProxyTargetExists checks whether an existing ProxyTarget resource with the given ID exists.
+func ProxyTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProxyTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/proxyTarget:ProxyTarget", id, state, "", opts...)
+}
+
 type proxyTargetArgs struct {
 	// DB cluster identifier.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`

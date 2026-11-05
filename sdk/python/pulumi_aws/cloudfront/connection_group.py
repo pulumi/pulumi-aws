@@ -545,6 +545,40 @@ class ConnectionGroup(pulumi.CustomResource):
         __props__.__dict__["wait_for_deployment"] = wait_for_deployment
         return ConnectionGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict', 'outputs.ConnectionGroupTimeouts']]] = None,
+            wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["anycastIpListId"] = anycast_ip_list_id
+        __props__["arn"] = arn
+        __props__["enabled"] = enabled
+        __props__["etag"] = etag
+        __props__["ipv6Enabled"] = ipv6_enabled
+        __props__["isDefault"] = is_default
+        __props__["lastModifiedTime"] = last_modified_time
+        __props__["name"] = name
+        __props__["routingEndpoint"] = routing_endpoint
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["waitForDeployment"] = wait_for_deployment
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/connectionGroup:ConnectionGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
     def anycast_ip_list_id(self) -> pulumi.Output[Optional[_builtins.str]]:

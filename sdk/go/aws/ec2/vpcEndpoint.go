@@ -615,6 +615,12 @@ func (VpcEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointState)(nil)).Elem()
 }
 
+// VpcEndpointExists checks whether an existing VpcEndpoint resource with the given ID exists.
+func VpcEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcEndpoint:VpcEndpoint", id, state, "", opts...)
+}
+
 type vpcEndpointArgs struct {
 	// Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept *bool `pulumi:"autoAccept"`

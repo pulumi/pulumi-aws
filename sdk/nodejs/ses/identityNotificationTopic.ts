@@ -43,6 +43,17 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
         return new IdentityNotificationTopic(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing IdentityNotificationTopic resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: IdentityNotificationTopicState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:ses/identityNotificationTopic:IdentityNotificationTopic", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:ses/identityNotificationTopic:IdentityNotificationTopic';
 

@@ -785,6 +785,46 @@ class ImageRecipe(pulumi.CustomResource):
         __props__.__dict__["working_directory"] = working_directory
         return ImageRecipe(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ami_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict', 'outputs.ImageRecipeBlockDeviceMapping']]]]] = None,
+            components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict', 'outputs.ImageRecipeComponent']]]]] = None,
+            date_created: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_image: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            systems_manager_agent: pulumi.Input[Optional[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict', 'outputs.ImageRecipeSystemsManagerAgent']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            working_directory: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["amiTags"] = ami_tags
+        __props__["arn"] = arn
+        __props__["blockDeviceMappings"] = block_device_mappings
+        __props__["components"] = components
+        __props__["dateCreated"] = date_created
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["owner"] = owner
+        __props__["parentImage"] = parent_image
+        __props__["platform"] = platform
+        __props__["region"] = region
+        __props__["systemsManagerAgent"] = systems_manager_agent
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userDataBase64"] = user_data_base64
+        __props__["version"] = version
+        __props__["workingDirectory"] = working_directory
+        return pulumi.runtime.exists_resource(None, 'aws:imagebuilder/imageRecipe:ImageRecipe', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="amiTags")
     def ami_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

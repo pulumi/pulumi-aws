@@ -530,6 +530,34 @@ class User(pulumi.CustomResource):
         __props__.__dict__["user_principal_name"] = user_principal_name
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            distinguished_name: pulumi.Input[Optional[_builtins.str]] = None,
+            email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            given_name: pulumi.Input[Optional[_builtins.str]] = None,
+            realm: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sam_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sid: pulumi.Input[Optional[_builtins.str]] = None,
+            surname: pulumi.Input[Optional[_builtins.str]] = None,
+            user_principal_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["directoryId"] = directory_id
+        __props__["distinguishedName"] = distinguished_name
+        __props__["emailAddress"] = email_address
+        __props__["enabled"] = enabled
+        __props__["givenName"] = given_name
+        __props__["realm"] = realm
+        __props__["region"] = region
+        __props__["samAccountName"] = sam_account_name
+        __props__["sid"] = sid
+        __props__["surname"] = surname
+        __props__["userPrincipalName"] = user_principal_name
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservicedata/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:

@@ -190,6 +190,12 @@ func (OtelEnrichmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*otelEnrichmentState)(nil)).Elem()
 }
 
+// OtelEnrichmentExists checks whether an existing OtelEnrichment resource with the given ID exists.
+func OtelEnrichmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OtelEnrichmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/otelEnrichment:OtelEnrichment", id, state, "", opts...)
+}
+
 type otelEnrichmentArgs struct {
 	// Namespaces and metric names to leave unenriched. See below.
 	ExcludeFilters []OtelEnrichmentExcludeFilter `pulumi:"excludeFilters"`

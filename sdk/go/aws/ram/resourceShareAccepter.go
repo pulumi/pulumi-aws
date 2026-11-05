@@ -174,6 +174,12 @@ func (ResourceShareAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceShareAccepterState)(nil)).Elem()
 }
 
+// ResourceShareAccepterExists checks whether an existing ResourceShareAccepter resource with the given ID exists.
+func ResourceShareAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceShareAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ram/resourceShareAccepter:ResourceShareAccepter", id, state, "", opts...)
+}
+
 type resourceShareAccepterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

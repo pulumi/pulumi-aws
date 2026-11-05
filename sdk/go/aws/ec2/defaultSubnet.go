@@ -206,6 +206,12 @@ func (DefaultSubnetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultSubnetState)(nil)).Elem()
 }
 
+// DefaultSubnetExists checks whether an existing DefaultSubnet resource with the given ID exists.
+func DefaultSubnetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultSubnetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/defaultSubnet:DefaultSubnet", id, state, "", opts...)
+}
+
 type defaultSubnetArgs struct {
 	AssignIpv6AddressOnCreation *bool `pulumi:"assignIpv6AddressOnCreation"`
 	// is required

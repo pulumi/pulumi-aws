@@ -344,6 +344,18 @@ class ResourceMetricsConfiguration(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = resource_arn
         return ResourceMetricsConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            metric_selection: pulumi.Input[Optional[Union['ResourceMetricsConfigurationMetricSelectionArgs', 'ResourceMetricsConfigurationMetricSelectionArgsDict', 'outputs.ResourceMetricsConfigurationMetricSelection']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["metricSelection"] = metric_selection
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/resourceMetricsConfiguration:ResourceMetricsConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="metricSelection")
     def metric_selection(self) -> pulumi.Output[Optional['outputs.ResourceMetricsConfigurationMetricSelection']]:

@@ -370,6 +370,12 @@ func (ConnectPeerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectPeerState)(nil)).Elem()
 }
 
+// ConnectPeerExists checks whether an existing ConnectPeer resource with the given ID exists.
+func ConnectPeerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectPeerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/connectPeer:ConnectPeer", id, state, "", opts...)
+}
+
 type connectPeerArgs struct {
 	// Connect peer BGP options. See bgpOptions for more information.
 	BgpOptions *ConnectPeerBgpOptions `pulumi:"bgpOptions"`

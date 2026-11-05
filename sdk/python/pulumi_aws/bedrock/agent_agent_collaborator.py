@@ -661,6 +661,32 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentAgentCollaborator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict', 'outputs.AgentAgentCollaboratorAgentDescriptor']]] = None,
+            agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            collaboration_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+            collaborator_id: pulumi.Input[Optional[_builtins.str]] = None,
+            collaborator_name: pulumi.Input[Optional[_builtins.str]] = None,
+            prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict', 'outputs.AgentAgentCollaboratorTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentDescriptor"] = agent_descriptor
+        __props__["agentId"] = agent_id
+        __props__["agentVersion"] = agent_version
+        __props__["collaborationInstruction"] = collaboration_instruction
+        __props__["collaboratorId"] = collaborator_id
+        __props__["collaboratorName"] = collaborator_name
+        __props__["prepareAgent"] = prepare_agent
+        __props__["region"] = region
+        __props__["relayConversationHistory"] = relay_conversation_history
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentDescriptor")
     def agent_descriptor(self) -> pulumi.Output['outputs.AgentAgentCollaboratorAgentDescriptor']:

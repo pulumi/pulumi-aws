@@ -632,6 +632,38 @@ class FeatureGroup(pulumi.CustomResource):
         __props__.__dict__["throughput_config"] = throughput_config
         return FeatureGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            event_time_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+            feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]]] = None,
+            feature_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            offline_store_config: pulumi.Input[Optional[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict', 'outputs.FeatureGroupOfflineStoreConfig']]] = None,
+            online_store_config: pulumi.Input[Optional[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict', 'outputs.FeatureGroupOnlineStoreConfig']]] = None,
+            record_identifier_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict', 'outputs.FeatureGroupThroughputConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["eventTimeFeatureName"] = event_time_feature_name
+        __props__["featureDefinitions"] = feature_definitions
+        __props__["featureGroupName"] = feature_group_name
+        __props__["offlineStoreConfig"] = offline_store_config
+        __props__["onlineStoreConfig"] = online_store_config
+        __props__["recordIdentifierFeatureName"] = record_identifier_feature_name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throughputConfig"] = throughput_config
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/featureGroup:FeatureGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

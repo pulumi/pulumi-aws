@@ -151,6 +151,12 @@ func (WorkerConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workerConfigurationState)(nil)).Elem()
 }
 
+// WorkerConfigurationExists checks whether an existing WorkerConfiguration resource with the given ID exists.
+func WorkerConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkerConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mskconnect/workerConfiguration:WorkerConfiguration", id, state, "", opts...)
+}
+
 type workerConfigurationArgs struct {
 	// Summary description of the worker configuration.
 	Description *string `pulumi:"description"`

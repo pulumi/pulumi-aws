@@ -420,6 +420,12 @@ func (BucketV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketV2State)(nil)).Elem()
 }
 
+// BucketV2Exists checks whether an existing BucketV2 resource with the given ID exists.
+func BucketV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketV2:BucketV2", id, state, "", opts...)
+}
+
 type bucketV2Args struct {
 	// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAccelerateConfiguration` instead.
 	//

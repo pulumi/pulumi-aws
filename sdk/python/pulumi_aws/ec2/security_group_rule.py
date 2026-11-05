@@ -880,6 +880,38 @@ class SecurityGroupRule(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return SecurityGroupRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            from_port: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            prefix_list_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            protocol: pulumi.Input[Optional[Union[_builtins.str, 'ProtocolType']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            self: pulumi.Input[Optional[_builtins.bool]] = None,
+            source_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            to_port: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidrBlocks"] = cidr_blocks
+        __props__["description"] = description
+        __props__["fromPort"] = from_port
+        __props__["ipv6CidrBlocks"] = ipv6_cidr_blocks
+        __props__["prefixListIds"] = prefix_list_ids
+        __props__["protocol"] = protocol
+        __props__["region"] = region
+        __props__["securityGroupId"] = security_group_id
+        __props__["securityGroupRuleId"] = security_group_rule_id
+        __props__["self"] = self
+        __props__["sourceSecurityGroupId"] = source_security_group_id
+        __props__["toPort"] = to_port
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/securityGroupRule:SecurityGroupRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

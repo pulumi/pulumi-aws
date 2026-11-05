@@ -193,6 +193,12 @@ func (TelemetryEvaluationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*telemetryEvaluationState)(nil)).Elem()
 }
 
+// TelemetryEvaluationExists checks whether an existing TelemetryEvaluation resource with the given ID exists.
+func TelemetryEvaluationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TelemetryEvaluationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:observabilityadmin/telemetryEvaluation:TelemetryEvaluation", id, state, "", opts...)
+}
+
 type telemetryEvaluationArgs struct {
 	// Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
 	AllRegions *bool `pulumi:"allRegions"`

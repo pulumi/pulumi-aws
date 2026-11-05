@@ -177,6 +177,12 @@ func (QueryLogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryLogState)(nil)).Elem()
 }
 
+// QueryLogExists checks whether an existing QueryLog resource with the given ID exists.
+func QueryLogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueryLogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/queryLog:QueryLog", id, state, "", opts...)
+}
+
 type queryLogArgs struct {
 	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`

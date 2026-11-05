@@ -160,6 +160,12 @@ func (LogDeliverySourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDeliverySourceState)(nil)).Elem()
 }
 
+// LogDeliverySourceExists checks whether an existing LogDeliverySource resource with the given ID exists.
+func LogDeliverySourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogDeliverySourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logDeliverySource:LogDeliverySource", id, state, "", opts...)
+}
+
 type logDeliverySourceArgs struct {
 	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon Bedrock AgentCore, the valid values are `APPLICATION_LOGS`, `TRACES`, and `USAGE_LOGS`. For Amazon CloudFront, the valid value is `ACCESS_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`. See [Enable logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) for the log types supported by each service.
 	LogType string `pulumi:"logType"`

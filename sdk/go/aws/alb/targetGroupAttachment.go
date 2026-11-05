@@ -268,6 +268,12 @@ func (TargetGroupAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupAttachmentState)(nil)).Elem()
 }
 
+// TargetGroupAttachmentExists checks whether an existing TargetGroupAttachment resource with the given ID exists.
+func TargetGroupAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TargetGroupAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:alb/targetGroupAttachment:TargetGroupAttachment", id, state, "", opts...)
+}
+
 type targetGroupAttachmentArgs struct {
 	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`

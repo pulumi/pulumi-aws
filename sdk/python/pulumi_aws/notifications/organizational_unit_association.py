@@ -288,6 +288,16 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
         __props__.__dict__["organizational_unit_id"] = organizational_unit_id
         return OrganizationalUnitAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            organizational_unit_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["notificationConfigurationArn"] = notification_configuration_arn
+        __props__["organizationalUnitId"] = organizational_unit_id
+        return pulumi.runtime.exists_resource(None, 'aws:notifications/organizationalUnitAssociation:OrganizationalUnitAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="notificationConfigurationArn")
     def notification_configuration_arn(self) -> pulumi.Output[_builtins.str]:

@@ -509,6 +509,32 @@ class App(pulumi.CustomResource):
         __props__.__dict__["user_profile_name"] = user_profile_name
         return App(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_name: pulumi.Input[Optional[_builtins.str]] = None,
+            app_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_spec: pulumi.Input[Optional[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict', 'outputs.AppResourceSpec']]] = None,
+            space_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_profile_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appName"] = app_name
+        __props__["appType"] = app_type
+        __props__["arn"] = arn
+        __props__["domainId"] = domain_id
+        __props__["region"] = region
+        __props__["resourceSpec"] = resource_spec
+        __props__["spaceName"] = space_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userProfileName"] = user_profile_name
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/app:App', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appName")
     def app_name(self) -> pulumi.Output[_builtins.str]:

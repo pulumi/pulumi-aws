@@ -233,6 +233,12 @@ func (OrganizationCustomPolicyRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationCustomPolicyRuleState)(nil)).Elem()
 }
 
+// OrganizationCustomPolicyRuleExists checks whether an existing OrganizationCustomPolicyRule resource with the given ID exists.
+func OrganizationCustomPolicyRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationCustomPolicyRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule", id, state, "", opts...)
+}
+
 type organizationCustomPolicyRuleArgs struct {
 	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts []string `pulumi:"debugLogDeliveryAccounts"`

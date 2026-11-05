@@ -160,6 +160,12 @@ func (PermissionSetInlinePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionSetInlinePolicyState)(nil)).Elem()
 }
 
+// PermissionSetInlinePolicyExists checks whether an existing PermissionSetInlinePolicy resource with the given ID exists.
+func PermissionSetInlinePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionSetInlinePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy", id, state, "", opts...)
+}
+
 type permissionSetInlinePolicyArgs struct {
 	// The IAM inline policy to attach to a Permission Set.
 	InlinePolicy string `pulumi:"inlinePolicy"`

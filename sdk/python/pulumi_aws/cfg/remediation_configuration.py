@@ -704,6 +704,36 @@ class RemediationConfiguration(pulumi.CustomResource):
         __props__.__dict__["target_version"] = target_version
         return RemediationConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+            config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_controls: pulumi.Input[Optional[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict', 'outputs.RemediationConfigurationExecutionControls']]] = None,
+            maximum_automatic_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict', 'outputs.RemediationConfigurationParameter']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            retry_attempt_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None,
+            target_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["automatic"] = automatic
+        __props__["configRuleName"] = config_rule_name
+        __props__["executionControls"] = execution_controls
+        __props__["maximumAutomaticAttempts"] = maximum_automatic_attempts
+        __props__["parameters"] = parameters
+        __props__["region"] = region
+        __props__["resourceType"] = resource_type
+        __props__["retryAttemptSeconds"] = retry_attempt_seconds
+        __props__["targetId"] = target_id
+        __props__["targetType"] = target_type
+        __props__["targetVersion"] = target_version
+        return pulumi.runtime.exists_resource(None, 'aws:cfg/remediationConfiguration:RemediationConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

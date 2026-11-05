@@ -599,6 +599,30 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         __props__.__dict__["server_timing_headers_config"] = server_timing_headers_config
         return ResponseHeadersPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict', 'outputs.ResponseHeadersPolicyCorsConfig']]] = None,
+            custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyCustomHeadersConfig']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyRemoveHeadersConfig']]] = None,
+            security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicySecurityHeadersConfig']]] = None,
+            server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyServerTimingHeadersConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["comment"] = comment
+        __props__["corsConfig"] = cors_config
+        __props__["customHeadersConfig"] = custom_headers_config
+        __props__["etag"] = etag
+        __props__["name"] = name
+        __props__["removeHeadersConfig"] = remove_headers_config
+        __props__["securityHeadersConfig"] = security_headers_config
+        __props__["serverTimingHeadersConfig"] = server_timing_headers_config
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

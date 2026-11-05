@@ -536,6 +536,34 @@ class Activation(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Activation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activation_code: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            expired: pulumi.Input[Optional[_builtins.bool]] = None,
+            iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registration_count: pulumi.Input[Optional[_builtins.int]] = None,
+            registration_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activationCode"] = activation_code
+        __props__["description"] = description
+        __props__["expirationDate"] = expiration_date
+        __props__["expired"] = expired
+        __props__["iamRole"] = iam_role
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["registrationCount"] = registration_count
+        __props__["registrationLimit"] = registration_limit
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/activation:Activation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activationCode")
     def activation_code(self) -> pulumi.Output[_builtins.str]:

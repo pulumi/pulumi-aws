@@ -479,6 +479,12 @@ func (EventConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventConnectionState)(nil)).Elem()
 }
 
+// EventConnectionExists checks whether an existing EventConnection resource with the given ID exists.
+func EventConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/eventConnection:EventConnection", id, state, "", opts...)
+}
+
 type eventConnectionArgs struct {
 	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
 	AuthParameters EventConnectionAuthParameters `pulumi:"authParameters"`

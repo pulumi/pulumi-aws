@@ -196,6 +196,12 @@ func (ConfiguredTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configuredTableState)(nil)).Elem()
 }
 
+// ConfiguredTableExists checks whether an existing ConfiguredTable resource with the given ID exists.
+func ConfiguredTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfiguredTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cleanrooms/configuredTable:ConfiguredTable", id, state, "", opts...)
+}
+
 type configuredTableArgs struct {
 	// The columns of the references table which will be included in the configured table.
 	AllowedColumns []string `pulumi:"allowedColumns"`

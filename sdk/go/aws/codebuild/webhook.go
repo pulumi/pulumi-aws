@@ -277,6 +277,12 @@ func (WebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookState)(nil)).Elem()
 }
 
+// WebhookExists checks whether an existing Webhook resource with the given ID exists.
+func WebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codebuild/webhook:Webhook", id, state, "", opts...)
+}
+
 type webhookArgs struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter *string `pulumi:"branchFilter"`

@@ -347,6 +347,12 @@ func (TargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetState)(nil)).Elem()
 }
 
+// TargetExists checks whether an existing Target resource with the given ID exists.
+func TargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appautoscaling/target:Target", id, state, "", opts...)
+}
+
 type targetArgs struct {
 	// Max capacity of the scalable target.
 	MaxCapacity int `pulumi:"maxCapacity"`

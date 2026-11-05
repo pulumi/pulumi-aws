@@ -109,6 +109,12 @@ func (OrganizationsAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationsAccessState)(nil)).Elem()
 }
 
+// OrganizationsAccessExists checks whether an existing OrganizationsAccess resource with the given ID exists.
+func OrganizationsAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationsAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:notifications/organizationsAccess:OrganizationsAccess", id, state, "", opts...)
+}
+
 type organizationsAccessArgs struct {
 	// Whether to enable organizations access for AWS User Notifications in AWS Organizations. When set to `true`, enables organizations access. When set to `false`, disables organizations access.
 	Enabled  bool                         `pulumi:"enabled"`

@@ -151,6 +151,12 @@ func (VoiceConnectorOriginationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*voiceConnectorOriginationState)(nil)).Elem()
 }
 
+// VoiceConnectorOriginationExists checks whether an existing VoiceConnectorOrigination resource with the given ID exists.
+func VoiceConnectorOriginationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VoiceConnectorOriginationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination", id, state, "", opts...)
+}
+
 type voiceConnectorOriginationArgs struct {
 	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
 	Disabled *bool `pulumi:"disabled"`

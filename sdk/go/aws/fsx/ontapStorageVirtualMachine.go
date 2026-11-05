@@ -246,6 +246,12 @@ func (OntapStorageVirtualMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ontapStorageVirtualMachineState)(nil)).Elem()
 }
 
+// OntapStorageVirtualMachineExists checks whether an existing OntapStorageVirtualMachine resource with the given ID exists.
+func OntapStorageVirtualMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OntapStorageVirtualMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine", id, state, "", opts...)
+}
+
 type ontapStorageVirtualMachineArgs struct {
 	// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
 	ActiveDirectoryConfiguration *OntapStorageVirtualMachineActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`

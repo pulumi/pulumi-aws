@@ -536,6 +536,34 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachment_count: pulumi.Input[Optional[_builtins.int]] = None,
+            delay_after_policy_creation_in_ms: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["attachmentCount"] = attachment_count
+        __props__["delayAfterPolicyCreationInMs"] = delay_after_policy_creation_in_ms
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["path"] = path
+        __props__["policy"] = policy
+        __props__["policyId"] = policy_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:iam/policy:Policy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

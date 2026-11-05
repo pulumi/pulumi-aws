@@ -260,6 +260,18 @@ class TelemetryEnrichment(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return TelemetryEnrichment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_resource_explorer_managed_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict', 'outputs.TelemetryEnrichmentTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsResourceExplorerManagedViewArn"] = aws_resource_explorer_managed_view_arn
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:observabilityadmin/telemetryEnrichment:TelemetryEnrichment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsResourceExplorerManagedViewArn")
     def aws_resource_explorer_managed_view_arn(self) -> pulumi.Output[_builtins.str]:

@@ -519,6 +519,28 @@ class LanguageModel(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return LanguageModel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+            input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']]] = None,
+            language_code: pulumi.Input[Optional[_builtins.str]] = None,
+            model_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["baseModelName"] = base_model_name
+        __props__["inputDataConfig"] = input_data_config
+        __props__["languageCode"] = language_code
+        __props__["modelName"] = model_name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:transcribe/languageModel:LanguageModel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

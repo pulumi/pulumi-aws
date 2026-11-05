@@ -128,6 +128,12 @@ func (ContainerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerState)(nil)).Elem()
 }
 
+// ContainerExists checks whether an existing Container resource with the given ID exists.
+func ContainerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mediastore/container:Container", id, state, "", opts...)
+}
+
 type containerArgs struct {
 	// Name of the container. Must contain alphanumeric characters or underscores.
 	Name *string `pulumi:"name"`

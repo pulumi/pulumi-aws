@@ -134,6 +134,12 @@ func (UserCustomPermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userCustomPermissionState)(nil)).Elem()
 }
 
+// UserCustomPermissionExists checks whether an existing UserCustomPermission resource with the given ID exists.
+func UserCustomPermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserCustomPermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/userCustomPermission:UserCustomPermission", id, state, "", opts...)
+}
+
 type userCustomPermissionArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

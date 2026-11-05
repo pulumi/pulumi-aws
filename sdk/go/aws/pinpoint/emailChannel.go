@@ -270,6 +270,12 @@ func (EmailChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailChannelState)(nil)).Elem()
 }
 
+// EmailChannelExists checks whether an existing EmailChannel resource with the given ID exists.
+func EmailChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/emailChannel:EmailChannel", id, state, "", opts...)
+}
+
 type emailChannelArgs struct {
 	// Application ID.
 	//

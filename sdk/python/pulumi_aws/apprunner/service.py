@@ -822,6 +822,42 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['ServiceEncryptionConfigurationArgs', 'ServiceEncryptionConfigurationArgsDict', 'outputs.ServiceEncryptionConfiguration']]] = None,
+            health_check_configuration: pulumi.Input[Optional[Union['ServiceHealthCheckConfigurationArgs', 'ServiceHealthCheckConfigurationArgsDict', 'outputs.ServiceHealthCheckConfiguration']]] = None,
+            instance_configuration: pulumi.Input[Optional[Union['ServiceInstanceConfigurationArgs', 'ServiceInstanceConfigurationArgsDict', 'outputs.ServiceInstanceConfiguration']]] = None,
+            network_configuration: pulumi.Input[Optional[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict', 'outputs.ServiceNetworkConfiguration']]] = None,
+            observability_configuration: pulumi.Input[Optional[Union['ServiceObservabilityConfigurationArgs', 'ServiceObservabilityConfigurationArgsDict', 'outputs.ServiceObservabilityConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            source_configuration: pulumi.Input[Optional[Union['ServiceSourceConfigurationArgs', 'ServiceSourceConfigurationArgsDict', 'outputs.ServiceSourceConfiguration']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoScalingConfigurationArn"] = auto_scaling_configuration_arn
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["healthCheckConfiguration"] = health_check_configuration
+        __props__["instanceConfiguration"] = instance_configuration
+        __props__["networkConfiguration"] = network_configuration
+        __props__["observabilityConfiguration"] = observability_configuration
+        __props__["region"] = region
+        __props__["serviceId"] = service_id
+        __props__["serviceName"] = service_name
+        __props__["serviceUrl"] = service_url
+        __props__["sourceConfiguration"] = source_configuration
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:apprunner/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

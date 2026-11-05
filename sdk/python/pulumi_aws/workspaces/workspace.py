@@ -616,6 +616,38 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["workspace_properties"] = workspace_properties
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            volume_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_properties: pulumi.Input[Optional[Union['WorkspaceWorkspacePropertiesArgs', 'WorkspaceWorkspacePropertiesArgsDict', 'outputs.WorkspaceWorkspaceProperties']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bundleId"] = bundle_id
+        __props__["computerName"] = computer_name
+        __props__["directoryId"] = directory_id
+        __props__["ipAddress"] = ip_address
+        __props__["region"] = region
+        __props__["rootVolumeEncryptionEnabled"] = root_volume_encryption_enabled
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userName"] = user_name
+        __props__["userVolumeEncryptionEnabled"] = user_volume_encryption_enabled
+        __props__["volumeEncryptionKey"] = volume_encryption_key
+        __props__["workspaceProperties"] = workspace_properties
+        return pulumi.runtime.exists_resource(None, 'aws:workspaces/workspace:Workspace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[_builtins.str]:

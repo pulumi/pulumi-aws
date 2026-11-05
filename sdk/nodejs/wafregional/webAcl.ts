@@ -120,6 +120,17 @@ export class WebAcl extends pulumi.CustomResource {
         return new WebAcl(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing WebAcl resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: WebAclState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:wafregional/webAcl:WebAcl", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:wafregional/webAcl:WebAcl';
 

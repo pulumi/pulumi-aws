@@ -372,6 +372,24 @@ class NetworkInterfacePermission(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return NetworkInterfacePermission(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_permission_id: pulumi.Input[Optional[_builtins.str]] = None,
+            permission: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['NetworkInterfacePermissionTimeoutsArgs', 'NetworkInterfacePermissionTimeoutsArgsDict', 'outputs.NetworkInterfacePermissionTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsAccountId"] = aws_account_id
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["networkInterfacePermissionId"] = network_interface_permission_id
+        __props__["permission"] = permission
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/networkInterfacePermission:NetworkInterfacePermission', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:

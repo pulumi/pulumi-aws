@@ -602,6 +602,22 @@ class BucketAclV2(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return BucketAclV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_control_policy: pulumi.Input[Optional[Union['BucketAclV2AccessControlPolicyArgs', 'BucketAclV2AccessControlPolicyArgsDict', 'outputs.BucketAclV2AccessControlPolicy']]] = None,
+            acl: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessControlPolicy"] = access_control_policy
+        __props__["acl"] = acl
+        __props__["bucket"] = bucket
+        __props__["expectedBucketOwner"] = expected_bucket_owner
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketAclV2:BucketAclV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessControlPolicy")
     def access_control_policy(self) -> pulumi.Output['outputs.BucketAclV2AccessControlPolicy']:

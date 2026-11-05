@@ -1057,6 +1057,50 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            architecture: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_start_configuration: pulumi.Input[Optional[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict', 'outputs.ApplicationAutoStartConfiguration']]] = None,
+            auto_stop_configuration: pulumi.Input[Optional[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict', 'outputs.ApplicationAutoStopConfiguration']]] = None,
+            image_configuration: pulumi.Input[Optional[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict', 'outputs.ApplicationImageConfiguration']]] = None,
+            initial_capacities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict', 'outputs.ApplicationInitialCapacity']]]]] = None,
+            interactive_configuration: pulumi.Input[Optional[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict', 'outputs.ApplicationInteractiveConfiguration']]] = None,
+            job_level_cost_allocation_configuration: pulumi.Input[Optional[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict', 'outputs.ApplicationJobLevelCostAllocationConfiguration']]] = None,
+            maximum_capacity: pulumi.Input[Optional[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict', 'outputs.ApplicationMaximumCapacity']]] = None,
+            monitoring_configuration: pulumi.Input[Optional[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict', 'outputs.ApplicationMonitoringConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict', 'outputs.ApplicationNetworkConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_label: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationRuntimeConfigurationArgs', 'ApplicationRuntimeConfigurationArgsDict', 'outputs.ApplicationRuntimeConfiguration']]]]] = None,
+            scheduler_configuration: pulumi.Input[Optional[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict', 'outputs.ApplicationSchedulerConfiguration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["architecture"] = architecture
+        __props__["arn"] = arn
+        __props__["autoStartConfiguration"] = auto_start_configuration
+        __props__["autoStopConfiguration"] = auto_stop_configuration
+        __props__["imageConfiguration"] = image_configuration
+        __props__["initialCapacities"] = initial_capacities
+        __props__["interactiveConfiguration"] = interactive_configuration
+        __props__["jobLevelCostAllocationConfiguration"] = job_level_cost_allocation_configuration
+        __props__["maximumCapacity"] = maximum_capacity
+        __props__["monitoringConfiguration"] = monitoring_configuration
+        __props__["name"] = name
+        __props__["networkConfiguration"] = network_configuration
+        __props__["region"] = region
+        __props__["releaseLabel"] = release_label
+        __props__["runtimeConfigurations"] = runtime_configurations
+        __props__["schedulerConfiguration"] = scheduler_configuration
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:emrserverless/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def architecture(self) -> pulumi.Output[Optional[_builtins.str]]:

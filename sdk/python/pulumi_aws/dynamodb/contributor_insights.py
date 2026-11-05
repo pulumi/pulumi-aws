@@ -297,6 +297,20 @@ class ContributorInsights(pulumi.CustomResource):
         __props__.__dict__["table_name"] = table_name
         return ContributorInsights(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            index_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["indexName"] = index_name
+        __props__["mode"] = mode
+        __props__["region"] = region
+        __props__["tableName"] = table_name
+        return pulumi.runtime.exists_resource(None, 'aws:dynamodb/contributorInsights:ContributorInsights', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -197,6 +197,12 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryBucketState)(nil)).Elem()
 }
 
+// DirectoryBucketExists checks whether an existing DirectoryBucket resource with the given ID exists.
+func DirectoryBucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectoryBucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/directoryBucket:DirectoryBucket", id, state, "", opts...)
+}
+
 type directoryBucketArgs struct {
 	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket string `pulumi:"bucket"`

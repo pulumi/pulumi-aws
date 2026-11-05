@@ -127,6 +127,12 @@ func (VoiceConnectorLoggingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*voiceConnectorLoggingState)(nil)).Elem()
 }
 
+// VoiceConnectorLoggingExists checks whether an existing VoiceConnectorLogging resource with the given ID exists.
+func VoiceConnectorLoggingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VoiceConnectorLoggingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/voiceConnectorLogging:VoiceConnectorLogging", id, state, "", opts...)
+}
+
 type voiceConnectorLoggingArgs struct {
 	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
 	EnableMediaMetricLogs *bool `pulumi:"enableMediaMetricLogs"`

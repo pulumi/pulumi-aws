@@ -310,6 +310,12 @@ func (ClusterPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterPolicyState)(nil)).Elem()
 }
 
+// ClusterPolicyExists checks whether an existing ClusterPolicy resource with the given ID exists.
+func ClusterPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dsql/clusterPolicy:ClusterPolicy", id, state, "", opts...)
+}
+
 type clusterPolicyArgs struct {
 	// Whether to bypass the policy lockout safety check. Setting this value to `true` increases the risk that the cluster becomes unmanageable. Defaults to `false`.
 	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`

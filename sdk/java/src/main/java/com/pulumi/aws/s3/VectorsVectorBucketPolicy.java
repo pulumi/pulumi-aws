@@ -36,35 +36,35 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new VectorsVectorBucketPolicy("example", VectorsVectorBucketPolicyArgs.builder()
  *             .vectorBucketArn(exampleAwsS3vectorsVectorBucket.get("arn"))
  *             .policy("""
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Id\": \"writePolicy\",
- *   \"Statement\": [{
- *     \"Sid\": \"writeStatement\",
- *     \"Effect\": \"Allow\",
- *     \"Principal\": {
- *       \"AWS\": \"123456789012\"
- *     },
- *     \"Action\": [
- *       \"s3vectors:PutVectors\"
+ * }{{@code
+ *   }&#92;{@code "Version}&#92;{@code ": }&#92;{@code "2012-10-17}&#92;{@code ",
+ *   }&#92;{@code "Id}&#92;{@code ": }&#92;{@code "writePolicy}&#92;{@code ",
+ *   }&#92;{@code "Statement}&#92;{@code ": [}{{@code
+ *     }&#92;{@code "Sid}&#92;{@code ": }&#92;{@code "writeStatement}&#92;{@code ",
+ *     }&#92;{@code "Effect}&#92;{@code ": }&#92;{@code "Allow}&#92;{@code ",
+ *     }&#92;{@code "Principal}&#92;{@code ": }{{@code
+ *       }&#92;{@code "AWS}&#92;{@code ": }&#92;{@code "123456789012}&#92;{@code "
+ *     }}{@code ,
+ *     }&#92;{@code "Action}&#92;{@code ": [
+ *       }&#92;{@code "s3vectors:PutVectors}&#92;{@code "
  *     ],
- *     \"Resource\": \"*\"
- *   }]
- * }
+ *     }&#92;{@code "Resource}&#92;{@code ": }&#92;{@code "*}&#92;{@code "
+ *   }}{@code ]
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

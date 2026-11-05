@@ -405,6 +405,12 @@ func (TopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicState)(nil)).Elem()
 }
 
+// TopicExists checks whether an existing Topic resource with the given ID exists.
+func TopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sns/topic:Topic", id, state, "", opts...)
+}
+
 type topicArgs struct {
 	// IAM role for failure feedback
 	ApplicationFailureFeedbackRoleArn *string `pulumi:"applicationFailureFeedbackRoleArn"`

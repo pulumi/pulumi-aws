@@ -148,6 +148,12 @@ func (ProfilingGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profilingGroupState)(nil)).Elem()
 }
 
+// ProfilingGroupExists checks whether an existing ProfilingGroup resource with the given ID exists.
+func ProfilingGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfilingGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codeguruprofiler/profilingGroup:ProfilingGroup", id, state, "", opts...)
+}
+
 type profilingGroupArgs struct {
 	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
 	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfig `pulumi:"agentOrchestrationConfig"`

@@ -279,6 +279,18 @@ class TenantResourceAssociation(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = tenant_name
         return TenantResourceAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        __props__["tenantName"] = tenant_name
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/tenantResourceAssociation:TenantResourceAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

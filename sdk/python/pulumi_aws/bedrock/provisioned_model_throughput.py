@@ -468,6 +468,30 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ProvisionedModelThroughput(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            commitment_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            model_units: pulumi.Input[Optional[_builtins.int]] = None,
+            provisioned_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict', 'outputs.ProvisionedModelThroughputTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["commitmentDuration"] = commitment_duration
+        __props__["modelArn"] = model_arn
+        __props__["modelUnits"] = model_units
+        __props__["provisionedModelArn"] = provisioned_model_arn
+        __props__["provisionedModelName"] = provisioned_model_name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="commitmentDuration")
     def commitment_duration(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -402,6 +402,24 @@ class FrameworkShare(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return FrameworkShare(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_account: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+            framework_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["destinationAccount"] = destination_account
+        __props__["destinationRegion"] = destination_region
+        __props__["frameworkId"] = framework_id
+        __props__["region"] = region
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:auditmanager/frameworkShare:FrameworkShare', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

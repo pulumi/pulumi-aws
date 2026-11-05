@@ -183,6 +183,12 @@ func (ApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationState)(nil)).Elem()
 }
 
+// ApplicationExists checks whether an existing Application resource with the given ID exists.
+func ApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:qbusiness/application:Application", id, state, "", opts...)
+}
+
 type applicationArgs struct {
 	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
 	AttachmentsConfiguration ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`

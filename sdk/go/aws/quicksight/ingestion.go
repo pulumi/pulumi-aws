@@ -152,6 +152,12 @@ func (IngestionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ingestionState)(nil)).Elem()
 }
 
+// IngestionExists checks whether an existing Ingestion resource with the given ID exists.
+func IngestionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IngestionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/ingestion:Ingestion", id, state, "", opts...)
+}
+
 type ingestionArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

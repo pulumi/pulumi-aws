@@ -482,6 +482,30 @@ class UserPoolUICustomization(pulumi.CustomResource):
         __props__.__dict__["user_pool_id"] = user_pool_id
         return UserPoolUICustomization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            css: pulumi.Input[Optional[_builtins.str]] = None,
+            css_version: pulumi.Input[Optional[_builtins.str]] = None,
+            image_file: pulumi.Input[Optional[_builtins.str]] = None,
+            image_url: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clientId"] = client_id
+        __props__["creationDate"] = creation_date
+        __props__["css"] = css
+        __props__["cssVersion"] = css_version
+        __props__["imageFile"] = image_file
+        __props__["imageUrl"] = image_url
+        __props__["lastModifiedDate"] = last_modified_date
+        __props__["region"] = region
+        __props__["userPoolId"] = user_pool_id
+        return pulumi.runtime.exists_resource(None, 'aws:cognito/userPoolUICustomization:UserPoolUICustomization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[_builtins.str]]:

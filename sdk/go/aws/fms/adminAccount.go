@@ -94,6 +94,12 @@ func (AdminAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*adminAccountState)(nil)).Elem()
 }
 
+// AdminAccountExists checks whether an existing AdminAccount resource with the given ID exists.
+func AdminAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdminAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fms/adminAccount:AdminAccount", id, state, "", opts...)
+}
+
 type adminAccountArgs struct {
 	// AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
 	AccountId *string `pulumi:"accountId"`

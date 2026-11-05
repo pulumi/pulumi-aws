@@ -125,11 +125,10 @@ public class App extends com.pulumi.resources.CustomResource {
     /**
      * Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
      * 
-     * @deprecated
-     * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     @Export(name="campaignHook", refs={AppCampaignHook.class}, tree="[0]")
     private Output</* @Nullable */ AppCampaignHook> campaignHook;
 
@@ -143,11 +142,10 @@ public class App extends com.pulumi.resources.CustomResource {
     /**
      * Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
      * 
-     * @deprecated
-     * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     @Export(name="limits", refs={AppLimits.class}, tree="[0]")
     private Output</* @Nullable */ AppLimits> limits;
 
@@ -189,11 +187,10 @@ public class App extends com.pulumi.resources.CustomResource {
     /**
      * Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
      * 
-     * @deprecated
-     * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * @deprecated quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated
     @Export(name="quietTime", refs={AppQuietTime.class}, tree="[0]")
     private Output</* @Nullable */ AppQuietTime> quietTime;
 

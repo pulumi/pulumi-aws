@@ -127,6 +127,12 @@ func (RouteServerPropagationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerPropagationState)(nil)).Elem()
 }
 
+// RouteServerPropagationExists checks whether an existing RouteServerPropagation resource with the given ID exists.
+func RouteServerPropagationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerPropagationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpc/routeServerPropagation:RouteServerPropagation", id, state, "", opts...)
+}
+
 type routeServerPropagationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

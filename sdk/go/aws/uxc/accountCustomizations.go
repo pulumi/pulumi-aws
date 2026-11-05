@@ -158,6 +158,12 @@ func (AccountCustomizationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountCustomizationsState)(nil)).Elem()
 }
 
+// AccountCustomizationsExists checks whether an existing AccountCustomizations resource with the given ID exists.
+func AccountCustomizationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountCustomizationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:uxc/accountCustomizations:AccountCustomizations", id, state, "", opts...)
+}
+
 type accountCustomizationsArgs struct {
 	// Color used to identify the account in the AWS Management Console. Valid values are `none`, `red`, `darkBlue`, `lightBlue`, `green`, `yellow`, `orange`, `pink`, `purple`, and `teal`. Defaults to `none`.
 	AccountColor *string `pulumi:"accountColor"`

@@ -124,6 +124,12 @@ func (SecurityConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityConfigurationState)(nil)).Elem()
 }
 
+// SecurityConfigurationExists checks whether an existing SecurityConfiguration resource with the given ID exists.
+func SecurityConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/securityConfiguration:SecurityConfiguration", id, state, "", opts...)
+}
+
 type securityConfigurationArgs struct {
 	// Configuration block containing encryption configuration. Detailed below.
 	EncryptionConfiguration SecurityConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`

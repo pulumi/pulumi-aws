@@ -209,6 +209,12 @@ func (IdentitySourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identitySourceState)(nil)).Elem()
 }
 
+// IdentitySourceExists checks whether an existing IdentitySource resource with the given ID exists.
+func IdentitySourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentitySourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:verifiedpermissions/identitySource:IdentitySource", id, state, "", opts...)
+}
+
 type identitySourceArgs struct {
 	// Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
 	Configuration IdentitySourceConfiguration `pulumi:"configuration"`

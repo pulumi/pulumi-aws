@@ -152,6 +152,12 @@ func (PolicyStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyStoreState)(nil)).Elem()
 }
 
+// PolicyStoreExists checks whether an existing PolicyStore resource with the given ID exists.
+func PolicyStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:verifiedpermissions/policyStore:PolicyStore", id, state, "", opts...)
+}
+
 type policyStoreArgs struct {
 	// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
 	DeletionProtection *string `pulumi:"deletionProtection"`

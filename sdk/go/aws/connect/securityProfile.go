@@ -167,6 +167,12 @@ func (SecurityProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityProfileState)(nil)).Elem()
 }
 
+// SecurityProfileExists checks whether an existing SecurityProfile resource with the given ID exists.
+func SecurityProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/securityProfile:SecurityProfile", id, state, "", opts...)
+}
+
 type securityProfileArgs struct {
 	// Specifies the description of the Security Profile.
 	Description *string `pulumi:"description"`

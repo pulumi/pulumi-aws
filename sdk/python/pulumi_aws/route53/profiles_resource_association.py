@@ -467,6 +467,32 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ProfilesResourceAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_properties: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_message: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ProfilesResourceAssociationTimeoutsArgs', 'ProfilesResourceAssociationTimeoutsArgsDict', 'outputs.ProfilesResourceAssociationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["ownerId"] = owner_id
+        __props__["profileId"] = profile_id
+        __props__["region"] = region
+        __props__["resourceArn"] = resource_arn
+        __props__["resourceProperties"] = resource_properties
+        __props__["resourceType"] = resource_type
+        __props__["status"] = status
+        __props__["statusMessage"] = status_message
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:route53/profilesResourceAssociation:ProfilesResourceAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

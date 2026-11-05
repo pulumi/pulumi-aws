@@ -888,6 +888,44 @@ class Addon(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Addon(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+            addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict', 'outputs.AddonNamespaceConfig']]] = None,
+            pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict', 'outputs.AddonPodIdentityAssociation']]]]] = None,
+            preserve: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
+            resolve_conflicts_on_update: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addonName"] = addon_name
+        __props__["addonVersion"] = addon_version
+        __props__["arn"] = arn
+        __props__["clusterName"] = cluster_name
+        __props__["configurationValues"] = configuration_values
+        __props__["createdAt"] = created_at
+        __props__["modifiedAt"] = modified_at
+        __props__["namespaceConfig"] = namespace_config
+        __props__["podIdentityAssociations"] = pod_identity_associations
+        __props__["preserve"] = preserve
+        __props__["region"] = region
+        __props__["resolveConflictsOnCreate"] = resolve_conflicts_on_create
+        __props__["resolveConflictsOnUpdate"] = resolve_conflicts_on_update
+        __props__["serviceAccountRoleArn"] = service_account_role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:eks/addon:Addon', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addonName")
     def addon_name(self) -> pulumi.Output[_builtins.str]:

@@ -581,6 +581,28 @@ class ConformancePack(pulumi.CustomResource):
         __props__.__dict__["template_s3_uri"] = template_s3_uri
         return ConformancePack(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict', 'outputs.ConformancePackInputParameter']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            template_body: pulumi.Input[Optional[_builtins.str]] = None,
+            template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deliveryS3Bucket"] = delivery_s3_bucket
+        __props__["deliveryS3KeyPrefix"] = delivery_s3_key_prefix
+        __props__["inputParameters"] = input_parameters
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["templateBody"] = template_body
+        __props__["templateS3Uri"] = template_s3_uri
+        return pulumi.runtime.exists_resource(None, 'aws:cfg/conformancePack:ConformancePack', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

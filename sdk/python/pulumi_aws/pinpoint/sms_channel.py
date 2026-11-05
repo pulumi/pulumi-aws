@@ -382,6 +382,26 @@ class SmsChannel(pulumi.CustomResource):
         __props__.__dict__["transactional_messages_per_second"] = transactional_messages_per_second
         return SmsChannel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            promotional_messages_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+            short_code: pulumi.Input[Optional[_builtins.str]] = None,
+            transactional_messages_per_second: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["enabled"] = enabled
+        __props__["promotionalMessagesPerSecond"] = promotional_messages_per_second
+        __props__["region"] = region
+        __props__["senderId"] = sender_id
+        __props__["shortCode"] = short_code
+        __props__["transactionalMessagesPerSecond"] = transactional_messages_per_second
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/smsChannel:SmsChannel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

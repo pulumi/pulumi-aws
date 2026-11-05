@@ -530,6 +530,30 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = role_arn
         return LogSubscriptionFilter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            distribution: pulumi.Input[Optional[_builtins.str]] = None,
+            emit_system_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            log_group: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyOnTransformedLogs"] = apply_on_transformed_logs
+        __props__["destinationArn"] = destination_arn
+        __props__["distribution"] = distribution
+        __props__["emitSystemFields"] = emit_system_fields
+        __props__["filterPattern"] = filter_pattern
+        __props__["logGroup"] = log_group
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
     def apply_on_transformed_logs(self) -> pulumi.Output[_builtins.bool]:

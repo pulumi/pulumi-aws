@@ -143,6 +143,12 @@ func (TableReplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableReplicationState)(nil)).Elem()
 }
 
+// TableReplicationExists checks whether an existing TableReplication resource with the given ID exists.
+func TableReplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableReplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3tables/tableReplication:TableReplication", id, state, "", opts...)
+}
+
 type tableReplicationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

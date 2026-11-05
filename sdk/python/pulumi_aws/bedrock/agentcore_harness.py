@@ -1249,6 +1249,60 @@ class AgentcoreHarness(pulumi.CustomResource):
         __props__.__dict__["truncations"] = truncations
         return AgentcoreHarness(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_tools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict', 'outputs.AgentcoreHarnessAuthorizerConfiguration']]] = None,
+            environment_actuals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentActualArgs', 'AgentcoreHarnessEnvironmentActualArgsDict', 'outputs.AgentcoreHarnessEnvironmentActual']]]]] = None,
+            environment_artifact: pulumi.Input[Optional[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict', 'outputs.AgentcoreHarnessEnvironmentArtifact']]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            environments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict', 'outputs.AgentcoreHarnessEnvironment']]]]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            harness_id: pulumi.Input[Optional[_builtins.str]] = None,
+            harness_name: pulumi.Input[Optional[_builtins.str]] = None,
+            max_iterations: pulumi.Input[Optional[_builtins.int]] = None,
+            max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
+            memory: pulumi.Input[Optional[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict', 'outputs.AgentcoreHarnessMemory']]] = None,
+            memory_actuals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessMemoryActualArgs', 'AgentcoreHarnessMemoryActualArgsDict', 'outputs.AgentcoreHarnessMemoryActual']]]]] = None,
+            model: pulumi.Input[Optional[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict', 'outputs.AgentcoreHarnessModel']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skills: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict', 'outputs.AgentcoreHarnessSkill']]]]] = None,
+            system_prompts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessSystemPromptArgs', 'AgentcoreHarnessSystemPromptArgsDict', 'outputs.AgentcoreHarnessSystemPrompt']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreHarnessTimeoutsArgs', 'AgentcoreHarnessTimeoutsArgsDict', 'outputs.AgentcoreHarnessTimeouts']]] = None,
+            tools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessToolArgs', 'AgentcoreHarnessToolArgsDict', 'outputs.AgentcoreHarnessTool']]]]] = None,
+            truncations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessTruncationArgs', 'AgentcoreHarnessTruncationArgsDict', 'outputs.AgentcoreHarnessTruncation']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedTools"] = allowed_tools
+        __props__["arn"] = arn
+        __props__["authorizerConfiguration"] = authorizer_configuration
+        __props__["environmentActuals"] = environment_actuals
+        __props__["environmentArtifact"] = environment_artifact
+        __props__["environmentVariables"] = environment_variables
+        __props__["environments"] = environments
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["harnessId"] = harness_id
+        __props__["harnessName"] = harness_name
+        __props__["maxIterations"] = max_iterations
+        __props__["maxTokens"] = max_tokens
+        __props__["memory"] = memory
+        __props__["memoryActuals"] = memory_actuals
+        __props__["model"] = model
+        __props__["region"] = region
+        __props__["skills"] = skills
+        __props__["systemPrompts"] = system_prompts
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeoutSeconds"] = timeout_seconds
+        __props__["timeouts"] = timeouts
+        __props__["tools"] = tools
+        __props__["truncations"] = truncations
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreHarness:AgentcoreHarness', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedTools")
     def allowed_tools(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -212,6 +212,12 @@ func (AgentcoreBrowserProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreBrowserProfileState)(nil)).Elem()
 }
 
+// AgentcoreBrowserProfileExists checks whether an existing AgentcoreBrowserProfile resource with the given ID exists.
+func AgentcoreBrowserProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreBrowserProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreBrowserProfile:AgentcoreBrowserProfile", id, state, "", opts...)
+}
+
 type agentcoreBrowserProfileArgs struct {
 	// Description of the browser profile. Must be between 1 and 4096 characters.
 	Description *string `pulumi:"description"`

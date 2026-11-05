@@ -151,6 +151,12 @@ func (PrivateDnsNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateDnsNamespaceState)(nil)).Elem()
 }
 
+// PrivateDnsNamespaceExists checks whether an existing PrivateDnsNamespace resource with the given ID exists.
+func PrivateDnsNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateDnsNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace", id, state, "", opts...)
+}
+
 type privateDnsNamespaceArgs struct {
 	// The description that you specify for the namespace when you create it.
 	Description *string `pulumi:"description"`

@@ -152,6 +152,12 @@ func (HostedPublicVirtualInterfaceAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedPublicVirtualInterfaceAccepterState)(nil)).Elem()
 }
 
+// HostedPublicVirtualInterfaceAccepterExists checks whether an existing HostedPublicVirtualInterfaceAccepter resource with the given ID exists.
+func HostedPublicVirtualInterfaceAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostedPublicVirtualInterfaceAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter", id, state, "", opts...)
+}
+
 type hostedPublicVirtualInterfaceAccepterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -260,6 +260,12 @@ func (ResolverRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverRuleState)(nil)).Elem()
 }
 
+// ResolverRuleExists checks whether an existing ResolverRule resource with the given ID exists.
+func ResolverRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverRule:ResolverRule", id, state, "", opts...)
+}
+
 type resolverRuleArgs struct {
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName string `pulumi:"domainName"`

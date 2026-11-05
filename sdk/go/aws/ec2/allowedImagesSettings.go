@@ -161,6 +161,12 @@ func (AllowedImagesSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*allowedImagesSettingsState)(nil)).Elem()
 }
 
+// AllowedImagesSettingsExists checks whether an existing AllowedImagesSettings resource with the given ID exists.
+func AllowedImagesSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AllowedImagesSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/allowedImagesSettings:AllowedImagesSettings", id, state, "", opts...)
+}
+
 type allowedImagesSettingsArgs struct {
 	// List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
 	ImageCriterions []AllowedImagesSettingsImageCriterion `pulumi:"imageCriterions"`

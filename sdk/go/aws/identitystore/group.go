@@ -149,6 +149,12 @@ func (GroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupState)(nil)).Elem()
 }
 
+// GroupExists checks whether an existing Group resource with the given ID exists.
+func GroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:identitystore/group:Group", id, state, "", opts...)
+}
+
 type groupArgs struct {
 	// A string containing the description of the group.
 	Description *string `pulumi:"description"`

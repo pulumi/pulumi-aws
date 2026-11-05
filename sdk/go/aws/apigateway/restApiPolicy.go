@@ -161,6 +161,12 @@ func (RestApiPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restApiPolicyState)(nil)).Elem()
 }
 
+// RestApiPolicyExists checks whether an existing RestApiPolicy resource with the given ID exists.
+func RestApiPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestApiPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/restApiPolicy:RestApiPolicy", id, state, "", opts...)
+}
+
 type restApiPolicyArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`

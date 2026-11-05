@@ -692,6 +692,34 @@ class ResponsePlan(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ResponsePlan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict', 'outputs.ResponsePlanAction']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            chat_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            engagements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            incident_template: pulumi.Input[Optional[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict', 'outputs.ResponsePlanIncidentTemplate']]] = None,
+            integration: pulumi.Input[Optional[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict', 'outputs.ResponsePlanIntegration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["arn"] = arn
+        __props__["chatChannels"] = chat_channels
+        __props__["displayName"] = display_name
+        __props__["engagements"] = engagements
+        __props__["incidentTemplate"] = incident_template
+        __props__["integration"] = integration
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ssmincidents/responsePlan:ResponsePlan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional['outputs.ResponsePlanAction']]:

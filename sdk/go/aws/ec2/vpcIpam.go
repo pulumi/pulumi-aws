@@ -201,6 +201,12 @@ func (VpcIpamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamState)(nil)).Elem()
 }
 
+// VpcIpamExists checks whether an existing VpcIpam resource with the given ID exists.
+func VpcIpamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpam:VpcIpam", id, state, "", opts...)
+}
+
 type vpcIpamArgs struct {
 	// Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade *bool `pulumi:"cascade"`

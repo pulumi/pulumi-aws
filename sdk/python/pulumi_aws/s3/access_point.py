@@ -754,6 +754,44 @@ class AccessPoint(pulumi.CustomResource):
         __props__.__dict__["vpc_configuration"] = vpc_configuration
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            has_public_access_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_origin: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            public_access_block_configuration: pulumi.Input[Optional[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict', 'outputs.AccessPointPublicAccessBlockConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict', 'outputs.AccessPointVpcConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["alias"] = alias
+        __props__["arn"] = arn
+        __props__["bucket"] = bucket
+        __props__["bucketAccountId"] = bucket_account_id
+        __props__["domainName"] = domain_name
+        __props__["endpoints"] = endpoints
+        __props__["hasPublicAccessPolicy"] = has_public_access_policy
+        __props__["name"] = name
+        __props__["networkOrigin"] = network_origin
+        __props__["policy"] = policy
+        __props__["publicAccessBlockConfiguration"] = public_access_block_configuration
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcConfiguration"] = vpc_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:s3/accessPoint:AccessPoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

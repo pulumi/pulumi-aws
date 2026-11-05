@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
@@ -77,19 +77,19 @@ import javax.annotation.Nullable;
  *         var example = new Pipeline("example", PipelineArgs.builder()
  *             .pipelineName("example")
  *             .pipelineConfigurationBody(exampleRole.arn().applyValue(_arn -> """
- * version: \"2\"
+ * version: }&#92;{@code "2}&#92;{@code "
  * example-pipeline:
  *   source:
  *     http:
- *       path: \"/example\"
+ *       path: }&#92;{@code "/example}&#92;{@code "
  *   sink:
  *     - s3:
  *         aws:
- *           sts_role_arn: \"%s\"
- *           region: \"%s\"
- *         bucket: \"example\"
+ *           sts_role_arn: }&#92;{@code "%s}&#92;{@code "
+ *           region: }&#92;{@code "%s}&#92;{@code "
+ *         bucket: }&#92;{@code "example}&#92;{@code "
  *         threshold:
- *           event_collect_timeout: \"60s\"
+ *           event_collect_timeout: }&#92;{@code "60s}&#92;{@code "
  *         codec:
  *           ndjson:
  * ", _arn,current.region())))
@@ -97,8 +97,8 @@ import javax.annotation.Nullable;
  *             .minUnits(1)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -263,14 +263,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.pipelineArn;
     }
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `&#92;n`.
      * 
      */
     @Export(name="pipelineConfigurationBody", refs={String.class}, tree="[0]")
     private Output<String> pipelineConfigurationBody;
 
     /**
-     * @return The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+     * @return The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `&#92;n`.
      * 
      */
     public Output<String> pipelineConfigurationBody() {

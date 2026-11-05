@@ -398,6 +398,24 @@ class BasePathMapping(pulumi.CustomResource):
         __props__.__dict__["stage_name"] = stage_name
         return BasePathMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            base_path: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            stage_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["basePath"] = base_path
+        __props__["domainName"] = domain_name
+        __props__["domainNameId"] = domain_name_id
+        __props__["region"] = region
+        __props__["restApi"] = rest_api
+        __props__["stageName"] = stage_name
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/basePathMapping:BasePathMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="basePath")
     def base_path(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -912,6 +912,52 @@ class NotebookInstance(pulumi.CustomResource):
         __props__.__dict__["volume_size"] = volume_size
         return NotebookInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_code_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_code_repository: pulumi.Input[Optional[_builtins.str]] = None,
+            direct_internet_access: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            root_access: pulumi.Input[Optional[_builtins.str]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_size: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalCodeRepositories"] = additional_code_repositories
+        __props__["arn"] = arn
+        __props__["defaultCodeRepository"] = default_code_repository
+        __props__["directInternetAccess"] = direct_internet_access
+        __props__["instanceMetadataServiceConfiguration"] = instance_metadata_service_configuration
+        __props__["instanceType"] = instance_type
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["lifecycleConfigName"] = lifecycle_config_name
+        __props__["name"] = name
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["platformIdentifier"] = platform_identifier
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["rootAccess"] = root_access
+        __props__["securityGroups"] = security_groups
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["url"] = url
+        __props__["volumeSize"] = volume_size
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/notebookInstance:NotebookInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalCodeRepositories")
     def additional_code_repositories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

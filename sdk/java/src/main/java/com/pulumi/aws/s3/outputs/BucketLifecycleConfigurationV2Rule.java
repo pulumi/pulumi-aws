@@ -52,11 +52,10 @@ public final class BucketLifecycleConfigurationV2Rule {
     /**
      * @return Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
      * 
-     * @deprecated
-     * Specify a prefix using &#39;filter&#39; instead
+     * @deprecated Specify a prefix using &#39;filter&#39; instead
      * 
      */
-    @Deprecated /* Specify a prefix using 'filter' instead */
+    @Deprecated
     private @Nullable String prefix;
     /**
      * @return Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
@@ -115,11 +114,10 @@ public final class BucketLifecycleConfigurationV2Rule {
     /**
      * @return Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
      * 
-     * @deprecated
-     * Specify a prefix using &#39;filter&#39; instead
+     * @deprecated Specify a prefix using &#39;filter&#39; instead
      * 
      */
-    @Deprecated /* Specify a prefix using 'filter' instead */
+    @Deprecated
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

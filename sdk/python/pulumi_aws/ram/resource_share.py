@@ -426,6 +426,28 @@ class ResourceShare(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ResourceShare(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_external_principals: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict', 'outputs.ResourceShareResourceShareConfiguration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowExternalPrincipals"] = allow_external_principals
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["permissionArns"] = permission_arns
+        __props__["region"] = region
+        __props__["resourceShareConfiguration"] = resource_share_configuration
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ram/resourceShare:ResourceShare', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowExternalPrincipals")
     def allow_external_principals(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -133,6 +133,12 @@ func (ApplicationAssignmentConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationAssignmentConfigurationState)(nil)).Elem()
 }
 
+// ApplicationAssignmentConfigurationExists checks whether an existing ApplicationAssignmentConfiguration resource with the given ID exists.
+func ApplicationAssignmentConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationAssignmentConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration", id, state, "", opts...)
+}
+
 type applicationAssignmentConfigurationArgs struct {
 	// ARN of the application.
 	ApplicationArn string `pulumi:"applicationArn"`

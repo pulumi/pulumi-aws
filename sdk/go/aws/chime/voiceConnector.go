@@ -150,6 +150,12 @@ func (VoiceConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*voiceConnectorState)(nil)).Elem()
 }
 
+// VoiceConnectorExists checks whether an existing VoiceConnector resource with the given ID exists.
+func VoiceConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VoiceConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/voiceConnector:VoiceConnector", id, state, "", opts...)
+}
+
 type voiceConnectorArgs struct {
 	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 	AwsRegion *string `pulumi:"awsRegion"`

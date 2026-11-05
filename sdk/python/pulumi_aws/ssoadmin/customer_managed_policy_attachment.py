@@ -353,6 +353,20 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return CustomerManagedPolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            customer_managed_policy_reference: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference']]] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customerManagedPolicyReference"] = customer_managed_policy_reference
+        __props__["instanceArn"] = instance_arn
+        __props__["permissionSetArn"] = permission_set_arn
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customerManagedPolicyReference")
     def customer_managed_policy_reference(self) -> pulumi.Output['outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference']:

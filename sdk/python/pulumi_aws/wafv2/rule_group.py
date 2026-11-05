@@ -1258,6 +1258,42 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["visibility_config"] = visibility_config
         return RuleGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_token: pulumi.Input[Optional[_builtins.str]] = None,
+            monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict', 'outputs.RuleGroupMonetizationConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]]] = None,
+            rules_json: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["capacity"] = capacity
+        __props__["customResponseBodies"] = custom_response_bodies
+        __props__["description"] = description
+        __props__["lockToken"] = lock_token
+        __props__["monetizationConfig"] = monetization_config
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["region"] = region
+        __props__["rules"] = rules
+        __props__["rulesJson"] = rules_json
+        __props__["scope"] = scope
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["visibilityConfig"] = visibility_config
+        return pulumi.runtime.exists_resource(None, 'aws:wafv2/ruleGroup:RuleGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -788,6 +788,60 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return DefaultSubnet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            assign_ipv6_address_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_dns64: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_lni_at_device_index: pulumi.Input[Optional[_builtins.int]] = None,
+            enable_resource_name_dns_a_record_on_launch: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_resource_name_dns_aaaa_record_on_launch: pulumi.Input[Optional[_builtins.bool]] = None,
+            existing_default_subnet: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_cidr_block_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_native: pulumi.Input[Optional[_builtins.bool]] = None,
+            map_customer_owned_ip_on_launch: pulumi.Input[Optional[_builtins.bool]] = None,
+            map_public_ip_on_launch: pulumi.Input[Optional[_builtins.bool]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns_hostname_type_on_launch: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["assignIpv6AddressOnCreation"] = assign_ipv6_address_on_creation
+        __props__["availabilityZone"] = availability_zone
+        __props__["availabilityZoneId"] = availability_zone_id
+        __props__["cidrBlock"] = cidr_block
+        __props__["customerOwnedIpv4Pool"] = customer_owned_ipv4_pool
+        __props__["enableDns64"] = enable_dns64
+        __props__["enableLniAtDeviceIndex"] = enable_lni_at_device_index
+        __props__["enableResourceNameDnsARecordOnLaunch"] = enable_resource_name_dns_a_record_on_launch
+        __props__["enableResourceNameDnsAaaaRecordOnLaunch"] = enable_resource_name_dns_aaaa_record_on_launch
+        __props__["existingDefaultSubnet"] = existing_default_subnet
+        __props__["forceDestroy"] = force_destroy
+        __props__["ipv6CidrBlock"] = ipv6_cidr_block
+        __props__["ipv6CidrBlockAssociationId"] = ipv6_cidr_block_association_id
+        __props__["ipv6Native"] = ipv6_native
+        __props__["mapCustomerOwnedIpOnLaunch"] = map_customer_owned_ip_on_launch
+        __props__["mapPublicIpOnLaunch"] = map_public_ip_on_launch
+        __props__["outpostArn"] = outpost_arn
+        __props__["ownerId"] = owner_id
+        __props__["privateDnsHostnameTypeOnLaunch"] = private_dns_hostname_type_on_launch
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/defaultSubnet:DefaultSubnet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

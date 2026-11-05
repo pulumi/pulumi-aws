@@ -309,6 +309,20 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         __props__.__dict__["voice_connector_id"] = voice_connector_id
         return VoiceConnectorLogging(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enable_media_metric_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_sip_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enableMediaMetricLogs"] = enable_media_metric_logs
+        __props__["enableSipLogs"] = enable_sip_logs
+        __props__["region"] = region
+        __props__["voiceConnectorId"] = voice_connector_id
+        return pulumi.runtime.exists_resource(None, 'aws:chime/voiceConnectorLogging:VoiceConnectorLogging', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="enableMediaMetricLogs")
     def enable_media_metric_logs(self) -> pulumi.Output[Optional[_builtins.bool]]:

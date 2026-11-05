@@ -476,6 +476,26 @@ class TableItem(pulumi.CustomResource):
         __props__.__dict__["table_name"] = table_name
         return TableItem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            hash_key: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+            item: pulumi.Input[Optional[_builtins.str]] = None,
+            range_key: pulumi.Input[Optional[_builtins.str]] = None,
+            range_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["hashKey"] = hash_key
+        __props__["hashKeyValue"] = hash_key_value
+        __props__["item"] = item
+        __props__["rangeKey"] = range_key
+        __props__["rangeKeyValue"] = range_key_value
+        __props__["region"] = region
+        __props__["tableName"] = table_name
+        return pulumi.runtime.exists_resource(None, 'aws:dynamodb/tableItem:TableItem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> pulumi.Output[_builtins.str]:

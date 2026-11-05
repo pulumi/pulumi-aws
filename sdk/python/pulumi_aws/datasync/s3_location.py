@@ -531,6 +531,32 @@ class S3Location(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return S3Location(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_config: pulumi.Input[Optional[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict', 'outputs.S3LocationS3Config']]] = None,
+            s3_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentArns"] = agent_arns
+        __props__["arn"] = arn
+        __props__["region"] = region
+        __props__["s3BucketArn"] = s3_bucket_arn
+        __props__["s3Config"] = s3_config
+        __props__["s3StorageClass"] = s3_storage_class
+        __props__["subdirectory"] = subdirectory
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/s3Location:S3Location', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

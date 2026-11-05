@@ -263,6 +263,18 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return DrtAccessLogBucketAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            log_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['DrtAccessLogBucketAssociationTimeoutsArgs', 'DrtAccessLogBucketAssociationTimeoutsArgsDict', 'outputs.DrtAccessLogBucketAssociationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["logBucket"] = log_bucket
+        __props__["roleArnAssociationId"] = role_arn_association_id
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="logBucket")
     def log_bucket(self) -> pulumi.Output[_builtins.str]:

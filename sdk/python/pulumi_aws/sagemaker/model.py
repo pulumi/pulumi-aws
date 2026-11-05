@@ -566,6 +566,34 @@ class Model(pulumi.CustomResource):
         __props__.__dict__["vpc_config"] = vpc_config
         return Model(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict', 'outputs.ModelContainer']]]]] = None,
+            enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            inference_execution_config: pulumi.Input[Optional[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict', 'outputs.ModelInferenceExecutionConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_container: pulumi.Input[Optional[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict', 'outputs.ModelPrimaryContainer']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict', 'outputs.ModelVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["containers"] = containers
+        __props__["enableNetworkIsolation"] = enable_network_isolation
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["inferenceExecutionConfig"] = inference_execution_config
+        __props__["name"] = name
+        __props__["primaryContainer"] = primary_container
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcConfig"] = vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/model:Model', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

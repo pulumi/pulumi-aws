@@ -453,6 +453,12 @@ func (PermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionsState)(nil)).Elem()
 }
 
+// PermissionsExists checks whether an existing Permissions resource with the given ID exists.
+func PermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lakeformation/permissions:Permissions", id, state, "", opts...)
+}
+
 type permissionsArgs struct {
 	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId *string `pulumi:"catalogId"`

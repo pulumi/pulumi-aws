@@ -408,6 +408,26 @@ class PullThroughCacheRule(pulumi.CustomResource):
         __props__.__dict__["upstream_repository_prefix"] = upstream_repository_prefix
         return PullThroughCacheRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            credential_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ecr_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            upstream_registry_url: pulumi.Input[Optional[_builtins.str]] = None,
+            upstream_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["credentialArn"] = credential_arn
+        __props__["customRoleArn"] = custom_role_arn
+        __props__["ecrRepositoryPrefix"] = ecr_repository_prefix
+        __props__["region"] = region
+        __props__["registryId"] = registry_id
+        __props__["upstreamRegistryUrl"] = upstream_registry_url
+        __props__["upstreamRepositoryPrefix"] = upstream_repository_prefix
+        return pulumi.runtime.exists_resource(None, 'aws:ecr/pullThroughCacheRule:PullThroughCacheRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="credentialArn")
     def credential_arn(self) -> pulumi.Output[Optional[_builtins.str]]:

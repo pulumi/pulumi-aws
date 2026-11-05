@@ -266,6 +266,18 @@ class AttachmentRoutingPolicyLabel(pulumi.CustomResource):
         __props__.__dict__["routing_policy_label"] = routing_policy_label
         return AttachmentRoutingPolicyLabel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attachmentId"] = attachment_id
+        __props__["coreNetworkId"] = core_network_id
+        __props__["routingPolicyLabel"] = routing_policy_label
+        return pulumi.runtime.exists_resource(None, 'aws:networkmanager/attachmentRoutingPolicyLabel:AttachmentRoutingPolicyLabel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> pulumi.Output[_builtins.str]:

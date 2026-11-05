@@ -1374,6 +1374,52 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return Integration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cache_key_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cache_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            content_handling: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[_builtins.str]] = None,
+            http_method: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_http_method: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_target: pulumi.Input[Optional[_builtins.str]] = None,
+            passthrough_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            response_transfer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+            tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cacheKeyParameters"] = cache_key_parameters
+        __props__["cacheNamespace"] = cache_namespace
+        __props__["connectionId"] = connection_id
+        __props__["connectionType"] = connection_type
+        __props__["contentHandling"] = content_handling
+        __props__["credentials"] = credentials
+        __props__["httpMethod"] = http_method
+        __props__["integrationHttpMethod"] = integration_http_method
+        __props__["integrationTarget"] = integration_target
+        __props__["passthroughBehavior"] = passthrough_behavior
+        __props__["region"] = region
+        __props__["requestParameters"] = request_parameters
+        __props__["requestTemplates"] = request_templates
+        __props__["resourceId"] = resource_id
+        __props__["responseTransferMode"] = response_transfer_mode
+        __props__["restApi"] = rest_api
+        __props__["timeoutMilliseconds"] = timeout_milliseconds
+        __props__["tlsConfig"] = tls_config
+        __props__["type"] = type
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/integration:Integration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cacheKeyParameters")
     def cache_key_parameters(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

@@ -188,6 +188,12 @@ func (LogAnomalyDetectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logAnomalyDetectorState)(nil)).Elem()
 }
 
+// LogAnomalyDetectorExists checks whether an existing LogAnomalyDetector resource with the given ID exists.
+func LogAnomalyDetectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogAnomalyDetectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector", id, state, "", opts...)
+}
+
 type logAnomalyDetectorArgs struct {
 	// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
 	AnomalyVisibilityTime *int `pulumi:"anomalyVisibilityTime"`

@@ -176,6 +176,12 @@ func (MlflowTrackingServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mlflowTrackingServerState)(nil)).Elem()
 }
 
+// MlflowTrackingServerExists checks whether an existing MlflowTrackingServer resource with the given ID exists.
+func MlflowTrackingServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MlflowTrackingServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer", id, state, "", opts...)
+}
+
 type mlflowTrackingServerArgs struct {
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri string `pulumi:"artifactStoreUri"`

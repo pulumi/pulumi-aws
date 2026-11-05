@@ -228,6 +228,12 @@ func (SourceCredentialState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceCredentialState)(nil)).Elem()
 }
 
+// SourceCredentialExists checks whether an existing SourceCredential resource with the given ID exists.
+func SourceCredentialExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceCredentialState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codebuild/sourceCredential:SourceCredential", id, state, "", opts...)
+}
+
 type sourceCredentialArgs struct {
 	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
 	// repository. Valid values are `BASIC_AUTH`,

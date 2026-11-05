@@ -170,6 +170,12 @@ func (EnablerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enablerState)(nil)).Elem()
 }
 
+// EnablerExists checks whether an existing Enabler resource with the given ID exists.
+func EnablerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnablerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:inspector2/enabler:Enabler", id, state, "", opts...)
+}
+
 type enablerArgs struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.

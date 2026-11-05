@@ -170,6 +170,12 @@ func (LicenseGrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licenseGrantState)(nil)).Elem()
 }
 
+// LicenseGrantExists checks whether an existing LicenseGrant resource with the given ID exists.
+func LicenseGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicenseGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:licensemanager/licenseGrant:LicenseGrant", id, state, "", opts...)
+}
+
 type licenseGrantArgs struct {
 	// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
 	AllowedOperations []string `pulumi:"allowedOperations"`

@@ -352,6 +352,22 @@ class AccountRegistration(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return AccountRegistration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            delegated_admin_account: pulumi.Input[Optional[_builtins.str]] = None,
+            deregister_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["delegatedAdminAccount"] = delegated_admin_account
+        __props__["deregisterOnDestroy"] = deregister_on_destroy
+        __props__["kmsKey"] = kms_key
+        __props__["region"] = region
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:auditmanager/accountRegistration:AccountRegistration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccount")
     def delegated_admin_account(self) -> pulumi.Output[Optional[_builtins.str]]:

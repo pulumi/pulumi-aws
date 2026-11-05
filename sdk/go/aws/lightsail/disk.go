@@ -174,6 +174,12 @@ func (DiskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskState)(nil)).Elem()
 }
 
+// DiskExists checks whether an existing Disk resource with the given ID exists.
+func DiskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DiskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/disk:Disk", id, state, "", opts...)
+}
+
 type diskArgs struct {
 	// Availability Zone in which to create the disk.
 	AvailabilityZone string `pulumi:"availabilityZone"`

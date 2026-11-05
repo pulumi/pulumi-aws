@@ -624,6 +624,42 @@ class FilesFileSystem(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return FilesFileSystem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_bucket_warning: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_message: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['FilesFileSystemTimeoutsArgs', 'FilesFileSystemTimeoutsArgsDict', 'outputs.FilesFileSystemTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptBucketWarning"] = accept_bucket_warning
+        __props__["arn"] = arn
+        __props__["bucket"] = bucket
+        __props__["creationTime"] = creation_time
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["name"] = name
+        __props__["ownerId"] = owner_id
+        __props__["prefix"] = prefix
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["status"] = status
+        __props__["statusMessage"] = status_message
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:s3/filesFileSystem:FilesFileSystem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptBucketWarning")
     def accept_bucket_warning(self) -> pulumi.Output[Optional[_builtins.bool]]:

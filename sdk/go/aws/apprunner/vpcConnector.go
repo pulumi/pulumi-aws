@@ -168,6 +168,12 @@ func (VpcConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcConnectorState)(nil)).Elem()
 }
 
+// VpcConnectorExists checks whether an existing VpcConnector resource with the given ID exists.
+func VpcConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apprunner/vpcConnector:VpcConnector", id, state, "", opts...)
+}
+
 type vpcConnectorArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -168,6 +168,12 @@ func (BaselineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*baselineState)(nil)).Elem()
 }
 
+// BaselineExists checks whether an existing Baseline resource with the given ID exists.
+func BaselineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BaselineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:controltower/baseline:Baseline", id, state, "", opts...)
+}
+
 type baselineArgs struct {
 	// The ARN of the baseline to be enabled.
 	BaselineIdentifier string `pulumi:"baselineIdentifier"`

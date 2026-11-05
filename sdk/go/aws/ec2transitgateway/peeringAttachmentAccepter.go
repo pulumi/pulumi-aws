@@ -148,6 +148,12 @@ func (PeeringAttachmentAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*peeringAttachmentAccepterState)(nil)).Elem()
 }
 
+// PeeringAttachmentAccepterExists checks whether an existing PeeringAttachmentAccepter resource with the given ID exists.
+func PeeringAttachmentAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PeeringAttachmentAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter", id, state, "", opts...)
+}
+
 type peeringAttachmentAccepterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

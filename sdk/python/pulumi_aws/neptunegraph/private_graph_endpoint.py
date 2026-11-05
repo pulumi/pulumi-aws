@@ -550,6 +550,28 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return PrivateGraphEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            graph_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            private_graph_endpoint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict', 'outputs.PrivateGraphEndpointTimeouts']]] = None,
+            vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["graphIdentifier"] = graph_identifier
+        __props__["privateGraphEndpointIdentifier"] = private_graph_endpoint_identifier
+        __props__["region"] = region
+        __props__["subnetIds"] = subnet_ids
+        __props__["timeouts"] = timeouts
+        __props__["vpcEndpointId"] = vpc_endpoint_id
+        __props__["vpcId"] = vpc_id
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        return pulumi.runtime.exists_resource(None, 'aws:neptunegraph/privateGraphEndpoint:PrivateGraphEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="graphIdentifier")
     def graph_identifier(self) -> pulumi.Output[_builtins.str]:

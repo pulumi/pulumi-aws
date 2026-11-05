@@ -179,6 +179,12 @@ func (IdcApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*idcApplicationState)(nil)).Elem()
 }
 
+// IdcApplicationExists checks whether an existing IdcApplication resource with the given ID exists.
+func IdcApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdcApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/idcApplication:IdcApplication", id, state, "", opts...)
+}
+
 type idcApplicationArgs struct {
 	// Type of application being created. Valid values are `None` or `Lakehouse`.
 	ApplicationType *string `pulumi:"applicationType"`

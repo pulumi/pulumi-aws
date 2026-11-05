@@ -542,6 +542,34 @@ class RouteServer(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return RouteServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            persist_routes: pulumi.Input[Optional[_builtins.str]] = None,
+            persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict', 'outputs.RouteServerTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["amazonSideAsn"] = amazon_side_asn
+        __props__["arn"] = arn
+        __props__["persistRoutes"] = persist_routes
+        __props__["persistRoutesDuration"] = persist_routes_duration
+        __props__["region"] = region
+        __props__["routeServerId"] = route_server_id
+        __props__["snsNotificationsEnabled"] = sns_notifications_enabled
+        __props__["snsTopicArn"] = sns_topic_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:vpc/routeServer:RouteServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Output[_builtins.int]:

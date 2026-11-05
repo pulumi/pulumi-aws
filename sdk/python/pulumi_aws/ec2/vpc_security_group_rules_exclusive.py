@@ -385,6 +385,20 @@ class VpcSecurityGroupRulesExclusive(pulumi.CustomResource):
         __props__.__dict__["security_group_id"] = security_group_id
         return VpcSecurityGroupRulesExclusive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            egress_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ingress_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["egressRuleIds"] = egress_rule_ids
+        __props__["ingressRuleIds"] = ingress_rule_ids
+        __props__["region"] = region
+        __props__["securityGroupId"] = security_group_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="egressRuleIds")
     def egress_rule_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

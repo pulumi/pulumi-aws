@@ -84,16 +84,16 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
  *             .name("example")
  *             .type("encryption")
- *             .description("encryption security policy for collections that begin with \"example\"")
+ *             .description("encryption security policy for collections that begin with }&#92;{@code "example}&#92;{@code "")
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Rules", jsonArray(jsonObject(
@@ -104,8 +104,8 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

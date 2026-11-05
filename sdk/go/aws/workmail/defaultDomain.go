@@ -137,6 +137,12 @@ func (DefaultDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultDomainState)(nil)).Elem()
 }
 
+// DefaultDomainExists checks whether an existing DefaultDomain resource with the given ID exists.
+func DefaultDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workmail/defaultDomain:DefaultDomain", id, state, "", opts...)
+}
+
 type defaultDomainArgs struct {
 	// Mail domain name to set as the default.
 	DomainName string `pulumi:"domainName"`

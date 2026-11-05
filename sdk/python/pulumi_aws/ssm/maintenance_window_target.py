@@ -522,6 +522,26 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         __props__.__dict__["window_id"] = window_id
         return MaintenanceWindowTarget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_information: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTargetTargetArgs', 'MaintenanceWindowTargetTargetArgsDict', 'outputs.MaintenanceWindowTargetTarget']]]]] = None,
+            window_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["ownerInformation"] = owner_information
+        __props__["region"] = region
+        __props__["resourceType"] = resource_type
+        __props__["targets"] = targets
+        __props__["windowId"] = window_id
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

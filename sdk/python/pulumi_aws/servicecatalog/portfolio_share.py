@@ -513,6 +513,30 @@ class PortfolioShare(pulumi.CustomResource):
         __props__.__dict__["wait_for_acceptance"] = wait_for_acceptance
         return PortfolioShare(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            accepted: pulumi.Input[Optional[_builtins.bool]] = None,
+            portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            share_principals: pulumi.Input[Optional[_builtins.bool]] = None,
+            share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            wait_for_acceptance: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptLanguage"] = accept_language
+        __props__["accepted"] = accepted
+        __props__["portfolioId"] = portfolio_id
+        __props__["principalId"] = principal_id
+        __props__["region"] = region
+        __props__["sharePrincipals"] = share_principals
+        __props__["shareTagOptions"] = share_tag_options
+        __props__["type"] = type
+        __props__["waitForAcceptance"] = wait_for_acceptance
+        return pulumi.runtime.exists_resource(None, 'aws:servicecatalog/portfolioShare:PortfolioShare', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:

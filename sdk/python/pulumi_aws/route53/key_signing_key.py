@@ -632,6 +632,40 @@ class KeySigningKey(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return KeySigningKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            digest_algorithm_mnemonic: pulumi.Input[Optional[_builtins.str]] = None,
+            digest_algorithm_type: pulumi.Input[Optional[_builtins.int]] = None,
+            digest_value: pulumi.Input[Optional[_builtins.str]] = None,
+            dnskey_record: pulumi.Input[Optional[_builtins.str]] = None,
+            ds_record: pulumi.Input[Optional[_builtins.str]] = None,
+            flag: pulumi.Input[Optional[_builtins.int]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_management_service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            key_tag: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_algorithm_mnemonic: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_algorithm_type: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["digestAlgorithmMnemonic"] = digest_algorithm_mnemonic
+        __props__["digestAlgorithmType"] = digest_algorithm_type
+        __props__["digestValue"] = digest_value
+        __props__["dnskeyRecord"] = dnskey_record
+        __props__["dsRecord"] = ds_record
+        __props__["flag"] = flag
+        __props__["hostedZoneId"] = hosted_zone_id
+        __props__["keyManagementServiceArn"] = key_management_service_arn
+        __props__["keyTag"] = key_tag
+        __props__["name"] = name
+        __props__["publicKey"] = public_key
+        __props__["signingAlgorithmMnemonic"] = signing_algorithm_mnemonic
+        __props__["signingAlgorithmType"] = signing_algorithm_type
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:route53/keySigningKey:KeySigningKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="digestAlgorithmMnemonic")
     def digest_algorithm_mnemonic(self) -> pulumi.Output[_builtins.str]:

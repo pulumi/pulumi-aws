@@ -1566,6 +1566,90 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_identifier_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            final_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_database_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            reader_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']]] = None,
+            skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+            snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowMajorVersionUpgrade"] = allow_major_version_upgrade
+        __props__["applyImmediately"] = apply_immediately
+        __props__["arn"] = arn
+        __props__["availabilityZones"] = availability_zones
+        __props__["backupRetentionPeriod"] = backup_retention_period
+        __props__["clusterIdentifier"] = cluster_identifier
+        __props__["clusterIdentifierPrefix"] = cluster_identifier_prefix
+        __props__["clusterMembers"] = cluster_members
+        __props__["clusterResourceId"] = cluster_resource_id
+        __props__["copyTagsToSnapshot"] = copy_tags_to_snapshot
+        __props__["deletionProtection"] = deletion_protection
+        __props__["enableCloudwatchLogsExports"] = enable_cloudwatch_logs_exports
+        __props__["endpoint"] = endpoint
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["finalSnapshotIdentifier"] = final_snapshot_identifier
+        __props__["globalClusterIdentifier"] = global_cluster_identifier
+        __props__["hostedZoneId"] = hosted_zone_id
+        __props__["iamDatabaseAuthenticationEnabled"] = iam_database_authentication_enabled
+        __props__["iamRoles"] = iam_roles
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["neptuneClusterParameterGroupName"] = neptune_cluster_parameter_group_name
+        __props__["neptuneInstanceParameterGroupName"] = neptune_instance_parameter_group_name
+        __props__["neptuneSubnetGroupName"] = neptune_subnet_group_name
+        __props__["networkType"] = network_type
+        __props__["port"] = port
+        __props__["preferredBackupWindow"] = preferred_backup_window
+        __props__["preferredMaintenanceWindow"] = preferred_maintenance_window
+        __props__["readerEndpoint"] = reader_endpoint
+        __props__["region"] = region
+        __props__["replicationSourceIdentifier"] = replication_source_identifier
+        __props__["serverlessV2ScalingConfiguration"] = serverless_v2_scaling_configuration
+        __props__["skipFinalSnapshot"] = skip_final_snapshot
+        __props__["snapshotIdentifier"] = snapshot_identifier
+        __props__["storageEncrypted"] = storage_encrypted
+        __props__["storageType"] = storage_type
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        return pulumi.runtime.exists_resource(None, 'aws:neptune/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> pulumi.Output[_builtins.bool]:

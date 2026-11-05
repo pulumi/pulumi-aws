@@ -145,6 +145,12 @@ func (EndpointConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointConfigurationState)(nil)).Elem()
 }
 
+// EndpointConfigurationExists checks whether an existing EndpointConfiguration resource with the given ID exists.
+func EndpointConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/endpointConfiguration:EndpointConfiguration", id, state, "", opts...)
+}
+
 type endpointConfigurationArgs struct {
 	// How an endpoint performs asynchronous inference.
 	AsyncInferenceConfig *EndpointConfigurationAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`

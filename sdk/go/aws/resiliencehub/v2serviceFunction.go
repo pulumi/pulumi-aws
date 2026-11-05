@@ -186,6 +186,12 @@ func (V2ServiceFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2serviceFunctionState)(nil)).Elem()
 }
 
+// V2ServiceFunctionExists checks whether an existing V2ServiceFunction resource with the given ID exists.
+func V2ServiceFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2ServiceFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resiliencehub/v2ServiceFunction:V2ServiceFunction", id, state, "", opts...)
+}
+
 type v2serviceFunctionArgs struct {
 	// Criticality level of the service function. Valid values: `PRIMARY`, `SUPPLEMENTAL`.
 	Criticality string `pulumi:"criticality"`

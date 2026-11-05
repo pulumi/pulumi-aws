@@ -412,6 +412,32 @@ class VirtualMfaDevice(pulumi.CustomResource):
         __props__.__dict__["virtual_mfa_device_name"] = virtual_mfa_device_name
         return VirtualMfaDevice(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base32_string_seed: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_date: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            qr_code_png: pulumi.Input[Optional[_builtins.str]] = None,
+            serial_number: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_mfa_device_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["base32StringSeed"] = base32_string_seed
+        __props__["enableDate"] = enable_date
+        __props__["path"] = path
+        __props__["qrCodePng"] = qr_code_png
+        __props__["serialNumber"] = serial_number
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["userName"] = user_name
+        __props__["virtualMfaDeviceName"] = virtual_mfa_device_name
+        return pulumi.runtime.exists_resource(None, 'aws:iam/virtualMfaDevice:VirtualMfaDevice', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

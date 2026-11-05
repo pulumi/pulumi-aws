@@ -104,6 +104,12 @@ func (EncryptionByDefaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*encryptionByDefaultState)(nil)).Elem()
 }
 
+// EncryptionByDefaultExists checks whether an existing EncryptionByDefault resource with the given ID exists.
+func EncryptionByDefaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EncryptionByDefaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ebs/encryptionByDefault:EncryptionByDefault", id, state, "", opts...)
+}
+
 type encryptionByDefaultArgs struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`

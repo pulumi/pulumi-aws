@@ -192,37 +192,37 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Policy("example", PolicyArgs.builder()
  *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
  *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
  *                     .customizedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.builder()
  *                             .id("load_sum")
- *                             .expression("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))")
+ *                             .expression("SUM(SEARCH('}{{@code AWS/EC2,AutoScalingGroupName}}{@code  MetricName=}&#92;{@code "CPUUtilization}&#92;{@code " my-test-asg', 'Sum', 3600))")
  *                             .build())
  *                         .build())
  *                     .customizedCapacityMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
  *                             .id("capacity_sum")
- *                             .expression("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))")
+ *                             .expression("SUM(SEARCH('}{{@code AWS/AutoScaling,AutoScalingGroupName}}{@code  MetricName=}&#92;{@code "GroupInServiceIntances}&#92;{@code " my-test-asg', 'Average', 300))")
  *                             .build())
  *                         .build())
  *                     .customizedScalingMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.builder()
  *                         .metricDataQueries(                        
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
  *                                 .id("capacity_sum")
- *                                 .expression("SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))")
+ *                                 .expression("SUM(SEARCH('}{{@code AWS/AutoScaling,AutoScalingGroupName}}{@code  MetricName=}&#92;{@code "GroupInServiceIntances}&#92;{@code " my-test-asg', 'Average', 300))")
  *                                 .returnData(false)
  *                                 .build(),
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
  *                                 .id("load_sum")
- *                                 .expression("SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))")
+ *                                 .expression("SUM(SEARCH('}{{@code AWS/EC2,AutoScalingGroupName}}{@code  MetricName=}&#92;{@code "CPUUtilization}&#92;{@code " my-test-asg', 'Sum', 300))")
  *                                 .returnData(false)
  *                                 .build(),
  *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
@@ -238,8 +238,8 @@ import javax.annotation.Nullable;
  *             .policyType("PredictiveScaling")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

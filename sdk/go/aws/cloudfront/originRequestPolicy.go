@@ -167,6 +167,12 @@ func (OriginRequestPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*originRequestPolicyState)(nil)).Elem()
 }
 
+// OriginRequestPolicyExists checks whether an existing OriginRequestPolicy resource with the given ID exists.
+func OriginRequestPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OriginRequestPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/originRequestPolicy:OriginRequestPolicy", id, state, "", opts...)
+}
+
 type originRequestPolicyArgs struct {
 	// Comment to describe the origin request policy.
 	Comment *string `pulumi:"comment"`

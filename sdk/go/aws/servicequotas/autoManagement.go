@@ -157,6 +157,12 @@ func (AutoManagementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoManagementState)(nil)).Elem()
 }
 
+// AutoManagementExists checks whether an existing AutoManagement resource with the given ID exists.
+func AutoManagementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoManagementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicequotas/autoManagement:AutoManagement", id, state, "", opts...)
+}
+
 type autoManagementArgs struct {
 	// Map of AWS services excluded from Automatic Management. You will need to include the AWS service code and one or more Service Quotas codes.
 	ExclusionList map[string][]string `pulumi:"exclusionList"`

@@ -422,6 +422,12 @@ func (MetricStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricStreamState)(nil)).Elem()
 }
 
+// MetricStreamExists checks whether an existing MetricStream resource with the given ID exists.
+func MetricStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetricStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/metricStream:MetricStream", id, state, "", opts...)
+}
+
 type metricStreamArgs struct {
 	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
 	ExcludeFilters []MetricStreamExcludeFilter `pulumi:"excludeFilters"`

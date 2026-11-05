@@ -551,6 +551,12 @@ func (RuleGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleGroupState)(nil)).Elem()
 }
 
+// RuleGroupExists checks whether an existing RuleGroup resource with the given ID exists.
+func RuleGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafv2/ruleGroup:RuleGroup", id, state, "", opts...)
+}
+
 type ruleGroupArgs struct {
 	// Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity int `pulumi:"capacity"`

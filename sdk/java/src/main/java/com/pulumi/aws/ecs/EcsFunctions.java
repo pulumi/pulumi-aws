@@ -970,28 +970,28 @@ public final class EcsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
-     *   {
-     *     \"cpu\": 128,
-     *     \"environment\": [{
-     *       \"name\": \"SECRET\",
-     *       \"value\": \"KEY\"
-     *     }],
-     *     \"essential\": true,
-     *     \"image\": \"mongo:latest\",
-     *     \"memory\": 128,
-     *     \"memoryReservation\": 64,
-     *     \"name\": \"mongodb\"
-     *   }
+     *   }{{@code
+     *     }&#92;{@code "cpu}&#92;{@code ": 128,
+     *     }&#92;{@code "environment}&#92;{@code ": [}{{@code
+     *       }&#92;{@code "name}&#92;{@code ": }&#92;{@code "SECRET}&#92;{@code ",
+     *       }&#92;{@code "value}&#92;{@code ": }&#92;{@code "KEY}&#92;{@code "
+     *     }}{@code ],
+     *     }&#92;{@code "essential}&#92;{@code ": true,
+     *     }&#92;{@code "image}&#92;{@code ": }&#92;{@code "mongo:latest}&#92;{@code ",
+     *     }&#92;{@code "memory}&#92;{@code ": 128,
+     *     }&#92;{@code "memoryReservation}&#92;{@code ": 64,
+     *     }&#92;{@code "name}&#92;{@code ": }&#92;{@code "mongodb}&#92;{@code "
+     *   }}{@code
      * ]
      *             """)
      *             .build());
@@ -1012,8 +1012,8 @@ public final class EcsFunctions {
      *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -1049,28 +1049,28 @@ public final class EcsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
-     *   {
-     *     \"cpu\": 128,
-     *     \"environment\": [{
-     *       \"name\": \"SECRET\",
-     *       \"value\": \"KEY\"
-     *     }],
-     *     \"essential\": true,
-     *     \"image\": \"mongo:latest\",
-     *     \"memory\": 128,
-     *     \"memoryReservation\": 64,
-     *     \"name\": \"mongodb\"
-     *   }
+     *   }{{@code
+     *     }&#92;{@code "cpu}&#92;{@code ": 128,
+     *     }&#92;{@code "environment}&#92;{@code ": [}{{@code
+     *       }&#92;{@code "name}&#92;{@code ": }&#92;{@code "SECRET}&#92;{@code ",
+     *       }&#92;{@code "value}&#92;{@code ": }&#92;{@code "KEY}&#92;{@code "
+     *     }}{@code ],
+     *     }&#92;{@code "essential}&#92;{@code ": true,
+     *     }&#92;{@code "image}&#92;{@code ": }&#92;{@code "mongo:latest}&#92;{@code ",
+     *     }&#92;{@code "memory}&#92;{@code ": 128,
+     *     }&#92;{@code "memoryReservation}&#92;{@code ": 64,
+     *     }&#92;{@code "name}&#92;{@code ": }&#92;{@code "mongodb}&#92;{@code "
+     *   }}{@code
      * ]
      *             """)
      *             .build());
@@ -1091,8 +1091,8 @@ public final class EcsFunctions {
      *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -1128,28 +1128,28 @@ public final class EcsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
-     *   {
-     *     \"cpu\": 128,
-     *     \"environment\": [{
-     *       \"name\": \"SECRET\",
-     *       \"value\": \"KEY\"
-     *     }],
-     *     \"essential\": true,
-     *     \"image\": \"mongo:latest\",
-     *     \"memory\": 128,
-     *     \"memoryReservation\": 64,
-     *     \"name\": \"mongodb\"
-     *   }
+     *   }{{@code
+     *     }&#92;{@code "cpu}&#92;{@code ": 128,
+     *     }&#92;{@code "environment}&#92;{@code ": [}{{@code
+     *       }&#92;{@code "name}&#92;{@code ": }&#92;{@code "SECRET}&#92;{@code ",
+     *       }&#92;{@code "value}&#92;{@code ": }&#92;{@code "KEY}&#92;{@code "
+     *     }}{@code ],
+     *     }&#92;{@code "essential}&#92;{@code ": true,
+     *     }&#92;{@code "image}&#92;{@code ": }&#92;{@code "mongo:latest}&#92;{@code ",
+     *     }&#92;{@code "memory}&#92;{@code ": 128,
+     *     }&#92;{@code "memoryReservation}&#92;{@code ": 64,
+     *     }&#92;{@code "name}&#92;{@code ": }&#92;{@code "mongodb}&#92;{@code "
+     *   }}{@code
      * ]
      *             """)
      *             .build());
@@ -1170,8 +1170,8 @@ public final class EcsFunctions {
      *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -1207,28 +1207,28 @@ public final class EcsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
-     *   {
-     *     \"cpu\": 128,
-     *     \"environment\": [{
-     *       \"name\": \"SECRET\",
-     *       \"value\": \"KEY\"
-     *     }],
-     *     \"essential\": true,
-     *     \"image\": \"mongo:latest\",
-     *     \"memory\": 128,
-     *     \"memoryReservation\": 64,
-     *     \"name\": \"mongodb\"
-     *   }
+     *   }{{@code
+     *     }&#92;{@code "cpu}&#92;{@code ": 128,
+     *     }&#92;{@code "environment}&#92;{@code ": [}{{@code
+     *       }&#92;{@code "name}&#92;{@code ": }&#92;{@code "SECRET}&#92;{@code ",
+     *       }&#92;{@code "value}&#92;{@code ": }&#92;{@code "KEY}&#92;{@code "
+     *     }}{@code ],
+     *     }&#92;{@code "essential}&#92;{@code ": true,
+     *     }&#92;{@code "image}&#92;{@code ": }&#92;{@code "mongo:latest}&#92;{@code ",
+     *     }&#92;{@code "memory}&#92;{@code ": 128,
+     *     }&#92;{@code "memoryReservation}&#92;{@code ": 64,
+     *     }&#92;{@code "name}&#92;{@code ": }&#92;{@code "mongodb}&#92;{@code "
+     *   }}{@code
      * ]
      *             """)
      *             .build());
@@ -1249,8 +1249,8 @@ public final class EcsFunctions {
      *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -1286,28 +1286,28 @@ public final class EcsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
-     *   {
-     *     \"cpu\": 128,
-     *     \"environment\": [{
-     *       \"name\": \"SECRET\",
-     *       \"value\": \"KEY\"
-     *     }],
-     *     \"essential\": true,
-     *     \"image\": \"mongo:latest\",
-     *     \"memory\": 128,
-     *     \"memoryReservation\": 64,
-     *     \"name\": \"mongodb\"
-     *   }
+     *   }{{@code
+     *     }&#92;{@code "cpu}&#92;{@code ": 128,
+     *     }&#92;{@code "environment}&#92;{@code ": [}{{@code
+     *       }&#92;{@code "name}&#92;{@code ": }&#92;{@code "SECRET}&#92;{@code ",
+     *       }&#92;{@code "value}&#92;{@code ": }&#92;{@code "KEY}&#92;{@code "
+     *     }}{@code ],
+     *     }&#92;{@code "essential}&#92;{@code ": true,
+     *     }&#92;{@code "image}&#92;{@code ": }&#92;{@code "mongo:latest}&#92;{@code ",
+     *     }&#92;{@code "memory}&#92;{@code ": 128,
+     *     }&#92;{@code "memoryReservation}&#92;{@code ": 64,
+     *     }&#92;{@code "name}&#92;{@code ": }&#92;{@code "mongodb}&#92;{@code "
+     *   }}{@code
      * ]
      *             """)
      *             .build());
@@ -1328,8 +1328,8 @@ public final class EcsFunctions {
      *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 

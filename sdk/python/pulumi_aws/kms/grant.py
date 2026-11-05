@@ -522,6 +522,34 @@ class Grant(pulumi.CustomResource):
         __props__.__dict__["retiring_principal"] = retiring_principal
         return Grant(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict', 'outputs.GrantConstraint']]]]] = None,
+            grant_creation_tokens: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            grant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_token: pulumi.Input[Optional[_builtins.str]] = None,
+            grantee_principal: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retire_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            retiring_principal: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["constraints"] = constraints
+        __props__["grantCreationTokens"] = grant_creation_tokens
+        __props__["grantId"] = grant_id
+        __props__["grantToken"] = grant_token
+        __props__["granteePrincipal"] = grantee_principal
+        __props__["keyId"] = key_id
+        __props__["name"] = name
+        __props__["operations"] = operations
+        __props__["region"] = region
+        __props__["retireOnDelete"] = retire_on_delete
+        __props__["retiringPrincipal"] = retiring_principal
+        return pulumi.runtime.exists_resource(None, 'aws:kms/grant:Grant', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def constraints(self) -> pulumi.Output[Optional[Sequence['outputs.GrantConstraint']]]:

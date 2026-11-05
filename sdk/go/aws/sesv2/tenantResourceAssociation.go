@@ -124,6 +124,12 @@ func (TenantResourceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tenantResourceAssociationState)(nil)).Elem()
 }
 
+// TenantResourceAssociationExists checks whether an existing TenantResourceAssociation resource with the given ID exists.
+func TenantResourceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TenantResourceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sesv2/tenantResourceAssociation:TenantResourceAssociation", id, state, "", opts...)
+}
+
 type tenantResourceAssociationArgs struct {
 	// AWS region for SESv2 operations. If not specified, the default provider region is used.
 	Region *string `pulumi:"region"`

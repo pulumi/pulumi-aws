@@ -186,6 +186,12 @@ func (EventEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventEndpointState)(nil)).Elem()
 }
 
+// EventEndpointExists checks whether an existing EventEndpoint resource with the given ID exists.
+func EventEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/eventEndpoint:EventEndpoint", id, state, "", opts...)
+}
+
 type eventEndpointArgs struct {
 	// A description of the global endpoint.
 	Description *string `pulumi:"description"`

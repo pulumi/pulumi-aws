@@ -15,11 +15,10 @@ public final class BucketAclAccessControlPolicyOwner {
     /**
      * @return Display name of the owner.
      * 
-     * @deprecated
-     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * @deprecated display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
      */
-    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
+    @Deprecated
     private @Nullable String displayName;
     /**
      * @return ID of the owner.
@@ -31,11 +30,10 @@ public final class BucketAclAccessControlPolicyOwner {
     /**
      * @return Display name of the owner.
      * 
-     * @deprecated
-     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * @deprecated display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
      */
-    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
+    @Deprecated
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }

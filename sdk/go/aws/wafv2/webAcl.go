@@ -207,6 +207,12 @@ func (WebAclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclState)(nil)).Elem()
 }
 
+// WebAclExists checks whether an existing WebAcl resource with the given ID exists.
+func WebAclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafv2/webAcl:WebAcl", id, state, "", opts...)
+}
+
 type webAclArgs struct {
 	// Custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
 	AssociationConfig *WebAclAssociationConfig `pulumi:"associationConfig"`

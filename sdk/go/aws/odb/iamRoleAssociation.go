@@ -151,6 +151,12 @@ func (IamRoleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iamRoleAssociationState)(nil)).Elem()
 }
 
+// IamRoleAssociationExists checks whether an existing IamRoleAssociation resource with the given ID exists.
+func IamRoleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IamRoleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:odb/iamRoleAssociation:IamRoleAssociation", id, state, "", opts...)
+}
+
 type iamRoleAssociationArgs struct {
 	// AWS integration configuration for the IAM role association. Valid value: `KmsTde`.
 	AwsIntegration string `pulumi:"awsIntegration"`

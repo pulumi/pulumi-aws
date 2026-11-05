@@ -781,6 +781,38 @@ class V2modelsSlotType(pulumi.CustomResource):
         __props__.__dict__["value_selection_setting"] = value_selection_setting
         return V2modelsSlotType(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+            composite_slot_type_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict', 'outputs.V2modelsSlotTypeCompositeSlotTypeSetting']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            external_source_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict', 'outputs.V2modelsSlotTypeExternalSourceSetting']]]]] = None,
+            locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_slot_type_signature: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            slot_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+            slot_type_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict', 'outputs.V2modelsSlotTypeSlotTypeValue']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict', 'outputs.V2modelsSlotTypeTimeouts']]] = None,
+            value_selection_setting: pulumi.Input[Optional[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict', 'outputs.V2modelsSlotTypeValueSelectionSetting']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botId"] = bot_id
+        __props__["botVersion"] = bot_version
+        __props__["compositeSlotTypeSettings"] = composite_slot_type_settings
+        __props__["description"] = description
+        __props__["externalSourceSettings"] = external_source_settings
+        __props__["localeId"] = locale_id
+        __props__["name"] = name
+        __props__["parentSlotTypeSignature"] = parent_slot_type_signature
+        __props__["region"] = region
+        __props__["slotTypeId"] = slot_type_id
+        __props__["slotTypeValues"] = slot_type_values
+        __props__["timeouts"] = timeouts
+        __props__["valueSelectionSetting"] = value_selection_setting
+        return pulumi.runtime.exists_resource(None, 'aws:lex/v2modelsSlotType:V2modelsSlotType', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:

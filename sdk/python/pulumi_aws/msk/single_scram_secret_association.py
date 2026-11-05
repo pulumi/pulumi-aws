@@ -263,6 +263,18 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
         __props__.__dict__["secret_arn"] = secret_arn
         return SingleScramSecretAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterArn"] = cluster_arn
+        __props__["region"] = region
+        __props__["secretArn"] = secret_arn
+        return pulumi.runtime.exists_resource(None, 'aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[_builtins.str]:

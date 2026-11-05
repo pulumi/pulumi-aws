@@ -105,6 +105,12 @@ func (NotificationHubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationHubState)(nil)).Elem()
 }
 
+// NotificationHubExists checks whether an existing NotificationHub resource with the given ID exists.
+func NotificationHubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationHubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:notifications/notificationHub:NotificationHub", id, state, "", opts...)
+}
+
 type notificationHubArgs struct {
 	// Notification Hub region.
 	NotificationHubRegion string                   `pulumi:"notificationHubRegion"`

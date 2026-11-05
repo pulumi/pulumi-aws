@@ -603,6 +603,30 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
         __props__.__dict__["sns_destination"] = sns_destination
         return Smsvoicev2EventDestination(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cloudwatch_logs_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationCloudwatchLogsDestination']]] = None,
+            configuration_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kinesis_firehose_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationKinesisFirehoseDestination']]] = None,
+            matching_event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationSnsDestination']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cloudwatchLogsDestination"] = cloudwatch_logs_destination
+        __props__["configurationSetArn"] = configuration_set_arn
+        __props__["configurationSetName"] = configuration_set_name
+        __props__["enabled"] = enabled
+        __props__["eventDestinationName"] = event_destination_name
+        __props__["kinesisFirehoseDestination"] = kinesis_firehose_destination
+        __props__["matchingEventTypes"] = matching_event_types
+        __props__["region"] = region
+        __props__["snsDestination"] = sns_destination
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/smsvoicev2EventDestination:Smsvoicev2EventDestination', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogsDestination")
     def cloudwatch_logs_destination(self) -> pulumi.Output[Optional['outputs.Smsvoicev2EventDestinationCloudwatchLogsDestination']]:

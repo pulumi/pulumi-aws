@@ -158,6 +158,12 @@ func (VoiceConnectorTerminationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*voiceConnectorTerminationState)(nil)).Elem()
 }
 
+// VoiceConnectorTerminationExists checks whether an existing VoiceConnectorTermination resource with the given ID exists.
+func VoiceConnectorTerminationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VoiceConnectorTerminationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/voiceConnectorTermination:VoiceConnectorTermination", id, state, "", opts...)
+}
+
 type voiceConnectorTerminationArgs struct {
 	// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
 	CallingRegions []string `pulumi:"callingRegions"`

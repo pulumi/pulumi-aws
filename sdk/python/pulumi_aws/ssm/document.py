@@ -962,6 +962,60 @@ class Document(pulumi.CustomResource):
         __props__.__dict__["version_name"] = version_name
         return Document(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachments_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict', 'outputs.DocumentAttachmentsSource']]]]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            default_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            document_format: pulumi.Input[Optional[_builtins.str]] = None,
+            document_type: pulumi.Input[Optional[_builtins.str]] = None,
+            document_version: pulumi.Input[Optional[_builtins.str]] = None,
+            hash: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_type: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentParameterArgs', 'DocumentParameterArgsDict', 'outputs.DocumentParameter']]]]] = None,
+            permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            platform_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None,
+            version_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["attachmentsSources"] = attachments_sources
+        __props__["content"] = content
+        __props__["createdDate"] = created_date
+        __props__["defaultVersion"] = default_version
+        __props__["description"] = description
+        __props__["documentFormat"] = document_format
+        __props__["documentType"] = document_type
+        __props__["documentVersion"] = document_version
+        __props__["hash"] = hash
+        __props__["hashType"] = hash_type
+        __props__["latestVersion"] = latest_version
+        __props__["name"] = name
+        __props__["owner"] = owner
+        __props__["parameters"] = parameters
+        __props__["permissions"] = permissions
+        __props__["platformTypes"] = platform_types
+        __props__["region"] = region
+        __props__["schemaVersion"] = schema_version
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetType"] = target_type
+        __props__["versionName"] = version_name
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/document:Document', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

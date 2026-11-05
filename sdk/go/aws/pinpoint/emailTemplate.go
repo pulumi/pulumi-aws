@@ -156,6 +156,12 @@ func (EmailTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailTemplateState)(nil)).Elem()
 }
 
+// EmailTemplateExists checks whether an existing EmailTemplate resource with the given ID exists.
+func EmailTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/emailTemplate:EmailTemplate", id, state, "", opts...)
+}
+
 type emailTemplateArgs struct {
 	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//

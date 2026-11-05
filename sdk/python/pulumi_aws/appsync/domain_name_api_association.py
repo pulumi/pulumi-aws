@@ -263,6 +263,18 @@ class DomainNameApiAssociation(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return DomainNameApiAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["domainName"] = domain_name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/domainNameApiAssociation:DomainNameApiAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

@@ -224,6 +224,12 @@ func (EncryptionControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*encryptionControlState)(nil)).Elem()
 }
 
+// EncryptionControlExists checks whether an existing EncryptionControl resource with the given ID exists.
+func EncryptionControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EncryptionControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/encryptionControl:EncryptionControl", id, state, "", opts...)
+}
+
 type encryptionControlArgs struct {
 	// Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
 	EgressOnlyInternetGatewayExclusion *string `pulumi:"egressOnlyInternetGatewayExclusion"`

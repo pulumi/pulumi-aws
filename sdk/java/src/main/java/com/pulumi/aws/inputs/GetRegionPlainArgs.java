@@ -32,22 +32,20 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
      * 
-     * @deprecated
-     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="id")
     private @Nullable String id;
 
     /**
      * @return (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
      * 
-     * @deprecated
-     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -55,22 +53,20 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Full name of the region to select. Use `region` instead.
      * 
-     * @deprecated
-     * name is deprecated. Use region instead.
+     * @deprecated name is deprecated. Use region instead.
      * 
      */
-    @Deprecated /* name is deprecated. Use region instead. */
+    @Deprecated
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return Full name of the region to select. Use `region` instead.
      * 
-     * @deprecated
-     * name is deprecated. Use region instead.
+     * @deprecated name is deprecated. Use region instead.
      * 
      */
-    @Deprecated /* name is deprecated. Use region instead. */
+    @Deprecated
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -133,11 +129,10 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+         * @deprecated Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
@@ -148,11 +143,10 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * name is deprecated. Use region instead.
+         * @deprecated name is deprecated. Use region instead.
          * 
          */
-        @Deprecated /* name is deprecated. Use region instead. */
+        @Deprecated
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

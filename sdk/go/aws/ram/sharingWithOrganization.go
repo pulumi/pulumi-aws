@@ -89,6 +89,12 @@ func (SharingWithOrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharingWithOrganizationState)(nil)).Elem()
 }
 
+// SharingWithOrganizationExists checks whether an existing SharingWithOrganization resource with the given ID exists.
+func SharingWithOrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharingWithOrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ram/sharingWithOrganization:SharingWithOrganization", id, state, "", opts...)
+}
+
 type sharingWithOrganizationArgs struct {
 }
 

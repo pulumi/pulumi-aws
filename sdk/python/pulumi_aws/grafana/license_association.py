@@ -384,6 +384,24 @@ class LicenseAssociation(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return LicenseAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            free_trial_expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            grafana_token: pulumi.Input[Optional[_builtins.str]] = None,
+            license_expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["freeTrialExpiration"] = free_trial_expiration
+        __props__["grafanaToken"] = grafana_token
+        __props__["licenseExpiration"] = license_expiration
+        __props__["licenseType"] = license_type
+        __props__["region"] = region
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'aws:grafana/licenseAssociation:LicenseAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="freeTrialExpiration")
     def free_trial_expiration(self) -> pulumi.Output[_builtins.str]:

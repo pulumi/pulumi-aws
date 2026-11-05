@@ -189,6 +189,12 @@ func (SessionLoggerAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sessionLoggerAssociationState)(nil)).Elem()
 }
 
+// SessionLoggerAssociationExists checks whether an existing SessionLoggerAssociation resource with the given ID exists.
+func SessionLoggerAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SessionLoggerAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/sessionLoggerAssociation:SessionLoggerAssociation", id, state, "", opts...)
+}
+
 type sessionLoggerAssociationArgs struct {
 	// ARN of the web portal.
 	PortalArn string `pulumi:"portalArn"`

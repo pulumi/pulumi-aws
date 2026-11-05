@@ -140,6 +140,12 @@ func (MulticastDomainAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multicastDomainAssociationState)(nil)).Elem()
 }
 
+// MulticastDomainAssociationExists checks whether an existing MulticastDomainAssociation resource with the given ID exists.
+func MulticastDomainAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MulticastDomainAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation", id, state, "", opts...)
+}
+
 type multicastDomainAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -114,6 +114,12 @@ func (OrganizationAdminAccountRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationAdminAccountRegistrationState)(nil)).Elem()
 }
 
+// OrganizationAdminAccountRegistrationExists checks whether an existing OrganizationAdminAccountRegistration resource with the given ID exists.
+func OrganizationAdminAccountRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationAdminAccountRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration", id, state, "", opts...)
+}
+
 type organizationAdminAccountRegistrationArgs struct {
 	// Identifier for the organization administrator account.
 	AdminAccountId string `pulumi:"adminAccountId"`

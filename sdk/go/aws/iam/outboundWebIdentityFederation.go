@@ -102,6 +102,12 @@ func (OutboundWebIdentityFederationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outboundWebIdentityFederationState)(nil)).Elem()
 }
 
+// OutboundWebIdentityFederationExists checks whether an existing OutboundWebIdentityFederation resource with the given ID exists.
+func OutboundWebIdentityFederationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutboundWebIdentityFederationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation", id, state, "", opts...)
+}
+
 type outboundWebIdentityFederationArgs struct {
 }
 

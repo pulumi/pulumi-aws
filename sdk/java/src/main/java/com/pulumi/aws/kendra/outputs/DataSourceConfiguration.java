@@ -16,11 +16,10 @@ public final class DataSourceConfiguration {
     /**
      * @return Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
      * 
-     * @deprecated
-     * s3_configuration is deprecated. Use templateConfiguration instead.
+     * @deprecated s3_configuration is deprecated. Use templateConfiguration instead.
      * 
      */
-    @Deprecated /* s3_configuration is deprecated. Use templateConfiguration instead. */
+    @Deprecated
     private @Nullable DataSourceConfigurationS3Configuration s3Configuration;
     /**
      * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `TEMPLATE`. Detailed below.
@@ -30,22 +29,20 @@ public final class DataSourceConfiguration {
     /**
      * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
      * 
-     * @deprecated
-     * web_crawler_configuration is deprecated. Use templateConfiguration instead.
+     * @deprecated web_crawler_configuration is deprecated. Use templateConfiguration instead.
      * 
      */
-    @Deprecated /* web_crawler_configuration is deprecated. Use templateConfiguration instead. */
+    @Deprecated
     private @Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration;
 
     private DataSourceConfiguration() {}
     /**
      * @return Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
      * 
-     * @deprecated
-     * s3_configuration is deprecated. Use templateConfiguration instead.
+     * @deprecated s3_configuration is deprecated. Use templateConfiguration instead.
      * 
      */
-    @Deprecated /* s3_configuration is deprecated. Use templateConfiguration instead. */
+    @Deprecated
     public Optional<DataSourceConfigurationS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
@@ -59,11 +56,10 @@ public final class DataSourceConfiguration {
     /**
      * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
      * 
-     * @deprecated
-     * web_crawler_configuration is deprecated. Use templateConfiguration instead.
+     * @deprecated web_crawler_configuration is deprecated. Use templateConfiguration instead.
      * 
      */
-    @Deprecated /* web_crawler_configuration is deprecated. Use templateConfiguration instead. */
+    @Deprecated
     public Optional<DataSourceConfigurationWebCrawlerConfiguration> webCrawlerConfiguration() {
         return Optional.ofNullable(this.webCrawlerConfiguration);
     }

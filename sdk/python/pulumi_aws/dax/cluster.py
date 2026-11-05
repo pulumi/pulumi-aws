@@ -970,6 +970,54 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cluster_address: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_endpoint_encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            node_type: pulumi.Input[Optional[_builtins.str]] = None,
+            nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict', 'outputs.ClusterNode']]]]] = None,
+            notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            server_side_encryption: pulumi.Input[Optional[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict', 'outputs.ClusterServerSideEncryption']]] = None,
+            subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZones"] = availability_zones
+        __props__["clusterAddress"] = cluster_address
+        __props__["clusterEndpointEncryptionType"] = cluster_endpoint_encryption_type
+        __props__["clusterName"] = cluster_name
+        __props__["configurationEndpoint"] = configuration_endpoint
+        __props__["description"] = description
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["maintenanceWindow"] = maintenance_window
+        __props__["nodeType"] = node_type
+        __props__["nodes"] = nodes
+        __props__["notificationTopicArn"] = notification_topic_arn
+        __props__["parameterGroupName"] = parameter_group_name
+        __props__["port"] = port
+        __props__["region"] = region
+        __props__["replicationFactor"] = replication_factor
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["serverSideEncryption"] = server_side_encryption
+        __props__["subnetGroupName"] = subnet_group_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:dax/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

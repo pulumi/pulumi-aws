@@ -578,6 +578,30 @@ class ReplicationSet(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ReplicationSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_by: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdBy"] = created_by
+        __props__["deletionProtected"] = deletion_protected
+        __props__["lastModifiedBy"] = last_modified_by
+        __props__["region"] = region
+        __props__["regions"] = regions
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ssmincidents/replicationSet:ReplicationSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -150,6 +150,12 @@ func (VpcIpv4CidrBlockAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpv4CidrBlockAssociationState)(nil)).Elem()
 }
 
+// VpcIpv4CidrBlockAssociationExists checks whether an existing VpcIpv4CidrBlockAssociation resource with the given ID exists.
+func VpcIpv4CidrBlockAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpv4CidrBlockAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", id, state, "", opts...)
+}
+
 type vpcIpv4CidrBlockAssociationArgs struct {
 	// IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
 	CidrBlock *string `pulumi:"cidrBlock"`

@@ -222,6 +222,12 @@ func (ProductState) ElementType() reflect.Type {
 	return reflect.TypeOf((*productState)(nil)).Elem()
 }
 
+// ProductExists checks whether an existing Product resource with the given ID exists.
+func ProductExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProductState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/product:Product", id, state, "", opts...)
+}
+
 type productArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

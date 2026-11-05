@@ -133,6 +133,12 @@ func (VpcEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointState)(nil)).Elem()
 }
 
+// VpcEndpointExists checks whether an existing VpcEndpoint resource with the given ID exists.
+func VpcEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/vpcEndpoint:VpcEndpoint", id, state, "", opts...)
+}
+
 type vpcEndpointArgs struct {
 	// ARN of the domain to create the endpoint for
 	DomainArn string `pulumi:"domainArn"`

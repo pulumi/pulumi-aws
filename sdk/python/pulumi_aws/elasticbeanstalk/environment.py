@@ -1028,6 +1028,62 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["wait_for_ready_timeout"] = wait_for_ready_timeout
         return Environment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            all_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict', 'outputs.EnvironmentAllSetting']]]]] = None,
+            application: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            autoscaling_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cname: pulumi.Input[Optional[_builtins.str]] = None,
+            cname_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+            instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            launch_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            poll_interval: pulumi.Input[Optional[_builtins.str]] = None,
+            queues: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict', 'outputs.EnvironmentSetting']]]]] = None,
+            solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            wait_for_ready_timeout: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allSettings"] = all_settings
+        __props__["application"] = application
+        __props__["arn"] = arn
+        __props__["autoscalingGroups"] = autoscaling_groups
+        __props__["cname"] = cname
+        __props__["cnamePrefix"] = cname_prefix
+        __props__["description"] = description
+        __props__["endpointUrl"] = endpoint_url
+        __props__["instances"] = instances
+        __props__["launchConfigurations"] = launch_configurations
+        __props__["loadBalancers"] = load_balancers
+        __props__["name"] = name
+        __props__["platformArn"] = platform_arn
+        __props__["pollInterval"] = poll_interval
+        __props__["queues"] = queues
+        __props__["region"] = region
+        __props__["settings"] = settings
+        __props__["solutionStackName"] = solution_stack_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["templateName"] = template_name
+        __props__["tier"] = tier
+        __props__["triggers"] = triggers
+        __props__["version"] = version
+        __props__["waitForReadyTimeout"] = wait_for_ready_timeout
+        return pulumi.runtime.exists_resource(None, 'aws:elasticbeanstalk/environment:Environment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allSettings")
     def all_settings(self) -> pulumi.Output[Sequence['outputs.EnvironmentAllSetting']]:

@@ -172,6 +172,12 @@ func (DevEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*devEnvironmentState)(nil)).Elem()
 }
 
+// DevEnvironmentExists checks whether an existing DevEnvironment resource with the given ID exists.
+func DevEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DevEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codecatalyst/devEnvironment:DevEnvironment", id, state, "", opts...)
+}
+
 type devEnvironmentArgs struct {
 	Alias *string `pulumi:"alias"`
 	// Information about the integrated development environment (IDE) configured for a Dev Environment.

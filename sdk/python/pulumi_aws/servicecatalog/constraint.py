@@ -488,6 +488,30 @@ class Constraint(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Constraint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptLanguage"] = accept_language
+        __props__["description"] = description
+        __props__["owner"] = owner
+        __props__["parameters"] = parameters
+        __props__["portfolioId"] = portfolio_id
+        __props__["productId"] = product_id
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:servicecatalog/constraint:Constraint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:

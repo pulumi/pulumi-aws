@@ -692,6 +692,44 @@ class ExternalKey(pulumi.CustomResource):
         __props__.__dict__["valid_to"] = valid_to
         return ExternalKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            expiration_model: pulumi.Input[Optional[_builtins.str]] = None,
+            key_material_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+            key_state: pulumi.Input[Optional[_builtins.str]] = None,
+            key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            valid_to: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["bypassPolicyLockoutSafetyCheck"] = bypass_policy_lockout_safety_check
+        __props__["deletionWindowInDays"] = deletion_window_in_days
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["expirationModel"] = expiration_model
+        __props__["keyMaterialBase64"] = key_material_base64
+        __props__["keySpec"] = key_spec
+        __props__["keyState"] = key_state
+        __props__["keyUsage"] = key_usage
+        __props__["multiRegion"] = multi_region
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["validTo"] = valid_to
+        return pulumi.runtime.exists_resource(None, 'aws:kms/externalKey:ExternalKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

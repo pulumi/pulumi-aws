@@ -196,6 +196,12 @@ func (PrimaryContactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*primaryContactState)(nil)).Elem()
 }
 
+// PrimaryContactExists checks whether an existing PrimaryContact resource with the given ID exists.
+func PrimaryContactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrimaryContactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:account/primaryContact:PrimaryContact", id, state, "", opts...)
+}
+
 type primaryContactArgs struct {
 	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId *string `pulumi:"accountId"`

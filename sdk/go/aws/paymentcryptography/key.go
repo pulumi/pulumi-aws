@@ -198,6 +198,12 @@ func (KeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyState)(nil)).Elem()
 }
 
+// KeyExists checks whether an existing Key resource with the given ID exists.
+func KeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:paymentcryptography/key:Key", id, state, "", opts...)
+}
+
 type keyArgs struct {
 	// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`

@@ -401,6 +401,24 @@ class SharedDirectory(pulumi.CustomResource):
         __props__.__dict__["target"] = target
         return SharedDirectory(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict', 'outputs.SharedDirectoryTarget']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["directoryId"] = directory_id
+        __props__["method"] = method
+        __props__["notes"] = notes
+        __props__["region"] = region
+        __props__["sharedDirectoryId"] = shared_directory_id
+        __props__["target"] = target
+        return pulumi.runtime.exists_resource(None, 'aws:directoryservice/sharedDirectory:SharedDirectory', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:

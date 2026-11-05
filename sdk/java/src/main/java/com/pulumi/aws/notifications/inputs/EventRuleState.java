@@ -47,14 +47,14 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
+     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 &#92;-&#92;(&#92;)])+`.
      * 
      */
     @Import(name="eventType")
     private @Nullable Output<String> eventType;
 
     /**
-     * @return Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
+     * @return Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 &#92;-&#92;(&#92;)])+`.
      * 
      */
     public Optional<Output<String>> eventType() {
@@ -92,7 +92,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
+     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9&#92;-])+`.
      * 
      * The following arguments are optional:
      * 
@@ -101,7 +101,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> source;
 
     /**
-     * @return Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
+     * @return Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9&#92;-])+`.
      * 
      * The following arguments are optional:
      * 
@@ -182,7 +182,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventType Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
+         * @param eventType Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 &#92;-&#92;(&#92;)])+`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventType Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
+         * @param eventType Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 &#92;-&#92;(&#92;)])+`.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
+         * @param source Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9&#92;-])+`.
          * 
          * The following arguments are optional:
          * 
@@ -268,7 +268,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
+         * @param source Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9&#92;-])+`.
          * 
          * The following arguments are optional:
          * 

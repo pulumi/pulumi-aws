@@ -176,6 +176,12 @@ func (OpenIdConnectProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openIdConnectProviderState)(nil)).Elem()
 }
 
+// OpenIdConnectProviderExists checks whether an existing OpenIdConnectProvider resource with the given ID exists.
+func OpenIdConnectProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenIdConnectProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/openIdConnectProvider:OpenIdConnectProvider", id, state, "", opts...)
+}
+
 type openIdConnectProviderArgs struct {
 	// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
 	ClientIdLists []string `pulumi:"clientIdLists"`

@@ -438,6 +438,12 @@ func (NatGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayState)(nil)).Elem()
 }
 
+// NatGatewayExists checks whether an existing NatGateway resource with the given ID exists.
+func NatGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NatGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/natGateway:NatGateway", id, state, "", opts...)
+}
+
 type natGatewayArgs struct {
 	// The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
 	AllocationId *string `pulumi:"allocationId"`

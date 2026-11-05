@@ -227,6 +227,12 @@ func (KxDataviewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kxDataviewState)(nil)).Elem()
 }
 
+// KxDataviewExists checks whether an existing KxDataview resource with the given ID exists.
+func KxDataviewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KxDataviewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:finspace/kxDataview:KxDataview", id, state, "", opts...)
+}
+
 type kxDataviewArgs struct {
 	// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
 	AutoUpdate bool `pulumi:"autoUpdate"`

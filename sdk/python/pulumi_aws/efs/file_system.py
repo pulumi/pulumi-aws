@@ -809,6 +809,50 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["throughput_mode"] = throughput_mode
         return FileSystem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_token: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lifecycle_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileSystemLifecyclePolicyArgs', 'FileSystemLifecyclePolicyArgsDict', 'outputs.FileSystemLifecyclePolicy']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_mount_targets: pulumi.Input[Optional[_builtins.int]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            performance_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            protection: pulumi.Input[Optional[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict', 'outputs.FileSystemProtection']]] = None,
+            provisioned_throughput_in_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_bytes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileSystemSizeInByteArgs', 'FileSystemSizeInByteArgsDict', 'outputs.FileSystemSizeInByte']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_mode: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZoneId"] = availability_zone_id
+        __props__["availabilityZoneName"] = availability_zone_name
+        __props__["creationToken"] = creation_token
+        __props__["dnsName"] = dns_name
+        __props__["encrypted"] = encrypted
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["lifecyclePolicies"] = lifecycle_policies
+        __props__["name"] = name
+        __props__["numberOfMountTargets"] = number_of_mount_targets
+        __props__["ownerId"] = owner_id
+        __props__["performanceMode"] = performance_mode
+        __props__["protection"] = protection
+        __props__["provisionedThroughputInMibps"] = provisioned_throughput_in_mibps
+        __props__["region"] = region
+        __props__["sizeInBytes"] = size_in_bytes
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throughputMode"] = throughput_mode
+        return pulumi.runtime.exists_resource(None, 'aws:efs/fileSystem:FileSystem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

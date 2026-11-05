@@ -877,6 +877,52 @@ class CustomModel(pulumi.CustomResource):
         __props__.__dict__["vpc_config"] = vpc_config
         return CustomModel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            base_model_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+            customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            hyperparameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            job_status: pulumi.Input[Optional[_builtins.str]] = None,
+            output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict', 'outputs.CustomModelTimeouts']]] = None,
+            training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']]] = None,
+            training_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict', 'outputs.CustomModelTrainingMetric']]]]] = None,
+            validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']]] = None,
+            validation_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict', 'outputs.CustomModelValidationMetric']]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["baseModelIdentifier"] = base_model_identifier
+        __props__["customModelArn"] = custom_model_arn
+        __props__["customModelKmsKeyId"] = custom_model_kms_key_id
+        __props__["customModelName"] = custom_model_name
+        __props__["customizationType"] = customization_type
+        __props__["hyperparameters"] = hyperparameters
+        __props__["jobArn"] = job_arn
+        __props__["jobName"] = job_name
+        __props__["jobStatus"] = job_status
+        __props__["outputDataConfig"] = output_data_config
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["trainingDataConfig"] = training_data_config
+        __props__["trainingMetrics"] = training_metrics
+        __props__["validationDataConfig"] = validation_data_config
+        __props__["validationMetrics"] = validation_metrics
+        __props__["vpcConfig"] = vpc_config
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/customModel:CustomModel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="baseModelIdentifier")
     def base_model_identifier(self) -> pulumi.Output[_builtins.str]:

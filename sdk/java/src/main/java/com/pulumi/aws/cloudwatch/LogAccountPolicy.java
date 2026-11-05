@@ -102,12 +102,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var subscriptionFilter = new LogAccountPolicy("subscriptionFilter", LogAccountPolicyArgs.builder()
  *             .policyName("subscription-filter")
  *             .policyType("SUBSCRIPTION_FILTER_POLICY")
@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  *                     jsonProperty("DestinationArn", test.get("arn")),
  *                     jsonProperty("FilterPattern", "test")
  *                 )))
- *             .selectionCriteria("LogGroupName NOT IN [\"excluded_log_group_name\"]")
+ *             .selectionCriteria("LogGroupName NOT IN [}&#92;{@code "excluded_log_group_name}&#92;{@code "]")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

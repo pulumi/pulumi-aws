@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()
  *             .name("example_api")
  *             .build());
@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *                 .method("GET")
  *                 .path("/example")
  *                 .build())
- *             .properties("{\"description\":\"Example description\"}")
+ *             .properties("}{&#92;{@code "description}&#92;{@code ":}&#92;{@code "Example description}&#92;{@code "}}{@code ")
  *             .restApiId(exampleRestApi.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -103,14 +103,14 @@ public class DocumentationPart extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ &#92;&#34;description&#92;&#34;: &#92;&#34;The API does ...&#92;&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
      * 
      */
     @Export(name="properties", refs={String.class}, tree="[0]")
     private Output<String> properties;
 
     /**
-     * @return Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * @return Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ &#92;&#34;description&#92;&#34;: &#92;&#34;The API does ...&#92;&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
      * 
      */
     public Output<String> properties() {

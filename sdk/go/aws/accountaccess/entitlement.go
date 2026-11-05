@@ -276,6 +276,12 @@ func (EntitlementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entitlementState)(nil)).Elem()
 }
 
+// EntitlementExists checks whether an existing Entitlement resource with the given ID exists.
+func EntitlementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntitlementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:accountaccess/entitlement:Entitlement", id, state, "", opts...)
+}
+
 type entitlementArgs struct {
 	// ARN of the parent Account Access Application. Forces replacement when changed.
 	ApplicationArn string `pulumi:"applicationArn"`

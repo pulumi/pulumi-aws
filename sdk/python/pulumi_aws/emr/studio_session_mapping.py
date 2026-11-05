@@ -385,6 +385,24 @@ class StudioSessionMapping(pulumi.CustomResource):
         __props__.__dict__["studio_id"] = studio_id
         return StudioSessionMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            session_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            studio_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["identityId"] = identity_id
+        __props__["identityName"] = identity_name
+        __props__["identityType"] = identity_type
+        __props__["region"] = region
+        __props__["sessionPolicyArn"] = session_policy_arn
+        __props__["studioId"] = studio_id
+        return pulumi.runtime.exists_resource(None, 'aws:emr/studioSessionMapping:StudioSessionMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Output[_builtins.str]:

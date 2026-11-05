@@ -175,6 +175,12 @@ func (PackageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packageState)(nil)).Elem()
 }
 
+// PackageExists checks whether an existing Package resource with the given ID exists.
+func PackageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PackageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearch/package:Package", id, state, "", opts...)
+}
+
 type packageArgs struct {
 	// Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
 	EngineVersion *string `pulumi:"engineVersion"`

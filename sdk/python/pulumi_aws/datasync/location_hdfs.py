@@ -891,6 +891,50 @@ class LocationHdfs(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return LocationHdfs(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            block_size: pulumi.Input[Optional[_builtins.int]] = None,
+            kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_keytab_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_krb5_conf_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_provider_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            name_nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict', 'outputs.LocationHdfsNameNode']]]]] = None,
+            qop_configuration: pulumi.Input[Optional[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict', 'outputs.LocationHdfsQopConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+            simple_user: pulumi.Input[Optional[_builtins.str]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentArns"] = agent_arns
+        __props__["arn"] = arn
+        __props__["authenticationType"] = authentication_type
+        __props__["blockSize"] = block_size
+        __props__["kerberosKeytab"] = kerberos_keytab
+        __props__["kerberosKeytabBase64"] = kerberos_keytab_base64
+        __props__["kerberosKrb5Conf"] = kerberos_krb5_conf
+        __props__["kerberosKrb5ConfBase64"] = kerberos_krb5_conf_base64
+        __props__["kerberosPrincipal"] = kerberos_principal
+        __props__["kmsKeyProviderUri"] = kms_key_provider_uri
+        __props__["nameNodes"] = name_nodes
+        __props__["qopConfiguration"] = qop_configuration
+        __props__["region"] = region
+        __props__["replicationFactor"] = replication_factor
+        __props__["simpleUser"] = simple_user
+        __props__["subdirectory"] = subdirectory
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/locationHdfs:LocationHdfs', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -126,6 +126,12 @@ func (LfTagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lfTagState)(nil)).Elem()
 }
 
+// LfTagExists checks whether an existing LfTag resource with the given ID exists.
+func LfTagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LfTagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lakeformation/lfTag:LfTag", id, state, "", opts...)
+}
+
 type lfTagArgs struct {
 	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`

@@ -44,38 +44,38 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var foo = new Document("foo", DocumentArgs.builder()
  *             .name("test_document")
  *             .documentType("Command")
  *             .content("""
- *   {
- *     \"schemaVersion\": \"1.2\",
- *     \"description\": \"Check ip configuration of a Linux instance.\",
- *     \"parameters\": {
+ *   }{{@code
+ *     }&#92;{@code "schemaVersion}&#92;{@code ": }&#92;{@code "1.2}&#92;{@code ",
+ *     }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Check ip configuration of a Linux instance.}&#92;{@code ",
+ *     }&#92;{@code "parameters}&#92;{@code ": }{{@code
  * 
- *     },
- *     \"runtimeConfig\": {
- *       \"aws:runShellScript\": {
- *         \"properties\": [
- *           {
- *             \"id\": \"0.aws:runShellScript\",
- *             \"runCommand\": [\"ifconfig\"]
- *           }
+ *     }}{@code ,
+ *     }&#92;{@code "runtimeConfig}&#92;{@code ": }{{@code
+ *       }&#92;{@code "aws:runShellScript}&#92;{@code ": }{{@code
+ *         }&#92;{@code "properties}&#92;{@code ": [
+ *           }{{@code
+ *             }&#92;{@code "id}&#92;{@code ": }&#92;{@code "0.aws:runShellScript}&#92;{@code ",
+ *             }&#92;{@code "runCommand}&#92;{@code ": [}&#92;{@code "ifconfig}&#92;{@code "]
+ *           }}{@code
  *         ]
- *       }
- *     }
- *   }
+ *       }}{@code
+ *     }}{@code
+ *   }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

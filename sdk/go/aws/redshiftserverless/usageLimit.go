@@ -151,6 +151,12 @@ func (UsageLimitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*usageLimitState)(nil)).Elem()
 }
 
+// UsageLimitExists checks whether an existing UsageLimit resource with the given ID exists.
+func UsageLimitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UsageLimitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshiftserverless/usageLimit:UsageLimit", id, state, "", opts...)
+}
+
 type usageLimitArgs struct {
 	// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
 	Amount int `pulumi:"amount"`

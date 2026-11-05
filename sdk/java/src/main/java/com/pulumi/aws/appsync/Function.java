@@ -43,33 +43,33 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
  *             .authenticationType("API_KEY")
  *             .name("example")
  *             .schema("""
- * type Mutation {
+ * type Mutation }{{@code
  *   putPost(id: ID!, title: String!): Post
- * }
+ * }}{@code
  * 
- * type Post {
+ * type Post }{{@code
  *   id: ID!
  *   title: String!
- * }
+ * }}{@code
  * 
- * type Query {
+ * type Query }{{@code
  *   singlePost(id: ID!): Post
- * }
+ * }}{@code
  * 
- * schema {
+ * schema }{{@code
  *   query: Query
  *   mutation: Mutation
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
@@ -87,14 +87,14 @@ import javax.annotation.Nullable;
  *             .dataSource(exampleDataSource.name())
  *             .name("example")
  *             .requestMappingTemplate("""
- * {
- *     \"version\": \"2018-05-29\",
- *     \"method\": \"GET\",
- *     \"resourcePath\": \"/\",
- *     \"params\":{
- *         \"headers\": $utils.http.copyheaders($ctx.request.headers)
- *     }
- * }
+ * }{{@code
+ *     }&#92;{@code "version}&#92;{@code ": }&#92;{@code "2018-05-29}&#92;{@code ",
+ *     }&#92;{@code "method}&#92;{@code ": }&#92;{@code "GET}&#92;{@code ",
+ *     }&#92;{@code "resourcePath}&#92;{@code ": }&#92;{@code "/}&#92;{@code ",
+ *     }&#92;{@code "params}&#92;{@code ":}{{@code
+ *         }&#92;{@code "headers}&#92;{@code ": $utils.http.copyheaders($ctx.request.headers)
+ *     }}{@code
+ * }}{@code
  *             """)
  *             .responseMappingTemplate("""
  * #if($ctx.result.statusCode == 200)
@@ -105,8 +105,8 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

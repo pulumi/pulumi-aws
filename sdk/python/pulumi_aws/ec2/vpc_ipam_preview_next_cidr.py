@@ -335,6 +335,22 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return VpcIpamPreviewNextCidr(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            disallowed_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidr"] = cidr
+        __props__["disallowedCidrs"] = disallowed_cidrs
+        __props__["ipamPoolId"] = ipam_pool_id
+        __props__["netmaskLength"] = netmask_length
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[_builtins.str]:

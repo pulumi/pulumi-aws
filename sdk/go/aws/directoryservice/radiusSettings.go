@@ -191,6 +191,12 @@ func (RadiusSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*radiusSettingsState)(nil)).Elem()
 }
 
+// RadiusSettingsExists checks whether an existing RadiusSettings resource with the given ID exists.
+func RadiusSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RadiusSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/radiusSettings:RadiusSettings", id, state, "", opts...)
+}
+
 type radiusSettingsArgs struct {
 	// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
 	AuthenticationProtocol string `pulumi:"authenticationProtocol"`

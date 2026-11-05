@@ -314,22 +314,22 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new TrainingJob("example", TrainingJobArgs.builder()
  *             .algorithmSpecification(TrainingJobAlgorithmSpecificationArgs.builder()
  *                 .metricDefinitions(                
  *                     TrainingJobAlgorithmSpecificationMetricDefinitionArgs.builder()
  *                         .name("train:loss")
- *                         .regex("loss: ([0-9\\.]+)")
+ *                         .regex("loss: ([0-9}&#92;&#92;{@code .]+)")
  *                         .build(),
  *                     TrainingJobAlgorithmSpecificationMetricDefinitionArgs.builder()
  *                         .name("validation:accuracy")
- *                         .regex("accuracy: ([0-9\\.]+)")
+ *                         .regex("accuracy: ([0-9}&#92;&#92;{@code .]+)")
  *                         .build())
  *                 .trainingInputMode("File")
  *                 .trainingImage(trainingImage)
@@ -377,8 +377,8 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

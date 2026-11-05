@@ -193,6 +193,12 @@ func (StatementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*statementState)(nil)).Elem()
 }
 
+// StatementExists checks whether an existing Statement resource with the given ID exists.
+func StatementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StatementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshiftdata/statement:Statement", id, state, "", opts...)
+}
+
 type statementArgs struct {
 	// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`

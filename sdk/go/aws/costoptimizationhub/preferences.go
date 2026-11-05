@@ -129,6 +129,12 @@ func (PreferencesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*preferencesState)(nil)).Elem()
 }
 
+// PreferencesExists checks whether an existing Preferences resource with the given ID exists.
+func PreferencesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PreferencesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:costoptimizationhub/preferences:Preferences", id, state, "", opts...)
+}
+
 type preferencesArgs struct {
 	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility *string `pulumi:"memberAccountDiscountVisibility"`

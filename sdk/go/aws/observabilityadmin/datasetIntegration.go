@@ -237,6 +237,12 @@ func (DatasetIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetIntegrationState)(nil)).Elem()
 }
 
+// DatasetIntegrationExists checks whether an existing DatasetIntegration resource with the given ID exists.
+func DatasetIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:observabilityadmin/datasetIntegration:DatasetIntegration", id, state, "", opts...)
+}
+
 type datasetIntegrationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

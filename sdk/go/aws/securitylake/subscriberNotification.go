@@ -162,6 +162,12 @@ func (SubscriberNotificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriberNotificationState)(nil)).Elem()
 }
 
+// SubscriberNotificationExists checks whether an existing SubscriberNotification resource with the given ID exists.
+func SubscriberNotificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriberNotificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securitylake/subscriberNotification:SubscriberNotification", id, state, "", opts...)
+}
+
 type subscriberNotificationArgs struct {
 	// Specify the configuration using which you want to create the subscriber notification..
 	Configuration SubscriberNotificationConfiguration `pulumi:"configuration"`

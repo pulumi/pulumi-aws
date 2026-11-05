@@ -243,6 +243,18 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return OrganizationAdminAccountRegistration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminAccountId"] = admin_account_id
+        __props__["organizationId"] = organization_id
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Output[_builtins.str]:

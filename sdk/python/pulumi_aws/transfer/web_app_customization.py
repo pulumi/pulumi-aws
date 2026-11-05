@@ -334,6 +334,22 @@ class WebAppCustomization(pulumi.CustomResource):
         __props__.__dict__["web_app_id"] = web_app_id
         return WebAppCustomization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            favicon_file: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_file: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            web_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["faviconFile"] = favicon_file
+        __props__["logoFile"] = logo_file
+        __props__["region"] = region
+        __props__["title"] = title
+        __props__["webAppId"] = web_app_id
+        return pulumi.runtime.exists_resource(None, 'aws:transfer/webAppCustomization:WebAppCustomization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="faviconFile")
     def favicon_file(self) -> pulumi.Output[_builtins.str]:

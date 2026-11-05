@@ -304,6 +304,12 @@ func (GlobalSecondaryIndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalSecondaryIndexState)(nil)).Elem()
 }
 
+// GlobalSecondaryIndexExists checks whether an existing GlobalSecondaryIndex resource with the given ID exists.
+func GlobalSecondaryIndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalSecondaryIndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex", id, state, "", opts...)
+}
+
 type globalSecondaryIndexArgs struct {
 	// Name of the index.
 	IndexName string `pulumi:"indexName"`

@@ -711,6 +711,38 @@ class EventDataStore(pulumi.CustomResource):
         __props__.__dict__["termination_protection_enabled"] = termination_protection_enabled
         return EventDataStore(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict', 'outputs.EventDataStoreAdvancedEventSelector']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            suspend: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["advancedEventSelectors"] = advanced_event_selectors
+        __props__["arn"] = arn
+        __props__["billingMode"] = billing_mode
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["multiRegionEnabled"] = multi_region_enabled
+        __props__["name"] = name
+        __props__["organizationEnabled"] = organization_enabled
+        __props__["region"] = region
+        __props__["retentionPeriod"] = retention_period
+        __props__["suspend"] = suspend
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["terminationProtectionEnabled"] = termination_protection_enabled
+        return pulumi.runtime.exists_resource(None, 'aws:cloudtrail/eventDataStore:EventDataStore', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="advancedEventSelectors")
     def advanced_event_selectors(self) -> pulumi.Output[Sequence['outputs.EventDataStoreAdvancedEventSelector']]:

@@ -308,6 +308,12 @@ func (AccessPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPointState)(nil)).Elem()
 }
 
+// AccessPointExists checks whether an existing AccessPoint resource with the given ID exists.
+func AccessPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/accessPoint:AccessPoint", id, state, "", opts...)
+}
+
 type accessPointArgs struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`

@@ -387,6 +387,30 @@ class ResourceShareAccepter(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return ResourceShareAccepter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            invitation_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            receiver_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sender_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            share_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            share_id: pulumi.Input[Optional[_builtins.str]] = None,
+            share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["invitationArn"] = invitation_arn
+        __props__["receiverAccountId"] = receiver_account_id
+        __props__["region"] = region
+        __props__["resources"] = resources
+        __props__["senderAccountId"] = sender_account_id
+        __props__["shareArn"] = share_arn
+        __props__["shareId"] = share_id
+        __props__["shareName"] = share_name
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:ram/resourceShareAccepter:ResourceShareAccepter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="invitationArn")
     def invitation_arn(self) -> pulumi.Output[_builtins.str]:

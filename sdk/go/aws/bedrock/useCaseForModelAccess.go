@@ -128,6 +128,12 @@ func (UseCaseForModelAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*useCaseForModelAccessState)(nil)).Elem()
 }
 
+// UseCaseForModelAccessExists checks whether an existing UseCaseForModelAccess resource with the given ID exists.
+func UseCaseForModelAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UseCaseForModelAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/useCaseForModelAccess:UseCaseForModelAccess", id, state, "", opts...)
+}
+
 type useCaseForModelAccessArgs struct {
 	// Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
 	FormData string `pulumi:"formData"`

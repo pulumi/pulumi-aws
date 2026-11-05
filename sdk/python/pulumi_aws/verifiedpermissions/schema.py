@@ -305,6 +305,20 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Schema(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict', 'outputs.SchemaDefinition']]] = None,
+            namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["definition"] = definition
+        __props__["namespaces"] = namespaces
+        __props__["policyStoreId"] = policy_store_id
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:verifiedpermissions/schema:Schema', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def definition(self) -> pulumi.Output['outputs.SchemaDefinition']:

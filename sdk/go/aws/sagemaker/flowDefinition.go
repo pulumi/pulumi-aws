@@ -279,6 +279,12 @@ func (FlowDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowDefinitionState)(nil)).Elem()
 }
 
+// FlowDefinitionExists checks whether an existing FlowDefinition resource with the given ID exists.
+func FlowDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/flowDefinition:FlowDefinition", id, state, "", opts...)
+}
+
 type flowDefinitionArgs struct {
 	// The name of your flow definition.
 	FlowDefinitionName string `pulumi:"flowDefinitionName"`

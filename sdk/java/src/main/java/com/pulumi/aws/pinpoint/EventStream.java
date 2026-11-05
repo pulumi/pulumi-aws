@@ -119,11 +119,10 @@ public class EventStream extends com.pulumi.resources.CustomResource {
     /**
      * Application ID.
      * 
-     * @deprecated
-     * application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
+     * @deprecated application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
+    @Deprecated
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
@@ -137,11 +136,10 @@ public class EventStream extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
-     * @deprecated
-     * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
+     * @deprecated destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
+    @Deprecated
     @Export(name="destinationStreamArn", refs={String.class}, tree="[0]")
     private Output<String> destinationStreamArn;
 
@@ -169,11 +167,10 @@ public class EventStream extends com.pulumi.resources.CustomResource {
     /**
      * IAM role that authorizes AWS End User Messaging to publish events to the stream in your account.
      * 
-     * @deprecated
-     * role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
+     * @deprecated role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
+    @Deprecated
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 

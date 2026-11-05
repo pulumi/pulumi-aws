@@ -926,6 +926,54 @@ class ContainerRecipe(pulumi.CustomResource):
         __props__.__dict__["working_directory"] = working_directory
         return ContainerRecipe(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict', 'outputs.ContainerRecipeComponent']]]]] = None,
+            container_type: pulumi.Input[Optional[_builtins.str]] = None,
+            date_created: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dockerfile_template_data: pulumi.Input[Optional[_builtins.str]] = None,
+            dockerfile_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict', 'outputs.ContainerRecipeInstanceConfiguration']]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_image: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_override: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict', 'outputs.ContainerRecipeTargetRepository']]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            working_directory: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["components"] = components
+        __props__["containerType"] = container_type
+        __props__["dateCreated"] = date_created
+        __props__["description"] = description
+        __props__["dockerfileTemplateData"] = dockerfile_template_data
+        __props__["dockerfileTemplateUri"] = dockerfile_template_uri
+        __props__["encrypted"] = encrypted
+        __props__["instanceConfiguration"] = instance_configuration
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["name"] = name
+        __props__["owner"] = owner
+        __props__["parentImage"] = parent_image
+        __props__["platform"] = platform
+        __props__["platformOverride"] = platform_override
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetRepository"] = target_repository
+        __props__["version"] = version
+        __props__["workingDirectory"] = working_directory
+        return pulumi.runtime.exists_resource(None, 'aws:imagebuilder/containerRecipe:ContainerRecipe', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -421,6 +421,26 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return AccessPolicyAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_scope: pulumi.Input[Optional[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict', 'outputs.AccessPolicyAssociationAccessScope']]] = None,
+            associated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessScope"] = access_scope
+        __props__["associatedAt"] = associated_at
+        __props__["clusterName"] = cluster_name
+        __props__["modifiedAt"] = modified_at
+        __props__["policyArn"] = policy_arn
+        __props__["principalArn"] = principal_arn
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:eks/accessPolicyAssociation:AccessPolicyAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessScope")
     def access_scope(self) -> pulumi.Output['outputs.AccessPolicyAssociationAccessScope']:

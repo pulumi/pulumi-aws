@@ -499,6 +499,22 @@ class RealtimeLogConfig(pulumi.CustomResource):
         __props__.__dict__["sampling_rate"] = sampling_rate
         return RealtimeLogConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict', 'outputs.RealtimeLogConfigEndpoint']]] = None,
+            fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sampling_rate: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["endpoint"] = endpoint
+        __props__["fields"] = fields
+        __props__["name"] = name
+        __props__["samplingRate"] = sampling_rate
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/realtimeLogConfig:RealtimeLogConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

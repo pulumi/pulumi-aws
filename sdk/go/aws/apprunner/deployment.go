@@ -113,6 +113,12 @@ func (DeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentState)(nil)).Elem()
 }
 
+// DeploymentExists checks whether an existing Deployment resource with the given ID exists.
+func DeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apprunner/deployment:Deployment", id, state, "", opts...)
+}
+
 type deploymentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

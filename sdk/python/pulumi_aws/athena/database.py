@@ -562,6 +562,32 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["workgroup"] = workgroup
         return Database(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            acl_configuration: pulumi.Input[Optional[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict', 'outputs.DatabaseAclConfiguration']]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict', 'outputs.DatabaseEncryptionConfiguration']]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            workgroup: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aclConfiguration"] = acl_configuration
+        __props__["bucket"] = bucket
+        __props__["comment"] = comment
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["expectedBucketOwner"] = expected_bucket_owner
+        __props__["forceDestroy"] = force_destroy
+        __props__["name"] = name
+        __props__["properties"] = properties
+        __props__["region"] = region
+        __props__["workgroup"] = workgroup
+        return pulumi.runtime.exists_resource(None, 'aws:athena/database:Database', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> pulumi.Output[Optional['outputs.DatabaseAclConfiguration']]:

@@ -165,12 +165,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new CatalogTable("example", CatalogTableArgs.builder()
  *             .openTableFormatInput(CatalogTableOpenTableFormatInputArgs.builder()
  *                 .icebergInput(CatalogTableOpenTableFormatInputIcebergInputArgs.builder()
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *                                     .name("transaction_id")
  *                                     .required(true)
  *                                     .type("""
- *             \"string\"
+ *             }&#92;{@code "string}&#92;{@code "
  *                                     """)
  *                                     .build(),
  *                                 CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs.builder()
@@ -190,7 +190,7 @@ import javax.annotation.Nullable;
  *                                     .name("transaction_date")
  *                                     .required(true)
  *                                     .type("""
- *             \"date\"
+ *             }&#92;{@code "date}&#92;{@code "
  *                                     """)
  *                                     .build(),
  *                                 CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs.builder()
@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  *                                     .name("monthly_balance")
  *                                     .required(true)
  *                                     .type("""
- *             \"float\"
+ *             }&#92;{@code "float}&#92;{@code "
  *                                     """)
  *                                     .build())
  *                             .schemaId(0)
@@ -231,8 +231,8 @@ import javax.annotation.Nullable;
  *             .databaseName("bankdata_icebergdb")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

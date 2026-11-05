@@ -189,6 +189,12 @@ func (KxScalingGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kxScalingGroupState)(nil)).Elem()
 }
 
+// KxScalingGroupExists checks whether an existing KxScalingGroup resource with the given ID exists.
+func KxScalingGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KxScalingGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:finspace/kxScalingGroup:KxScalingGroup", id, state, "", opts...)
+}
+
 type kxScalingGroupArgs struct {
 	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`

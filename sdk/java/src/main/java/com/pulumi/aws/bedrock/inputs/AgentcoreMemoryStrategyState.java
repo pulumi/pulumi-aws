@@ -53,22 +53,20 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
     /**
      * ARN of the IAM role that the memory service assumes to perform operations.
      * 
-     * @deprecated
-     * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
+     * @deprecated memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
      * 
      */
-    @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
+    @Deprecated
     @Import(name="memoryExecutionRoleArn")
     private @Nullable Output<String> memoryExecutionRoleArn;
 
     /**
      * @return ARN of the IAM role that the memory service assumes to perform operations.
      * 
-     * @deprecated
-     * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
+     * @deprecated memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
      * 
      */
-    @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
+    @Deprecated
     public Optional<Output<String>> memoryExecutionRoleArn() {
         return Optional.ofNullable(this.memoryExecutionRoleArn);
     }
@@ -151,22 +149,20 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
     /**
      * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
-     * @deprecated
-     * namespaces is deprecated. Use namespaceTemplates instead.
+     * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
      * 
      */
-    @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
+    @Deprecated
     @Import(name="namespaces")
     private @Nullable Output<List<String>> namespaces;
 
     /**
      * @return Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
-     * @deprecated
-     * namespaces is deprecated. Use namespaceTemplates instead.
+     * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
      * 
      */
-    @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
+    @Deprecated
     public Optional<Output<List<String>>> namespaces() {
         return Optional.ofNullable(this.namespaces);
     }
@@ -310,11 +306,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
+         * @deprecated memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
          * 
          */
-        @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
+        @Deprecated
         public Builder memoryExecutionRoleArn(@Nullable Output<String> memoryExecutionRoleArn) {
             $.memoryExecutionRoleArn = memoryExecutionRoleArn;
             return this;
@@ -325,11 +320,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
+         * @deprecated memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
          * 
          */
-        @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
+        @Deprecated
         public Builder memoryExecutionRoleArn(String memoryExecutionRoleArn) {
             return memoryExecutionRoleArn(Output.of(memoryExecutionRoleArn));
         }
@@ -454,11 +448,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * namespaces is deprecated. Use namespaceTemplates instead.
+         * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
          * 
          */
-        @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
+        @Deprecated
         public Builder namespaces(@Nullable Output<List<String>> namespaces) {
             $.namespaces = namespaces;
             return this;
@@ -469,11 +462,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * namespaces is deprecated. Use namespaceTemplates instead.
+         * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
          * 
          */
-        @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
+        @Deprecated
         public Builder namespaces(List<String> namespaces) {
             return namespaces(Output.of(namespaces));
         }
@@ -483,11 +475,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * namespaces is deprecated. Use namespaceTemplates instead.
+         * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
          * 
          */
-        @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
+        @Deprecated
         public Builder namespaces(String... namespaces) {
             return namespaces(List.of(namespaces));
         }

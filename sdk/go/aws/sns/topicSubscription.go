@@ -501,6 +501,12 @@ func (TopicSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicSubscriptionState)(nil)).Elem()
 }
 
+// TopicSubscriptionExists checks whether an existing TopicSubscription resource with the given ID exists.
+func TopicSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sns/topicSubscription:TopicSubscription", id, state, "", opts...)
+}
+
 type topicSubscriptionArgs struct {
 	// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
 	ConfirmationTimeoutInMinutes *int `pulumi:"confirmationTimeoutInMinutes"`

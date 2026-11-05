@@ -440,6 +440,26 @@ class ResourceLfTag(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ResourceLfTag(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict', 'outputs.ResourceLfTagDatabase']]] = None,
+            lf_tag: pulumi.Input[Optional[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict', 'outputs.ResourceLfTagLfTag']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict', 'outputs.ResourceLfTagTable']]] = None,
+            table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict', 'outputs.ResourceLfTagTableWithColumns']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict', 'outputs.ResourceLfTagTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogId"] = catalog_id
+        __props__["database"] = database
+        __props__["lfTag"] = lf_tag
+        __props__["region"] = region
+        __props__["table"] = table
+        __props__["tableWithColumns"] = table_with_columns
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:lakeformation/resourceLfTag:ResourceLfTag', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[Optional[_builtins.str]]:

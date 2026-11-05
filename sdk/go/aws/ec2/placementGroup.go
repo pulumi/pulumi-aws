@@ -150,6 +150,12 @@ func (PlacementGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementGroupState)(nil)).Elem()
 }
 
+// PlacementGroupExists checks whether an existing PlacementGroup resource with the given ID exists.
+func PlacementGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlacementGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/placementGroup:PlacementGroup", id, state, "", opts...)
+}
+
 type placementGroupArgs struct {
 	// Name of the placement group.
 	Name *string `pulumi:"name"`

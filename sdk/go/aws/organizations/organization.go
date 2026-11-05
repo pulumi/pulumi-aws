@@ -180,6 +180,12 @@ func (OrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationState)(nil)).Elem()
 }
 
+// OrganizationExists checks whether an existing Organization resource with the given ID exists.
+func OrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:organizations/organization:Organization", id, state, "", opts...)
+}
+
 type organizationArgs struct {
 	// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
 	AwsServiceAccessPrincipals []string `pulumi:"awsServiceAccessPrincipals"`

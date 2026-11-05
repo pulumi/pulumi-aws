@@ -123,6 +123,12 @@ func (VpcBlockPublicAccessOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcBlockPublicAccessOptionsState)(nil)).Elem()
 }
 
+// VpcBlockPublicAccessOptionsExists checks whether an existing VpcBlockPublicAccessOptions resource with the given ID exists.
+func VpcBlockPublicAccessOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcBlockPublicAccessOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions", id, state, "", opts...)
+}
+
 type vpcBlockPublicAccessOptionsArgs struct {
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode string `pulumi:"internetGatewayBlockMode"`

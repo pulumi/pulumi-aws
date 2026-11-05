@@ -138,6 +138,12 @@ func (RoleMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleMembershipState)(nil)).Elem()
 }
 
+// RoleMembershipExists checks whether an existing RoleMembership resource with the given ID exists.
+func RoleMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/roleMembership:RoleMembership", id, state, "", opts...)
+}
+
 type roleMembershipArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

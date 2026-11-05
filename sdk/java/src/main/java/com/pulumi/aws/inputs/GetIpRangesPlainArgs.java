@@ -17,20 +17,18 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetIpRangesPlainArgs Empty = new GetIpRangesPlainArgs();
 
     /**
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @deprecated
-     * This attribute will be removed in a future version of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -128,11 +126,10 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future version of the provider.
+         * @deprecated This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

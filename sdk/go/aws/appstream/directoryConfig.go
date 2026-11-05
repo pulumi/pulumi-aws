@@ -147,6 +147,12 @@ func (DirectoryConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryConfigState)(nil)).Elem()
 }
 
+// DirectoryConfigExists checks whether an existing DirectoryConfig resource with the given ID exists.
+func DirectoryConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectoryConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appstream/directoryConfig:DirectoryConfig", id, state, "", opts...)
+}
+
 type directoryConfigArgs struct {
 	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
 	CertificateBasedAuthProperties *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`

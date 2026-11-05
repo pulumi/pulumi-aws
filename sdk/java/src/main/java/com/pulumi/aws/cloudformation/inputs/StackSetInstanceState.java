@@ -114,22 +114,20 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
     /**
      * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use stackSetInstanceRegion instead.
+     * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
+    @Deprecated
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
      * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use stackSetInstanceRegion instead.
+     * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
+    @Deprecated
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -375,11 +373,10 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use stackSetInstanceRegion instead.
+         * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
+        @Deprecated
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
@@ -390,11 +387,10 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * region is deprecated. Use stackSetInstanceRegion instead.
+         * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
+        @Deprecated
         public Builder region(String region) {
             return region(Output.of(region));
         }

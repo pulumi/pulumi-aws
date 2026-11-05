@@ -513,6 +513,44 @@ class ClusterSnapshot(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return ClusterSnapshot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_cluster_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_type: pulumi.Input[Optional[_builtins.str]] = None,
+            source_db_cluster_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocatedStorage"] = allocated_storage
+        __props__["availabilityZones"] = availability_zones
+        __props__["dbClusterIdentifier"] = db_cluster_identifier
+        __props__["dbClusterSnapshotArn"] = db_cluster_snapshot_arn
+        __props__["dbClusterSnapshotIdentifier"] = db_cluster_snapshot_identifier
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["licenseModel"] = license_model
+        __props__["port"] = port
+        __props__["region"] = region
+        __props__["snapshotType"] = snapshot_type
+        __props__["sourceDbClusterSnapshotArn"] = source_db_cluster_snapshot_arn
+        __props__["status"] = status
+        __props__["storageEncrypted"] = storage_encrypted
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:neptune/clusterSnapshot:ClusterSnapshot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[_builtins.int]:

@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Notifications
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider 
+        /// Map of tags to assign to the resource. If configured with a provider
         /// `DefaultTags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Notifications
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider 
+        /// Map of tags assigned to the resource, including those inherited from the provider
         /// `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Notifications
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider 
+        /// Map of tags to assign to the resource. If configured with a provider
         /// `DefaultTags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Notifications
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider 
+        /// Map of tags to assign to the resource. If configured with a provider
         /// `DefaultTags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Notifications
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider 
+        /// Map of tags assigned to the resource, including those inherited from the provider
         /// `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll

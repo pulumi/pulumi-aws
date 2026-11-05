@@ -154,6 +154,12 @@ func (PipelineEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineEndpointState)(nil)).Elem()
 }
 
+// PipelineEndpointExists checks whether an existing PipelineEndpoint resource with the given ID exists.
+func PipelineEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:opensearchingest/pipelineEndpoint:PipelineEndpoint", id, state, "", opts...)
+}
+
 type pipelineEndpointArgs struct {
 	// ARN of the pipeline to create the endpoint for.
 	PipelineArn string `pulumi:"pipelineArn"`

@@ -58,6 +58,17 @@ export class RegexMatchSet extends pulumi.CustomResource {
         return new RegexMatchSet(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing RegexMatchSet resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: RegexMatchSetState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:waf/regexMatchSet:RegexMatchSet", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:waf/regexMatchSet:RegexMatchSet';
 

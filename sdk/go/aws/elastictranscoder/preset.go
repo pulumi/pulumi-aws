@@ -225,6 +225,12 @@ func (PresetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*presetState)(nil)).Elem()
 }
 
+// PresetExists checks whether an existing Preset resource with the given ID exists.
+func PresetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PresetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elastictranscoder/preset:Preset", id, state, "", opts...)
+}
+
 type presetArgs struct {
 	// Audio parameters object (documented below).
 	Audio *PresetAudio `pulumi:"audio"`

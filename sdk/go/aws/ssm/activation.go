@@ -203,6 +203,12 @@ func (ActivationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activationState)(nil)).Elem()
 }
 
+// ActivationExists checks whether an existing Activation resource with the given ID exists.
+func ActivationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActivationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/activation:Activation", id, state, "", opts...)
+}
+
 type activationArgs struct {
 	// The description of the resource that you want to register.
 	Description *string `pulumi:"description"`

@@ -306,6 +306,12 @@ func (ReplicationSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationSetState)(nil)).Elem()
 }
 
+// ReplicationSetExists checks whether an existing ReplicationSet resource with the given ID exists.
+func ReplicationSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssmincidents/replicationSet:ReplicationSet", id, state, "", opts...)
+}
+
 type replicationSetArgs struct {
 	// The replication set's Regions. Use `regions` instead.
 	//

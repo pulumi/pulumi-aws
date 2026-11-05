@@ -169,6 +169,12 @@ func (ServiceNetworkVpcAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceNetworkVpcAssociationState)(nil)).Elem()
 }
 
+// ServiceNetworkVpcAssociationExists checks whether an existing ServiceNetworkVpcAssociation resource with the given ID exists.
+func ServiceNetworkVpcAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceNetworkVpcAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation", id, state, "", opts...)
+}
+
 type serviceNetworkVpcAssociationArgs struct {
 	// Configuration block for DNS option. See `dnsOptions` block below for details.
 	DnsOptions *ServiceNetworkVpcAssociationDnsOptions `pulumi:"dnsOptions"`

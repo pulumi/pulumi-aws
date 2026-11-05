@@ -106,6 +106,12 @@ func (GlobalSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalSettingsState)(nil)).Elem()
 }
 
+// GlobalSettingsExists checks whether an existing GlobalSettings resource with the given ID exists.
+func GlobalSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:backup/globalSettings:GlobalSettings", id, state, "", opts...)
+}
+
 type globalSettingsArgs struct {
 	// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings map[string]string `pulumi:"globalSettings"`

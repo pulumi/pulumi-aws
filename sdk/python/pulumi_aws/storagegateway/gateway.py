@@ -1188,6 +1188,62 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["tape_drive_type"] = tape_drive_type
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            average_download_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+            average_upload_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+            cloudwatch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ec2_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayGatewayNetworkInterfaceArgs', 'GatewayGatewayNetworkInterfaceArgsDict', 'outputs.GatewayGatewayNetworkInterface']]]]] = None,
+            gateway_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            host_environment: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict', 'outputs.GatewayMaintenanceStartTime']]] = None,
+            medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict', 'outputs.GatewaySmbActiveDirectorySettings']]] = None,
+            smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
+            smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
+            smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tape_drive_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activationKey"] = activation_key
+        __props__["arn"] = arn
+        __props__["averageDownloadRateLimitInBitsPerSec"] = average_download_rate_limit_in_bits_per_sec
+        __props__["averageUploadRateLimitInBitsPerSec"] = average_upload_rate_limit_in_bits_per_sec
+        __props__["cloudwatchLogGroupArn"] = cloudwatch_log_group_arn
+        __props__["ec2InstanceId"] = ec2_instance_id
+        __props__["endpointType"] = endpoint_type
+        __props__["gatewayId"] = gateway_id
+        __props__["gatewayIpAddress"] = gateway_ip_address
+        __props__["gatewayName"] = gateway_name
+        __props__["gatewayNetworkInterfaces"] = gateway_network_interfaces
+        __props__["gatewayTimezone"] = gateway_timezone
+        __props__["gatewayType"] = gateway_type
+        __props__["gatewayVpcEndpoint"] = gateway_vpc_endpoint
+        __props__["hostEnvironment"] = host_environment
+        __props__["maintenanceStartTime"] = maintenance_start_time
+        __props__["mediumChangerType"] = medium_changer_type
+        __props__["region"] = region
+        __props__["smbActiveDirectorySettings"] = smb_active_directory_settings
+        __props__["smbFileShareVisibility"] = smb_file_share_visibility
+        __props__["smbGuestPassword"] = smb_guest_password
+        __props__["smbSecurityStrategy"] = smb_security_strategy
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tapeDriveType"] = tape_drive_type
+        return pulumi.runtime.exists_resource(None, 'aws:storagegateway/gateway:Gateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activationKey")
     def activation_key(self) -> pulumi.Output[_builtins.str]:

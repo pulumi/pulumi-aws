@@ -283,6 +283,18 @@ class TableBucketPolicy(pulumi.CustomResource):
         __props__.__dict__["table_bucket_arn"] = table_bucket_arn
         return TableBucketPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["resourcePolicy"] = resource_policy
+        __props__["tableBucketArn"] = table_bucket_arn
+        return pulumi.runtime.exists_resource(None, 'aws:s3tables/tableBucketPolicy:TableBucketPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

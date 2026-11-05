@@ -895,6 +895,42 @@ class Resolver(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Resolver(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            caching_config: pulumi.Input[Optional[Union['ResolverCachingConfigArgs', 'ResolverCachingConfigArgsDict', 'outputs.ResolverCachingConfig']]] = None,
+            code: pulumi.Input[Optional[_builtins.str]] = None,
+            data_source: pulumi.Input[Optional[_builtins.str]] = None,
+            field: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+            pipeline_config: pulumi.Input[Optional[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict', 'outputs.ResolverPipelineConfig']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_template: pulumi.Input[Optional[_builtins.str]] = None,
+            response_template: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime: pulumi.Input[Optional[Union['ResolverRuntimeArgs', 'ResolverRuntimeArgsDict', 'outputs.ResolverRuntime']]] = None,
+            sync_config: pulumi.Input[Optional[Union['ResolverSyncConfigArgs', 'ResolverSyncConfigArgsDict', 'outputs.ResolverSyncConfig']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["arn"] = arn
+        __props__["cachingConfig"] = caching_config
+        __props__["code"] = code
+        __props__["dataSource"] = data_source
+        __props__["field"] = field
+        __props__["kind"] = kind
+        __props__["maxBatchSize"] = max_batch_size
+        __props__["pipelineConfig"] = pipeline_config
+        __props__["region"] = region
+        __props__["requestTemplate"] = request_template
+        __props__["responseTemplate"] = response_template
+        __props__["runtime"] = runtime
+        __props__["syncConfig"] = sync_config
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/resolver:Resolver', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

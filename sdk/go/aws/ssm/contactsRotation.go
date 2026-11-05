@@ -312,6 +312,12 @@ func (ContactsRotationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactsRotationState)(nil)).Elem()
 }
 
+// ContactsRotationExists checks whether an existing ContactsRotation resource with the given ID exists.
+func ContactsRotationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactsRotationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/contactsRotation:ContactsRotation", id, state, "", opts...)
+}
+
 type contactsRotationArgs struct {
 	// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds []string `pulumi:"contactIds"`

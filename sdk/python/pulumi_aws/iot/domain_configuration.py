@@ -678,6 +678,42 @@ class DomainConfiguration(pulumi.CustomResource):
         __props__.__dict__["validation_certificate_arn"] = validation_certificate_arn
         return DomainConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_config: pulumi.Input[Optional[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict', 'outputs.DomainConfigurationAuthorizerConfig']]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_certificate_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            service_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tls_config: pulumi.Input[Optional[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict', 'outputs.DomainConfigurationTlsConfig']]] = None,
+            validation_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationProtocol"] = application_protocol
+        __props__["arn"] = arn
+        __props__["authenticationType"] = authentication_type
+        __props__["authorizerConfig"] = authorizer_config
+        __props__["domainName"] = domain_name
+        __props__["domainType"] = domain_type
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["serverCertificateArns"] = server_certificate_arns
+        __props__["serviceType"] = service_type
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tlsConfig"] = tls_config
+        __props__["validationCertificateArn"] = validation_certificate_arn
+        return pulumi.runtime.exists_resource(None, 'aws:iot/domainConfiguration:DomainConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationProtocol")
     def application_protocol(self) -> pulumi.Output[_builtins.str]:

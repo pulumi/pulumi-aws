@@ -122,6 +122,12 @@ func (AwsServiceAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsServiceAccessState)(nil)).Elem()
 }
 
+// AwsServiceAccessExists checks whether an existing AwsServiceAccess resource with the given ID exists.
+func AwsServiceAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsServiceAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:organizations/awsServiceAccess:AwsServiceAccess", id, state, "", opts...)
+}
+
 type awsServiceAccessArgs struct {
 	// Service principal of the AWS service to enable. For example, `tagpolicies.tag.amazonaws.com`. Changing this value will force a new resource.
 	ServicePrincipal string `pulumi:"servicePrincipal"`

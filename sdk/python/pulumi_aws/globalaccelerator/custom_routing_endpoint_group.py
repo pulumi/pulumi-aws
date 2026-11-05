@@ -350,6 +350,22 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
         __props__.__dict__["listener_arn"] = listener_arn
         return CustomRoutingEndpointGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict', 'outputs.CustomRoutingEndpointGroupDestinationConfiguration']]]]] = None,
+            endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict', 'outputs.CustomRoutingEndpointGroupEndpointConfiguration']]]]] = None,
+            endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+            listener_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["destinationConfigurations"] = destination_configurations
+        __props__["endpointConfigurations"] = endpoint_configurations
+        __props__["endpointGroupRegion"] = endpoint_group_region
+        __props__["listenerArn"] = listener_arn
+        return pulumi.runtime.exists_resource(None, 'aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

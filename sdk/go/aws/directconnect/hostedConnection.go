@@ -201,6 +201,12 @@ func (HostedConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedConnectionState)(nil)).Elem()
 }
 
+// HostedConnectionExists checks whether an existing HostedConnection resource with the given ID exists.
+func HostedConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostedConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/hostedConnection:HostedConnection", id, state, "", opts...)
+}
+
 type hostedConnectionArgs struct {
 	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
 	Bandwidth string `pulumi:"bandwidth"`

@@ -165,6 +165,12 @@ func (IdentityProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderState)(nil)).Elem()
 }
 
+// IdentityProviderExists checks whether an existing IdentityProvider resource with the given ID exists.
+func IdentityProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/identityProvider:IdentityProvider", id, state, "", opts...)
+}
+
 type identityProviderArgs struct {
 	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
 	AttributeMapping map[string]string `pulumi:"attributeMapping"`

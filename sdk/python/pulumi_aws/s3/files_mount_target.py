@@ -604,6 +604,40 @@ class FilesMountTarget(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return FilesMountTarget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_address: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_message: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['FilesMountTargetTimeoutsArgs', 'FilesMountTargetTimeoutsArgsDict', 'outputs.FilesMountTargetTimeouts']]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["availabilityZoneId"] = availability_zone_id
+        __props__["fileSystemId"] = file_system_id
+        __props__["ipAddressType"] = ip_address_type
+        __props__["ipv4Address"] = ipv4_address
+        __props__["ipv6Address"] = ipv6_address
+        __props__["networkInterfaceId"] = network_interface_id
+        __props__["ownerId"] = owner_id
+        __props__["region"] = region
+        __props__["securityGroups"] = security_groups
+        __props__["status"] = status
+        __props__["statusMessage"] = status_message
+        __props__["subnetId"] = subnet_id
+        __props__["timeouts"] = timeouts
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:s3/filesMountTarget:FilesMountTarget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[_builtins.str]:

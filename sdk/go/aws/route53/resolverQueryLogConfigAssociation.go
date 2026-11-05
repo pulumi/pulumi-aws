@@ -116,6 +116,12 @@ func (ResolverQueryLogConfigAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverQueryLogConfigAssociationState)(nil)).Elem()
 }
 
+// ResolverQueryLogConfigAssociationExists checks whether an existing ResolverQueryLogConfigAssociation resource with the given ID exists.
+func ResolverQueryLogConfigAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverQueryLogConfigAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation", id, state, "", opts...)
+}
+
 type resolverQueryLogConfigAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

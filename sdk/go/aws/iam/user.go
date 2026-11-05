@@ -190,6 +190,12 @@ func (UserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userState)(nil)).Elem()
 }
 
+// UserExists checks whether an existing User resource with the given ID exists.
+func UserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/user:User", id, state, "", opts...)
+}
+
 type userArgs struct {
 	// When destroying this user, destroy even if it
 	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`

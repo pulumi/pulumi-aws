@@ -147,6 +147,12 @@ func (PermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionState)(nil)).Elem()
 }
 
+// PermissionExists checks whether an existing Permission resource with the given ID exists.
+func PermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:acmpca/permission:Permission", id, state, "", opts...)
+}
+
 type permissionArgs struct {
 	// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
 	Actions []string `pulumi:"actions"`

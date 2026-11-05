@@ -807,6 +807,12 @@ func (ClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterState)(nil)).Elem()
 }
 
+// ClusterExists checks whether an existing Cluster resource with the given ID exists.
+func ClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:emr/cluster:Cluster", id, state, "", opts...)
+}
+
 type clusterArgs struct {
 	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
 	AdditionalInfo *string `pulumi:"additionalInfo"`

@@ -561,6 +561,34 @@ class ConfiguredTable(pulumi.CustomResource):
         __props__.__dict__["update_time"] = update_time
         return ConfiguredTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            analysis_method: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table_reference: pulumi.Input[Optional[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict', 'outputs.ConfiguredTableTableReference']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            update_time: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedColumns"] = allowed_columns
+        __props__["analysisMethod"] = analysis_method
+        __props__["arn"] = arn
+        __props__["createTime"] = create_time
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tableReference"] = table_reference
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["updateTime"] = update_time
+        return pulumi.runtime.exists_resource(None, 'aws:cleanrooms/configuredTable:ConfiguredTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedColumns")
     def allowed_columns(self) -> pulumi.Output[Sequence[_builtins.str]]:

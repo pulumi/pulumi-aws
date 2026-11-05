@@ -74,6 +74,17 @@ export class Api extends pulumi.CustomResource {
         return new Api(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Api resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ApiState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:apigatewayv2/api:Api", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:apigatewayv2/api:Api';
 

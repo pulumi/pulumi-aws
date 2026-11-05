@@ -40,33 +40,33 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new Group("test", GroupArgs.builder()
  *             .resourceQuery(GroupResourceQueryArgs.builder()
  *                 .query("""
- * {
- *   \"ResourceTypeFilters\": [
- *     \"AWS::EC2::Instance\"
+ * }{{@code
+ *   }&#92;{@code "ResourceTypeFilters}&#92;{@code ": [
+ *     }&#92;{@code "AWS::EC2::Instance}&#92;{@code "
  *   ],
- *   \"TagFilters\": [
- *     {
- *       \"Key\": \"Stage\",
- *       \"Values\": [\"Test\"]
- *     }
+ *   }&#92;{@code "TagFilters}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "Key}&#92;{@code ": }&#92;{@code "Stage}&#92;{@code ",
+ *       }&#92;{@code "Values}&#92;{@code ": [}&#92;{@code "Test}&#92;{@code "]
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  *                 """)
  *                 .build())
  *             .name("test-group")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

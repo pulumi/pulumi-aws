@@ -228,6 +228,12 @@ func (VpcEncryptionControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEncryptionControlState)(nil)).Elem()
 }
 
+// VpcEncryptionControlExists checks whether an existing VpcEncryptionControl resource with the given ID exists.
+func VpcEncryptionControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEncryptionControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcEncryptionControl:VpcEncryptionControl", id, state, "", opts...)
+}
+
 type vpcEncryptionControlArgs struct {
 	// Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
 	EgressOnlyInternetGatewayExclusion *string `pulumi:"egressOnlyInternetGatewayExclusion"`

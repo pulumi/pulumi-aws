@@ -147,6 +147,12 @@ func (ResponseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*responseState)(nil)).Elem()
 }
 
+// ResponseExists checks whether an existing Response resource with the given ID exists.
+func ResponseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResponseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/response:Response", id, state, "", opts...)
+}
+
 type responseArgs struct {
 	// Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

@@ -140,6 +140,12 @@ func (ManagedPrefixListEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPrefixListEntryState)(nil)).Elem()
 }
 
+// ManagedPrefixListEntryExists checks whether an existing ManagedPrefixListEntry resource with the given ID exists.
+func ManagedPrefixListEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedPrefixListEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry", id, state, "", opts...)
+}
+
 type managedPrefixListEntryArgs struct {
 	// CIDR block of this entry.
 	Cidr string `pulumi:"cidr"`

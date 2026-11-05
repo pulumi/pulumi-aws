@@ -230,6 +230,12 @@ func (AccessKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessKeyState)(nil)).Elem()
 }
 
+// AccessKeyExists checks whether an existing AccessKey resource with the given ID exists.
+func AccessKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/accessKey:AccessKey", id, state, "", opts...)
+}
+
 type accessKeyArgs struct {
 	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
 	PgpKey *string `pulumi:"pgpKey"`

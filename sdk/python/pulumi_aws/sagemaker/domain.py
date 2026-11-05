@@ -955,6 +955,54 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            app_security_group_management: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            default_space_settings: pulumi.Input[Optional[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict', 'outputs.DomainDefaultSpaceSettings']]] = None,
+            default_user_settings: pulumi.Input[Optional[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict', 'outputs.DomainDefaultUserSettings']]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_settings: pulumi.Input[Optional[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict', 'outputs.DomainDomainSettings']]] = None,
+            home_efs_file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_policy: pulumi.Input[Optional[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict', 'outputs.DomainRetentionPolicy']]] = None,
+            security_group_id_for_domain_boundary: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_managed_application_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tag_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appNetworkAccessType"] = app_network_access_type
+        __props__["appSecurityGroupManagement"] = app_security_group_management
+        __props__["arn"] = arn
+        __props__["authMode"] = auth_mode
+        __props__["defaultSpaceSettings"] = default_space_settings
+        __props__["defaultUserSettings"] = default_user_settings
+        __props__["domainName"] = domain_name
+        __props__["domainSettings"] = domain_settings
+        __props__["homeEfsFileSystemId"] = home_efs_file_system_id
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["region"] = region
+        __props__["retentionPolicy"] = retention_policy
+        __props__["securityGroupIdForDomainBoundary"] = security_group_id_for_domain_boundary
+        __props__["singleSignOnApplicationArn"] = single_sign_on_application_arn
+        __props__["singleSignOnManagedApplicationInstanceId"] = single_sign_on_managed_application_instance_id
+        __props__["subnetIds"] = subnet_ids
+        __props__["tagPropagation"] = tag_propagation
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["url"] = url
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appNetworkAccessType")
     def app_network_access_type(self) -> pulumi.Output[Optional[_builtins.str]]:

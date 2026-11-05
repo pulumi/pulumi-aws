@@ -598,6 +598,40 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Schema(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+            data_format: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_schema_version: pulumi.Input[Optional[_builtins.int]] = None,
+            next_schema_version: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_checkpoint: pulumi.Input[Optional[_builtins.int]] = None,
+            schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["compatibility"] = compatibility
+        __props__["dataFormat"] = data_format
+        __props__["description"] = description
+        __props__["latestSchemaVersion"] = latest_schema_version
+        __props__["nextSchemaVersion"] = next_schema_version
+        __props__["region"] = region
+        __props__["registryArn"] = registry_arn
+        __props__["registryName"] = registry_name
+        __props__["schemaCheckpoint"] = schema_checkpoint
+        __props__["schemaDefinition"] = schema_definition
+        __props__["schemaName"] = schema_name
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:glue/schema:Schema', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

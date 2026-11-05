@@ -198,6 +198,12 @@ func (GraphState) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphState)(nil)).Elem()
 }
 
+// GraphExists checks whether an existing Graph resource with the given ID exists.
+func GraphExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GraphState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:neptunegraph/graph:Graph", id, state, "", opts...)
+}
+
 type graphArgs struct {
 	// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`

@@ -624,11 +624,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
  * ```
  * 
- * @deprecated
- * aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration
+ * @deprecated aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration
  * 
  */
-@Deprecated /* aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration */
+@Deprecated
 @ResourceType(type="aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")
 public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -648,11 +647,10 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
-     * @deprecated
-     * This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future verion of the provider. */
+    @Deprecated
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output<String> expectedBucketOwner;
 

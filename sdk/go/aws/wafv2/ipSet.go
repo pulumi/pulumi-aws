@@ -184,6 +184,12 @@ func (IpSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipSetState)(nil)).Elem()
 }
 
+// IpSetExists checks whether an existing IpSet resource with the given ID exists.
+func IpSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:wafv2/ipSet:IpSet", id, state, "", opts...)
+}
+
 type ipSetArgs struct {
 	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses []string `pulumi:"addresses"`

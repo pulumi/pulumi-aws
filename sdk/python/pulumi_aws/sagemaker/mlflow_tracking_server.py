@@ -564,6 +564,36 @@ class MlflowTrackingServer(pulumi.CustomResource):
         __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
         return MlflowTrackingServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_model_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+            mlflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tracking_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tracking_server_size: pulumi.Input[Optional[_builtins.str]] = None,
+            tracking_server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["artifactStoreUri"] = artifact_store_uri
+        __props__["automaticModelRegistration"] = automatic_model_registration
+        __props__["mlflowVersion"] = mlflow_version
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["trackingServerName"] = tracking_server_name
+        __props__["trackingServerSize"] = tracking_server_size
+        __props__["trackingServerUrl"] = tracking_server_url
+        __props__["weeklyMaintenanceWindowStart"] = weekly_maintenance_window_start
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

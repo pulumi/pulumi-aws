@@ -594,6 +594,38 @@ class HubContentReference(pulumi.CustomResource):
         __props__.__dict__["versioned_hub_content_arn"] = versioned_hub_content_arn
         return HubContentReference(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            hub_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_content_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_content_status: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_content_version: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            min_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sagemaker_public_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict', 'outputs.HubContentReferenceTimeouts']]] = None,
+            versioned_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["hubArn"] = hub_arn
+        __props__["hubContentArn"] = hub_content_arn
+        __props__["hubContentName"] = hub_content_name
+        __props__["hubContentStatus"] = hub_content_status
+        __props__["hubContentVersion"] = hub_content_version
+        __props__["hubName"] = hub_name
+        __props__["minVersion"] = min_version
+        __props__["region"] = region
+        __props__["sagemakerPublicHubContentArn"] = sagemaker_public_hub_content_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["versionedHubContentArn"] = versioned_hub_content_arn
+        return pulumi.runtime.exists_resource(None, 'aws:sagemaker/hubContentReference:HubContentReference', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="hubArn")
     def hub_arn(self) -> pulumi.Output[_builtins.str]:

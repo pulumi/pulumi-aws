@@ -50,6 +50,17 @@ export class RetentionConfiguration extends pulumi.CustomResource {
         return new RetentionConfiguration(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing RetentionConfiguration resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: RetentionConfigurationState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:cfg/retentionConfiguration:RetentionConfiguration", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:cfg/retentionConfiguration:RetentionConfiguration';
 

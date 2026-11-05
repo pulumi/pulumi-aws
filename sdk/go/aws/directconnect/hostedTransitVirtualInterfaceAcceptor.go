@@ -179,6 +179,12 @@ func (HostedTransitVirtualInterfaceAcceptorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedTransitVirtualInterfaceAcceptorState)(nil)).Elem()
 }
 
+// HostedTransitVirtualInterfaceAcceptorExists checks whether an existing HostedTransitVirtualInterfaceAcceptor resource with the given ID exists.
+func HostedTransitVirtualInterfaceAcceptorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostedTransitVirtualInterfaceAcceptorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", id, state, "", opts...)
+}
+
 type hostedTransitVirtualInterfaceAcceptorArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId string `pulumi:"dxGatewayId"`

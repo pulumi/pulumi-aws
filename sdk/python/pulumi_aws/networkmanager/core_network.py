@@ -1035,6 +1035,36 @@ class CoreNetwork(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CoreNetwork(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            base_policy_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            create_base_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            edges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CoreNetworkEdgeArgs', 'CoreNetworkEdgeArgsDict', 'outputs.CoreNetworkEdge']]]]] = None,
+            global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            segments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CoreNetworkSegmentArgs', 'CoreNetworkSegmentArgsDict', 'outputs.CoreNetworkSegment']]]]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["basePolicyDocument"] = base_policy_document
+        __props__["basePolicyRegions"] = base_policy_regions
+        __props__["createBasePolicy"] = create_base_policy
+        __props__["createdAt"] = created_at
+        __props__["description"] = description
+        __props__["edges"] = edges
+        __props__["globalNetworkId"] = global_network_id
+        __props__["segments"] = segments
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:networkmanager/coreNetwork:CoreNetwork', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

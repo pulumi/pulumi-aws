@@ -166,6 +166,12 @@ func (DomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainState)(nil)).Elem()
 }
 
+// DomainExists checks whether an existing Domain resource with the given ID exists.
+func DomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codeartifact/domain:Domain", id, state, "", opts...)
+}
+
 type domainArgs struct {
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
 	Domain string `pulumi:"domain"`

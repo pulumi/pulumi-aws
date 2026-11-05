@@ -722,6 +722,44 @@ class MultiRegionCluster(pulumi.CustomResource):
         __props__.__dict__["update_strategy"] = update_strategy
         return MultiRegionCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region_cluster_name_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_type: pulumi.Input[Optional[_builtins.str]] = None,
+            num_shards: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict', 'outputs.MultiRegionClusterTimeouts']]] = None,
+            tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            update_strategy: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["engine"] = engine
+        __props__["engineVersion"] = engine_version
+        __props__["multiRegionClusterName"] = multi_region_cluster_name
+        __props__["multiRegionClusterNameSuffix"] = multi_region_cluster_name_suffix
+        __props__["multiRegionParameterGroupName"] = multi_region_parameter_group_name
+        __props__["nodeType"] = node_type
+        __props__["numShards"] = num_shards
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["tlsEnabled"] = tls_enabled
+        __props__["updateStrategy"] = update_strategy
+        return pulumi.runtime.exists_resource(None, 'aws:memorydb/multiRegionCluster:MultiRegionCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

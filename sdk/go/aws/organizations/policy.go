@@ -206,6 +206,12 @@ func (PolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyState)(nil)).Elem()
 }
 
+// PolicyExists checks whether an existing Policy resource with the given ID exists.
+func PolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:organizations/policy:Policy", id, state, "", opts...)
+}
+
 type policyArgs struct {
 	// The policy content to add to the new policy.
 	// For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles.

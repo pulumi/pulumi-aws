@@ -686,6 +686,46 @@ class Organization(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Organization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            completed_date: pulumi.Input[Optional[_builtins.str]] = None,
+            default_mail_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_identity_center_application: pulumi.Input[Optional[_builtins.bool]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_type: pulumi.Input[Optional[_builtins.str]] = None,
+            interoperability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            migration_admin: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict', 'outputs.OrganizationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["completedDate"] = completed_date
+        __props__["defaultMailDomain"] = default_mail_domain
+        __props__["deleteDirectory"] = delete_directory
+        __props__["deleteIdentityCenterApplication"] = delete_identity_center_application
+        __props__["directoryId"] = directory_id
+        __props__["directoryType"] = directory_type
+        __props__["interoperabilityEnabled"] = interoperability_enabled
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["migrationAdmin"] = migration_admin
+        __props__["organizationAlias"] = organization_alias
+        __props__["organizationId"] = organization_id
+        __props__["region"] = region
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:workmail/organization:Organization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

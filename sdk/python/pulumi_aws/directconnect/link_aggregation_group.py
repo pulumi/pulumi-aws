@@ -588,6 +588,40 @@ class LinkAggregationGroup(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return LinkAggregationGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connections_bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_logical_redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+            jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkAggregationGroupRateLimiterStatusArgs', 'LinkAggregationGroupRateLimiterStatusArgsDict', 'outputs.LinkAggregationGroupRateLimiterStatus']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["connectionId"] = connection_id
+        __props__["connectionsBandwidth"] = connections_bandwidth
+        __props__["forceDestroy"] = force_destroy
+        __props__["hasLogicalRedundancy"] = has_logical_redundancy
+        __props__["jumboFrameCapable"] = jumbo_frame_capable
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["providerName"] = provider_name
+        __props__["rateLimiterStatuses"] = rate_limiter_statuses
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:directconnect/linkAggregationGroup:LinkAggregationGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

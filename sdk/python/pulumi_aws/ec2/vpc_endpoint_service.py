@@ -718,6 +718,48 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return VpcEndpointService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            acceptance_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            base_endpoint_dns_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            gateway_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            manages_vpc_endpoints: pulumi.Input[Optional[_builtins.bool]] = None,
+            network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns_name_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict', 'outputs.VpcEndpointServicePrivateDnsNameConfiguration']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_type: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptanceRequired"] = acceptance_required
+        __props__["allowedPrincipals"] = allowed_principals
+        __props__["arn"] = arn
+        __props__["availabilityZones"] = availability_zones
+        __props__["baseEndpointDnsNames"] = base_endpoint_dns_names
+        __props__["gatewayLoadBalancerArns"] = gateway_load_balancer_arns
+        __props__["managesVpcEndpoints"] = manages_vpc_endpoints
+        __props__["networkLoadBalancerArns"] = network_load_balancer_arns
+        __props__["privateDnsName"] = private_dns_name
+        __props__["privateDnsNameConfigurations"] = private_dns_name_configurations
+        __props__["region"] = region
+        __props__["serviceName"] = service_name
+        __props__["serviceType"] = service_type
+        __props__["state"] = state
+        __props__["supportedIpAddressTypes"] = supported_ip_address_types
+        __props__["supportedRegions"] = supported_regions
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcEndpointService:VpcEndpointService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> pulumi.Output[_builtins.bool]:

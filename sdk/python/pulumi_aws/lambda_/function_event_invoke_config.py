@@ -697,6 +697,24 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return FunctionEventInvokeConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination_config: pulumi.Input[Optional[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict', 'outputs.FunctionEventInvokeConfigDestinationConfig']]] = None,
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_event_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destinationConfig"] = destination_config
+        __props__["functionName"] = function_name
+        __props__["maximumEventAgeInSeconds"] = maximum_event_age_in_seconds
+        __props__["maximumRetryAttempts"] = maximum_retry_attempts
+        __props__["qualifier"] = qualifier
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> pulumi.Output[Optional['outputs.FunctionEventInvokeConfigDestinationConfig']]:

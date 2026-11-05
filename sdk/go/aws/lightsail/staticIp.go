@@ -130,6 +130,12 @@ func (StaticIpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticIpState)(nil)).Elem()
 }
 
+// StaticIpExists checks whether an existing StaticIp resource with the given ID exists.
+func StaticIpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StaticIpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/staticIp:StaticIp", id, state, "", opts...)
+}
+
 type staticIpArgs struct {
 	// Name for the allocated static IP.
 	//

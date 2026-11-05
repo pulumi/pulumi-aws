@@ -243,6 +243,12 @@ func (EndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointState)(nil)).Elem()
 }
 
+// EndpointExists checks whether an existing Endpoint resource with the given ID exists.
+func EndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:verifiedaccess/endpoint:Endpoint", id, state, "", opts...)
+}
+
 type endpointArgs struct {
 	// DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
 	ApplicationDomain *string `pulumi:"applicationDomain"`

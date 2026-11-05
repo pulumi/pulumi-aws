@@ -663,6 +663,36 @@ class AgentcoreMemory(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreMemory(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict', 'outputs.AgentcoreMemoryIndexedKey']]]]] = None,
+            memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_delivery_resources: pulumi.Input[Optional[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict', 'outputs.AgentcoreMemoryStreamDeliveryResources']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryTimeoutsArgs', 'AgentcoreMemoryTimeoutsArgsDict', 'outputs.AgentcoreMemoryTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["encryptionKeyArn"] = encryption_key_arn
+        __props__["eventExpiryDuration"] = event_expiry_duration
+        __props__["indexedKeys"] = indexed_keys
+        __props__["memoryExecutionRoleArn"] = memory_execution_role_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["streamDeliveryResources"] = stream_delivery_resources
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreMemory:AgentcoreMemory', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

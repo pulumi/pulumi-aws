@@ -780,6 +780,58 @@ class SavingsPlan(pulumi.CustomResource):
         __props__.__dict__["upfront_payment_amount"] = upfront_payment_amount
         return SavingsPlan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            commitment: pulumi.Input[Optional[_builtins.str]] = None,
+            currency: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ec2_instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+            end: pulumi.Input[Optional[_builtins.str]] = None,
+            offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            payment_option: pulumi.Input[Optional[_builtins.str]] = None,
+            product_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            purchase_time: pulumi.Input[Optional[_builtins.str]] = None,
+            recurring_payment_amount: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            returnable_until: pulumi.Input[Optional[_builtins.str]] = None,
+            savings_plan_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            savings_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            savings_plan_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            savings_plan_type: pulumi.Input[Optional[_builtins.str]] = None,
+            start: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            term_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            timeouts: pulumi.Input[Optional[Union['SavingsPlanTimeoutsArgs', 'SavingsPlanTimeoutsArgsDict', 'outputs.SavingsPlanTimeouts']]] = None,
+            upfront_payment_amount: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["commitment"] = commitment
+        __props__["currency"] = currency
+        __props__["description"] = description
+        __props__["ec2InstanceFamily"] = ec2_instance_family
+        __props__["end"] = end
+        __props__["offeringId"] = offering_id
+        __props__["paymentOption"] = payment_option
+        __props__["productTypes"] = product_types
+        __props__["purchaseTime"] = purchase_time
+        __props__["recurringPaymentAmount"] = recurring_payment_amount
+        __props__["region"] = region
+        __props__["returnableUntil"] = returnable_until
+        __props__["savingsPlanArn"] = savings_plan_arn
+        __props__["savingsPlanId"] = savings_plan_id
+        __props__["savingsPlanOfferingId"] = savings_plan_offering_id
+        __props__["savingsPlanType"] = savings_plan_type
+        __props__["start"] = start
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["termDurationInSeconds"] = term_duration_in_seconds
+        __props__["timeouts"] = timeouts
+        __props__["upfrontPaymentAmount"] = upfront_payment_amount
+        return pulumi.runtime.exists_resource(None, 'aws:savingsplans/savingsPlan:SavingsPlan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def commitment(self) -> pulumi.Output[_builtins.str]:

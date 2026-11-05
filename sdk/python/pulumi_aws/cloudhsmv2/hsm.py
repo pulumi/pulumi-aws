@@ -418,6 +418,28 @@ class Hsm(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         return Hsm(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_eni_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_state: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["availabilityZone"] = availability_zone
+        __props__["clusterId"] = cluster_id
+        __props__["hsmEniId"] = hsm_eni_id
+        __props__["hsmId"] = hsm_id
+        __props__["hsmState"] = hsm_state
+        __props__["ipAddress"] = ip_address
+        __props__["region"] = region
+        __props__["subnetId"] = subnet_id
+        return pulumi.runtime.exists_resource(None, 'aws:cloudhsmv2/hsm:Hsm', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:

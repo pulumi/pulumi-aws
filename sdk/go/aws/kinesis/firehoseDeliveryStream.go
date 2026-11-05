@@ -1253,6 +1253,12 @@ func (FirehoseDeliveryStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firehoseDeliveryStreamState)(nil)).Elem()
 }
 
+// FirehoseDeliveryStreamExists checks whether an existing FirehoseDeliveryStream resource with the given ID exists.
+func FirehoseDeliveryStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirehoseDeliveryStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", id, state, "", opts...)
+}
+
 type firehoseDeliveryStreamArgs struct {
 	// ARN specifying the Stream
 	Arn *string `pulumi:"arn"`

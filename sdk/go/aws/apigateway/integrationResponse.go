@@ -237,6 +237,12 @@ func (IntegrationResponseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationResponseState)(nil)).Elem()
 }
 
+// IntegrationResponseExists checks whether an existing IntegrationResponse resource with the given ID exists.
+func IntegrationResponseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationResponseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/integrationResponse:IntegrationResponse", id, state, "", opts...)
+}
+
 type integrationResponseArgs struct {
 	// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 	ContentHandling *string `pulumi:"contentHandling"`

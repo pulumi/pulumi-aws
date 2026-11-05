@@ -187,6 +187,12 @@ func (CrossAccountAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*crossAccountAttachmentState)(nil)).Elem()
 }
 
+// CrossAccountAttachmentExists checks whether an existing CrossAccountAttachment resource with the given ID exists.
+func CrossAccountAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CrossAccountAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment", id, state, "", opts...)
+}
+
 type crossAccountAttachmentArgs struct {
 	// Name of the Cross Account Attachment.
 	//

@@ -310,6 +310,12 @@ func (CertificateValidationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateValidationState)(nil)).Elem()
 }
 
+// CertificateValidationExists checks whether an existing CertificateValidation resource with the given ID exists.
+func CertificateValidationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateValidationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:acm/certificateValidation:CertificateValidation", id, state, "", opts...)
+}
+
 type certificateValidationArgs struct {
 	// ARN of the certificate that is being validated.
 	CertificateArn string `pulumi:"certificateArn"`

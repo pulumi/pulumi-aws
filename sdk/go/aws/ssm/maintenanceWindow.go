@@ -198,6 +198,12 @@ func (MaintenanceWindowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceWindowState)(nil)).Elem()
 }
 
+// MaintenanceWindowExists checks whether an existing MaintenanceWindow resource with the given ID exists.
+func MaintenanceWindowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MaintenanceWindowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/maintenanceWindow:MaintenanceWindow", id, state, "", opts...)
+}
+
 type maintenanceWindowArgs struct {
 	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 	AllowUnassociatedTargets *bool `pulumi:"allowUnassociatedTargets"`

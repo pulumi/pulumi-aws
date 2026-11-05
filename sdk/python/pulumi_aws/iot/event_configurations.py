@@ -261,6 +261,16 @@ class EventConfigurations(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return EventConfigurations(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            event_configurations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.bool]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["eventConfigurations"] = event_configurations
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:iot/eventConfigurations:EventConfigurations', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="eventConfigurations")
     def event_configurations(self) -> pulumi.Output[Mapping[str, _builtins.bool]]:

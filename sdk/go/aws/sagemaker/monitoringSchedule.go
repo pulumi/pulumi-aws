@@ -136,6 +136,12 @@ func (MonitoringScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitoringScheduleState)(nil)).Elem()
 }
 
+// MonitoringScheduleExists checks whether an existing MonitoringSchedule resource with the given ID exists.
+func MonitoringScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitoringScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/monitoringSchedule:MonitoringSchedule", id, state, "", opts...)
+}
+
 type monitoringScheduleArgs struct {
 	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`

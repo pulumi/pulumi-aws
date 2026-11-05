@@ -291,6 +291,20 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return AuthorizeVpcEndpointAccess(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account: pulumi.Input[Optional[_builtins.str]] = None,
+            authorized_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs', 'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict', 'outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal']]]]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["account"] = account
+        __props__["authorizedPrincipals"] = authorized_principals
+        __props__["domainName"] = domain_name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def account(self) -> pulumi.Output[_builtins.str]:

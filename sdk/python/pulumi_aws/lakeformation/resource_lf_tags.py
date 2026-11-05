@@ -517,6 +517,24 @@ class ResourceLfTags(pulumi.CustomResource):
         __props__.__dict__["table_with_columns"] = table_with_columns
         return ResourceLfTags(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict', 'outputs.ResourceLfTagsDatabase']]] = None,
+            lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict', 'outputs.ResourceLfTagsLfTag']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict', 'outputs.ResourceLfTagsTable']]] = None,
+            table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict', 'outputs.ResourceLfTagsTableWithColumns']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogId"] = catalog_id
+        __props__["database"] = database
+        __props__["lfTags"] = lf_tags
+        __props__["region"] = region
+        __props__["table"] = table
+        __props__["tableWithColumns"] = table_with_columns
+        return pulumi.runtime.exists_resource(None, 'aws:lakeformation/resourceLfTags:ResourceLfTags', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:

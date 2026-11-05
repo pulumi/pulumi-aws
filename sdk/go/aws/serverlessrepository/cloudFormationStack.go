@@ -170,6 +170,12 @@ func (CloudFormationStackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudFormationStackState)(nil)).Elem()
 }
 
+// CloudFormationStackExists checks whether an existing CloudFormationStack resource with the given ID exists.
+func CloudFormationStackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudFormationStackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:serverlessrepository/cloudFormationStack:CloudFormationStack", id, state, "", opts...)
+}
+
 type cloudFormationStackArgs struct {
 	// ARN of the application from the Serverless Application Repository.
 	ApplicationId string `pulumi:"applicationId"`

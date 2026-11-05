@@ -760,6 +760,34 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Integration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalEncryptionContext"] = additional_encryption_context
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["integrationName"] = integration_name
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["region"] = region
+        __props__["sourceArn"] = source_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["targetArn"] = target_arn
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/integration:Integration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

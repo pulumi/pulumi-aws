@@ -122,6 +122,12 @@ func (DrtAccessLogBucketAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*drtAccessLogBucketAssociationState)(nil)).Elem()
 }
 
+// DrtAccessLogBucketAssociationExists checks whether an existing DrtAccessLogBucketAssociation resource with the given ID exists.
+func DrtAccessLogBucketAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DrtAccessLogBucketAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation", id, state, "", opts...)
+}
+
 type drtAccessLogBucketAssociationArgs struct {
 	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket string `pulumi:"logBucket"`

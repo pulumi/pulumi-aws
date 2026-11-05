@@ -411,6 +411,12 @@ func (StateMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stateMachineState)(nil)).Elem()
 }
 
+// StateMachineExists checks whether an existing StateMachine resource with the given ID exists.
+func StateMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StateMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sfn/stateMachine:StateMachine", id, state, "", opts...)
+}
+
 type stateMachineArgs struct {
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
 	Definition string `pulumi:"definition"`

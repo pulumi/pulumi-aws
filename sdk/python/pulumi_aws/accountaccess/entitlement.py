@@ -485,6 +485,20 @@ class Entitlement(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Entitlement(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            entitlement: pulumi.Input[Optional[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict', 'outputs.EntitlementEntitlement']]] = None,
+            entitlement_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationArn"] = application_arn
+        __props__["entitlement"] = entitlement
+        __props__["entitlementId"] = entitlement_id
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:accountaccess/entitlement:Entitlement', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[_builtins.str]:

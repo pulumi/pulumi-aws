@@ -174,6 +174,12 @@ func (TrustProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustProviderState)(nil)).Elem()
 }
 
+// TrustProviderExists checks whether an existing TrustProvider resource with the given ID exists.
+func TrustProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:verifiedaccess/trustProvider:TrustProvider", id, state, "", opts...)
+}
+
 type trustProviderArgs struct {
 	// Description for the AWS Verified Access trust provider.
 	Description *string `pulumi:"description"`

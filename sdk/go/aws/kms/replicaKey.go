@@ -227,6 +227,12 @@ func (ReplicaKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicaKeyState)(nil)).Elem()
 }
 
+// ReplicaKeyExists checks whether an existing ReplicaKey resource with the given ID exists.
+func ReplicaKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicaKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kms/replicaKey:ReplicaKey", id, state, "", opts...)
+}
+
 type replicaKeyArgs struct {
 	// Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
 	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`

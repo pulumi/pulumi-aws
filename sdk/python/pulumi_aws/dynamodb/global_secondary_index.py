@@ -754,6 +754,32 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
         __props__.__dict__["warm_throughput"] = warm_throughput
         return GlobalSecondaryIndex(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            index_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_schemas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalSecondaryIndexKeySchemaArgs', 'GlobalSecondaryIndexKeySchemaArgsDict', 'outputs.GlobalSecondaryIndexKeySchema']]]]] = None,
+            on_demand_throughput: pulumi.Input[Optional[Union['GlobalSecondaryIndexOnDemandThroughputArgs', 'GlobalSecondaryIndexOnDemandThroughputArgsDict', 'outputs.GlobalSecondaryIndexOnDemandThroughput']]] = None,
+            projection: pulumi.Input[Optional[Union['GlobalSecondaryIndexProjectionArgs', 'GlobalSecondaryIndexProjectionArgsDict', 'outputs.GlobalSecondaryIndexProjection']]] = None,
+            provisioned_throughput: pulumi.Input[Optional[Union['GlobalSecondaryIndexProvisionedThroughputArgs', 'GlobalSecondaryIndexProvisionedThroughputArgsDict', 'outputs.GlobalSecondaryIndexProvisionedThroughput']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['GlobalSecondaryIndexTimeoutsArgs', 'GlobalSecondaryIndexTimeoutsArgsDict', 'outputs.GlobalSecondaryIndexTimeouts']]] = None,
+            warm_throughput: pulumi.Input[Optional[Union['GlobalSecondaryIndexWarmThroughputArgs', 'GlobalSecondaryIndexWarmThroughputArgsDict', 'outputs.GlobalSecondaryIndexWarmThroughput']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["indexName"] = index_name
+        __props__["keySchemas"] = key_schemas
+        __props__["onDemandThroughput"] = on_demand_throughput
+        __props__["projection"] = projection
+        __props__["provisionedThroughput"] = provisioned_throughput
+        __props__["region"] = region
+        __props__["tableName"] = table_name
+        __props__["timeouts"] = timeouts
+        __props__["warmThroughput"] = warm_throughput
+        return pulumi.runtime.exists_resource(None, 'aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -732,6 +732,42 @@ class Microvm(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Microvm(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_policy: pulumi.Input[Optional[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict', 'outputs.MicrovmIdlePolicy']]] = None,
+            image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            image_version: pulumi.Input[Optional[_builtins.str]] = None,
+            ingress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            logging: pulumi.Input[Optional[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict', 'outputs.MicrovmLogging']]] = None,
+            maximum_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            microvm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            run_hook_payload: pulumi.Input[Optional[_builtins.str]] = None,
+            started_at: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['MicrovmTimeoutsArgs', 'MicrovmTimeoutsArgsDict', 'outputs.MicrovmTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["egressNetworkConnectors"] = egress_network_connectors
+        __props__["endpoint"] = endpoint
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["idlePolicy"] = idle_policy
+        __props__["imageArn"] = image_arn
+        __props__["imageVersion"] = image_version
+        __props__["ingressNetworkConnectors"] = ingress_network_connectors
+        __props__["logging"] = logging
+        __props__["maximumDurationInSeconds"] = maximum_duration_in_seconds
+        __props__["microvmId"] = microvm_id
+        __props__["region"] = region
+        __props__["runHookPayload"] = run_hook_payload
+        __props__["startedAt"] = started_at
+        __props__["state"] = state
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:lambdamicrovms/microvm:Microvm', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="egressNetworkConnectors")
     def egress_network_connectors(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -124,7 +124,7 @@ namespace Pulumi.Aws.DocDB
         public Output<ImmutableArray<string>> SourceIds { get; private set; } = null!;
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,` db-cluster-snapshot`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
         /// </summary>
         [Output("sourceType")]
         public Output<string?> SourceType { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,` db-cluster-snapshot`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,` db-cluster-snapshot`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }

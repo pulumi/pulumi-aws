@@ -154,7 +154,7 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / \ , [ ] {@literal @}`.
+     * SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / &#92; , [ ] {@literal @}`.
      * 
      * The following arguments are optional:
      * 
@@ -163,7 +163,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     private Output<String> samAccountName;
 
     /**
-     * @return SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / \ , [ ] {@literal @}`.
+     * @return SAM account name of the group. Must be between 1 and 64 characters and must not contain any of the following characters: `: ; | = + &#34; * ? &lt; &gt; / &#92; , [ ] {@literal @}`.
      * 
      * The following arguments are optional:
      * 

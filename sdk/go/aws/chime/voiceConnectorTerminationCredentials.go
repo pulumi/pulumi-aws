@@ -147,6 +147,12 @@ func (VoiceConnectorTerminationCredentialsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*voiceConnectorTerminationCredentialsState)(nil)).Elem()
 }
 
+// VoiceConnectorTerminationCredentialsExists checks whether an existing VoiceConnectorTerminationCredentials resource with the given ID exists.
+func VoiceConnectorTerminationCredentialsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VoiceConnectorTerminationCredentialsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials", id, state, "", opts...)
+}
+
 type voiceConnectorTerminationCredentialsArgs struct {
 	// List of termination SIP credentials.
 	Credentials []VoiceConnectorTerminationCredentialsCredential `pulumi:"credentials"`

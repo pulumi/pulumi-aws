@@ -1303,6 +1303,68 @@ class BucketV2(pulumi.CustomResource):
         __props__.__dict__["websites"] = websites
         return BucketV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            acceleration_status: pulumi.Input[Optional[_builtins.str]] = None,
+            acl: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_regional_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketV2CorsRuleArgs', 'BucketV2CorsRuleArgsDict', 'outputs.BucketV2CorsRule']]]]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketV2GrantArgs', 'BucketV2GrantArgsDict', 'outputs.BucketV2Grant']]]]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lifecycle_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketV2LifecycleRuleArgs', 'BucketV2LifecycleRuleArgsDict', 'outputs.BucketV2LifecycleRule']]]]] = None,
+            loggings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketV2LoggingArgs', 'BucketV2LoggingArgsDict', 'outputs.BucketV2Logging']]]]] = None,
+            object_lock_configuration: pulumi.Input[Optional[Union['BucketV2ObjectLockConfigurationArgs', 'BucketV2ObjectLockConfigurationArgsDict', 'outputs.BucketV2ObjectLockConfiguration']]] = None,
+            object_lock_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketV2ReplicationConfigurationArgs', 'BucketV2ReplicationConfigurationArgsDict', 'outputs.BucketV2ReplicationConfiguration']]]]] = None,
+            request_payer: pulumi.Input[Optional[_builtins.str]] = None,
+            server_side_encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketV2ServerSideEncryptionConfigurationArgs', 'BucketV2ServerSideEncryptionConfigurationArgsDict', 'outputs.BucketV2ServerSideEncryptionConfiguration']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            versionings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketV2VersioningArgs', 'BucketV2VersioningArgsDict', 'outputs.BucketV2Versioning']]]]] = None,
+            website_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            website_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            websites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketV2WebsiteArgs', 'BucketV2WebsiteArgsDict', 'outputs.BucketV2Website']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accelerationStatus"] = acceleration_status
+        __props__["acl"] = acl
+        __props__["arn"] = arn
+        __props__["bucket"] = bucket
+        __props__["bucketDomainName"] = bucket_domain_name
+        __props__["bucketNamespace"] = bucket_namespace
+        __props__["bucketPrefix"] = bucket_prefix
+        __props__["bucketRegion"] = bucket_region
+        __props__["bucketRegionalDomainName"] = bucket_regional_domain_name
+        __props__["corsRules"] = cors_rules
+        __props__["forceDestroy"] = force_destroy
+        __props__["grants"] = grants
+        __props__["hostedZoneId"] = hosted_zone_id
+        __props__["lifecycleRules"] = lifecycle_rules
+        __props__["loggings"] = loggings
+        __props__["objectLockConfiguration"] = object_lock_configuration
+        __props__["objectLockEnabled"] = object_lock_enabled
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["replicationConfigurations"] = replication_configurations
+        __props__["requestPayer"] = request_payer
+        __props__["serverSideEncryptionConfigurations"] = server_side_encryption_configurations
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["versionings"] = versionings
+        __props__["websiteDomain"] = website_domain
+        __props__["websiteEndpoint"] = website_endpoint
+        __props__["websites"] = websites
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketV2:BucketV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accelerationStatus")
     @_utilities.deprecated("""acceleration_status is deprecated. Use the s3.BucketAccelerateConfiguration resource instead.""")

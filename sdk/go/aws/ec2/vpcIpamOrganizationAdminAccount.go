@@ -128,6 +128,12 @@ func (VpcIpamOrganizationAdminAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpamOrganizationAdminAccountState)(nil)).Elem()
 }
 
+// VpcIpamOrganizationAdminAccountExists checks whether an existing VpcIpamOrganizationAdminAccount resource with the given ID exists.
+func VpcIpamOrganizationAdminAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcIpamOrganizationAdminAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount", id, state, "", opts...)
+}
+
 type vpcIpamOrganizationAdminAccountArgs struct {
 	DelegatedAdminAccountId string `pulumi:"delegatedAdminAccountId"`
 }

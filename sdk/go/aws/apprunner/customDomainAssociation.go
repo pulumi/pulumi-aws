@@ -180,6 +180,12 @@ func (CustomDomainAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDomainAssociationState)(nil)).Elem()
 }
 
+// CustomDomainAssociationExists checks whether an existing CustomDomainAssociation resource with the given ID exists.
+func CustomDomainAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDomainAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apprunner/customDomainAssociation:CustomDomainAssociation", id, state, "", opts...)
+}
+
 type customDomainAssociationArgs struct {
 	// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
 	DomainName string `pulumi:"domainName"`

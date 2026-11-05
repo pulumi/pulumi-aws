@@ -279,6 +279,18 @@ class ByteMatchSet(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return ByteMatchSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            byte_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ByteMatchSetByteMatchTupleArgs', 'ByteMatchSetByteMatchTupleArgsDict', 'outputs.ByteMatchSetByteMatchTuple']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["byteMatchTuples"] = byte_match_tuples
+        __props__["name"] = name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:wafregional/byteMatchSet:ByteMatchSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="byteMatchTuples")
     def byte_match_tuples(self) -> pulumi.Output[Optional[Sequence['outputs.ByteMatchSetByteMatchTuple']]]:

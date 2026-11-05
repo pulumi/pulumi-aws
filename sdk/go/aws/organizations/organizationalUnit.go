@@ -141,6 +141,12 @@ func (OrganizationalUnitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationalUnitState)(nil)).Elem()
 }
 
+// OrganizationalUnitExists checks whether an existing OrganizationalUnit resource with the given ID exists.
+func OrganizationalUnitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationalUnitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:organizations/organizationalUnit:OrganizationalUnit", id, state, "", opts...)
+}
+
 type organizationalUnitArgs struct {
 	// The name for the organizational unit
 	Name *string `pulumi:"name"`

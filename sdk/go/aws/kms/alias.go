@@ -148,6 +148,12 @@ func (AliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aliasState)(nil)).Elem()
 }
 
+// AliasExists checks whether an existing Alias resource with the given ID exists.
+func AliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:kms/alias:Alias", id, state, "", opts...)
+}
+
 type aliasArgs struct {
 	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
 	Name *string `pulumi:"name"`

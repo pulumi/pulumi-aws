@@ -811,6 +811,42 @@ class GameServerGroup(pulumi.CustomResource):
         __props__.__dict__["vpc_subnets"] = vpc_subnets
         return GameServerGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_policy: pulumi.Input[Optional[Union['GameServerGroupAutoScalingPolicyArgs', 'GameServerGroupAutoScalingPolicyArgsDict', 'outputs.GameServerGroupAutoScalingPolicy']]] = None,
+            balancing_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            game_server_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            game_server_protection_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameServerGroupInstanceDefinitionArgs', 'GameServerGroupInstanceDefinitionArgsDict', 'outputs.GameServerGroupInstanceDefinition']]]]] = None,
+            launch_template: pulumi.Input[Optional[Union['GameServerGroupLaunchTemplateArgs', 'GameServerGroupLaunchTemplateArgsDict', 'outputs.GameServerGroupLaunchTemplate']]] = None,
+            max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            min_size: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoScalingGroupArn"] = auto_scaling_group_arn
+        __props__["autoScalingPolicy"] = auto_scaling_policy
+        __props__["balancingStrategy"] = balancing_strategy
+        __props__["gameServerGroupName"] = game_server_group_name
+        __props__["gameServerProtectionPolicy"] = game_server_protection_policy
+        __props__["instanceDefinitions"] = instance_definitions
+        __props__["launchTemplate"] = launch_template
+        __props__["maxSize"] = max_size
+        __props__["minSize"] = min_size
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcSubnets"] = vpc_subnets
+        return pulumi.runtime.exists_resource(None, 'aws:gamelift/gameServerGroup:GameServerGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

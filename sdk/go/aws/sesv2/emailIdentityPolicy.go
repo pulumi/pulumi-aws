@@ -161,6 +161,12 @@ func (EmailIdentityPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIdentityPolicyState)(nil)).Elem()
 }
 
+// EmailIdentityPolicyExists checks whether an existing EmailIdentityPolicy resource with the given ID exists.
+func EmailIdentityPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailIdentityPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy", id, state, "", opts...)
+}
+
 type emailIdentityPolicyArgs struct {
 	// Email identity.
 	EmailIdentity string `pulumi:"emailIdentity"`

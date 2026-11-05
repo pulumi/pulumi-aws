@@ -560,6 +560,34 @@ class ContainerAssociation(pulumi.CustomResource):
         __props__.__dict__["update_token"] = update_token
         return ContainerAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_association_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            container_association_name: pulumi.Input[Optional[_builtins.str]] = None,
+            container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resolved_cidr_count: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ContainerAssociationTimeoutsArgs', 'ContainerAssociationTimeoutsArgsDict', 'outputs.ContainerAssociationTimeouts']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            update_token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerAssociationArn"] = container_association_arn
+        __props__["containerAssociationName"] = container_association_name
+        __props__["containerMonitoringConfigurations"] = container_monitoring_configurations
+        __props__["description"] = description
+        __props__["region"] = region
+        __props__["resolvedCidrCount"] = resolved_cidr_count
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["type"] = type
+        __props__["updateToken"] = update_token
+        return pulumi.runtime.exists_resource(None, 'aws:networkfirewall/containerAssociation:ContainerAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerAssociationArn")
     def container_association_arn(self) -> pulumi.Output[_builtins.str]:

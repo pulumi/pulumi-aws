@@ -176,6 +176,12 @@ func (ContainerServiceDeploymentVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerServiceDeploymentVersionState)(nil)).Elem()
 }
 
+// ContainerServiceDeploymentVersionExists checks whether an existing ContainerServiceDeploymentVersion resource with the given ID exists.
+func ContainerServiceDeploymentVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerServiceDeploymentVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion", id, state, "", opts...)
+}
+
 type containerServiceDeploymentVersionArgs struct {
 	// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
 	Containers []ContainerServiceDeploymentVersionContainer `pulumi:"containers"`

@@ -459,6 +459,30 @@ class ServerlessCluster(pulumi.CustomResource):
         __props__.__dict__["vpc_configs"] = vpc_configs
         return ServerlessCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
+            client_authentication: pulumi.Input[Optional[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict', 'outputs.ServerlessClusterClientAuthentication']]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict', 'outputs.ServerlessClusterVpcConfig']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["bootstrapBrokersSaslIam"] = bootstrap_brokers_sasl_iam
+        __props__["clientAuthentication"] = client_authentication
+        __props__["clusterName"] = cluster_name
+        __props__["clusterUuid"] = cluster_uuid
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcConfigs"] = vpc_configs
+        return pulumi.runtime.exists_resource(None, 'aws:msk/serverlessCluster:ServerlessCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

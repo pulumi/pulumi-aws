@@ -132,6 +132,12 @@ func (ModelPackageGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelPackageGroupState)(nil)).Elem()
 }
 
+// ModelPackageGroupExists checks whether an existing ModelPackageGroup resource with the given ID exists.
+func ModelPackageGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelPackageGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/modelPackageGroup:ModelPackageGroup", id, state, "", opts...)
+}
+
 type modelPackageGroupArgs struct {
 	// A description for the model group.
 	ModelPackageGroupDescription *string `pulumi:"modelPackageGroupDescription"`

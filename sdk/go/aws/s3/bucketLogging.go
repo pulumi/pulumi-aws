@@ -304,6 +304,12 @@ func (BucketLoggingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketLoggingState)(nil)).Elem()
 }
 
+// BucketLoggingExists checks whether an existing BucketLogging resource with the given ID exists.
+func BucketLoggingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketLoggingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketLogging:BucketLogging", id, state, "", opts...)
+}
+
 type bucketLoggingArgs struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`

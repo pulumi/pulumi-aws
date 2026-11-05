@@ -500,6 +500,30 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]]] = None,
+            monitor_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]]] = None,
+            scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict', 'outputs.MonitorTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["localResources"] = local_resources
+        __props__["monitorArn"] = monitor_arn
+        __props__["monitorName"] = monitor_name
+        __props__["region"] = region
+        __props__["remoteResources"] = remote_resources
+        __props__["scopeArn"] = scope_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:networkflowmonitor/monitor:Monitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="localResources")
     def local_resources(self) -> pulumi.Output[Sequence['outputs.MonitorLocalResource']]:

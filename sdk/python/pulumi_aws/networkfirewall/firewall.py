@@ -908,6 +908,52 @@ class Firewall(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            availability_zone_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict', 'outputs.FirewallAvailabilityZoneMapping']]]]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_analysis_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['FirewallEncryptionConfigurationArgs', 'FirewallEncryptionConfigurationArgsDict', 'outputs.FirewallEncryptionConfiguration']]] = None,
+            firewall_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_policy_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            firewall_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallFirewallStatusArgs', 'FirewallFirewallStatusArgsDict', 'outputs.FirewallFirewallStatus']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict', 'outputs.FirewallSubnetMapping']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            update_token: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilityZoneChangeProtection"] = availability_zone_change_protection
+        __props__["availabilityZoneMappings"] = availability_zone_mappings
+        __props__["deleteProtection"] = delete_protection
+        __props__["description"] = description
+        __props__["enabledAnalysisTypes"] = enabled_analysis_types
+        __props__["encryptionConfiguration"] = encryption_configuration
+        __props__["firewallPolicyArn"] = firewall_policy_arn
+        __props__["firewallPolicyChangeProtection"] = firewall_policy_change_protection
+        __props__["firewallStatuses"] = firewall_statuses
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["subnetChangeProtection"] = subnet_change_protection
+        __props__["subnetMappings"] = subnet_mappings
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["transitGatewayId"] = transit_gateway_id
+        __props__["transitGatewayOwnerAccountId"] = transit_gateway_owner_account_id
+        __props__["updateToken"] = update_token
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:networkfirewall/firewall:Firewall', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

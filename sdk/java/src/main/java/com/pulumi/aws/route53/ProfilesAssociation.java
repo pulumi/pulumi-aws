@@ -87,14 +87,14 @@ public class ProfilesAssociation extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
+     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9&#92;&#92;-_&#39; &#39;]+)`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
+     * @return Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9&#92;&#92;-_&#39; &#39;]+)`.
      * 
      */
     public Output<String> name() {

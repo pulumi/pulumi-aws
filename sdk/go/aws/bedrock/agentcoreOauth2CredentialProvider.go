@@ -269,6 +269,12 @@ func (AgentcoreOauth2CredentialProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreOauth2CredentialProviderState)(nil)).Elem()
 }
 
+// AgentcoreOauth2CredentialProviderExists checks whether an existing AgentcoreOauth2CredentialProvider resource with the given ID exists.
+func AgentcoreOauth2CredentialProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreOauth2CredentialProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider", id, state, "", opts...)
+}
+
 type agentcoreOauth2CredentialProviderArgs struct {
 	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
 	CredentialProviderVendor string `pulumi:"credentialProviderVendor"`

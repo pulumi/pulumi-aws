@@ -144,6 +144,12 @@ func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceAttachmentState)(nil)).Elem()
 }
 
+// NetworkInterfaceAttachmentExists checks whether an existing NetworkInterfaceAttachment resource with the given ID exists.
+func NetworkInterfaceAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", id, state, "", opts...)
+}
+
 type networkInterfaceAttachmentArgs struct {
 	// Network interface index (int).
 	DeviceIndex int `pulumi:"deviceIndex"`

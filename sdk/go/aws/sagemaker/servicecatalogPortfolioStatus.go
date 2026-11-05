@@ -115,6 +115,12 @@ func (ServicecatalogPortfolioStatusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicecatalogPortfolioStatusState)(nil)).Elem()
 }
 
+// ServicecatalogPortfolioStatusExists checks whether an existing ServicecatalogPortfolioStatus resource with the given ID exists.
+func ServicecatalogPortfolioStatusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServicecatalogPortfolioStatusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus", id, state, "", opts...)
+}
+
 type servicecatalogPortfolioStatusArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

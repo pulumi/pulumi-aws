@@ -48,6 +48,17 @@ export class Deployment extends pulumi.CustomResource {
         return new Deployment(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Deployment resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: DeploymentState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:m2/deployment:Deployment", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:m2/deployment:Deployment';
 

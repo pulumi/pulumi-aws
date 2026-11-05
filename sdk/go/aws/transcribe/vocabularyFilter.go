@@ -165,6 +165,12 @@ func (VocabularyFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vocabularyFilterState)(nil)).Elem()
 }
 
+// VocabularyFilterExists checks whether an existing VocabularyFilter resource with the given ID exists.
+func VocabularyFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VocabularyFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transcribe/vocabularyFilter:VocabularyFilter", id, state, "", opts...)
+}
+
 type vocabularyFilterArgs struct {
 	// Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode string `pulumi:"languageCode"`

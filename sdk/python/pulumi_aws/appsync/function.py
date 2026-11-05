@@ -780,6 +780,40 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["sync_config"] = sync_config
         return Function(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code: pulumi.Input[Optional[_builtins.str]] = None,
+            data_source: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            function_id: pulumi.Input[Optional[_builtins.str]] = None,
+            function_version: pulumi.Input[Optional[_builtins.str]] = None,
+            max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+            response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict', 'outputs.FunctionRuntime']]] = None,
+            sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict', 'outputs.FunctionSyncConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["arn"] = arn
+        __props__["code"] = code
+        __props__["dataSource"] = data_source
+        __props__["description"] = description
+        __props__["functionId"] = function_id
+        __props__["functionVersion"] = function_version
+        __props__["maxBatchSize"] = max_batch_size
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["requestMappingTemplate"] = request_mapping_template
+        __props__["responseMappingTemplate"] = response_mapping_template
+        __props__["runtime"] = runtime
+        __props__["syncConfig"] = sync_config
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/function:Function', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

@@ -280,6 +280,18 @@ class KeyRegistration(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return KeyRegistration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_registrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict', 'outputs.KeyRegistrationKeyRegistration']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsAccountId"] = aws_account_id
+        __props__["keyRegistrations"] = key_registrations
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:quicksight/keyRegistration:KeyRegistration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:

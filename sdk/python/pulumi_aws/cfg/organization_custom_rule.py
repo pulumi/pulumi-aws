@@ -690,6 +690,38 @@ class OrganizationCustomRule(pulumi.CustomResource):
         __props__.__dict__["trigger_types"] = trigger_types
         return OrganizationCustomRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            input_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_types_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tag_key_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_value_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            trigger_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["excludedAccounts"] = excluded_accounts
+        __props__["inputParameters"] = input_parameters
+        __props__["lambdaFunctionArn"] = lambda_function_arn
+        __props__["maximumExecutionFrequency"] = maximum_execution_frequency
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["resourceIdScope"] = resource_id_scope
+        __props__["resourceTypesScopes"] = resource_types_scopes
+        __props__["tagKeyScope"] = tag_key_scope
+        __props__["tagValueScope"] = tag_value_scope
+        __props__["triggerTypes"] = trigger_types
+        return pulumi.runtime.exists_resource(None, 'aws:cfg/organizationCustomRule:OrganizationCustomRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

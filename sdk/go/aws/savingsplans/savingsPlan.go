@@ -287,6 +287,12 @@ func (SavingsPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*savingsPlanState)(nil)).Elem()
 }
 
+// SavingsPlanExists checks whether an existing SavingsPlan resource with the given ID exists.
+func SavingsPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SavingsPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:savingsplans/savingsPlan:SavingsPlan", id, state, "", opts...)
+}
+
 type savingsPlanArgs struct {
 	// The hourly commitment, in USD. This is the amount you commit to pay per hour, regardless of actual usage.
 	//

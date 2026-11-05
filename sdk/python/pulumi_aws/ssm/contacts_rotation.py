@@ -682,6 +682,30 @@ class ContactsRotation(pulumi.CustomResource):
         __props__.__dict__["time_zone_id"] = time_zone_id
         return ContactsRotation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            time_zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["contactIds"] = contact_ids
+        __props__["name"] = name
+        __props__["recurrence"] = recurrence
+        __props__["region"] = region
+        __props__["startTime"] = start_time
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeZoneId"] = time_zone_id
+        return pulumi.runtime.exists_resource(None, 'aws:ssm/contactsRotation:ContactsRotation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -171,6 +171,12 @@ func (LogSubscriptionFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logSubscriptionFilterState)(nil)).Elem()
 }
 
+// LogSubscriptionFilterExists checks whether an existing LogSubscriptionFilter resource with the given ID exists.
+func LogSubscriptionFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogSubscriptionFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter", id, state, "", opts...)
+}
+
 type logSubscriptionFilterArgs struct {
 	// Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
 	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`

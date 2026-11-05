@@ -171,12 +171,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .schemaChangePolicy(CrawlerSchemaChangePolicyArgs.builder()
  *                 .deleteBehavior("LOG")
@@ -189,17 +189,17 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .role(exampleAwsIamRole.get("arn"))
  *             .configuration("""
- * {
- *   \"Version\":1.0,
- *   \"Grouping\": {
- *     \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "Version}&#92;{@code ":1.0,
+ *   }&#92;{@code "Grouping}&#92;{@code ": }{{@code
+ *     }&#92;{@code "TableGroupingPolicy}&#92;{@code ": }&#92;{@code "CombineCompatibleSchemas}&#92;{@code "
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

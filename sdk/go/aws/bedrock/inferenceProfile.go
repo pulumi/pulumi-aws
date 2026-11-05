@@ -185,6 +185,12 @@ func (InferenceProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inferenceProfileState)(nil)).Elem()
 }
 
+// InferenceProfileExists checks whether an existing InferenceProfile resource with the given ID exists.
+func InferenceProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InferenceProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/inferenceProfile:InferenceProfile", id, state, "", opts...)
+}
+
 type inferenceProfileArgs struct {
 	// Description of the inference profile.
 	Description *string `pulumi:"description"`

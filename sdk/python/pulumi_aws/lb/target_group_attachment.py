@@ -518,6 +518,24 @@ class TargetGroupAttachment(pulumi.CustomResource):
         __props__.__dict__["target_id"] = target_id
         return TargetGroupAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            quic_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["availabilityZone"] = availability_zone
+        __props__["port"] = port
+        __props__["quicServerId"] = quic_server_id
+        __props__["region"] = region
+        __props__["targetGroupArn"] = target_group_arn
+        __props__["targetId"] = target_id
+        return pulumi.runtime.exists_resource(None, 'aws:lb/targetGroupAttachment:TargetGroupAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[_builtins.str]]:

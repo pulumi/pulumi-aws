@@ -128,6 +128,12 @@ func (KeyspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyspaceState)(nil)).Elem()
 }
 
+// KeyspaceExists checks whether an existing Keyspace resource with the given ID exists.
+func KeyspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:keyspaces/keyspace:Keyspace", id, state, "", opts...)
+}
+
 type keyspaceArgs struct {
 	// Name of the keyspace to be created.
 	Name *string `pulumi:"name"`

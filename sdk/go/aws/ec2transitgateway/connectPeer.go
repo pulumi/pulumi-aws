@@ -177,6 +177,12 @@ func (ConnectPeerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectPeerState)(nil)).Elem()
 }
 
+// ConnectPeerExists checks whether an existing ConnectPeer resource with the given ID exists.
+func ConnectPeerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectPeerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/connectPeer:ConnectPeer", id, state, "", opts...)
+}
+
 type connectPeerArgs struct {
 	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
 	BgpAsn *string `pulumi:"bgpAsn"`

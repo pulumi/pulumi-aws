@@ -120,6 +120,12 @@ func (NetworkAclAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclAssociationState)(nil)).Elem()
 }
 
+// NetworkAclAssociationExists checks whether an existing NetworkAclAssociation resource with the given ID exists.
+func NetworkAclAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkAclAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/networkAclAssociation:NetworkAclAssociation", id, state, "", opts...)
+}
+
 type networkAclAssociationArgs struct {
 	// The ID of the network ACL.
 	NetworkAclId string `pulumi:"networkAclId"`

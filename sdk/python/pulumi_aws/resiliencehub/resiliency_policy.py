@@ -585,6 +585,34 @@ class ResiliencyPolicy(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ResiliencyPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_location_constraint: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            estimated_cost_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict', 'outputs.ResiliencyPolicyPolicy']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ResiliencyPolicyTimeoutsArgs', 'ResiliencyPolicyTimeoutsArgsDict', 'outputs.ResiliencyPolicyTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dataLocationConstraint"] = data_location_constraint
+        __props__["description"] = description
+        __props__["estimatedCostTier"] = estimated_cost_tier
+        __props__["name"] = name
+        __props__["policy"] = policy
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tier"] = tier
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

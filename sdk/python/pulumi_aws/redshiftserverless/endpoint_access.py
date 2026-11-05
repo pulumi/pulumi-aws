@@ -463,6 +463,32 @@ class EndpointAccess(pulumi.CustomResource):
         __props__.__dict__["workgroup_name"] = workgroup_name
         return EndpointAccess(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vpc_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict', 'outputs.EndpointAccessVpcEndpoint']]]]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workgroup_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["address"] = address
+        __props__["arn"] = arn
+        __props__["endpointName"] = endpoint_name
+        __props__["ownerAccount"] = owner_account
+        __props__["port"] = port
+        __props__["region"] = region
+        __props__["subnetIds"] = subnet_ids
+        __props__["vpcEndpoints"] = vpc_endpoints
+        __props__["vpcSecurityGroupIds"] = vpc_security_group_ids
+        __props__["workgroupName"] = workgroup_name
+        return pulumi.runtime.exists_resource(None, 'aws:redshiftserverless/endpointAccess:EndpointAccess', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[_builtins.str]:

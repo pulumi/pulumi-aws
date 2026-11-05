@@ -380,6 +380,22 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         return VpcIpv4CidrBlockAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidrBlock"] = cidr_block
+        __props__["ipv4IpamPoolId"] = ipv4_ipam_pool_id
+        __props__["ipv4NetmaskLength"] = ipv4_netmask_length
+        __props__["region"] = region
+        __props__["vpcId"] = vpc_id
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[_builtins.str]:

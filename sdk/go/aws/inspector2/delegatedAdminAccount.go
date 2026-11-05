@@ -119,6 +119,12 @@ func (DelegatedAdminAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*delegatedAdminAccountState)(nil)).Elem()
 }
 
+// DelegatedAdminAccountExists checks whether an existing DelegatedAdminAccount resource with the given ID exists.
+func DelegatedAdminAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DelegatedAdminAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", id, state, "", opts...)
+}
+
 type delegatedAdminAccountArgs struct {
 	// Account to enable as delegated admin account.
 	AccountId string `pulumi:"accountId"`

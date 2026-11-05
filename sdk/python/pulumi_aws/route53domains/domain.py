@@ -1047,6 +1047,64 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["whois_server"] = whois_server
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            abuse_contact_email: pulumi.Input[Optional[_builtins.str]] = None,
+            abuse_contact_phone: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_contact: pulumi.Input[Optional[Union['DomainAdminContactArgs', 'DomainAdminContactArgsDict', 'outputs.DomainAdminContact']]] = None,
+            admin_privacy: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
+            billing_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainBillingContactArgs', 'DomainBillingContactArgsDict', 'outputs.DomainBillingContact']]]]] = None,
+            billing_privacy: pulumi.Input[Optional[_builtins.bool]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_in_years: pulumi.Input[Optional[_builtins.int]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainNameServerArgs', 'DomainNameServerArgsDict', 'outputs.DomainNameServer']]]]] = None,
+            registrant_contact: pulumi.Input[Optional[Union['DomainRegistrantContactArgs', 'DomainRegistrantContactArgsDict', 'outputs.DomainRegistrantContact']]] = None,
+            registrant_privacy: pulumi.Input[Optional[_builtins.bool]] = None,
+            registrar_name: pulumi.Input[Optional[_builtins.str]] = None,
+            registrar_url: pulumi.Input[Optional[_builtins.str]] = None,
+            status_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tech_contact: pulumi.Input[Optional[Union['DomainTechContactArgs', 'DomainTechContactArgsDict', 'outputs.DomainTechContact']]] = None,
+            tech_privacy: pulumi.Input[Optional[_builtins.bool]] = None,
+            timeouts: pulumi.Input[Optional[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict', 'outputs.DomainTimeouts']]] = None,
+            transfer_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+            updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            whois_server: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["abuseContactEmail"] = abuse_contact_email
+        __props__["abuseContactPhone"] = abuse_contact_phone
+        __props__["adminContact"] = admin_contact
+        __props__["adminPrivacy"] = admin_privacy
+        __props__["autoRenew"] = auto_renew
+        __props__["billingContacts"] = billing_contacts
+        __props__["billingPrivacy"] = billing_privacy
+        __props__["creationDate"] = creation_date
+        __props__["domainName"] = domain_name
+        __props__["durationInYears"] = duration_in_years
+        __props__["expirationDate"] = expiration_date
+        __props__["hostedZoneId"] = hosted_zone_id
+        __props__["nameServers"] = name_servers
+        __props__["registrantContact"] = registrant_contact
+        __props__["registrantPrivacy"] = registrant_privacy
+        __props__["registrarName"] = registrar_name
+        __props__["registrarUrl"] = registrar_url
+        __props__["statusLists"] = status_lists
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["techContact"] = tech_contact
+        __props__["techPrivacy"] = tech_privacy
+        __props__["timeouts"] = timeouts
+        __props__["transferLock"] = transfer_lock
+        __props__["updatedDate"] = updated_date
+        __props__["whoisServer"] = whois_server
+        return pulumi.runtime.exists_resource(None, 'aws:route53domains/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="abuseContactEmail")
     def abuse_contact_email(self) -> pulumi.Output[_builtins.str]:

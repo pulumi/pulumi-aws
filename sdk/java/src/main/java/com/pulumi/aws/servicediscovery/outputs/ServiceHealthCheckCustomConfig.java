@@ -14,22 +14,20 @@ public final class ServiceHealthCheckCustomConfig {
     /**
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
      * 
-     * @deprecated
-     * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
+     * @deprecated failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
      */
-    @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
+    @Deprecated
     private @Nullable Integer failureThreshold;
 
     private ServiceHealthCheckCustomConfig() {}
     /**
      * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
      * 
-     * @deprecated
-     * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
+     * @deprecated failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
      */
-    @Deprecated /* failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version. */
+    @Deprecated
     public Optional<Integer> failureThreshold() {
         return Optional.ofNullable(this.failureThreshold);
     }

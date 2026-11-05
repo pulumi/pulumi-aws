@@ -451,6 +451,20 @@ class V2InputSource(pulumi.CustomResource):
         __props__.__dict__["service_arn"] = service_arn
         return V2InputSource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            input_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_configuration: pulumi.Input[Optional[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict', 'outputs.V2InputSourceResourceConfiguration']]] = None,
+            service_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["inputSourceId"] = input_source_id
+        __props__["region"] = region
+        __props__["resourceConfiguration"] = resource_configuration
+        __props__["serviceArn"] = service_arn
+        return pulumi.runtime.exists_resource(None, 'aws:resiliencehub/v2InputSource:V2InputSource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="inputSourceId")
     def input_source_id(self) -> pulumi.Output[_builtins.str]:

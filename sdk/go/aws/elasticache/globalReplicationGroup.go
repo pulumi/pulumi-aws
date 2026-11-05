@@ -340,6 +340,12 @@ func (GlobalReplicationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalReplicationGroupState)(nil)).Elem()
 }
 
+// GlobalReplicationGroupExists checks whether an existing GlobalReplicationGroup resource with the given ID exists.
+func GlobalReplicationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalReplicationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup", id, state, "", opts...)
+}
+
 type globalReplicationGroupArgs struct {
 	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
 	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.

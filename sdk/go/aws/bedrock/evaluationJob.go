@@ -261,6 +261,12 @@ func (EvaluationJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*evaluationJobState)(nil)).Elem()
 }
 
+// EvaluationJobExists checks whether an existing EvaluationJob resource with the given ID exists.
+func EvaluationJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EvaluationJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/evaluationJob:EvaluationJob", id, state, "", opts...)
+}
+
 type evaluationJobArgs struct {
 	// Whether the evaluation job evaluates a model or a knowledge base. Valid values: `ModelEvaluation`, `RagEvaluation`.
 	ApplicationType *string `pulumi:"applicationType"`

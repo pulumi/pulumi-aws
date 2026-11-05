@@ -275,6 +275,12 @@ func (GlobalClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalClusterState)(nil)).Elem()
 }
 
+// GlobalClusterExists checks whether an existing GlobalCluster resource with the given ID exists.
+func GlobalClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:docdb/globalCluster:GlobalCluster", id, state, "", opts...)
+}
+
 type globalClusterArgs struct {
 	// Name for an automatically created database on cluster creation.
 	DatabaseName *string `pulumi:"databaseName"`

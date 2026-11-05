@@ -148,6 +148,12 @@ func (AnycastIpListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*anycastIpListState)(nil)).Elem()
 }
 
+// AnycastIpListExists checks whether an existing AnycastIpList resource with the given ID exists.
+func AnycastIpListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnycastIpListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudfront/anycastIpList:AnycastIpList", id, state, "", opts...)
+}
+
 type anycastIpListArgs struct {
 	// The number of static IP addresses that are allocated to the Anycast IP list. Valid values: `3`, `21`.
 	IpCount int `pulumi:"ipCount"`

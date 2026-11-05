@@ -33,14 +33,14 @@ public final class FleetRuntimeConfigurationServerProcessArgs extends com.pulumi
     }
 
     /**
-     * Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
+     * Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:&#92;game`, and for Linux instances `/local/game`.
      * 
      */
     @Import(name="launchPath", required=true)
     private Output<String> launchPath;
 
     /**
-     * @return Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
+     * @return Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:&#92;game`, and for Linux instances `/local/game`.
      * 
      */
     public Output<String> launchPath() {
@@ -110,7 +110,7 @@ public final class FleetRuntimeConfigurationServerProcessArgs extends com.pulumi
         }
 
         /**
-         * @param launchPath Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
+         * @param launchPath Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:&#92;game`, and for Linux instances `/local/game`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class FleetRuntimeConfigurationServerProcessArgs extends com.pulumi
         }
 
         /**
-         * @param launchPath Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
+         * @param launchPath Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:&#92;game`, and for Linux instances `/local/game`.
          * 
          * @return builder
          * 

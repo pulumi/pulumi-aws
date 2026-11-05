@@ -170,6 +170,12 @@ func (RuleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleSetState)(nil)).Elem()
 }
 
+// RuleSetExists checks whether an existing RuleSet resource with the given ID exists.
+func RuleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mailmanager/ruleSet:RuleSet", id, state, "", opts...)
+}
+
 type ruleSetArgs struct {
 	// Name of the rule set.
 	Name *string `pulumi:"name"`

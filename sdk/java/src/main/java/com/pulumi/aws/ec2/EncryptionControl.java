@@ -81,11 +81,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:ec2/encryptionControl:EncryptionControl example vpcec-12345678901234567
  * ```
  * 
- * @deprecated
- * aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl
+ * @deprecated aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl
  * 
  */
-@Deprecated /* aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl */
+@Deprecated
 @ResourceType(type="aws:ec2/encryptionControl:EncryptionControl")
 public class EncryptionControl extends com.pulumi.resources.CustomResource {
     /**

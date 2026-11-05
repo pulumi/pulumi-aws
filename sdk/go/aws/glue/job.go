@@ -556,6 +556,12 @@ func (JobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobState)(nil)).Elem()
 }
 
+// JobExists checks whether an existing Job resource with the given ID exists.
+func JobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/job:Job", id, state, "", opts...)
+}
+
 type jobArgs struct {
 	// Command of the job. Defined below.
 	Command JobCommand `pulumi:"command"`

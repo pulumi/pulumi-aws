@@ -275,6 +275,12 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggingConfigurationState)(nil)).Elem()
 }
 
+// LoggingConfigurationExists checks whether an existing LoggingConfiguration resource with the given ID exists.
+func LoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ivschat/loggingConfiguration:LoggingConfiguration", id, state, "", opts...)
+}
+
 type loggingConfigurationArgs struct {
 	// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
 	DestinationConfiguration *LoggingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`

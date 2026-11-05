@@ -396,6 +396,24 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__.__dict__["snapshot_copy_grant_name"] = snapshot_copy_grant_name
         return SnapshotCopy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+            manual_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            snapshot_copy_grant_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterIdentifier"] = cluster_identifier
+        __props__["destinationRegion"] = destination_region
+        __props__["manualSnapshotRetentionPeriod"] = manual_snapshot_retention_period
+        __props__["region"] = region
+        __props__["retentionPeriod"] = retention_period
+        __props__["snapshotCopyGrantName"] = snapshot_copy_grant_name
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/snapshotCopy:SnapshotCopy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:

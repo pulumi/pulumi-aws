@@ -474,6 +474,28 @@ class EventApiDestination(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return EventApiDestination(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            http_method: pulumi.Input[Optional[_builtins.str]] = None,
+            invocation_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            invocation_rate_limit_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["connectionArn"] = connection_arn
+        __props__["description"] = description
+        __props__["httpMethod"] = http_method
+        __props__["invocationEndpoint"] = invocation_endpoint
+        __props__["invocationRateLimitPerSecond"] = invocation_rate_limit_per_second
+        __props__["name"] = name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:cloudwatch/eventApiDestination:EventApiDestination', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

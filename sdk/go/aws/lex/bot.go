@@ -272,6 +272,12 @@ func (BotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*botState)(nil)).Elem()
 }
 
+// BotExists checks whether an existing Bot resource with the given ID exists.
+func BotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/bot:Bot", id, state, "", opts...)
+}
+
 type botArgs struct {
 	// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
 	AbortStatement BotAbortStatement `pulumi:"abortStatement"`

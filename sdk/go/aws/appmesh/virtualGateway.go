@@ -231,6 +231,12 @@ func (VirtualGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualGatewayState)(nil)).Elem()
 }
 
+// VirtualGatewayExists checks whether an existing VirtualGateway resource with the given ID exists.
+func VirtualGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appmesh/virtualGateway:VirtualGateway", id, state, "", opts...)
+}
+
 type virtualGatewayArgs struct {
 	// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`

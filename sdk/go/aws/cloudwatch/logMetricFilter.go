@@ -164,6 +164,12 @@ func (LogMetricFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logMetricFilterState)(nil)).Elem()
 }
 
+// LogMetricFilterExists checks whether an existing LogMetricFilter resource with the given ID exists.
+func LogMetricFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogMetricFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logMetricFilter:LogMetricFilter", id, state, "", opts...)
+}
+
 type logMetricFilterArgs struct {
 	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
 	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`

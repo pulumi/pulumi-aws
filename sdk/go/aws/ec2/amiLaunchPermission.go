@@ -207,6 +207,12 @@ func (AmiLaunchPermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiLaunchPermissionState)(nil)).Elem()
 }
 
+// AmiLaunchPermissionExists checks whether an existing AmiLaunchPermission resource with the given ID exists.
+func AmiLaunchPermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AmiLaunchPermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/amiLaunchPermission:AmiLaunchPermission", id, state, "", opts...)
+}
+
 type amiLaunchPermissionArgs struct {
 	// AWS account ID for the launch permission.
 	AccountId *string `pulumi:"accountId"`

@@ -387,6 +387,12 @@ func (UserPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolState)(nil)).Elem()
 }
 
+// UserPoolExists checks whether an existing UserPool resource with the given ID exists.
+func UserPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/userPool:UserPool", id, state, "", opts...)
+}
+
 type userPoolArgs struct {
 	// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
 	AccountRecoverySetting *UserPoolAccountRecoverySetting `pulumi:"accountRecoverySetting"`

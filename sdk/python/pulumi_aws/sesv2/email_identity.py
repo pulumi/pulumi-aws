@@ -528,6 +528,32 @@ class EmailIdentity(pulumi.CustomResource):
         __props__.__dict__["verified_for_sending_status"] = verified_for_sending_status
         return EmailIdentity(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']]] = None,
+            email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            verification_status: pulumi.Input[Optional[_builtins.str]] = None,
+            verified_for_sending_status: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["configurationSetName"] = configuration_set_name
+        __props__["dkimSigningAttributes"] = dkim_signing_attributes
+        __props__["emailIdentity"] = email_identity
+        __props__["identityType"] = identity_type
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["verificationStatus"] = verification_status
+        __props__["verifiedForSendingStatus"] = verified_for_sending_status
+        return pulumi.runtime.exists_resource(None, 'aws:sesv2/emailIdentity:EmailIdentity', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

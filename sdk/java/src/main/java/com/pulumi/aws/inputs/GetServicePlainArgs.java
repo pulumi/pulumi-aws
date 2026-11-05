@@ -30,20 +30,18 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * @deprecated
-     * Use &#39;reverse_dns_name&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;reverse_dns_name&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @deprecated
-     * Use &#39;reverse_dns_name&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;reverse_dns_name&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -151,11 +149,10 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use &#39;reverse_dns_name&#39; instead. This attribute will be removed in a future version of the provider.
+         * @deprecated Use &#39;reverse_dns_name&#39; instead. This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

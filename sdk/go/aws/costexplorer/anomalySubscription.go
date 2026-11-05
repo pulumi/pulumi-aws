@@ -421,6 +421,12 @@ func (AnomalySubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*anomalySubscriptionState)(nil)).Elem()
 }
 
+// AnomalySubscriptionExists checks whether an existing AnomalySubscription resource with the given ID exists.
+func AnomalySubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnomalySubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:costexplorer/anomalySubscription:AnomalySubscription", id, state, "", opts...)
+}
+
 type anomalySubscriptionArgs struct {
 	// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
 	AccountId *string `pulumi:"accountId"`

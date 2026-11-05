@@ -293,6 +293,12 @@ func (TemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateState)(nil)).Elem()
 }
 
+// TemplateExists checks whether an existing Template resource with the given ID exists.
+func TemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/template:Template", id, state, "", opts...)
+}
+
 type templateArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

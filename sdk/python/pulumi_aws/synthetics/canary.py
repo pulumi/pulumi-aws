@@ -1081,6 +1081,64 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["zip_file"] = zip_file
         return Canary(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            artifact_config: pulumi.Input[Optional[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict', 'outputs.CanaryArtifactConfig']]] = None,
+            artifact_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_lambda: pulumi.Input[Optional[_builtins.bool]] = None,
+            engine_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            handler: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            run_config: pulumi.Input[Optional[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict', 'outputs.CanaryRunConfig']]] = None,
+            runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_version: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['CanaryScheduleArgs', 'CanaryScheduleArgsDict', 'outputs.CanarySchedule']]] = None,
+            source_location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            start_canary: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            success_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CanaryTimelineArgs', 'CanaryTimelineArgsDict', 'outputs.CanaryTimeline']]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['CanaryVpcConfigArgs', 'CanaryVpcConfigArgsDict', 'outputs.CanaryVpcConfig']]] = None,
+            zip_file: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["artifactConfig"] = artifact_config
+        __props__["artifactS3Location"] = artifact_s3_location
+        __props__["deleteLambda"] = delete_lambda
+        __props__["engineArn"] = engine_arn
+        __props__["executionRoleArn"] = execution_role_arn
+        __props__["failureRetentionPeriod"] = failure_retention_period
+        __props__["handler"] = handler
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["runConfig"] = run_config
+        __props__["runtimeVersion"] = runtime_version
+        __props__["s3Bucket"] = s3_bucket
+        __props__["s3Key"] = s3_key
+        __props__["s3Version"] = s3_version
+        __props__["schedule"] = schedule
+        __props__["sourceLocationArn"] = source_location_arn
+        __props__["startCanary"] = start_canary
+        __props__["status"] = status
+        __props__["successRetentionPeriod"] = success_retention_period
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timelines"] = timelines
+        __props__["vpcConfig"] = vpc_config
+        __props__["zipFile"] = zip_file
+        return pulumi.runtime.exists_resource(None, 'aws:synthetics/canary:Canary', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

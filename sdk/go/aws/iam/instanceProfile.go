@@ -186,6 +186,12 @@ func (InstanceProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceProfileState)(nil)).Elem()
 }
 
+// InstanceProfileExists checks whether an existing InstanceProfile resource with the given ID exists.
+func InstanceProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/instanceProfile:InstanceProfile", id, state, "", opts...)
+}
+
 type instanceProfileArgs struct {
 	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed. The `name` must be unique, regardless of the `path` or `role`. In other words, if there are different `role` or `path` values but the same `name` as an existing instance profile, it will still cause an `EntityAlreadyExists` error.
 	Name *string `pulumi:"name"`

@@ -235,6 +235,12 @@ func (JobQueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobQueueState)(nil)).Elem()
 }
 
+// JobQueueExists checks whether an existing JobQueue resource with the given ID exists.
+func JobQueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobQueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:batch/jobQueue:JobQueue", id, state, "", opts...)
+}
+
 type jobQueueArgs struct {
 	// Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`

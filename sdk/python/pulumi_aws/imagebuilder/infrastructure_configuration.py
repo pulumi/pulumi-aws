@@ -874,6 +874,50 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         __props__.__dict__["terminate_instance_on_failure"] = terminate_instance_on_failure
         return InfrastructureConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            date_created: pulumi.Input[Optional[_builtins.str]] = None,
+            date_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']]] = None,
+            instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+            logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["dateCreated"] = date_created
+        __props__["dateUpdated"] = date_updated
+        __props__["description"] = description
+        __props__["instanceMetadataOptions"] = instance_metadata_options
+        __props__["instanceProfileName"] = instance_profile_name
+        __props__["instanceTypes"] = instance_types
+        __props__["keyPair"] = key_pair
+        __props__["logging"] = logging
+        __props__["name"] = name
+        __props__["placement"] = placement
+        __props__["region"] = region
+        __props__["resourceTags"] = resource_tags
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["snsTopicArn"] = sns_topic_arn
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["terminateInstanceOnFailure"] = terminate_instance_on_failure
+        return pulumi.runtime.exists_resource(None, 'aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

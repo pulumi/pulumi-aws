@@ -234,6 +234,12 @@ func (SigningJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signingJobState)(nil)).Elem()
 }
 
+// SigningJobExists checks whether an existing SigningJob resource with the given ID exists.
+func SigningJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SigningJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:signer/signingJob:SigningJob", id, state, "", opts...)
+}
+
 type signingJobArgs struct {
 	// The S3 bucket in which to save your signed object. See Destination below for details.
 	Destination SigningJobDestination `pulumi:"destination"`

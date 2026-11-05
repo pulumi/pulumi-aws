@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var name = new ReplicationConfig("name", ReplicationConfigArgs.builder()
  *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
  *                 .replicationSubnetGroupId(default_.get("replicationSubnetGroupId"))
@@ -60,15 +60,15 @@ import javax.annotation.Nullable;
  *             .sourceEndpointArn(source.get("endpointArn"))
  *             .targetEndpointArn(target.get("endpointArn"))
  *             .tableMappings("""
- *   {
- *     \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"rule-action\":\"include\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"}}]
- *   }
+ *   }{{@code
+ *     }&#92;{@code "rules}&#92;{@code ":[}{&#92;{@code "rule-type}&#92;{@code ":}&#92;{@code "selection}&#92;{@code ",}&#92;{@code "rule-id}&#92;{@code ":}&#92;{@code "1}&#92;{@code ",}&#92;{@code "rule-name}&#92;{@code ":}&#92;{@code "1}&#92;{@code ",}&#92;{@code "rule-action}&#92;{@code ":}&#92;{@code "include}&#92;{@code ",}&#92;{@code "object-locator}&#92;{@code ":}{&#92;{@code "schema-name}&#92;{@code ":}&#92;{@code "%%}&#92;{@code ",}&#92;{@code "table-name}&#92;{@code ":}&#92;{@code "%%}&#92;{@code "}}}{@code ]
+ *   }}{@code
  *             """)
  *             .startReplication(true)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

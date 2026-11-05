@@ -147,6 +147,12 @@ func (StaticIpAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticIpAttachmentState)(nil)).Elem()
 }
 
+// StaticIpAttachmentExists checks whether an existing StaticIpAttachment resource with the given ID exists.
+func StaticIpAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StaticIpAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/staticIpAttachment:StaticIpAttachment", id, state, "", opts...)
+}
+
 type staticIpAttachmentArgs struct {
 	// Name of the Lightsail instance to attach the IP to.
 	InstanceName string `pulumi:"instanceName"`

@@ -515,6 +515,12 @@ func (ServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverState)(nil)).Elem()
 }
 
+// ServerExists checks whether an existing Server resource with the given ID exists.
+func ServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/server:Server", id, state, "", opts...)
+}
+
 type serverArgs struct {
 	// ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
 	Certificate *string `pulumi:"certificate"`

@@ -1047,6 +1047,56 @@ class VpcIpamPool(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return VpcIpamPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_family: pulumi.Input[Optional[_builtins.str]] = None,
+            allocation_default_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            allocation_max_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            allocation_min_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            allocation_resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_import: pulumi.Input[Optional[_builtins.bool]] = None,
+            aws_service: pulumi.Input[Optional[_builtins.str]] = None,
+            cascade: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_scope_type: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_depth: pulumi.Input[Optional[_builtins.int]] = None,
+            public_ip_source: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_advertisable: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource: pulumi.Input[Optional[Union['VpcIpamPoolSourceResourceArgs', 'VpcIpamPoolSourceResourceArgsDict', 'outputs.VpcIpamPoolSourceResource']]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressFamily"] = address_family
+        __props__["allocationDefaultNetmaskLength"] = allocation_default_netmask_length
+        __props__["allocationMaxNetmaskLength"] = allocation_max_netmask_length
+        __props__["allocationMinNetmaskLength"] = allocation_min_netmask_length
+        __props__["allocationResourceTags"] = allocation_resource_tags
+        __props__["arn"] = arn
+        __props__["autoImport"] = auto_import
+        __props__["awsService"] = aws_service
+        __props__["cascade"] = cascade
+        __props__["description"] = description
+        __props__["ipamScopeId"] = ipam_scope_id
+        __props__["ipamScopeType"] = ipam_scope_type
+        __props__["locale"] = locale
+        __props__["poolDepth"] = pool_depth
+        __props__["publicIpSource"] = public_ip_source
+        __props__["publiclyAdvertisable"] = publicly_advertisable
+        __props__["region"] = region
+        __props__["sourceIpamPoolId"] = source_ipam_pool_id
+        __props__["sourceResource"] = source_resource
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/vpcIpamPool:VpcIpamPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[_builtins.str]:

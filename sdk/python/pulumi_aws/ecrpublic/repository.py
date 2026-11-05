@@ -438,6 +438,30 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Repository(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_data: pulumi.Input[Optional[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict', 'outputs.RepositoryCatalogData']]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["catalogData"] = catalog_data
+        __props__["forceDestroy"] = force_destroy
+        __props__["region"] = region
+        __props__["registryId"] = registry_id
+        __props__["repositoryName"] = repository_name
+        __props__["repositoryUri"] = repository_uri
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ecrpublic/repository:Repository', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

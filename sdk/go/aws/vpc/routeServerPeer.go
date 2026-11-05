@@ -267,6 +267,12 @@ func (RouteServerPeerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerPeerState)(nil)).Elem()
 }
 
+// RouteServerPeerExists checks whether an existing RouteServerPeer resource with the given ID exists.
+func RouteServerPeerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerPeerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpc/routeServerPeer:RouteServerPeer", id, state, "", opts...)
+}
+
 type routeServerPeerArgs struct {
 	// BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
 	BgpOptions RouteServerPeerBgpOptions `pulumi:"bgpOptions"`

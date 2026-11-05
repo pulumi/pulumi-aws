@@ -619,6 +619,44 @@ class Membership(pulumi.CustomResource):
         __props__.__dict__["update_time"] = update_time
         return Membership(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            collaboration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            collaboration_creator_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            collaboration_creator_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            collaboration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            collaboration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            default_result_configuration: pulumi.Input[Optional[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict', 'outputs.MembershipDefaultResultConfiguration']]] = None,
+            member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            payment_configuration: pulumi.Input[Optional[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict', 'outputs.MembershipPaymentConfiguration']]] = None,
+            query_log_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            update_time: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["collaborationArn"] = collaboration_arn
+        __props__["collaborationCreatorAccountId"] = collaboration_creator_account_id
+        __props__["collaborationCreatorDisplayName"] = collaboration_creator_display_name
+        __props__["collaborationId"] = collaboration_id
+        __props__["collaborationName"] = collaboration_name
+        __props__["createTime"] = create_time
+        __props__["defaultResultConfiguration"] = default_result_configuration
+        __props__["memberAbilities"] = member_abilities
+        __props__["paymentConfiguration"] = payment_configuration
+        __props__["queryLogStatus"] = query_log_status
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["updateTime"] = update_time
+        return pulumi.runtime.exists_resource(None, 'aws:cleanrooms/membership:Membership', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -197,6 +197,12 @@ func (TrafficMirrorSessionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorSessionState)(nil)).Elem()
 }
 
+// TrafficMirrorSessionExists checks whether an existing TrafficMirrorSession resource with the given ID exists.
+func TrafficMirrorSessionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficMirrorSessionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/trafficMirrorSession:TrafficMirrorSession", id, state, "", opts...)
+}
+
 type trafficMirrorSessionArgs struct {
 	// A description of the traffic mirror session.
 	Description *string `pulumi:"description"`

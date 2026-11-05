@@ -1040,6 +1040,38 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return AgentcoreMemoryStrategy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            configuration: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict', 'outputs.AgentcoreMemoryStrategyConfiguration']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_record_schema: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyMemoryRecordSchemaArgs', 'AgentcoreMemoryStrategyMemoryRecordSchemaArgsDict', 'outputs.AgentcoreMemoryStrategyMemoryRecordSchema']]] = None,
+            memory_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            reflection_configuration: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyReflectionConfigurationArgs', 'AgentcoreMemoryStrategyReflectionConfigurationArgsDict', 'outputs.AgentcoreMemoryStrategyReflectionConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict', 'outputs.AgentcoreMemoryStrategyTimeouts']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configuration"] = configuration
+        __props__["description"] = description
+        __props__["memoryExecutionRoleArn"] = memory_execution_role_arn
+        __props__["memoryId"] = memory_id
+        __props__["memoryRecordSchema"] = memory_record_schema
+        __props__["memoryStrategyId"] = memory_strategy_id
+        __props__["name"] = name
+        __props__["namespaceTemplates"] = namespace_templates
+        __props__["namespaces"] = namespaces
+        __props__["reflectionConfiguration"] = reflection_configuration
+        __props__["region"] = region
+        __props__["timeouts"] = timeouts
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreMemoryStrategyConfiguration']]:

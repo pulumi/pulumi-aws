@@ -999,6 +999,64 @@ class DevEndpoint(pulumi.CustomResource):
         __props__.__dict__["zeppelin_remote_spark_interpreter_port"] = zeppelin_remote_spark_interpreter_port
         return DevEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            extra_jars_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            extra_python_libs_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+            number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            private_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_type: pulumi.Input[Optional[_builtins.str]] = None,
+            yarn_endpoint_address: pulumi.Input[Optional[_builtins.str]] = None,
+            zeppelin_remote_spark_interpreter_port: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arguments"] = arguments
+        __props__["arn"] = arn
+        __props__["availabilityZone"] = availability_zone
+        __props__["extraJarsS3Path"] = extra_jars_s3_path
+        __props__["extraPythonLibsS3Path"] = extra_python_libs_s3_path
+        __props__["failureReason"] = failure_reason
+        __props__["glueVersion"] = glue_version
+        __props__["name"] = name
+        __props__["numberOfNodes"] = number_of_nodes
+        __props__["numberOfWorkers"] = number_of_workers
+        __props__["privateAddress"] = private_address
+        __props__["publicAddress"] = public_address
+        __props__["publicKey"] = public_key
+        __props__["publicKeys"] = public_keys
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["securityConfiguration"] = security_configuration
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["status"] = status
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcId"] = vpc_id
+        __props__["workerType"] = worker_type
+        __props__["yarnEndpointAddress"] = yarn_endpoint_address
+        __props__["zeppelinRemoteSparkInterpreterPort"] = zeppelin_remote_spark_interpreter_port
+        return pulumi.runtime.exists_resource(None, 'aws:glue/devEndpoint:DevEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

@@ -336,6 +336,12 @@ func (PoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolState)(nil)).Elem()
 }
 
+// PoolExists checks whether an existing Pool resource with the given ID exists.
+func PoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspaces/pool:Pool", id, state, "", opts...)
+}
+
 type poolArgs struct {
 	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
 	ApplicationSettings []PoolApplicationSetting `pulumi:"applicationSettings"`

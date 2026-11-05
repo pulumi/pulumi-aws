@@ -357,6 +357,12 @@ func (NetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkState)(nil)).Elem()
 }
 
+// NetworkExists checks whether an existing Network resource with the given ID exists.
+func NetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:odb/network:Network", id, state, "", opts...)
+}
+
 type networkArgs struct {
 	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`

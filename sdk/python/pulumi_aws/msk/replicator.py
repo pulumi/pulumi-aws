@@ -850,6 +850,34 @@ class Replicator(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Replicator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            current_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict', 'outputs.ReplicatorKafkaCluster']]]]] = None,
+            log_delivery: pulumi.Input[Optional[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict', 'outputs.ReplicatorLogDelivery']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict', 'outputs.ReplicatorReplicationInfoList']]] = None,
+            replicator_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["currentVersion"] = current_version
+        __props__["description"] = description
+        __props__["kafkaClusters"] = kafka_clusters
+        __props__["logDelivery"] = log_delivery
+        __props__["region"] = region
+        __props__["replicationInfoList"] = replication_info_list
+        __props__["replicatorName"] = replicator_name
+        __props__["serviceExecutionRoleArn"] = service_execution_role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:msk/replicator:Replicator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

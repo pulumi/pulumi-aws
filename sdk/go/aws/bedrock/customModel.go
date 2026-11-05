@@ -270,6 +270,12 @@ func (CustomModelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customModelState)(nil)).Elem()
 }
 
+// CustomModelExists checks whether an existing CustomModel resource with the given ID exists.
+func CustomModelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomModelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/customModel:CustomModel", id, state, "", opts...)
+}
+
 type customModelArgs struct {
 	// ARN of the base model.
 	BaseModelIdentifier string `pulumi:"baseModelIdentifier"`

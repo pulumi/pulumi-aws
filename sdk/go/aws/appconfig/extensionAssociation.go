@@ -197,6 +197,12 @@ func (ExtensionAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*extensionAssociationState)(nil)).Elem()
 }
 
+// ExtensionAssociationExists checks whether an existing ExtensionAssociation resource with the given ID exists.
+func ExtensionAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExtensionAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appconfig/extensionAssociation:ExtensionAssociation", id, state, "", opts...)
+}
+
 type extensionAssociationArgs struct {
 	// ARN of the extension defined in the association.
 	ExtensionArn string `pulumi:"extensionArn"`

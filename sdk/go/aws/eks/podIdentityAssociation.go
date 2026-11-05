@@ -298,6 +298,12 @@ func (PodIdentityAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*podIdentityAssociationState)(nil)).Elem()
 }
 
+// PodIdentityAssociationExists checks whether an existing PodIdentityAssociation resource with the given ID exists.
+func PodIdentityAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PodIdentityAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:eks/podIdentityAssociation:PodIdentityAssociation", id, state, "", opts...)
+}
+
 type podIdentityAssociationArgs struct {
 	// The name of the cluster to create the association in.
 	ClusterName string `pulumi:"clusterName"`

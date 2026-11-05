@@ -142,6 +142,12 @@ func (SmsChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsChannelState)(nil)).Elem()
 }
 
+// SmsChannelExists checks whether an existing SmsChannel resource with the given ID exists.
+func SmsChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SmsChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsChannel:SmsChannel", id, state, "", opts...)
+}
+
 type smsChannelArgs struct {
 	// ID of the application.
 	ApplicationId string `pulumi:"applicationId"`

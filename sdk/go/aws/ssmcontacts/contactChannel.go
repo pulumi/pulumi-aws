@@ -195,6 +195,12 @@ func (ContactChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactChannelState)(nil)).Elem()
 }
 
+// ContactChannelExists checks whether an existing ContactChannel resource with the given ID exists.
+func ContactChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssmcontacts/contactChannel:ContactChannel", id, state, "", opts...)
+}
+
 type contactChannelArgs struct {
 	// ARN of the AWS SSM Contact that the contact channel belongs to.
 	ContactId string `pulumi:"contactId"`

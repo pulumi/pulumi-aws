@@ -199,6 +199,12 @@ func (ShardGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*shardGroupState)(nil)).Elem()
 }
 
+// ShardGroupExists checks whether an existing ShardGroup resource with the given ID exists.
+func ShardGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ShardGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/shardGroup:ShardGroup", id, state, "", opts...)
+}
+
 type shardGroupArgs struct {
 	// Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
 	ComputeRedundancy *int `pulumi:"computeRedundancy"`

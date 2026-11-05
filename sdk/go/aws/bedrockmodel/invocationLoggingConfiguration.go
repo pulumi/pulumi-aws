@@ -182,6 +182,12 @@ func (InvocationLoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*invocationLoggingConfigurationState)(nil)).Elem()
 }
 
+// InvocationLoggingConfigurationExists checks whether an existing InvocationLoggingConfiguration resource with the given ID exists.
+func InvocationLoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InvocationLoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration", id, state, "", opts...)
+}
+
 type invocationLoggingConfigurationArgs struct {
 	// Logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`

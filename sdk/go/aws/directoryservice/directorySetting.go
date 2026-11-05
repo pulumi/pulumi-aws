@@ -162,6 +162,12 @@ func (DirectorySettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directorySettingState)(nil)).Elem()
 }
 
+// DirectorySettingExists checks whether an existing DirectorySetting resource with the given ID exists.
+func DirectorySettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectorySettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:directoryservice/directorySetting:DirectorySetting", id, state, "", opts...)
+}
+
 type directorySettingArgs struct {
 	// ID of the directory.
 	DirectoryId string `pulumi:"directoryId"`

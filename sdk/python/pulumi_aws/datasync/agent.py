@@ -597,6 +597,34 @@ class Agent(pulumi.CustomResource):
         __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
         return Agent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activationKey"] = activation_key
+        __props__["arn"] = arn
+        __props__["ipAddress"] = ip_address
+        __props__["name"] = name
+        __props__["privateLinkEndpoint"] = private_link_endpoint
+        __props__["region"] = region
+        __props__["securityGroupArns"] = security_group_arns
+        __props__["subnetArns"] = subnet_arns
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcEndpointId"] = vpc_endpoint_id
+        return pulumi.runtime.exists_resource(None, 'aws:datasync/agent:Agent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activationKey")
     def activation_key(self) -> pulumi.Output[_builtins.str]:

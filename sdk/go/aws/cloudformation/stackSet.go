@@ -301,6 +301,12 @@ func (StackSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetState)(nil)).Elem()
 }
 
+// StackSetExists checks whether an existing StackSet resource with the given ID exists.
+func StackSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StackSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudformation/stackSet:StackSet", id, state, "", opts...)
+}
+
 type stackSetArgs struct {
 	// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
 	AdministrationRoleArn *string `pulumi:"administrationRoleArn"`

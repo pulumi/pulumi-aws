@@ -344,6 +344,12 @@ func (LogDeliveryConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDeliveryConfigurationState)(nil)).Elem()
 }
 
+// LogDeliveryConfigurationExists checks whether an existing LogDeliveryConfiguration resource with the given ID exists.
+func LogDeliveryConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogDeliveryConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration", id, state, "", opts...)
+}
+
 type logDeliveryConfigurationArgs struct {
 	// Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
 	LogConfigurations []LogDeliveryConfigurationLogConfiguration `pulumi:"logConfigurations"`

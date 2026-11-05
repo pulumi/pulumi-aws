@@ -759,6 +759,44 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
         __props__.__dict__["user_authorization_required"] = user_authorization_required
         return TeamsChannelConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+            chat_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            team_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['TeamsChannelConfigurationTimeoutsArgs', 'TeamsChannelConfigurationTimeoutsArgsDict', 'outputs.TeamsChannelConfigurationTimeouts']]] = None,
+            user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["channelId"] = channel_id
+        __props__["channelName"] = channel_name
+        __props__["chatConfigurationArn"] = chat_configuration_arn
+        __props__["configurationName"] = configuration_name
+        __props__["guardrailPolicyArns"] = guardrail_policy_arns
+        __props__["iamRoleArn"] = iam_role_arn
+        __props__["loggingLevel"] = logging_level
+        __props__["region"] = region
+        __props__["snsTopicArns"] = sns_topic_arns
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["teamId"] = team_id
+        __props__["teamName"] = team_name
+        __props__["tenantId"] = tenant_id
+        __props__["timeouts"] = timeouts
+        __props__["userAuthorizationRequired"] = user_authorization_required
+        return pulumi.runtime.exists_resource(None, 'aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Output[_builtins.str]:

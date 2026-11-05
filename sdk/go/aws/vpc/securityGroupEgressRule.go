@@ -208,6 +208,12 @@ func (SecurityGroupEgressRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupEgressRuleState)(nil)).Elem()
 }
 
+// SecurityGroupEgressRuleExists checks whether an existing SecurityGroupEgressRule resource with the given ID exists.
+func SecurityGroupEgressRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityGroupEgressRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule", id, state, "", opts...)
+}
+
 type securityGroupEgressRuleArgs struct {
 	// Destination IPv4 CIDR range.
 	CidrIpv4 *string `pulumi:"cidrIpv4"`

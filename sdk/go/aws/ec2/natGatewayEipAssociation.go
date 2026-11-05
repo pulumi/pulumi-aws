@@ -132,6 +132,12 @@ func (NatGatewayEipAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayEipAssociationState)(nil)).Elem()
 }
 
+// NatGatewayEipAssociationExists checks whether an existing NatGatewayEipAssociation resource with the given ID exists.
+func NatGatewayEipAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NatGatewayEipAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation", id, state, "", opts...)
+}
+
 type natGatewayEipAssociationArgs struct {
 	// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
 	AllocationId string `pulumi:"allocationId"`

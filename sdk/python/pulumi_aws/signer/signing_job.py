@@ -652,6 +652,50 @@ class SigningJob(pulumi.CustomResource):
         __props__.__dict__["status_reason"] = status_reason
         return SigningJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            completed_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict', 'outputs.SigningJobDestination']]] = None,
+            ignore_signing_job_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_invoker: pulumi.Input[Optional[_builtins.str]] = None,
+            job_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_id: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requested_by: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningJobRevocationRecordArgs', 'SigningJobRevocationRecordArgsDict', 'outputs.SigningJobRevocationRecord']]]]] = None,
+            signature_expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            signed_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningJobSignedObjectArgs', 'SigningJobSignedObjectArgsDict', 'outputs.SigningJobSignedObject']]]]] = None,
+            source: pulumi.Input[Optional[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict', 'outputs.SigningJobSource']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["completedAt"] = completed_at
+        __props__["createdAt"] = created_at
+        __props__["destination"] = destination
+        __props__["ignoreSigningJobFailure"] = ignore_signing_job_failure
+        __props__["jobId"] = job_id
+        __props__["jobInvoker"] = job_invoker
+        __props__["jobOwner"] = job_owner
+        __props__["platformDisplayName"] = platform_display_name
+        __props__["platformId"] = platform_id
+        __props__["profileName"] = profile_name
+        __props__["profileVersion"] = profile_version
+        __props__["region"] = region
+        __props__["requestedBy"] = requested_by
+        __props__["revocationRecords"] = revocation_records
+        __props__["signatureExpiresAt"] = signature_expires_at
+        __props__["signedObjects"] = signed_objects
+        __props__["source"] = source
+        __props__["status"] = status
+        __props__["statusReason"] = status_reason
+        return pulumi.runtime.exists_resource(None, 'aws:signer/signingJob:SigningJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="completedAt")
     def completed_at(self) -> pulumi.Output[_builtins.str]:

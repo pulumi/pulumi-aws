@@ -584,6 +584,34 @@ class RoutingProfile(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return RoutingProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_outbound_queue_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            media_concurrencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict', 'outputs.RoutingProfileMediaConcurrency']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict', 'outputs.RoutingProfileQueueConfig']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["defaultOutboundQueueId"] = default_outbound_queue_id
+        __props__["description"] = description
+        __props__["instanceId"] = instance_id
+        __props__["mediaConcurrencies"] = media_concurrencies
+        __props__["name"] = name
+        __props__["queueConfigs"] = queue_configs
+        __props__["region"] = region
+        __props__["routingProfileId"] = routing_profile_id
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:connect/routingProfile:RoutingProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

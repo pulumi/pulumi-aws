@@ -166,6 +166,12 @@ func (UserHierarchyStructureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userHierarchyStructureState)(nil)).Elem()
 }
 
+// UserHierarchyStructureExists checks whether an existing UserHierarchyStructure resource with the given ID exists.
+func UserHierarchyStructureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserHierarchyStructureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/userHierarchyStructure:UserHierarchyStructure", id, state, "", opts...)
+}
+
 type userHierarchyStructureArgs struct {
 	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructure"`

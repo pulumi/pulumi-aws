@@ -48,6 +48,17 @@ export class Script extends pulumi.CustomResource {
         return new Script(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Script resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ScriptState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:gamelift/script:Script", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:gamelift/script:Script';
 

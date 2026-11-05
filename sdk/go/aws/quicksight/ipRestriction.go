@@ -138,6 +138,12 @@ func (IpRestrictionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipRestrictionState)(nil)).Elem()
 }
 
+// IpRestrictionExists checks whether an existing IpRestriction resource with the given ID exists.
+func IpRestrictionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpRestrictionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/ipRestriction:IpRestriction", id, state, "", opts...)
+}
+
 type ipRestrictionArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

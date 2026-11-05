@@ -567,6 +567,36 @@ class CustomDataIdentifier(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return CustomDataIdentifier(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            maximum_match_distance: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            regex: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["createdAt"] = created_at
+        __props__["description"] = description
+        __props__["ignoreWords"] = ignore_words
+        __props__["keywords"] = keywords
+        __props__["maximumMatchDistance"] = maximum_match_distance
+        __props__["name"] = name
+        __props__["namePrefix"] = name_prefix
+        __props__["regex"] = regex
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:macie/customDataIdentifier:CustomDataIdentifier', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

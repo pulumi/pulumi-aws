@@ -120,6 +120,12 @@ func (BudgetResourceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetResourceAssociationState)(nil)).Elem()
 }
 
+// BudgetResourceAssociationExists checks whether an existing BudgetResourceAssociation resource with the given ID exists.
+func BudgetResourceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BudgetResourceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation", id, state, "", opts...)
+}
+
 type budgetResourceAssociationArgs struct {
 	// Budget name.
 	BudgetName string `pulumi:"budgetName"`

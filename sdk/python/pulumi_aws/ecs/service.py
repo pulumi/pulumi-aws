@@ -1961,6 +1961,86 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alarms: pulumi.Input[Optional[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict', 'outputs.ServiceAlarms']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_rebalancing: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict', 'outputs.ServiceCapacityProviderStrategy']]]]] = None,
+            cluster: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_circuit_breaker: pulumi.Input[Optional[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict', 'outputs.ServiceDeploymentCircuitBreaker']]] = None,
+            deployment_configuration: pulumi.Input[Optional[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict', 'outputs.ServiceDeploymentConfiguration']]] = None,
+            deployment_controller: pulumi.Input[Optional[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict', 'outputs.ServiceDeploymentController']]] = None,
+            deployment_maximum_percent: pulumi.Input[Optional[_builtins.int]] = None,
+            deployment_minimum_healthy_percent: pulumi.Input[Optional[_builtins.int]] = None,
+            desired_count: pulumi.Input[Optional[_builtins.int]] = None,
+            enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_new_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+            health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+            launch_type: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict', 'outputs.ServiceLoadBalancer']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict', 'outputs.ServiceNetworkConfiguration']]] = None,
+            ordered_placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceOrderedPlacementStrategyArgs', 'ServiceOrderedPlacementStrategyArgsDict', 'outputs.ServiceOrderedPlacementStrategy']]]]] = None,
+            placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict', 'outputs.ServicePlacementConstraint']]]]] = None,
+            platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+            propagate_tags: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scheduling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            service_connect_configuration: pulumi.Input[Optional[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict', 'outputs.ServiceServiceConnectConfiguration']]] = None,
+            service_registries: pulumi.Input[Optional[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict', 'outputs.ServiceServiceRegistries']]] = None,
+            sigint_rollback: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            task_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            volume_configuration: pulumi.Input[Optional[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict', 'outputs.ServiceVolumeConfiguration']]] = None,
+            vpc_lattice_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict', 'outputs.ServiceVpcLatticeConfiguration']]]]] = None,
+            wait_for_steady_state: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alarms"] = alarms
+        __props__["arn"] = arn
+        __props__["availabilityZoneRebalancing"] = availability_zone_rebalancing
+        __props__["capacityProviderStrategies"] = capacity_provider_strategies
+        __props__["cluster"] = cluster
+        __props__["deploymentCircuitBreaker"] = deployment_circuit_breaker
+        __props__["deploymentConfiguration"] = deployment_configuration
+        __props__["deploymentController"] = deployment_controller
+        __props__["deploymentMaximumPercent"] = deployment_maximum_percent
+        __props__["deploymentMinimumHealthyPercent"] = deployment_minimum_healthy_percent
+        __props__["desiredCount"] = desired_count
+        __props__["enableEcsManagedTags"] = enable_ecs_managed_tags
+        __props__["enableExecuteCommand"] = enable_execute_command
+        __props__["forceDelete"] = force_delete
+        __props__["forceNewDeployment"] = force_new_deployment
+        __props__["healthCheckGracePeriodSeconds"] = health_check_grace_period_seconds
+        __props__["iamRole"] = iam_role
+        __props__["launchType"] = launch_type
+        __props__["loadBalancers"] = load_balancers
+        __props__["name"] = name
+        __props__["networkConfiguration"] = network_configuration
+        __props__["orderedPlacementStrategies"] = ordered_placement_strategies
+        __props__["placementConstraints"] = placement_constraints
+        __props__["platformVersion"] = platform_version
+        __props__["propagateTags"] = propagate_tags
+        __props__["region"] = region
+        __props__["schedulingStrategy"] = scheduling_strategy
+        __props__["serviceConnectConfiguration"] = service_connect_configuration
+        __props__["serviceRegistries"] = service_registries
+        __props__["sigintRollback"] = sigint_rollback
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["taskDefinition"] = task_definition
+        __props__["triggers"] = triggers
+        __props__["volumeConfiguration"] = volume_configuration
+        __props__["vpcLatticeConfigurations"] = vpc_lattice_configurations
+        __props__["waitForSteadyState"] = wait_for_steady_state
+        return pulumi.runtime.exists_resource(None, 'aws:ecs/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def alarms(self) -> pulumi.Output[Optional['outputs.ServiceAlarms']]:

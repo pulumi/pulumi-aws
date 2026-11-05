@@ -65,11 +65,10 @@ public final class GetVpcEndpointServiceResult {
     /**
      * @return (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use serviceRegion instead.
+     * @deprecated region is deprecated. Use serviceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use serviceRegion instead. */
+    @Deprecated
     private String region;
     private @Nullable String service;
     /**
@@ -171,11 +170,10 @@ public final class GetVpcEndpointServiceResult {
     /**
      * @return (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
      * 
-     * @deprecated
-     * region is deprecated. Use serviceRegion instead.
+     * @deprecated region is deprecated. Use serviceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use serviceRegion instead. */
+    @Deprecated
     public String region() {
         return this.region;
     }

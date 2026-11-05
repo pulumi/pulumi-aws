@@ -579,6 +579,32 @@ class ConnectionFunction(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return ConnectionFunction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connection_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_function_code: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict', 'outputs.ConnectionFunctionConnectionFunctionConfig']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            live_stage_etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            publish: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectionFunctionArn"] = connection_function_arn
+        __props__["connectionFunctionCode"] = connection_function_code
+        __props__["connectionFunctionConfig"] = connection_function_config
+        __props__["etag"] = etag
+        __props__["liveStageEtag"] = live_stage_etag
+        __props__["name"] = name
+        __props__["publish"] = publish
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:cloudfront/connectionFunction:ConnectionFunction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connectionFunctionArn")
     def connection_function_arn(self) -> pulumi.Output[_builtins.str]:

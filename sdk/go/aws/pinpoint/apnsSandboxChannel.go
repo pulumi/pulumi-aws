@@ -201,6 +201,12 @@ func (ApnsSandboxChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apnsSandboxChannelState)(nil)).Elem()
 }
 
+// ApnsSandboxChannelExists checks whether an existing ApnsSandboxChannel resource with the given ID exists.
+func ApnsSandboxChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApnsSandboxChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", id, state, "", opts...)
+}
+
 type apnsSandboxChannelArgs struct {
 	// Application ID.
 	ApplicationId string `pulumi:"applicationId"`

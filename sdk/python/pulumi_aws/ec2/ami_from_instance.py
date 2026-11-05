@@ -1002,6 +1002,80 @@ class AmiFromInstance(pulumi.CustomResource):
         __props__.__dict__["virtualization_type"] = virtualization_type
         return AmiFromInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            architecture: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiFromInstanceEbsBlockDeviceArgs', 'AmiFromInstanceEbsBlockDeviceArgsDict', 'outputs.AmiFromInstanceEbsBlockDevice']]]]] = None,
+            ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
+            ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict', 'outputs.AmiFromInstanceEphemeralBlockDevice']]]]] = None,
+            hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+            image_location: pulumi.Input[Optional[_builtins.str]] = None,
+            image_owner_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            image_type: pulumi.Input[Optional[_builtins.str]] = None,
+            imds_support: pulumi.Input[Optional[_builtins.str]] = None,
+            kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_launched_time: pulumi.Input[Optional[_builtins.str]] = None,
+            manage_ebs_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_details: pulumi.Input[Optional[_builtins.str]] = None,
+            public: pulumi.Input[Optional[_builtins.bool]] = None,
+            ramdisk_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+            root_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_without_reboot: pulumi.Input[Optional[_builtins.bool]] = None,
+            source_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sriov_net_support: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tpm_support: pulumi.Input[Optional[_builtins.str]] = None,
+            uefi_data: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_operation: pulumi.Input[Optional[_builtins.str]] = None,
+            virtualization_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["architecture"] = architecture
+        __props__["arn"] = arn
+        __props__["bootMode"] = boot_mode
+        __props__["deprecationTime"] = deprecation_time
+        __props__["description"] = description
+        __props__["ebsBlockDevices"] = ebs_block_devices
+        __props__["enaSupport"] = ena_support
+        __props__["ephemeralBlockDevices"] = ephemeral_block_devices
+        __props__["hypervisor"] = hypervisor
+        __props__["imageLocation"] = image_location
+        __props__["imageOwnerAlias"] = image_owner_alias
+        __props__["imageType"] = image_type
+        __props__["imdsSupport"] = imds_support
+        __props__["kernelId"] = kernel_id
+        __props__["lastLaunchedTime"] = last_launched_time
+        __props__["manageEbsSnapshots"] = manage_ebs_snapshots
+        __props__["name"] = name
+        __props__["ownerId"] = owner_id
+        __props__["platform"] = platform
+        __props__["platformDetails"] = platform_details
+        __props__["public"] = public
+        __props__["ramdiskId"] = ramdisk_id
+        __props__["region"] = region
+        __props__["rootDeviceName"] = root_device_name
+        __props__["rootSnapshotId"] = root_snapshot_id
+        __props__["snapshotWithoutReboot"] = snapshot_without_reboot
+        __props__["sourceInstanceId"] = source_instance_id
+        __props__["sriovNetSupport"] = sriov_net_support
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tpmSupport"] = tpm_support
+        __props__["uefiData"] = uefi_data
+        __props__["usageOperation"] = usage_operation
+        __props__["virtualizationType"] = virtualization_type
+        return pulumi.runtime.exists_resource(None, 'aws:ec2/amiFromInstance:AmiFromInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def architecture(self) -> pulumi.Output[_builtins.str]:

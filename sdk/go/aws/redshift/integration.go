@@ -334,6 +334,12 @@ func (IntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationState)(nil)).Elem()
 }
 
+// IntegrationExists checks whether an existing Integration resource with the given ID exists.
+func IntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/integration:Integration", id, state, "", opts...)
+}
+
 type integrationArgs struct {
 	// Set of non-secret key–value pairs that contains additional contextual information about the data.
 	// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).

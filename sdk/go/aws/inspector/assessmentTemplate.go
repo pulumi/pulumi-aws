@@ -174,6 +174,12 @@ func (AssessmentTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentTemplateState)(nil)).Elem()
 }
 
+// AssessmentTemplateExists checks whether an existing AssessmentTemplate resource with the given ID exists.
+func AssessmentTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssessmentTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:inspector/assessmentTemplate:AssessmentTemplate", id, state, "", opts...)
+}
+
 type assessmentTemplateArgs struct {
 	// The duration of the inspector run.
 	Duration int `pulumi:"duration"`

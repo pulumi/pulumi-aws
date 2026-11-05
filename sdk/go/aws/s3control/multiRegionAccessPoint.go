@@ -182,6 +182,12 @@ func (MultiRegionAccessPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiRegionAccessPointState)(nil)).Elem()
 }
 
+// MultiRegionAccessPointExists checks whether an existing MultiRegionAccessPoint resource with the given ID exists.
+func MultiRegionAccessPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiRegionAccessPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint", id, state, "", opts...)
+}
+
 type multiRegionAccessPointArgs struct {
 	// AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`

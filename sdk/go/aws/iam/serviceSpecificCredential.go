@@ -211,6 +211,12 @@ func (ServiceSpecificCredentialState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceSpecificCredentialState)(nil)).Elem()
 }
 
+// ServiceSpecificCredentialExists checks whether an existing ServiceSpecificCredential resource with the given ID exists.
+func ServiceSpecificCredentialExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceSpecificCredentialState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", id, state, "", opts...)
+}
+
 type serviceSpecificCredentialArgs struct {
 	// The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
 	CredentialAgeDays *int `pulumi:"credentialAgeDays"`

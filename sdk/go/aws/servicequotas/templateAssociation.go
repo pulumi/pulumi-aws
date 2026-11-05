@@ -110,6 +110,12 @@ func (TemplateAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateAssociationState)(nil)).Elem()
 }
 
+// TemplateAssociationExists checks whether an existing TemplateAssociation resource with the given ID exists.
+func TemplateAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicequotas/templateAssociation:TemplateAssociation", id, state, "", opts...)
+}
+
 type templateAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

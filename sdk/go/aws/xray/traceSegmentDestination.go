@@ -118,6 +118,12 @@ func (TraceSegmentDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*traceSegmentDestinationState)(nil)).Elem()
 }
 
+// TraceSegmentDestinationExists checks whether an existing TraceSegmentDestination resource with the given ID exists.
+func TraceSegmentDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TraceSegmentDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:xray/traceSegmentDestination:TraceSegmentDestination", id, state, "", opts...)
+}
+
 type traceSegmentDestinationArgs struct {
 	// Destination of trace segments. Valid values: `XRay`, `CloudWatchLogs`.
 	Destination string `pulumi:"destination"`

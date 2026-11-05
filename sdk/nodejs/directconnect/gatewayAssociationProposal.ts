@@ -55,6 +55,17 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
         return new GatewayAssociationProposal(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing GatewayAssociationProposal resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: GatewayAssociationProposalState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal';
 

@@ -340,6 +340,12 @@ func (OpenZfsFileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openZfsFileSystemState)(nil)).Elem()
 }
 
+// OpenZfsFileSystemExists checks whether an existing OpenZfsFileSystem resource with the given ID exists.
+func OpenZfsFileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenZfsFileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", id, state, "", opts...)
+}
+
 type openZfsFileSystemArgs struct {
 	// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`

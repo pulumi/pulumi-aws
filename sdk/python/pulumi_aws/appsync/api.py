@@ -620,6 +620,34 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["xray_enabled"] = xray_enabled
         return Api(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            waf_web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            xray_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiArn"] = api_arn
+        __props__["apiId"] = api_id
+        __props__["dns"] = dns
+        __props__["eventConfig"] = event_config
+        __props__["name"] = name
+        __props__["ownerContact"] = owner_contact
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["wafWebAclArn"] = waf_web_acl_arn
+        __props__["xrayEnabled"] = xray_enabled
+        return pulumi.runtime.exists_resource(None, 'aws:appsync/api:Api', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiArn")
     def api_arn(self) -> pulumi.Output[_builtins.str]:

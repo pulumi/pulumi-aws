@@ -39,23 +39,23 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new Policy("test", PolicyArgs.builder()
  *             .definition(PolicyDefinitionArgs.builder()
  *                 .static_(PolicyDefinitionStaticArgs.builder()
- *                     .statement("permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");")
+ *                     .statement("permit (principal, action == Action::}&#92;{@code "view}&#92;{@code ", resource in Album:: }&#92;{@code "test_album}&#92;{@code ");")
  *                     .build())
  *                 .build())
  *             .policyStoreId(testAwsVerifiedpermissionsPolicyStore.get("id"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

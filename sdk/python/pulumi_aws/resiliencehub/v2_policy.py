@@ -732,6 +732,36 @@ class V2Policy(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return V2Policy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_slo: pulumi.Input[Optional[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict', 'outputs.V2PolicyAvailabilitySlo']]] = None,
+            data_recovery: pulumi.Input[Optional[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict', 'outputs.V2PolicyDataRecovery']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_az: pulumi.Input[Optional[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict', 'outputs.V2PolicyMultiAz']]] = None,
+            multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["availabilitySlo"] = availability_slo
+        __props__["dataRecovery"] = data_recovery
+        __props__["description"] = description
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["multiAz"] = multi_az
+        __props__["multiRegion"] = multi_region
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["sharingEnabled"] = sharing_enabled
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:resiliencehub/v2Policy:V2Policy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

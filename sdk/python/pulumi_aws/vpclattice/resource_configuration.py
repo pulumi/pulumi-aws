@@ -951,6 +951,46 @@ class ResourceConfiguration(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ResourceConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_association_to_shareable_service_network: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_verification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_verification_status: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict', 'outputs.ResourceConfigurationResourceConfigurationDefinition']]] = None,
+            resource_configuration_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ResourceConfigurationTimeoutsArgs', 'ResourceConfigurationTimeoutsArgsDict', 'outputs.ResourceConfigurationTimeouts']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowAssociationToShareableServiceNetwork"] = allow_association_to_shareable_service_network
+        __props__["arn"] = arn
+        __props__["customDomainName"] = custom_domain_name
+        __props__["domainVerificationArn"] = domain_verification_arn
+        __props__["domainVerificationId"] = domain_verification_id
+        __props__["domainVerificationStatus"] = domain_verification_status
+        __props__["name"] = name
+        __props__["portRanges"] = port_ranges
+        __props__["protocol"] = protocol
+        __props__["region"] = region
+        __props__["resourceConfigurationDefinition"] = resource_configuration_definition
+        __props__["resourceConfigurationGroupId"] = resource_configuration_group_id
+        __props__["resourceGatewayIdentifier"] = resource_gateway_identifier
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:vpclattice/resourceConfiguration:ResourceConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowAssociationToShareableServiceNetwork")
     def allow_association_to_shareable_service_network(self) -> pulumi.Output[_builtins.bool]:

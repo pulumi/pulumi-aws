@@ -173,6 +173,12 @@ func (KxDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kxDatabaseState)(nil)).Elem()
 }
 
+// KxDatabaseExists checks whether an existing KxDatabase resource with the given ID exists.
+func KxDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KxDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:finspace/kxDatabase:KxDatabase", id, state, "", opts...)
+}
+
 type kxDatabaseArgs struct {
 	// Description of the KX database.
 	Description *string `pulumi:"description"`

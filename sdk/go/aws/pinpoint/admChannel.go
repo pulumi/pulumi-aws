@@ -149,6 +149,12 @@ func (AdmChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*admChannelState)(nil)).Elem()
 }
 
+// AdmChannelExists checks whether an existing AdmChannel resource with the given ID exists.
+func AdmChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdmChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/admChannel:AdmChannel", id, state, "", opts...)
+}
+
 type admChannelArgs struct {
 	// Application ID.
 	ApplicationId string `pulumi:"applicationId"`

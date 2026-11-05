@@ -189,6 +189,12 @@ func (EnvironmentBlueprintConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentBlueprintConfigurationState)(nil)).Elem()
 }
 
+// EnvironmentBlueprintConfigurationExists checks whether an existing EnvironmentBlueprintConfiguration resource with the given ID exists.
+func EnvironmentBlueprintConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentBlueprintConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration", id, state, "", opts...)
+}
+
 type environmentBlueprintConfigurationArgs struct {
 	// ID of the Domain.
 	DomainId string `pulumi:"domainId"`

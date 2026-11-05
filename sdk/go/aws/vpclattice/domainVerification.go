@@ -208,6 +208,12 @@ func (DomainVerificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainVerificationState)(nil)).Elem()
 }
 
+// DomainVerificationExists checks whether an existing DomainVerification resource with the given ID exists.
+func DomainVerificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainVerificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:vpclattice/domainVerification:DomainVerification", id, state, "", opts...)
+}
+
 type domainVerificationArgs struct {
 	// Domain name to verify ownership for.
 	//

@@ -737,6 +737,38 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["target"] = target
         return Route(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict', 'outputs.RouteRequestParameter']]]]] = None,
+            route_key: pulumi.Input[Optional[_builtins.str]] = None,
+            route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiId"] = api_id
+        __props__["apiKeyRequired"] = api_key_required
+        __props__["authorizationScopes"] = authorization_scopes
+        __props__["authorizationType"] = authorization_type
+        __props__["authorizerId"] = authorizer_id
+        __props__["modelSelectionExpression"] = model_selection_expression
+        __props__["operationName"] = operation_name
+        __props__["region"] = region
+        __props__["requestModels"] = request_models
+        __props__["requestParameters"] = request_parameters
+        __props__["routeKey"] = route_key
+        __props__["routeResponseSelectionExpression"] = route_response_selection_expression
+        __props__["target"] = target
+        return pulumi.runtime.exists_resource(None, 'aws:apigatewayv2/route:Route', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:

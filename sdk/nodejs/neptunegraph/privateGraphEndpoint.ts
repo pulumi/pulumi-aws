@@ -112,6 +112,17 @@ export class PrivateGraphEndpoint extends pulumi.CustomResource {
         return new PrivateGraphEndpoint(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing PrivateGraphEndpoint resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: PrivateGraphEndpointState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:neptunegraph/privateGraphEndpoint:PrivateGraphEndpoint", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:neptunegraph/privateGraphEndpoint:PrivateGraphEndpoint';
 

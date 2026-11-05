@@ -604,6 +604,38 @@ class ShardGroup(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return ShardGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_redundancy: pulumi.Input[Optional[_builtins.int]] = None,
+            db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_shard_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_shard_group_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            max_acu: pulumi.Input[Optional[_builtins.float]] = None,
+            min_acu: pulumi.Input[Optional[_builtins.float]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict', 'outputs.ShardGroupTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["computeRedundancy"] = compute_redundancy
+        __props__["dbClusterIdentifier"] = db_cluster_identifier
+        __props__["dbShardGroupIdentifier"] = db_shard_group_identifier
+        __props__["dbShardGroupResourceId"] = db_shard_group_resource_id
+        __props__["endpoint"] = endpoint
+        __props__["maxAcu"] = max_acu
+        __props__["minAcu"] = min_acu
+        __props__["publiclyAccessible"] = publicly_accessible
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:rds/shardGroup:ShardGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -244,6 +244,12 @@ func (FindingAggregatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*findingAggregatorState)(nil)).Elem()
 }
 
+// FindingAggregatorExists checks whether an existing FindingAggregator resource with the given ID exists.
+func FindingAggregatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FindingAggregatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:securityhub/findingAggregator:FindingAggregator", id, state, "", opts...)
+}
+
 type findingAggregatorArgs struct {
 	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
 	LinkingMode string `pulumi:"linkingMode"`

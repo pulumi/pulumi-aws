@@ -165,6 +165,12 @@ func (DetectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*detectorState)(nil)).Elem()
 }
 
+// DetectorExists checks whether an existing Detector resource with the given ID exists.
+func DetectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DetectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:guardduty/detector:Detector", id, state, "", opts...)
+}
+
 type detectorArgs struct {
 	// Data sources to enable for the detector. See `datasources` below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	//

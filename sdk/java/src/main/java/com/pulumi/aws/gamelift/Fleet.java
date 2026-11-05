@@ -43,17 +43,17 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Fleet("example", FleetArgs.builder()
  *             .runtimeConfiguration(FleetRuntimeConfigurationArgs.builder()
  *                 .serverProcesses(FleetRuntimeConfigurationServerProcessArgs.builder()
  *                     .concurrentExecutions(1)
- *                     .launchPath("C:\\game\\GomokuServer.exe")
+ *                     .launchPath("C:}&#92;&#92;{@code game}&#92;&#92;{@code GomokuServer.exe")
  *                     .build())
  *                 .build())
  *             .buildId(exampleAwsGameliftBuild.get("id"))
@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  *             .name("example-fleet-name")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

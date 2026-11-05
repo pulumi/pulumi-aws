@@ -1370,6 +1370,68 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["workflow_details"] = workflow_details
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict', 'outputs.ServerEndpointDetails']]] = None,
+            endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            function: pulumi.Input[Optional[_builtins.str]] = None,
+            host_key: pulumi.Input[Optional[_builtins.str]] = None,
+            host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            invocation_role: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_role: pulumi.Input[Optional[_builtins.str]] = None,
+            post_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
+            pre_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict', 'outputs.ServerProtocolDetails']]] = None,
+            protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict', 'outputs.ServerS3StorageOptions']]] = None,
+            security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sftp_authentication_methods: pulumi.Input[Optional[_builtins.str]] = None,
+            structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict', 'outputs.ServerWorkflowDetails']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["certificate"] = certificate
+        __props__["directoryId"] = directory_id
+        __props__["domain"] = domain
+        __props__["endpoint"] = endpoint
+        __props__["endpointDetails"] = endpoint_details
+        __props__["endpointType"] = endpoint_type
+        __props__["forceDestroy"] = force_destroy
+        __props__["function"] = function
+        __props__["hostKey"] = host_key
+        __props__["hostKeyFingerprint"] = host_key_fingerprint
+        __props__["identityProviderType"] = identity_provider_type
+        __props__["invocationRole"] = invocation_role
+        __props__["ipAddressType"] = ip_address_type
+        __props__["loggingRole"] = logging_role
+        __props__["postAuthenticationLoginBanner"] = post_authentication_login_banner
+        __props__["preAuthenticationLoginBanner"] = pre_authentication_login_banner
+        __props__["protocolDetails"] = protocol_details
+        __props__["protocols"] = protocols
+        __props__["region"] = region
+        __props__["s3StorageOptions"] = s3_storage_options
+        __props__["securityPolicyName"] = security_policy_name
+        __props__["sftpAuthenticationMethods"] = sftp_authentication_methods
+        __props__["structuredLogDestinations"] = structured_log_destinations
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["url"] = url
+        __props__["workflowDetails"] = workflow_details
+        return pulumi.runtime.exists_resource(None, 'aws:transfer/server:Server', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

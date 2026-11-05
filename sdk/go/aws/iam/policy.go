@@ -189,6 +189,12 @@ func (PolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyState)(nil)).Elem()
 }
 
+// PolicyExists checks whether an existing Policy resource with the given ID exists.
+func PolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iam/policy:Policy", id, state, "", opts...)
+}
+
 type policyArgs struct {
 	// Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
 	DelayAfterPolicyCreationInMs *int `pulumi:"delayAfterPolicyCreationInMs"`

@@ -157,6 +157,12 @@ func (HsmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hsmState)(nil)).Elem()
 }
 
+// HsmExists checks whether an existing Hsm resource with the given ID exists.
+func HsmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HsmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudhsmv2/hsm:Hsm", id, state, "", opts...)
+}
+
 type hsmArgs struct {
 	// The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`

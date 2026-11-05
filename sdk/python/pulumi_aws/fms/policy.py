@@ -886,6 +886,50 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_all_policy_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_unused_fm_managed_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_map: pulumi.Input[Optional[Union['PolicyExcludeMapArgs', 'PolicyExcludeMapArgsDict', 'outputs.PolicyExcludeMap']]] = None,
+            exclude_resource_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            include_map: pulumi.Input[Optional[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict', 'outputs.PolicyIncludeMap']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_update_token: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remediation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_tag_logical_operator: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_service_policy_data: pulumi.Input[Optional[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict', 'outputs.PolicySecurityServicePolicyData']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["deleteAllPolicyResources"] = delete_all_policy_resources
+        __props__["deleteUnusedFmManagedResources"] = delete_unused_fm_managed_resources
+        __props__["description"] = description
+        __props__["excludeMap"] = exclude_map
+        __props__["excludeResourceTags"] = exclude_resource_tags
+        __props__["includeMap"] = include_map
+        __props__["name"] = name
+        __props__["policyUpdateToken"] = policy_update_token
+        __props__["region"] = region
+        __props__["remediationEnabled"] = remediation_enabled
+        __props__["resourceSetIds"] = resource_set_ids
+        __props__["resourceTagLogicalOperator"] = resource_tag_logical_operator
+        __props__["resourceTags"] = resource_tags
+        __props__["resourceType"] = resource_type
+        __props__["resourceTypeLists"] = resource_type_lists
+        __props__["securityServicePolicyData"] = security_service_policy_data
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:fms/policy:Policy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

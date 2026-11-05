@@ -225,6 +225,12 @@ func (LogDeliveryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDeliveryState)(nil)).Elem()
 }
 
+// LogDeliveryExists checks whether an existing LogDelivery resource with the given ID exists.
+func LogDeliveryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogDeliveryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logDelivery:LogDelivery", id, state, "", opts...)
+}
+
 type logDeliveryArgs struct {
 	// The ARN of the delivery destination to use for this delivery.
 	DeliveryDestinationArn string `pulumi:"deliveryDestinationArn"`

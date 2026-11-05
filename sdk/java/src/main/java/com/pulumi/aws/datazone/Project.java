@@ -214,7 +214,7 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.lastUpdatedAt;
     }
     /**
-     * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
+     * Name of the project. Must follow the regex of `^[&#92;w -]+$`. and have a length of at most 64.
      * 
      * The following arguments are optional:
      * 
@@ -223,7 +223,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
+     * @return Name of the project. Must follow the regex of `^[&#92;w -]+$`. and have a length of at most 64.
      * 
      * The following arguments are optional:
      * 

@@ -239,6 +239,12 @@ func (StackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackState)(nil)).Elem()
 }
 
+// StackExists checks whether an existing Stack resource with the given ID exists.
+func StackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appstream/stack:Stack", id, state, "", opts...)
+}
+
 type stackArgs struct {
 	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `accessEndpoints` below.
 	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`

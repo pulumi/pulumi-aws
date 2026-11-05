@@ -291,6 +291,12 @@ func (CodeSigningConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*codeSigningConfigState)(nil)).Elem()
 }
 
+// CodeSigningConfigExists checks whether an existing CodeSigningConfig resource with the given ID exists.
+func CodeSigningConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CodeSigningConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/codeSigningConfig:CodeSigningConfig", id, state, "", opts...)
+}
+
 type codeSigningConfigArgs struct {
 	// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
 	//

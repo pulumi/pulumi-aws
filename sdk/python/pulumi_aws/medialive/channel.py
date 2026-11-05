@@ -921,6 +921,46 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["vpc"] = vpc
         return Channel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cdi_input_specification: pulumi.Input[Optional[Union['ChannelCdiInputSpecificationArgs', 'ChannelCdiInputSpecificationArgsDict', 'outputs.ChannelCdiInputSpecification']]] = None,
+            channel_class: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict', 'outputs.ChannelDestination']]]]] = None,
+            encoder_settings: pulumi.Input[Optional[Union['ChannelEncoderSettingsArgs', 'ChannelEncoderSettingsArgsDict', 'outputs.ChannelEncoderSettings']]] = None,
+            input_attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelInputAttachmentArgs', 'ChannelInputAttachmentArgsDict', 'outputs.ChannelInputAttachment']]]]] = None,
+            input_specification: pulumi.Input[Optional[Union['ChannelInputSpecificationArgs', 'ChannelInputSpecificationArgsDict', 'outputs.ChannelInputSpecification']]] = None,
+            log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance: pulumi.Input[Optional[Union['ChannelMaintenanceArgs', 'ChannelMaintenanceArgsDict', 'outputs.ChannelMaintenance']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            start_channel: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc: pulumi.Input[Optional[Union['ChannelVpcArgs', 'ChannelVpcArgsDict', 'outputs.ChannelVpc']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cdiInputSpecification"] = cdi_input_specification
+        __props__["channelClass"] = channel_class
+        __props__["channelId"] = channel_id
+        __props__["destinations"] = destinations
+        __props__["encoderSettings"] = encoder_settings
+        __props__["inputAttachments"] = input_attachments
+        __props__["inputSpecification"] = input_specification
+        __props__["logLevel"] = log_level
+        __props__["maintenance"] = maintenance
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["startChannel"] = start_channel
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpc"] = vpc
+        return pulumi.runtime.exists_resource(None, 'aws:medialive/channel:Channel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

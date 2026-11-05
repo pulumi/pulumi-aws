@@ -142,6 +142,12 @@ func (BackendEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backendEnvironmentState)(nil)).Elem()
 }
 
+// BackendEnvironmentExists checks whether an existing BackendEnvironment resource with the given ID exists.
+func BackendEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackendEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:amplify/backendEnvironment:BackendEnvironment", id, state, "", opts...)
+}
+
 type backendEnvironmentArgs struct {
 	// Unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`

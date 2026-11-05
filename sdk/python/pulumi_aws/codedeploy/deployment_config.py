@@ -538,6 +538,28 @@ class DeploymentConfig(pulumi.CustomResource):
         __props__.__dict__["zonal_config"] = zonal_config
         return DeploymentConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_platform: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_config_id: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_healthy_hosts: pulumi.Input[Optional[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict', 'outputs.DeploymentConfigMinimumHealthyHosts']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_routing_config: pulumi.Input[Optional[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict', 'outputs.DeploymentConfigTrafficRoutingConfig']]] = None,
+            zonal_config: pulumi.Input[Optional[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict', 'outputs.DeploymentConfigZonalConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["computePlatform"] = compute_platform
+        __props__["deploymentConfigId"] = deployment_config_id
+        __props__["deploymentConfigName"] = deployment_config_name
+        __props__["minimumHealthyHosts"] = minimum_healthy_hosts
+        __props__["region"] = region
+        __props__["trafficRoutingConfig"] = traffic_routing_config
+        __props__["zonalConfig"] = zonal_config
+        return pulumi.runtime.exists_resource(None, 'aws:codedeploy/deploymentConfig:DeploymentConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

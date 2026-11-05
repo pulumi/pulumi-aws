@@ -504,6 +504,36 @@ class Member(pulumi.CustomResource):
         __props__.__dict__["volume_usage_in_bytes"] = volume_usage_in_bytes
         return Member(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            graph_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            invited_time: pulumi.Input[Optional[_builtins.str]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_usage_in_bytes: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["administratorId"] = administrator_id
+        __props__["disableEmailNotification"] = disable_email_notification
+        __props__["disabledReason"] = disabled_reason
+        __props__["emailAddress"] = email_address
+        __props__["graphArn"] = graph_arn
+        __props__["invitedTime"] = invited_time
+        __props__["message"] = message
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["updatedTime"] = updated_time
+        __props__["volumeUsageInBytes"] = volume_usage_in_bytes
+        return pulumi.runtime.exists_resource(None, 'aws:detective/member:Member', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

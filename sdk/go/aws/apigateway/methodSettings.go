@@ -243,6 +243,12 @@ func (MethodSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodSettingsState)(nil)).Elem()
 }
 
+// MethodSettingsExists checks whether an existing MethodSettings resource with the given ID exists.
+func MethodSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MethodSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/methodSettings:MethodSettings", id, state, "", opts...)
+}
+
 type methodSettingsArgs struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath string `pulumi:"methodPath"`

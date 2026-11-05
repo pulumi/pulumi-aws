@@ -381,6 +381,12 @@ func (PipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineState)(nil)).Elem()
 }
 
+// PipelineExists checks whether an existing Pipeline resource with the given ID exists.
+func PipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:codepipeline/pipeline:Pipeline", id, state, "", opts...)
+}
+
 type pipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`

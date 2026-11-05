@@ -335,6 +335,12 @@ func (FeatureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*featureState)(nil)).Elem()
 }
 
+// FeatureExists checks whether an existing Feature resource with the given ID exists.
+func FeatureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeatureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:evidently/feature:Feature", id, state, "", opts...)
+}
+
 type featureArgs struct {
 	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
 	DefaultVariation *string `pulumi:"defaultVariation"`

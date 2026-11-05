@@ -133,6 +133,12 @@ func (AutonomousDatabaseSecretsManagerIntegrationState) ElementType() reflect.Ty
 	return reflect.TypeOf((*autonomousDatabaseSecretsManagerIntegrationState)(nil)).Elem()
 }
 
+// AutonomousDatabaseSecretsManagerIntegrationExists checks whether an existing AutonomousDatabaseSecretsManagerIntegration resource with the given ID exists.
+func AutonomousDatabaseSecretsManagerIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutonomousDatabaseSecretsManagerIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:odb/autonomousDatabaseSecretsManagerIntegration:AutonomousDatabaseSecretsManagerIntegration", id, state, "", opts...)
+}
+
 type autonomousDatabaseSecretsManagerIntegrationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                                              `pulumi:"region"`

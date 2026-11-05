@@ -116,6 +116,12 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigurationState)(nil)).Elem()
 }
 
+// OrganizationConfigurationExists checks whether an existing OrganizationConfiguration resource with the given ID exists.
+func OrganizationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:inspector2/organizationConfiguration:OrganizationConfiguration", id, state, "", opts...)
+}
+
 type organizationConfigurationArgs struct {
 	// Configuration block for auto enabling. See below.
 	AutoEnable OrganizationConfigurationAutoEnable `pulumi:"autoEnable"`

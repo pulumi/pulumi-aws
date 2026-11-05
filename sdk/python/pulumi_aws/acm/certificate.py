@@ -1057,6 +1057,64 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["validation_options"] = validation_options
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict', 'outputs.CertificateDomainValidationOption']]]]] = None,
+            early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            not_after: pulumi.Input[Optional[_builtins.str]] = None,
+            not_before: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict', 'outputs.CertificateOptions']]] = None,
+            pending_renewal: pulumi.Input[Optional[_builtins.bool]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            renewal_eligibility: pulumi.Input[Optional[_builtins.str]] = None,
+            renewal_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict', 'outputs.CertificateRenewalSummary']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict', 'outputs.CertificateValidationOption']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["certificateAuthorityArn"] = certificate_authority_arn
+        __props__["certificateBody"] = certificate_body
+        __props__["certificateChain"] = certificate_chain
+        __props__["domainName"] = domain_name
+        __props__["domainValidationOptions"] = domain_validation_options
+        __props__["earlyRenewalDuration"] = early_renewal_duration
+        __props__["keyAlgorithm"] = key_algorithm
+        __props__["notAfter"] = not_after
+        __props__["notBefore"] = not_before
+        __props__["options"] = options
+        __props__["pendingRenewal"] = pending_renewal
+        __props__["privateKey"] = private_key
+        __props__["privateKeyWo"] = private_key_wo
+        __props__["privateKeyWoVersion"] = private_key_wo_version
+        __props__["region"] = region
+        __props__["renewalEligibility"] = renewal_eligibility
+        __props__["renewalSummaries"] = renewal_summaries
+        __props__["status"] = status
+        __props__["subjectAlternativeNames"] = subject_alternative_names
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["type"] = type
+        __props__["validationEmails"] = validation_emails
+        __props__["validationMethod"] = validation_method
+        __props__["validationOptions"] = validation_options
+        return pulumi.runtime.exists_resource(None, 'aws:acm/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

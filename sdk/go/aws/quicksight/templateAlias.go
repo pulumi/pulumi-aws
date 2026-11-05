@@ -146,6 +146,12 @@ func (TemplateAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateAliasState)(nil)).Elem()
 }
 
+// TemplateAliasExists checks whether an existing TemplateAlias resource with the given ID exists.
+func TemplateAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/templateAlias:TemplateAlias", id, state, "", opts...)
+}
+
 type templateAliasArgs struct {
 	// Display name of the template alias.
 	AliasName string `pulumi:"aliasName"`

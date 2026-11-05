@@ -480,6 +480,22 @@ class Smsvoicev2Keyword(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return Smsvoicev2Keyword(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            keyword: pulumi.Input[Optional[_builtins.str]] = None,
+            keyword_action: pulumi.Input[Optional[_builtins.str]] = None,
+            keyword_message: pulumi.Input[Optional[_builtins.str]] = None,
+            origination_identity_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["keyword"] = keyword
+        __props__["keywordAction"] = keyword_action
+        __props__["keywordMessage"] = keyword_message
+        __props__["originationIdentityArn"] = origination_identity_arn
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/smsvoicev2Keyword:Smsvoicev2Keyword', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def keyword(self) -> pulumi.Output[_builtins.str]:

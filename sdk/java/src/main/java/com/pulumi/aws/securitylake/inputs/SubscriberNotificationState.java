@@ -34,22 +34,20 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
     /**
      * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
      * 
-     * @deprecated
-     * Use subscriberEndpoint instead
+     * @deprecated Use subscriberEndpoint instead
      * 
      */
-    @Deprecated /* Use subscriberEndpoint instead */
+    @Deprecated
     @Import(name="endpointId")
     private @Nullable Output<String> endpointId;
 
     /**
      * @return (**Deprecated**) The subscriber endpoint to which exception messages are posted.
      * 
-     * @deprecated
-     * Use subscriberEndpoint instead
+     * @deprecated Use subscriberEndpoint instead
      * 
      */
-    @Deprecated /* Use subscriberEndpoint instead */
+    @Deprecated
     public Optional<Output<String>> endpointId() {
         return Optional.ofNullable(this.endpointId);
     }
@@ -153,11 +151,10 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use subscriberEndpoint instead
+         * @deprecated Use subscriberEndpoint instead
          * 
          */
-        @Deprecated /* Use subscriberEndpoint instead */
+        @Deprecated
         public Builder endpointId(@Nullable Output<String> endpointId) {
             $.endpointId = endpointId;
             return this;
@@ -168,11 +165,10 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use subscriberEndpoint instead
+         * @deprecated Use subscriberEndpoint instead
          * 
          */
-        @Deprecated /* Use subscriberEndpoint instead */
+        @Deprecated
         public Builder endpointId(String endpointId) {
             return endpointId(Output.of(endpointId));
         }

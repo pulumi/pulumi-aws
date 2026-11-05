@@ -293,6 +293,12 @@ func (OntapVolumeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ontapVolumeState)(nil)).Elem()
 }
 
+// OntapVolumeExists checks whether an existing OntapVolume resource with the given ID exists.
+func OntapVolumeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OntapVolumeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:fsx/ontapVolume:OntapVolume", id, state, "", opts...)
+}
+
 type ontapVolumeArgs struct {
 	// Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
 	AggregateConfiguration *OntapVolumeAggregateConfiguration `pulumi:"aggregateConfiguration"`

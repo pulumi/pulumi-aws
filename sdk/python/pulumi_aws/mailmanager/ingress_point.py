@@ -800,6 +800,46 @@ class IngressPoint(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return IngressPoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            a_record: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            ingress_point_configuration: pulumi.Input[Optional[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict', 'outputs.IngressPointIngressPointConfiguration']]] = None,
+            last_updated_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict', 'outputs.IngressPointNetworkConfiguration']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict', 'outputs.IngressPointTimeouts']]] = None,
+            tls_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aRecord"] = a_record
+        __props__["arn"] = arn
+        __props__["createdTimestamp"] = created_timestamp
+        __props__["ingressPointConfiguration"] = ingress_point_configuration
+        __props__["lastUpdatedTimestamp"] = last_updated_timestamp
+        __props__["name"] = name
+        __props__["networkConfiguration"] = network_configuration
+        __props__["region"] = region
+        __props__["ruleSetId"] = rule_set_id
+        __props__["status"] = status
+        __props__["statusToUpdate"] = status_to_update
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["tlsPolicy"] = tls_policy
+        __props__["trafficPolicyId"] = traffic_policy_id
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'aws:mailmanager/ingressPoint:IngressPoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aRecord")
     def a_record(self) -> pulumi.Output[_builtins.str]:

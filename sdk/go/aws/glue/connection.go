@@ -772,6 +772,12 @@ func (ConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionState)(nil)).Elem()
 }
 
+// ConnectionExists checks whether an existing Connection resource with the given ID exists.
+func ConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glue/connection:Connection", id, state, "", opts...)
+}
+
 type connectionArgs struct {
 	// Map of key-value pairs used as connection properties specific to the Athena compute environment.
 	AthenaProperties map[string]string `pulumi:"athenaProperties"`

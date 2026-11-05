@@ -218,6 +218,12 @@ func (ScraperLoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scraperLoggingConfigurationState)(nil)).Elem()
 }
 
+// ScraperLoggingConfigurationExists checks whether an existing ScraperLoggingConfiguration resource with the given ID exists.
+func ScraperLoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScraperLoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:amp/scraperLoggingConfiguration:ScraperLoggingConfiguration", id, state, "", opts...)
+}
+
 type scraperLoggingConfigurationArgs struct {
 	// Configuration block for the logging destination. See `loggingDestination` Block below.
 	LoggingDestination ScraperLoggingConfigurationLoggingDestination `pulumi:"loggingDestination"`

@@ -196,6 +196,12 @@ func (DefaultPatchBaselineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultPatchBaselineState)(nil)).Elem()
 }
 
+// DefaultPatchBaselineExists checks whether an existing DefaultPatchBaseline resource with the given ID exists.
+func DefaultPatchBaselineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultPatchBaselineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline", id, state, "", opts...)
+}
+
 type defaultPatchBaselineArgs struct {
 	// ID of the patch baseline.
 	// Can be an ID or an ARN.

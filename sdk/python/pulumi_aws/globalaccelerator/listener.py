@@ -365,6 +365,22 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["protocol"] = protocol
         return Listener(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            client_affinity: pulumi.Input[Optional[_builtins.str]] = None,
+            port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceleratorArn"] = accelerator_arn
+        __props__["arn"] = arn
+        __props__["clientAffinity"] = client_affinity
+        __props__["portRanges"] = port_ranges
+        __props__["protocol"] = protocol
+        return pulumi.runtime.exists_resource(None, 'aws:globalaccelerator/listener:Listener', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceleratorArn")
     def accelerator_arn(self) -> pulumi.Output[_builtins.str]:

@@ -262,6 +262,18 @@ class IpSet(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return IpSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict', 'outputs.IpSetIpSetDescriptor']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["ipSetDescriptors"] = ip_set_descriptors
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'aws:waf/ipSet:IpSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

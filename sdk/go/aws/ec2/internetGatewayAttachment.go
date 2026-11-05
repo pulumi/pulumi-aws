@@ -126,6 +126,12 @@ func (InternetGatewayAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*internetGatewayAttachmentState)(nil)).Elem()
 }
 
+// InternetGatewayAttachmentExists checks whether an existing InternetGatewayAttachment resource with the given ID exists.
+func InternetGatewayAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InternetGatewayAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment", id, state, "", opts...)
+}
+
 type internetGatewayAttachmentArgs struct {
 	// The ID of the internet gateway.
 	InternetGatewayId string `pulumi:"internetGatewayId"`

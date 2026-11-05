@@ -596,6 +596,34 @@ class AutomationRuleV2(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return AutomationRuleV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict', 'outputs.AutomationRuleV2Action']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_order: pulumi.Input[Optional[_builtins.float]] = None,
+            rule_status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["arn"] = arn
+        __props__["criteria"] = criteria
+        __props__["description"] = description
+        __props__["region"] = region
+        __props__["ruleId"] = rule_id
+        __props__["ruleName"] = rule_name
+        __props__["ruleOrder"] = rule_order
+        __props__["ruleStatus"] = rule_status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:securityhub/automationRuleV2:AutomationRuleV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output['outputs.AutomationRuleV2Action']:

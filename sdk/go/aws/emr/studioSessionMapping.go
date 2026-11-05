@@ -139,6 +139,12 @@ func (StudioSessionMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*studioSessionMappingState)(nil)).Elem()
 }
 
+// StudioSessionMappingExists checks whether an existing StudioSessionMapping resource with the given ID exists.
+func StudioSessionMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StudioSessionMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:emr/studioSessionMapping:StudioSessionMapping", id, state, "", opts...)
+}
+
 type studioSessionMappingArgs struct {
 	// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
 	IdentityId *string `pulumi:"identityId"`

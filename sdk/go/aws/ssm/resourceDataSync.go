@@ -184,6 +184,12 @@ func (ResourceDataSyncState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDataSyncState)(nil)).Elem()
 }
 
+// ResourceDataSyncExists checks whether an existing ResourceDataSync resource with the given ID exists.
+func ResourceDataSyncExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceDataSyncState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/resourceDataSync:ResourceDataSync", id, state, "", opts...)
+}
+
 type resourceDataSyncArgs struct {
 	// Name for the configuration.
 	Name *string `pulumi:"name"`

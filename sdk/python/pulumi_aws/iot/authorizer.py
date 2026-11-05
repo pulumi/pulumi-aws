@@ -558,6 +558,34 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["token_signing_public_keys"] = token_signing_public_keys
         return Authorizer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_caching_for_http: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            token_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            token_signing_public_keys: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["authorizerFunctionArn"] = authorizer_function_arn
+        __props__["enableCachingForHttp"] = enable_caching_for_http
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["signingDisabled"] = signing_disabled
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["tokenKeyName"] = token_key_name
+        __props__["tokenSigningPublicKeys"] = token_signing_public_keys
+        return pulumi.runtime.exists_resource(None, 'aws:iot/authorizer:Authorizer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

@@ -126,6 +126,12 @@ func (LocalGatewayRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGatewayRouteState)(nil)).Elem()
 }
 
+// LocalGatewayRouteExists checks whether an existing LocalGatewayRoute resource with the given ID exists.
+func LocalGatewayRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalGatewayRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/localGatewayRoute:LocalGatewayRoute", id, state, "", opts...)
+}
+
 type localGatewayRouteArgs struct {
 	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`

@@ -609,6 +609,30 @@ class IntegrationResponse(pulumi.CustomResource):
         __props__.__dict__["status_code"] = status_code
         return IntegrationResponse(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            content_handling: pulumi.Input[Optional[_builtins.str]] = None,
+            http_method: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            selection_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            status_code: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["contentHandling"] = content_handling
+        __props__["httpMethod"] = http_method
+        __props__["region"] = region
+        __props__["resourceId"] = resource_id
+        __props__["responseParameters"] = response_parameters
+        __props__["responseTemplates"] = response_templates
+        __props__["restApi"] = rest_api
+        __props__["selectionPattern"] = selection_pattern
+        __props__["statusCode"] = status_code
+        return pulumi.runtime.exists_resource(None, 'aws:apigateway/integrationResponse:IntegrationResponse', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="contentHandling")
     def content_handling(self) -> pulumi.Output[Optional[_builtins.str]]:

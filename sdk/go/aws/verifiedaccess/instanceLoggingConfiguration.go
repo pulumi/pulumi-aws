@@ -288,6 +288,12 @@ func (InstanceLoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceLoggingConfigurationState)(nil)).Elem()
 }
 
+// InstanceLoggingConfigurationExists checks whether an existing InstanceLoggingConfiguration resource with the given ID exists.
+func InstanceLoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceLoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration", id, state, "", opts...)
+}
+
 type instanceLoggingConfigurationArgs struct {
 	// Block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogs `pulumi:"accessLogs"`

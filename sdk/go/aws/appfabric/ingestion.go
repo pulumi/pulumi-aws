@@ -159,6 +159,12 @@ func (IngestionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ingestionState)(nil)).Elem()
 }
 
+// IngestionExists checks whether an existing Ingestion resource with the given ID exists.
+func IngestionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IngestionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appfabric/ingestion:Ingestion", id, state, "", opts...)
+}
+
 type ingestionArgs struct {
 	// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
 	App string `pulumi:"app"`

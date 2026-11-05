@@ -130,6 +130,12 @@ func (IdentityNotificationTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityNotificationTopicState)(nil)).Elem()
 }
 
+// IdentityNotificationTopicExists checks whether an existing IdentityNotificationTopic resource with the given ID exists.
+func IdentityNotificationTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityNotificationTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ses/identityNotificationTopic:IdentityNotificationTopic", id, state, "", opts...)
+}
+
 type identityNotificationTopicArgs struct {
 	// Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
 	Identity string `pulumi:"identity"`

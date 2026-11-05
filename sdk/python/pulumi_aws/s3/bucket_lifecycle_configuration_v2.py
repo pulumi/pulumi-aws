@@ -997,6 +997,24 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         __props__.__dict__["transition_default_minimum_object_size"] = transition_default_minimum_object_size
         return BucketLifecycleConfigurationV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict', 'outputs.BucketLifecycleConfigurationV2Rule']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict', 'outputs.BucketLifecycleConfigurationV2Timeouts']]] = None,
+            transition_default_minimum_object_size: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bucket"] = bucket
+        __props__["expectedBucketOwner"] = expected_bucket_owner
+        __props__["region"] = region
+        __props__["rules"] = rules
+        __props__["timeouts"] = timeouts
+        __props__["transitionDefaultMinimumObjectSize"] = transition_default_minimum_object_size
+        return pulumi.runtime.exists_resource(None, 'aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:

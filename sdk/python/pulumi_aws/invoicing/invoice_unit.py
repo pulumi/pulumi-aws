@@ -555,6 +555,34 @@ class InvoiceUnit(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         return InvoiceUnit(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            invoice_receiver: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            timeouts: pulumi.Input[Optional[Union['InvoiceUnitTimeoutsArgs', 'InvoiceUnitTimeoutsArgsDict', 'outputs.InvoiceUnitTimeouts']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["invoiceReceiver"] = invoice_receiver
+        __props__["lastModified"] = last_modified
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["rules"] = rules
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["taxInheritanceDisabled"] = tax_inheritance_disabled
+        __props__["timeouts"] = timeouts
+        return pulumi.runtime.exists_resource(None, 'aws:invoicing/invoiceUnit:InvoiceUnit', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

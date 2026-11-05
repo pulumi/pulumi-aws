@@ -341,6 +341,12 @@ func (ClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterState)(nil)).Elem()
 }
 
+// ClusterExists checks whether an existing Cluster resource with the given ID exists.
+func ClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:neptune/cluster:Cluster", id, state, "", opts...)
+}
+
 type clusterArgs struct {
 	// Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
 	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`

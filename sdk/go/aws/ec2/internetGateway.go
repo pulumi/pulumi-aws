@@ -227,6 +227,12 @@ func (InternetGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*internetGatewayState)(nil)).Elem()
 }
 
+// InternetGatewayExists checks whether an existing InternetGateway resource with the given ID exists.
+func InternetGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InternetGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/internetGateway:InternetGateway", id, state, "", opts...)
+}
+
 type internetGatewayArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

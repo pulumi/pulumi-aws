@@ -196,22 +196,20 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     /**
      * (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
      * 
-     * @deprecated
-     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="streamProcessorArn")
     private @Nullable Output<String> streamProcessorArn;
 
     /**
      * @return (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
      * 
-     * @deprecated
-     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<Output<String>> streamProcessorArn() {
         return Optional.ofNullable(this.streamProcessorArn);
     }
@@ -541,11 +539,10 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+         * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder streamProcessorArn(@Nullable Output<String> streamProcessorArn) {
             $.streamProcessorArn = streamProcessorArn;
             return this;
@@ -556,11 +553,10 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+         * @deprecated Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
+        @Deprecated
         public Builder streamProcessorArn(String streamProcessorArn) {
             return streamProcessorArn(Output.of(streamProcessorArn));
         }

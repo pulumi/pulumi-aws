@@ -232,6 +232,12 @@ func (RestApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restApiState)(nil)).Elem()
 }
 
+// RestApiExists checks whether an existing RestApi resource with the given ID exists.
+func RestApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:apigateway/restApi:RestApi", id, state, "", opts...)
+}
+
 type restApiArgs struct {
 	// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	ApiKeySource *string `pulumi:"apiKeySource"`

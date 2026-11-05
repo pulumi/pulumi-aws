@@ -1313,6 +1313,62 @@ class Crawler(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Crawler(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict', 'outputs.CrawlerCatalogTarget']]]]] = None,
+            classifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            delta_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict', 'outputs.CrawlerDeltaTarget']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict', 'outputs.CrawlerDynamodbTarget']]]]] = None,
+            hudi_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict', 'outputs.CrawlerHudiTarget']]]]] = None,
+            iceberg_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict', 'outputs.CrawlerIcebergTarget']]]]] = None,
+            jdbc_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict', 'outputs.CrawlerJdbcTarget']]]]] = None,
+            lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']]] = None,
+            lineage_configuration: pulumi.Input[Optional[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict', 'outputs.CrawlerLineageConfiguration']]] = None,
+            mongodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict', 'outputs.CrawlerMongodbTarget']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict', 'outputs.CrawlerS3Target']]]]] = None,
+            schedule: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']]] = None,
+            security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["catalogTargets"] = catalog_targets
+        __props__["classifiers"] = classifiers
+        __props__["configuration"] = configuration
+        __props__["databaseName"] = database_name
+        __props__["deltaTargets"] = delta_targets
+        __props__["description"] = description
+        __props__["dynamodbTargets"] = dynamodb_targets
+        __props__["hudiTargets"] = hudi_targets
+        __props__["icebergTargets"] = iceberg_targets
+        __props__["jdbcTargets"] = jdbc_targets
+        __props__["lakeFormationConfiguration"] = lake_formation_configuration
+        __props__["lineageConfiguration"] = lineage_configuration
+        __props__["mongodbTargets"] = mongodb_targets
+        __props__["name"] = name
+        __props__["recrawlPolicy"] = recrawl_policy
+        __props__["region"] = region
+        __props__["role"] = role
+        __props__["s3Targets"] = s3_targets
+        __props__["schedule"] = schedule
+        __props__["schemaChangePolicy"] = schema_change_policy
+        __props__["securityConfiguration"] = security_configuration
+        __props__["tablePrefix"] = table_prefix
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:glue/crawler:Crawler', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

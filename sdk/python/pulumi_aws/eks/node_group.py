@@ -1316,6 +1316,64 @@ class NodeGroup(pulumi.CustomResource):
         __props__.__dict__["warm_pool_config"] = warm_pool_config
         return NodeGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ami_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+            force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            launch_template: pulumi.Input[Optional[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict', 'outputs.NodeGroupLaunchTemplate']]] = None,
+            node_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_group_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            node_repair_config: pulumi.Input[Optional[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict', 'outputs.NodeGroupNodeRepairConfig']]] = None,
+            node_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_version: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_access: pulumi.Input[Optional[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict', 'outputs.NodeGroupRemoteAccess']]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupResourceArgs', 'NodeGroupResourceArgsDict', 'outputs.NodeGroupResource']]]]] = None,
+            scaling_config: pulumi.Input[Optional[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict', 'outputs.NodeGroupScalingConfig']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict', 'outputs.NodeGroupTaint']]]]] = None,
+            update_config: pulumi.Input[Optional[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict', 'outputs.NodeGroupUpdateConfig']]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            warm_pool_config: pulumi.Input[Optional[Union['NodeGroupWarmPoolConfigArgs', 'NodeGroupWarmPoolConfigArgsDict', 'outputs.NodeGroupWarmPoolConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["amiType"] = ami_type
+        __props__["arn"] = arn
+        __props__["capacityType"] = capacity_type
+        __props__["clusterName"] = cluster_name
+        __props__["diskSize"] = disk_size
+        __props__["forceUpdateVersion"] = force_update_version
+        __props__["instanceTypes"] = instance_types
+        __props__["labels"] = labels
+        __props__["launchTemplate"] = launch_template
+        __props__["nodeGroupName"] = node_group_name
+        __props__["nodeGroupNamePrefix"] = node_group_name_prefix
+        __props__["nodeRepairConfig"] = node_repair_config
+        __props__["nodeRoleArn"] = node_role_arn
+        __props__["region"] = region
+        __props__["releaseVersion"] = release_version
+        __props__["remoteAccess"] = remote_access
+        __props__["resources"] = resources
+        __props__["scalingConfig"] = scaling_config
+        __props__["status"] = status
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["taints"] = taints
+        __props__["updateConfig"] = update_config
+        __props__["version"] = version
+        __props__["warmPoolConfig"] = warm_pool_config
+        return pulumi.runtime.exists_resource(None, 'aws:eks/nodeGroup:NodeGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="amiType")
     def ami_type(self) -> pulumi.Output[_builtins.str]:

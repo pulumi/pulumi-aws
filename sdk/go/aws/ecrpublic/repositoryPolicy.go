@@ -168,6 +168,12 @@ func (RepositoryPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyState)(nil)).Elem()
 }
 
+// RepositoryPolicyExists checks whether an existing RepositoryPolicy resource with the given ID exists.
+func RepositoryPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecrpublic/repositoryPolicy:RepositoryPolicy", id, state, "", opts...)
+}
+
 type repositoryPolicyArgs struct {
 	// The policy document. This is a JSON formatted string.
 	Policy string `pulumi:"policy"`

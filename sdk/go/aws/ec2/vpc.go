@@ -332,6 +332,12 @@ func (VpcState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcState)(nil)).Elem()
 }
 
+// VpcExists checks whether an existing Vpc resource with the given ID exists.
+func VpcExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/vpc:Vpc", id, state, "", opts...)
+}
+
 type vpcArgs struct {
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`.
 	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`

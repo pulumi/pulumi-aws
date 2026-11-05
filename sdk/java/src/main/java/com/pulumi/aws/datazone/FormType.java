@@ -125,17 +125,17 @@ import javax.annotation.Nullable;
  *         var testFormType = new FormType("testFormType", FormTypeArgs.builder()
  *             .model(FormTypeModelArgs.builder()
  *                 .smithy("""
- * \tstructure SageMakerModelFormType }{{@code
- * \t\t\t}{@literal @}{@code required
- * \t\t\t}{@literal @}{@code amazon.datazone#searchable
- * \t\t\tmodelName: String
+ * }&#92;{@code tstructure SageMakerModelFormType }{{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}{@literal @}{@code required
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}{@literal @}{@code amazon.datazone#searchable
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code tmodelName: String
  * 
- * \t\t\t}{@literal @}{@code required
- * \t\t\tmodelArn: String
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}{@literal @}{@code required
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code tmodelArn: String
  * 
- * \t\t\t}{@literal @}{@code required
- * \t\t\tcreationTime: String
- * \t\t\t}}{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}{@literal @}{@code required
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code tcreationTime: String
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}}{@code
  *                 """)
  *                 .build())
  *             .description("desc")

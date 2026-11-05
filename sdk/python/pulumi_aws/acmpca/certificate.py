@@ -557,6 +557,32 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["validity"] = validity
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_passthrough: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            template_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiPassthrough"] = api_passthrough
+        __props__["arn"] = arn
+        __props__["certificate"] = certificate
+        __props__["certificateAuthorityArn"] = certificate_authority_arn
+        __props__["certificateChain"] = certificate_chain
+        __props__["certificateSigningRequest"] = certificate_signing_request
+        __props__["region"] = region
+        __props__["signingAlgorithm"] = signing_algorithm
+        __props__["templateArn"] = template_arn
+        __props__["validity"] = validity
+        return pulumi.runtime.exists_resource(None, 'aws:acmpca/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiPassthrough")
     def api_passthrough(self) -> pulumi.Output[Optional[_builtins.str]]:

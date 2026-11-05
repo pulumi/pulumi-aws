@@ -129,6 +129,12 @@ func (LogDeliveryDestinationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDeliveryDestinationPolicyState)(nil)).Elem()
 }
 
+// LogDeliveryDestinationPolicyExists checks whether an existing LogDeliveryDestinationPolicy resource with the given ID exists.
+func LogDeliveryDestinationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogDeliveryDestinationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy", id, state, "", opts...)
+}
+
 type logDeliveryDestinationPolicyArgs struct {
 	// The name of the delivery destination to assign this policy to.
 	DeliveryDestinationName string `pulumi:"deliveryDestinationName"`

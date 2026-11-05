@@ -178,6 +178,12 @@ func (CustomDataIdentifierState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDataIdentifierState)(nil)).Elem()
 }
 
+// CustomDataIdentifierExists checks whether an existing CustomDataIdentifier resource with the given ID exists.
+func CustomDataIdentifierExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDataIdentifierState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie/customDataIdentifier:CustomDataIdentifier", id, state, "", opts...)
+}
+
 type customDataIdentifierArgs struct {
 	// Custom description of the custom data identifier. Can contain as many as 512 characters.
 	Description *string `pulumi:"description"`

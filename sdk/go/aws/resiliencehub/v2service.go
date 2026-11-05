@@ -281,6 +281,12 @@ func (V2ServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2serviceState)(nil)).Elem()
 }
 
+// V2ServiceExists checks whether an existing V2Service resource with the given ID exists.
+func V2ServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2ServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:resiliencehub/v2Service:V2Service", id, state, "", opts...)
+}
+
 type v2serviceArgs struct {
 	// Systems to associate with the service. See `associatedSystem` Block below.
 	AssociatedSystems []V2ServiceAssociatedSystem `pulumi:"associatedSystems"`

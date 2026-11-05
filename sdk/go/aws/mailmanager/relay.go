@@ -236,6 +236,12 @@ func (RelayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*relayState)(nil)).Elem()
 }
 
+// RelayExists checks whether an existing Relay resource with the given ID exists.
+func RelayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RelayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mailmanager/relay:Relay", id, state, "", opts...)
+}
+
 type relayArgs struct {
 	// Authentication configuration for the relay. See `authentication` Block.
 	Authentication *RelayAuthentication `pulumi:"authentication"`

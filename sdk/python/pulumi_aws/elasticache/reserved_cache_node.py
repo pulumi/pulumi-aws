@@ -639,6 +639,46 @@ class ReservedCacheNode(pulumi.CustomResource):
         __props__.__dict__["usage_price"] = usage_price
         return ReservedCacheNode(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+            duration: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticache_reserved_cache_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fixed_price: pulumi.Input[Optional[_builtins.float]] = None,
+            offering_type: pulumi.Input[Optional[_builtins.str]] = None,
+            product_description: pulumi.Input[Optional[_builtins.str]] = None,
+            recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict', 'outputs.ReservedCacheNodeRecurringCharge']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            reserved_cache_nodes_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict', 'outputs.ReservedCacheNodeTimeouts']]] = None,
+            usage_price: pulumi.Input[Optional[_builtins.float]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["cacheNodeCount"] = cache_node_count
+        __props__["cacheNodeType"] = cache_node_type
+        __props__["duration"] = duration
+        __props__["elasticacheReservedCacheNodeId"] = elasticache_reserved_cache_node_id
+        __props__["fixedPrice"] = fixed_price
+        __props__["offeringType"] = offering_type
+        __props__["productDescription"] = product_description
+        __props__["recurringCharges"] = recurring_charges
+        __props__["region"] = region
+        __props__["reservedCacheNodesOfferingId"] = reserved_cache_nodes_offering_id
+        __props__["startTime"] = start_time
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["usagePrice"] = usage_price
+        return pulumi.runtime.exists_resource(None, 'aws:elasticache/reservedCacheNode:ReservedCacheNode', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

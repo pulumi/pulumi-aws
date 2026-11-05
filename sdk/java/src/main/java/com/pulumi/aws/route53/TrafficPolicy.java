@@ -36,32 +36,32 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new TrafficPolicy("example", TrafficPolicyArgs.builder()
  *             .name("example")
  *             .comment("example comment")
  *             .document("""
- * {
- *   \"AWSPolicyFormatVersion\": \"2015-10-01\",
- *   \"RecordType\": \"A\",
- *   \"Endpoints\": {
- *     \"endpoint-start-NkPh\": {
- *       \"Type\": \"value\",
- *       \"Value\": \"10.0.0.2\"
- *     }
- *   },
- *   \"StartEndpoint\": \"endpoint-start-NkPh\"
- * }
+ * }{{@code
+ *   }&#92;{@code "AWSPolicyFormatVersion}&#92;{@code ": }&#92;{@code "2015-10-01}&#92;{@code ",
+ *   }&#92;{@code "RecordType}&#92;{@code ": }&#92;{@code "A}&#92;{@code ",
+ *   }&#92;{@code "Endpoints}&#92;{@code ": }{{@code
+ *     }&#92;{@code "endpoint-start-NkPh}&#92;{@code ": }{{@code
+ *       }&#92;{@code "Type}&#92;{@code ": }&#92;{@code "value}&#92;{@code ",
+ *       }&#92;{@code "Value}&#92;{@code ": }&#92;{@code "10.0.0.2}&#92;{@code "
+ *     }}{@code
+ *   }}{@code ,
+ *   }&#92;{@code "StartEndpoint}&#92;{@code ": }&#92;{@code "endpoint-start-NkPh}&#92;{@code "
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

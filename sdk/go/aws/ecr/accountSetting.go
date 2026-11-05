@@ -178,6 +178,12 @@ func (AccountSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountSettingState)(nil)).Elem()
 }
 
+// AccountSettingExists checks whether an existing AccountSetting resource with the given ID exists.
+func AccountSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ecr/accountSetting:AccountSetting", id, state, "", opts...)
+}
+
 type accountSettingArgs struct {
 	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
 	Name *string `pulumi:"name"`

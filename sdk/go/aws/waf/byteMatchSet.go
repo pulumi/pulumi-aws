@@ -125,6 +125,12 @@ func (ByteMatchSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*byteMatchSetState)(nil)).Elem()
 }
 
+// ByteMatchSetExists checks whether an existing ByteMatchSet resource with the given ID exists.
+func ByteMatchSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ByteMatchSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:waf/byteMatchSet:ByteMatchSet", id, state, "", opts...)
+}
+
 type byteMatchSetArgs struct {
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,

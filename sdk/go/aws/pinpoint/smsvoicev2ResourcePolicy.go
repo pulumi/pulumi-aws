@@ -163,6 +163,12 @@ func (Smsvoicev2ResourcePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsvoicev2ResourcePolicyState)(nil)).Elem()
 }
 
+// Smsvoicev2ResourcePolicyExists checks whether an existing Smsvoicev2ResourcePolicy resource with the given ID exists.
+func Smsvoicev2ResourcePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Smsvoicev2ResourcePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/smsvoicev2ResourcePolicy:Smsvoicev2ResourcePolicy", id, state, "", opts...)
+}
+
 type smsvoicev2ResourcePolicyArgs struct {
 	// Resource-based policy document in JSON format.
 	Policy string `pulumi:"policy"`

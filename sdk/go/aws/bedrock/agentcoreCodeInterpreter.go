@@ -229,6 +229,12 @@ func (AgentcoreCodeInterpreterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreCodeInterpreterState)(nil)).Elem()
 }
 
+// AgentcoreCodeInterpreterExists checks whether an existing AgentcoreCodeInterpreter resource with the given ID exists.
+func AgentcoreCodeInterpreterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreCodeInterpreterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter", id, state, "", opts...)
+}
+
 type agentcoreCodeInterpreterArgs struct {
 	// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
 	Certificates []AgentcoreCodeInterpreterCertificate `pulumi:"certificates"`

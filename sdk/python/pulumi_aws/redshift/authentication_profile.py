@@ -273,6 +273,18 @@ class AuthenticationProfile(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return AuthenticationProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_profile_content: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationProfileContent"] = authentication_profile_content
+        __props__["authenticationProfileName"] = authentication_profile_name
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:redshift/authenticationProfile:AuthenticationProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationProfileContent")
     def authentication_profile_content(self) -> pulumi.Output[_builtins.str]:

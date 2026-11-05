@@ -286,6 +286,20 @@ class LoggingOptions(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = role_arn
         return LoggingOptions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_all_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultLogLevel"] = default_log_level
+        __props__["disableAllLogs"] = disable_all_logs
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        return pulumi.runtime.exists_resource(None, 'aws:iot/loggingOptions:LoggingOptions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultLogLevel")
     def default_log_level(self) -> pulumi.Output[_builtins.str]:

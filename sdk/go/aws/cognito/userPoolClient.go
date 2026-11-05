@@ -497,6 +497,12 @@ func (UserPoolClientState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolClientState)(nil)).Elem()
 }
 
+// UserPoolClientExists checks whether an existing UserPoolClient resource with the given ID exists.
+func UserPoolClientExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolClientState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cognito/userPoolClient:UserPoolClient", id, state, "", opts...)
+}
+
 type userPoolClientArgs struct {
 	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity *int `pulumi:"accessTokenValidity"`

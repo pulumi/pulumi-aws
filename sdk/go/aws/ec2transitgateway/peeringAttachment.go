@@ -185,6 +185,12 @@ func (PeeringAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*peeringAttachmentState)(nil)).Elem()
 }
 
+// PeeringAttachmentExists checks whether an existing PeeringAttachment resource with the given ID exists.
+func PeeringAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PeeringAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", id, state, "", opts...)
+}
+
 type peeringAttachmentArgs struct {
 	// Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
 	Options *PeeringAttachmentOptions `pulumi:"options"`

@@ -345,6 +345,24 @@ class OptIn(pulumi.CustomResource):
         __props__.__dict__["resource_datas"] = resource_datas
         return OptIn(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict', 'outputs.OptInCondition']]]]] = None,
+            last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptInPrincipalArgs', 'OptInPrincipalArgsDict', 'outputs.OptInPrincipal']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_datas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptInResourceDataArgs', 'OptInResourceDataArgsDict', 'outputs.OptInResourceData']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditions"] = conditions
+        __props__["lastModified"] = last_modified
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["principals"] = principals
+        __props__["region"] = region
+        __props__["resourceDatas"] = resource_datas
+        return pulumi.runtime.exists_resource(None, 'aws:lakeformation/optIn:OptIn', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.OptInCondition']]]:

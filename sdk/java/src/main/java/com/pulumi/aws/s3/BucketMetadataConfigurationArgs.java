@@ -36,22 +36,20 @@ public final class BucketMetadataConfigurationArgs extends com.pulumi.resources.
     /**
      * Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future verion of the provider. */
+    @Deprecated
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
      * @return Account ID of the expected bucket owner.
      * 
-     * @deprecated
-     * This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future verion of the provider.
      * 
      */
-    @Deprecated /* This attribute will be removed in a future verion of the provider. */
+    @Deprecated
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
@@ -151,11 +149,10 @@ public final class BucketMetadataConfigurationArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future verion of the provider.
+         * @deprecated This attribute will be removed in a future verion of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future verion of the provider. */
+        @Deprecated
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
@@ -166,11 +163,10 @@ public final class BucketMetadataConfigurationArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute will be removed in a future verion of the provider.
+         * @deprecated This attribute will be removed in a future verion of the provider.
          * 
          */
-        @Deprecated /* This attribute will be removed in a future verion of the provider. */
+        @Deprecated
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }

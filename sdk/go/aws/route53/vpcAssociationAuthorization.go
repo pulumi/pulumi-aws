@@ -164,6 +164,12 @@ func (VpcAssociationAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcAssociationAuthorizationState)(nil)).Elem()
 }
 
+// VpcAssociationAuthorizationExists checks whether an existing VpcAssociationAuthorization resource with the given ID exists.
+func VpcAssociationAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcAssociationAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization", id, state, "", opts...)
+}
+
 type vpcAssociationAuthorizationArgs struct {
 	// The VPC to authorize for association with the private hosted zone.
 	VpcId string `pulumi:"vpcId"`

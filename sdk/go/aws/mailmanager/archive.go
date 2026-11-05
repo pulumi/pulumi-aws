@@ -175,6 +175,12 @@ func (ArchiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*archiveState)(nil)).Elem()
 }
 
+// ArchiveExists checks whether an existing Archive resource with the given ID exists.
+func ArchiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArchiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mailmanager/archive:Archive", id, state, "", opts...)
+}
+
 type archiveArgs struct {
 	// ARN of the KMS key used to encrypt the archive.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`

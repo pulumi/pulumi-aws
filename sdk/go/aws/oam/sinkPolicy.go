@@ -169,6 +169,12 @@ func (SinkPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sinkPolicyState)(nil)).Elem()
 }
 
+// SinkPolicyExists checks whether an existing SinkPolicy resource with the given ID exists.
+func SinkPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SinkPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:oam/sinkPolicy:SinkPolicy", id, state, "", opts...)
+}
+
 type sinkPolicyArgs struct {
 	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 	Policy string `pulumi:"policy"`

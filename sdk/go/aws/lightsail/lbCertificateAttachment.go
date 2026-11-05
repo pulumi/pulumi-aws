@@ -143,6 +143,12 @@ func (LbCertificateAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lbCertificateAttachmentState)(nil)).Elem()
 }
 
+// LbCertificateAttachmentExists checks whether an existing LbCertificateAttachment resource with the given ID exists.
+func LbCertificateAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LbCertificateAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment", id, state, "", opts...)
+}
+
 type lbCertificateAttachmentArgs struct {
 	// Name of your SSL/TLS certificate.
 	CertificateName string `pulumi:"certificateName"`

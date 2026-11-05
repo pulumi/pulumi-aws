@@ -274,6 +274,12 @@ func (ConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorState)(nil)).Elem()
 }
 
+// ConnectorExists checks whether an existing Connector resource with the given ID exists.
+func ConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mskconnect/connector:Connector", id, state, "", opts...)
+}
+
 type connectorArgs struct {
 	// Information about the capacity allocated to the connector. See `capacity` Block for details.
 	Capacity ConnectorCapacity `pulumi:"capacity"`

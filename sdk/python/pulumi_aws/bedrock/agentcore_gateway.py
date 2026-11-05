@@ -992,6 +992,50 @@ class AgentcoreGateway(pulumi.CustomResource):
         __props__.__dict__["workload_identity_details"] = workload_identity_details
         return AgentcoreGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict', 'outputs.AgentcoreGatewayAuthorizerConfiguration']]] = None,
+            authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            exception_level: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_url: pulumi.Input[Optional[_builtins.str]] = None,
+            interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict', 'outputs.AgentcoreGatewayInterceptorConfiguration']]]]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_engine_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict', 'outputs.AgentcoreGatewayPolicyEngineConfiguration']]] = None,
+            protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict', 'outputs.AgentcoreGatewayProtocolConfiguration']]] = None,
+            protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict', 'outputs.AgentcoreGatewayTimeouts']]] = None,
+            workload_identity_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayWorkloadIdentityDetailArgs', 'AgentcoreGatewayWorkloadIdentityDetailArgsDict', 'outputs.AgentcoreGatewayWorkloadIdentityDetail']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorizerConfiguration"] = authorizer_configuration
+        __props__["authorizerType"] = authorizer_type
+        __props__["description"] = description
+        __props__["exceptionLevel"] = exception_level
+        __props__["gatewayArn"] = gateway_arn
+        __props__["gatewayId"] = gateway_id
+        __props__["gatewayUrl"] = gateway_url
+        __props__["interceptorConfigurations"] = interceptor_configurations
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["name"] = name
+        __props__["policyEngineConfiguration"] = policy_engine_configuration
+        __props__["protocolConfiguration"] = protocol_configuration
+        __props__["protocolType"] = protocol_type
+        __props__["region"] = region
+        __props__["roleArn"] = role_arn
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["workloadIdentityDetails"] = workload_identity_details
+        return pulumi.runtime.exists_resource(None, 'aws:bedrock/agentcoreGateway:AgentcoreGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreGatewayAuthorizerConfiguration']]:

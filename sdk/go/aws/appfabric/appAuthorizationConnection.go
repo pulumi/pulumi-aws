@@ -137,6 +137,12 @@ func (AppAuthorizationConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appAuthorizationConnectionState)(nil)).Elem()
 }
 
+// AppAuthorizationConnectionExists checks whether an existing AppAuthorizationConnection resource with the given ID exists.
+func AppAuthorizationConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppAuthorizationConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection", id, state, "", opts...)
+}
+
 type appAuthorizationConnectionArgs struct {
 	// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn string `pulumi:"appAuthorizationArn"`

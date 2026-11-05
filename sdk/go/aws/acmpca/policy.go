@@ -181,6 +181,12 @@ func (PolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyState)(nil)).Elem()
 }
 
+// PolicyExists checks whether an existing Policy resource with the given ID exists.
+func PolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:acmpca/policy:Policy", id, state, "", opts...)
+}
+
 type policyArgs struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy string `pulumi:"policy"`

@@ -197,6 +197,12 @@ func (VaultLockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultLockState)(nil)).Elem()
 }
 
+// VaultLockExists checks whether an existing VaultLock resource with the given ID exists.
+func VaultLockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VaultLockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:glacier/vaultLock:VaultLock", id, state, "", opts...)
+}
+
 type vaultLockArgs struct {
 	// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
 	CompleteLock bool `pulumi:"completeLock"`

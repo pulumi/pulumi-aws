@@ -158,6 +158,12 @@ func (RouteCalculationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeCalculationState)(nil)).Elem()
 }
 
+// RouteCalculationExists checks whether an existing RouteCalculation resource with the given ID exists.
+func RouteCalculationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteCalculationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:location/routeCalculation:RouteCalculation", id, state, "", opts...)
+}
+
 type routeCalculationArgs struct {
 	// The name of the route calculator resource.
 	CalculatorName string `pulumi:"calculatorName"`

@@ -173,6 +173,12 @@ func (PrincipalAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*principalAssociationState)(nil)).Elem()
 }
 
+// PrincipalAssociationExists checks whether an existing PrincipalAssociation resource with the given ID exists.
+func PrincipalAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrincipalAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ram/principalAssociation:PrincipalAssociation", id, state, "", opts...)
+}
+
 type principalAssociationArgs struct {
 	// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal string `pulumi:"principal"`

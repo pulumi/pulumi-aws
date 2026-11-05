@@ -170,6 +170,12 @@ func (RoleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleAssociationState)(nil)).Elem()
 }
 
+// RoleAssociationExists checks whether an existing RoleAssociation resource with the given ID exists.
+func RoleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:grafana/roleAssociation:RoleAssociation", id, state, "", opts...)
+}
+
 type roleAssociationArgs struct {
 	// AWS SSO group IDs to be assigned the role given in `role`.
 	GroupIds []string `pulumi:"groupIds"`

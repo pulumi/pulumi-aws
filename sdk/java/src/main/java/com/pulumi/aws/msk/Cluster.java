@@ -87,12 +87,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var vpc = new Vpc("vpc", VpcArgs.builder()
  *             .cidrBlock("192.168.0.0/22")
  *             .build());
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *             .destination("extended_s3")
  *             .tags(Map.of("LogDeliveryEnabled", "placeholder"))
  *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("tags[\"LogDeliveryEnabled\"]")
+ *                 .ignoreChanges("tags[}&#92;{@code "LogDeliveryEnabled}&#92;{@code "]")
  *                 .build());
  * 
  *         var example = new Cluster("example", ClusterArgs.builder()
@@ -220,8 +220,8 @@ import javax.annotation.Nullable;
  * 
  *         ctx.export("zookeeperConnectString", example.zookeeperConnectString());
  *         ctx.export("bootstrapBrokersTls", example.bootstrapBrokersTls());
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

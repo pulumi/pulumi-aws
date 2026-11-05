@@ -202,6 +202,12 @@ func (AppAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appAuthorizationState)(nil)).Elem()
 }
 
+// AppAuthorizationExists checks whether an existing AppAuthorization resource with the given ID exists.
+func AppAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:appfabric/appAuthorization:AppAuthorization", id, state, "", opts...)
+}
+
 type appAuthorizationArgs struct {
 	// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
 	App string `pulumi:"app"`

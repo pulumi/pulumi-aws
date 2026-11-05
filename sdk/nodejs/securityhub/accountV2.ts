@@ -61,6 +61,17 @@ export class AccountV2 extends pulumi.CustomResource {
         return new AccountV2(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing AccountV2 resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: AccountV2State, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws:securityhub/accountV2:AccountV2", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws:securityhub/accountV2:AccountV2';
 

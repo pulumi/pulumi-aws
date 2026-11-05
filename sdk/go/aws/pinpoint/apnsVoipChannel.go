@@ -201,6 +201,12 @@ func (ApnsVoipChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apnsVoipChannelState)(nil)).Elem()
 }
 
+// ApnsVoipChannelExists checks whether an existing ApnsVoipChannel resource with the given ID exists.
+func ApnsVoipChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApnsVoipChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", id, state, "", opts...)
+}
+
 type apnsVoipChannelArgs struct {
 	// Application ID.
 	ApplicationId string `pulumi:"applicationId"`

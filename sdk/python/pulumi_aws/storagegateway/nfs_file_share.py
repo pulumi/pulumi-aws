@@ -1053,6 +1053,62 @@ class NfsFileShare(pulumi.CustomResource):
         __props__.__dict__["vpc_endpoint_dns_name"] = vpc_endpoint_dns_name
         return NfsFileShare(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_attributes: pulumi.Input[Optional[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict', 'outputs.NfsFileShareCacheAttributes']]] = None,
+            client_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+            file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fileshare_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            nfs_file_share_defaults: pulumi.Input[Optional[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict', 'outputs.NfsFileShareNfsFileShareDefaults']]] = None,
+            notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            squash: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["auditDestinationArn"] = audit_destination_arn
+        __props__["bucketRegion"] = bucket_region
+        __props__["cacheAttributes"] = cache_attributes
+        __props__["clientLists"] = client_lists
+        __props__["defaultStorageClass"] = default_storage_class
+        __props__["fileShareName"] = file_share_name
+        __props__["fileshareId"] = fileshare_id
+        __props__["gatewayArn"] = gateway_arn
+        __props__["guessMimeTypeEnabled"] = guess_mime_type_enabled
+        __props__["kmsEncrypted"] = kms_encrypted
+        __props__["kmsKeyArn"] = kms_key_arn
+        __props__["locationArn"] = location_arn
+        __props__["nfsFileShareDefaults"] = nfs_file_share_defaults
+        __props__["notificationPolicy"] = notification_policy
+        __props__["objectAcl"] = object_acl
+        __props__["path"] = path
+        __props__["readOnly"] = read_only
+        __props__["region"] = region
+        __props__["requesterPays"] = requester_pays
+        __props__["roleArn"] = role_arn
+        __props__["squash"] = squash
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["vpcEndpointDnsName"] = vpc_endpoint_dns_name
+        return pulumi.runtime.exists_resource(None, 'aws:storagegateway/nfsFileShare:NfsFileShare', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

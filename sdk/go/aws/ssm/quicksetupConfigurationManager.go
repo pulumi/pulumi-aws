@@ -129,6 +129,12 @@ func (QuicksetupConfigurationManagerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*quicksetupConfigurationManagerState)(nil)).Elem()
 }
 
+// QuicksetupConfigurationManagerExists checks whether an existing QuicksetupConfigurationManager resource with the given ID exists.
+func QuicksetupConfigurationManagerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QuicksetupConfigurationManagerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager", id, state, "", opts...)
+}
+
 type quicksetupConfigurationManagerArgs struct {
 	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
 	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinition `pulumi:"configurationDefinition"`

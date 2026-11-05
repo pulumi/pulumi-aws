@@ -121,6 +121,12 @@ func (TransitGatewayRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRegistrationState)(nil)).Elem()
 }
 
+// TransitGatewayRegistrationExists checks whether an existing TransitGatewayRegistration resource with the given ID exists.
+func TransitGatewayRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration", id, state, "", opts...)
+}
+
 type transitGatewayRegistrationArgs struct {
 	// ID of the Global Network to register to.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`

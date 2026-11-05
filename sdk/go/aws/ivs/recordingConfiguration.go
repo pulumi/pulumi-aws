@@ -161,6 +161,12 @@ func (RecordingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordingConfigurationState)(nil)).Elem()
 }
 
+// RecordingConfigurationExists checks whether an existing RecordingConfiguration resource with the given ID exists.
+func RecordingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecordingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ivs/recordingConfiguration:RecordingConfiguration", id, state, "", opts...)
+}
+
 type recordingConfigurationArgs struct {
 	// Object containing destination configuration for where recorded video will be stored.
 	DestinationConfiguration RecordingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`

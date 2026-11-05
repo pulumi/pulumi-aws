@@ -131,6 +131,12 @@ func (AccountPublicAccessBlockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountPublicAccessBlockState)(nil)).Elem()
 }
 
+// AccountPublicAccessBlockExists checks whether an existing AccountPublicAccessBlock resource with the given ID exists.
+func AccountPublicAccessBlockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountPublicAccessBlockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock", id, state, "", opts...)
+}
+
 type accountPublicAccessBlockArgs struct {
 	// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
 	AccountId *string `pulumi:"accountId"`

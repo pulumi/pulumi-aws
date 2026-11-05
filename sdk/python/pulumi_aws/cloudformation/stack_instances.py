@@ -698,6 +698,34 @@ class StackInstances(pulumi.CustomResource):
         __props__.__dict__["stack_set_name"] = stack_set_name
         return StackInstances(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            call_as: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_targets: pulumi.Input[Optional[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict', 'outputs.StackInstancesDeploymentTargets']]] = None,
+            operation_preferences: pulumi.Input[Optional[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict', 'outputs.StackInstancesOperationPreferences']]] = None,
+            parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            retain_stacks: pulumi.Input[Optional[_builtins.bool]] = None,
+            stack_instance_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackInstancesStackInstanceSummaryArgs', 'StackInstancesStackInstanceSummaryArgsDict', 'outputs.StackInstancesStackInstanceSummary']]]]] = None,
+            stack_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_set_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accounts"] = accounts
+        __props__["callAs"] = call_as
+        __props__["deploymentTargets"] = deployment_targets
+        __props__["operationPreferences"] = operation_preferences
+        __props__["parameterOverrides"] = parameter_overrides
+        __props__["region"] = region
+        __props__["regions"] = regions
+        __props__["retainStacks"] = retain_stacks
+        __props__["stackInstanceSummaries"] = stack_instance_summaries
+        __props__["stackSetId"] = stack_set_id
+        __props__["stackSetName"] = stack_set_name
+        return pulumi.runtime.exists_resource(None, 'aws:cloudformation/stackInstances:StackInstances', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> pulumi.Output[Sequence[_builtins.str]]:

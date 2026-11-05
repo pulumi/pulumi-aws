@@ -128,6 +128,12 @@ func (DataProtectionSettingsAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataProtectionSettingsAssociationState)(nil)).Elem()
 }
 
+// DataProtectionSettingsAssociationExists checks whether an existing DataProtectionSettingsAssociation resource with the given ID exists.
+func DataProtectionSettingsAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataProtectionSettingsAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/dataProtectionSettingsAssociation:DataProtectionSettingsAssociation", id, state, "", opts...)
+}
+
 type dataProtectionSettingsAssociationArgs struct {
 	// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
 	DataProtectionSettingsArn string `pulumi:"dataProtectionSettingsArn"`

@@ -154,6 +154,12 @@ func (DefaultVpcDhcpOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultVpcDhcpOptionsState)(nil)).Elem()
 }
 
+// DefaultVpcDhcpOptionsExists checks whether an existing DefaultVpcDhcpOptions resource with the given ID exists.
+func DefaultVpcDhcpOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultVpcDhcpOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", id, state, "", opts...)
+}
+
 type defaultVpcDhcpOptionsArgs struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`

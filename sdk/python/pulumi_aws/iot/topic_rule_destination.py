@@ -286,6 +286,20 @@ class TopicRuleDestination(pulumi.CustomResource):
         __props__.__dict__["vpc_configuration"] = vpc_configuration
         return TopicRuleDestination(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_configuration: pulumi.Input[Optional[Union['TopicRuleDestinationVpcConfigurationArgs', 'TopicRuleDestinationVpcConfigurationArgsDict', 'outputs.TopicRuleDestinationVpcConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["enabled"] = enabled
+        __props__["region"] = region
+        __props__["vpcConfiguration"] = vpc_configuration
+        return pulumi.runtime.exists_resource(None, 'aws:iot/topicRuleDestination:TopicRuleDestination', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

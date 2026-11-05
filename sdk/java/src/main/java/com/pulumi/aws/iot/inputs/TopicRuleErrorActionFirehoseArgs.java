@@ -63,14 +63,14 @@ public final class TopicRuleErrorActionFirehoseArgs extends com.pulumi.resources
     }
 
     /**
-     * A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
+     * A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;&#92;n&#39; (newline), &#39;&#92;t&#39; (tab), &#39;&#92;r&#92;n&#39; (Windows newline), &#39;,&#39; (comma).
      * 
      */
     @Import(name="separator")
     private @Nullable Output<String> separator;
 
     /**
-     * @return A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
+     * @return A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;&#92;n&#39; (newline), &#39;&#92;t&#39; (tab), &#39;&#92;r&#92;n&#39; (Windows newline), &#39;,&#39; (comma).
      * 
      */
     public Optional<Output<String>> separator() {
@@ -168,7 +168,7 @@ public final class TopicRuleErrorActionFirehoseArgs extends com.pulumi.resources
         }
 
         /**
-         * @param separator A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
+         * @param separator A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;&#92;n&#39; (newline), &#39;&#92;t&#39; (tab), &#39;&#92;r&#92;n&#39; (Windows newline), &#39;,&#39; (comma).
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class TopicRuleErrorActionFirehoseArgs extends com.pulumi.resources
         }
 
         /**
-         * @param separator A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
+         * @param separator A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;&#92;n&#39; (newline), &#39;&#92;t&#39; (tab), &#39;&#92;r&#92;n&#39; (Windows newline), &#39;,&#39; (comma).
          * 
          * @return builder
          * 

@@ -47,14 +47,14 @@ public final class ServiceActionDefinitionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of parameters in JSON format. For example: `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TARGET\&#34;}]` or `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TEXT_VALUE\&#34;}]`.
+     * List of parameters in JSON format. For example: `[{&#92;&#34;Name&#92;&#34;:&#92;&#34;InstanceId&#92;&#34;,&#92;&#34;Type&#92;&#34;:&#92;&#34;TARGET&#92;&#34;}]` or `[{&#92;&#34;Name&#92;&#34;:&#92;&#34;InstanceId&#92;&#34;,&#92;&#34;Type&#92;&#34;:&#92;&#34;TEXT_VALUE&#92;&#34;}]`.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<String> parameters;
 
     /**
-     * @return List of parameters in JSON format. For example: `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TARGET\&#34;}]` or `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TEXT_VALUE\&#34;}]`.
+     * @return List of parameters in JSON format. For example: `[{&#92;&#34;Name&#92;&#34;:&#92;&#34;InstanceId&#92;&#34;,&#92;&#34;Type&#92;&#34;:&#92;&#34;TARGET&#92;&#34;}]` or `[{&#92;&#34;Name&#92;&#34;:&#92;&#34;InstanceId&#92;&#34;,&#92;&#34;Type&#92;&#34;:&#92;&#34;TEXT_VALUE&#92;&#34;}]`.
      * 
      */
     public Optional<Output<String>> parameters() {
@@ -162,7 +162,7 @@ public final class ServiceActionDefinitionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param parameters List of parameters in JSON format. For example: `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TARGET\&#34;}]` or `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TEXT_VALUE\&#34;}]`.
+         * @param parameters List of parameters in JSON format. For example: `[{&#92;&#34;Name&#92;&#34;:&#92;&#34;InstanceId&#92;&#34;,&#92;&#34;Type&#92;&#34;:&#92;&#34;TARGET&#92;&#34;}]` or `[{&#92;&#34;Name&#92;&#34;:&#92;&#34;InstanceId&#92;&#34;,&#92;&#34;Type&#92;&#34;:&#92;&#34;TEXT_VALUE&#92;&#34;}]`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ServiceActionDefinitionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param parameters List of parameters in JSON format. For example: `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TARGET\&#34;}]` or `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TEXT_VALUE\&#34;}]`.
+         * @param parameters List of parameters in JSON format. For example: `[{&#92;&#34;Name&#92;&#34;:&#92;&#34;InstanceId&#92;&#34;,&#92;&#34;Type&#92;&#34;:&#92;&#34;TARGET&#92;&#34;}]` or `[{&#92;&#34;Name&#92;&#34;:&#92;&#34;InstanceId&#92;&#34;,&#92;&#34;Type&#92;&#34;:&#92;&#34;TEXT_VALUE&#92;&#34;}]`.
          * 
          * @return builder
          * 

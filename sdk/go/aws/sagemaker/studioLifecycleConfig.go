@@ -153,6 +153,12 @@ func (StudioLifecycleConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*studioLifecycleConfigState)(nil)).Elem()
 }
 
+// StudioLifecycleConfigExists checks whether an existing StudioLifecycleConfig resource with the given ID exists.
+func StudioLifecycleConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StudioLifecycleConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig", id, state, "", opts...)
+}
+
 type studioLifecycleConfigArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

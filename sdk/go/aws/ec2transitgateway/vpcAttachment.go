@@ -188,6 +188,12 @@ func (VpcAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcAttachmentState)(nil)).Elem()
 }
 
+// VpcAttachmentExists checks whether an existing VpcAttachment resource with the given ID exists.
+func VpcAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ec2transitgateway/vpcAttachment:VpcAttachment", id, state, "", opts...)
+}
+
 type vpcAttachmentArgs struct {
 	// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
 	ApplianceModeSupport *string `pulumi:"applianceModeSupport"`

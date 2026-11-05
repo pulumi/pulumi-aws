@@ -118,6 +118,12 @@ func (FirewallTransitGatewayAttachmentAccepterState) ElementType() reflect.Type 
 	return reflect.TypeOf((*firewallTransitGatewayAttachmentAccepterState)(nil)).Elem()
 }
 
+// FirewallTransitGatewayAttachmentAccepterExists checks whether an existing FirewallTransitGatewayAttachmentAccepter resource with the given ID exists.
+func FirewallTransitGatewayAttachmentAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallTransitGatewayAttachmentAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter", id, state, "", opts...)
+}
+
 type firewallTransitGatewayAttachmentAccepterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                                           `pulumi:"region"`

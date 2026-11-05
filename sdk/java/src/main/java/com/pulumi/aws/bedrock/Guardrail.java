@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Guardrail("example", GuardrailArgs.builder()
  *             .contentPolicyConfig(GuardrailContentPolicyConfigArgs.builder()
  *                 .filtersConfigs(GuardrailContentPolicyConfigFiltersConfigArgs.builder()
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                     .outputEnabled(false)
  *                     .description("example regex")
  *                     .name("regex_example")
- *                     .pattern("^\\d{3}-\\d{2}-\\d{4}$")
+ *                     .pattern("^}&#92;&#92;{@code d}{{@code 3}}{@code -}&#92;&#92;{@code d}{{@code 2}}{@code -}&#92;&#92;{@code d}{{@code 4}}{@code $")
  *                     .build())
  *                 .build())
  *             .topicPolicyConfig(GuardrailTopicPolicyConfigArgs.builder()
@@ -119,8 +119,8 @@ import javax.annotation.Nullable;
  *             .description("example")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -227,6 +227,12 @@ func (RefreshScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*refreshScheduleState)(nil)).Elem()
 }
 
+// RefreshScheduleExists checks whether an existing RefreshSchedule resource with the given ID exists.
+func RefreshScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RefreshScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:quicksight/refreshSchedule:RefreshSchedule", id, state, "", opts...)
+}
+
 type refreshScheduleArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`

@@ -259,6 +259,18 @@ class TargetGroupAttachment(pulumi.CustomResource):
         __props__.__dict__["target_group_identifier"] = target_group_identifier
         return TargetGroupAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict', 'outputs.TargetGroupAttachmentTarget']]] = None,
+            target_group_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["region"] = region
+        __props__["target"] = target
+        __props__["targetGroupIdentifier"] = target_group_identifier
+        return pulumi.runtime.exists_resource(None, 'aws:vpclattice/targetGroupAttachment:TargetGroupAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:

@@ -308,6 +308,12 @@ func (TelemetryRuleForOrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*telemetryRuleForOrganizationState)(nil)).Elem()
 }
 
+// TelemetryRuleForOrganizationExists checks whether an existing TelemetryRuleForOrganization resource with the given ID exists.
+func TelemetryRuleForOrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TelemetryRuleForOrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:observabilityadmin/telemetryRuleForOrganization:TelemetryRuleForOrganization", id, state, "", opts...)
+}
+
 type telemetryRuleForOrganizationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`

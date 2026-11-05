@@ -78,14 +78,14 @@ public final class GetLifecyclePolicyDocumentRuleSelection extends com.pulumi.re
     }
 
     /**
-     * You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
+     * You must specify a comma-separated list of image tag patterns that may contain wildcards (&#92;*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod&#92;*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (&#92;*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
      * 
      */
     @Import(name="tagPatternLists")
     private @Nullable List<String> tagPatternLists;
 
     /**
-     * @return You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
+     * @return You must specify a comma-separated list of image tag patterns that may contain wildcards (&#92;*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod&#92;*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (&#92;*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
      * 
      */
     public Optional<List<String>> tagPatternLists() {
@@ -197,7 +197,7 @@ public final class GetLifecyclePolicyDocumentRuleSelection extends com.pulumi.re
         }
 
         /**
-         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
+         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (&#92;*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod&#92;*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (&#92;*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class GetLifecyclePolicyDocumentRuleSelection extends com.pulumi.re
         }
 
         /**
-         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
+         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (&#92;*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod&#92;*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (&#92;*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
          * 
          * @return builder
          * 

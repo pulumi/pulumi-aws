@@ -207,6 +207,12 @@ func (OptionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*optionGroupState)(nil)).Elem()
 }
 
+// OptionGroupExists checks whether an existing OptionGroup resource with the given ID exists.
+func OptionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OptionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:rds/optionGroup:OptionGroup", id, state, "", opts...)
+}
+
 type optionGroupArgs struct {
 	// Name of the engine that this option group should be associated with.
 	EngineName string `pulumi:"engineName"`

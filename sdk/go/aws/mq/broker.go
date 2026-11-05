@@ -417,6 +417,12 @@ func (BrokerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*brokerState)(nil)).Elem()
 }
 
+// BrokerExists checks whether an existing Broker resource with the given ID exists.
+func BrokerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrokerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:mq/broker:Broker", id, state, "", opts...)
+}
+
 type brokerArgs struct {
 	// Whether to apply broker modifications immediately. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`

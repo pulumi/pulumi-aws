@@ -1458,6 +1458,84 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
         return LustreFileSystem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_import_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            data_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+            data_read_cache_configuration: pulumi.Input[Optional[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict', 'outputs.LustreFileSystemDataReadCacheConfiguration']]] = None,
+            deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            drive_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+            efa_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            export_path: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+            final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            import_path: pulumi.Input[Optional[_builtins.str]] = None,
+            imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_configuration: pulumi.Input[Optional[Union['LustreFileSystemLogConfigurationArgs', 'LustreFileSystemLogConfigurationArgsDict', 'outputs.LustreFileSystemLogConfiguration']]] = None,
+            metadata_configuration: pulumi.Input[Optional[Union['LustreFileSystemMetadataConfigurationArgs', 'LustreFileSystemMetadataConfigurationArgsDict', 'outputs.LustreFileSystemMetadataConfiguration']]] = None,
+            mount_name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            per_unit_storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_squash_configuration: pulumi.Input[Optional[Union['LustreFileSystemRootSquashConfigurationArgs', 'LustreFileSystemRootSquashConfigurationArgsDict', 'outputs.LustreFileSystemRootSquashConfiguration']]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["autoImportPolicy"] = auto_import_policy
+        __props__["automaticBackupRetentionDays"] = automatic_backup_retention_days
+        __props__["backupId"] = backup_id
+        __props__["copyTagsToBackups"] = copy_tags_to_backups
+        __props__["dailyAutomaticBackupStartTime"] = daily_automatic_backup_start_time
+        __props__["dataCompressionType"] = data_compression_type
+        __props__["dataReadCacheConfiguration"] = data_read_cache_configuration
+        __props__["deploymentType"] = deployment_type
+        __props__["dnsName"] = dns_name
+        __props__["driveCacheType"] = drive_cache_type
+        __props__["efaEnabled"] = efa_enabled
+        __props__["exportPath"] = export_path
+        __props__["fileSystemTypeVersion"] = file_system_type_version
+        __props__["finalBackupTags"] = final_backup_tags
+        __props__["importPath"] = import_path
+        __props__["importedFileChunkSize"] = imported_file_chunk_size
+        __props__["kmsKeyId"] = kms_key_id
+        __props__["logConfiguration"] = log_configuration
+        __props__["metadataConfiguration"] = metadata_configuration
+        __props__["mountName"] = mount_name
+        __props__["networkInterfaceIds"] = network_interface_ids
+        __props__["ownerId"] = owner_id
+        __props__["perUnitStorageThroughput"] = per_unit_storage_throughput
+        __props__["region"] = region
+        __props__["rootSquashConfiguration"] = root_squash_configuration
+        __props__["securityGroupIds"] = security_group_ids
+        __props__["skipFinalBackup"] = skip_final_backup
+        __props__["storageCapacity"] = storage_capacity
+        __props__["storageType"] = storage_type
+        __props__["subnetIds"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["throughputCapacity"] = throughput_capacity
+        __props__["vpcId"] = vpc_id
+        __props__["weeklyMaintenanceStartTime"] = weekly_maintenance_start_time
+        return pulumi.runtime.exists_resource(None, 'aws:fsx/lustreFileSystem:LustreFileSystem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

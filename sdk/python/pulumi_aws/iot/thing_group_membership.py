@@ -304,6 +304,20 @@ class ThingGroupMembership(pulumi.CustomResource):
         __props__.__dict__["thing_name"] = thing_name
         return ThingGroupMembership(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            override_dynamic_group: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            thing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            thing_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["overrideDynamicGroup"] = override_dynamic_group
+        __props__["region"] = region
+        __props__["thingGroupName"] = thing_group_name
+        __props__["thingName"] = thing_name
+        return pulumi.runtime.exists_resource(None, 'aws:iot/thingGroupMembership:ThingGroupMembership', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="overrideDynamicGroup")
     def override_dynamic_group(self) -> pulumi.Output[Optional[_builtins.bool]]:

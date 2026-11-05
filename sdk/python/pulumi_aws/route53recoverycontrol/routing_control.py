@@ -334,6 +334,22 @@ class RoutingControl(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return RoutingControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["clusterArn"] = cluster_arn
+        __props__["controlPanelArn"] = control_panel_arn
+        __props__["name"] = name
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'aws:route53recoverycontrol/routingControl:RoutingControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

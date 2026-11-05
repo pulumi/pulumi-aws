@@ -179,6 +179,12 @@ func (CloudFormationTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudFormationTypeState)(nil)).Elem()
 }
 
+// CloudFormationTypeExists checks whether an existing CloudFormationType resource with the given ID exists.
+func CloudFormationTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudFormationTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:cloudformation/cloudFormationType:CloudFormationType", id, state, "", opts...)
+}
+
 type cloudFormationTypeArgs struct {
 	// ARN of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`

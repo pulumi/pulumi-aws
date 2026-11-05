@@ -538,6 +538,36 @@ class AppMonitor(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return AppMonitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict', 'outputs.AppMonitorAppMonitorConfiguration']]] = None,
+            app_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']]] = None,
+            cw_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cw_log_group: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appMonitorConfiguration"] = app_monitor_configuration
+        __props__["appMonitorId"] = app_monitor_id
+        __props__["arn"] = arn
+        __props__["customEvents"] = custom_events
+        __props__["cwLogEnabled"] = cw_log_enabled
+        __props__["cwLogGroup"] = cw_log_group
+        __props__["domain"] = domain
+        __props__["domainLists"] = domain_lists
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:rum/appMonitor:AppMonitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> pulumi.Output['outputs.AppMonitorAppMonitorConfiguration']:

@@ -186,6 +186,12 @@ func (BucketObjectLockConfigurationV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketObjectLockConfigurationV2State)(nil)).Elem()
 }
 
+// BucketObjectLockConfigurationV2Exists checks whether an existing BucketObjectLockConfigurationV2 resource with the given ID exists.
+func BucketObjectLockConfigurationV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketObjectLockConfigurationV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2", id, state, "", opts...)
+}
+
 type bucketObjectLockConfigurationV2Args struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`

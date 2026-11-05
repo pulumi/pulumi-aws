@@ -671,6 +671,38 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_account: pulumi.Input[Optional[_builtins.str]] = None,
+            application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            application_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            client_token: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict', 'outputs.ApplicationPortalOptions']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationAccount"] = application_account
+        __props__["applicationArn"] = application_arn
+        __props__["applicationProviderArn"] = application_provider_arn
+        __props__["arn"] = arn
+        __props__["clientToken"] = client_token
+        __props__["description"] = description
+        __props__["instanceArn"] = instance_arn
+        __props__["name"] = name
+        __props__["portalOptions"] = portal_options
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        return pulumi.runtime.exists_resource(None, 'aws:ssoadmin/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationAccount")
     def application_account(self) -> pulumi.Output[_builtins.str]:

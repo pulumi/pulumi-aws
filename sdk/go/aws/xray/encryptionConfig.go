@@ -190,6 +190,12 @@ func (EncryptionConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*encryptionConfigState)(nil)).Elem()
 }
 
+// EncryptionConfigExists checks whether an existing EncryptionConfig resource with the given ID exists.
+func EncryptionConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EncryptionConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:xray/encryptionConfig:EncryptionConfig", id, state, "", opts...)
+}
+
 type encryptionConfigArgs struct {
 	// AWS KMS customer master key (CMK) ARN.
 	KeyId *string `pulumi:"keyId"`

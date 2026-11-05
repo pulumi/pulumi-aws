@@ -385,6 +385,20 @@ class ServiceIntegration(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         return ServiceIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            kms_server_side_encryption: pulumi.Input[Optional[Union['ServiceIntegrationKmsServerSideEncryptionArgs', 'ServiceIntegrationKmsServerSideEncryptionArgsDict', 'outputs.ServiceIntegrationKmsServerSideEncryption']]] = None,
+            logs_anomaly_detection: pulumi.Input[Optional[Union['ServiceIntegrationLogsAnomalyDetectionArgs', 'ServiceIntegrationLogsAnomalyDetectionArgsDict', 'outputs.ServiceIntegrationLogsAnomalyDetection']]] = None,
+            ops_center: pulumi.Input[Optional[Union['ServiceIntegrationOpsCenterArgs', 'ServiceIntegrationOpsCenterArgsDict', 'outputs.ServiceIntegrationOpsCenter']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["kmsServerSideEncryption"] = kms_server_side_encryption
+        __props__["logsAnomalyDetection"] = logs_anomaly_detection
+        __props__["opsCenter"] = ops_center
+        __props__["region"] = region
+        return pulumi.runtime.exists_resource(None, 'aws:devopsguru/serviceIntegration:ServiceIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="kmsServerSideEncryption")
     def kms_server_side_encryption(self) -> pulumi.Output['outputs.ServiceIntegrationKmsServerSideEncryption']:

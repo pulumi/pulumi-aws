@@ -127,6 +127,12 @@ func (AccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountState)(nil)).Elem()
 }
 
+// AccountExists checks whether an existing Account resource with the given ID exists.
+func AccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:macie2/account:Account", id, state, "", opts...)
+}
+
 type accountArgs struct {
 	// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`

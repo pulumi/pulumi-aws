@@ -588,6 +588,44 @@ class View(pulumi.CustomResource):
         __props__.__dict__["view_definition_last_updated_at"] = view_definition_last_updated_at
         return View(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            billing_view_type: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict', 'outputs.ViewDataFilterExpression']]] = None,
+            derived_view_count: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_view_count: pulumi.Input[Optional[_builtins.int]] = None,
+            source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict', 'outputs.ViewTimeouts']]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            view_definition_last_updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["billingViewType"] = billing_view_type
+        __props__["createdAt"] = created_at
+        __props__["dataFilterExpression"] = data_filter_expression
+        __props__["derivedViewCount"] = derived_view_count
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["ownerAccountId"] = owner_account_id
+        __props__["sourceAccountId"] = source_account_id
+        __props__["sourceViewCount"] = source_view_count
+        __props__["sourceViews"] = source_views
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["timeouts"] = timeouts
+        __props__["updatedAt"] = updated_at
+        __props__["viewDefinitionLastUpdatedAt"] = view_definition_last_updated_at
+        return pulumi.runtime.exists_resource(None, 'aws:billing/view:View', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

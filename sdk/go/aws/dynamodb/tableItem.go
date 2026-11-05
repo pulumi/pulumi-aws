@@ -199,6 +199,12 @@ func (TableItemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableItemState)(nil)).Elem()
 }
 
+// TableItemExists checks whether an existing TableItem resource with the given ID exists.
+func TableItemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableItemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dynamodb/tableItem:TableItem", id, state, "", opts...)
+}
+
 type tableItemArgs struct {
 	// Hash key to use for lookups and identification of the item
 	HashKey string `pulumi:"hashKey"`

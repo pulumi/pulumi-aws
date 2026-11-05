@@ -377,6 +377,24 @@ class EmailTemplate(pulumi.CustomResource):
         __props__.__dict__["template_name"] = template_name
         return EmailTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            email_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict', 'outputs.EmailTemplateEmailTemplate']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arn"] = arn
+        __props__["emailTemplates"] = email_templates
+        __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
+        __props__["templateName"] = template_name
+        return pulumi.runtime.exists_resource(None, 'aws:pinpoint/emailTemplate:EmailTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:

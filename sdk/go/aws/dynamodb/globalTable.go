@@ -167,6 +167,12 @@ func (GlobalTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalTableState)(nil)).Elem()
 }
 
+// GlobalTableExists checks whether an existing GlobalTable resource with the given ID exists.
+func GlobalTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:dynamodb/globalTable:GlobalTable", id, state, "", opts...)
+}
+
 type globalTableArgs struct {
 	// The name of the global table. Must match underlying DynamoDB Table names in all regions.
 	Name *string `pulumi:"name"`

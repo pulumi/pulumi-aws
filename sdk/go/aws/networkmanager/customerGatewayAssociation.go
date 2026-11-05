@@ -187,6 +187,12 @@ func (CustomerGatewayAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerGatewayAssociationState)(nil)).Elem()
 }
 
+// CustomerGatewayAssociationExists checks whether an existing CustomerGatewayAssociation resource with the given ID exists.
+func CustomerGatewayAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomerGatewayAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation", id, state, "", opts...)
+}
+
 type customerGatewayAssociationArgs struct {
 	// ARN of the customer gateway.
 	CustomerGatewayArn string `pulumi:"customerGatewayArn"`

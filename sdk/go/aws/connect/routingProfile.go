@@ -203,6 +203,12 @@ func (RoutingProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routingProfileState)(nil)).Elem()
 }
 
+// RoutingProfileExists checks whether an existing RoutingProfile resource with the given ID exists.
+func RoutingProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoutingProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:connect/routingProfile:RoutingProfile", id, state, "", opts...)
+}
+
 type routingProfileArgs struct {
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId string `pulumi:"defaultOutboundQueueId"`

@@ -298,6 +298,12 @@ func (AgentcoreGatewayRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentcoreGatewayRuleState)(nil)).Elem()
 }
 
+// AgentcoreGatewayRuleExists checks whether an existing AgentcoreGatewayRule resource with the given ID exists.
+func AgentcoreGatewayRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentcoreGatewayRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:bedrock/agentcoreGatewayRule:AgentcoreGatewayRule", id, state, "", opts...)
+}
+
 type agentcoreGatewayRuleArgs struct {
 	// One or two `action` blocks defining what happens when the rule's conditions match. See Action below.
 	Actions []AgentcoreGatewayRuleAction `pulumi:"actions"`

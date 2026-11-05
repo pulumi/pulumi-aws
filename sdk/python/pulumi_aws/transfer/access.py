@@ -545,6 +545,30 @@ class Access(pulumi.CustomResource):
         __props__.__dict__["server_id"] = server_id
         return Access(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+            home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessHomeDirectoryMappingArgs', 'AccessHomeDirectoryMappingArgsDict', 'outputs.AccessHomeDirectoryMapping']]]]] = None,
+            home_directory_type: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            posix_profile: pulumi.Input[Optional[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict', 'outputs.AccessPosixProfile']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["externalId"] = external_id
+        __props__["homeDirectory"] = home_directory
+        __props__["homeDirectoryMappings"] = home_directory_mappings
+        __props__["homeDirectoryType"] = home_directory_type
+        __props__["policy"] = policy
+        __props__["posixProfile"] = posix_profile
+        __props__["region"] = region
+        __props__["role"] = role
+        __props__["serverId"] = server_id
+        return pulumi.runtime.exists_resource(None, 'aws:transfer/access:Access', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[_builtins.str]:

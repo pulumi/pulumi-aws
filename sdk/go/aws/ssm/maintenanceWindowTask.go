@@ -389,6 +389,12 @@ func (MaintenanceWindowTaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceWindowTaskState)(nil)).Elem()
 }
 
+// MaintenanceWindowTaskExists checks whether an existing MaintenanceWindowTask resource with the given ID exists.
+func MaintenanceWindowTaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MaintenanceWindowTaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", id, state, "", opts...)
+}
+
 type maintenanceWindowTaskArgs struct {
 	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
 	CutoffBehavior *string `pulumi:"cutoffBehavior"`

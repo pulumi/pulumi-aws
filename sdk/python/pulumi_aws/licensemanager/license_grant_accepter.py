@@ -379,6 +379,32 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return LicenseGrantAccepter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            grant_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            home_region: pulumi.Input[Optional[_builtins.str]] = None,
+            license_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedOperations"] = allowed_operations
+        __props__["grantArn"] = grant_arn
+        __props__["homeRegion"] = home_region
+        __props__["licenseArn"] = license_arn
+        __props__["name"] = name
+        __props__["parentArn"] = parent_arn
+        __props__["principal"] = principal
+        __props__["region"] = region
+        __props__["status"] = status
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedOperations")
     def allowed_operations(self) -> pulumi.Output[Sequence[_builtins.str]]:

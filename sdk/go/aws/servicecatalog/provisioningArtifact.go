@@ -189,6 +189,12 @@ func (ProvisioningArtifactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisioningArtifactState)(nil)).Elem()
 }
 
+// ProvisioningArtifactExists checks whether an existing ProvisioningArtifact resource with the given ID exists.
+func ProvisioningArtifactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProvisioningArtifactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/provisioningArtifact:ProvisioningArtifact", id, state, "", opts...)
+}
+
 type provisioningArtifactArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

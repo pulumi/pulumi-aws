@@ -181,6 +181,12 @@ func (FunctionRecursionConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionRecursionConfigState)(nil)).Elem()
 }
 
+// FunctionRecursionConfigExists checks whether an existing FunctionRecursionConfig resource with the given ID exists.
+func FunctionRecursionConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionRecursionConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lambda/functionRecursionConfig:FunctionRecursionConfig", id, state, "", opts...)
+}
+
 type functionRecursionConfigArgs struct {
 	// Name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`

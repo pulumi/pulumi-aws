@@ -447,6 +447,12 @@ func (V2modelsIntentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*v2modelsIntentState)(nil)).Elem()
 }
 
+// V2modelsIntentExists checks whether an existing V2modelsIntent resource with the given ID exists.
+func V2modelsIntentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *V2modelsIntentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:lex/v2modelsIntent:V2modelsIntent", id, state, "", opts...)
+}
+
 type v2modelsIntentArgs struct {
 	// Identifier of the bot associated with this intent.
 	BotId string `pulumi:"botId"`

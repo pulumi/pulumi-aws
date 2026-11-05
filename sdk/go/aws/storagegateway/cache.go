@@ -118,6 +118,12 @@ func (CacheState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheState)(nil)).Elem()
 }
 
+// CacheExists checks whether an existing Cache resource with the given ID exists.
+func CacheExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CacheState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:storagegateway/cache:Cache", id, state, "", opts...)
+}
+
 type cacheArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId string `pulumi:"diskId"`

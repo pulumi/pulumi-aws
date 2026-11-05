@@ -55,7 +55,7 @@ public final class NotificationConfigurationArgs extends com.pulumi.resources.Re
 
     /**
      * Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
+     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_&#92;-]+`.
      * 
      * The following arguments are optional:
      * 
@@ -65,7 +65,7 @@ public final class NotificationConfigurationArgs extends com.pulumi.resources.Re
 
     /**
      * @return Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
+     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_&#92;-]+`.
      * 
      * The following arguments are optional:
      * 
@@ -170,7 +170,7 @@ public final class NotificationConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param name Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-         * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
+         * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_&#92;-]+`.
          * 
          * The following arguments are optional:
          * 
@@ -184,7 +184,7 @@ public final class NotificationConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param name Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-         * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
+         * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_&#92;-]+`.
          * 
          * The following arguments are optional:
          * 

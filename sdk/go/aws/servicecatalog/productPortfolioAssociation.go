@@ -136,6 +136,12 @@ func (ProductPortfolioAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*productPortfolioAssociationState)(nil)).Elem()
 }
 
+// ProductPortfolioAssociationExists checks whether an existing ProductPortfolioAssociation resource with the given ID exists.
+func ProductPortfolioAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProductPortfolioAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", id, state, "", opts...)
+}
+
 type productPortfolioAssociationArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

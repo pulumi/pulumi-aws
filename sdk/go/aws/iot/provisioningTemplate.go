@@ -264,6 +264,12 @@ func (ProvisioningTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisioningTemplateState)(nil)).Elem()
 }
 
+// ProvisioningTemplateExists checks whether an existing ProvisioningTemplate resource with the given ID exists.
+func ProvisioningTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProvisioningTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:iot/provisioningTemplate:ProvisioningTemplate", id, state, "", opts...)
+}
+
 type provisioningTemplateArgs struct {
 	// The description of the fleet provisioning template.
 	Description *string `pulumi:"description"`

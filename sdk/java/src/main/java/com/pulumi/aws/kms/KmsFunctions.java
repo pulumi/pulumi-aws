@@ -269,12 +269,12 @@ public final class KmsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
@@ -283,15 +283,15 @@ public final class KmsFunctions {
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
      *             .plaintext("""
-     * {
-     *   \"client_id\": \"e587dbae22222f55da22\",
-     *   \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"
-     * }
+     * }{{@code
+     *   }&#92;{@code "client_id}&#92;{@code ": }&#92;{@code "e587dbae22222f55da22}&#92;{@code ",
+     *   }&#92;{@code "client_secret}&#92;{@code ": }&#92;{@code "8289575d00000ace55e1815ec13673955721b8a5}&#92;{@code "
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -325,12 +325,12 @@ public final class KmsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
@@ -339,15 +339,15 @@ public final class KmsFunctions {
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
      *             .plaintext("""
-     * {
-     *   \"client_id\": \"e587dbae22222f55da22\",
-     *   \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"
-     * }
+     * }{{@code
+     *   }&#92;{@code "client_id}&#92;{@code ": }&#92;{@code "e587dbae22222f55da22}&#92;{@code ",
+     *   }&#92;{@code "client_secret}&#92;{@code ": }&#92;{@code "8289575d00000ace55e1815ec13673955721b8a5}&#92;{@code "
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -381,12 +381,12 @@ public final class KmsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
@@ -395,15 +395,15 @@ public final class KmsFunctions {
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
      *             .plaintext("""
-     * {
-     *   \"client_id\": \"e587dbae22222f55da22\",
-     *   \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"
-     * }
+     * }{{@code
+     *   }&#92;{@code "client_id}&#92;{@code ": }&#92;{@code "e587dbae22222f55da22}&#92;{@code ",
+     *   }&#92;{@code "client_secret}&#92;{@code ": }&#92;{@code "8289575d00000ace55e1815ec13673955721b8a5}&#92;{@code "
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -437,12 +437,12 @@ public final class KmsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
@@ -451,15 +451,15 @@ public final class KmsFunctions {
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
      *             .plaintext("""
-     * {
-     *   \"client_id\": \"e587dbae22222f55da22\",
-     *   \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"
-     * }
+     * }{{@code
+     *   }&#92;{@code "client_id}&#92;{@code ": }&#92;{@code "e587dbae22222f55da22}&#92;{@code ",
+     *   }&#92;{@code "client_secret}&#92;{@code ": }&#92;{@code "8289575d00000ace55e1815ec13673955721b8a5}&#92;{@code "
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -493,12 +493,12 @@ public final class KmsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
@@ -507,15 +507,15 @@ public final class KmsFunctions {
      *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
      *             .keyId(oauthConfig.keyId())
      *             .plaintext("""
-     * {
-     *   \"client_id\": \"e587dbae22222f55da22\",
-     *   \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"
-     * }
+     * }{{@code
+     *   }&#92;{@code "client_id}&#92;{@code ": }&#92;{@code "e587dbae22222f55da22}&#92;{@code ",
+     *   }&#92;{@code "client_secret}&#92;{@code ": }&#92;{@code "8289575d00000ace55e1815ec13673955721b8a5}&#92;{@code "
+     * }}{@code
      *             """)
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 

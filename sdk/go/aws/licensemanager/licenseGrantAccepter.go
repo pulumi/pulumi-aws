@@ -154,6 +154,12 @@ func (LicenseGrantAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licenseGrantAccepterState)(nil)).Elem()
 }
 
+// LicenseGrantAccepterExists checks whether an existing LicenseGrantAccepter resource with the given ID exists.
+func LicenseGrantAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicenseGrantAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", id, state, "", opts...)
+}
+
 type licenseGrantAccepterArgs struct {
 	// The ARN of the grant to accept.
 	GrantArn string `pulumi:"grantArn"`

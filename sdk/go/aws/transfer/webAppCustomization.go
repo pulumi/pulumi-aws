@@ -106,6 +106,12 @@ func (WebAppCustomizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppCustomizationState)(nil)).Elem()
 }
 
+// WebAppCustomizationExists checks whether an existing WebAppCustomization resource with the given ID exists.
+func WebAppCustomizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAppCustomizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:transfer/webAppCustomization:WebAppCustomization", id, state, "", opts...)
+}
+
 type webAppCustomizationArgs struct {
 	// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
 	FaviconFile *string `pulumi:"faviconFile"`

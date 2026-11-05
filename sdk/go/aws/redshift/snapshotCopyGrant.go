@@ -143,6 +143,12 @@ func (SnapshotCopyGrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyGrantState)(nil)).Elem()
 }
 
+// SnapshotCopyGrantExists checks whether an existing SnapshotCopyGrant resource with the given ID exists.
+func SnapshotCopyGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotCopyGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", id, state, "", opts...)
+}
+
 type snapshotCopyGrantArgs struct {
 	// Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`

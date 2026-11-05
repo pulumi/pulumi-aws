@@ -147,6 +147,12 @@ func (TrustStoreAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustStoreAssociationState)(nil)).Elem()
 }
 
+// TrustStoreAssociationExists checks whether an existing TrustStoreAssociation resource with the given ID exists.
+func TrustStoreAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustStoreAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation", id, state, "", opts...)
+}
+
 type trustStoreAssociationArgs struct {
 	// ARN of the portal to associate with the trust store. Forces replacement if changed.
 	//
