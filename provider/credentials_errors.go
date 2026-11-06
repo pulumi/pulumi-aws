@@ -10,7 +10,9 @@ import (
 
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 //go:embed errors/*.txt
@@ -24,20 +26,38 @@ var credentialsErrorTemplates = template.Must(template.ParseFS(credentialsErrorF
 var credentialsErrors = []struct {
 	markers  []string
 	template string
+	// hint is set when short-lived credentials may help with the failure, so that the Pulumi CLI can suggest them.
+	hint pulumirpc.Hint
 }{
 	// Normally it'd query sts.REGION.amazonaws.com
 	// but if we query sts..amazonaws.com, then we don't have a region.
-	{[]string{"endpoint rule error, Invalid Configuration: Missing Region"}, "no_region.txt"},
-	{[]string{"no EC2 IMDS role found"}, "no_credentials.txt"},
+	{markers: []string{"endpoint rule error, Invalid Configuration: Missing Region"}, template: "no_region.txt"},
+	{
+		markers:  []string{"no EC2 IMDS role found"},
+		template: "no_credentials.txt",
+		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+	},
 	// STS reports long-expired session tokens as invalid, so one message covers both.
-	{[]string{
-		"The security token included in the request is invalid",
-		"The security token included in the request is expired",
-	}, "invalid_credentials.txt"},
-	{[]string{"failed to get shared config profile"}, "profile_not_found.txt"},
-	{[]string{"process provider error"}, "credential_process.txt"},
-	{[]string{"login token", "oauth2 token", "login session"}, "expired_login.txt"},
-	{[]string{"SSO token", "SSO session"}, "expired_sso.txt"},
+	{
+		markers: []string{
+			"The security token included in the request is invalid",
+			"The security token included in the request is expired",
+		},
+		template: "invalid_credentials.txt",
+		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+	},
+	{markers: []string{"failed to get shared config profile"}, template: "profile_not_found.txt"},
+	{markers: []string{"process provider error"}, template: "credential_process.txt"},
+	{
+		markers:  []string{"login token", "oauth2 token", "login session"},
+		template: "expired_login.txt",
+		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+	},
+	{
+		markers:  []string{"SSO token", "SSO session"},
+		template: "expired_sso.txt",
+		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+	},
 }
 
 const maxListedProfiles = 10
@@ -71,8 +91,9 @@ func (d credentialsErrorData) ProfileFlag() string {
 	}
 }
 
-// credentialsFailureReason turns the diagnostics of a failed credentials validation into an actionable message.
-func credentialsFailureReason(formattedDiag string, config *awsbase.Config) string {
+// credentialsFailure turns the diagnostics of a failed credentials validation into a check failure with an
+// actionable message, and the product hint relevant to it, if any.
+func credentialsFailure(formattedDiag string, config *awsbase.Config) tfbridge.CheckFailureErrorElement {
 	for _, e := range credentialsErrors {
 		if !slices.ContainsFunc(e.markers, func(m string) bool { return strings.Contains(formattedDiag, m) }) {
 			continue
@@ -89,9 +110,11 @@ func credentialsFailureReason(formattedDiag string, config *awsbase.Config) stri
 			Cause:    strings.TrimSpace(cause),
 		})
 		contract.AssertNoErrorf(err, "failed to render %s", e.template)
-		return sb.String()
+		return tfbridge.CheckFailureErrorElement{Reason: sb.String(), Hint: e.hint}
 	}
-	return fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag)
+	return tfbridge.CheckFailureErrorElement{
+		Reason: fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag),
+	}
 }
 
 // sharedProfiles returns the names of the profiles defined in the shared config and credentials files, other than

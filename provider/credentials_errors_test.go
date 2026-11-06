@@ -11,12 +11,10 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 const (
-	escHint = "\nYou can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run " +
-		"`pulumi env setup aws`.\nLearn more: https://www.pulumi.com/registry/packages/aws/" +
-		"installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
 	docsHint = "Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more " +
 		"information about providing credentials."
 	loginHint = "To sign in through your browser, run `aws login` (requires AWS CLI 2.32.0 or later) and try again."
@@ -56,10 +54,11 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 		credentials string
 		profile     string
 		expected    string
+		noHint      bool
 	}{
 		{
 			name:     "no credentials",
-			expected: "No valid credential sources found.\n" + loginHint + "\n" + docsHint + "\n" + escHint,
+			expected: "No valid credential sources found.\n" + loginHint + "\n" + docsHint,
 		},
 		{
 			name:        "profiles configured but none selected",
@@ -68,7 +67,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			expected: "No valid credential sources found.\n" +
 				"No AWS profile is selected, but these profiles are configured: myproj, corp, legacy.\n" +
 				"To use one, run `pulumi config set aws:profile <name>` or set AWS_PROFILE.\n" +
-				loginHint + "\n" + docsHint + "\n" + escHint,
+				loginHint + "\n" + docsHint,
 		},
 		{
 			name:    "login session not signed in",
@@ -88,7 +87,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			config:  testSSOProfile,
 			profile: "corp",
 			expected: "The AWS SSO session for profile \"corp\" has expired or was not found.\n" +
-				"Run `aws sso login --profile corp` to sign in again, then retry.\n" + escHint,
+				"Run `aws sso login --profile corp` to sign in again, then retry.",
 		},
 		{
 			name: "legacy SSO profile not signed in",
@@ -96,7 +95,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 				"sso_account_id = 123456789012\nsso_role_name = Dev\n",
 			profile: "old",
 			expected: "The AWS SSO session for profile \"old\" has expired or was not found.\n" +
-				"Run `aws sso login --profile old` to sign in again, then retry.\n" + escHint,
+				"Run `aws sso login --profile old` to sign in again, then retry.",
 		},
 		{
 			name:    "profile not found",
@@ -105,6 +104,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			expected: "The AWS profile \"nope\" was not found.\n" +
 				"Configured profiles: myproj.\n" +
 				"Check the `aws:profile` configuration and the AWS_PROFILE environment variable.",
+			noHint: true,
 		},
 		{
 			name:   "profile listing skips the default profile and duplicates",
@@ -116,6 +116,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			expected: "The AWS profile \"nope\" was not found.\n" +
 				"Configured profiles: myproj, legacy.\n" +
 				"Check the `aws:profile` configuration and the AWS_PROFILE environment variable.",
+			noHint: true,
 		},
 		{
 			name:   "credential_process fails",
@@ -123,6 +124,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			expected: "The credential_process configured for the default profile failed.\n" +
 				"Details: failed to refresh cached credentials, process provider error: " +
 				"error in credential_process: exit status 1",
+			noHint: true,
 		},
 	}
 	for _, tt := range tests {
@@ -147,6 +149,7 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			require.ErrorAs(t, err, &failure)
 			require.Len(t, failure.Failures, 1)
 			require.Equal(t, tt.expected, failure.Failures[0].Reason)
+			require.Equal(t, expectedHint(tt.noHint), failure.Failures[0].Hint)
 		})
 	}
 }
@@ -159,7 +162,15 @@ func TestCredentialsFailureReason(t *testing.T) {
 		diag     string
 		profile  string
 		expected string
+		noHint   bool
 	}{
+		{
+			name: "missing region",
+			diag: "endpoint rule error, Invalid Configuration: Missing Region",
+			expected: "Missing region information\n" +
+				"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`.",
+			noHint: true,
+		},
 		{
 			name: "login session expired",
 			diag: refresh + "create oauth2 token: operation error Signin: CreateOAuth2Token, https response error " +
@@ -175,21 +186,21 @@ func TestCredentialsFailureReason(t *testing.T) {
 				"SSO OIDC: CreateToken, https response error StatusCode: 400, InvalidGrantException: ",
 			profile: "corp",
 			expected: "The AWS SSO session for profile \"corp\" has expired or was not found.\n" +
-				"Run `aws sso login --profile corp` to sign in again, then retry.\n" + escHint,
+				"Run `aws sso login --profile corp` to sign in again, then retry.",
 		},
 		{
 			name: "invalid credentials",
 			diag: "validating provider credentials: retrieving caller identity from STS: operation error STS: " +
 				"GetCallerIdentity, https response error StatusCode: 403, api error InvalidClientTokenId: " +
 				"The security token included in the request is invalid.",
-			expected: "The configured AWS credentials are invalid or have expired.\n" + docsHint + "\n" + escHint,
+			expected: "The configured AWS credentials are invalid or have expired.\n" + docsHint,
 		},
 		{
 			name: "expired credentials",
 			diag: "validating provider credentials: retrieving caller identity from STS: operation error STS: " +
 				"GetCallerIdentity, https response error StatusCode: 403, api error ExpiredToken: " +
 				"The security token included in the request is expired",
-			expected: "The configured AWS credentials are invalid or have expired.\n" + docsHint + "\n" + escHint,
+			expected: "The configured AWS credentials are invalid or have expired.\n" + docsHint,
 		},
 		{
 			name: "refresh failure that only mentions an SSO role",
@@ -199,6 +210,7 @@ func TestCredentialsFailureReason(t *testing.T) {
 				"Details: " + refresh + "operation error STS: AssumeRole, AccessDenied: User: " +
 				"arn:aws:sts::123456789012:assumed-role/AWSReservedSSO_Dev_0123456789abcdef/me is not authorized " +
 				"to perform: sts:AssumeRole\n",
+			noHint: true,
 		},
 		{
 			name: "earlier rule wins when two match",
@@ -207,20 +219,30 @@ func TestCredentialsFailureReason(t *testing.T) {
 			expected: "The credential_process configured for the default profile failed.\n" +
 				"Details: failed to refresh cached credentials, process provider error: " +
 				"error in credential_process: exit status 1: the SSO session has expired",
+			noHint: true,
 		},
 		{
 			name: "unrecognized refresh failure",
 			diag: refresh + "something new",
 			expected: "unable to validate AWS credentials.\n" +
 				"Details: " + refresh + "something new\n",
+			noHint: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			actual := credentialsFailureReason(tt.diag, &awsbase.Config{Profile: tt.profile})
-			require.Equal(t, tt.expected, actual)
+			actual := credentialsFailure(tt.diag, &awsbase.Config{Profile: tt.profile})
+			require.Equal(t, tt.expected, actual.Reason)
+			require.Equal(t, expectedHint(tt.noHint), actual.Hint)
 		})
 	}
+}
+
+func expectedHint(noHint bool) pulumirpc.Hint {
+	if noHint {
+		return pulumirpc.Hint_HINT_UNSPECIFIED
+	}
+	return pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS
 }
 
 func TestCredentialsErrorTemplatesExist(t *testing.T) {
