@@ -1,6 +1,7 @@
 package provider
 
 import (
+	"context"
 	"embed"
 	"fmt"
 	"os"
@@ -10,6 +11,7 @@ import (
 
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
@@ -24,20 +26,22 @@ var credentialsErrorTemplates = template.Must(template.ParseFS(credentialsErrorF
 var credentialsErrors = []struct {
 	markers  []string
 	template string
+	// signIn is the AWS CLI sign-in that the message recommends, if any.
+	signIn *awsSignInCommand
 }{
 	// Normally it'd query sts.REGION.amazonaws.com
 	// but if we query sts..amazonaws.com, then we don't have a region.
-	{[]string{"endpoint rule error, Invalid Configuration: Missing Region"}, "no_region.txt"},
-	{[]string{"no EC2 IMDS role found"}, "no_credentials.txt"},
+	{[]string{"endpoint rule error, Invalid Configuration: Missing Region"}, "no_region.txt", nil},
+	{[]string{"no EC2 IMDS role found"}, "no_credentials.txt", awsLogin},
 	// STS reports long-expired session tokens as invalid, so one message covers both.
 	{[]string{
 		"The security token included in the request is invalid",
 		"The security token included in the request is expired",
-	}, "invalid_credentials.txt"},
-	{[]string{"failed to get shared config profile"}, "profile_not_found.txt"},
-	{[]string{"process provider error"}, "credential_process.txt"},
-	{[]string{"login token", "oauth2 token", "login session"}, "expired_login.txt"},
-	{[]string{"SSO token", "SSO session"}, "expired_sso.txt"},
+	}, "invalid_credentials.txt", nil},
+	{[]string{"failed to get shared config profile"}, "profile_not_found.txt", nil},
+	{[]string{"process provider error"}, "credential_process.txt", nil},
+	{[]string{"login token", "oauth2 token", "login session"}, "expired_login.txt", awsLogin},
+	{[]string{"SSO token", "SSO session"}, "expired_sso.txt", awsSSOLogin},
 }
 
 const maxListedProfiles = 10
@@ -71,8 +75,24 @@ func (d credentialsErrorData) ProfileFlag() string {
 	}
 }
 
-// credentialsFailureReason turns the diagnostics of a failed credentials validation into an actionable message.
-func credentialsFailureReason(formattedDiag string, config *awsbase.Config) string {
+// credentialsFailure turns the diagnostics of a failed credentials validation into an actionable failure. When the
+// message recommends an AWS CLI sign-in that this machine can run, the failure also offers it as a remediation.
+func credentialsFailure(
+	ctx context.Context, formattedDiag string, config *awsbase.Config, cli awsCLI,
+) tfbridge.CheckFailureErrorElement {
+	reason, signIn := credentialsFailureReason(formattedDiag, config)
+	failure := tfbridge.CheckFailureErrorElement{Reason: reason}
+	if signIn != nil {
+		if r, ok := signIn.remediation(ctx, cli, config); ok {
+			failure.Remediations = []tfbridge.CommandRemediation{r}
+		}
+	}
+	return failure
+}
+
+// credentialsFailureReason turns the diagnostics of a failed credentials validation into an actionable message,
+// and returns the AWS CLI sign-in that the message recommends, if any.
+func credentialsFailureReason(formattedDiag string, config *awsbase.Config) (string, *awsSignInCommand) {
 	for _, e := range credentialsErrors {
 		if !slices.ContainsFunc(e.markers, func(m string) bool { return strings.Contains(formattedDiag, m) }) {
 			continue
@@ -89,9 +109,9 @@ func credentialsFailureReason(formattedDiag string, config *awsbase.Config) stri
 			Cause:    strings.TrimSpace(cause),
 		})
 		contract.AssertNoErrorf(err, "failed to render %s", e.template)
-		return sb.String()
+		return sb.String(), e.signIn
 	}
-	return fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag)
+	return fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag), nil
 }
 
 // sharedProfiles returns the names of the profiles defined in the shared config and credentials files, other than

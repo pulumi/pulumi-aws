@@ -11,6 +11,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.33.10
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.20.4
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.63.5
+	github.com/blang/semver v3.5.1+incompatible
 	github.com/golang/protobuf v1.5.4
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.76
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.40.1
@@ -355,7 +356,6 @@ require (
 	github.com/beevik/etree v1.8.1 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
 	github.com/bgentry/speakeasy v0.2.0 // indirect
-	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/bmatcuk/doublestar/v4 v4.6.0 // indirect
 	github.com/cedar-policy/cedar-go v1.8.0 // indirect
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
