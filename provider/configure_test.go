@@ -166,7 +166,8 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 			"inputs": "*",
 			"failures": [
 				{
-					"reason": "No valid credential sources found.\nTo sign in through your browser, run '''aws login''' (requires AWS CLI 2.32.0 or later) and try again.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.\n\nYou can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run '''pulumi env setup aws'''.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
+					"reason": "No valid credential sources found.\nTo sign in through your browser, run '''aws login''' (requires AWS CLI 2.32.0 or later) and try again.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.",
+					"hint": "HINT_DYNAMIC_CREDENTIALS"
 				}
 			]
 		},
@@ -253,7 +254,8 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 	assertMessage := "Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/ " +
 		"for more information about providing credentials."
 	require.Equal(t, 1, strings.Count(reason, assertMessage))
-	require.Contains(t, reason, "run `pulumi env setup aws`")
+	require.NotContains(t, reason, "pulumi env setup")
+	require.Equal(t, pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS, resp.Failures[0].Hint)
 }
 
 func TestCheckConfigRejectsLegacyAssumeRoleConfigKey(t *testing.T) {
