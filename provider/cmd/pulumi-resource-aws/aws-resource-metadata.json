@@ -814,6 +814,21 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_bedrockdataautomation_blueprint": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockdataautomation_library": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockdataautomation_project": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_billing_view": {
     "hasInputName": true,
     "hasTagsAndTagsAll": true
@@ -2098,6 +2113,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_ec2_capacity_manager": {
+    "hasUsableRegion": true
+  },
   "aws_ec2_capacity_reservation": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -2470,7 +2488,8 @@
     "hasTagsAndTagsAll": true
   },
   "aws_elasticache_global_replication_group": {
-    "hasUsableRegion": true
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_elasticache_parameter_group": {
     "hasInputName": true,
@@ -3395,6 +3414,19 @@
   "aws_lambdamicrovms_microvm": {
     "hasUsableRegion": true
   },
+  "aws_lambdaweb_function": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lambdaweb_function_endpoint": {
+    "hasUsableRegion": true
+  },
+  "aws_lambdaweb_function_revision": {
+    "hasUsableRegion": true
+  },
+  "aws_lambdaweb_resource_policy": {
+    "hasUsableRegion": true
+  },
   "aws_launch_configuration": {
     "hasInputName": true,
     "hasUsableRegion": true
@@ -4005,6 +4037,16 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_networksecuritymanager_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networksecuritymanager_scope": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_notifications_notification_configuration": {
     "hasInputName": true,
     "hasTagsAndTagsAll": true
@@ -4315,6 +4357,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_quicksight_account_custom_permission": {
+    "hasUsableRegion": true
+  },
   "aws_quicksight_account_settings": {
     "hasUsableRegion": true
   },
@@ -4487,6 +4532,10 @@
     "hasTagsAndTagsAll": true
   },
   "aws_rds_shard_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_tenant_database": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
