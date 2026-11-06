@@ -16,14 +16,14 @@ public final class RepositoryEncryptionConfigurationArgs extends com.pulumi.reso
     public static final RepositoryEncryptionConfigurationArgs Empty = new RepositoryEncryptionConfigurationArgs();
 
     /**
-     * The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+     * Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
      * 
      */
     @Import(name="encryptionType")
     private @Nullable Output<String> encryptionType;
 
     /**
-     * @return The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+     * @return Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
      * 
      */
     public Optional<Output<String>> encryptionType() {
@@ -31,14 +31,14 @@ public final class RepositoryEncryptionConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+     * ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+     * @return ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -71,7 +71,7 @@ public final class RepositoryEncryptionConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param encryptionType The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+         * @param encryptionType Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RepositoryEncryptionConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param encryptionType The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+         * @param encryptionType Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RepositoryEncryptionConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param kmsKey The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         * @param kmsKey ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RepositoryEncryptionConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param kmsKey The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         * @param kmsKey ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
          * 
          * @return builder
          * 

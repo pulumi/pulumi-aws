@@ -13,6 +13,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -475,6 +476,20 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> type() {
         return this.type;
+    }
+    /**
+     * Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     * 
+     */
+    @Export(name="unmanagedVcpus", refs={Integer.class}, tree="[0]")
+    private Output<Integer> unmanagedVcpus;
+
+    /**
+     * @return Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     * 
+     */
+    public Output<Integer> unmanagedVcpus() {
+        return this.unmanagedVcpus;
     }
     /**
      * Infrastructure update policy for the compute environment. See details below.

@@ -37,14 +37,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     * Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
      * 
      */
     @Import(name="buildType")
     private @Nullable Output<String> buildType;
 
     /**
-     * @return The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     * @return Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
      * 
      */
     public Optional<Output<String>> buildType() {
@@ -194,7 +194,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildType The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+         * @param buildType Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildType The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+         * @param buildType Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
          * 
          * @return builder
          * 

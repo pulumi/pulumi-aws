@@ -50,7 +50,7 @@ namespace Pulumi.Aws.CloudSearch.Outputs
         /// </summary>
         public readonly string? SourceFields;
         /// <summary>
-        /// The field type. Valid values: `Date`, `date-array`, `Double`, `double-array`, `Int`, `int-array`, `Literal`, `literal-array`, `Text`, `text-array`.
+        /// Field type. Valid values: `Date`, `date-array`, `Double`, `double-array`, `Int`, `int-array`, `Latlon`, `Literal`, `literal-array`, `Text`, `text-array`.
         /// </summary>
         public readonly string Type;
 

@@ -48,6 +48,37 @@ import (
 //
 // ```
 //
+// ### Lambda Web Function Origin
+//
+// Lambda Web Function origins support only the `always-amz-auth` signing behavior. Use `sigv4` for a regional endpoint (hostname ending in `.lambda-web.<region>.on.aws`) and `sigv4a` for a global endpoint (hostname ending in `.lambda-web.global.on.aws`). See [Restrict access to an AWS Lambda Web Function origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda-web.html) in the CloudFront Developer Guide.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewOriginAccessControl(ctx, "example", &cloudfront.OriginAccessControlArgs{
+//				Name:                          pulumi.String("example"),
+//				OriginAccessControlOriginType: pulumi.String("lambda"),
+//				SigningBehavior:               pulumi.String("always-amz-auth"),
+//				SigningProtocol:               pulumi.String("sigv4a"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
@@ -68,9 +99,9 @@ type OriginAccessControl struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType pulumi.StringOutput `pulumi:"originAccessControlOriginType"`
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
 	SigningBehavior pulumi.StringOutput `pulumi:"signingBehavior"`
-	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
 	SigningProtocol pulumi.StringOutput `pulumi:"signingProtocol"`
 }
 
@@ -123,9 +154,9 @@ type originAccessControlState struct {
 	Name *string `pulumi:"name"`
 	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType *string `pulumi:"originAccessControlOriginType"`
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
 	SigningBehavior *string `pulumi:"signingBehavior"`
-	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
 	SigningProtocol *string `pulumi:"signingProtocol"`
 }
 
@@ -140,9 +171,9 @@ type OriginAccessControlState struct {
 	Name pulumi.StringPtrInput
 	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType pulumi.StringPtrInput
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
 	SigningBehavior pulumi.StringPtrInput
-	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
 	SigningProtocol pulumi.StringPtrInput
 }
 
@@ -163,9 +194,9 @@ type originAccessControlArgs struct {
 	Name *string `pulumi:"name"`
 	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType string `pulumi:"originAccessControlOriginType"`
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
 	SigningBehavior string `pulumi:"signingBehavior"`
-	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
 	SigningProtocol string `pulumi:"signingProtocol"`
 }
 
@@ -177,9 +208,9 @@ type OriginAccessControlArgs struct {
 	Name pulumi.StringPtrInput
 	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType pulumi.StringInput
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
 	SigningBehavior pulumi.StringInput
-	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
 	SigningProtocol pulumi.StringInput
 }
 
@@ -295,12 +326,12 @@ func (o OriginAccessControlOutput) OriginAccessControlOriginType() pulumi.String
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.OriginAccessControlOriginType }).(pulumi.StringOutput)
 }
 
-// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
 func (o OriginAccessControlOutput) SigningBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.SigningBehavior }).(pulumi.StringOutput)
 }
 
-// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+// Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
 func (o OriginAccessControlOutput) SigningProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.SigningProtocol }).(pulumi.StringOutput)
 }

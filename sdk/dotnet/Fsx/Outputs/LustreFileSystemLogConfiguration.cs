@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string? Destination;
         /// <summary>
-        /// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        /// Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
         /// </summary>
         public readonly string? Level;
 

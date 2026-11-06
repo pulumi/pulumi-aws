@@ -30,7 +30,8 @@ class GlobalReplicationGroupArgs:
                  global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
                  num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
                  parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 region: pulumi.Input[Optional[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
 
@@ -60,6 +61,7 @@ class GlobalReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
         pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
@@ -79,6 +81,8 @@ class GlobalReplicationGroupArgs:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
@@ -216,6 +220,18 @@ class GlobalReplicationGroupArgs:
     def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _GlobalReplicationGroupState:
@@ -237,6 +253,8 @@ class _GlobalReplicationGroupState:
                  parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GlobalReplicationGroup resources.
@@ -275,6 +293,8 @@ class _GlobalReplicationGroupState:
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[_builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
         if arn is not None:
@@ -311,6 +331,10 @@ class _GlobalReplicationGroupState:
             pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
@@ -536,6 +560,30 @@ class _GlobalReplicationGroupState:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @_builtins.property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -564,6 +612,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
@@ -667,6 +716,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[_builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -773,6 +823,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -796,6 +847,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'primary_replication_group_id'")
             __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
             __props__.__dict__["region"] = region
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["at_rest_encryption_enabled"] = None
             __props__.__dict__["auth_token_enabled"] = None
@@ -803,6 +855,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["global_node_groups"] = None
             __props__.__dict__["global_replication_group_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["transit_encryption_enabled"] = None
         super(GlobalReplicationGroup, __self__).__init__(
             'aws:elasticache/globalReplicationGroup:GlobalReplicationGroup',
@@ -831,6 +884,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GlobalReplicationGroup':
         """
         Get an existing GlobalReplicationGroup resource's state with the given name, id, and optional extra
@@ -873,6 +928,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[_builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -896,6 +953,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
         __props__.__dict__["region"] = region
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return GlobalReplicationGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -919,6 +978,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["arn"] = arn
@@ -938,6 +999,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__["parameterGroupName"] = parameter_group_name
         __props__["primaryReplicationGroupId"] = primary_replication_group_id
         __props__["region"] = region
+        __props__["tags"] = tags
+        __props__["tagsAll"] = tags_all
         __props__["transitEncryptionEnabled"] = transit_encryption_enabled
         return pulumi.runtime.exists_resource(None, 'aws:elasticache/globalReplicationGroup:GlobalReplicationGroup', id, __props__, opts or pulumi.ResourceOptions())
 
@@ -1093,6 +1156,22 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionEnabled")

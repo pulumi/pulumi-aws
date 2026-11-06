@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:quicksight/accountCustomPermission:AccountCustomPermission":
+		r = &AccountCustomPermission{}
 	case "aws:quicksight/accountSettings:AccountSettings":
 		r = &AccountSettings{}
 	case "aws:quicksight/accountSubscription:AccountSubscription":
@@ -84,6 +86,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/accountCustomPermission",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/accountSettings",

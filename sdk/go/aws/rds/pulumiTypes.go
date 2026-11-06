@@ -3622,6 +3622,296 @@ func (o ShardGroupTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TenantDatabaseMasterUserSecret struct {
+	// ARN, ID, or alias of the AWS KMS key used to encrypt the secret.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// ARN of the secret.
+	SecretArn string `pulumi:"secretArn"`
+	// Status of the secret.
+	SecretStatus string `pulumi:"secretStatus"`
+}
+
+// TenantDatabaseMasterUserSecretInput is an input type that accepts TenantDatabaseMasterUserSecretArgs and TenantDatabaseMasterUserSecretOutput values.
+// You can construct a concrete instance of `TenantDatabaseMasterUserSecretInput` via:
+//
+//	TenantDatabaseMasterUserSecretArgs{...}
+type TenantDatabaseMasterUserSecretInput interface {
+	pulumi.Input
+
+	ToTenantDatabaseMasterUserSecretOutput() TenantDatabaseMasterUserSecretOutput
+	ToTenantDatabaseMasterUserSecretOutputWithContext(context.Context) TenantDatabaseMasterUserSecretOutput
+}
+
+type TenantDatabaseMasterUserSecretArgs struct {
+	// ARN, ID, or alias of the AWS KMS key used to encrypt the secret.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// ARN of the secret.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// Status of the secret.
+	SecretStatus pulumi.StringInput `pulumi:"secretStatus"`
+}
+
+func (TenantDatabaseMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantDatabaseMasterUserSecret)(nil)).Elem()
+}
+
+func (i TenantDatabaseMasterUserSecretArgs) ToTenantDatabaseMasterUserSecretOutput() TenantDatabaseMasterUserSecretOutput {
+	return i.ToTenantDatabaseMasterUserSecretOutputWithContext(context.Background())
+}
+
+func (i TenantDatabaseMasterUserSecretArgs) ToTenantDatabaseMasterUserSecretOutputWithContext(ctx context.Context) TenantDatabaseMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantDatabaseMasterUserSecretOutput)
+}
+
+// TenantDatabaseMasterUserSecretArrayInput is an input type that accepts TenantDatabaseMasterUserSecretArray and TenantDatabaseMasterUserSecretArrayOutput values.
+// You can construct a concrete instance of `TenantDatabaseMasterUserSecretArrayInput` via:
+//
+//	TenantDatabaseMasterUserSecretArray{ TenantDatabaseMasterUserSecretArgs{...} }
+type TenantDatabaseMasterUserSecretArrayInput interface {
+	pulumi.Input
+
+	ToTenantDatabaseMasterUserSecretArrayOutput() TenantDatabaseMasterUserSecretArrayOutput
+	ToTenantDatabaseMasterUserSecretArrayOutputWithContext(context.Context) TenantDatabaseMasterUserSecretArrayOutput
+}
+
+type TenantDatabaseMasterUserSecretArray []TenantDatabaseMasterUserSecretInput
+
+func (TenantDatabaseMasterUserSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TenantDatabaseMasterUserSecret)(nil)).Elem()
+}
+
+func (i TenantDatabaseMasterUserSecretArray) ToTenantDatabaseMasterUserSecretArrayOutput() TenantDatabaseMasterUserSecretArrayOutput {
+	return i.ToTenantDatabaseMasterUserSecretArrayOutputWithContext(context.Background())
+}
+
+func (i TenantDatabaseMasterUserSecretArray) ToTenantDatabaseMasterUserSecretArrayOutputWithContext(ctx context.Context) TenantDatabaseMasterUserSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantDatabaseMasterUserSecretArrayOutput)
+}
+
+type TenantDatabaseMasterUserSecretOutput struct{ *pulumi.OutputState }
+
+func (TenantDatabaseMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantDatabaseMasterUserSecret)(nil)).Elem()
+}
+
+func (o TenantDatabaseMasterUserSecretOutput) ToTenantDatabaseMasterUserSecretOutput() TenantDatabaseMasterUserSecretOutput {
+	return o
+}
+
+func (o TenantDatabaseMasterUserSecretOutput) ToTenantDatabaseMasterUserSecretOutputWithContext(ctx context.Context) TenantDatabaseMasterUserSecretOutput {
+	return o
+}
+
+// ARN, ID, or alias of the AWS KMS key used to encrypt the secret.
+func (o TenantDatabaseMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v TenantDatabaseMasterUserSecret) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// ARN of the secret.
+func (o TenantDatabaseMasterUserSecretOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TenantDatabaseMasterUserSecret) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+// Status of the secret.
+func (o TenantDatabaseMasterUserSecretOutput) SecretStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v TenantDatabaseMasterUserSecret) string { return v.SecretStatus }).(pulumi.StringOutput)
+}
+
+type TenantDatabaseMasterUserSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (TenantDatabaseMasterUserSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TenantDatabaseMasterUserSecret)(nil)).Elem()
+}
+
+func (o TenantDatabaseMasterUserSecretArrayOutput) ToTenantDatabaseMasterUserSecretArrayOutput() TenantDatabaseMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o TenantDatabaseMasterUserSecretArrayOutput) ToTenantDatabaseMasterUserSecretArrayOutputWithContext(ctx context.Context) TenantDatabaseMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o TenantDatabaseMasterUserSecretArrayOutput) Index(i pulumi.IntInput) TenantDatabaseMasterUserSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TenantDatabaseMasterUserSecret {
+		return vs[0].([]TenantDatabaseMasterUserSecret)[vs[1].(int)]
+	}).(TenantDatabaseMasterUserSecretOutput)
+}
+
+type TenantDatabaseTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// TenantDatabaseTimeoutsInput is an input type that accepts TenantDatabaseTimeoutsArgs and TenantDatabaseTimeoutsOutput values.
+// You can construct a concrete instance of `TenantDatabaseTimeoutsInput` via:
+//
+//	TenantDatabaseTimeoutsArgs{...}
+type TenantDatabaseTimeoutsInput interface {
+	pulumi.Input
+
+	ToTenantDatabaseTimeoutsOutput() TenantDatabaseTimeoutsOutput
+	ToTenantDatabaseTimeoutsOutputWithContext(context.Context) TenantDatabaseTimeoutsOutput
+}
+
+type TenantDatabaseTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (TenantDatabaseTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantDatabaseTimeouts)(nil)).Elem()
+}
+
+func (i TenantDatabaseTimeoutsArgs) ToTenantDatabaseTimeoutsOutput() TenantDatabaseTimeoutsOutput {
+	return i.ToTenantDatabaseTimeoutsOutputWithContext(context.Background())
+}
+
+func (i TenantDatabaseTimeoutsArgs) ToTenantDatabaseTimeoutsOutputWithContext(ctx context.Context) TenantDatabaseTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantDatabaseTimeoutsOutput)
+}
+
+func (i TenantDatabaseTimeoutsArgs) ToTenantDatabaseTimeoutsPtrOutput() TenantDatabaseTimeoutsPtrOutput {
+	return i.ToTenantDatabaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i TenantDatabaseTimeoutsArgs) ToTenantDatabaseTimeoutsPtrOutputWithContext(ctx context.Context) TenantDatabaseTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantDatabaseTimeoutsOutput).ToTenantDatabaseTimeoutsPtrOutputWithContext(ctx)
+}
+
+// TenantDatabaseTimeoutsPtrInput is an input type that accepts TenantDatabaseTimeoutsArgs, TenantDatabaseTimeoutsPtr and TenantDatabaseTimeoutsPtrOutput values.
+// You can construct a concrete instance of `TenantDatabaseTimeoutsPtrInput` via:
+//
+//	        TenantDatabaseTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TenantDatabaseTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToTenantDatabaseTimeoutsPtrOutput() TenantDatabaseTimeoutsPtrOutput
+	ToTenantDatabaseTimeoutsPtrOutputWithContext(context.Context) TenantDatabaseTimeoutsPtrOutput
+}
+
+type tenantDatabaseTimeoutsPtrType TenantDatabaseTimeoutsArgs
+
+func TenantDatabaseTimeoutsPtr(v *TenantDatabaseTimeoutsArgs) TenantDatabaseTimeoutsPtrInput {
+	return (*tenantDatabaseTimeoutsPtrType)(v)
+}
+
+func (*tenantDatabaseTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantDatabaseTimeouts)(nil)).Elem()
+}
+
+func (i *tenantDatabaseTimeoutsPtrType) ToTenantDatabaseTimeoutsPtrOutput() TenantDatabaseTimeoutsPtrOutput {
+	return i.ToTenantDatabaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *tenantDatabaseTimeoutsPtrType) ToTenantDatabaseTimeoutsPtrOutputWithContext(ctx context.Context) TenantDatabaseTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantDatabaseTimeoutsPtrOutput)
+}
+
+type TenantDatabaseTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (TenantDatabaseTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantDatabaseTimeouts)(nil)).Elem()
+}
+
+func (o TenantDatabaseTimeoutsOutput) ToTenantDatabaseTimeoutsOutput() TenantDatabaseTimeoutsOutput {
+	return o
+}
+
+func (o TenantDatabaseTimeoutsOutput) ToTenantDatabaseTimeoutsOutputWithContext(ctx context.Context) TenantDatabaseTimeoutsOutput {
+	return o
+}
+
+func (o TenantDatabaseTimeoutsOutput) ToTenantDatabaseTimeoutsPtrOutput() TenantDatabaseTimeoutsPtrOutput {
+	return o.ToTenantDatabaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o TenantDatabaseTimeoutsOutput) ToTenantDatabaseTimeoutsPtrOutputWithContext(ctx context.Context) TenantDatabaseTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TenantDatabaseTimeouts) *TenantDatabaseTimeouts {
+		return &v
+	}).(TenantDatabaseTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TenantDatabaseTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TenantDatabaseTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TenantDatabaseTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TenantDatabaseTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TenantDatabaseTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TenantDatabaseTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type TenantDatabaseTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (TenantDatabaseTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantDatabaseTimeouts)(nil)).Elem()
+}
+
+func (o TenantDatabaseTimeoutsPtrOutput) ToTenantDatabaseTimeoutsPtrOutput() TenantDatabaseTimeoutsPtrOutput {
+	return o
+}
+
+func (o TenantDatabaseTimeoutsPtrOutput) ToTenantDatabaseTimeoutsPtrOutputWithContext(ctx context.Context) TenantDatabaseTimeoutsPtrOutput {
+	return o
+}
+
+func (o TenantDatabaseTimeoutsPtrOutput) Elem() TenantDatabaseTimeoutsOutput {
+	return o.ApplyT(func(v *TenantDatabaseTimeouts) TenantDatabaseTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret TenantDatabaseTimeouts
+		return ret
+	}).(TenantDatabaseTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TenantDatabaseTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TenantDatabaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TenantDatabaseTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TenantDatabaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TenantDatabaseTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TenantDatabaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetClusterMasterUserSecret struct {
 	// Amazon Web Services KMS key identifier that is used to encrypt the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
@@ -5105,6 +5395,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeArrayInput)(nil)).Elem(), ReservedInstanceRecurringChargeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShardGroupTimeoutsInput)(nil)).Elem(), ShardGroupTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShardGroupTimeoutsPtrInput)(nil)).Elem(), ShardGroupTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantDatabaseMasterUserSecretInput)(nil)).Elem(), TenantDatabaseMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantDatabaseMasterUserSecretArrayInput)(nil)).Elem(), TenantDatabaseMasterUserSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantDatabaseTimeoutsInput)(nil)).Elem(), TenantDatabaseTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantDatabaseTimeoutsPtrInput)(nil)).Elem(), TenantDatabaseTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretInput)(nil)).Elem(), GetClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretArrayInput)(nil)).Elem(), GetClusterMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterInput)(nil)).Elem(), GetClustersFilterArgs{})
@@ -5173,6 +5467,10 @@ func init() {
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeArrayOutput{})
 	pulumi.RegisterOutputType(ShardGroupTimeoutsOutput{})
 	pulumi.RegisterOutputType(ShardGroupTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(TenantDatabaseMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(TenantDatabaseMasterUserSecretArrayOutput{})
+	pulumi.RegisterOutputType(TenantDatabaseTimeoutsOutput{})
+	pulumi.RegisterOutputType(TenantDatabaseTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterMasterUserSecretOutput{})
 	pulumi.RegisterOutputType(GetClusterMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetClustersFilterOutput{})

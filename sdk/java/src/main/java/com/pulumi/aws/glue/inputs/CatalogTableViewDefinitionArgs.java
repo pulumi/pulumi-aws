@@ -50,14 +50,14 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Type of the materialized view&#39;s last refresh. Valid values: `Full`, `Incremental`.
+     * Type of the materialized view&#39;s last refresh. Valid values: `FULL`, `INCREMENTAL`.
      * 
      */
     @Import(name="lastRefreshType")
     private @Nullable Output<String> lastRefreshType;
 
     /**
-     * @return Type of the materialized view&#39;s last refresh. Valid values: `Full`, `Incremental`.
+     * @return Type of the materialized view&#39;s last refresh. Valid values: `FULL`, `INCREMENTAL`.
      * 
      */
     public Optional<Output<String>> lastRefreshType() {
@@ -229,7 +229,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param lastRefreshType Type of the materialized view&#39;s last refresh. Valid values: `Full`, `Incremental`.
+         * @param lastRefreshType Type of the materialized view&#39;s last refresh. Valid values: `FULL`, `INCREMENTAL`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param lastRefreshType Type of the materialized view&#39;s last refresh. Valid values: `Full`, `Incremental`.
+         * @param lastRefreshType Type of the materialized view&#39;s last refresh. Valid values: `FULL`, `INCREMENTAL`.
          * 
          * @return builder
          * 

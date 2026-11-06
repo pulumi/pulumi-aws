@@ -297,7 +297,7 @@ namespace Pulumi.Aws.S3
         public Output<string?> CacheControl { get; private set; } = null!;
 
         /// <summary>
-        /// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        /// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`. Validation also accepts `MD5`, `XXHASH64`, `XXHASH3`, and `XXHASH128`, but the AWS SDK for Go does not currently calculate these checksums for uploads.
         /// </summary>
         [Output("checksumAlgorithm")]
         public Output<string?> ChecksumAlgorithm { get; private set; } = null!;
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? CacheControl { get; set; }
 
         /// <summary>
-        /// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        /// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`. Validation also accepts `MD5`, `XXHASH64`, `XXHASH3`, and `XXHASH128`, but the AWS SDK for Go does not currently calculate these checksums for uploads.
         /// </summary>
         [Input("checksumAlgorithm")]
         public Input<string>? ChecksumAlgorithm { get; set; }
@@ -755,7 +755,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? CacheControl { get; set; }
 
         /// <summary>
-        /// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        /// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`. Validation also accepts `MD5`, `XXHASH64`, `XXHASH3`, and `XXHASH128`, but the AWS SDK for Go does not currently calculate these checksums for uploads.
         /// </summary>
         [Input("checksumAlgorithm")]
         public Input<string>? ChecksumAlgorithm { get; set; }

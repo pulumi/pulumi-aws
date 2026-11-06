@@ -495,7 +495,7 @@ type Key struct {
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// Globally unique identifier for the key.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
@@ -563,7 +563,7 @@ type keyState struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Globally unique identifier for the key.
 	KeyId *string `pulumi:"keyId"`
-	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion *bool `pulumi:"multiRegion"`
@@ -602,7 +602,7 @@ type KeyState struct {
 	IsEnabled pulumi.BoolPtrInput
 	// Globally unique identifier for the key.
 	KeyId pulumi.StringPtrInput
-	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolPtrInput
@@ -647,7 +647,7 @@ type keyArgs struct {
 	EnableKeyRotation *bool `pulumi:"enableKeyRotation"`
 	// Whether the key is enabled. Defaults to `true`.
 	IsEnabled *bool `pulumi:"isEnabled"`
-	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion *bool `pulumi:"multiRegion"`
@@ -681,7 +681,7 @@ type KeyArgs struct {
 	EnableKeyRotation pulumi.BoolPtrInput
 	// Whether the key is enabled. Defaults to `true`.
 	IsEnabled pulumi.BoolPtrInput
-	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolPtrInput
@@ -831,7 +831,7 @@ func (o KeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
 func (o KeyOutput) KeyUsage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.KeyUsage }).(pulumi.StringPtrOutput)
 }

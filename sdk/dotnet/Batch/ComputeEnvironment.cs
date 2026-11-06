@@ -368,6 +368,12 @@ namespace Pulumi.Aws.Batch
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
+        /// Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `Type` is `UNMANAGED`.
+        /// </summary>
+        [Output("unmanagedVcpus")]
+        public Output<int> UnmanagedVcpus { get; private set; } = null!;
+
+        /// <summary>
         /// Infrastructure update policy for the compute environment. See details below.
         /// </summary>
         [Output("updatePolicy")]
@@ -480,6 +486,12 @@ namespace Pulumi.Aws.Batch
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `Type` is `UNMANAGED`.
+        /// </summary>
+        [Input("unmanagedVcpus")]
+        public Input<int>? UnmanagedVcpus { get; set; }
+
+        /// <summary>
         /// Infrastructure update policy for the compute environment. See details below.
         /// </summary>
         [Input("updatePolicy")]
@@ -588,6 +600,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `Type` is `UNMANAGED`.
+        /// </summary>
+        [Input("unmanagedVcpus")]
+        public Input<int>? UnmanagedVcpus { get; set; }
 
         /// <summary>
         /// Infrastructure update policy for the compute environment. See details below.

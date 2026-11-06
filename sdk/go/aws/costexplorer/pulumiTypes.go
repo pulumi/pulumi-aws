@@ -21438,7 +21438,7 @@ func (o GetTagsFilterTagsPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsSortBy struct {
-	// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+	// Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
 	Key *string `pulumi:"key"`
 	// order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
 	SortOrder *string `pulumi:"sortOrder"`
@@ -21456,7 +21456,7 @@ type GetTagsSortByInput interface {
 }
 
 type GetTagsSortByArgs struct {
-	// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+	// Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
 	SortOrder pulumi.StringPtrInput `pulumi:"sortOrder"`
@@ -21513,7 +21513,7 @@ func (o GetTagsSortByOutput) ToGetTagsSortByOutputWithContext(ctx context.Contex
 	return o
 }
 
-// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+// Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
 func (o GetTagsSortByOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTagsSortBy) *string { return v.Key }).(pulumi.StringPtrOutput)
 }

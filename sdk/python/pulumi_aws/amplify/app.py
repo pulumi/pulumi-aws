@@ -66,7 +66,7 @@ class AppArgs:
         :param pulumi.Input['AppJobConfigArgs'] job_config: Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[_builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[_builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        :param pulumi.Input[_builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -350,7 +350,7 @@ class AppArgs:
     @pulumi.getter
     def platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         """
         return pulumi.get(self, "platform")
 
@@ -449,7 +449,7 @@ class _AppState:
         :param pulumi.Input['AppJobConfigArgs'] job_config: Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[_builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[_builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        :param pulumi.Input[_builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         :param pulumi.Input[Sequence[pulumi.Input['AppProductionBranchArgs']]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] repository: Repository for an Amplify app.
@@ -767,7 +767,7 @@ class _AppState:
     @pulumi.getter
     def platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         """
         return pulumi.get(self, "platform")
 
@@ -1058,7 +1058,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict', 'outputs.AppJobConfig']] job_config: Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[_builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[_builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        :param pulumi.Input[_builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1381,7 +1381,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict', 'outputs.AppJobConfig']] job_config: Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[_builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[_builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        :param pulumi.Input[_builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppProductionBranchArgs', 'AppProductionBranchArgsDict', 'outputs.AppProductionBranch']]]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] repository: Repository for an Amplify app.
@@ -1653,7 +1653,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def platform(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         """
         return pulumi.get(self, "platform")
 

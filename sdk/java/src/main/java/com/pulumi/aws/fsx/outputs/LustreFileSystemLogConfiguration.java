@@ -17,7 +17,7 @@ public final class LustreFileSystemLogConfiguration {
      */
     private @Nullable String destination;
     /**
-     * @return Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+     * @return Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
      * 
      */
     private @Nullable String level;
@@ -31,7 +31,7 @@ public final class LustreFileSystemLogConfiguration {
         return Optional.ofNullable(this.destination);
     }
     /**
-     * @return Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+     * @return Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
      * 
      */
     public Optional<String> level() {

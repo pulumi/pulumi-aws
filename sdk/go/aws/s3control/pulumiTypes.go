@@ -1835,7 +1835,7 @@ func (o MultiRegionAccessPointRoutesRouteArrayOutput) Index(i pulumi.IntInput) M
 }
 
 type ObjectLambdaAccessPointConfiguration struct {
-	// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+	// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
 	AllowedFeatures []string `pulumi:"allowedFeatures"`
 	// Whether or not the CloudWatch metrics configuration is enabled.
 	CloudWatchMetricsEnabled *bool `pulumi:"cloudWatchMetricsEnabled"`
@@ -1857,7 +1857,7 @@ type ObjectLambdaAccessPointConfigurationInput interface {
 }
 
 type ObjectLambdaAccessPointConfigurationArgs struct {
-	// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+	// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
 	AllowedFeatures pulumi.StringArrayInput `pulumi:"allowedFeatures"`
 	// Whether or not the CloudWatch metrics configuration is enabled.
 	CloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchMetricsEnabled"`
@@ -1944,7 +1944,7 @@ func (o ObjectLambdaAccessPointConfigurationOutput) ToObjectLambdaAccessPointCon
 	}).(ObjectLambdaAccessPointConfigurationPtrOutput)
 }
 
-// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
 func (o ObjectLambdaAccessPointConfigurationOutput) AllowedFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) []string { return v.AllowedFeatures }).(pulumi.StringArrayOutput)
 }
@@ -1990,7 +1990,7 @@ func (o ObjectLambdaAccessPointConfigurationPtrOutput) Elem() ObjectLambdaAccess
 	}).(ObjectLambdaAccessPointConfigurationOutput)
 }
 
-// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
 func (o ObjectLambdaAccessPointConfigurationPtrOutput) AllowedFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) []string {
 		if v == nil {
@@ -2031,7 +2031,7 @@ func (o ObjectLambdaAccessPointConfigurationPtrOutput) TransformationConfigurati
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfiguration struct {
-	// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+	// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
 	Actions []string `pulumi:"actions"`
 	// Content transformation of an Object Lambda Access Point configuration. See `contentTransformation` Block below for more details.
 	ContentTransformation ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation `pulumi:"contentTransformation"`
@@ -2049,7 +2049,7 @@ type ObjectLambdaAccessPointConfigurationTransformationConfigurationInput interf
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs struct {
-	// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+	// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	// Content transformation of an Object Lambda Access Point configuration. See `contentTransformation` Block below for more details.
 	ContentTransformation ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput `pulumi:"contentTransformation"`
@@ -2106,7 +2106,7 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) T
 	return o
 }
 
-// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfiguration) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }

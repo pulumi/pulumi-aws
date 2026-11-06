@@ -165,7 +165,7 @@ type Webhook struct {
 
 	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrOutput `pulumi:"branchFilter"`
-	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
 	BuildType pulumi.StringPtrOutput `pulumi:"buildType"`
 	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups WebhookFilterGroupArrayOutput `pulumi:"filterGroups"`
@@ -226,7 +226,7 @@ func GetWebhook(ctx *pulumi.Context,
 type webhookState struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter *string `pulumi:"branchFilter"`
-	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
 	BuildType *string `pulumi:"buildType"`
 	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups []WebhookFilterGroup `pulumi:"filterGroups"`
@@ -251,7 +251,7 @@ type webhookState struct {
 type WebhookState struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrInput
-	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
 	BuildType pulumi.StringPtrInput
 	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups WebhookFilterGroupArrayInput
@@ -286,7 +286,7 @@ func WebhookExists(ctx *pulumi.Context,
 type webhookArgs struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter *string `pulumi:"branchFilter"`
-	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
 	BuildType *string `pulumi:"buildType"`
 	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups []WebhookFilterGroup `pulumi:"filterGroups"`
@@ -306,7 +306,7 @@ type webhookArgs struct {
 type WebhookArgs struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrInput
-	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
 	BuildType pulumi.StringPtrInput
 	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups WebhookFilterGroupArrayInput
@@ -414,7 +414,7 @@ func (o WebhookOutput) BranchFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.BranchFilter }).(pulumi.StringPtrOutput)
 }
 
-// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
 func (o WebhookOutput) BuildType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.BuildType }).(pulumi.StringPtrOutput)
 }

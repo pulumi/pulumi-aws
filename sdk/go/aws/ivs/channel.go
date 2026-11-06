@@ -77,7 +77,7 @@ type Channel struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -131,7 +131,7 @@ type channelState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
 	Type *string `pulumi:"type"`
 }
 
@@ -156,7 +156,7 @@ type ChannelState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
 	Type pulumi.StringPtrInput
 }
 
@@ -183,7 +183,7 @@ type channelArgs struct {
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
 	Type *string `pulumi:"type"`
 }
 
@@ -201,7 +201,7 @@ type ChannelArgs struct {
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
 	Type pulumi.StringPtrInput
 }
 
@@ -342,7 +342,7 @@ func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
 func (o ChannelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

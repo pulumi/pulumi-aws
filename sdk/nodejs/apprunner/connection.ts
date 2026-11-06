@@ -80,7 +80,7 @@ export class Connection extends pulumi.CustomResource {
      */
     declare public readonly connectionName: pulumi.Output<string>;
     /**
-     * Source repository provider. Valid values: `GITHUB`.
+     * Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
      */
     declare public readonly providerType: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export interface ConnectionState {
      */
     connectionName?: pulumi.Input<string | undefined>;
     /**
-     * Source repository provider. Valid values: `GITHUB`.
+     * Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
      */
     providerType?: pulumi.Input<string | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface ConnectionArgs {
      */
     connectionName: pulumi.Input<string>;
     /**
-     * Source repository provider. Valid values: `GITHUB`.
+     * Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
      */
     providerType: pulumi.Input<string>;
     /**

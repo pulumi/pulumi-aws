@@ -135,14 +135,14 @@ public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
         return this.authenticationType;
     }
     /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
      * 
      */
     @Export(name="blobType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blobType;
 
     /**
-     * @return The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+     * @return The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
      * 
      */
     public Output<Optional<String>> blobType() {

@@ -41,7 +41,7 @@ class OpenZfsVolumeArgs:
 
         :param pulumi.Input[_builtins.str] parent_volume_id: Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: Whether tags for the file system should be copied to snapshots. Default is false.
-        :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         :param pulumi.Input[_builtins.str] delete_volume_options: Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         :param pulumi.Input[_builtins.str] name: Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input['OpenZfsVolumeNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
@@ -113,7 +113,7 @@ class OpenZfsVolumeArgs:
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         """
         return pulumi.get(self, "data_compression_type")
 
@@ -291,7 +291,7 @@ class _OpenZfsVolumeState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: Whether tags for the file system should be copied to snapshots. Default is false.
-        :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         :param pulumi.Input[_builtins.str] delete_volume_options: Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         :param pulumi.Input[_builtins.str] name: Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input['OpenZfsVolumeNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
@@ -370,7 +370,7 @@ class _OpenZfsVolumeState:
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         """
         return pulumi.get(self, "data_compression_type")
 
@@ -596,7 +596,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: Whether tags for the file system should be copied to snapshots. Default is false.
-        :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         :param pulumi.Input[_builtins.str] delete_volume_options: Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         :param pulumi.Input[_builtins.str] name: Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[Union['OpenZfsVolumeNfsExportsArgs', 'OpenZfsVolumeNfsExportsArgsDict', 'outputs.OpenZfsVolumeNfsExports']] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
@@ -735,7 +735,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: Whether tags for the file system should be copied to snapshots. Default is false.
-        :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         :param pulumi.Input[_builtins.str] delete_volume_options: Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         :param pulumi.Input[_builtins.str] name: Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[Union['OpenZfsVolumeNfsExportsArgs', 'OpenZfsVolumeNfsExportsArgsDict', 'outputs.OpenZfsVolumeNfsExports']] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
@@ -834,7 +834,7 @@ class OpenZfsVolume(pulumi.CustomResource):
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         """
         return pulumi.get(self, "data_compression_type")
 

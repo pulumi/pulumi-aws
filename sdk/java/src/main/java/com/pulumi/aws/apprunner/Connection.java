@@ -95,14 +95,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.connectionName;
     }
     /**
-     * Source repository provider. Valid values: `GITHUB`.
+     * Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
      * 
      */
     @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
     /**
-     * @return Source repository provider. Valid values: `GITHUB`.
+     * @return Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
      * 
      */
     public Output<String> providerType() {

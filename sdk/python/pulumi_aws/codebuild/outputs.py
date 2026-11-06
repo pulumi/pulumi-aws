@@ -2477,7 +2477,7 @@ class WebhookFilterGroupFilter(dict):
                  exclude_matched_pattern: Optional[_builtins.bool] = None):
         """
         :param _builtins.str pattern: For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        :param _builtins.str type: The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+        :param _builtins.str type: Webhook filter group's type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
         :param _builtins.bool exclude_matched_pattern: If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
         """
         pulumi.set(__self__, "pattern", pattern)
@@ -2497,7 +2497,7 @@ class WebhookFilterGroupFilter(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+        Webhook filter group's type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
         """
         return pulumi.get(self, "type")
 
@@ -2566,8 +2566,8 @@ class WebhookScopeConfiguration(dict):
                  scope: _builtins.str,
                  domain: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The name of either the enterprise or organization.
-        :param _builtins.str scope: The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        :param _builtins.str name: Name of the enterprise, organization, or GitLab group.
+        :param _builtins.str scope: Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
         :param _builtins.str domain: The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
         """
         pulumi.set(__self__, "name", name)
@@ -2579,7 +2579,7 @@ class WebhookScopeConfiguration(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of either the enterprise or organization.
+        Name of the enterprise, organization, or GitLab group.
         """
         return pulumi.get(self, "name")
 
@@ -2587,7 +2587,7 @@ class WebhookScopeConfiguration(dict):
     @pulumi.getter
     def scope(self) -> _builtins.str:
         """
-        The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
         """
         return pulumi.get(self, "scope")
 

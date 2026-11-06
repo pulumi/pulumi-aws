@@ -153,14 +153,14 @@ public final class DomainIndexFieldArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+     * Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+     * @return Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
      * 
      */
     public Output<String> type() {
@@ -390,7 +390,7 @@ public final class DomainIndexFieldArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+         * @param type Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class DomainIndexFieldArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+         * @param type Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
          * 
          * @return builder
          * 

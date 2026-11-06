@@ -48,7 +48,7 @@ class KxClusterArgs:
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] release_label: Version of FinSpace Managed kdb to run.
-        :param pulumi.Input[_builtins.str] type: Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        :param pulumi.Input[_builtins.str] type: Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         :param pulumi.Input['KxClusterVpcConfigurationArgs'] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpc_configuration` Block.
                
                The following arguments are optional:
@@ -147,7 +147,7 @@ class KxClusterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         """
         return pulumi.get(self, "type")
 
@@ -420,7 +420,7 @@ class _KxClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]] tickerplant_log_configurations: Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplant_log_configuration` Block.
-        :param pulumi.Input[_builtins.str] type: Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        :param pulumi.Input[_builtins.str] type: Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         :param pulumi.Input['KxClusterVpcConfigurationArgs'] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpc_configuration` Block.
                
                The following arguments are optional:
@@ -784,7 +784,7 @@ class _KxClusterState:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         """
         return pulumi.get(self, "type")
 
@@ -911,7 +911,7 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict', 'outputs.KxClusterScalingGroupConfiguration']] scaling_group_configuration: Structure that stores the configuration details of a scaling group. See `scaling_group_configuration` Block.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict', 'outputs.KxClusterTickerplantLogConfiguration']]]] tickerplant_log_configurations: Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplant_log_configuration` Block.
-        :param pulumi.Input[_builtins.str] type: Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        :param pulumi.Input[_builtins.str] type: Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         :param pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict', 'outputs.KxClusterVpcConfiguration']] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpc_configuration` Block.
                
                The following arguments are optional:
@@ -1128,7 +1128,7 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict', 'outputs.KxClusterTickerplantLogConfiguration']]]] tickerplant_log_configurations: Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplant_log_configuration` Block.
-        :param pulumi.Input[_builtins.str] type: Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        :param pulumi.Input[_builtins.str] type: Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         :param pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict', 'outputs.KxClusterVpcConfiguration']] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpc_configuration` Block.
                
                The following arguments are optional:
@@ -1430,7 +1430,7 @@ class KxCluster(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedown_storage_configuration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         """
         return pulumi.get(self, "type")
 

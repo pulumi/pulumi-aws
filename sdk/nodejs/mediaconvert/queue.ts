@@ -95,7 +95,7 @@ export class Queue extends pulumi.CustomResource {
      */
     declare public readonly reservationPlanSettings: pulumi.Output<outputs.mediaconvert.QueueReservationPlanSettings>;
     /**
-     * Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface QueueState {
      */
     reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings | undefined>;
     /**
-     * Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface QueueArgs {
      */
     reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings | undefined>;
     /**
-     * Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
      */
     status?: pulumi.Input<string | undefined>;
     /**

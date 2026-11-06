@@ -81,6 +81,8 @@ type LookupComputeEnvironmentResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 	Type string `pulumi:"type"`
+	// Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+	UnmanagedVcpus int `pulumi:"unmanagedVcpus"`
 	// Infrastructure update policy for the compute environment.
 	UpdatePolicies []GetComputeEnvironmentUpdatePolicy `pulumi:"updatePolicies"`
 }
@@ -170,6 +172,11 @@ func (o LookupComputeEnvironmentResultOutput) Tags() pulumi.StringMapOutput {
 // Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 func (o LookupComputeEnvironmentResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+func (o LookupComputeEnvironmentResultOutput) UnmanagedVcpus() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) int { return v.UnmanagedVcpus }).(pulumi.IntOutput)
 }
 
 // Infrastructure update policy for the compute environment.

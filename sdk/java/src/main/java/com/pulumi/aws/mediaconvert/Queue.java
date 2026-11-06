@@ -163,14 +163,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return this.reservationPlanSettings;
     }
     /**
-     * Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * @return Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
      * 
      */
     public Output<Optional<String>> status() {

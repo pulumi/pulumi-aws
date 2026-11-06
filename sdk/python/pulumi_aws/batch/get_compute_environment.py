@@ -27,7 +27,7 @@ class GetComputeEnvironmentResult:
     """
     A collection of values returned by getComputeEnvironment.
     """
-    def __init__(__self__, arn=None, ecs_cluster_arn=None, id=None, name=None, region=None, service_role=None, state=None, status=None, status_reason=None, tags=None, type=None, update_policies=None):
+    def __init__(__self__, arn=None, ecs_cluster_arn=None, id=None, name=None, region=None, service_role=None, state=None, status=None, status_reason=None, tags=None, type=None, unmanaged_vcpus=None, update_policies=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetComputeEnvironmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if unmanaged_vcpus and not isinstance(unmanaged_vcpus, int):
+            raise TypeError("Expected argument 'unmanaged_vcpus' to be a int")
+        pulumi.set(__self__, "unmanaged_vcpus", unmanaged_vcpus)
         if update_policies and not isinstance(update_policies, list):
             raise TypeError("Expected argument 'update_policies' to be a list")
         pulumi.set(__self__, "update_policies", update_policies)
@@ -148,6 +151,14 @@ class GetComputeEnvironmentResult:
         return pulumi.get(self, "type")
 
     @_builtins.property
+    @pulumi.getter(name="unmanagedVcpus")
+    def unmanaged_vcpus(self) -> _builtins.int:
+        """
+        Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+        """
+        return pulumi.get(self, "unmanaged_vcpus")
+
+    @_builtins.property
     @pulumi.getter(name="updatePolicies")
     def update_policies(self) -> Sequence['outputs.GetComputeEnvironmentUpdatePolicyResult']:
         """
@@ -173,6 +184,7 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
             status_reason=self.status_reason,
             tags=self.tags,
             type=self.type,
+            unmanaged_vcpus=self.unmanaged_vcpus,
             update_policies=self.update_policies)
 
 
@@ -217,6 +229,7 @@ def get_compute_environment(name: Optional[_builtins.str] = None,
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
+        unmanaged_vcpus=pulumi.get(__ret__, 'unmanaged_vcpus'),
         update_policies=pulumi.get(__ret__, 'update_policies'))
 def get_compute_environment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -258,4 +271,5 @@ def get_compute_environment_output(name: pulumi.Input[Optional[_builtins.str]] =
         status_reason=pulumi.get(__response__, 'status_reason'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
+        unmanaged_vcpus=pulumi.get(__response__, 'unmanaged_vcpus'),
         update_policies=pulumi.get(__response__, 'update_policies')))

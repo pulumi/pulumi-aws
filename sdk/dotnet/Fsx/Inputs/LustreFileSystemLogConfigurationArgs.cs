@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<string>? Destination { get; set; }
 
         /// <summary>
-        /// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        /// Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }

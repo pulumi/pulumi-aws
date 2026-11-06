@@ -141,7 +141,7 @@ export class Webhook extends pulumi.CustomResource {
      */
     declare public readonly branchFilter: pulumi.Output<string | undefined>;
     /**
-     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     * Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
      */
     declare public readonly buildType: pulumi.Output<string | undefined>;
     /**
@@ -238,7 +238,7 @@ export interface WebhookState {
      */
     branchFilter?: pulumi.Input<string | undefined>;
     /**
-     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     * Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
      */
     buildType?: pulumi.Input<string | undefined>;
     /**
@@ -288,7 +288,7 @@ export interface WebhookArgs {
      */
     branchFilter?: pulumi.Input<string | undefined>;
     /**
-     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     * Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
      */
     buildType?: pulumi.Input<string | undefined>;
     /**

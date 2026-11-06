@@ -63,7 +63,7 @@ type Queue struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsOutput `pulumi:"reservationPlanSettings"`
-	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -115,7 +115,7 @@ type queueState struct {
 	Region *string `pulumi:"region"`
 	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
-	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
 	Status *string `pulumi:"status"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -138,7 +138,7 @@ type QueueState struct {
 	Region pulumi.StringPtrInput
 	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
-	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
 	Status pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -169,7 +169,7 @@ type queueArgs struct {
 	Region *string `pulumi:"region"`
 	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
-	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
 	Status *string `pulumi:"status"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -189,7 +189,7 @@ type QueueArgs struct {
 	Region pulumi.StringPtrInput
 	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
-	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
 	Status pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -317,7 +317,7 @@ func (o QueueOutput) ReservationPlanSettings() QueueReservationPlanSettingsOutpu
 	return o.ApplyT(func(v *Queue) QueueReservationPlanSettingsOutput { return v.ReservationPlanSettings }).(QueueReservationPlanSettingsOutput)
 }
 
-// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
 func (o QueueOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

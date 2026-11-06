@@ -53,14 +53,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
     @Import(name="dataCompressionType")
     private @Nullable Output<String> dataCompressionType;
 
     /**
-     * @return Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * @return Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
     public Optional<Output<String>> dataCompressionType() {
@@ -360,7 +360,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dataCompressionType Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+         * @param dataCompressionType Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dataCompressionType Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+         * @param dataCompressionType Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
          * 
          * @return builder
          * 

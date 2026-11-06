@@ -19,14 +19,14 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
     public static final RoutingProfileMediaConcurrencyArgs Empty = new RoutingProfileMediaConcurrencyArgs();
 
     /**
-     * Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+     * Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
      * 
      */
     @Import(name="channel", required=true)
     private Output<String> channel;
 
     /**
-     * @return Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+     * @return Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
      * 
      */
     public Output<String> channel() {
@@ -90,7 +90,7 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param channel Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+         * @param channel Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param channel Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+         * @param channel Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
          * 
          * @return builder
          * 

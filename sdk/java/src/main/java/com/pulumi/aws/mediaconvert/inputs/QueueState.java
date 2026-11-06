@@ -124,14 +124,14 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * @return Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -349,7 +349,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+         * @param status Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+         * @param status Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
          * 
          * @return builder
          * 

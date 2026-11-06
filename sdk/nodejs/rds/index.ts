@@ -244,6 +244,11 @@ export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
 utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
 
+export { TenantDatabaseArgs, TenantDatabaseState } from "./tenantDatabase";
+export type TenantDatabase = import("./tenantDatabase").TenantDatabase;
+export const TenantDatabase: typeof import("./tenantDatabase").TenantDatabase = null as any;
+utilities.lazyLoad(exports, ["TenantDatabase"], () => require("./tenantDatabase"));
+
 
 // Export enums:
 export * from "../types/enums/rds";
@@ -310,6 +315,8 @@ const _module = {
                 return new SnapshotCopy(name, <any>undefined, { urn })
             case "aws:rds/subnetGroup:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
+            case "aws:rds/tenantDatabase:TenantDatabase":
+                return new TenantDatabase(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -344,3 +351,4 @@ pulumi.runtime.registerResourceModule("aws", "rds/shardGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/snapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/snapshotCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/subnetGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/tenantDatabase", _module)

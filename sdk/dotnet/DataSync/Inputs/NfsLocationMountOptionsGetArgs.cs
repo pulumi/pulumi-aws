@@ -13,7 +13,7 @@ namespace Pulumi.Aws.DataSync.Inputs
     public sealed class NfsLocationMountOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        /// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

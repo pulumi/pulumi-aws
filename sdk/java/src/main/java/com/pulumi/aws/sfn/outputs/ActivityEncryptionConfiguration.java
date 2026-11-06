@@ -23,7 +23,7 @@ public final class ActivityEncryptionConfiguration {
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+     * @return Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
      * 
      */
     private @Nullable String type;
@@ -44,7 +44,7 @@ public final class ActivityEncryptionConfiguration {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+     * @return Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
      * 
      */
     public Optional<String> type() {

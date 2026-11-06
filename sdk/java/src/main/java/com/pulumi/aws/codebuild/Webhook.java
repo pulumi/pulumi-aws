@@ -200,14 +200,14 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.branchFilter);
     }
     /**
-     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     * Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
      * 
      */
     @Export(name="buildType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> buildType;
 
     /**
-     * @return The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     * @return Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
      * 
      */
     public Output<Optional<String>> buildType() {

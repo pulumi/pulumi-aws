@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -200,6 +201,21 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GlobalReplicationGroupArgs() {}
 
     private GlobalReplicationGroupArgs(GlobalReplicationGroupArgs $) {
@@ -213,6 +229,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         this.parameterGroupName = $.parameterGroupName;
         this.primaryReplicationGroupId = $.primaryReplicationGroupId;
         this.region = $.region;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -473,6 +490,27 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public GlobalReplicationGroupArgs build() {

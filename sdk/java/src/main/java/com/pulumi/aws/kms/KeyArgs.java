@@ -124,14 +124,14 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
     @Import(name="keyUsage")
     private @Nullable Output<String> keyUsage;
 
     /**
-     * @return Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * @return Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
     public Optional<Output<String>> keyUsage() {
@@ -417,7 +417,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyUsage Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+         * @param keyUsage Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyUsage Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+         * @param keyUsage Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
          * 
          * @return builder
          * 

@@ -7347,7 +7347,7 @@ export namespace appmesh {
          */
         port: pulumi.Input<number>;
         /**
-         * Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+         * Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
          */
         protocol: pulumi.Input<string>;
     }
@@ -8520,7 +8520,7 @@ export namespace apprunner {
          */
         port?: pulumi.Input<string | undefined>;
         /**
-         * Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
+         * Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `PYTHON_311`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `NODEJS_18`, `NODEJS_22`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`. See [App Runner managed platforms](https://docs.aws.amazon.com/apprunner/latest/dg/service-source-code.html#service-source-code.managed-platforms) for runtime support and availability.
          */
         runtime: pulumi.Input<string>;
         /**
@@ -21921,6 +21921,614 @@ export namespace bedrock {
     }
 }
 
+export namespace bedrockdataautomation {
+    export interface BlueprintEncryptionConfiguration {
+        /**
+         * Map of key-value pairs to use as the KMS encryption context.
+         */
+        kmsEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Identifier of the KMS key used to encrypt the blueprint.
+         */
+        kmsKeyId: pulumi.Input<string>;
+    }
+
+    export interface LibraryEncryptionConfiguration {
+        /**
+         * Map of key-value pairs to use as the KMS encryption context.
+         */
+        kmsEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Identifier of the KMS key used to encrypt the library.
+         */
+        kmsKeyId: pulumi.Input<string>;
+    }
+
+    export interface LibraryEntityType {
+        /**
+         * JSON metadata for the entity type.
+         */
+        entityMetadata: pulumi.Input<string>;
+        /**
+         * Entity type, such as `VOCABULARY`.
+         */
+        entityType: pulumi.Input<string>;
+    }
+
+    export interface LibraryTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectCustomOutputConfiguration {
+        /**
+         * Blueprint to use for custom output. Can be specified multiple times. See `blueprint` and `fallbackBlueprint` Block below.
+         */
+        blueprints?: pulumi.Input<pulumi.Input<inputs.bedrockdataautomation.ProjectCustomOutputConfigurationBlueprint>[] | undefined>;
+        /**
+         * Custom output settings for documents. See `custom_output_configuration.document` Block below.
+         */
+        document?: pulumi.Input<inputs.bedrockdataautomation.ProjectCustomOutputConfigurationDocument | undefined>;
+    }
+
+    export interface ProjectCustomOutputConfigurationBlueprint {
+        /**
+         * ARN of the blueprint.
+         */
+        blueprintArn: pulumi.Input<string>;
+        /**
+         * Stage of the blueprint. Valid values: `DEVELOPMENT`, `LIVE`.
+         */
+        blueprintStage?: pulumi.Input<string | undefined>;
+        /**
+         * Version of the blueprint.
+         */
+        blueprintVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectCustomOutputConfigurationDocument {
+        /**
+         * Blueprint to use when no other blueprint matches a document. Can be specified multiple times. See `blueprint` and `fallbackBlueprint` Block below.
+         */
+        fallbackBlueprints?: pulumi.Input<pulumi.Input<inputs.bedrockdataautomation.ProjectCustomOutputConfigurationDocumentFallbackBlueprint>[] | undefined>;
+    }
+
+    export interface ProjectCustomOutputConfigurationDocumentFallbackBlueprint {
+        /**
+         * ARN of the blueprint.
+         */
+        blueprintArn: pulumi.Input<string>;
+        /**
+         * Stage of the blueprint. Valid values: `DEVELOPMENT`, `LIVE`.
+         */
+        blueprintStage?: pulumi.Input<string | undefined>;
+        /**
+         * Version of the blueprint.
+         */
+        blueprintVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectDataAutomationLibraryConfiguration {
+        /**
+         * Library to use. Only one library is supported. See `library` Block below.
+         */
+        library?: pulumi.Input<inputs.bedrockdataautomation.ProjectDataAutomationLibraryConfigurationLibrary | undefined>;
+    }
+
+    export interface ProjectDataAutomationLibraryConfigurationLibrary {
+        /**
+         * ARN of the data automation library.
+         */
+        libraryArn: pulumi.Input<string>;
+    }
+
+    export interface ProjectEncryptionConfiguration {
+        /**
+         * Map of key-value pairs to use as the KMS encryption context.
+         */
+        kmsEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Identifier of the KMS key used to encrypt the project.
+         */
+        kmsKeyId: pulumi.Input<string>;
+    }
+
+    export interface ProjectOverrideConfiguration {
+        /**
+         * Overrides for audio files. See `override_configuration.audio` Block below.
+         */
+        audio?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationAudio | undefined>;
+        /**
+         * Overrides for documents. See `override_configuration.document` Block below.
+         */
+        document?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationDocument | undefined>;
+        /**
+         * Overrides for images. See `override_configuration.image` Block below.
+         */
+        image?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationImage | undefined>;
+        /**
+         * Modality to process each file type as. See `modalityRouting` Block below.
+         */
+        modalityRouting?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationModalityRouting | undefined>;
+        /**
+         * Overrides for videos. See `override_configuration.video` Block below.
+         */
+        video?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationVideo | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationAudio {
+        /**
+         * Language settings. See `languageConfiguration` Block below.
+         */
+        languageConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationAudioLanguageConfiguration | undefined>;
+        /**
+         * Whether to process video files. See `modalityProcessing` Block below.
+         */
+        modalityProcessing?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationAudioModalityProcessing | undefined>;
+        /**
+         * Sensitive data detection settings. See `sensitiveDataConfiguration` Block below.
+         */
+        sensitiveDataConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationAudioSensitiveDataConfiguration | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationAudioLanguageConfiguration {
+        /**
+         * Language of generative output. Valid values: `DEFAULT`, `EN`.
+         */
+        generativeOutputLanguage?: pulumi.Input<string | undefined>;
+        /**
+         * Whether to identify multiple languages in a file.
+         */
+        identifyMultipleLanguages?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set of languages expected in input files. Valid values: `EN`, `DE`, `ES`, `FR`, `IT`, `PT`, `JA`, `KO`, `CN`, `TW`, `HK`.
+         */
+        inputLanguages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationAudioModalityProcessing {
+        /**
+         * Whether to process files of this modality. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectOverrideConfigurationAudioSensitiveDataConfiguration {
+        /**
+         * Whether to detect or detect and redact sensitive data. Valid values: `DETECTION`, `DETECTION_AND_REDACTION`.
+         */
+        detectionMode: pulumi.Input<string>;
+        /**
+         * Set of outputs to scan for sensitive data. Valid values: `STANDARD`, `CUSTOM`.
+         */
+        detectionScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * PII entity settings. See `piiEntitiesConfiguration` Block below.
+         */
+        piiEntitiesConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationAudioSensitiveDataConfigurationPiiEntitiesConfiguration | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationAudioSensitiveDataConfigurationPiiEntitiesConfiguration {
+        /**
+         * Set of PII entity types to detect, such as `ALL`, `NAME`, `EMAIL` or `US_SOCIAL_SECURITY_NUMBER`. See the [API reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_PIIEntitiesConfiguration.html) for all valid values.
+         */
+        piiEntityTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * How to mask redacted data. Valid values: `PII`, `ENTITY_TYPE`.
+         */
+        redactionMaskMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationDocument {
+        /**
+         * Whether to process video files. See `modalityProcessing` Block below.
+         */
+        modalityProcessing?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationDocumentModalityProcessing | undefined>;
+        /**
+         * Sensitive data detection settings. See `sensitiveDataConfiguration` Block below.
+         */
+        sensitiveDataConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationDocumentSensitiveDataConfiguration | undefined>;
+        /**
+         * Whether to split documents that contain multiple logical documents. See `splitter` Block below.
+         */
+        splitter?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationDocumentSplitter | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationDocumentModalityProcessing {
+        /**
+         * Whether to process files of this modality. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectOverrideConfigurationDocumentSensitiveDataConfiguration {
+        /**
+         * Whether to detect or detect and redact sensitive data. Valid values: `DETECTION`, `DETECTION_AND_REDACTION`.
+         */
+        detectionMode: pulumi.Input<string>;
+        /**
+         * Set of outputs to scan for sensitive data. Valid values: `STANDARD`, `CUSTOM`.
+         */
+        detectionScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * PII entity settings. See `piiEntitiesConfiguration` Block below.
+         */
+        piiEntitiesConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationDocumentSensitiveDataConfigurationPiiEntitiesConfiguration | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationDocumentSensitiveDataConfigurationPiiEntitiesConfiguration {
+        /**
+         * Set of PII entity types to detect, such as `ALL`, `NAME`, `EMAIL` or `US_SOCIAL_SECURITY_NUMBER`. See the [API reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_PIIEntitiesConfiguration.html) for all valid values.
+         */
+        piiEntityTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * How to mask redacted data. Valid values: `PII`, `ENTITY_TYPE`.
+         */
+        redactionMaskMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationDocumentSplitter {
+        /**
+         * Whether to split documents that contain multiple logical documents. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectOverrideConfigurationImage {
+        /**
+         * Whether to process video files. See `modalityProcessing` Block below.
+         */
+        modalityProcessing?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationImageModalityProcessing | undefined>;
+        /**
+         * Sensitive data detection settings. See `sensitiveDataConfiguration` Block below.
+         */
+        sensitiveDataConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationImageSensitiveDataConfiguration | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationImageModalityProcessing {
+        /**
+         * Whether to process files of this modality. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectOverrideConfigurationImageSensitiveDataConfiguration {
+        /**
+         * Whether to detect or detect and redact sensitive data. Valid values: `DETECTION`, `DETECTION_AND_REDACTION`.
+         */
+        detectionMode: pulumi.Input<string>;
+        /**
+         * Set of outputs to scan for sensitive data. Valid values: `STANDARD`, `CUSTOM`.
+         */
+        detectionScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * PII entity settings. See `piiEntitiesConfiguration` Block below.
+         */
+        piiEntitiesConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationImageSensitiveDataConfigurationPiiEntitiesConfiguration | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationImageSensitiveDataConfigurationPiiEntitiesConfiguration {
+        /**
+         * Set of PII entity types to detect, such as `ALL`, `NAME`, `EMAIL` or `US_SOCIAL_SECURITY_NUMBER`. See the [API reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_PIIEntitiesConfiguration.html) for all valid values.
+         */
+        piiEntityTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * How to mask redacted data. Valid values: `PII`, `ENTITY_TYPE`.
+         */
+        redactionMaskMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationModalityRouting {
+        /**
+         * Modality to process JPEG files as.
+         */
+        jpeg?: pulumi.Input<string | undefined>;
+        /**
+         * Modality to process MOV files as.
+         */
+        mov?: pulumi.Input<string | undefined>;
+        /**
+         * Modality to process MP4 files as.
+         */
+        mp4?: pulumi.Input<string | undefined>;
+        /**
+         * Modality to process PNG files as.
+         */
+        png?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationVideo {
+        /**
+         * Whether to process video files. See `modalityProcessing` Block below.
+         */
+        modalityProcessing?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationVideoModalityProcessing | undefined>;
+        /**
+         * Sensitive data detection settings. See `sensitiveDataConfiguration` Block below.
+         */
+        sensitiveDataConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationVideoSensitiveDataConfiguration | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationVideoModalityProcessing {
+        /**
+         * Whether to process files of this modality. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectOverrideConfigurationVideoSensitiveDataConfiguration {
+        /**
+         * Whether to detect or detect and redact sensitive data. Valid values: `DETECTION`, `DETECTION_AND_REDACTION`.
+         */
+        detectionMode: pulumi.Input<string>;
+        /**
+         * Set of outputs to scan for sensitive data. Valid values: `STANDARD`, `CUSTOM`.
+         */
+        detectionScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * PII entity settings. See `piiEntitiesConfiguration` Block below.
+         */
+        piiEntitiesConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectOverrideConfigurationVideoSensitiveDataConfigurationPiiEntitiesConfiguration | undefined>;
+    }
+
+    export interface ProjectOverrideConfigurationVideoSensitiveDataConfigurationPiiEntitiesConfiguration {
+        /**
+         * Set of PII entity types to detect, such as `ALL`, `NAME`, `EMAIL` or `US_SOCIAL_SECURITY_NUMBER`. See the [API reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_PIIEntitiesConfiguration.html) for all valid values.
+         */
+        piiEntityTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * How to mask redacted data. Valid values: `PII`, `ENTITY_TYPE`.
+         */
+        redactionMaskMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfiguration {
+        /**
+         * Standard output for audio files. See `standard_output_configuration.audio` Block below.
+         */
+        audio?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationAudio | undefined>;
+        /**
+         * Standard output for documents. See `standard_output_configuration.document` Block below.
+         */
+        document?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationDocument | undefined>;
+        /**
+         * Standard output for images. See `standard_output_configuration.image` Block below.
+         */
+        image?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationImage | undefined>;
+        /**
+         * Standard output for videos. See `standard_output_configuration.video` Block below.
+         */
+        video?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationVideo | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationAudio {
+        /**
+         * Extraction settings. See `standard_output_configuration.video.extraction` Block below.
+         */
+        extraction?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationAudioExtraction | undefined>;
+        /**
+         * Generative output settings. See `video.generative_field` Block below.
+         */
+        generativeField?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationAudioGenerativeField | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationAudioExtraction {
+        /**
+         * Categories to extract. See `video.category` Block below.
+         */
+        category: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationAudioExtractionCategory>;
+    }
+
+    export interface ProjectStandardOutputConfigurationAudioExtractionCategory {
+        state: pulumi.Input<string>;
+        /**
+         * Per-category type settings. See `typeConfiguration` Block below.
+         */
+        typeConfiguration?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationAudioExtractionCategoryTypeConfiguration | undefined>;
+        types?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationAudioExtractionCategoryTypeConfiguration {
+        /**
+         * Transcript settings. See `transcript` Block below.
+         */
+        transcript?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationAudioExtractionCategoryTypeConfigurationTranscript | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationAudioExtractionCategoryTypeConfigurationTranscript {
+        /**
+         * Whether to label audio channels. See `channelLabeling` Block below.
+         */
+        channelLabeling?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationAudioExtractionCategoryTypeConfigurationTranscriptChannelLabeling | undefined>;
+        /**
+         * Whether to label speakers. See `speakerLabeling` Block below.
+         */
+        speakerLabeling?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationAudioExtractionCategoryTypeConfigurationTranscriptSpeakerLabeling | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationAudioExtractionCategoryTypeConfigurationTranscriptChannelLabeling {
+        /**
+         * Whether to label audio channels. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectStandardOutputConfigurationAudioExtractionCategoryTypeConfigurationTranscriptSpeakerLabeling {
+        /**
+         * Whether to label speakers. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectStandardOutputConfigurationAudioGenerativeField {
+        state: pulumi.Input<string>;
+        types?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationDocument {
+        /**
+         * Extraction settings. See `standard_output_configuration.video.extraction` Block below.
+         */
+        extraction?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationDocumentExtraction | undefined>;
+        /**
+         * Generative output settings. See `video.generative_field` Block below.
+         */
+        generativeField?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationDocumentGenerativeField | undefined>;
+        /**
+         * Output format settings. See `outputFormat` Block below.
+         */
+        outputFormat?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationDocumentOutputFormat | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationDocumentExtraction {
+        /**
+         * Whether to include bounding boxes. See `boundingBox` Block below.
+         */
+        boundingBox: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationDocumentExtractionBoundingBox>;
+        /**
+         * Extraction granularity. See `granularity` Block below.
+         */
+        granularity: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationDocumentExtractionGranularity>;
+    }
+
+    export interface ProjectStandardOutputConfigurationDocumentExtractionBoundingBox {
+        /**
+         * Whether to include bounding boxes. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectStandardOutputConfigurationDocumentExtractionGranularity {
+        /**
+         * Set of granularity levels. Valid values: `DOCUMENT`, `PAGE`, `ELEMENT`, `WORD`, `LINE`.
+         */
+        types?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationDocumentGenerativeField {
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectStandardOutputConfigurationDocumentOutputFormat {
+        /**
+         * Whether to produce additional output files. See `additionalFileFormat` Block below.
+         */
+        additionalFileFormat: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationDocumentOutputFormatAdditionalFileFormat>;
+        /**
+         * Text output formats. See `textFormat` Block below.
+         */
+        textFormat: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationDocumentOutputFormatTextFormat>;
+    }
+
+    export interface ProjectStandardOutputConfigurationDocumentOutputFormatAdditionalFileFormat {
+        /**
+         * Whether to produce additional output files. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectStandardOutputConfigurationDocumentOutputFormatTextFormat {
+        /**
+         * Set of text formats. Valid values: `PLAIN_TEXT`, `MARKDOWN`, `HTML`, `CSV`.
+         */
+        types?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationImage {
+        /**
+         * Extraction settings. See `standard_output_configuration.video.extraction` Block below.
+         */
+        extraction?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationImageExtraction | undefined>;
+        /**
+         * Generative output settings. See `video.generative_field` Block below.
+         */
+        generativeField?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationImageGenerativeField | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationImageExtraction {
+        /**
+         * Whether to include bounding boxes. See `boundingBox` Block below.
+         */
+        boundingBox: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationImageExtractionBoundingBox>;
+        /**
+         * Categories to extract. See `video.category` Block below.
+         */
+        category: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationImageExtractionCategory>;
+    }
+
+    export interface ProjectStandardOutputConfigurationImageExtractionBoundingBox {
+        /**
+         * Whether to include bounding boxes. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectStandardOutputConfigurationImageExtractionCategory {
+        state: pulumi.Input<string>;
+        types?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationImageGenerativeField {
+        state: pulumi.Input<string>;
+        types?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationVideo {
+        /**
+         * Extraction settings. See `standard_output_configuration.video.extraction` Block below.
+         */
+        extraction?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationVideoExtraction | undefined>;
+        /**
+         * Generative output settings. See `video.generative_field` Block below.
+         */
+        generativeField?: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationVideoGenerativeField | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationVideoExtraction {
+        /**
+         * Whether to include bounding boxes. See `boundingBox` Block below.
+         */
+        boundingBox: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationVideoExtractionBoundingBox>;
+        /**
+         * Categories to extract. See `video.category` Block below.
+         */
+        category: pulumi.Input<inputs.bedrockdataautomation.ProjectStandardOutputConfigurationVideoExtractionCategory>;
+    }
+
+    export interface ProjectStandardOutputConfigurationVideoExtractionBoundingBox {
+        /**
+         * Whether to include bounding boxes. Valid values: `ENABLED`, `DISABLED`.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    export interface ProjectStandardOutputConfigurationVideoExtractionCategory {
+        state: pulumi.Input<string>;
+        types?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectStandardOutputConfigurationVideoGenerativeField {
+        state: pulumi.Input<string>;
+        types?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+}
+
 export namespace bedrockfoundation {
     export interface ModelAgreementTimeouts {
         /**
@@ -25966,7 +26574,7 @@ export namespace cloudsearch {
          */
         sourceFields?: pulumi.Input<string | undefined>;
         /**
-         * The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+         * Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
          */
         type: pulumi.Input<string>;
     }
@@ -28485,7 +29093,7 @@ export namespace codebuild {
          */
         pattern: pulumi.Input<string>;
         /**
-         * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+         * Webhook filter group's type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
          */
         type: pulumi.Input<string>;
     }
@@ -28507,11 +29115,11 @@ export namespace codebuild {
          */
         domain?: pulumi.Input<string | undefined>;
         /**
-         * The name of either the enterprise or organization.
+         * Name of the enterprise, organization, or GitLab group.
          */
         name: pulumi.Input<string>;
         /**
-         * The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+         * Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
          */
         scope: pulumi.Input<string>;
     }
@@ -31026,7 +31634,7 @@ export namespace connect {
 
     export interface RoutingProfileMediaConcurrency {
         /**
-         * Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+         * Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
          */
         channel: pulumi.Input<string>;
         /**
@@ -31048,7 +31656,7 @@ export namespace connect {
 
     export interface RoutingProfileQueueConfig {
         /**
-         * Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+         * Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
          */
         channel: pulumi.Input<string>;
         /**
@@ -32942,7 +33550,7 @@ export namespace costexplorer {
 
     export interface GetTagsSortBy {
         /**
-         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         * Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
          */
         key?: string;
         /**
@@ -32953,7 +33561,7 @@ export namespace costexplorer {
 
     export interface GetTagsSortByArgs {
         /**
-         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         * Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
          */
         key?: pulumi.Input<string | undefined>;
         /**
@@ -33597,7 +34205,7 @@ export namespace datasync {
 
     export interface FsxOpenZfsFileSystemProtocolNfsMountOptions {
         /**
-         * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+         * NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
          */
         version?: pulumi.Input<string | undefined>;
     }
@@ -33678,14 +34286,14 @@ export namespace datasync {
 
     export interface LocationSmbMountOptions {
         /**
-         * The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+         * SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
          */
         version?: pulumi.Input<string | undefined>;
     }
 
     export interface NfsLocationMountOptions {
         /**
-         * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+         * NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
          */
         version?: pulumi.Input<string | undefined>;
     }
@@ -43853,11 +44461,11 @@ export namespace ecr {
 
     export interface RepositoryCreationTemplateEncryptionConfiguration {
         /**
-         * The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+         * Encryption type to use for any created repositories. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
          */
         encryptionType?: pulumi.Input<string | undefined>;
         /**
-         * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         * ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
          */
         kmsKey?: pulumi.Input<string | undefined>;
     }
@@ -43875,11 +44483,11 @@ export namespace ecr {
 
     export interface RepositoryEncryptionConfiguration {
         /**
-         * The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+         * Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
          */
         encryptionType?: pulumi.Input<string | undefined>;
         /**
-         * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         * ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
          */
         kmsKey?: pulumi.Input<string | undefined>;
     }
@@ -45262,7 +45870,7 @@ export namespace ecs {
          */
         hookTargetArn?: pulumi.Input<string | undefined>;
         /**
-         * Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+         * Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRE_PRODUCTION_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
          */
         lifecycleStages: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -49793,7 +50401,7 @@ export namespace fsx {
          */
         destination?: pulumi.Input<string | undefined>;
         /**
-         * Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+         * Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
          */
         level?: pulumi.Input<string | undefined>;
     }
@@ -51282,7 +51890,7 @@ export namespace glue {
          */
         isProtected?: pulumi.Input<boolean | undefined>;
         /**
-         * Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+         * Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
          */
         lastRefreshType?: pulumi.Input<string | undefined>;
         /**
@@ -61140,6 +61748,182 @@ export namespace lambdamicrovms {
          */
         delete?: pulumi.Input<string | undefined>;
     }
+}
+
+export namespace lambdaweb {
+    export interface FunctionEndpointRevisionWeight {
+        /**
+         * ID of the revision to route traffic to.
+         */
+        revisionId: pulumi.Input<string>;
+        /**
+         * Percentage of traffic for this revision (1-100). With one entry the weight must be 100; with two entries the weights must sum to 100.
+         */
+        weight: pulumi.Input<number>;
+    }
+
+    export interface FunctionEndpointScalingConfig {
+        /**
+         * Maximum number of concurrent execution environments the endpoint may scale to, minimum 2.
+         */
+        maxEnvironments: pulumi.Input<number>;
+    }
+
+    export interface FunctionEndpointThrottleConfig {
+        /**
+         * Maximum request rate for the endpoint, in requests per second. The service only accepts quantized values: `0`, `100`-`1000` in steps of 100, and `2000`-`10000` in steps of 1000.
+         */
+        rateLimit: pulumi.Input<number>;
+    }
+
+    export interface FunctionEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface FunctionRevisionBuildConfig {
+        /**
+         * Code configuration. See `build_config.code_config` Block below.
+         */
+        codeConfig: pulumi.Input<inputs.lambdaweb.FunctionRevisionBuildConfigCodeConfig>;
+        /**
+         * Runtime configuration for the revision. See `build_config.runtime_config` Block below.
+         */
+        runtimeConfig: pulumi.Input<inputs.lambdaweb.FunctionRevisionBuildConfigRuntimeConfig>;
+    }
+
+    export interface FunctionRevisionBuildConfigCodeConfig {
+        /**
+         * Amazon S3 location of the deployment artifact. See `build_config.code_config.s3_object` Block below.
+         */
+        s3Object: pulumi.Input<inputs.lambdaweb.FunctionRevisionBuildConfigCodeConfigS3Object>;
+    }
+
+    export interface FunctionRevisionBuildConfigCodeConfigS3Object {
+        /**
+         * Name of the Amazon S3 bucket.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * Amazon S3 object key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Version ID of the Amazon S3 object.
+         */
+        versionId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface FunctionRevisionBuildConfigRuntimeConfig {
+        /**
+         * Runtime identifier for the web function, e.g. `nodejs24.x`.
+         */
+        runtime: pulumi.Input<string>;
+    }
+
+    export interface FunctionRevisionServiceConfig {
+        /**
+         * ARN of the Lambda network connector that gives the web function access to resources in a VPC. Specify the fully qualified ARN, including the connector version, which pins the revision to that version. Supported only with `HomeRegion` endpoints.
+         */
+        egressNetworkConnectorArn?: pulumi.Input<string | undefined>;
+        /**
+         * Map of environment variable key-value pairs available to the web function at runtime.
+         */
+        environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * ARN of the IAM role that the web function assumes when it runs. The trust principal must be `lambda.amazonaws.com`.
+         */
+        executionRoleArn: pulumi.Input<string>;
+        /**
+         * Maximum number of concurrent requests handled per execution environment. The default is `64`.
+         */
+        maxConcurrencyPerEnvironment?: pulumi.Input<number | undefined>;
+        /**
+         * Telemetry configuration for the web function. See `service_config.telemetry_config` Block below.
+         */
+        telemetryConfig?: pulumi.Input<inputs.lambdaweb.FunctionRevisionServiceConfigTelemetryConfig | undefined>;
+        /**
+         * Actual deployed telemetry configuration.
+         */
+        telemetryConfigActuals?: pulumi.Input<pulumi.Input<inputs.lambdaweb.FunctionRevisionServiceConfigTelemetryConfigActual>[] | undefined>;
+        /**
+         * Amount of time (in seconds) that Lambda allows the web function to run before stopping it. The default is `30`.
+         */
+        timeoutSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    export interface FunctionRevisionServiceConfigTelemetryConfig {
+        /**
+         * Deployed logging configuration.
+         */
+        loggingConfig?: pulumi.Input<inputs.lambdaweb.FunctionRevisionServiceConfigTelemetryConfigLoggingConfig | undefined>;
+    }
+
+    export interface FunctionRevisionServiceConfigTelemetryConfigActual {
+        /**
+         * Deployed logging configuration.
+         */
+        loggingConfigs: pulumi.Input<pulumi.Input<inputs.lambdaweb.FunctionRevisionServiceConfigTelemetryConfigActualLoggingConfig>[]>;
+    }
+
+    export interface FunctionRevisionServiceConfigTelemetryConfigActualLoggingConfig {
+        /**
+         * Log level for application logs emitted by the web function.
+         */
+        applicationLogLevel: pulumi.Input<string>;
+        /**
+         * Name of the Amazon CloudWatch Logs log group the web function sends logs to.
+         */
+        logGroup: pulumi.Input<string>;
+        /**
+         * Log level for system logs emitted by the Lambda runtime.
+         */
+        systemLogLevel: pulumi.Input<string>;
+    }
+
+    export interface FunctionRevisionServiceConfigTelemetryConfigLoggingConfig {
+        /**
+         * Log level for application logs emitted by the web function.
+         */
+        applicationLogLevel?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the Amazon CloudWatch Logs log group the web function sends logs to.
+         */
+        logGroup?: pulumi.Input<string | undefined>;
+        /**
+         * Log level for system logs emitted by the Lambda runtime.
+         */
+        systemLogLevel?: pulumi.Input<string | undefined>;
+    }
+
+    export interface FunctionRevisionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+    }
+
+    export interface FunctionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+    }
+
 }
 
 export namespace lb {
@@ -83011,7 +83795,7 @@ export namespace networkfirewall {
 
     export interface RuleGroupRuleGroupRulesSourceRulesSourceList {
         /**
-         * String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+         * Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
          */
         generatedRulesType: pulumi.Input<string>;
         /**
@@ -84416,6 +85200,311 @@ export namespace networkmanager {
          * Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          */
         securityGroupReferencingSupport?: pulumi.Input<boolean | undefined>;
+    }
+}
+
+export namespace networksecuritymanager {
+    export interface ScopeScopeConfiguration {
+        /**
+         * Accounts that are in scope. Organization administrators must set it, and single-account administrators must omit it. Adding or removing the block forces a new resource. See `scope_configuration.account_filter` Block below.
+         */
+        accountFilter?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationAccountFilter | undefined>;
+        /**
+         * Resources that are in scope, one block per resource type. A scope selects either the global resource type `AWS::CloudFront::Distribution` or regional resource types, not both. Changing between them forces a new resource. See `scope_configuration.resource_scope` Block below.
+         */
+        resourceScopes: pulumi.Input<pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScope>[]>;
+    }
+
+    export interface ScopeScopeConfigurationAccountFilter {
+        /**
+         * Resources to exclude. All other resources of the type are in scope. See `scope_configuration.resource_scope.exclude` Block below.
+         */
+        exclude?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationAccountFilterExclude | undefined>;
+        /**
+         * Resources to include. See `scope_configuration.resource_scope.include` Block below.
+         */
+        include?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationAccountFilterInclude | undefined>;
+        /**
+         * Set to `true` to include all resources of the type.
+         */
+        includeAll?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationAccountFilterExclude {
+        /**
+         * Set of AWS account IDs.
+         */
+        accountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Set of AWS Organizations organizational unit IDs.
+         */
+        organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationAccountFilterInclude {
+        /**
+         * Set of AWS account IDs.
+         */
+        accountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Set of AWS Organizations organizational unit IDs.
+         */
+        organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScope {
+        /**
+         * Resources to exclude. All other resources of the type are in scope. See `scope_configuration.resource_scope.exclude` Block below.
+         */
+        exclude?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExclude | undefined>;
+        /**
+         * Resources to include. See `scope_configuration.resource_scope.include` Block below.
+         */
+        include?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeInclude | undefined>;
+        /**
+         * Set to `true` to include all resources of the type.
+         */
+        includeAll?: pulumi.Input<boolean | undefined>;
+        /**
+         * Resource type. Valid values: `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::EIP`, `AWS::ElasticLoadBalancing::LoadBalancer`, `AWS::ElasticLoadBalancingV2::LoadBalancer::application`.
+         */
+        resourceType: pulumi.Input<string>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExclude {
+        /**
+         * Set of resource ARNs.
+         */
+        explicitArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Expression that matches resources. See `expression` Block below.
+         */
+        expression?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpression | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpression {
+        /**
+         * Matches resources that match every operand. Up to 20 blocks. See `and` Block below.
+         */
+        ands?: pulumi.Input<pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpressionAnd>[] | undefined>;
+        /**
+         * Matches resources that match the criteria. See `criteria` Block below.
+         */
+        criteria?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpressionCriteria | undefined>;
+        /**
+         * Matches resources that don't match the operand. Exactly 1 block. See `not` Block below.
+         */
+        not?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpressionNot | undefined>;
+        /**
+         * Matches resources that match at least one operand. Up to 20 blocks. See `or` Block below.
+         */
+        ors?: pulumi.Input<pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpressionOr>[] | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpressionAnd {
+        /**
+         * Application Load Balancer properties to match. See `albConfig` Block below.
+         */
+        albConfig?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpressionAndAlbConfig | undefined>;
+        /**
+         * Map of tags that a resource must have. An empty map matches every resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpressionAndAlbConfig {
+        /**
+         * IP address type. Valid values: `dualstack`, `dualstack-without-public-ipv4`, `ipv4`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Scheme. Valid values: `internal`, `internet-facing`.
+         */
+        scheme?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpressionCriteria {
+        /**
+         * Application Load Balancer properties to match. See `albConfig` Block below.
+         */
+        albConfig?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpressionCriteriaAlbConfig | undefined>;
+        /**
+         * Map of tags that a resource must have. An empty map matches every resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpressionCriteriaAlbConfig {
+        /**
+         * IP address type. Valid values: `dualstack`, `dualstack-without-public-ipv4`, `ipv4`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Scheme. Valid values: `internal`, `internet-facing`.
+         */
+        scheme?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpressionNot {
+        /**
+         * Application Load Balancer properties to match. See `albConfig` Block below.
+         */
+        albConfig?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpressionNotAlbConfig | undefined>;
+        /**
+         * Map of tags that a resource must have. An empty map matches every resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpressionNotAlbConfig {
+        /**
+         * IP address type. Valid values: `dualstack`, `dualstack-without-public-ipv4`, `ipv4`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Scheme. Valid values: `internal`, `internet-facing`.
+         */
+        scheme?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpressionOr {
+        /**
+         * Application Load Balancer properties to match. See `albConfig` Block below.
+         */
+        albConfig?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeExcludeExpressionOrAlbConfig | undefined>;
+        /**
+         * Map of tags that a resource must have. An empty map matches every resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeExcludeExpressionOrAlbConfig {
+        /**
+         * IP address type. Valid values: `dualstack`, `dualstack-without-public-ipv4`, `ipv4`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Scheme. Valid values: `internal`, `internet-facing`.
+         */
+        scheme?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeInclude {
+        /**
+         * Set of resource ARNs.
+         */
+        explicitArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Expression that matches resources. See `expression` Block below.
+         */
+        expression?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpression | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpression {
+        /**
+         * Matches resources that match every operand. Up to 20 blocks. See `and` Block below.
+         */
+        ands?: pulumi.Input<pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpressionAnd>[] | undefined>;
+        /**
+         * Matches resources that match the criteria. See `criteria` Block below.
+         */
+        criteria?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpressionCriteria | undefined>;
+        /**
+         * Matches resources that don't match the operand. Exactly 1 block. See `not` Block below.
+         */
+        not?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpressionNot | undefined>;
+        /**
+         * Matches resources that match at least one operand. Up to 20 blocks. See `or` Block below.
+         */
+        ors?: pulumi.Input<pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpressionOr>[] | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpressionAnd {
+        /**
+         * Application Load Balancer properties to match. See `albConfig` Block below.
+         */
+        albConfig?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpressionAndAlbConfig | undefined>;
+        /**
+         * Map of tags that a resource must have. An empty map matches every resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpressionAndAlbConfig {
+        /**
+         * IP address type. Valid values: `dualstack`, `dualstack-without-public-ipv4`, `ipv4`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Scheme. Valid values: `internal`, `internet-facing`.
+         */
+        scheme?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpressionCriteria {
+        /**
+         * Application Load Balancer properties to match. See `albConfig` Block below.
+         */
+        albConfig?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpressionCriteriaAlbConfig | undefined>;
+        /**
+         * Map of tags that a resource must have. An empty map matches every resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpressionCriteriaAlbConfig {
+        /**
+         * IP address type. Valid values: `dualstack`, `dualstack-without-public-ipv4`, `ipv4`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Scheme. Valid values: `internal`, `internet-facing`.
+         */
+        scheme?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpressionNot {
+        /**
+         * Application Load Balancer properties to match. See `albConfig` Block below.
+         */
+        albConfig?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpressionNotAlbConfig | undefined>;
+        /**
+         * Map of tags that a resource must have. An empty map matches every resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpressionNotAlbConfig {
+        /**
+         * IP address type. Valid values: `dualstack`, `dualstack-without-public-ipv4`, `ipv4`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Scheme. Valid values: `internal`, `internet-facing`.
+         */
+        scheme?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpressionOr {
+        /**
+         * Application Load Balancer properties to match. See `albConfig` Block below.
+         */
+        albConfig?: pulumi.Input<inputs.networksecuritymanager.ScopeScopeConfigurationResourceScopeIncludeExpressionOrAlbConfig | undefined>;
+        /**
+         * Map of tags that a resource must have. An empty map matches every resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface ScopeScopeConfigurationResourceScopeIncludeExpressionOrAlbConfig {
+        /**
+         * IP address type. Valid values: `dualstack`, `dualstack-without-public-ipv4`, `ipv4`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Scheme. Valid values: `internal`, `internet-facing`.
+         */
+        scheme?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -90504,6 +91593,36 @@ export namespace rds {
          */
         update?: pulumi.Input<string | undefined>;
     }
+
+    export interface TenantDatabaseMasterUserSecret {
+        /**
+         * ARN, ID, or alias of the AWS KMS key used to encrypt the secret.
+         */
+        kmsKeyId: pulumi.Input<string>;
+        /**
+         * ARN of the secret.
+         */
+        secretArn: pulumi.Input<string>;
+        /**
+         * Status of the secret.
+         */
+        secretStatus: pulumi.Input<string>;
+    }
+
+    export interface TenantDatabaseTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace redshift {
@@ -95475,7 +96594,7 @@ export namespace s3control {
 
     export interface ObjectLambdaAccessPointConfiguration {
         /**
-         * Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+         * Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
          */
         allowedFeatures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -95494,7 +96613,7 @@ export namespace s3control {
 
     export interface ObjectLambdaAccessPointConfigurationTransformationConfiguration {
         /**
-         * Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         * Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
          */
         actions: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -105829,7 +106948,7 @@ export namespace sfn {
          */
         kmsKeyId?: pulumi.Input<string | undefined>;
         /**
-         * The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+         * Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
          */
         type?: pulumi.Input<string | undefined>;
     }

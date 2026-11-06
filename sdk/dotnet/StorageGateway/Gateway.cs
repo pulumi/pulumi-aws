@@ -323,7 +323,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> SmbGuestPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        /// Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         /// </summary>
         [Output("smbSecurityStrategy")]
         public Output<string> SmbSecurityStrategy { get; private set; } = null!;
@@ -499,7 +499,7 @@ namespace Pulumi.Aws.StorageGateway
         }
 
         /// <summary>
-        /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        /// Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         /// </summary>
         [Input("smbSecurityStrategy")]
         public Input<string>? SmbSecurityStrategy { get; set; }
@@ -675,7 +675,7 @@ namespace Pulumi.Aws.StorageGateway
         }
 
         /// <summary>
-        /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        /// Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         /// </summary>
         [Input("smbSecurityStrategy")]
         public Input<string>? SmbSecurityStrategy { get; set; }

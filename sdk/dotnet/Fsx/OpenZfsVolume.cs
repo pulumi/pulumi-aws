@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> CopyTagsToSnapshots { get; private set; } = null!;
 
         /// <summary>
-        /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        /// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         /// </summary>
         [Output("dataCompressionType")]
         public Output<string?> DataCompressionType { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? CopyTagsToSnapshots { get; set; }
 
         /// <summary>
-        /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        /// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         /// </summary>
         [Input("dataCompressionType")]
         public Input<string>? DataCompressionType { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? CopyTagsToSnapshots { get; set; }
 
         /// <summary>
-        /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        /// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         /// </summary>
         [Input("dataCompressionType")]
         public Input<string>? DataCompressionType { get; set; }

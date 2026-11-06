@@ -18,11 +18,11 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Domain;
         /// <summary>
-        /// The name of either the enterprise or organization.
+        /// Name of the enterprise, organization, or GitLab group.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        /// Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
         /// </summary>
         public readonly string Scope;
 

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccountCustomPermissionArgs, AccountCustomPermissionState } from "./accountCustomPermission";
+export type AccountCustomPermission = import("./accountCustomPermission").AccountCustomPermission;
+export const AccountCustomPermission: typeof import("./accountCustomPermission").AccountCustomPermission = null as any;
+utilities.lazyLoad(exports, ["AccountCustomPermission"], () => require("./accountCustomPermission"));
+
 export { AccountSettingsArgs, AccountSettingsState } from "./accountSettings";
 export type AccountSettings = import("./accountSettings").AccountSettings;
 export const AccountSettings: typeof import("./accountSettings").AccountSettings = null as any;
@@ -160,6 +165,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:quicksight/accountCustomPermission:AccountCustomPermission":
+                return new AccountCustomPermission(name, <any>undefined, { urn })
             case "aws:quicksight/accountSettings:AccountSettings":
                 return new AccountSettings(name, <any>undefined, { urn })
             case "aws:quicksight/accountSubscription:AccountSubscription":
@@ -215,6 +222,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "quicksight/accountCustomPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/accountSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/accountSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/analysis", _module)

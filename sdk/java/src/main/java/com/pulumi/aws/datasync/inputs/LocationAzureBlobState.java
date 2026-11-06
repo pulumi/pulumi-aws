@@ -79,14 +79,14 @@ public final class LocationAzureBlobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
      * 
      */
     @Import(name="blobType")
     private @Nullable Output<String> blobType;
 
     /**
-     * @return The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+     * @return The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
      * 
      */
     public Optional<Output<String>> blobType() {
@@ -320,7 +320,7 @@ public final class LocationAzureBlobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param blobType The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+         * @param blobType The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class LocationAzureBlobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param blobType The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+         * @param blobType The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
          * 
          * @return builder
          * 

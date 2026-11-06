@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class ObjectLambdaAccessPointConfigurationTransformationConfiguration {
     /**
-     * @return Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+     * @return Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
      * 
      */
     private List<String> actions;
@@ -25,7 +25,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
 
     private ObjectLambdaAccessPointConfigurationTransformationConfiguration() {}
     /**
-     * @return Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+     * @return Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
      * 
      */
     public List<String> actions() {

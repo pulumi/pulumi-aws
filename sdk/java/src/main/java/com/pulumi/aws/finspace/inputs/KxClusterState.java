@@ -402,14 +402,14 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+     * @return Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -1041,7 +1041,7 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+         * @param type Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
          * 
          * @return builder
          * 
@@ -1052,7 +1052,7 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+         * @param type Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
          * 
          * @return builder
          * 

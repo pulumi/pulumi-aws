@@ -2191,7 +2191,7 @@ class RuleGroupRuleGroupRulesSourceArgs:
 class RuleGroupRuleGroupRulesSourceRulesSourceListArgsDict(TypedDict):
     generated_rules_type: pulumi.Input[_builtins.str]
     """
-    String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+    Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
     """
     target_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
@@ -2209,7 +2209,7 @@ class RuleGroupRuleGroupRulesSourceRulesSourceListArgs:
                  target_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
-        :param pulumi.Input[_builtins.str] generated_rules_type: String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+        :param pulumi.Input[_builtins.str] generated_rules_type: Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_types: Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53_resolved_ip_validation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: Set of domains that you want to inspect for in your traffic flows.
         """
@@ -2221,7 +2221,7 @@ class RuleGroupRuleGroupRulesSourceRulesSourceListArgs:
     @pulumi.getter(name="generatedRulesType")
     def generated_rules_type(self) -> pulumi.Input[_builtins.str]:
         """
-        String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+        Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
         """
         return pulumi.get(self, "generated_rules_type")
 

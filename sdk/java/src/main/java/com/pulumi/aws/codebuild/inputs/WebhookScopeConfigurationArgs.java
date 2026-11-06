@@ -32,14 +32,14 @@ public final class WebhookScopeConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of either the enterprise or organization.
+     * Name of the enterprise, organization, or GitLab group.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of either the enterprise or organization.
+     * @return Name of the enterprise, organization, or GitLab group.
      * 
      */
     public Output<String> name() {
@@ -47,14 +47,14 @@ public final class WebhookScopeConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+     * Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
      * 
      */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
     /**
-     * @return The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+     * @return Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
      * 
      */
     public Output<String> scope() {
@@ -109,7 +109,7 @@ public final class WebhookScopeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of either the enterprise or organization.
+         * @param name Name of the enterprise, organization, or GitLab group.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class WebhookScopeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of either the enterprise or organization.
+         * @param name Name of the enterprise, organization, or GitLab group.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class WebhookScopeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scope The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+         * @param scope Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class WebhookScopeConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scope The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+         * @param scope Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceListArgs extends com.
     public static final RuleGroupRuleGroupRulesSourceRulesSourceListArgs Empty = new RuleGroupRuleGroupRulesSourceRulesSourceListArgs();
 
     /**
-     * String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+     * Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
      * 
      */
     @Import(name="generatedRulesType", required=true)
     private Output<String> generatedRulesType;
 
     /**
-     * @return String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+     * @return Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
      * 
      */
     public Output<String> generatedRulesType() {
@@ -87,7 +87,7 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceListArgs extends com.
         }
 
         /**
-         * @param generatedRulesType String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+         * @param generatedRulesType Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceListArgs extends com.
         }
 
         /**
-         * @param generatedRulesType String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+         * @param generatedRulesType Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
          * 
          * @return builder
          * 

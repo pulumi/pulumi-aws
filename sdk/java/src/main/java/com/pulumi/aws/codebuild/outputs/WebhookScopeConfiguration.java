@@ -18,12 +18,12 @@ public final class WebhookScopeConfiguration {
      */
     private @Nullable String domain;
     /**
-     * @return The name of either the enterprise or organization.
+     * @return Name of the enterprise, organization, or GitLab group.
      * 
      */
     private String name;
     /**
-     * @return The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+     * @return Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
      * 
      */
     private String scope;
@@ -37,14 +37,14 @@ public final class WebhookScopeConfiguration {
         return Optional.ofNullable(this.domain);
     }
     /**
-     * @return The name of either the enterprise or organization.
+     * @return Name of the enterprise, organization, or GitLab group.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+     * @return Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
      * 
      */
     public String scope() {

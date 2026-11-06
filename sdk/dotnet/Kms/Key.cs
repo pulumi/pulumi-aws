@@ -485,7 +485,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Output("keyUsage")]
         public Output<string?> KeyUsage { get; private set; } = null!;
@@ -623,7 +623,7 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
@@ -735,7 +735,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }

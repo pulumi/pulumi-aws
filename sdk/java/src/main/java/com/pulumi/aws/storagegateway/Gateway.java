@@ -607,14 +607,14 @@ public class Gateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.smbGuestPassword);
     }
     /**
-     * Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+     * Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      * 
      */
     @Export(name="smbSecurityStrategy", refs={String.class}, tree="[0]")
     private Output<String> smbSecurityStrategy;
 
     /**
-     * @return Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+     * @return Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      * 
      */
     public Output<String> smbSecurityStrategy() {

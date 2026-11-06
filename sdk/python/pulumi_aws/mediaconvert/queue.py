@@ -38,7 +38,7 @@ class QueueArgs:
         :param pulumi.Input[_builtins.str] pricing_plan: Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: Detail pricing plan of the reserved queue. See below.
-        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if concurrent_jobs is not None:
@@ -134,7 +134,7 @@ class QueueArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         """
         return pulumi.get(self, "status")
 
@@ -178,7 +178,7 @@ class _QueueState:
         :param pulumi.Input[_builtins.str] pricing_plan: Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: Detail pricing plan of the reserved queue. See below.
-        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -291,7 +291,7 @@ class _QueueState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         """
         return pulumi.get(self, "status")
 
@@ -368,7 +368,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pricing_plan: Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict', 'outputs.QueueReservationPlanSettings']] reservation_plan_settings: Detail pricing plan of the reserved queue. See below.
-        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -474,7 +474,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pricing_plan: Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict', 'outputs.QueueReservationPlanSettings']] reservation_plan_settings: Detail pricing plan of the reserved queue. See below.
-        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -580,7 +580,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         """
         return pulumi.get(self, "status")
 

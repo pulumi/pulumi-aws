@@ -59,7 +59,7 @@ public final class DomainIndexField {
      */
     private @Nullable String sourceFields;
     /**
-     * @return The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+     * @return Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
      * 
      */
     private String type;
@@ -129,7 +129,7 @@ public final class DomainIndexField {
         return Optional.ofNullable(this.sourceFields);
     }
     /**
-     * @return The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+     * @return Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
      * 
      */
     public String type() {

@@ -899,7 +899,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
 class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgsDict(TypedDict):
     runtime: pulumi.Input[_builtins.str]
     """
-    Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
+    Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `PYTHON_311`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `NODEJS_18`, `NODEJS_22`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`. See [App Runner managed platforms](https://docs.aws.amazon.com/apprunner/latest/dg/service-source-code.html#service-source-code.managed-platforms) for runtime support and availability.
     """
     build_command: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -932,7 +932,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
                  runtime_environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  start_command: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] runtime: Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
+        :param pulumi.Input[_builtins.str] runtime: Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `PYTHON_311`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `NODEJS_18`, `NODEJS_22`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`. See [App Runner managed platforms](https://docs.aws.amazon.com/apprunner/latest/dg/service-source-code.html#service-source-code.managed-platforms) for runtime support and availability.
         :param pulumi.Input[_builtins.str] build_command: Command App Runner runs to build your application.
         :param pulumi.Input[_builtins.str] port: Port that your application listens to in the container. Defaults to `"8080"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] runtime_environment_secrets: Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
@@ -955,7 +955,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
     @pulumi.getter
     def runtime(self) -> pulumi.Input[_builtins.str]:
         """
-        Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
+        Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `PYTHON_311`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `NODEJS_18`, `NODEJS_22`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`. See [App Runner managed platforms](https://docs.aws.amazon.com/apprunner/latest/dg/service-source-code.html#service-source-code.managed-platforms) for runtime support and availability.
         """
         return pulumi.get(self, "runtime")
 

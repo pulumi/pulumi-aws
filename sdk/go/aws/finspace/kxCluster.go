@@ -142,7 +142,7 @@ type KxCluster struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
 	TickerplantLogConfigurations KxClusterTickerplantLogConfigurationArrayOutput `pulumi:"tickerplantLogConfigurations"`
-	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
 	//
@@ -245,7 +245,7 @@ type kxClusterState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
 	TickerplantLogConfigurations []KxClusterTickerplantLogConfiguration `pulumi:"tickerplantLogConfigurations"`
-	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
 	Type *string `pulumi:"type"`
 	// Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
 	//
@@ -304,7 +304,7 @@ type KxClusterState struct {
 	TagsAll pulumi.StringMapInput
 	// Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
 	TickerplantLogConfigurations KxClusterTickerplantLogConfigurationArrayInput
-	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
 	Type pulumi.StringPtrInput
 	// Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
 	//
@@ -361,7 +361,7 @@ type kxClusterArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
 	TickerplantLogConfigurations []KxClusterTickerplantLogConfiguration `pulumi:"tickerplantLogConfigurations"`
-	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
 	Type string `pulumi:"type"`
 	// Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
 	//
@@ -409,7 +409,7 @@ type KxClusterArgs struct {
 	Tags pulumi.StringMapInput
 	// Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
 	TickerplantLogConfigurations KxClusterTickerplantLogConfigurationArrayInput
-	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+	// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
 	Type pulumi.StringInput
 	// Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
 	//
@@ -633,7 +633,7 @@ func (o KxClusterOutput) TickerplantLogConfigurations() KxClusterTickerplantLogC
 	}).(KxClusterTickerplantLogConfigurationArrayOutput)
 }
 
-// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
 func (o KxClusterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

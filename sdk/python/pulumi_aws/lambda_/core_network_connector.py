@@ -110,6 +110,8 @@ class _CoreNetworkConnectorState:
     def __init__(__self__, *,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration: pulumi.Input[Optional['CoreNetworkConnectorConfigurationArgs']] = None,
+                 latest_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 latest_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operator_role: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -119,6 +121,8 @@ class _CoreNetworkConnectorState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the network connector.
         :param pulumi.Input['CoreNetworkConnectorConfigurationArgs'] configuration: Network configuration of the connector. See `configuration` Block below.
+        :param pulumi.Input[_builtins.int] latest_version: Number of the connector's latest version. Each configuration change creates a new immutable version.
+        :param pulumi.Input[_builtins.str] latest_version_arn: Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `lambdaweb.FunctionRevision` resource.
         :param pulumi.Input[_builtins.str] name: Name of the network connector, unique within the account and Region. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] operator_role: ARN of the IAM role that the network connector service assumes to manage elastic network interfaces in your VPC.
                
@@ -129,6 +133,10 @@ class _CoreNetworkConnectorState:
             pulumi.set(__self__, "arn", arn)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if latest_version is not None:
+            pulumi.set(__self__, "latest_version", latest_version)
+        if latest_version_arn is not None:
+            pulumi.set(__self__, "latest_version_arn", latest_version_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if operator_role is not None:
@@ -161,6 +169,30 @@ class _CoreNetworkConnectorState:
     @configuration.setter
     def configuration(self, value: pulumi.Input[Optional['CoreNetworkConnectorConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of the connector's latest version. Each configuration change creates a new immutable version.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @latest_version.setter
+    def latest_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "latest_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersionArn")
+    def latest_version_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `lambdaweb.FunctionRevision` resource.
+        """
+        return pulumi.get(self, "latest_version_arn")
+
+    @latest_version_arn.setter
+    def latest_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "latest_version_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -223,7 +255,7 @@ class CoreNetworkConnector(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['CoreNetworkConnectorTimeoutsArgs', 'CoreNetworkConnectorTimeoutsArgsDict', 'outputs.CoreNetworkConnectorTimeouts']]] = None,
                  __props__=None):
         """
-        Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
+        Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) or [Lambda Web Functions](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
 
         ## Example Usage
 
@@ -319,7 +351,7 @@ class CoreNetworkConnector(pulumi.CustomResource):
                  args: CoreNetworkConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
+        Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) or [Lambda Web Functions](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
 
         ## Example Usage
 
@@ -438,6 +470,8 @@ class CoreNetworkConnector(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
+            __props__.__dict__["latest_version"] = None
+            __props__.__dict__["latest_version_arn"] = None
         super(CoreNetworkConnector, __self__).__init__(
             'aws:lambda/coreNetworkConnector:CoreNetworkConnector',
             resource_name,
@@ -450,6 +484,8 @@ class CoreNetworkConnector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             configuration: pulumi.Input[Optional[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict', 'outputs.CoreNetworkConnectorConfiguration']]] = None,
+            latest_version: pulumi.Input[Optional[_builtins.int]] = None,
+            latest_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             operator_role: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -463,6 +499,8 @@ class CoreNetworkConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the network connector.
         :param pulumi.Input[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict', 'outputs.CoreNetworkConnectorConfiguration']] configuration: Network configuration of the connector. See `configuration` Block below.
+        :param pulumi.Input[_builtins.int] latest_version: Number of the connector's latest version. Each configuration change creates a new immutable version.
+        :param pulumi.Input[_builtins.str] latest_version_arn: Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `lambdaweb.FunctionRevision` resource.
         :param pulumi.Input[_builtins.str] name: Name of the network connector, unique within the account and Region. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] operator_role: ARN of the IAM role that the network connector service assumes to manage elastic network interfaces in your VPC.
                
@@ -475,6 +513,8 @@ class CoreNetworkConnector(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["configuration"] = configuration
+        __props__.__dict__["latest_version"] = latest_version
+        __props__.__dict__["latest_version_arn"] = latest_version_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["operator_role"] = operator_role
         __props__.__dict__["region"] = region
@@ -486,6 +526,8 @@ class CoreNetworkConnector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             configuration: pulumi.Input[Optional[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict', 'outputs.CoreNetworkConnectorConfiguration']]] = None,
+            latest_version: pulumi.Input[Optional[_builtins.int]] = None,
+            latest_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             operator_role: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -493,6 +535,8 @@ class CoreNetworkConnector(pulumi.CustomResource):
         __props__: dict = {}
         __props__["arn"] = arn
         __props__["configuration"] = configuration
+        __props__["latestVersion"] = latest_version
+        __props__["latestVersionArn"] = latest_version_arn
         __props__["name"] = name
         __props__["operatorRole"] = operator_role
         __props__["region"] = region
@@ -514,6 +558,22 @@ class CoreNetworkConnector(pulumi.CustomResource):
         Network configuration of the connector. See `configuration` Block below.
         """
         return pulumi.get(self, "configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> pulumi.Output[_builtins.int]:
+        """
+        Number of the connector's latest version. Each configuration change creates a new immutable version.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersionArn")
+    def latest_version_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `lambdaweb.FunctionRevision` resource.
+        """
+        return pulumi.get(self, "latest_version_arn")
 
     @_builtins.property
     @pulumi.getter

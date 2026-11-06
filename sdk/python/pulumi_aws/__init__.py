@@ -93,6 +93,8 @@ if typing.TYPE_CHECKING:
     bcmdata = __bcmdata
     import pulumi_aws.bedrock as __bedrock
     bedrock = __bedrock
+    import pulumi_aws.bedrockdataautomation as __bedrockdataautomation
+    bedrockdataautomation = __bedrockdataautomation
     import pulumi_aws.bedrockfoundation as __bedrockfoundation
     bedrockfoundation = __bedrockfoundation
     import pulumi_aws.bedrockmodel as __bedrockmodel
@@ -297,6 +299,8 @@ if typing.TYPE_CHECKING:
     lambda_ = __lambda_
     import pulumi_aws.lambdamicrovms as __lambdamicrovms
     lambdamicrovms = __lambdamicrovms
+    import pulumi_aws.lambdaweb as __lambdaweb
+    lambdaweb = __lambdaweb
     import pulumi_aws.lb as __lb
     lb = __lb
     import pulumi_aws.lex as __lex
@@ -347,6 +351,8 @@ if typing.TYPE_CHECKING:
     networkmanager = __networkmanager
     import pulumi_aws.networkmonitor as __networkmonitor
     networkmonitor = __networkmonitor
+    import pulumi_aws.networksecuritymanager as __networksecuritymanager
+    networksecuritymanager = __networksecuritymanager
     import pulumi_aws.notifications as __notifications
     notifications = __notifications
     import pulumi_aws.oam as __oam
@@ -542,6 +548,7 @@ else:
     batch = _utilities.lazy_import('pulumi_aws.batch')
     bcmdata = _utilities.lazy_import('pulumi_aws.bcmdata')
     bedrock = _utilities.lazy_import('pulumi_aws.bedrock')
+    bedrockdataautomation = _utilities.lazy_import('pulumi_aws.bedrockdataautomation')
     bedrockfoundation = _utilities.lazy_import('pulumi_aws.bedrockfoundation')
     bedrockmodel = _utilities.lazy_import('pulumi_aws.bedrockmodel')
     billing = _utilities.lazy_import('pulumi_aws.billing')
@@ -644,6 +651,7 @@ else:
     lakeformation = _utilities.lazy_import('pulumi_aws.lakeformation')
     lambda_ = _utilities.lazy_import('pulumi_aws.lambda_')
     lambdamicrovms = _utilities.lazy_import('pulumi_aws.lambdamicrovms')
+    lambdaweb = _utilities.lazy_import('pulumi_aws.lambdaweb')
     lb = _utilities.lazy_import('pulumi_aws.lb')
     lex = _utilities.lazy_import('pulumi_aws.lex')
     licensemanager = _utilities.lazy_import('pulumi_aws.licensemanager')
@@ -669,6 +677,7 @@ else:
     networkflowmonitor = _utilities.lazy_import('pulumi_aws.networkflowmonitor')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
     networkmonitor = _utilities.lazy_import('pulumi_aws.networkmonitor')
+    networksecuritymanager = _utilities.lazy_import('pulumi_aws.networksecuritymanager')
     notifications = _utilities.lazy_import('pulumi_aws.notifications')
     oam = _utilities.lazy_import('pulumi_aws.oam')
     observabilityadmin = _utilities.lazy_import('pulumi_aws.observabilityadmin')
@@ -2448,6 +2457,30 @@ _utilities.register(
   "fqn": "pulumi_aws.bedrock",
   "classes": {
    "aws:bedrock/useCaseForModelAccess:UseCaseForModelAccess": "UseCaseForModelAccess"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrockdataautomation/blueprint",
+  "fqn": "pulumi_aws.bedrockdataautomation",
+  "classes": {
+   "aws:bedrockdataautomation/blueprint:Blueprint": "Blueprint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrockdataautomation/library",
+  "fqn": "pulumi_aws.bedrockdataautomation",
+  "classes": {
+   "aws:bedrockdataautomation/library:Library": "Library"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrockdataautomation/project",
+  "fqn": "pulumi_aws.bedrockdataautomation",
+  "classes": {
+   "aws:bedrockdataautomation/project:Project": "Project"
   }
  },
  {
@@ -5096,6 +5129,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/capacityBlockReservation:CapacityBlockReservation": "CapacityBlockReservation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/capacityManager",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/capacityManager:CapacityManager": "CapacityManager"
   }
  },
  {
@@ -8548,6 +8589,38 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lambdaweb/function",
+  "fqn": "pulumi_aws.lambdaweb",
+  "classes": {
+   "aws:lambdaweb/function:Function": "Function"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambdaweb/functionEndpoint",
+  "fqn": "pulumi_aws.lambdaweb",
+  "classes": {
+   "aws:lambdaweb/functionEndpoint:FunctionEndpoint": "FunctionEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambdaweb/functionRevision",
+  "fqn": "pulumi_aws.lambdaweb",
+  "classes": {
+   "aws:lambdaweb/functionRevision:FunctionRevision": "FunctionRevision"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambdaweb/resourcePolicy",
+  "fqn": "pulumi_aws.lambdaweb",
+  "classes": {
+   "aws:lambdaweb/resourcePolicy:ResourcePolicy": "ResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lb/listener",
   "fqn": "pulumi_aws.lb",
   "classes": {
@@ -9716,6 +9789,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networksecuritymanager/rule",
+  "fqn": "pulumi_aws.networksecuritymanager",
+  "classes": {
+   "aws:networksecuritymanager/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networksecuritymanager/scope",
+  "fqn": "pulumi_aws.networksecuritymanager",
+  "classes": {
+   "aws:networksecuritymanager/scope:Scope": "Scope"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "notifications/channelAssociation",
   "fqn": "pulumi_aws.notifications",
   "classes": {
@@ -10404,6 +10493,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/accountCustomPermission",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/accountCustomPermission:AccountCustomPermission": "AccountCustomPermission"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/accountSettings",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -10896,6 +10993,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/tenantDatabase",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/tenantDatabase:TenantDatabase": "TenantDatabase"
   }
  },
  {

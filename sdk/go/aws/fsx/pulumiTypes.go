@@ -1248,7 +1248,7 @@ func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) SizingMode() pulumi
 type LustreFileSystemLogConfiguration struct {
 	// ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 	Destination *string `pulumi:"destination"`
-	// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+	// Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
 	Level *string `pulumi:"level"`
 }
 
@@ -1266,7 +1266,7 @@ type LustreFileSystemLogConfigurationInput interface {
 type LustreFileSystemLogConfigurationArgs struct {
 	// ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
-	// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+	// Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 }
 
@@ -1352,7 +1352,7 @@ func (o LustreFileSystemLogConfigurationOutput) Destination() pulumi.StringPtrOu
 	return o.ApplyT(func(v LustreFileSystemLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
-// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+// Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
 func (o LustreFileSystemLogConfigurationOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LustreFileSystemLogConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
@@ -1391,7 +1391,7 @@ func (o LustreFileSystemLogConfigurationPtrOutput) Destination() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+// Data repository events logged by Amazon FSx. Valid values are `WARN_ONLY`, `ERROR_ONLY`, `WARN_ERROR`, and `DISABLED`. Default value is `DISABLED`.
 func (o LustreFileSystemLogConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystemLogConfiguration) *string {
 		if v == nil {

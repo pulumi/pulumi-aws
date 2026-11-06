@@ -60,7 +60,7 @@ type Connection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the connection.
 	ConnectionName pulumi.StringOutput `pulumi:"connectionName"`
-	// Source repository provider. Valid values: `GITHUB`.
+	// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -112,7 +112,7 @@ type connectionState struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the connection.
 	ConnectionName *string `pulumi:"connectionName"`
-	// Source repository provider. Valid values: `GITHUB`.
+	// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
 	ProviderType *string `pulumi:"providerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -129,7 +129,7 @@ type ConnectionState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the connection.
 	ConnectionName pulumi.StringPtrInput
-	// Source repository provider. Valid values: `GITHUB`.
+	// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
 	ProviderType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -154,7 +154,7 @@ func ConnectionExists(ctx *pulumi.Context,
 type connectionArgs struct {
 	// Name of the connection.
 	ConnectionName string `pulumi:"connectionName"`
-	// Source repository provider. Valid values: `GITHUB`.
+	// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
 	ProviderType string `pulumi:"providerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -166,7 +166,7 @@ type connectionArgs struct {
 type ConnectionArgs struct {
 	// Name of the connection.
 	ConnectionName pulumi.StringInput
-	// Source repository provider. Valid values: `GITHUB`.
+	// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
 	ProviderType pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -271,7 +271,7 @@ func (o ConnectionOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionName }).(pulumi.StringOutput)
 }
 
-// Source repository provider. Valid values: `GITHUB`.
+// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
 func (o ConnectionOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }

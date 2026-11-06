@@ -37,7 +37,7 @@ class LocationAzureBlobArgs:
         :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
         :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[_builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -111,7 +111,7 @@ class LocationAzureBlobArgs:
     @pulumi.getter(name="blobType")
     def blob_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         """
         return pulumi.get(self, "blob_type")
 
@@ -190,7 +190,7 @@ class _LocationAzureBlobState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
@@ -275,7 +275,7 @@ class _LocationAzureBlobState:
     @pulumi.getter(name="blobType")
     def blob_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         """
         return pulumi.get(self, "blob_type")
 
@@ -421,7 +421,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict', 'outputs.LocationAzureBlobSasConfiguration']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
@@ -553,7 +553,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict', 'outputs.LocationAzureBlobSasConfiguration']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
@@ -645,7 +645,7 @@ class LocationAzureBlob(pulumi.CustomResource):
     @pulumi.getter(name="blobType")
     def blob_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         """
         return pulumi.get(self, "blob_type")
 

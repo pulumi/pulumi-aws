@@ -206,7 +206,7 @@ export class KxCluster extends pulumi.CustomResource {
      */
     declare public readonly tickerplantLogConfigurations: pulumi.Output<outputs.finspace.KxClusterTickerplantLogConfiguration[] | undefined>;
     /**
-     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
      */
     declare public readonly type: pulumi.Output<string>;
     /**
@@ -411,7 +411,7 @@ export interface KxClusterState {
      */
     tickerplantLogConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterTickerplantLogConfiguration>[] | undefined>;
     /**
-     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
      */
     type?: pulumi.Input<string | undefined>;
     /**
@@ -503,7 +503,7 @@ export interface KxClusterArgs {
      */
     tickerplantLogConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterTickerplantLogConfiguration>[] | undefined>;
     /**
-     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
      */
     type: pulumi.Input<string>;
     /**

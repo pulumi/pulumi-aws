@@ -57,7 +57,7 @@ class GatewayArgs:
         :param pulumi.Input['GatewaySmbActiveDirectorySettingsArgs'] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[_builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[_builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
-        :param pulumi.Input[_builtins.str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        :param pulumi.Input[_builtins.str] smb_security_strategy: Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **NOTE:** One of `activation_key` or `gateway_ip_address` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gateway_ip_address`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
@@ -282,7 +282,7 @@ class GatewayArgs:
     @pulumi.getter(name="smbSecurityStrategy")
     def smb_security_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         """
         return pulumi.get(self, "smb_security_strategy")
 
@@ -369,7 +369,7 @@ class _GatewayState:
         :param pulumi.Input['GatewaySmbActiveDirectorySettingsArgs'] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[_builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[_builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
-        :param pulumi.Input[_builtins.str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        :param pulumi.Input[_builtins.str] smb_security_strategy: Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **NOTE:** One of `activation_key` or `gateway_ip_address` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gateway_ip_address`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
@@ -683,7 +683,7 @@ class _GatewayState:
     @pulumi.getter(name="smbSecurityStrategy")
     def smb_security_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         """
         return pulumi.get(self, "smb_security_strategy")
 
@@ -887,7 +887,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict', 'outputs.GatewaySmbActiveDirectorySettings']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[_builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[_builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
-        :param pulumi.Input[_builtins.str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        :param pulumi.Input[_builtins.str] smb_security_strategy: Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **NOTE:** One of `activation_key` or `gateway_ip_address` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gateway_ip_address`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
@@ -1150,7 +1150,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict', 'outputs.GatewaySmbActiveDirectorySettings']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[_builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[_builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
-        :param pulumi.Input[_builtins.str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        :param pulumi.Input[_builtins.str] smb_security_strategy: Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **NOTE:** One of `activation_key` or `gateway_ip_address` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gateway_ip_address`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
@@ -1416,7 +1416,7 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter(name="smbSecurityStrategy")
     def smb_security_strategy(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        Type of security strategy. Valid values are `ClientSpecified`, `MandatorySigning`, `MandatoryEncryption`, and `MandatoryEncryptionNoAes128`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         """
         return pulumi.get(self, "smb_security_strategy")
 

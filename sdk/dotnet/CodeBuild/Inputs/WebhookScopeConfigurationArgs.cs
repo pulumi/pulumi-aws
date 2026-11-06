@@ -19,13 +19,13 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The name of either the enterprise or organization.
+        /// Name of the enterprise, organization, or GitLab group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        /// Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

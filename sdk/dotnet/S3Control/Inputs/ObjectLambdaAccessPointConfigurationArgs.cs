@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3Control.Inputs
         private InputList<string>? _allowedFeatures;
 
         /// <summary>
-        /// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+        /// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
         /// </summary>
         public InputList<string> AllowedFeatures
         {

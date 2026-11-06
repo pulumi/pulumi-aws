@@ -15,14 +15,14 @@ public final class GetTagsSortBy extends com.pulumi.resources.InvokeArgs {
     public static final GetTagsSortBy Empty = new GetTagsSortBy();
 
     /**
-     * key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+     * Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
      * 
      */
     @Import(name="key")
     private @Nullable String key;
 
     /**
-     * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+     * @return Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
      * 
      */
     public Optional<String> key() {
@@ -70,7 +70,7 @@ public final class GetTagsSortBy extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param key key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         * @param key Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
          * 
          * @return builder
          * 

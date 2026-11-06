@@ -14,6 +14,7 @@ from .ami_from_instance import *
 from .ami_launch_permission import *
 from .availability_zone_group import *
 from .capacity_block_reservation import *
+from .capacity_manager import *
 from .capacity_reservation import *
 from .carrier_gateway import *
 from .customer_gateway import *

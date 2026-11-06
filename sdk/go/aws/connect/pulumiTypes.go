@@ -2362,7 +2362,7 @@ func (o QuickConnectQuickConnectConfigUserConfigArrayOutput) Index(i pulumi.IntI
 }
 
 type RoutingProfileMediaConcurrency struct {
-	// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+	// Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
 	Channel string `pulumi:"channel"`
 	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
 	Concurrency int `pulumi:"concurrency"`
@@ -2382,7 +2382,7 @@ type RoutingProfileMediaConcurrencyInput interface {
 }
 
 type RoutingProfileMediaConcurrencyArgs struct {
-	// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+	// Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
 	Channel pulumi.StringInput `pulumi:"channel"`
 	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
 	Concurrency pulumi.IntInput `pulumi:"concurrency"`
@@ -2441,7 +2441,7 @@ func (o RoutingProfileMediaConcurrencyOutput) ToRoutingProfileMediaConcurrencyOu
 	return o
 }
 
-// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+// Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
 func (o RoutingProfileMediaConcurrencyOutput) Channel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) string { return v.Channel }).(pulumi.StringOutput)
 }
@@ -2616,7 +2616,7 @@ func (o RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput) BehaviorTyp
 }
 
 type RoutingProfileQueueConfig struct {
-	// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
 	Channel string `pulumi:"channel"`
 	// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
 	Delay int `pulumi:"delay"`
@@ -2642,7 +2642,7 @@ type RoutingProfileQueueConfigInput interface {
 }
 
 type RoutingProfileQueueConfigArgs struct {
-	// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
 	Channel pulumi.StringInput `pulumi:"channel"`
 	// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
 	Delay pulumi.IntInput `pulumi:"delay"`
@@ -2707,7 +2707,7 @@ func (o RoutingProfileQueueConfigOutput) ToRoutingProfileQueueConfigOutputWithCo
 	return o
 }
 
-// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
 func (o RoutingProfileQueueConfigOutput) Channel() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) string { return v.Channel }).(pulumi.StringOutput)
 }

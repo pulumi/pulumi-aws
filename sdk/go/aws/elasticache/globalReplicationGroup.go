@@ -185,6 +185,10 @@ type GlobalReplicationGroup struct {
 	PrimaryReplicationGroupId pulumi.StringOutput `pulumi:"primaryReplicationGroupId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A flag that indicates whether the encryption in transit is enabled.
 	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
@@ -276,6 +280,10 @@ type globalReplicationGroupState struct {
 	PrimaryReplicationGroupId *string `pulumi:"primaryReplicationGroupId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A flag that indicates whether the encryption in transit is enabled.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -332,6 +340,10 @@ type GlobalReplicationGroupState struct {
 	PrimaryReplicationGroupId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// A flag that indicates whether the encryption in transit is enabled.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
@@ -383,6 +395,8 @@ type globalReplicationGroupArgs struct {
 	PrimaryReplicationGroupId string `pulumi:"primaryReplicationGroupId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalReplicationGroup resource.
@@ -423,6 +437,8 @@ type GlobalReplicationGroupArgs struct {
 	PrimaryReplicationGroupId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (GlobalReplicationGroupArgs) ElementType() reflect.Type {
@@ -614,6 +630,16 @@ func (o GlobalReplicationGroupOutput) PrimaryReplicationGroupId() pulumi.StringO
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GlobalReplicationGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o GlobalReplicationGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o GlobalReplicationGroupOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // A flag that indicates whether the encryption in transit is enabled.

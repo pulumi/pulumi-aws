@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class ObjectLambdaAccessPointConfiguration
     {
         /// <summary>
-        /// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+        /// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
         /// </summary>
         public readonly ImmutableArray<string> AllowedFeatures;
         /// <summary>

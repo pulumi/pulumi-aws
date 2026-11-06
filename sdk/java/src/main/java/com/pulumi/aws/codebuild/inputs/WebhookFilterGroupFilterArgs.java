@@ -48,14 +48,14 @@ public final class WebhookFilterGroupFilterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The webhook filter group&#39;s type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+     * Webhook filter group&#39;s type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The webhook filter group&#39;s type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+     * @return Webhook filter group&#39;s type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
      * 
      */
     public Output<String> type() {
@@ -131,7 +131,7 @@ public final class WebhookFilterGroupFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The webhook filter group&#39;s type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+         * @param type Webhook filter group&#39;s type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class WebhookFilterGroupFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The webhook filter group&#39;s type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+         * @param type Webhook filter group&#39;s type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
          * 
          * @return builder
          * 

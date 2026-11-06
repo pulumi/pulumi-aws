@@ -73,7 +73,7 @@ class ObjectCopyArgs:
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`, `MD5`, `XXHASH64`, `XXHASH3`, `XXHASH128`.
         :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[_builtins.str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[_builtins.str] content_language: Language the content is in e.g., en-US or en-GB.
@@ -266,7 +266,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`, `MD5`, `XXHASH64`, `XXHASH3`, `XXHASH128`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
@@ -745,7 +745,7 @@ class _ObjectCopyState:
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`, `MD5`, `XXHASH64`, `XXHASH3`, `XXHASH128`.
         :param pulumi.Input[_builtins.str] checksum_crc32: Base64-encoded, 32-bit CRC32 checksum of the object.
         :param pulumi.Input[_builtins.str] checksum_crc32c: Base64-encoded, 32-bit CRC32C checksum of the object.
         :param pulumi.Input[_builtins.str] checksum_crc64nvme: Base64-encoded, 64-bit CRC64NVME checksum of the object.
@@ -969,7 +969,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`, `MD5`, `XXHASH64`, `XXHASH3`, `XXHASH128`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
@@ -1648,7 +1648,7 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`, `MD5`, `XXHASH64`, `XXHASH3`, `XXHASH128`.
         :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[_builtins.str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[_builtins.str] content_language: Language the content is in e.g., en-US or en-GB.
@@ -1937,7 +1937,7 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`, `MD5`, `XXHASH64`, `XXHASH3`, `XXHASH128`.
         :param pulumi.Input[_builtins.str] checksum_crc32: Base64-encoded, 32-bit CRC32 checksum of the object.
         :param pulumi.Input[_builtins.str] checksum_crc32c: Base64-encoded, 32-bit CRC32C checksum of the object.
         :param pulumi.Input[_builtins.str] checksum_crc64nvme: Base64-encoded, 64-bit CRC64NVME checksum of the object.
@@ -2206,7 +2206,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`, `SHA512`, `MD5`, `XXHASH64`, `XXHASH3`, `XXHASH128`.
         """
         return pulumi.get(self, "checksum_algorithm")
 

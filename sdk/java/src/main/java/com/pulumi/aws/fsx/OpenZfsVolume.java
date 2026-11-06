@@ -99,14 +99,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyTagsToSnapshots);
     }
     /**
-     * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
     @Export(name="dataCompressionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataCompressionType;
 
     /**
-     * @return Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * @return Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
     public Output<Optional<String>> dataCompressionType() {

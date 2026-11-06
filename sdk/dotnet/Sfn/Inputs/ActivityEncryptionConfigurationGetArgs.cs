@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sfn.Inputs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        /// Encryption option specified for the activity. AWS requires this argument when `EncryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

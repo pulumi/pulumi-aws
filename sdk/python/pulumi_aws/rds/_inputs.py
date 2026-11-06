@@ -62,6 +62,10 @@ __all__ = [
     'ReservedInstanceRecurringChargeArgsDict',
     'ShardGroupTimeoutsArgs',
     'ShardGroupTimeoutsArgsDict',
+    'TenantDatabaseMasterUserSecretArgs',
+    'TenantDatabaseMasterUserSecretArgsDict',
+    'TenantDatabaseTimeoutsArgs',
+    'TenantDatabaseTimeoutsArgsDict',
     'GetClustersFilterArgs',
     'GetClustersFilterArgsDict',
     'GetEngineVersionFilterArgs',
@@ -1791,6 +1795,141 @@ class ShardGroupTimeoutsArgsDict(TypedDict):
 
 @pulumi.input_type
 class ShardGroupTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+class TenantDatabaseMasterUserSecretArgsDict(TypedDict):
+    kms_key_id: pulumi.Input[_builtins.str]
+    """
+    ARN, ID, or alias of the AWS KMS key used to encrypt the secret.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the secret.
+    """
+    secret_status: pulumi.Input[_builtins.str]
+    """
+    Status of the secret.
+    """
+
+@pulumi.input_type
+class TenantDatabaseMasterUserSecretArgs:
+    def __init__(__self__, *,
+                 kms_key_id: pulumi.Input[_builtins.str],
+                 secret_arn: pulumi.Input[_builtins.str],
+                 secret_status: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN, ID, or alias of the AWS KMS key used to encrypt the secret.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret.
+        :param pulumi.Input[_builtins.str] secret_status: Status of the secret.
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "secret_status", secret_status)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN, ID, or alias of the AWS KMS key used to encrypt the secret.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Status of the secret.
+        """
+        return pulumi.get(self, "secret_status")
+
+    @secret_status.setter
+    def secret_status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_status", value)
+
+
+class TenantDatabaseTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class TenantDatabaseTimeoutsArgs:
     def __init__(__self__, *,
                  create: pulumi.Input[Optional[_builtins.str]] = None,
                  delete: pulumi.Input[Optional[_builtins.str]] = None,

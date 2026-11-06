@@ -1280,9 +1280,9 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArra
 }
 
 type RepositoryCreationTemplateEncryptionConfiguration struct {
-	// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+	// Encryption type to use for any created repositories. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
 	EncryptionType *string `pulumi:"encryptionType"`
-	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	// ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
 	KmsKey *string `pulumi:"kmsKey"`
 }
 
@@ -1298,9 +1298,9 @@ type RepositoryCreationTemplateEncryptionConfigurationInput interface {
 }
 
 type RepositoryCreationTemplateEncryptionConfigurationArgs struct {
-	// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+	// Encryption type to use for any created repositories. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
 	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
-	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	// ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
 	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
@@ -1355,12 +1355,12 @@ func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCre
 	return o
 }
 
-// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+// Encryption type to use for any created repositories. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
 func (o RepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+// ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
 func (o RepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -1492,9 +1492,9 @@ func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput) 
 }
 
 type RepositoryEncryptionConfiguration struct {
-	// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+	// Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
 	EncryptionType *string `pulumi:"encryptionType"`
-	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	// ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
 	KmsKey *string `pulumi:"kmsKey"`
 }
 
@@ -1510,9 +1510,9 @@ type RepositoryEncryptionConfigurationInput interface {
 }
 
 type RepositoryEncryptionConfigurationArgs struct {
-	// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+	// Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
 	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
-	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	// ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
 	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
@@ -1567,12 +1567,12 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 	return o
 }
 
-// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+// Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
 func (o RepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+// ARN of the KMS key to use when `encryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
 func (o RepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
