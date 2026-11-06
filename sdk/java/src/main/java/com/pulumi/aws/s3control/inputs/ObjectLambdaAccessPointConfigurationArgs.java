@@ -20,14 +20,14 @@ public final class ObjectLambdaAccessPointConfigurationArgs extends com.pulumi.r
     public static final ObjectLambdaAccessPointConfigurationArgs Empty = new ObjectLambdaAccessPointConfigurationArgs();
 
     /**
-     * Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+     * Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
      * 
      */
     @Import(name="allowedFeatures")
     private @Nullable Output<List<String>> allowedFeatures;
 
     /**
-     * @return Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+     * @return Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
      * 
      */
     public Optional<Output<List<String>>> allowedFeatures() {
@@ -107,7 +107,7 @@ public final class ObjectLambdaAccessPointConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param allowedFeatures Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+         * @param allowedFeatures Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ObjectLambdaAccessPointConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param allowedFeatures Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+         * @param allowedFeatures Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class ObjectLambdaAccessPointConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param allowedFeatures Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+         * @param allowedFeatures Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
          * 
          * @return builder
          * 

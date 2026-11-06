@@ -9138,6 +9138,394 @@
                     }
                 }
             },
+            "aws_bedrockdataautomation_blueprint": {
+                "current": "aws:bedrockdataautomation/blueprint:Blueprint",
+                "majorVersion": 7,
+                "fields": {
+                    "encryption_configuration": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "aws_bedrockdataautomation_library": {
+                "current": "aws:bedrockdataautomation/library:Library",
+                "majorVersion": 7,
+                "fields": {
+                    "encryption_configuration": {
+                        "maxItemsOne": true
+                    },
+                    "entity_types": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "aws_bedrockdataautomation_project": {
+                "current": "aws:bedrockdataautomation/project:Project",
+                "majorVersion": 7,
+                "fields": {
+                    "custom_output_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "blueprint": {
+                                    "maxItemsOne": false
+                                },
+                                "document": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "fallback_blueprint": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "data_automation_library_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "library": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "encryption_configuration": {
+                        "maxItemsOne": true
+                    },
+                    "override_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "audio": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "language_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "input_languages": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "modality_processing": {
+                                                "maxItemsOne": true
+                                            },
+                                            "sensitive_data_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "detection_scope": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "pii_entities_configuration": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "pii_entity_types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "document": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "modality_processing": {
+                                                "maxItemsOne": true
+                                            },
+                                            "sensitive_data_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "detection_scope": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "pii_entities_configuration": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "pii_entity_types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "splitter": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "image": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "modality_processing": {
+                                                "maxItemsOne": true
+                                            },
+                                            "sensitive_data_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "detection_scope": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "pii_entities_configuration": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "pii_entity_types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "modality_routing": {
+                                    "maxItemsOne": true
+                                },
+                                "video": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "modality_processing": {
+                                                "maxItemsOne": true
+                                            },
+                                            "sensitive_data_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "detection_scope": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "pii_entities_configuration": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "pii_entity_types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "standard_output_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "audio": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "extraction": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "category": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "type_configuration": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "transcript": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "channel_labeling": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
+                                                                                            "speaker_labeling": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "generative_field": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "types": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "document": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "extraction": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "bounding_box": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "granularity": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "generative_field": {
+                                                "maxItemsOne": true
+                                            },
+                                            "output_format": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "additional_file_format": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "text_format": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "image": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "extraction": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "bounding_box": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "category": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "generative_field": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "types": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "video": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "extraction": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "bounding_box": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "category": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "types": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "generative_field": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "types": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "aws_billing_view": {
                 "current": "aws:billing/view:View",
                 "majorVersion": 7,
@@ -17096,6 +17484,10 @@
             },
             "aws_ec2_capacity_block_reservation": {
                 "current": "aws:ec2/capacityBlockReservation:CapacityBlockReservation",
+                "majorVersion": 7
+            },
+            "aws_ec2_capacity_manager": {
+                "current": "aws:ec2/capacityManager:CapacityManager",
                 "majorVersion": 7
             },
             "aws_ec2_capacity_reservation": {
@@ -25665,6 +26057,85 @@
                         }
                     }
                 }
+            },
+            "aws_lambdaweb_function": {
+                "current": "aws:lambdaweb/function:Function",
+                "majorVersion": 7
+            },
+            "aws_lambdaweb_function_endpoint": {
+                "current": "aws:lambdaweb/functionEndpoint:FunctionEndpoint",
+                "majorVersion": 7,
+                "fields": {
+                    "regions": {
+                        "maxItemsOne": false
+                    },
+                    "revision_weight": {
+                        "maxItemsOne": false
+                    },
+                    "scaling_config": {
+                        "maxItemsOne": true
+                    },
+                    "throttle_config": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "aws_lambdaweb_function_revision": {
+                "current": "aws:lambdaweb/functionRevision:FunctionRevision",
+                "majorVersion": 7,
+                "fields": {
+                    "build_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "code_config": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "s3_object": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "runtime_config": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "service_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "telemetry_config": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "logging_config": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "telemetry_config_actual": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "logging_config": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "aws_lambdaweb_resource_policy": {
+                "current": "aws:lambdaweb/resourcePolicy:ResourcePolicy",
+                "majorVersion": 7
             },
             "aws_launch_configuration": {
                 "current": "aws:ec2/launchConfiguration:LaunchConfiguration",
@@ -35323,6 +35794,177 @@
                 "current": "aws:networkmonitor/probe:Probe",
                 "majorVersion": 7
             },
+            "aws_networksecuritymanager_rule": {
+                "current": "aws:networksecuritymanager/rule:Rule",
+                "majorVersion": 7
+            },
+            "aws_networksecuritymanager_scope": {
+                "current": "aws:networksecuritymanager/scope:Scope",
+                "majorVersion": 7,
+                "fields": {
+                    "scope_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "account_filter": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "exclude": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "account_ids": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "organizational_units": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "include": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "account_ids": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "organizational_units": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "resource_scope": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "exclude": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "explicit_arns": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "expression": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "and": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "alb_config": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "criteria": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "alb_config": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "not": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "alb_config": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "or": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "alb_config": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "include": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "explicit_arns": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "expression": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "and": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "alb_config": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "criteria": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "alb_config": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "not": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "alb_config": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "or": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "alb_config": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "aws_notifications_channel_association": {
                 "current": "aws:notifications/channelAssociation:ChannelAssociation",
                 "majorVersion": 7
@@ -37147,6 +37789,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "aws_quicksight_account_custom_permission": {
+                "current": "aws:quicksight/accountCustomPermission:AccountCustomPermission",
+                "majorVersion": 7
             },
             "aws_quicksight_account_settings": {
                 "current": "aws:quicksight/accountSettings:AccountSettings",
@@ -165121,6 +165767,15 @@
             "aws_rds_shard_group": {
                 "current": "aws:rds/shardGroup:ShardGroup",
                 "majorVersion": 7
+            },
+            "aws_rds_tenant_database": {
+                "current": "aws:rds/tenantDatabase:TenantDatabase",
+                "majorVersion": 7,
+                "fields": {
+                    "master_user_secret": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "aws_redshift_authentication_profile": {
                 "current": "aws:redshift/authenticationProfile:AuthenticationProfile",
@@ -375296,6 +375951,28 @@
                     }
                 }
             },
+            "aws_lambdaweb_function": {
+                "current": "aws:lambdaweb/getFunction:getFunction",
+                "majorVersion": 7
+            },
+            "aws_lambdaweb_function_endpoint": {
+                "current": "aws:lambdaweb/getFunctionEndpoint:getFunctionEndpoint",
+                "majorVersion": 7,
+                "fields": {
+                    "regions": {
+                        "maxItemsOne": false
+                    },
+                    "revision_weights": {
+                        "maxItemsOne": false
+                    },
+                    "scaling_config": {
+                        "maxItemsOne": false
+                    },
+                    "throttle_config": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "aws_launch_configuration": {
                 "current": "aws:ec2/getLaunchConfiguration:getLaunchConfiguration",
                 "majorVersion": 7,
@@ -423604,6 +424281,21 @@
                     "kind": "missing"
                 }
             },
+            "aws_bedrockdataautomation_blueprint": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_bedrockdataautomation_library": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_bedrockdataautomation_project": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_billing_view": {
                 "computeID": {
                     "kind": "missing"
@@ -423870,6 +424562,7 @@
                 }
             },
             "aws_ec2_capacity_block_reservation": {},
+            "aws_ec2_capacity_manager": {},
             "aws_ec2_default_credit_specification": {
                 "computeID": {
                     "kind": "missing"
@@ -424089,6 +424782,26 @@
                     "kind": "missing"
                 }
             },
+            "aws_lambdaweb_function": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_lambdaweb_function_endpoint": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_lambdaweb_function_revision": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_lambdaweb_resource_policy": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_lexv2models_bot": {},
             "aws_lexv2models_bot_locale": {},
             "aws_lexv2models_bot_version": {},
@@ -424185,6 +424898,16 @@
             },
             "aws_networkmonitor_monitor": {},
             "aws_networkmonitor_probe": {},
+            "aws_networksecuritymanager_rule": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_networksecuritymanager_scope": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_notifications_channel_association": {
                 "computeID": {
                     "kind": "missing"
@@ -424364,6 +425087,11 @@
                 }
             },
             "aws_qbusiness_application": {},
+            "aws_quicksight_account_custom_permission": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_quicksight_account_settings": {
                 "computeID": {
                     "kind": "missing"
@@ -424425,6 +425153,11 @@
             },
             "aws_rds_integration": {},
             "aws_rds_shard_group": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_rds_tenant_database": {
                 "computeID": {
                     "kind": "missing"
                 }
@@ -425192,6 +425925,9 @@
             "aws:bedrock/inferenceProfile:InferenceProfile": 1,
             "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput": 1,
             "aws:bedrock/useCaseForModelAccess:UseCaseForModelAccess": 1,
+            "aws:bedrockdataautomation/blueprint:Blueprint": 1,
+            "aws:bedrockdataautomation/library:Library": 1,
+            "aws:bedrockdataautomation/project:Project": 1,
             "aws:bedrockfoundation/modelAgreement:ModelAgreement": 1,
             "aws:bedrockmodel/invocationJob:InvocationJob": 1,
             "aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration": 1,
@@ -425523,6 +426259,7 @@
             "aws:ec2/amiLaunchPermission:AmiLaunchPermission": 0,
             "aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup": 0,
             "aws:ec2/capacityBlockReservation:CapacityBlockReservation": 1,
+            "aws:ec2/capacityManager:CapacityManager": 1,
             "aws:ec2/capacityReservation:CapacityReservation": 0,
             "aws:ec2/carrierGateway:CarrierGateway": 0,
             "aws:ec2/customerGateway:CustomerGateway": 0,
@@ -425954,6 +426691,10 @@
             "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig": 1,
             "aws:lambdamicrovms/image:Image": 1,
             "aws:lambdamicrovms/microvm:Microvm": 1,
+            "aws:lambdaweb/function:Function": 1,
+            "aws:lambdaweb/functionEndpoint:FunctionEndpoint": 1,
+            "aws:lambdaweb/functionRevision:FunctionRevision": 1,
+            "aws:lambdaweb/resourcePolicy:ResourcePolicy": 1,
             "aws:lb/listener:Listener": 0,
             "aws:lb/listenerCertificate:ListenerCertificate": 0,
             "aws:lb/listenerRule:ListenerRule": 0,
@@ -426100,6 +426841,8 @@
             "aws:networkmanager/vpcAttachment:VpcAttachment": 0,
             "aws:networkmonitor/monitor:Monitor": 1,
             "aws:networkmonitor/probe:Probe": 1,
+            "aws:networksecuritymanager/rule:Rule": 1,
+            "aws:networksecuritymanager/scope:Scope": 1,
             "aws:notifications/channelAssociation:ChannelAssociation": 1,
             "aws:notifications/contactsEmailContact:ContactsEmailContact": 1,
             "aws:notifications/eventRule:EventRule": 1,
@@ -426186,6 +426929,7 @@
             "aws:qbusiness/application:Application": 1,
             "aws:qldb/ledger:Ledger": 0,
             "aws:qldb/stream:Stream": 0,
+            "aws:quicksight/accountCustomPermission:AccountCustomPermission": 1,
             "aws:quicksight/accountSettings:AccountSettings": 1,
             "aws:quicksight/accountSubscription:AccountSubscription": 0,
             "aws:quicksight/analysis:Analysis": 0,
@@ -426248,6 +426992,7 @@
             "aws:rds/snapshot:Snapshot": 0,
             "aws:rds/snapshotCopy:SnapshotCopy": 0,
             "aws:rds/subnetGroup:SubnetGroup": 0,
+            "aws:rds/tenantDatabase:TenantDatabase": 1,
             "aws:redshift/authenticationProfile:AuthenticationProfile": 0,
             "aws:redshift/cluster:Cluster": 0,
             "aws:redshift/clusterIamRoles:ClusterIamRoles": 0,
@@ -427138,6 +427883,8 @@
             "aws:lambda/getInvocation:getInvocation": 0,
             "aws:lambda/getLayerVersion:getLayerVersion": 0,
             "aws:lambdamicrovms/getImageVersion:getImageVersion": 1,
+            "aws:lambdaweb/getFunction:getFunction": 1,
+            "aws:lambdaweb/getFunctionEndpoint:getFunctionEndpoint": 1,
             "aws:lb/getHostedZoneId:getHostedZoneId": 0,
             "aws:lb/getLbs:getLbs": 0,
             "aws:lb/getListener:getListener": 0,
@@ -427474,6 +428221,9 @@
             "aws:bedrock/agentcoreRegistry:AgentcoreRegistry": 1,
             "aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy": 1,
             "aws:bedrock/evaluationJob:EvaluationJob": 1,
+            "aws:bedrockdataautomation/blueprint:Blueprint": 1,
+            "aws:bedrockdataautomation/library:Library": 1,
+            "aws:bedrockdataautomation/project:Project": 1,
             "aws:bedrockmodel/invocationJob:InvocationJob": 1,
             "aws:cfg/remediationConfiguration:RemediationConfiguration": 1,
             "aws:cfg/rule:Rule": 1,
@@ -427588,6 +428338,9 @@
             "aws:lambda/resourcePolicy:ResourcePolicy": 1,
             "aws:lambdamicrovms/image:Image": 1,
             "aws:lambdamicrovms/microvm:Microvm": 1,
+            "aws:lambdaweb/function:Function": 1,
+            "aws:lambdaweb/functionEndpoint:FunctionEndpoint": 1,
+            "aws:lambdaweb/functionRevision:FunctionRevision": 1,
             "aws:lb/listener:Listener": 1,
             "aws:lb/listenerRule:ListenerRule": 1,
             "aws:lb/loadBalancer:LoadBalancer": 1,
@@ -427603,6 +428356,8 @@
             "aws:msk/topic:Topic": 1,
             "aws:neptunegraph/privateGraphEndpoint:PrivateGraphEndpoint": 1,
             "aws:networkfirewall/containerAssociation:ContainerAssociation": 1,
+            "aws:networksecuritymanager/rule:Rule": 1,
+            "aws:networksecuritymanager/scope:Scope": 1,
             "aws:observabilityadmin/telemetryRule:TelemetryRule": 1,
             "aws:observabilityadmin/telemetryRuleForOrganization:TelemetryRuleForOrganization": 1,
             "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy": 1,
@@ -427622,6 +428377,7 @@
             "aws:pinpoint/smsvoicev2ResourcePolicy:Smsvoicev2ResourcePolicy": 1,
             "aws:pinpoint/smsvoicev2SenderId:Smsvoicev2SenderId": 1,
             "aws:pricingplanmanager/subscription:Subscription": 1,
+            "aws:quicksight/accountCustomPermission:AccountCustomPermission": 1,
             "aws:ram/principalAssociation:PrincipalAssociation": 1,
             "aws:ram/resourceAssociation:ResourceAssociation": 1,
             "aws:rds/cluster:Cluster": 1,
@@ -427629,6 +428385,7 @@
             "aws:rds/instance:Instance": 1,
             "aws:rds/parameterGroup:ParameterGroup": 1,
             "aws:rds/subnetGroup:SubnetGroup": 1,
+            "aws:rds/tenantDatabase:TenantDatabase": 1,
             "aws:rekognition/collection:Collection": 1,
             "aws:resiliencehub/v2Assertion:V2Assertion": 1,
             "aws:resiliencehub/v2InputSource:V2InputSource": 1,
@@ -427645,6 +428402,7 @@
             "aws:route53/zoneAssociation:ZoneAssociation": 1,
             "aws:s3/bucket:Bucket": 1,
             "aws:s3/bucketAcl:BucketAcl": 1,
+            "aws:s3/bucketCorsConfiguration:BucketCorsConfiguration": 1,
             "aws:s3/bucketLifecycleConfiguration:BucketLifecycleConfiguration": 1,
             "aws:s3/bucketLogging:BucketLogging": 1,
             "aws:s3/bucketNotification:BucketNotification": 1,

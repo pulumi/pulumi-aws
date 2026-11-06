@@ -18,14 +18,14 @@ public final class RoutingProfileQueueConfigArgs extends com.pulumi.resources.Re
     public static final RoutingProfileQueueConfigArgs Empty = new RoutingProfileQueueConfigArgs();
 
     /**
-     * Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+     * Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
      * 
      */
     @Import(name="channel", required=true)
     private Output<String> channel;
 
     /**
-     * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+     * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
      * 
      */
     public Output<String> channel() {
@@ -137,7 +137,7 @@ public final class RoutingProfileQueueConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param channel Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+         * @param channel Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class RoutingProfileQueueConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param channel Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+         * @param channel Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
          * 
          * @return builder
          * 

@@ -156,7 +156,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string?> BranchFilter { get; private set; } = null!;
 
         /// <summary>
-        /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        /// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         /// </summary>
         [Output("buildType")]
         public Output<string?> BuildType { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? BranchFilter { get; set; }
 
         /// <summary>
-        /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        /// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         /// </summary>
         [Input("buildType")]
         public Input<string>? BuildType { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? BranchFilter { get; set; }
 
         /// <summary>
-        /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        /// Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         /// </summary>
         [Input("buildType")]
         public Input<string>? BuildType { get; set; }

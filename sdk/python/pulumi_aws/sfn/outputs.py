@@ -51,7 +51,7 @@ class ActivityEncryptionConfiguration(dict):
         """
         :param _builtins.int kms_data_key_reuse_period_seconds: Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
         :param _builtins.str kms_key_id: The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
-        :param _builtins.str type: The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        :param _builtins.str type: Encryption option specified for the activity. AWS requires this argument when `encryption_configuration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
         """
         if kms_data_key_reuse_period_seconds is not None:
             pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
@@ -80,7 +80,7 @@ class ActivityEncryptionConfiguration(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        Encryption option specified for the activity. AWS requires this argument when `encryption_configuration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
         """
         return pulumi.get(self, "type")
 

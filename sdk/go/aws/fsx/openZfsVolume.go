@@ -56,7 +56,7 @@ type OpenZfsVolume struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshots"`
-	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrOutput `pulumi:"dataCompressionType"`
 	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
 	DeleteVolumeOptions pulumi.StringPtrOutput `pulumi:"deleteVolumeOptions"`
@@ -125,7 +125,7 @@ type openZfsVolumeState struct {
 	Arn *string `pulumi:"arn"`
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
-	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType *string `pulumi:"dataCompressionType"`
 	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
 	DeleteVolumeOptions *string `pulumi:"deleteVolumeOptions"`
@@ -162,7 +162,7 @@ type OpenZfsVolumeState struct {
 	Arn pulumi.StringPtrInput
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots pulumi.BoolPtrInput
-	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrInput
 	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
 	DeleteVolumeOptions pulumi.StringPtrInput
@@ -207,7 +207,7 @@ func OpenZfsVolumeExists(ctx *pulumi.Context,
 type openZfsVolumeArgs struct {
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
-	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType *string `pulumi:"dataCompressionType"`
 	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
 	DeleteVolumeOptions *string `pulumi:"deleteVolumeOptions"`
@@ -241,7 +241,7 @@ type openZfsVolumeArgs struct {
 type OpenZfsVolumeArgs struct {
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots pulumi.BoolPtrInput
-	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrInput
 	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
 	DeleteVolumeOptions pulumi.StringPtrInput
@@ -368,7 +368,7 @@ func (o OpenZfsVolumeOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+// Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 func (o OpenZfsVolumeOutput) DataCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringPtrOutput { return v.DataCompressionType }).(pulumi.StringPtrOutput)
 }

@@ -98,7 +98,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      */
     declare public readonly authenticationType: pulumi.Output<string>;
     /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
      */
     declare public readonly blobType: pulumi.Output<string | undefined>;
     /**
@@ -202,7 +202,7 @@ export interface LocationAzureBlobState {
      */
     authenticationType?: pulumi.Input<string | undefined>;
     /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
      */
     blobType?: pulumi.Input<string | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface LocationAzureBlobArgs {
      */
     authenticationType: pulumi.Input<string>;
     /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
      */
     blobType?: pulumi.Input<string | undefined>;
     /**

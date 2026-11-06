@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
+ * Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) or [Lambda Web Functions](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
  *
  * ## Example Usage
  *
@@ -137,6 +137,14 @@ export class CoreNetworkConnector extends pulumi.CustomResource {
      */
     declare public readonly configuration: pulumi.Output<outputs.lambda.CoreNetworkConnectorConfiguration>;
     /**
+     * Number of the connector's latest version. Each configuration change creates a new immutable version.
+     */
+    declare public /*out*/ readonly latestVersion: pulumi.Output<number>;
+    /**
+     * Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+     */
+    declare public /*out*/ readonly latestVersionArn: pulumi.Output<string>;
+    /**
      * Name of the network connector, unique within the account and Region. Changing this forces a new resource.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -167,6 +175,8 @@ export class CoreNetworkConnector extends pulumi.CustomResource {
             const state = argsOrState as CoreNetworkConnectorState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["latestVersion"] = state?.latestVersion;
+            resourceInputs["latestVersionArn"] = state?.latestVersionArn;
             resourceInputs["name"] = state?.name;
             resourceInputs["operatorRole"] = state?.operatorRole;
             resourceInputs["region"] = state?.region;
@@ -185,6 +195,8 @@ export class CoreNetworkConnector extends pulumi.CustomResource {
             resourceInputs["region"] = args?.region;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
+            resourceInputs["latestVersionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CoreNetworkConnector.__pulumiType, name, resourceInputs, opts);
@@ -203,6 +215,14 @@ export interface CoreNetworkConnectorState {
      * Network configuration of the connector. See `configuration` Block below.
      */
     configuration?: pulumi.Input<inputs.lambda.CoreNetworkConnectorConfiguration | undefined>;
+    /**
+     * Number of the connector's latest version. Each configuration change creates a new immutable version.
+     */
+    latestVersion?: pulumi.Input<number | undefined>;
+    /**
+     * Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+     */
+    latestVersionArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the network connector, unique within the account and Region. Changing this forces a new resource.
      */

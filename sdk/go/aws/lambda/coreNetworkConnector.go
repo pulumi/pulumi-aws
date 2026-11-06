@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
+// Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) or [Lambda Web Functions](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
 //
 // ## Example Usage
 //
@@ -137,6 +137,10 @@ type CoreNetworkConnector struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Network configuration of the connector. See `configuration` Block below.
 	Configuration CoreNetworkConnectorConfigurationOutput `pulumi:"configuration"`
+	// Number of the connector's latest version. Each configuration change creates a new immutable version.
+	LatestVersion pulumi.IntOutput `pulumi:"latestVersion"`
+	// Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `lambdaweb.FunctionRevision` resource.
+	LatestVersionArn pulumi.StringOutput `pulumi:"latestVersionArn"`
 	// Name of the network connector, unique within the account and Region. Changing this forces a new resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ARN of the IAM role that the network connector service assumes to manage elastic network interfaces in your VPC.
@@ -188,6 +192,10 @@ type coreNetworkConnectorState struct {
 	Arn *string `pulumi:"arn"`
 	// Network configuration of the connector. See `configuration` Block below.
 	Configuration *CoreNetworkConnectorConfiguration `pulumi:"configuration"`
+	// Number of the connector's latest version. Each configuration change creates a new immutable version.
+	LatestVersion *int `pulumi:"latestVersion"`
+	// Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `lambdaweb.FunctionRevision` resource.
+	LatestVersionArn *string `pulumi:"latestVersionArn"`
 	// Name of the network connector, unique within the account and Region. Changing this forces a new resource.
 	Name *string `pulumi:"name"`
 	// ARN of the IAM role that the network connector service assumes to manage elastic network interfaces in your VPC.
@@ -204,6 +212,10 @@ type CoreNetworkConnectorState struct {
 	Arn pulumi.StringPtrInput
 	// Network configuration of the connector. See `configuration` Block below.
 	Configuration CoreNetworkConnectorConfigurationPtrInput
+	// Number of the connector's latest version. Each configuration change creates a new immutable version.
+	LatestVersion pulumi.IntPtrInput
+	// Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `lambdaweb.FunctionRevision` resource.
+	LatestVersionArn pulumi.StringPtrInput
 	// Name of the network connector, unique within the account and Region. Changing this forces a new resource.
 	Name pulumi.StringPtrInput
 	// ARN of the IAM role that the network connector service assumes to manage elastic network interfaces in your VPC.
@@ -349,6 +361,16 @@ func (o CoreNetworkConnectorOutput) Arn() pulumi.StringOutput {
 // Network configuration of the connector. See `configuration` Block below.
 func (o CoreNetworkConnectorOutput) Configuration() CoreNetworkConnectorConfigurationOutput {
 	return o.ApplyT(func(v *CoreNetworkConnector) CoreNetworkConnectorConfigurationOutput { return v.Configuration }).(CoreNetworkConnectorConfigurationOutput)
+}
+
+// Number of the connector's latest version. Each configuration change creates a new immutable version.
+func (o CoreNetworkConnectorOutput) LatestVersion() pulumi.IntOutput {
+	return o.ApplyT(func(v *CoreNetworkConnector) pulumi.IntOutput { return v.LatestVersion }).(pulumi.IntOutput)
+}
+
+// Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `lambdaweb.FunctionRevision` resource.
+func (o CoreNetworkConnectorOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CoreNetworkConnector) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
 }
 
 // Name of the network connector, unique within the account and Region. Changing this forces a new resource.

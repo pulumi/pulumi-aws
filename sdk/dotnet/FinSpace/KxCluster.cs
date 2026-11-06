@@ -245,7 +245,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<ImmutableArray<Outputs.KxClusterTickerplantLogConfiguration>> TickerplantLogConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -657,7 +657,7 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
+        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `TICKERPLANT`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

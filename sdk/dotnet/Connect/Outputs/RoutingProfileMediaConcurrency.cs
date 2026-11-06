@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Connect.Outputs
     public sealed class RoutingProfileMediaConcurrency
     {
         /// <summary>
-        /// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        /// Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
         /// </summary>
         public readonly string Channel;
         /// <summary>

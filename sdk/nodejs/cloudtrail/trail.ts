@@ -383,6 +383,10 @@ export class Trail extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Whether CloudTrail logs events it generates when delivering log files to the trail's destinations, such as Amazon S3 and CloudWatch Logs. Set to `false` to suppress these events. See [Recursive logging](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trail-recursive-logging.html) for details. If not specified, defaults to `true`.
+     */
+    declare public readonly recursiveLogging: pulumi.Output<boolean>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -440,6 +444,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isOrganizationTrail"] = state?.isOrganizationTrail;
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["name"] = state?.name;
+            resourceInputs["recursiveLogging"] = state?.recursiveLogging;
             resourceInputs["region"] = state?.region;
             resourceInputs["s3BucketName"] = state?.s3BucketName;
             resourceInputs["s3KeyPrefix"] = state?.s3KeyPrefix;
@@ -464,6 +469,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isOrganizationTrail"] = args?.isOrganizationTrail;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["name"] = args?.name;
+            resourceInputs["recursiveLogging"] = args?.recursiveLogging;
             resourceInputs["region"] = args?.region;
             resourceInputs["s3BucketName"] = args?.s3BucketName;
             resourceInputs["s3KeyPrefix"] = args?.s3KeyPrefix;
@@ -539,6 +545,10 @@ export interface TrailState {
      * Name of the trail.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Whether CloudTrail logs events it generates when delivering log files to the trail's destinations, such as Amazon S3 and CloudWatch Logs. Set to `false` to suppress these events. See [Recursive logging](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trail-recursive-logging.html) for details. If not specified, defaults to `true`.
+     */
+    recursiveLogging?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -623,6 +633,10 @@ export interface TrailArgs {
      * Name of the trail.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Whether CloudTrail logs events it generates when delivering log files to the trail's destinations, such as Amazon S3 and CloudWatch Logs. Set to `false` to suppress these events. See [Recursive logging](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trail-recursive-logging.html) for details. If not specified, defaults to `true`.
+     */
+    recursiveLogging?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

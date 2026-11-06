@@ -33,14 +33,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Source repository provider. Valid values: `GITHUB`.
+     * Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
      * 
      */
     @Import(name="providerType", required=true)
     private Output<String> providerType;
 
     /**
-     * @return Source repository provider. Valid values: `GITHUB`.
+     * @return Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
      * 
      */
     public Output<String> providerType() {
@@ -126,7 +126,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerType Source repository provider. Valid values: `GITHUB`.
+         * @param providerType Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerType Source repository provider. Valid values: `GITHUB`.
+         * @param providerType Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
          * 
          * @return builder
          * 

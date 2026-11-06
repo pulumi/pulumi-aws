@@ -54,5 +54,6 @@ from .shard_group import *
 from .snapshot import *
 from .snapshot_copy import *
 from .subnet_group import *
+from .tenant_database import *
 from ._inputs import *
 from . import outputs

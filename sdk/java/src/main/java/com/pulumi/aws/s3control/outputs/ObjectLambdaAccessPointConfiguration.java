@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObjectLambdaAccessPointConfiguration {
     /**
-     * @return Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+     * @return Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
      * 
      */
     private @Nullable List<String> allowedFeatures;
@@ -38,7 +38,7 @@ public final class ObjectLambdaAccessPointConfiguration {
 
     private ObjectLambdaAccessPointConfiguration() {}
     /**
-     * @return Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+     * @return Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
      * 
      */
     public List<String> allowedFeatures() {

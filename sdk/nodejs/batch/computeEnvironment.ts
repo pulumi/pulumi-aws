@@ -258,6 +258,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     declare public readonly type: pulumi.Output<string>;
     /**
+     * Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     */
+    declare public readonly unmanagedVcpus: pulumi.Output<number>;
+    /**
      * Infrastructure update policy for the compute environment. See details below.
      */
     declare public readonly updatePolicy: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy>;
@@ -289,6 +293,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["type"] = state?.type;
+            resourceInputs["unmanagedVcpus"] = state?.unmanagedVcpus;
             resourceInputs["updatePolicy"] = state?.updatePolicy;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
@@ -304,6 +309,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["state"] = args?.state;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["type"] = args?.type;
+            resourceInputs["unmanagedVcpus"] = args?.unmanagedVcpus;
             resourceInputs["updatePolicy"] = args?.updatePolicy;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ecsClusterArn"] = undefined /*out*/;
@@ -377,6 +383,10 @@ export interface ComputeEnvironmentState {
      */
     type?: pulumi.Input<string | undefined>;
     /**
+     * Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     */
+    unmanagedVcpus?: pulumi.Input<number | undefined>;
+    /**
      * Infrastructure update policy for the compute environment. See details below.
      */
     updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
@@ -422,6 +432,10 @@ export interface ComputeEnvironmentArgs {
      * Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type: pulumi.Input<string>;
+    /**
+     * Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     */
+    unmanagedVcpus?: pulumi.Input<number | undefined>;
     /**
      * Infrastructure update policy for the compute environment. See details below.
      */

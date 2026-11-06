@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Connect.Inputs
     public sealed class RoutingProfileMediaConcurrencyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        /// Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
         /// </summary>
         [Input("channel", required: true)]
         public Input<string> Channel { get; set; } = null!;

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<bool>? IsProtected { get; set; }
 
         /// <summary>
-        /// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+        /// Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
         /// </summary>
         [Input("lastRefreshType")]
         public Input<string>? LastRefreshType { get; set; }

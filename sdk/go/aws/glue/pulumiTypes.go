@@ -6330,7 +6330,7 @@ type CatalogTableViewDefinition struct {
 	Definer *string `pulumi:"definer"`
 	// You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
 	IsProtected *bool `pulumi:"isProtected"`
-	// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+	// Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
 	LastRefreshType *string `pulumi:"lastRefreshType"`
 	// Auto refresh interval in seconds for the materialized view.
 	RefreshSeconds *int `pulumi:"refreshSeconds"`
@@ -6362,7 +6362,7 @@ type CatalogTableViewDefinitionArgs struct {
 	Definer pulumi.StringPtrInput `pulumi:"definer"`
 	// You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
 	IsProtected pulumi.BoolPtrInput `pulumi:"isProtected"`
-	// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+	// Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
 	LastRefreshType pulumi.StringPtrInput `pulumi:"lastRefreshType"`
 	// Auto refresh interval in seconds for the materialized view.
 	RefreshSeconds pulumi.IntPtrInput `pulumi:"refreshSeconds"`
@@ -6465,7 +6465,7 @@ func (o CatalogTableViewDefinitionOutput) IsProtected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinition) *bool { return v.IsProtected }).(pulumi.BoolPtrOutput)
 }
 
-// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+// Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
 func (o CatalogTableViewDefinitionOutput) LastRefreshType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinition) *string { return v.LastRefreshType }).(pulumi.StringPtrOutput)
 }
@@ -6546,7 +6546,7 @@ func (o CatalogTableViewDefinitionPtrOutput) IsProtected() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+// Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
 func (o CatalogTableViewDefinitionPtrOutput) LastRefreshType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableViewDefinition) *string {
 		if v == nil {

@@ -79,7 +79,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     declare public readonly copyTagsToSnapshots: pulumi.Output<boolean | undefined>;
     /**
-     * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      */
     declare public readonly dataCompressionType: pulumi.Output<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface OpenZfsVolumeState {
      */
     copyTagsToSnapshots?: pulumi.Input<boolean | undefined>;
     /**
-     * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      */
     dataCompressionType?: pulumi.Input<string | undefined>;
     /**
@@ -280,7 +280,7 @@ export interface OpenZfsVolumeArgs {
      */
     copyTagsToSnapshots?: pulumi.Input<boolean | undefined>;
     /**
-     * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * Method used to compress the data on the volume. Valid values are `NONE`, `ZSTD`, or `LZ4`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      */
     dataCompressionType?: pulumi.Input<string | undefined>;
     /**

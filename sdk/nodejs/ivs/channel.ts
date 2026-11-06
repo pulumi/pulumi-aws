@@ -112,7 +112,7 @@ export class Channel extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -204,7 +204,7 @@ export interface ChannelState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -238,7 +238,7 @@ export interface ChannelArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
      */
     type?: pulumi.Input<string | undefined>;
 }

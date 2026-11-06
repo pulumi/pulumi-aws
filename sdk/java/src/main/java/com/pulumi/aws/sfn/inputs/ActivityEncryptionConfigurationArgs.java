@@ -47,14 +47,14 @@ public final class ActivityEncryptionConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+     * Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+     * @return Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -130,7 +130,7 @@ public final class ActivityEncryptionConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param type The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+         * @param type Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ActivityEncryptionConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param type The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+         * @param type Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
          * 
          * @return builder
          * 

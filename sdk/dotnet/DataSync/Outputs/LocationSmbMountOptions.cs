@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DataSync.Outputs
     public sealed class LocationSmbMountOptions
     {
         /// <summary>
-        /// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+        /// SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
         /// </summary>
         public readonly string? Version;
 

@@ -211,6 +211,14 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
      * A flag that indicates whether the encryption in transit is enabled.
      */
     declare public /*out*/ readonly transitEncryptionEnabled: pulumi.Output<boolean>;
@@ -245,6 +253,8 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["parameterGroupName"] = state?.parameterGroupName;
             resourceInputs["primaryReplicationGroupId"] = state?.primaryReplicationGroupId;
             resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["transitEncryptionEnabled"] = state?.transitEncryptionEnabled;
         } else {
             const args = argsOrState as GlobalReplicationGroupArgs | undefined;
@@ -264,6 +274,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["parameterGroupName"] = args?.parameterGroupName;
             resourceInputs["primaryReplicationGroupId"] = args?.primaryReplicationGroupId;
             resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["authTokenEnabled"] = undefined /*out*/;
@@ -271,6 +282,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["engineVersionActual"] = undefined /*out*/;
             resourceInputs["globalNodeGroups"] = undefined /*out*/;
             resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -368,6 +380,14 @@ export interface GlobalReplicationGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
      * A flag that indicates whether the encryption in transit is enabled.
      */
     transitEncryptionEnabled?: pulumi.Input<boolean | undefined>;
@@ -433,4 +453,8 @@ export interface GlobalReplicationGroupArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

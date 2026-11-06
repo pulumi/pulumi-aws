@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleGroupRulesSourceRulesSourceListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+        /// Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
         /// </summary>
         [Input("generatedRulesType", required: true)]
         public Input<string> GeneratedRulesType { get; set; } = null!;

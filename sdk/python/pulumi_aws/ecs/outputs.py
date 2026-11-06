@@ -4043,7 +4043,7 @@ class ServiceDeploymentConfigurationLifecycleHook(dict):
                  target_type: Optional[_builtins.str] = None,
                  timeout_configuration: Optional['outputs.ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration'] = None):
         """
-        :param Sequence[_builtins.str] lifecycle_stages: Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        :param Sequence[_builtins.str] lifecycle_stages: Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRE_PRODUCTION_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
         :param _builtins.str hook_details: Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
         :param _builtins.str hook_target_arn: ARN of the Lambda function to invoke for the lifecycle hook. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
         :param _builtins.str role_arn: ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
@@ -4066,7 +4066,7 @@ class ServiceDeploymentConfigurationLifecycleHook(dict):
     @pulumi.getter(name="lifecycleStages")
     def lifecycle_stages(self) -> Sequence[_builtins.str]:
         """
-        Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRE_PRODUCTION_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
         """
         return pulumi.get(self, "lifecycle_stages")
 

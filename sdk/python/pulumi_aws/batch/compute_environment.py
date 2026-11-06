@@ -30,6 +30,7 @@ class ComputeEnvironmentArgs:
                  service_role: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 unmanaged_vcpus: pulumi.Input[Optional[_builtins.int]] = None,
                  update_policy: pulumi.Input[Optional['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
@@ -43,6 +44,7 @@ class ComputeEnvironmentArgs:
         :param pulumi.Input[_builtins.str] service_role: Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[_builtins.str] state: State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.int] unmanaged_vcpus: Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
         :param pulumi.Input['ComputeEnvironmentUpdatePolicyArgs'] update_policy: Infrastructure update policy for the compute environment. See details below.
         """
         pulumi.set(__self__, "type", type)
@@ -62,6 +64,8 @@ class ComputeEnvironmentArgs:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if unmanaged_vcpus is not None:
+            pulumi.set(__self__, "unmanaged_vcpus", unmanaged_vcpus)
         if update_policy is not None:
             pulumi.set(__self__, "update_policy", update_policy)
 
@@ -174,6 +178,18 @@ class ComputeEnvironmentArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="unmanagedVcpus")
+    def unmanaged_vcpus(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+        """
+        return pulumi.get(self, "unmanaged_vcpus")
+
+    @unmanaged_vcpus.setter
+    def unmanaged_vcpus(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "unmanaged_vcpus", value)
+
+    @_builtins.property
     @pulumi.getter(name="updatePolicy")
     def update_policy(self) -> pulumi.Input[Optional['ComputeEnvironmentUpdatePolicyArgs']]:
         """
@@ -203,6 +219,7 @@ class _ComputeEnvironmentState:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unmanaged_vcpus: pulumi.Input[Optional[_builtins.int]] = None,
                  update_policy: pulumi.Input[Optional['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         Input properties used for looking up and filtering ComputeEnvironment resources.
@@ -221,6 +238,7 @@ class _ComputeEnvironmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        :param pulumi.Input[_builtins.int] unmanaged_vcpus: Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
         :param pulumi.Input['ComputeEnvironmentUpdatePolicyArgs'] update_policy: Infrastructure update policy for the compute environment. See details below.
         """
         if arn is not None:
@@ -251,6 +269,8 @@ class _ComputeEnvironmentState:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if unmanaged_vcpus is not None:
+            pulumi.set(__self__, "unmanaged_vcpus", unmanaged_vcpus)
         if update_policy is not None:
             pulumi.set(__self__, "update_policy", update_policy)
 
@@ -423,6 +443,18 @@ class _ComputeEnvironmentState:
         pulumi.set(self, "type", value)
 
     @_builtins.property
+    @pulumi.getter(name="unmanagedVcpus")
+    def unmanaged_vcpus(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+        """
+        return pulumi.get(self, "unmanaged_vcpus")
+
+    @unmanaged_vcpus.setter
+    def unmanaged_vcpus(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "unmanaged_vcpus", value)
+
+    @_builtins.property
     @pulumi.getter(name="updatePolicy")
     def update_policy(self) -> pulumi.Input[Optional['ComputeEnvironmentUpdatePolicyArgs']]:
         """
@@ -450,6 +482,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unmanaged_vcpus: pulumi.Input[Optional[_builtins.int]] = None,
                  update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']]] = None,
                  __props__=None):
         """
@@ -602,6 +635,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] state: State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        :param pulumi.Input[_builtins.int] unmanaged_vcpus: Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
         :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']] update_policy: Infrastructure update policy for the compute environment. See details below.
         """
         ...
@@ -773,6 +807,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unmanaged_vcpus: pulumi.Input[Optional[_builtins.int]] = None,
                  update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -794,6 +829,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["unmanaged_vcpus"] = unmanaged_vcpus
             __props__.__dict__["update_policy"] = update_policy
             __props__.__dict__["arn"] = None
             __props__.__dict__["ecs_cluster_arn"] = None
@@ -824,6 +860,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
+            unmanaged_vcpus: pulumi.Input[Optional[_builtins.int]] = None,
             update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']]] = None) -> 'ComputeEnvironment':
         """
         Get an existing ComputeEnvironment resource's state with the given name, id, and optional extra
@@ -846,6 +883,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        :param pulumi.Input[_builtins.int] unmanaged_vcpus: Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
         :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']] update_policy: Infrastructure update policy for the compute environment. See details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -866,6 +904,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
+        __props__.__dict__["unmanaged_vcpus"] = unmanaged_vcpus
         __props__.__dict__["update_policy"] = update_policy
         return ComputeEnvironment(resource_name, opts=opts, __props__=__props__)
 
@@ -886,6 +925,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
+            unmanaged_vcpus: pulumi.Input[Optional[_builtins.int]] = None,
             update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["arn"] = arn
@@ -902,6 +942,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["tagsAll"] = tags_all
         __props__["type"] = type
+        __props__["unmanagedVcpus"] = unmanaged_vcpus
         __props__["updatePolicy"] = update_policy
         return pulumi.runtime.exists_resource(None, 'aws:batch/computeEnvironment:ComputeEnvironment', id, __props__, opts or pulumi.ResourceOptions())
 
@@ -1016,6 +1057,14 @@ class ComputeEnvironment(pulumi.CustomResource):
         Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="unmanagedVcpus")
+    def unmanaged_vcpus(self) -> pulumi.Output[_builtins.int]:
+        """
+        Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+        """
+        return pulumi.get(self, "unmanaged_vcpus")
 
     @_builtins.property
     @pulumi.getter(name="updatePolicy")

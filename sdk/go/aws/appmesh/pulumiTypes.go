@@ -17342,7 +17342,7 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pul
 type VirtualGatewaySpecListenerPortMapping struct {
 	// Port used for the port mapping.
 	Port int `pulumi:"port"`
-	// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+	// Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -17360,7 +17360,7 @@ type VirtualGatewaySpecListenerPortMappingInput interface {
 type VirtualGatewaySpecListenerPortMappingArgs struct {
 	// Port used for the port mapping.
 	Port pulumi.IntInput `pulumi:"port"`
-	// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+	// Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -17395,7 +17395,7 @@ func (o VirtualGatewaySpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+// Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
 func (o VirtualGatewaySpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }

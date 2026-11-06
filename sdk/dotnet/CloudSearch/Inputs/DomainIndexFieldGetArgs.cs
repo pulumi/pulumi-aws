@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CloudSearch.Inputs
         public Input<string>? SourceFields { get; set; }
 
         /// <summary>
-        /// The field type. Valid values: `Date`, `date-array`, `Double`, `double-array`, `Int`, `int-array`, `Literal`, `literal-array`, `Text`, `text-array`.
+        /// Field type. Valid values: `Date`, `date-array`, `Double`, `double-array`, `Int`, `int-array`, `Latlon`, `Literal`, `literal-array`, `Text`, `text-array`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

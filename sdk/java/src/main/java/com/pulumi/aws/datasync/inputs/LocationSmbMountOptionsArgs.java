@@ -16,14 +16,14 @@ public final class LocationSmbMountOptionsArgs extends com.pulumi.resources.Reso
     public static final LocationSmbMountOptionsArgs Empty = new LocationSmbMountOptionsArgs();
 
     /**
-     * The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+     * SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+     * @return SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
      * 
      */
     public Optional<Output<String>> version() {
@@ -55,7 +55,7 @@ public final class LocationSmbMountOptionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param version The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+         * @param version SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class LocationSmbMountOptionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param version The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+         * @param version SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
          * 
          * @return builder
          * 

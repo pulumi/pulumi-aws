@@ -662,11 +662,11 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs:
 class RepositoryCreationTemplateEncryptionConfigurationArgsDict(TypedDict):
     encryption_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+    Encryption type to use for any created repositories. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
     """
     kms_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+    ARN of the KMS key to use when `encryption_type` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
     """
 
 @pulumi.input_type
@@ -675,8 +675,8 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
                  encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        :param pulumi.Input[_builtins.str] kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        :param pulumi.Input[_builtins.str] encryption_type: Encryption type to use for any created repositories. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of the KMS key to use when `encryption_type` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
         """
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
@@ -687,7 +687,7 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        Encryption type to use for any created repositories. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
         """
         return pulumi.get(self, "encryption_type")
 
@@ -699,7 +699,7 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        ARN of the KMS key to use when `encryption_type` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
         """
         return pulumi.get(self, "kms_key")
 
@@ -758,11 +758,11 @@ class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs:
 class RepositoryEncryptionConfigurationArgsDict(TypedDict):
     encryption_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+    Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
     """
     kms_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+    ARN of the KMS key to use when `encryption_type` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
     """
 
 @pulumi.input_type
@@ -771,8 +771,8 @@ class RepositoryEncryptionConfigurationArgs:
                  encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        :param pulumi.Input[_builtins.str] kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        :param pulumi.Input[_builtins.str] encryption_type: Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of the KMS key to use when `encryption_type` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
         """
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
@@ -783,7 +783,7 @@ class RepositoryEncryptionConfigurationArgs:
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        Encryption type to use for the repository. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
         """
         return pulumi.get(self, "encryption_type")
 
@@ -795,7 +795,7 @@ class RepositoryEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        ARN of the KMS key to use when `encryption_type` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
         """
         return pulumi.get(self, "kms_key")
 

@@ -108,14 +108,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+     * @return Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -279,7 +279,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+         * @param type Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+         * @param type Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
          * 
          * @return builder
          * 

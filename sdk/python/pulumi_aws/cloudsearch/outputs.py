@@ -108,7 +108,7 @@ class DomainIndexField(dict):
                  source_fields: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
-        :param _builtins.str type: The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+        :param _builtins.str type: Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
         :param _builtins.str analysis_scheme: The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
         :param _builtins.str default_value: The default value for the field. This value is used when no value is specified for the field in the document data.
         :param _builtins.bool facet: You can get facet information by enabling this.
@@ -149,7 +149,7 @@ class DomainIndexField(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+        Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
         """
         return pulumi.get(self, "type")
 

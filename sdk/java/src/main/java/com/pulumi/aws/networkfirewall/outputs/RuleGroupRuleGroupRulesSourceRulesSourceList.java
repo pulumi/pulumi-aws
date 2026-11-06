@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleGroupRulesSourceRulesSourceList {
     /**
-     * @return String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+     * @return Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
      * 
      */
     private String generatedRulesType;
@@ -29,7 +29,7 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceList {
 
     private RuleGroupRuleGroupRulesSourceRulesSourceList() {}
     /**
-     * @return String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+     * @return Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
      * 
      */
     public String generatedRulesType() {

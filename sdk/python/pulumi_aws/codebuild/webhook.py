@@ -34,7 +34,7 @@ class WebhookArgs:
 
         :param pulumi.Input[_builtins.str] project_name: The name of the build project.
         :param pulumi.Input[_builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
-        :param pulumi.Input[_builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        :param pulumi.Input[_builtins.str] build_type: Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. See filter_group for details.
         :param pulumi.Input[_builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input['WebhookPullRequestBuildPolicyArgs'] pull_request_build_policy: Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
@@ -85,7 +85,7 @@ class WebhookArgs:
     @pulumi.getter(name="buildType")
     def build_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         """
         return pulumi.get(self, "build_type")
 
@@ -172,7 +172,7 @@ class _WebhookState:
         Input properties used for looking up and filtering Webhook resources.
 
         :param pulumi.Input[_builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
-        :param pulumi.Input[_builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        :param pulumi.Input[_builtins.str] build_type: Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. See filter_group for details.
         :param pulumi.Input[_builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input[_builtins.str] payload_url: The CodeBuild endpoint where webhook events are sent.
@@ -222,7 +222,7 @@ class _WebhookState:
     @pulumi.getter(name="buildType")
     def build_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         """
         return pulumi.get(self, "build_type")
 
@@ -445,7 +445,7 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
-        :param pulumi.Input[_builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        :param pulumi.Input[_builtins.str] build_type: Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict', 'outputs.WebhookFilterGroup']]]] filter_groups: Information about the webhook's trigger. See filter_group for details.
         :param pulumi.Input[_builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input[_builtins.str] project_name: The name of the build project.
@@ -623,7 +623,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
-        :param pulumi.Input[_builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        :param pulumi.Input[_builtins.str] build_type: Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict', 'outputs.WebhookFilterGroup']]]] filter_groups: Information about the webhook's trigger. See filter_group for details.
         :param pulumi.Input[_builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input[_builtins.str] payload_url: The CodeBuild endpoint where webhook events are sent.
@@ -691,7 +691,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter(name="buildType")
     def build_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        Type of build this webhook triggers. Valid values: `BUILD`, `BUILD_BATCH`, `RUNNER_BUILDKITE_BUILD`. `RUNNER_BUILDKITE_BUILD` is available only for `NO_SOURCE` projects configured for Buildkite runner builds.
         """
         return pulumi.get(self, "build_type")
 

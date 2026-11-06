@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ecr.Outputs
     public sealed class RepositoryCreationTemplateEncryptionConfiguration
     {
         /// <summary>
-        /// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        /// Encryption type to use for any created repositories. Valid values are `AES256`, `KMS`, and `KMS_DSSE`. Defaults to `AES256`.
         /// </summary>
         public readonly string? EncryptionType;
         /// <summary>
-        /// The ARN of the KMS key to use when `EncryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        /// ARN of the KMS key to use when `EncryptionType` is `KMS` or `KMS_DSSE`. If not specified, uses the default AWS managed key for ECR.
         /// </summary>
         public readonly string? KmsKey;
 

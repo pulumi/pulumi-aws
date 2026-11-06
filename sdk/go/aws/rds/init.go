@@ -79,6 +79,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SnapshotCopy{}
 	case "aws:rds/subnetGroup:SubnetGroup":
 		r = &SubnetGroup{}
+	case "aws:rds/tenantDatabase:TenantDatabase":
+		r = &TenantDatabase{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -235,6 +237,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/subnetGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/tenantDatabase",
 		&module{version},
 	)
 }

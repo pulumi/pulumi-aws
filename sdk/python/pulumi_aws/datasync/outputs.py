@@ -147,7 +147,7 @@ class FsxOpenZfsFileSystemProtocolNfsMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        :param _builtins.str version: NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
@@ -156,7 +156,7 @@ class FsxOpenZfsFileSystemProtocolNfsMountOptions(dict):
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
-        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
         """
         return pulumi.get(self, "version")
 
@@ -424,7 +424,7 @@ class LocationSmbMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str version: The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+        :param _builtins.str version: SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
@@ -433,7 +433,7 @@ class LocationSmbMountOptions(dict):
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
-        The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+        SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
         """
         return pulumi.get(self, "version")
 
@@ -443,7 +443,7 @@ class NfsLocationMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        :param _builtins.str version: NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
@@ -452,7 +452,7 @@ class NfsLocationMountOptions(dict):
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
-        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
         """
         return pulumi.get(self, "version")
 

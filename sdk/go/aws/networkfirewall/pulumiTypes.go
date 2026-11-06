@@ -5004,7 +5004,7 @@ func (o RuleGroupRuleGroupRulesSourcePtrOutput) StatelessRulesAndCustomActions()
 }
 
 type RuleGroupRuleGroupRulesSourceRulesSourceList struct {
-	// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+	// Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
 	GeneratedRulesType string `pulumi:"generatedRulesType"`
 	// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
 	TargetTypes []string `pulumi:"targetTypes"`
@@ -5024,7 +5024,7 @@ type RuleGroupRuleGroupRulesSourceRulesSourceListInput interface {
 }
 
 type RuleGroupRuleGroupRulesSourceRulesSourceListArgs struct {
-	// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+	// Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
 	GeneratedRulesType pulumi.StringInput `pulumi:"generatedRulesType"`
 	// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
 	TargetTypes pulumi.StringArrayInput `pulumi:"targetTypes"`
@@ -5109,7 +5109,7 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListOutput) ToRuleGroupRuleGroup
 	}).(RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput)
 }
 
-// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+// Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
 func (o RuleGroupRuleGroupRulesSourceRulesSourceListOutput) GeneratedRulesType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceRulesSourceList) string { return v.GeneratedRulesType }).(pulumi.StringOutput)
 }
@@ -5148,7 +5148,7 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) Elem() RuleGroupR
 	}).(RuleGroupRuleGroupRulesSourceRulesSourceListOutput)
 }
 
-// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+// Action to apply to domains in the target list. Valid values: `ALLOWLIST`, `DENYLIST`, `REJECTLIST`, `ALERTLIST`.
 func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) GeneratedRulesType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroupRulesSourceRulesSourceList) *string {
 		if v == nil {

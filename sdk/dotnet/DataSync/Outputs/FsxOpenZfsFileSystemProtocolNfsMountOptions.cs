@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DataSync.Outputs
     public sealed class FsxOpenZfsFileSystemProtocolNfsMountOptions
     {
         /// <summary>
-        /// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        /// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
         /// </summary>
         public readonly string? Version;
 

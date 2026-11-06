@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sfn.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+        /// Encryption option specified for the activity. AWS requires this argument when `EncryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
         /// </summary>
         public readonly string? Type;
 

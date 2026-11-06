@@ -17,7 +17,7 @@ public final class VirtualGatewaySpecListenerPortMapping {
      */
     private Integer port;
     /**
-     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
      * 
      */
     private String protocol;
@@ -31,7 +31,7 @@ public final class VirtualGatewaySpecListenerPortMapping {
         return this.port;
     }
     /**
-     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
      * 
      */
     public String protocol() {

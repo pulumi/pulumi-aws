@@ -91,14 +91,14 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
      * 
      */
     @Import(name="signingBehavior")
     private @Nullable Output<String> signingBehavior;
 
     /**
-     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
      * 
      */
     public Optional<Output<String>> signingBehavior() {
@@ -106,14 +106,14 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+     * Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
      * 
      */
     @Import(name="signingProtocol")
     private @Nullable Output<String> signingProtocol;
 
     /**
-     * @return Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+     * @return Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
      * 
      */
     public Optional<Output<String>> signingProtocol() {
@@ -256,7 +256,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
          * 
          * @return builder
          * 

@@ -12,12 +12,13 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
+ * Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) or [Lambda Web Functions](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
  * 
  * ## Example Usage
  * 
@@ -161,6 +162,34 @@ public class CoreNetworkConnector extends com.pulumi.resources.CustomResource {
      */
     public Output<CoreNetworkConnectorConfiguration> configuration() {
         return this.configuration;
+    }
+    /**
+     * Number of the connector&#39;s latest version. Each configuration change creates a new immutable version.
+     * 
+     */
+    @Export(name="latestVersion", refs={Integer.class}, tree="[0]")
+    private Output<Integer> latestVersion;
+
+    /**
+     * @return Number of the connector&#39;s latest version. Each configuration change creates a new immutable version.
+     * 
+     */
+    public Output<Integer> latestVersion() {
+        return this.latestVersion;
+    }
+    /**
+     * Version-qualified ARN of the connector&#39;s latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+     * 
+     */
+    @Export(name="latestVersionArn", refs={String.class}, tree="[0]")
+    private Output<String> latestVersionArn;
+
+    /**
+     * @return Version-qualified ARN of the connector&#39;s latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+     * 
+     */
+    public Output<String> latestVersionArn() {
+        return this.latestVersionArn;
     }
     /**
      * Name of the network connector, unique within the account and Region. Changing this forces a new resource.

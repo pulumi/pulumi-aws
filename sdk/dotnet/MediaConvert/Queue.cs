@@ -84,7 +84,7 @@ namespace Pulumi.Aws.MediaConvert
         public Output<Outputs.QueueReservationPlanSettings> ReservationPlanSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.MediaConvert
         public Input<Inputs.QueueReservationPlanSettingsArgs>? ReservationPlanSettings { get; set; }
 
         /// <summary>
-        /// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.MediaConvert
         public Input<Inputs.QueueReservationPlanSettingsGetArgs>? ReservationPlanSettings { get; set; }
 
         /// <summary>
-        /// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// Status of the queue. Valid values are `ACTIVE` or `PAUSED`. Default value: `ACTIVE`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

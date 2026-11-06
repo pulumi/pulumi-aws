@@ -721,7 +721,7 @@ class ObjectLambdaAccessPointConfiguration(dict):
         """
         :param _builtins.str supporting_access_point: Standard access point associated with the Object Lambda Access Point.
         :param Sequence['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs'] transformation_configurations: List of transformation configurations for the Object Lambda Access Point. See `transformation_configuration` Block below for more details.
-        :param Sequence[_builtins.str] allowed_features: Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+        :param Sequence[_builtins.str] allowed_features: Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
         :param _builtins.bool cloud_watch_metrics_enabled: Whether or not the CloudWatch metrics configuration is enabled.
         """
         pulumi.set(__self__, "supporting_access_point", supporting_access_point)
@@ -751,7 +751,7 @@ class ObjectLambdaAccessPointConfiguration(dict):
     @pulumi.getter(name="allowedFeatures")
     def allowed_features(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+        Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, `HeadObject-PartNumber`.
         """
         return pulumi.get(self, "allowed_features")
 
@@ -787,7 +787,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfiguration(dict):
                  actions: Sequence[_builtins.str],
                  content_transformation: 'outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation'):
         """
-        :param Sequence[_builtins.str] actions: Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+        :param Sequence[_builtins.str] actions: Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
         :param 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs' content_transformation: Content transformation of an Object Lambda Access Point configuration. See `content_transformation` Block below for more details.
         """
         pulumi.set(__self__, "actions", actions)
@@ -797,7 +797,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfiguration(dict):
     @pulumi.getter
     def actions(self) -> Sequence[_builtins.str]:
         """
-        Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+        Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
         """
         return pulumi.get(self, "actions")
 

@@ -5031,7 +5031,7 @@ class ServiceDeploymentConfigurationCanaryConfigurationArgs:
 class ServiceDeploymentConfigurationLifecycleHookArgsDict(TypedDict):
     lifecycle_stages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+    Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRE_PRODUCTION_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
     """
     hook_details: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -5064,7 +5064,7 @@ class ServiceDeploymentConfigurationLifecycleHookArgs:
                  target_type: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_configuration: pulumi.Input[Optional['ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_stages: Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_stages: Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRE_PRODUCTION_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
         :param pulumi.Input[_builtins.str] hook_details: Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
         :param pulumi.Input[_builtins.str] hook_target_arn: ARN of the Lambda function to invoke for the lifecycle hook. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
@@ -5087,7 +5087,7 @@ class ServiceDeploymentConfigurationLifecycleHookArgs:
     @pulumi.getter(name="lifecycleStages")
     def lifecycle_stages(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
+        Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRE_PRODUCTION_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
         """
         return pulumi.get(self, "lifecycle_stages")
 

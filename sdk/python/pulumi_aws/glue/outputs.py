@@ -2555,7 +2555,7 @@ class CatalogTableViewDefinition(dict):
         """
         :param _builtins.str definer: Definer of a view in SQL.
         :param _builtins.bool is_protected: You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
-        :param _builtins.str last_refresh_type: Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+        :param _builtins.str last_refresh_type: Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
         :param _builtins.int refresh_seconds: Auto refresh interval in seconds for the materialized view.
         :param Sequence['CatalogTableViewDefinitionRepresentationArgs'] representations: List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
         :param Sequence[_builtins.int] sub_object_version_ids: List of the Apache Iceberg table versions referenced by the materialized view.
@@ -2602,7 +2602,7 @@ class CatalogTableViewDefinition(dict):
     @pulumi.getter(name="lastRefreshType")
     def last_refresh_type(self) -> Optional[_builtins.str]:
         """
-        Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+        Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
         """
         return pulumi.get(self, "last_refresh_type")
 

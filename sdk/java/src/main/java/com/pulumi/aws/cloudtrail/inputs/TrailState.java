@@ -232,6 +232,21 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether CloudTrail logs events it generates when delivering log files to the trail&#39;s destinations, such as Amazon S3 and CloudWatch Logs. Set to `false` to suppress these events. See [Recursive logging](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trail-recursive-logging.html) for details. If not specified, defaults to `true`.
+     * 
+     */
+    @Import(name="recursiveLogging")
+    private @Nullable Output<Boolean> recursiveLogging;
+
+    /**
+     * @return Whether CloudTrail logs events it generates when delivering log files to the trail&#39;s destinations, such as Amazon S3 and CloudWatch Logs. Set to `false` to suppress these events. See [Recursive logging](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trail-recursive-logging.html) for details. If not specified, defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> recursiveLogging() {
+        return Optional.ofNullable(this.recursiveLogging);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -357,6 +372,7 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
         this.isOrganizationTrail = $.isOrganizationTrail;
         this.kmsKeyId = $.kmsKeyId;
         this.name = $.name;
+        this.recursiveLogging = $.recursiveLogging;
         this.region = $.region;
         this.s3BucketName = $.s3BucketName;
         this.s3KeyPrefix = $.s3KeyPrefix;
@@ -706,6 +722,27 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param recursiveLogging Whether CloudTrail logs events it generates when delivering log files to the trail&#39;s destinations, such as Amazon S3 and CloudWatch Logs. Set to `false` to suppress these events. See [Recursive logging](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trail-recursive-logging.html) for details. If not specified, defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recursiveLogging(@Nullable Output<Boolean> recursiveLogging) {
+            $.recursiveLogging = recursiveLogging;
+            return this;
+        }
+
+        /**
+         * @param recursiveLogging Whether CloudTrail logs events it generates when delivering log files to the trail&#39;s destinations, such as Amazon S3 and CloudWatch Logs. Set to `false` to suppress these events. See [Recursive logging](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trail-recursive-logging.html) for details. If not specified, defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recursiveLogging(Boolean recursiveLogging) {
+            return recursiveLogging(Output.of(recursiveLogging));
         }
 
         /**

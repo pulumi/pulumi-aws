@@ -8,6 +8,7 @@ import com.pulumi.aws.batch.inputs.ComputeEnvironmentEksConfigurationArgs;
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentUpdatePolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -230,6 +231,21 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     * 
+     */
+    @Import(name="unmanagedVcpus")
+    private @Nullable Output<Integer> unmanagedVcpus;
+
+    /**
+     * @return Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     * 
+     */
+    public Optional<Output<Integer>> unmanagedVcpus() {
+        return Optional.ofNullable(this.unmanagedVcpus);
+    }
+
+    /**
      * Infrastructure update policy for the compute environment. See details below.
      * 
      */
@@ -261,6 +277,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.type = $.type;
+        this.unmanagedVcpus = $.unmanagedVcpus;
         this.updatePolicy = $.updatePolicy;
     }
 
@@ -574,6 +591,27 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param unmanagedVcpus Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unmanagedVcpus(@Nullable Output<Integer> unmanagedVcpus) {
+            $.unmanagedVcpus = unmanagedVcpus;
+            return this;
+        }
+
+        /**
+         * @param unmanagedVcpus Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unmanagedVcpus(Integer unmanagedVcpus) {
+            return unmanagedVcpus(Output.of(unmanagedVcpus));
         }
 
         /**

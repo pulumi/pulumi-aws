@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
-    /// Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
+    /// Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) or [Lambda Web Functions](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
     /// 
     /// ## Example Usage
     /// 
@@ -140,6 +140,18 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.CoreNetworkConnectorConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
+        /// Number of the connector's latest version. Each configuration change creates a new immutable version.
+        /// </summary>
+        [Output("latestVersion")]
+        public Output<int> LatestVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+        /// </summary>
+        [Output("latestVersionArn")]
+        public Output<string> LatestVersionArn { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the network connector, unique within the account and Region. Changing this forces a new resource.
         /// </summary>
         [Output("name")]
@@ -256,6 +268,18 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.CoreNetworkConnectorConfigurationGetArgs>? Configuration { get; set; }
+
+        /// <summary>
+        /// Number of the connector's latest version. Each configuration change creates a new immutable version.
+        /// </summary>
+        [Input("latestVersion")]
+        public Input<int>? LatestVersion { get; set; }
+
+        /// <summary>
+        /// Version-qualified ARN of the connector's latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+        /// </summary>
+        [Input("latestVersionArn")]
+        public Input<string>? LatestVersionArn { get; set; }
 
         /// <summary>
         /// Name of the network connector, unique within the account and Region. Changing this forces a new resource.

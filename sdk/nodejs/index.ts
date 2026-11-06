@@ -124,6 +124,7 @@ import * as backup from "./backup";
 import * as batch from "./batch";
 import * as bcmdata from "./bcmdata";
 import * as bedrock from "./bedrock";
+import * as bedrockdataautomation from "./bedrockdataautomation";
 import * as bedrockfoundation from "./bedrockfoundation";
 import * as bedrockmodel from "./bedrockmodel";
 import * as billing from "./billing";
@@ -226,6 +227,7 @@ import * as kms from "./kms";
 import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
 import * as lambdamicrovms from "./lambdamicrovms";
+import * as lambdaweb from "./lambdaweb";
 import * as lb from "./lb";
 import * as lex from "./lex";
 import * as licensemanager from "./licensemanager";
@@ -251,6 +253,7 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkflowmonitor from "./networkflowmonitor";
 import * as networkmanager from "./networkmanager";
 import * as networkmonitor from "./networkmonitor";
+import * as networksecuritymanager from "./networksecuritymanager";
 import * as notifications from "./notifications";
 import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
@@ -367,6 +370,7 @@ export {
     batch,
     bcmdata,
     bedrock,
+    bedrockdataautomation,
     bedrockfoundation,
     bedrockmodel,
     billing,
@@ -469,6 +473,7 @@ export {
     lakeformation,
     lambda,
     lambdamicrovms,
+    lambdaweb,
     lb,
     lex,
     licensemanager,
@@ -494,6 +499,7 @@ export {
     networkflowmonitor,
     networkmanager,
     networkmonitor,
+    networksecuritymanager,
     notifications,
     oam,
     observabilityadmin,

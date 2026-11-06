@@ -31,14 +31,14 @@ public final class VirtualGatewaySpecListenerPortMappingArgs extends com.pulumi.
     }
 
     /**
-     * Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+     * Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
      * 
      */
     public Output<String> protocol() {
@@ -92,7 +92,7 @@ public final class VirtualGatewaySpecListenerPortMappingArgs extends com.pulumi.
         }
 
         /**
-         * @param protocol Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+         * @param protocol Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VirtualGatewaySpecListenerPortMappingArgs extends com.pulumi.
         }
 
         /**
-         * @param protocol Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+         * @param protocol Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
          * 
          * @return builder
          * 

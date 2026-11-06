@@ -58,6 +58,44 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Lambda Web Function Origin
+ * 
+ * Lambda Web Function origins support only the `always-amz-auth` signing behavior. Use `sigv4` for a regional endpoint (hostname ending in `.lambda-web.&lt;region&gt;.on.aws`) and `sigv4a` for a global endpoint (hostname ending in `.lambda-web.global.on.aws`). See [Restrict access to an AWS Lambda Web Function origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda-web.html) in the CloudFront Developer Guide.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.OriginAccessControl;
+ * import com.pulumi.aws.cloudfront.OriginAccessControlArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new OriginAccessControl("example", OriginAccessControlArgs.builder()
+ *             .name("example")
+ *             .originAccessControlOriginType("lambda")
+ *             .signingBehavior("always-amz-auth")
+ *             .signingProtocol("sigv4a")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
@@ -140,28 +178,28 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
         return this.originAccessControlOriginType;
     }
     /**
-     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
      * 
      */
     @Export(name="signingBehavior", refs={String.class}, tree="[0]")
     private Output<String> signingBehavior;
 
     /**
-     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `always-amz-auth`, `never`, and `no-override`. `always-amz-auth` is supported only for Lambda Web Function origins, and is the only value those origins support.
      * 
      */
     public Output<String> signingBehavior() {
         return this.signingBehavior;
     }
     /**
-     * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+     * Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
      * 
      */
     @Export(name="signingProtocol", refs={String.class}, tree="[0]")
     private Output<String> signingProtocol;
 
     /**
-     * @return Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+     * @return Determines how CloudFront signs (authenticates) requests. Valid values are `sigv4` and `sigv4a`.
      * 
      */
     public Output<String> signingProtocol() {

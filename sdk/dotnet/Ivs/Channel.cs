@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ivs
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+        /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Ivs
         }
 
         /// <summary>
-        /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+        /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Ivs
         }
 
         /// <summary>
-        /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+        /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

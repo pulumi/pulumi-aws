@@ -5794,7 +5794,7 @@ type WebhookFilterGroupFilter struct {
 	ExcludeMatchedPattern *bool `pulumi:"excludeMatchedPattern"`
 	// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
 	Pattern string `pulumi:"pattern"`
-	// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+	// Webhook filter group's type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
 	Type string `pulumi:"type"`
 }
 
@@ -5814,7 +5814,7 @@ type WebhookFilterGroupFilterArgs struct {
 	ExcludeMatchedPattern pulumi.BoolPtrInput `pulumi:"excludeMatchedPattern"`
 	// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
-	// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+	// Webhook filter group's type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5879,7 +5879,7 @@ func (o WebhookFilterGroupFilterOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookFilterGroupFilter) string { return v.Pattern }).(pulumi.StringOutput)
 }
 
-// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`. At least one filter group must specify `EVENT` as its type.
+// Webhook filter group's type. Valid values: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`, `REPOSITORY_NAME`, `ORGANIZATION_NAME`. At least one filter group must specify `EVENT` as its type.
 func (o WebhookFilterGroupFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookFilterGroupFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6063,9 +6063,9 @@ func (o WebhookPullRequestBuildPolicyPtrOutput) RequiresCommentApproval() pulumi
 type WebhookScopeConfiguration struct {
 	// The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
 	Domain *string `pulumi:"domain"`
-	// The name of either the enterprise or organization.
+	// Name of the enterprise, organization, or GitLab group.
 	Name string `pulumi:"name"`
-	// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+	// Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
 	Scope string `pulumi:"scope"`
 }
 
@@ -6083,9 +6083,9 @@ type WebhookScopeConfigurationInput interface {
 type WebhookScopeConfigurationArgs struct {
 	// The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// The name of either the enterprise or organization.
+	// Name of the enterprise, organization, or GitLab group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+	// Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
@@ -6171,12 +6171,12 @@ func (o WebhookScopeConfigurationOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookScopeConfiguration) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The name of either the enterprise or organization.
+// Name of the enterprise, organization, or GitLab group.
 func (o WebhookScopeConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookScopeConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+// Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
 func (o WebhookScopeConfigurationOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookScopeConfiguration) string { return v.Scope }).(pulumi.StringOutput)
 }
@@ -6215,7 +6215,7 @@ func (o WebhookScopeConfigurationPtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of either the enterprise or organization.
+// Name of the enterprise, organization, or GitLab group.
 func (o WebhookScopeConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebhookScopeConfiguration) *string {
 		if v == nil {
@@ -6225,7 +6225,7 @@ func (o WebhookScopeConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+// Scope of the webhook. Valid values: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`, `GITLAB_GROUP`.
 func (o WebhookScopeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebhookScopeConfiguration) *string {
 		if v == nil {

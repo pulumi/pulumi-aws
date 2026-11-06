@@ -83,7 +83,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         /// </summary>
         [Output("blobType")]
         public Output<string?> BlobType { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         /// </summary>
         [Input("blobType")]
         public Input<string>? BlobType { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? AuthenticationType { get; set; }
 
         /// <summary>
-        /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
         /// </summary>
         [Input("blobType")]
         public Input<string>? BlobType { get; set; }

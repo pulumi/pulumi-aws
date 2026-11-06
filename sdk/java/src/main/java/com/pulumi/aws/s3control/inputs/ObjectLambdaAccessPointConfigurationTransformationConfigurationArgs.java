@@ -17,14 +17,14 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
     public static final ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs Empty = new ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs();
 
     /**
-     * Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+     * Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
      * 
      */
     @Import(name="actions", required=true)
     private Output<List<String>> actions;
 
     /**
-     * @return Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+     * @return Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
      * 
      */
     public Output<List<String>> actions() {
@@ -72,7 +72,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
          * 
          * @return builder
          * 

@@ -388,7 +388,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string?> OauthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         /// </summary>
         [Output("platform")]
         public Output<string?> Platform { get; private set; } = null!;
@@ -638,7 +638,7 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
@@ -850,7 +850,7 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`, `WEB_DYNAMIC`. Default value: `WEB`.
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }

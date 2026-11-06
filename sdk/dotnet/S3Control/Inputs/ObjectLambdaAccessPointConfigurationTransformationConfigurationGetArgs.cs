@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3Control.Inputs
         private InputList<string>? _actions;
 
         /// <summary>
-        /// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+        /// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`, `HeadObject`, `ListObjects`, `ListObjectsV2`.
         /// </summary>
         public InputList<string> Actions
         {

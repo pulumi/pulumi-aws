@@ -92,6 +92,10 @@ export interface GetComputeEnvironmentResult {
      */
     readonly type: string;
     /**
+     * Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     */
+    readonly unmanagedVcpus: number;
+    /**
      * Infrastructure update policy for the compute environment.
      */
     readonly updatePolicies: outputs.batch.GetComputeEnvironmentUpdatePolicy[];

@@ -18,7 +18,7 @@ type ActivityEncryptionConfiguration struct {
 	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
 	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+	// Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
 	Type *string `pulumi:"type"`
 }
 
@@ -38,7 +38,7 @@ type ActivityEncryptionConfigurationArgs struct {
 	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
 	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+	// Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -129,7 +129,7 @@ func (o ActivityEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+// Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
 func (o ActivityEncryptionConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -178,7 +178,7 @@ func (o ActivityEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+// Encryption option specified for the activity. AWS requires this argument when `encryptionConfiguration` is specified. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`.
 func (o ActivityEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *string {
 		if v == nil {

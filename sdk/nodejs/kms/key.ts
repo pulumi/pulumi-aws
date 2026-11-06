@@ -405,7 +405,7 @@ export class Key extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly keyId: pulumi.Output<string>;
     /**
-     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
      */
     declare public readonly keyUsage: pulumi.Output<string | undefined>;
     /**
@@ -535,7 +535,7 @@ export interface KeyState {
      */
     keyId?: pulumi.Input<string | undefined>;
     /**
-     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
      */
     keyUsage?: pulumi.Input<string | undefined>;
     /**
@@ -603,7 +603,7 @@ export interface KeyArgs {
      */
     isEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, or `KEY_AGREEMENT`. Defaults to `ENCRYPT_DECRYPT`.
      */
     keyUsage?: pulumi.Input<string | undefined>;
     /**

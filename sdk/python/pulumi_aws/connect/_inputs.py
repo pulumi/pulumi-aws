@@ -1017,7 +1017,7 @@ class QuickConnectQuickConnectConfigUserConfigArgs:
 class RoutingProfileMediaConcurrencyArgsDict(TypedDict):
     channel: pulumi.Input[_builtins.str]
     """
-    Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+    Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
     """
     concurrency: pulumi.Input[_builtins.int]
     """
@@ -1035,7 +1035,7 @@ class RoutingProfileMediaConcurrencyArgs:
                  concurrency: pulumi.Input[_builtins.int],
                  cross_channel_behavior: pulumi.Input[Optional['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param pulumi.Input[_builtins.str] channel: Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
         :param pulumi.Input[_builtins.int] concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
         :param pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs'] cross_channel_behavior: Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
         """
@@ -1048,7 +1048,7 @@ class RoutingProfileMediaConcurrencyArgs:
     @pulumi.getter
     def channel(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
         """
         return pulumi.get(self, "channel")
 
@@ -1112,7 +1112,7 @@ class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs:
 class RoutingProfileQueueConfigArgsDict(TypedDict):
     channel: pulumi.Input[_builtins.str]
     """
-    Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+    Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
     """
     delay: pulumi.Input[_builtins.int]
     """
@@ -1145,7 +1145,7 @@ class RoutingProfileQueueConfigArgs:
                  queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  queue_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] channel: Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param pulumi.Input[_builtins.str] channel: Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
         :param pulumi.Input[_builtins.int] delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
         :param pulumi.Input[_builtins.int] priority: Specifies the order in which contacts are to be handled for the queue.
         :param pulumi.Input[_builtins.str] queue_id: Specifies the identifier for the queue.
@@ -1165,7 +1165,7 @@ class RoutingProfileQueueConfigArgs:
     @pulumi.getter
     def channel(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
         """
         return pulumi.get(self, "channel")
 

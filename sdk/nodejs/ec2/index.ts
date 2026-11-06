@@ -40,6 +40,11 @@ export type CapacityBlockReservation = import("./capacityBlockReservation").Capa
 export const CapacityBlockReservation: typeof import("./capacityBlockReservation").CapacityBlockReservation = null as any;
 utilities.lazyLoad(exports, ["CapacityBlockReservation"], () => require("./capacityBlockReservation"));
 
+export { CapacityManagerArgs, CapacityManagerState } from "./capacityManager";
+export type CapacityManager = import("./capacityManager").CapacityManager;
+export const CapacityManager: typeof import("./capacityManager").CapacityManager = null as any;
+utilities.lazyLoad(exports, ["CapacityManager"], () => require("./capacityManager"));
+
 export { CapacityReservationArgs, CapacityReservationState } from "./capacityReservation";
 export type CapacityReservation = import("./capacityReservation").CapacityReservation;
 export const CapacityReservation: typeof import("./capacityReservation").CapacityReservation = null as any;
@@ -927,6 +932,8 @@ const _module = {
                 return new AvailabilityZoneGroup(name, <any>undefined, { urn })
             case "aws:ec2/capacityBlockReservation:CapacityBlockReservation":
                 return new CapacityBlockReservation(name, <any>undefined, { urn })
+            case "aws:ec2/capacityManager:CapacityManager":
+                return new CapacityManager(name, <any>undefined, { urn })
             case "aws:ec2/capacityReservation:CapacityReservation":
                 return new CapacityReservation(name, <any>undefined, { urn })
             case "aws:ec2/carrierGateway:CarrierGateway":
@@ -1147,6 +1154,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/amiFromInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/amiLaunchPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/availabilityZoneGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/capacityBlockReservation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/capacityManager", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/capacityReservation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/carrierGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/customerGateway", _module)

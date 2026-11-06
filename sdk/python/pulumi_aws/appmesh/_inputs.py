@@ -6637,7 +6637,7 @@ class VirtualGatewaySpecListenerPortMappingArgsDict(TypedDict):
     """
     protocol: pulumi.Input[_builtins.str]
     """
-    Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+    Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
     """
 
 @pulumi.input_type
@@ -6647,7 +6647,7 @@ class VirtualGatewaySpecListenerPortMappingArgs:
                  protocol: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.int] port: Port used for the port mapping.
-        :param pulumi.Input[_builtins.str] protocol: Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+        :param pulumi.Input[_builtins.str] protocol: Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
@@ -6668,7 +6668,7 @@ class VirtualGatewaySpecListenerPortMappingArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[_builtins.str]:
         """
-        Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+        Protocol used for the port mapping. Valid values are `http`, `http2`, and `grpc`.
         """
         return pulumi.get(self, "protocol")
 

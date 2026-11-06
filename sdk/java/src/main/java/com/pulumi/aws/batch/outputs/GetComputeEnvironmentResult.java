@@ -6,6 +6,7 @@ package com.pulumi.aws.batch.outputs;
 import com.pulumi.aws.batch.outputs.GetComputeEnvironmentUpdatePolicy;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -60,6 +61,11 @@ public final class GetComputeEnvironmentResult {
      * 
      */
     private String type;
+    /**
+     * @return Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     * 
+     */
+    private Integer unmanagedVcpus;
     /**
      * @return Infrastructure update policy for the compute environment.
      * 
@@ -137,6 +143,13 @@ public final class GetComputeEnvironmentResult {
         return this.type;
     }
     /**
+     * @return Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `type` is `UNMANAGED`.
+     * 
+     */
+    public Integer unmanagedVcpus() {
+        return this.unmanagedVcpus;
+    }
+    /**
      * @return Infrastructure update policy for the compute environment.
      * 
      */
@@ -164,6 +177,7 @@ public final class GetComputeEnvironmentResult {
         private String statusReason;
         private Map<String,String> tags;
         private String type;
+        private Integer unmanagedVcpus;
         private List<GetComputeEnvironmentUpdatePolicy> updatePolicies;
         public Builder() {}
         public Builder(GetComputeEnvironmentResult defaults) {
@@ -179,6 +193,7 @@ public final class GetComputeEnvironmentResult {
     	      this.statusReason = defaults.statusReason;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
+    	      this.unmanagedVcpus = defaults.unmanagedVcpus;
     	      this.updatePolicies = defaults.updatePolicies;
         }
 
@@ -271,6 +286,14 @@ public final class GetComputeEnvironmentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder unmanagedVcpus(Integer unmanagedVcpus) {
+            if (unmanagedVcpus == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "unmanagedVcpus");
+            }
+            this.unmanagedVcpus = unmanagedVcpus;
+            return this;
+        }
+        @CustomType.Setter
         public Builder updatePolicies(List<GetComputeEnvironmentUpdatePolicy> updatePolicies) {
             if (updatePolicies == null) {
               throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "updatePolicies");
@@ -294,6 +317,7 @@ public final class GetComputeEnvironmentResult {
             _resultValue.statusReason = statusReason;
             _resultValue.tags = tags;
             _resultValue.type = type;
+            _resultValue.unmanagedVcpus = unmanagedVcpus;
             _resultValue.updatePolicies = updatePolicies;
             return _resultValue;
         }

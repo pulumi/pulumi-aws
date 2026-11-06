@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly bool? IsProtected;
         /// <summary>
-        /// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+        /// Type of the materialized view's last refresh. Valid values: `FULL`, `INCREMENTAL`.
         /// </summary>
         public readonly string? LastRefreshType;
         /// <summary>

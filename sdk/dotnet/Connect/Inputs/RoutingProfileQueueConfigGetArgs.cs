@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Connect.Inputs
     public sealed class RoutingProfileQueueConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        /// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
         /// </summary>
         [Input("channel", required: true)]
         public Input<string> Channel { get; set; } = null!;

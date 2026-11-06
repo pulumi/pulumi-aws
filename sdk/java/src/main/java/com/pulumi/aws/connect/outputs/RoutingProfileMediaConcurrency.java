@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RoutingProfileMediaConcurrency {
     /**
-     * @return Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+     * @return Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
      * 
      */
     private String channel;
@@ -32,7 +32,7 @@ public final class RoutingProfileMediaConcurrency {
 
     private RoutingProfileMediaConcurrency() {}
     /**
-     * @return Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+     * @return Channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
      * 
      */
     public String channel() {

@@ -212,14 +212,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+     * @return Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`, `ADVANCED_SD`, `ADVANCED_HD`.
      * 
      */
     public Output<String> type() {

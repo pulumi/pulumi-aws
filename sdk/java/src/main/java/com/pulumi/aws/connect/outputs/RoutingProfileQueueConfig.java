@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RoutingProfileQueueConfig {
     /**
-     * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+     * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
      * 
      */
     private String channel;
@@ -46,7 +46,7 @@ public final class RoutingProfileQueueConfig {
 
     private RoutingProfileQueueConfig() {}
     /**
-     * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+     * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`, and `EMAIL`.
      * 
      */
     public String channel() {

@@ -446,7 +446,7 @@ func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) MountOptions() FsxOpenZfsFileS
 }
 
 type FsxOpenZfsFileSystemProtocolNfsMountOptions struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+	// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
 	Version *string `pulumi:"version"`
 }
 
@@ -462,7 +462,7 @@ type FsxOpenZfsFileSystemProtocolNfsMountOptionsInput interface {
 }
 
 type FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+	// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -543,7 +543,7 @@ func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ToFsxOpenZfsFileSyste
 	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
 func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocolNfsMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -572,7 +572,7 @@ func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Elem() FsxOpenZfsF
 	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
 func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocolNfsMountOptions) *string {
 		if v == nil {
@@ -1739,7 +1739,7 @@ func (o LocationHdfsQopConfigurationPtrOutput) RpcProtection() pulumi.StringPtrO
 }
 
 type LocationSmbMountOptions struct {
-	// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+	// SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
 	Version *string `pulumi:"version"`
 }
 
@@ -1755,7 +1755,7 @@ type LocationSmbMountOptionsInput interface {
 }
 
 type LocationSmbMountOptionsArgs struct {
-	// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+	// SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1836,7 +1836,7 @@ func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsPtrOutputWithCon
 	}).(LocationSmbMountOptionsPtrOutput)
 }
 
-// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+// SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
 func (o LocationSmbMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1865,7 +1865,7 @@ func (o LocationSmbMountOptionsPtrOutput) Elem() LocationSmbMountOptionsOutput {
 	}).(LocationSmbMountOptionsOutput)
 }
 
-// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+// SMB version that DataSync uses to mount the SMB share. Valid values: `AUTOMATIC`, `SMB1`, `SMB2_0`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`.
 func (o LocationSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationSmbMountOptions) *string {
 		if v == nil {
@@ -1876,7 +1876,7 @@ func (o LocationSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type NfsLocationMountOptions struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+	// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
 	Version *string `pulumi:"version"`
 }
 
@@ -1892,7 +1892,7 @@ type NfsLocationMountOptionsInput interface {
 }
 
 type NfsLocationMountOptionsArgs struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+	// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1973,7 +1973,7 @@ func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsPtrOutputWithCon
 	}).(NfsLocationMountOptionsPtrOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
 func (o NfsLocationMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsLocationMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2002,7 +2002,7 @@ func (o NfsLocationMountOptionsPtrOutput) Elem() NfsLocationMountOptionsOutput {
 	}).(NfsLocationMountOptionsOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+// NFS version that DataSync uses to mount the NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0`, `NFS4_1`, and `NFS4_2`. `NFS4_2` requires an Enhanced mode task. Default: `AUTOMATIC`.
 func (o NfsLocationMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NfsLocationMountOptions) *string {
 		if v == nil {

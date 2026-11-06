@@ -188,7 +188,7 @@ type DomainIndexField struct {
 	Sort *bool `pulumi:"sort"`
 	// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
 	SourceFields *string `pulumi:"sourceFields"`
-	// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+	// Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
 	Type string `pulumi:"type"`
 }
 
@@ -222,7 +222,7 @@ type DomainIndexFieldArgs struct {
 	Sort pulumi.BoolPtrInput `pulumi:"sort"`
 	// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
 	SourceFields pulumi.StringPtrInput `pulumi:"sourceFields"`
-	// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+	// Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -322,7 +322,7 @@ func (o DomainIndexFieldOutput) SourceFields() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *string { return v.SourceFields }).(pulumi.StringPtrOutput)
 }
 
-// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+// Field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `latlon`, `literal`, `literal-array`, `text`, `text-array`.
 func (o DomainIndexFieldOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainIndexField) string { return v.Type }).(pulumi.StringOutput)
 }

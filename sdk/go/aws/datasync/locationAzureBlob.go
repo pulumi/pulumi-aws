@@ -73,7 +73,7 @@ type LocationAzureBlob struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
-	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
 	BlobType pulumi.StringPtrOutput `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringOutput `pulumi:"containerUrl"`
@@ -137,7 +137,7 @@ type locationAzureBlobState struct {
 	Arn *string `pulumi:"arn"`
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType *string `pulumi:"authenticationType"`
-	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
 	BlobType *string `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl *string `pulumi:"containerUrl"`
@@ -163,7 +163,7 @@ type LocationAzureBlobState struct {
 	Arn pulumi.StringPtrInput
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType pulumi.StringPtrInput
-	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
 	BlobType pulumi.StringPtrInput
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringPtrInput
@@ -197,7 +197,7 @@ type locationAzureBlobArgs struct {
 	AgentArns []string `pulumi:"agentArns"`
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType string `pulumi:"authenticationType"`
-	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
 	BlobType *string `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl string `pulumi:"containerUrl"`
@@ -219,7 +219,7 @@ type LocationAzureBlobArgs struct {
 	AgentArns pulumi.StringArrayInput
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType pulumi.StringInput
-	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+	// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
 	BlobType pulumi.StringPtrInput
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringInput
@@ -340,7 +340,7 @@ func (o LocationAzureBlobOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOCK`. Default: `BLOCK`.
 func (o LocationAzureBlobOutput) BlobType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringPtrOutput { return v.BlobType }).(pulumi.StringPtrOutput)
 }

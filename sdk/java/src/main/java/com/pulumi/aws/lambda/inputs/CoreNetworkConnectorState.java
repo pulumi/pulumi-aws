@@ -7,6 +7,7 @@ import com.pulumi.aws.lambda.inputs.CoreNetworkConnectorConfigurationArgs;
 import com.pulumi.aws.lambda.inputs.CoreNetworkConnectorTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -45,6 +46,36 @@ public final class CoreNetworkConnectorState extends com.pulumi.resources.Resour
      */
     public Optional<Output<CoreNetworkConnectorConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
+    }
+
+    /**
+     * Number of the connector&#39;s latest version. Each configuration change creates a new immutable version.
+     * 
+     */
+    @Import(name="latestVersion")
+    private @Nullable Output<Integer> latestVersion;
+
+    /**
+     * @return Number of the connector&#39;s latest version. Each configuration change creates a new immutable version.
+     * 
+     */
+    public Optional<Output<Integer>> latestVersion() {
+        return Optional.ofNullable(this.latestVersion);
+    }
+
+    /**
+     * Version-qualified ARN of the connector&#39;s latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+     * 
+     */
+    @Import(name="latestVersionArn")
+    private @Nullable Output<String> latestVersionArn;
+
+    /**
+     * @return Version-qualified ARN of the connector&#39;s latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+     * 
+     */
+    public Optional<Output<String>> latestVersionArn() {
+        return Optional.ofNullable(this.latestVersionArn);
     }
 
     /**
@@ -108,6 +139,8 @@ public final class CoreNetworkConnectorState extends com.pulumi.resources.Resour
     private CoreNetworkConnectorState(CoreNetworkConnectorState $) {
         this.arn = $.arn;
         this.configuration = $.configuration;
+        this.latestVersion = $.latestVersion;
+        this.latestVersionArn = $.latestVersionArn;
         this.name = $.name;
         this.operatorRole = $.operatorRole;
         this.region = $.region;
@@ -172,6 +205,48 @@ public final class CoreNetworkConnectorState extends com.pulumi.resources.Resour
          */
         public Builder configuration(CoreNetworkConnectorConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
+        }
+
+        /**
+         * @param latestVersion Number of the connector&#39;s latest version. Each configuration change creates a new immutable version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latestVersion(@Nullable Output<Integer> latestVersion) {
+            $.latestVersion = latestVersion;
+            return this;
+        }
+
+        /**
+         * @param latestVersion Number of the connector&#39;s latest version. Each configuration change creates a new immutable version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latestVersion(Integer latestVersion) {
+            return latestVersion(Output.of(latestVersion));
+        }
+
+        /**
+         * @param latestVersionArn Version-qualified ARN of the connector&#39;s latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latestVersionArn(@Nullable Output<String> latestVersionArn) {
+            $.latestVersionArn = latestVersionArn;
+            return this;
+        }
+
+        /**
+         * @param latestVersionArn Version-qualified ARN of the connector&#39;s latest version. Use it for `service_config.egress_network_connector_arn` on an `aws.lambdaweb.FunctionRevision` resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latestVersionArn(String latestVersionArn) {
+            return latestVersionArn(Output.of(latestVersionArn));
         }
 
         /**

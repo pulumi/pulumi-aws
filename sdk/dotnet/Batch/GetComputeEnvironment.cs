@@ -195,6 +195,10 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to ensure that each compute environment has the correct number of vCPUs when it is used in a fair-share job queue. Only valid when `Type` is `UNMANAGED`.
+        /// </summary>
+        public readonly int UnmanagedVcpus;
+        /// <summary>
         /// Infrastructure update policy for the compute environment.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetComputeEnvironmentUpdatePolicyResult> UpdatePolicies;
@@ -223,6 +227,8 @@ namespace Pulumi.Aws.Batch
 
             string type,
 
+            int unmanagedVcpus,
+
             ImmutableArray<Outputs.GetComputeEnvironmentUpdatePolicyResult> updatePolicies)
         {
             Arn = arn;
@@ -236,6 +242,7 @@ namespace Pulumi.Aws.Batch
             StatusReason = statusReason;
             Tags = tags;
             Type = type;
+            UnmanagedVcpus = unmanagedVcpus;
             UpdatePolicies = updatePolicies;
         }
     }

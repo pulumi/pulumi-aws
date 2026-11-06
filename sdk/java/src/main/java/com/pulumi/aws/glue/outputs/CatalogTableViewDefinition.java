@@ -26,7 +26,7 @@ public final class CatalogTableViewDefinition {
      */
     private @Nullable Boolean isProtected;
     /**
-     * @return Type of the materialized view&#39;s last refresh. Valid values: `Full`, `Incremental`.
+     * @return Type of the materialized view&#39;s last refresh. Valid values: `FULL`, `INCREMENTAL`.
      * 
      */
     private @Nullable String lastRefreshType;
@@ -77,7 +77,7 @@ public final class CatalogTableViewDefinition {
         return Optional.ofNullable(this.isProtected);
     }
     /**
-     * @return Type of the materialized view&#39;s last refresh. Valid values: `Full`, `Incremental`.
+     * @return Type of the materialized view&#39;s last refresh. Valid values: `FULL`, `INCREMENTAL`.
      * 
      */
     public Optional<String> lastRefreshType() {

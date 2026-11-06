@@ -61,7 +61,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> ConnectionName { get; private set; } = null!;
 
         /// <summary>
-        /// Source repository provider. Valid values: `GITHUB`.
+        /// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
         /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// Source repository provider. Valid values: `GITHUB`.
+        /// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
         /// </summary>
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
-        /// Source repository provider. Valid values: `GITHUB`.
+        /// Source repository provider. Valid values: `GITHUB`, `BITBUCKET`.
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
