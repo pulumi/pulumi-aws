@@ -104,7 +104,6 @@ func (c *awsSignInCommand) remediation(
 		Description: "Sign in to AWS",
 		Command:     command,
 		// `aws login` otherwise follows a successful sign-in with an offer to set up AI coding agents.
-		Env:         map[string]string{"AWS_CLI_AGENT_TOOLKIT_HINT_DISABLED": "true"},
-		Interactive: true,
+		Env: map[string]string{"AWS_CLI_AGENT_TOOLKIT_HINT_DISABLED": "true"},
 	}, true
 }

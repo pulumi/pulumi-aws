@@ -38,7 +38,6 @@ func signInRemediation(command ...string) tfbridge.CommandRemediation {
 		Description: "Sign in to AWS",
 		Command:     command,
 		Env:         map[string]string{"AWS_CLI_AGENT_TOOLKIT_HINT_DISABLED": "true"},
-		Interactive: true,
 	}
 }
 
