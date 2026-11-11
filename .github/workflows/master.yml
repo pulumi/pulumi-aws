@@ -11,6 +11,7 @@ env:
 
 jobs:
   prerequisites:
+    if: github.repository == 'pulumi/pulumi-aws'
     permissions:
       contents: read
       pull-requests: write
@@ -72,6 +73,7 @@ jobs:
       version: ${{ needs.prerequisites.outputs.version }}
 
   license_check:
+    if: github.repository == 'pulumi/pulumi-aws'
     name: License Check
     uses: ./.github/workflows/license.yml
     secrets: inherit
@@ -149,13 +151,4 @@ jobs:
 
 name: master
 on:
-  workflow_dispatch: {}
-  push:
-    branches:
-    - master
-    paths-ignore:
-    - "**.md"
-    tags-ignore:
-    - v*
-    - sdk/*
-    - "**"
+  workflow_call: {}
