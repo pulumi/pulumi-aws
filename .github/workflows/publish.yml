@@ -192,10 +192,11 @@ jobs:
         registry-url: https://registry.npmjs.org
     - name: Publish SDKs
       if: inputs.skipJavaSdk == false
-      uses: pulumi/pulumi-package-publisher@3ec1409d3e894142b9825c7859be8e57d362762a # v0.0.23
+      uses: pulumi/pulumi-package-publisher@v0.1.0
       with:
         sdk: all
         version: ${{ inputs.version }}
+        npmTrustedPublishing: false
       env:
         PYPI_USERNAME: __token__
         PYPI_PASSWORD: ${{ steps.esc-secrets.outputs.PYPI_API_TOKEN }}
@@ -208,10 +209,11 @@ jobs:
         NUGET_PUBLISH_KEY: ${{ steps.esc-secrets.outputs.NUGET_PUBLISH_KEY }}
     - name: Publish SDKs (except Java)
       if: inputs.skipJavaSdk == true
-      uses: pulumi/pulumi-package-publisher@3ec1409d3e894142b9825c7859be8e57d362762a # v0.0.23
+      uses: pulumi/pulumi-package-publisher@v0.1.0
       with:
         sdk: all,!java
         version: ${{ inputs.version }}
+        npmTrustedPublishing: false
       env:
         PYPI_USERNAME: __token__
         PYPI_PASSWORD: ${{ steps.esc-secrets.outputs.PYPI_API_TOKEN }}
