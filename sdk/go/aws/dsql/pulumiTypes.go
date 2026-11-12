@@ -762,6 +762,455 @@ func (o ClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type StreamTargetDefinition struct {
+	// Kinesis stream target configuration. See `target_definition.kinesis` Block below.
+	Kinesis StreamTargetDefinitionKinesis `pulumi:"kinesis"`
+}
+
+// StreamTargetDefinitionInput is an input type that accepts StreamTargetDefinitionArgs and StreamTargetDefinitionOutput values.
+// You can construct a concrete instance of `StreamTargetDefinitionInput` via:
+//
+//	StreamTargetDefinitionArgs{...}
+type StreamTargetDefinitionInput interface {
+	pulumi.Input
+
+	ToStreamTargetDefinitionOutput() StreamTargetDefinitionOutput
+	ToStreamTargetDefinitionOutputWithContext(context.Context) StreamTargetDefinitionOutput
+}
+
+type StreamTargetDefinitionArgs struct {
+	// Kinesis stream target configuration. See `target_definition.kinesis` Block below.
+	Kinesis StreamTargetDefinitionKinesisInput `pulumi:"kinesis"`
+}
+
+func (StreamTargetDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamTargetDefinition)(nil)).Elem()
+}
+
+func (i StreamTargetDefinitionArgs) ToStreamTargetDefinitionOutput() StreamTargetDefinitionOutput {
+	return i.ToStreamTargetDefinitionOutputWithContext(context.Background())
+}
+
+func (i StreamTargetDefinitionArgs) ToStreamTargetDefinitionOutputWithContext(ctx context.Context) StreamTargetDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTargetDefinitionOutput)
+}
+
+func (i StreamTargetDefinitionArgs) ToStreamTargetDefinitionPtrOutput() StreamTargetDefinitionPtrOutput {
+	return i.ToStreamTargetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i StreamTargetDefinitionArgs) ToStreamTargetDefinitionPtrOutputWithContext(ctx context.Context) StreamTargetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTargetDefinitionOutput).ToStreamTargetDefinitionPtrOutputWithContext(ctx)
+}
+
+// StreamTargetDefinitionPtrInput is an input type that accepts StreamTargetDefinitionArgs, StreamTargetDefinitionPtr and StreamTargetDefinitionPtrOutput values.
+// You can construct a concrete instance of `StreamTargetDefinitionPtrInput` via:
+//
+//	        StreamTargetDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamTargetDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToStreamTargetDefinitionPtrOutput() StreamTargetDefinitionPtrOutput
+	ToStreamTargetDefinitionPtrOutputWithContext(context.Context) StreamTargetDefinitionPtrOutput
+}
+
+type streamTargetDefinitionPtrType StreamTargetDefinitionArgs
+
+func StreamTargetDefinitionPtr(v *StreamTargetDefinitionArgs) StreamTargetDefinitionPtrInput {
+	return (*streamTargetDefinitionPtrType)(v)
+}
+
+func (*streamTargetDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamTargetDefinition)(nil)).Elem()
+}
+
+func (i *streamTargetDefinitionPtrType) ToStreamTargetDefinitionPtrOutput() StreamTargetDefinitionPtrOutput {
+	return i.ToStreamTargetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *streamTargetDefinitionPtrType) ToStreamTargetDefinitionPtrOutputWithContext(ctx context.Context) StreamTargetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTargetDefinitionPtrOutput)
+}
+
+type StreamTargetDefinitionOutput struct{ *pulumi.OutputState }
+
+func (StreamTargetDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamTargetDefinition)(nil)).Elem()
+}
+
+func (o StreamTargetDefinitionOutput) ToStreamTargetDefinitionOutput() StreamTargetDefinitionOutput {
+	return o
+}
+
+func (o StreamTargetDefinitionOutput) ToStreamTargetDefinitionOutputWithContext(ctx context.Context) StreamTargetDefinitionOutput {
+	return o
+}
+
+func (o StreamTargetDefinitionOutput) ToStreamTargetDefinitionPtrOutput() StreamTargetDefinitionPtrOutput {
+	return o.ToStreamTargetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o StreamTargetDefinitionOutput) ToStreamTargetDefinitionPtrOutputWithContext(ctx context.Context) StreamTargetDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamTargetDefinition) *StreamTargetDefinition {
+		return &v
+	}).(StreamTargetDefinitionPtrOutput)
+}
+
+// Kinesis stream target configuration. See `target_definition.kinesis` Block below.
+func (o StreamTargetDefinitionOutput) Kinesis() StreamTargetDefinitionKinesisOutput {
+	return o.ApplyT(func(v StreamTargetDefinition) StreamTargetDefinitionKinesis { return v.Kinesis }).(StreamTargetDefinitionKinesisOutput)
+}
+
+type StreamTargetDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamTargetDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamTargetDefinition)(nil)).Elem()
+}
+
+func (o StreamTargetDefinitionPtrOutput) ToStreamTargetDefinitionPtrOutput() StreamTargetDefinitionPtrOutput {
+	return o
+}
+
+func (o StreamTargetDefinitionPtrOutput) ToStreamTargetDefinitionPtrOutputWithContext(ctx context.Context) StreamTargetDefinitionPtrOutput {
+	return o
+}
+
+func (o StreamTargetDefinitionPtrOutput) Elem() StreamTargetDefinitionOutput {
+	return o.ApplyT(func(v *StreamTargetDefinition) StreamTargetDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret StreamTargetDefinition
+		return ret
+	}).(StreamTargetDefinitionOutput)
+}
+
+// Kinesis stream target configuration. See `target_definition.kinesis` Block below.
+func (o StreamTargetDefinitionPtrOutput) Kinesis() StreamTargetDefinitionKinesisPtrOutput {
+	return o.ApplyT(func(v *StreamTargetDefinition) *StreamTargetDefinitionKinesis {
+		if v == nil {
+			return nil
+		}
+		return &v.Kinesis
+	}).(StreamTargetDefinitionKinesisPtrOutput)
+}
+
+type StreamTargetDefinitionKinesis struct {
+	// ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role ( arn:aws:iam::account-id:role/role-name ) or a role with a path prefix ( arn:aws:iam::account-id:role/service-role/role-name ), such as roles auto-created by the console.
+	RoleArn string `pulumi:"roleArn"`
+	// ARN of the Kinesis stream.
+	StreamArn string `pulumi:"streamArn"`
+}
+
+// StreamTargetDefinitionKinesisInput is an input type that accepts StreamTargetDefinitionKinesisArgs and StreamTargetDefinitionKinesisOutput values.
+// You can construct a concrete instance of `StreamTargetDefinitionKinesisInput` via:
+//
+//	StreamTargetDefinitionKinesisArgs{...}
+type StreamTargetDefinitionKinesisInput interface {
+	pulumi.Input
+
+	ToStreamTargetDefinitionKinesisOutput() StreamTargetDefinitionKinesisOutput
+	ToStreamTargetDefinitionKinesisOutputWithContext(context.Context) StreamTargetDefinitionKinesisOutput
+}
+
+type StreamTargetDefinitionKinesisArgs struct {
+	// ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role ( arn:aws:iam::account-id:role/role-name ) or a role with a path prefix ( arn:aws:iam::account-id:role/service-role/role-name ), such as roles auto-created by the console.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// ARN of the Kinesis stream.
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+}
+
+func (StreamTargetDefinitionKinesisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamTargetDefinitionKinesis)(nil)).Elem()
+}
+
+func (i StreamTargetDefinitionKinesisArgs) ToStreamTargetDefinitionKinesisOutput() StreamTargetDefinitionKinesisOutput {
+	return i.ToStreamTargetDefinitionKinesisOutputWithContext(context.Background())
+}
+
+func (i StreamTargetDefinitionKinesisArgs) ToStreamTargetDefinitionKinesisOutputWithContext(ctx context.Context) StreamTargetDefinitionKinesisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTargetDefinitionKinesisOutput)
+}
+
+func (i StreamTargetDefinitionKinesisArgs) ToStreamTargetDefinitionKinesisPtrOutput() StreamTargetDefinitionKinesisPtrOutput {
+	return i.ToStreamTargetDefinitionKinesisPtrOutputWithContext(context.Background())
+}
+
+func (i StreamTargetDefinitionKinesisArgs) ToStreamTargetDefinitionKinesisPtrOutputWithContext(ctx context.Context) StreamTargetDefinitionKinesisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTargetDefinitionKinesisOutput).ToStreamTargetDefinitionKinesisPtrOutputWithContext(ctx)
+}
+
+// StreamTargetDefinitionKinesisPtrInput is an input type that accepts StreamTargetDefinitionKinesisArgs, StreamTargetDefinitionKinesisPtr and StreamTargetDefinitionKinesisPtrOutput values.
+// You can construct a concrete instance of `StreamTargetDefinitionKinesisPtrInput` via:
+//
+//	        StreamTargetDefinitionKinesisArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamTargetDefinitionKinesisPtrInput interface {
+	pulumi.Input
+
+	ToStreamTargetDefinitionKinesisPtrOutput() StreamTargetDefinitionKinesisPtrOutput
+	ToStreamTargetDefinitionKinesisPtrOutputWithContext(context.Context) StreamTargetDefinitionKinesisPtrOutput
+}
+
+type streamTargetDefinitionKinesisPtrType StreamTargetDefinitionKinesisArgs
+
+func StreamTargetDefinitionKinesisPtr(v *StreamTargetDefinitionKinesisArgs) StreamTargetDefinitionKinesisPtrInput {
+	return (*streamTargetDefinitionKinesisPtrType)(v)
+}
+
+func (*streamTargetDefinitionKinesisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamTargetDefinitionKinesis)(nil)).Elem()
+}
+
+func (i *streamTargetDefinitionKinesisPtrType) ToStreamTargetDefinitionKinesisPtrOutput() StreamTargetDefinitionKinesisPtrOutput {
+	return i.ToStreamTargetDefinitionKinesisPtrOutputWithContext(context.Background())
+}
+
+func (i *streamTargetDefinitionKinesisPtrType) ToStreamTargetDefinitionKinesisPtrOutputWithContext(ctx context.Context) StreamTargetDefinitionKinesisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTargetDefinitionKinesisPtrOutput)
+}
+
+type StreamTargetDefinitionKinesisOutput struct{ *pulumi.OutputState }
+
+func (StreamTargetDefinitionKinesisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamTargetDefinitionKinesis)(nil)).Elem()
+}
+
+func (o StreamTargetDefinitionKinesisOutput) ToStreamTargetDefinitionKinesisOutput() StreamTargetDefinitionKinesisOutput {
+	return o
+}
+
+func (o StreamTargetDefinitionKinesisOutput) ToStreamTargetDefinitionKinesisOutputWithContext(ctx context.Context) StreamTargetDefinitionKinesisOutput {
+	return o
+}
+
+func (o StreamTargetDefinitionKinesisOutput) ToStreamTargetDefinitionKinesisPtrOutput() StreamTargetDefinitionKinesisPtrOutput {
+	return o.ToStreamTargetDefinitionKinesisPtrOutputWithContext(context.Background())
+}
+
+func (o StreamTargetDefinitionKinesisOutput) ToStreamTargetDefinitionKinesisPtrOutputWithContext(ctx context.Context) StreamTargetDefinitionKinesisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamTargetDefinitionKinesis) *StreamTargetDefinitionKinesis {
+		return &v
+	}).(StreamTargetDefinitionKinesisPtrOutput)
+}
+
+// ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role ( arn:aws:iam::account-id:role/role-name ) or a role with a path prefix ( arn:aws:iam::account-id:role/service-role/role-name ), such as roles auto-created by the console.
+func (o StreamTargetDefinitionKinesisOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamTargetDefinitionKinesis) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// ARN of the Kinesis stream.
+func (o StreamTargetDefinitionKinesisOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamTargetDefinitionKinesis) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type StreamTargetDefinitionKinesisPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamTargetDefinitionKinesisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamTargetDefinitionKinesis)(nil)).Elem()
+}
+
+func (o StreamTargetDefinitionKinesisPtrOutput) ToStreamTargetDefinitionKinesisPtrOutput() StreamTargetDefinitionKinesisPtrOutput {
+	return o
+}
+
+func (o StreamTargetDefinitionKinesisPtrOutput) ToStreamTargetDefinitionKinesisPtrOutputWithContext(ctx context.Context) StreamTargetDefinitionKinesisPtrOutput {
+	return o
+}
+
+func (o StreamTargetDefinitionKinesisPtrOutput) Elem() StreamTargetDefinitionKinesisOutput {
+	return o.ApplyT(func(v *StreamTargetDefinitionKinesis) StreamTargetDefinitionKinesis {
+		if v != nil {
+			return *v
+		}
+		var ret StreamTargetDefinitionKinesis
+		return ret
+	}).(StreamTargetDefinitionKinesisOutput)
+}
+
+// ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role ( arn:aws:iam::account-id:role/role-name ) or a role with a path prefix ( arn:aws:iam::account-id:role/service-role/role-name ), such as roles auto-created by the console.
+func (o StreamTargetDefinitionKinesisPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamTargetDefinitionKinesis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Kinesis stream.
+func (o StreamTargetDefinitionKinesisPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamTargetDefinitionKinesis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// StreamTimeoutsInput is an input type that accepts StreamTimeoutsArgs and StreamTimeoutsOutput values.
+// You can construct a concrete instance of `StreamTimeoutsInput` via:
+//
+//	StreamTimeoutsArgs{...}
+type StreamTimeoutsInput interface {
+	pulumi.Input
+
+	ToStreamTimeoutsOutput() StreamTimeoutsOutput
+	ToStreamTimeoutsOutputWithContext(context.Context) StreamTimeoutsOutput
+}
+
+type StreamTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (StreamTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamTimeouts)(nil)).Elem()
+}
+
+func (i StreamTimeoutsArgs) ToStreamTimeoutsOutput() StreamTimeoutsOutput {
+	return i.ToStreamTimeoutsOutputWithContext(context.Background())
+}
+
+func (i StreamTimeoutsArgs) ToStreamTimeoutsOutputWithContext(ctx context.Context) StreamTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTimeoutsOutput)
+}
+
+func (i StreamTimeoutsArgs) ToStreamTimeoutsPtrOutput() StreamTimeoutsPtrOutput {
+	return i.ToStreamTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i StreamTimeoutsArgs) ToStreamTimeoutsPtrOutputWithContext(ctx context.Context) StreamTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTimeoutsOutput).ToStreamTimeoutsPtrOutputWithContext(ctx)
+}
+
+// StreamTimeoutsPtrInput is an input type that accepts StreamTimeoutsArgs, StreamTimeoutsPtr and StreamTimeoutsPtrOutput values.
+// You can construct a concrete instance of `StreamTimeoutsPtrInput` via:
+//
+//	        StreamTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToStreamTimeoutsPtrOutput() StreamTimeoutsPtrOutput
+	ToStreamTimeoutsPtrOutputWithContext(context.Context) StreamTimeoutsPtrOutput
+}
+
+type streamTimeoutsPtrType StreamTimeoutsArgs
+
+func StreamTimeoutsPtr(v *StreamTimeoutsArgs) StreamTimeoutsPtrInput {
+	return (*streamTimeoutsPtrType)(v)
+}
+
+func (*streamTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamTimeouts)(nil)).Elem()
+}
+
+func (i *streamTimeoutsPtrType) ToStreamTimeoutsPtrOutput() StreamTimeoutsPtrOutput {
+	return i.ToStreamTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *streamTimeoutsPtrType) ToStreamTimeoutsPtrOutputWithContext(ctx context.Context) StreamTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTimeoutsPtrOutput)
+}
+
+type StreamTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (StreamTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamTimeouts)(nil)).Elem()
+}
+
+func (o StreamTimeoutsOutput) ToStreamTimeoutsOutput() StreamTimeoutsOutput {
+	return o
+}
+
+func (o StreamTimeoutsOutput) ToStreamTimeoutsOutputWithContext(ctx context.Context) StreamTimeoutsOutput {
+	return o
+}
+
+func (o StreamTimeoutsOutput) ToStreamTimeoutsPtrOutput() StreamTimeoutsPtrOutput {
+	return o.ToStreamTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o StreamTimeoutsOutput) ToStreamTimeoutsPtrOutputWithContext(ctx context.Context) StreamTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamTimeouts) *StreamTimeouts {
+		return &v
+	}).(StreamTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o StreamTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o StreamTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type StreamTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamTimeouts)(nil)).Elem()
+}
+
+func (o StreamTimeoutsPtrOutput) ToStreamTimeoutsPtrOutput() StreamTimeoutsPtrOutput {
+	return o
+}
+
+func (o StreamTimeoutsPtrOutput) ToStreamTimeoutsPtrOutputWithContext(ctx context.Context) StreamTimeoutsPtrOutput {
+	return o
+}
+
+func (o StreamTimeoutsPtrOutput) Elem() StreamTimeoutsOutput {
+	return o.ApplyT(func(v *StreamTimeouts) StreamTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret StreamTimeouts
+		return ret
+	}).(StreamTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o StreamTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o StreamTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionDetailInput)(nil)).Elem(), ClusterEncryptionDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionDetailArrayInput)(nil)).Elem(), ClusterEncryptionDetailArray{})
@@ -773,6 +1222,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPolicyTimeoutsPtrInput)(nil)).Elem(), ClusterPolicyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTimeoutsInput)(nil)).Elem(), ClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTimeoutsPtrInput)(nil)).Elem(), ClusterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTargetDefinitionInput)(nil)).Elem(), StreamTargetDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTargetDefinitionPtrInput)(nil)).Elem(), StreamTargetDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTargetDefinitionKinesisInput)(nil)).Elem(), StreamTargetDefinitionKinesisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTargetDefinitionKinesisPtrInput)(nil)).Elem(), StreamTargetDefinitionKinesisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTimeoutsInput)(nil)).Elem(), StreamTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTimeoutsPtrInput)(nil)).Elem(), StreamTimeoutsArgs{})
 	pulumi.RegisterOutputType(ClusterEncryptionDetailOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionDetailArrayOutput{})
 	pulumi.RegisterOutputType(ClusterMultiRegionPropertiesOutput{})
@@ -783,4 +1238,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterPolicyTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTimeoutsOutput{})
 	pulumi.RegisterOutputType(ClusterTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(StreamTargetDefinitionOutput{})
+	pulumi.RegisterOutputType(StreamTargetDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(StreamTargetDefinitionKinesisOutput{})
+	pulumi.RegisterOutputType(StreamTargetDefinitionKinesisPtrOutput{})
+	pulumi.RegisterOutputType(StreamTimeoutsOutput{})
+	pulumi.RegisterOutputType(StreamTimeoutsPtrOutput{})
 }

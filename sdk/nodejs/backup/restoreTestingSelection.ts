@@ -127,7 +127,7 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
      */
     declare public readonly restoreTestingPlanName: pulumi.Output<string>;
     /**
-     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
      */
     declare public readonly validationWindowHours: pulumi.Output<number>;
 
@@ -216,7 +216,7 @@ export interface RestoreTestingSelectionState {
      */
     restoreTestingPlanName?: pulumi.Input<string | undefined>;
     /**
-     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
      */
     validationWindowHours?: pulumi.Input<number | undefined>;
 }
@@ -258,7 +258,7 @@ export interface RestoreTestingSelectionArgs {
      */
     restoreTestingPlanName: pulumi.Input<string>;
     /**
-     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
      */
     validationWindowHours?: pulumi.Input<number | undefined>;
 }

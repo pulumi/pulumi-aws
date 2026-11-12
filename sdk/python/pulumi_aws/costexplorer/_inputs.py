@@ -6586,7 +6586,7 @@ class GetTagsFilterTagsArgs:
 class GetTagsSortByArgsDict(TypedDict):
     key: NotRequired[_builtins.str]
     """
-    Key used to sort the data. AWS requires a key when `sort_by` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
+    Key used to sort the data. Valid values are: `BlendedCost`, `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`. The equivalent uppercase values (for example, `BLENDED_COST`) are also accepted.
     """
     sort_order: NotRequired[_builtins.str]
     """
@@ -6599,7 +6599,7 @@ class GetTagsSortByArgs:
                  key: Optional[_builtins.str] = None,
                  sort_order: Optional[_builtins.str] = None):
         """
-        :param _builtins.str key: Key used to sort the data. AWS requires a key when `sort_by` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
+        :param _builtins.str key: Key used to sort the data. Valid values are: `BlendedCost`, `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`. The equivalent uppercase values (for example, `BLENDED_COST`) are also accepted.
         :param _builtins.str sort_order: order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
         """
         if key is not None:
@@ -6611,7 +6611,7 @@ class GetTagsSortByArgs:
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        Key used to sort the data. AWS requires a key when `sort_by` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
+        Key used to sort the data. Valid values are: `BlendedCost`, `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`. The equivalent uppercase values (for example, `BLENDED_COST`) are also accepted.
         """
         return pulumi.get(self, "key")
 

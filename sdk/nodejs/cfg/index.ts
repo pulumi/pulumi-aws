@@ -20,6 +20,11 @@ export type ConformancePack = import("./conformancePack").ConformancePack;
 export const ConformancePack: typeof import("./conformancePack").ConformancePack = null as any;
 utilities.lazyLoad(exports, ["ConformancePack"], () => require("./conformancePack"));
 
+export { ConnectorArgs, ConnectorState } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
 export { DeliveryChannelArgs, DeliveryChannelState } from "./deliveryChannel";
 export type DeliveryChannel = import("./deliveryChannel").DeliveryChannel;
 export const DeliveryChannel: typeof import("./deliveryChannel").DeliveryChannel = null as any;
@@ -81,6 +86,8 @@ const _module = {
                 return new ConfigurationAggregator(name, <any>undefined, { urn })
             case "aws:cfg/conformancePack:ConformancePack":
                 return new ConformancePack(name, <any>undefined, { urn })
+            case "aws:cfg/connector:Connector":
+                return new Connector(name, <any>undefined, { urn })
             case "aws:cfg/deliveryChannel:DeliveryChannel":
                 return new DeliveryChannel(name, <any>undefined, { urn })
             case "aws:cfg/organizationConformancePack:OrganizationConformancePack":
@@ -109,6 +116,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "cfg/aggregateAuthorization", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/configurationAggregator", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/conformancePack", _module)
+pulumi.runtime.registerResourceModule("aws", "cfg/connector", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/deliveryChannel", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationConformancePack", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationCustomPolicyRule", _module)

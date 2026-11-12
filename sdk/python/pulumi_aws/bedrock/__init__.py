@@ -46,6 +46,7 @@ from .get_inference_profile import *
 from .get_inference_profiles import *
 from .get_use_case_for_model_access import *
 from .guardrail import *
+from .guardrail_resource_policy import *
 from .guardrail_version import *
 from .inference_profile import *
 from .provisioned_model_throughput import *

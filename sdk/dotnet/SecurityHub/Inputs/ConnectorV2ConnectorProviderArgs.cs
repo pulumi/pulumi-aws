@@ -13,6 +13,12 @@ namespace Pulumi.Aws.SecurityHub.Inputs
     public sealed class ConnectorV2ConnectorProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Details about a Microsoft Azure integration for multi-cloud coverage. See `Azure` below.
+        /// </summary>
+        [Input("azure")]
+        public Input<Inputs.ConnectorV2ConnectorProviderAzureArgs>? Azure { get; set; }
+
+        /// <summary>
         /// Details about a Jira Cloud integration. See `JiraCloud` below.
         /// </summary>
         [Input("jiraCloud")]
@@ -20,6 +26,8 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         /// <summary>
         /// Details about a ServiceNow ITSM integration. See `ServiceNow` below.
+        /// 
+        /// Exactly one of `Azure`, `JiraCloud`, or `ServiceNow` must be specified.
         /// </summary>
         [Input("serviceNow")]
         public Input<Inputs.ConnectorV2ConnectorProviderServiceNowArgs>? ServiceNow { get; set; }

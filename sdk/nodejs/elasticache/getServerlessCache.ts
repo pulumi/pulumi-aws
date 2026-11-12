@@ -56,6 +56,10 @@ export interface GetServerlessCacheResult {
      */
     readonly cacheUsageLimits: outputs.elasticache.GetServerlessCacheCacheUsageLimits;
     /**
+     * Connectivity option for the cache. Either `vpc` (reachable only from within a VPC) or `public` (reachable over the internet).
+     */
+    readonly connectionType: string;
+    /**
      * Timestamp of when the serverless cache was created.
      */
     readonly createTime: string;

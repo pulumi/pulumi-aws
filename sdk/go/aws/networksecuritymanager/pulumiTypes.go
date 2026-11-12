@@ -13,6 +13,1558 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AdminAccountAdminScope struct {
+	// Firewall types that the administrator can create and manage. See `firewallTypeScope` Block below.
+	FirewallTypeScope *AdminAccountAdminScopeFirewallTypeScope `pulumi:"firewallTypeScope"`
+	// Accounts and OUs that are in the administrator's scope. See `scopeFilter` Block below.
+	ScopeFilter *AdminAccountAdminScopeScopeFilter `pulumi:"scopeFilter"`
+}
+
+// AdminAccountAdminScopeInput is an input type that accepts AdminAccountAdminScopeArgs and AdminAccountAdminScopeOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeInput` via:
+//
+//	AdminAccountAdminScopeArgs{...}
+type AdminAccountAdminScopeInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeOutput() AdminAccountAdminScopeOutput
+	ToAdminAccountAdminScopeOutputWithContext(context.Context) AdminAccountAdminScopeOutput
+}
+
+type AdminAccountAdminScopeArgs struct {
+	// Firewall types that the administrator can create and manage. See `firewallTypeScope` Block below.
+	FirewallTypeScope AdminAccountAdminScopeFirewallTypeScopePtrInput `pulumi:"firewallTypeScope"`
+	// Accounts and OUs that are in the administrator's scope. See `scopeFilter` Block below.
+	ScopeFilter AdminAccountAdminScopeScopeFilterPtrInput `pulumi:"scopeFilter"`
+}
+
+func (AdminAccountAdminScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScope)(nil)).Elem()
+}
+
+func (i AdminAccountAdminScopeArgs) ToAdminAccountAdminScopeOutput() AdminAccountAdminScopeOutput {
+	return i.ToAdminAccountAdminScopeOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeArgs) ToAdminAccountAdminScopeOutputWithContext(ctx context.Context) AdminAccountAdminScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeOutput)
+}
+
+func (i AdminAccountAdminScopeArgs) ToAdminAccountAdminScopePtrOutput() AdminAccountAdminScopePtrOutput {
+	return i.ToAdminAccountAdminScopePtrOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeArgs) ToAdminAccountAdminScopePtrOutputWithContext(ctx context.Context) AdminAccountAdminScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeOutput).ToAdminAccountAdminScopePtrOutputWithContext(ctx)
+}
+
+// AdminAccountAdminScopePtrInput is an input type that accepts AdminAccountAdminScopeArgs, AdminAccountAdminScopePtr and AdminAccountAdminScopePtrOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopePtrInput` via:
+//
+//	        AdminAccountAdminScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AdminAccountAdminScopePtrInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopePtrOutput() AdminAccountAdminScopePtrOutput
+	ToAdminAccountAdminScopePtrOutputWithContext(context.Context) AdminAccountAdminScopePtrOutput
+}
+
+type adminAccountAdminScopePtrType AdminAccountAdminScopeArgs
+
+func AdminAccountAdminScopePtr(v *AdminAccountAdminScopeArgs) AdminAccountAdminScopePtrInput {
+	return (*adminAccountAdminScopePtrType)(v)
+}
+
+func (*adminAccountAdminScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScope)(nil)).Elem()
+}
+
+func (i *adminAccountAdminScopePtrType) ToAdminAccountAdminScopePtrOutput() AdminAccountAdminScopePtrOutput {
+	return i.ToAdminAccountAdminScopePtrOutputWithContext(context.Background())
+}
+
+func (i *adminAccountAdminScopePtrType) ToAdminAccountAdminScopePtrOutputWithContext(ctx context.Context) AdminAccountAdminScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopePtrOutput)
+}
+
+type AdminAccountAdminScopeOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScope)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeOutput) ToAdminAccountAdminScopeOutput() AdminAccountAdminScopeOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeOutput) ToAdminAccountAdminScopeOutputWithContext(ctx context.Context) AdminAccountAdminScopeOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeOutput) ToAdminAccountAdminScopePtrOutput() AdminAccountAdminScopePtrOutput {
+	return o.ToAdminAccountAdminScopePtrOutputWithContext(context.Background())
+}
+
+func (o AdminAccountAdminScopeOutput) ToAdminAccountAdminScopePtrOutputWithContext(ctx context.Context) AdminAccountAdminScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminAccountAdminScope) *AdminAccountAdminScope {
+		return &v
+	}).(AdminAccountAdminScopePtrOutput)
+}
+
+// Firewall types that the administrator can create and manage. See `firewallTypeScope` Block below.
+func (o AdminAccountAdminScopeOutput) FirewallTypeScope() AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return o.ApplyT(func(v AdminAccountAdminScope) *AdminAccountAdminScopeFirewallTypeScope { return v.FirewallTypeScope }).(AdminAccountAdminScopeFirewallTypeScopePtrOutput)
+}
+
+// Accounts and OUs that are in the administrator's scope. See `scopeFilter` Block below.
+func (o AdminAccountAdminScopeOutput) ScopeFilter() AdminAccountAdminScopeScopeFilterPtrOutput {
+	return o.ApplyT(func(v AdminAccountAdminScope) *AdminAccountAdminScopeScopeFilter { return v.ScopeFilter }).(AdminAccountAdminScopeScopeFilterPtrOutput)
+}
+
+type AdminAccountAdminScopePtrOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScope)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopePtrOutput) ToAdminAccountAdminScopePtrOutput() AdminAccountAdminScopePtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopePtrOutput) ToAdminAccountAdminScopePtrOutputWithContext(ctx context.Context) AdminAccountAdminScopePtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopePtrOutput) Elem() AdminAccountAdminScopeOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScope) AdminAccountAdminScope {
+		if v != nil {
+			return *v
+		}
+		var ret AdminAccountAdminScope
+		return ret
+	}).(AdminAccountAdminScopeOutput)
+}
+
+// Firewall types that the administrator can create and manage. See `firewallTypeScope` Block below.
+func (o AdminAccountAdminScopePtrOutput) FirewallTypeScope() AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScope) *AdminAccountAdminScopeFirewallTypeScope {
+		if v == nil {
+			return nil
+		}
+		return v.FirewallTypeScope
+	}).(AdminAccountAdminScopeFirewallTypeScopePtrOutput)
+}
+
+// Accounts and OUs that are in the administrator's scope. See `scopeFilter` Block below.
+func (o AdminAccountAdminScopePtrOutput) ScopeFilter() AdminAccountAdminScopeScopeFilterPtrOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScope) *AdminAccountAdminScopeScopeFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ScopeFilter
+	}).(AdminAccountAdminScopeScopeFilterPtrOutput)
+}
+
+type AdminAccountAdminScopeFirewallTypeScope struct {
+	// Whether to allow the administrator to manage all firewall types.
+	AllFirewallTypesEnabled *bool `pulumi:"allFirewallTypesEnabled"`
+	// Set of firewall types that the administrator can manage. Valid values: `WAF`, `SHIELD_ADVANCED`.
+	FirewallTypes []string `pulumi:"firewallTypes"`
+}
+
+// AdminAccountAdminScopeFirewallTypeScopeInput is an input type that accepts AdminAccountAdminScopeFirewallTypeScopeArgs and AdminAccountAdminScopeFirewallTypeScopeOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeFirewallTypeScopeInput` via:
+//
+//	AdminAccountAdminScopeFirewallTypeScopeArgs{...}
+type AdminAccountAdminScopeFirewallTypeScopeInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeFirewallTypeScopeOutput() AdminAccountAdminScopeFirewallTypeScopeOutput
+	ToAdminAccountAdminScopeFirewallTypeScopeOutputWithContext(context.Context) AdminAccountAdminScopeFirewallTypeScopeOutput
+}
+
+type AdminAccountAdminScopeFirewallTypeScopeArgs struct {
+	// Whether to allow the administrator to manage all firewall types.
+	AllFirewallTypesEnabled pulumi.BoolPtrInput `pulumi:"allFirewallTypesEnabled"`
+	// Set of firewall types that the administrator can manage. Valid values: `WAF`, `SHIELD_ADVANCED`.
+	FirewallTypes pulumi.StringArrayInput `pulumi:"firewallTypes"`
+}
+
+func (AdminAccountAdminScopeFirewallTypeScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScopeFirewallTypeScope)(nil)).Elem()
+}
+
+func (i AdminAccountAdminScopeFirewallTypeScopeArgs) ToAdminAccountAdminScopeFirewallTypeScopeOutput() AdminAccountAdminScopeFirewallTypeScopeOutput {
+	return i.ToAdminAccountAdminScopeFirewallTypeScopeOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeFirewallTypeScopeArgs) ToAdminAccountAdminScopeFirewallTypeScopeOutputWithContext(ctx context.Context) AdminAccountAdminScopeFirewallTypeScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeFirewallTypeScopeOutput)
+}
+
+func (i AdminAccountAdminScopeFirewallTypeScopeArgs) ToAdminAccountAdminScopeFirewallTypeScopePtrOutput() AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return i.ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeFirewallTypeScopeArgs) ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeFirewallTypeScopeOutput).ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(ctx)
+}
+
+// AdminAccountAdminScopeFirewallTypeScopePtrInput is an input type that accepts AdminAccountAdminScopeFirewallTypeScopeArgs, AdminAccountAdminScopeFirewallTypeScopePtr and AdminAccountAdminScopeFirewallTypeScopePtrOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeFirewallTypeScopePtrInput` via:
+//
+//	        AdminAccountAdminScopeFirewallTypeScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AdminAccountAdminScopeFirewallTypeScopePtrInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeFirewallTypeScopePtrOutput() AdminAccountAdminScopeFirewallTypeScopePtrOutput
+	ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(context.Context) AdminAccountAdminScopeFirewallTypeScopePtrOutput
+}
+
+type adminAccountAdminScopeFirewallTypeScopePtrType AdminAccountAdminScopeFirewallTypeScopeArgs
+
+func AdminAccountAdminScopeFirewallTypeScopePtr(v *AdminAccountAdminScopeFirewallTypeScopeArgs) AdminAccountAdminScopeFirewallTypeScopePtrInput {
+	return (*adminAccountAdminScopeFirewallTypeScopePtrType)(v)
+}
+
+func (*adminAccountAdminScopeFirewallTypeScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScopeFirewallTypeScope)(nil)).Elem()
+}
+
+func (i *adminAccountAdminScopeFirewallTypeScopePtrType) ToAdminAccountAdminScopeFirewallTypeScopePtrOutput() AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return i.ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(context.Background())
+}
+
+func (i *adminAccountAdminScopeFirewallTypeScopePtrType) ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeFirewallTypeScopePtrOutput)
+}
+
+type AdminAccountAdminScopeFirewallTypeScopeOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeFirewallTypeScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScopeFirewallTypeScope)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeFirewallTypeScopeOutput) ToAdminAccountAdminScopeFirewallTypeScopeOutput() AdminAccountAdminScopeFirewallTypeScopeOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeFirewallTypeScopeOutput) ToAdminAccountAdminScopeFirewallTypeScopeOutputWithContext(ctx context.Context) AdminAccountAdminScopeFirewallTypeScopeOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeFirewallTypeScopeOutput) ToAdminAccountAdminScopeFirewallTypeScopePtrOutput() AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return o.ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(context.Background())
+}
+
+func (o AdminAccountAdminScopeFirewallTypeScopeOutput) ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminAccountAdminScopeFirewallTypeScope) *AdminAccountAdminScopeFirewallTypeScope {
+		return &v
+	}).(AdminAccountAdminScopeFirewallTypeScopePtrOutput)
+}
+
+// Whether to allow the administrator to manage all firewall types.
+func (o AdminAccountAdminScopeFirewallTypeScopeOutput) AllFirewallTypesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeFirewallTypeScope) *bool { return v.AllFirewallTypesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Set of firewall types that the administrator can manage. Valid values: `WAF`, `SHIELD_ADVANCED`.
+func (o AdminAccountAdminScopeFirewallTypeScopeOutput) FirewallTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeFirewallTypeScope) []string { return v.FirewallTypes }).(pulumi.StringArrayOutput)
+}
+
+type AdminAccountAdminScopeFirewallTypeScopePtrOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeFirewallTypeScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScopeFirewallTypeScope)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeFirewallTypeScopePtrOutput) ToAdminAccountAdminScopeFirewallTypeScopePtrOutput() AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeFirewallTypeScopePtrOutput) ToAdminAccountAdminScopeFirewallTypeScopePtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeFirewallTypeScopePtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeFirewallTypeScopePtrOutput) Elem() AdminAccountAdminScopeFirewallTypeScopeOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeFirewallTypeScope) AdminAccountAdminScopeFirewallTypeScope {
+		if v != nil {
+			return *v
+		}
+		var ret AdminAccountAdminScopeFirewallTypeScope
+		return ret
+	}).(AdminAccountAdminScopeFirewallTypeScopeOutput)
+}
+
+// Whether to allow the administrator to manage all firewall types.
+func (o AdminAccountAdminScopeFirewallTypeScopePtrOutput) AllFirewallTypesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeFirewallTypeScope) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllFirewallTypesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set of firewall types that the administrator can manage. Valid values: `WAF`, `SHIELD_ADVANCED`.
+func (o AdminAccountAdminScopeFirewallTypeScopePtrOutput) FirewallTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeFirewallTypeScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FirewallTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type AdminAccountAdminScopeScopeFilter struct {
+	// Accounts and OUs to exclude from the administrator's scope; everything else is in scope. See `excludeOnly` Block below.
+	ExcludeOnly *AdminAccountAdminScopeScopeFilterExcludeOnly `pulumi:"excludeOnly"`
+	// Whether to include all accounts and OUs of the organization in scope. Must be `true` if set.
+	IncludeAll *bool `pulumi:"includeAll"`
+	// Only the specified accounts and OUs are in the administrator's scope. See `includeOnly` Block below.
+	IncludeOnly *AdminAccountAdminScopeScopeFilterIncludeOnly `pulumi:"includeOnly"`
+}
+
+// AdminAccountAdminScopeScopeFilterInput is an input type that accepts AdminAccountAdminScopeScopeFilterArgs and AdminAccountAdminScopeScopeFilterOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeScopeFilterInput` via:
+//
+//	AdminAccountAdminScopeScopeFilterArgs{...}
+type AdminAccountAdminScopeScopeFilterInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeScopeFilterOutput() AdminAccountAdminScopeScopeFilterOutput
+	ToAdminAccountAdminScopeScopeFilterOutputWithContext(context.Context) AdminAccountAdminScopeScopeFilterOutput
+}
+
+type AdminAccountAdminScopeScopeFilterArgs struct {
+	// Accounts and OUs to exclude from the administrator's scope; everything else is in scope. See `excludeOnly` Block below.
+	ExcludeOnly AdminAccountAdminScopeScopeFilterExcludeOnlyPtrInput `pulumi:"excludeOnly"`
+	// Whether to include all accounts and OUs of the organization in scope. Must be `true` if set.
+	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
+	// Only the specified accounts and OUs are in the administrator's scope. See `includeOnly` Block below.
+	IncludeOnly AdminAccountAdminScopeScopeFilterIncludeOnlyPtrInput `pulumi:"includeOnly"`
+}
+
+func (AdminAccountAdminScopeScopeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScopeScopeFilter)(nil)).Elem()
+}
+
+func (i AdminAccountAdminScopeScopeFilterArgs) ToAdminAccountAdminScopeScopeFilterOutput() AdminAccountAdminScopeScopeFilterOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeScopeFilterArgs) ToAdminAccountAdminScopeScopeFilterOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterOutput)
+}
+
+func (i AdminAccountAdminScopeScopeFilterArgs) ToAdminAccountAdminScopeScopeFilterPtrOutput() AdminAccountAdminScopeScopeFilterPtrOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeScopeFilterArgs) ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterOutput).ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(ctx)
+}
+
+// AdminAccountAdminScopeScopeFilterPtrInput is an input type that accepts AdminAccountAdminScopeScopeFilterArgs, AdminAccountAdminScopeScopeFilterPtr and AdminAccountAdminScopeScopeFilterPtrOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeScopeFilterPtrInput` via:
+//
+//	        AdminAccountAdminScopeScopeFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type AdminAccountAdminScopeScopeFilterPtrInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeScopeFilterPtrOutput() AdminAccountAdminScopeScopeFilterPtrOutput
+	ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(context.Context) AdminAccountAdminScopeScopeFilterPtrOutput
+}
+
+type adminAccountAdminScopeScopeFilterPtrType AdminAccountAdminScopeScopeFilterArgs
+
+func AdminAccountAdminScopeScopeFilterPtr(v *AdminAccountAdminScopeScopeFilterArgs) AdminAccountAdminScopeScopeFilterPtrInput {
+	return (*adminAccountAdminScopeScopeFilterPtrType)(v)
+}
+
+func (*adminAccountAdminScopeScopeFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScopeScopeFilter)(nil)).Elem()
+}
+
+func (i *adminAccountAdminScopeScopeFilterPtrType) ToAdminAccountAdminScopeScopeFilterPtrOutput() AdminAccountAdminScopeScopeFilterPtrOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *adminAccountAdminScopeScopeFilterPtrType) ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterPtrOutput)
+}
+
+type AdminAccountAdminScopeScopeFilterOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeScopeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScopeScopeFilter)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeScopeFilterOutput) ToAdminAccountAdminScopeScopeFilterOutput() AdminAccountAdminScopeScopeFilterOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterOutput) ToAdminAccountAdminScopeScopeFilterOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterOutput) ToAdminAccountAdminScopeScopeFilterPtrOutput() AdminAccountAdminScopeScopeFilterPtrOutput {
+	return o.ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(context.Background())
+}
+
+func (o AdminAccountAdminScopeScopeFilterOutput) ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminAccountAdminScopeScopeFilter) *AdminAccountAdminScopeScopeFilter {
+		return &v
+	}).(AdminAccountAdminScopeScopeFilterPtrOutput)
+}
+
+// Accounts and OUs to exclude from the administrator's scope; everything else is in scope. See `excludeOnly` Block below.
+func (o AdminAccountAdminScopeScopeFilterOutput) ExcludeOnly() AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeScopeFilter) *AdminAccountAdminScopeScopeFilterExcludeOnly {
+		return v.ExcludeOnly
+	}).(AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput)
+}
+
+// Whether to include all accounts and OUs of the organization in scope. Must be `true` if set.
+func (o AdminAccountAdminScopeScopeFilterOutput) IncludeAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeScopeFilter) *bool { return v.IncludeAll }).(pulumi.BoolPtrOutput)
+}
+
+// Only the specified accounts and OUs are in the administrator's scope. See `includeOnly` Block below.
+func (o AdminAccountAdminScopeScopeFilterOutput) IncludeOnly() AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeScopeFilter) *AdminAccountAdminScopeScopeFilterIncludeOnly {
+		return v.IncludeOnly
+	}).(AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput)
+}
+
+type AdminAccountAdminScopeScopeFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeScopeFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScopeScopeFilter)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeScopeFilterPtrOutput) ToAdminAccountAdminScopeScopeFilterPtrOutput() AdminAccountAdminScopeScopeFilterPtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterPtrOutput) ToAdminAccountAdminScopeScopeFilterPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterPtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterPtrOutput) Elem() AdminAccountAdminScopeScopeFilterOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilter) AdminAccountAdminScopeScopeFilter {
+		if v != nil {
+			return *v
+		}
+		var ret AdminAccountAdminScopeScopeFilter
+		return ret
+	}).(AdminAccountAdminScopeScopeFilterOutput)
+}
+
+// Accounts and OUs to exclude from the administrator's scope; everything else is in scope. See `excludeOnly` Block below.
+func (o AdminAccountAdminScopeScopeFilterPtrOutput) ExcludeOnly() AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilter) *AdminAccountAdminScopeScopeFilterExcludeOnly {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeOnly
+	}).(AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput)
+}
+
+// Whether to include all accounts and OUs of the organization in scope. Must be `true` if set.
+func (o AdminAccountAdminScopeScopeFilterPtrOutput) IncludeAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAll
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Only the specified accounts and OUs are in the administrator's scope. See `includeOnly` Block below.
+func (o AdminAccountAdminScopeScopeFilterPtrOutput) IncludeOnly() AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilter) *AdminAccountAdminScopeScopeFilterIncludeOnly {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOnly
+	}).(AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput)
+}
+
+type AdminAccountAdminScopeScopeFilterExcludeOnly struct {
+	// Set of AWS account IDs.
+	Accounts []string `pulumi:"accounts"`
+	// Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+	OrganizationalUnits []string `pulumi:"organizationalUnits"`
+}
+
+// AdminAccountAdminScopeScopeFilterExcludeOnlyInput is an input type that accepts AdminAccountAdminScopeScopeFilterExcludeOnlyArgs and AdminAccountAdminScopeScopeFilterExcludeOnlyOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeScopeFilterExcludeOnlyInput` via:
+//
+//	AdminAccountAdminScopeScopeFilterExcludeOnlyArgs{...}
+type AdminAccountAdminScopeScopeFilterExcludeOnlyInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeScopeFilterExcludeOnlyOutput() AdminAccountAdminScopeScopeFilterExcludeOnlyOutput
+	ToAdminAccountAdminScopeScopeFilterExcludeOnlyOutputWithContext(context.Context) AdminAccountAdminScopeScopeFilterExcludeOnlyOutput
+}
+
+type AdminAccountAdminScopeScopeFilterExcludeOnlyArgs struct {
+	// Set of AWS account IDs.
+	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+	OrganizationalUnits pulumi.StringArrayInput `pulumi:"organizationalUnits"`
+}
+
+func (AdminAccountAdminScopeScopeFilterExcludeOnlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScopeScopeFilterExcludeOnly)(nil)).Elem()
+}
+
+func (i AdminAccountAdminScopeScopeFilterExcludeOnlyArgs) ToAdminAccountAdminScopeScopeFilterExcludeOnlyOutput() AdminAccountAdminScopeScopeFilterExcludeOnlyOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterExcludeOnlyOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeScopeFilterExcludeOnlyArgs) ToAdminAccountAdminScopeScopeFilterExcludeOnlyOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterExcludeOnlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterExcludeOnlyOutput)
+}
+
+func (i AdminAccountAdminScopeScopeFilterExcludeOnlyArgs) ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeScopeFilterExcludeOnlyArgs) ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterExcludeOnlyOutput).ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(ctx)
+}
+
+// AdminAccountAdminScopeScopeFilterExcludeOnlyPtrInput is an input type that accepts AdminAccountAdminScopeScopeFilterExcludeOnlyArgs, AdminAccountAdminScopeScopeFilterExcludeOnlyPtr and AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeScopeFilterExcludeOnlyPtrInput` via:
+//
+//	        AdminAccountAdminScopeScopeFilterExcludeOnlyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AdminAccountAdminScopeScopeFilterExcludeOnlyPtrInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput
+	ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(context.Context) AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput
+}
+
+type adminAccountAdminScopeScopeFilterExcludeOnlyPtrType AdminAccountAdminScopeScopeFilterExcludeOnlyArgs
+
+func AdminAccountAdminScopeScopeFilterExcludeOnlyPtr(v *AdminAccountAdminScopeScopeFilterExcludeOnlyArgs) AdminAccountAdminScopeScopeFilterExcludeOnlyPtrInput {
+	return (*adminAccountAdminScopeScopeFilterExcludeOnlyPtrType)(v)
+}
+
+func (*adminAccountAdminScopeScopeFilterExcludeOnlyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScopeScopeFilterExcludeOnly)(nil)).Elem()
+}
+
+func (i *adminAccountAdminScopeScopeFilterExcludeOnlyPtrType) ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(context.Background())
+}
+
+func (i *adminAccountAdminScopeScopeFilterExcludeOnlyPtrType) ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput)
+}
+
+type AdminAccountAdminScopeScopeFilterExcludeOnlyOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeScopeFilterExcludeOnlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScopeScopeFilterExcludeOnly)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyOutput) ToAdminAccountAdminScopeScopeFilterExcludeOnlyOutput() AdminAccountAdminScopeScopeFilterExcludeOnlyOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyOutput) ToAdminAccountAdminScopeScopeFilterExcludeOnlyOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterExcludeOnlyOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyOutput) ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return o.ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(context.Background())
+}
+
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyOutput) ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminAccountAdminScopeScopeFilterExcludeOnly) *AdminAccountAdminScopeScopeFilterExcludeOnly {
+		return &v
+	}).(AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput)
+}
+
+// Set of AWS account IDs.
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeScopeFilterExcludeOnly) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyOutput) OrganizationalUnits() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeScopeFilterExcludeOnly) []string { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
+}
+
+type AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScopeScopeFilterExcludeOnly)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput) ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput) ToAdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput) Elem() AdminAccountAdminScopeScopeFilterExcludeOnlyOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilterExcludeOnly) AdminAccountAdminScopeScopeFilterExcludeOnly {
+		if v != nil {
+			return *v
+		}
+		var ret AdminAccountAdminScopeScopeFilterExcludeOnly
+		return ret
+	}).(AdminAccountAdminScopeScopeFilterExcludeOnlyOutput)
+}
+
+// Set of AWS account IDs.
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilterExcludeOnly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+func (o AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput) OrganizationalUnits() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilterExcludeOnly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnits
+	}).(pulumi.StringArrayOutput)
+}
+
+type AdminAccountAdminScopeScopeFilterIncludeOnly struct {
+	// Set of AWS account IDs.
+	Accounts []string `pulumi:"accounts"`
+	// Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+	OrganizationalUnits []string `pulumi:"organizationalUnits"`
+}
+
+// AdminAccountAdminScopeScopeFilterIncludeOnlyInput is an input type that accepts AdminAccountAdminScopeScopeFilterIncludeOnlyArgs and AdminAccountAdminScopeScopeFilterIncludeOnlyOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeScopeFilterIncludeOnlyInput` via:
+//
+//	AdminAccountAdminScopeScopeFilterIncludeOnlyArgs{...}
+type AdminAccountAdminScopeScopeFilterIncludeOnlyInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeScopeFilterIncludeOnlyOutput() AdminAccountAdminScopeScopeFilterIncludeOnlyOutput
+	ToAdminAccountAdminScopeScopeFilterIncludeOnlyOutputWithContext(context.Context) AdminAccountAdminScopeScopeFilterIncludeOnlyOutput
+}
+
+type AdminAccountAdminScopeScopeFilterIncludeOnlyArgs struct {
+	// Set of AWS account IDs.
+	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+	OrganizationalUnits pulumi.StringArrayInput `pulumi:"organizationalUnits"`
+}
+
+func (AdminAccountAdminScopeScopeFilterIncludeOnlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScopeScopeFilterIncludeOnly)(nil)).Elem()
+}
+
+func (i AdminAccountAdminScopeScopeFilterIncludeOnlyArgs) ToAdminAccountAdminScopeScopeFilterIncludeOnlyOutput() AdminAccountAdminScopeScopeFilterIncludeOnlyOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterIncludeOnlyOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeScopeFilterIncludeOnlyArgs) ToAdminAccountAdminScopeScopeFilterIncludeOnlyOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterIncludeOnlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterIncludeOnlyOutput)
+}
+
+func (i AdminAccountAdminScopeScopeFilterIncludeOnlyArgs) ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(context.Background())
+}
+
+func (i AdminAccountAdminScopeScopeFilterIncludeOnlyArgs) ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterIncludeOnlyOutput).ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(ctx)
+}
+
+// AdminAccountAdminScopeScopeFilterIncludeOnlyPtrInput is an input type that accepts AdminAccountAdminScopeScopeFilterIncludeOnlyArgs, AdminAccountAdminScopeScopeFilterIncludeOnlyPtr and AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput values.
+// You can construct a concrete instance of `AdminAccountAdminScopeScopeFilterIncludeOnlyPtrInput` via:
+//
+//	        AdminAccountAdminScopeScopeFilterIncludeOnlyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AdminAccountAdminScopeScopeFilterIncludeOnlyPtrInput interface {
+	pulumi.Input
+
+	ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput
+	ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(context.Context) AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput
+}
+
+type adminAccountAdminScopeScopeFilterIncludeOnlyPtrType AdminAccountAdminScopeScopeFilterIncludeOnlyArgs
+
+func AdminAccountAdminScopeScopeFilterIncludeOnlyPtr(v *AdminAccountAdminScopeScopeFilterIncludeOnlyArgs) AdminAccountAdminScopeScopeFilterIncludeOnlyPtrInput {
+	return (*adminAccountAdminScopeScopeFilterIncludeOnlyPtrType)(v)
+}
+
+func (*adminAccountAdminScopeScopeFilterIncludeOnlyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScopeScopeFilterIncludeOnly)(nil)).Elem()
+}
+
+func (i *adminAccountAdminScopeScopeFilterIncludeOnlyPtrType) ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return i.ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(context.Background())
+}
+
+func (i *adminAccountAdminScopeScopeFilterIncludeOnlyPtrType) ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput)
+}
+
+type AdminAccountAdminScopeScopeFilterIncludeOnlyOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeScopeFilterIncludeOnlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountAdminScopeScopeFilterIncludeOnly)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyOutput) ToAdminAccountAdminScopeScopeFilterIncludeOnlyOutput() AdminAccountAdminScopeScopeFilterIncludeOnlyOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyOutput) ToAdminAccountAdminScopeScopeFilterIncludeOnlyOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterIncludeOnlyOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyOutput) ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return o.ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(context.Background())
+}
+
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyOutput) ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminAccountAdminScopeScopeFilterIncludeOnly) *AdminAccountAdminScopeScopeFilterIncludeOnly {
+		return &v
+	}).(AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput)
+}
+
+// Set of AWS account IDs.
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeScopeFilterIncludeOnly) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyOutput) OrganizationalUnits() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdminAccountAdminScopeScopeFilterIncludeOnly) []string { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
+}
+
+type AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountAdminScopeScopeFilterIncludeOnly)(nil)).Elem()
+}
+
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput) ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput() AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput) ToAdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutputWithContext(ctx context.Context) AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput {
+	return o
+}
+
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput) Elem() AdminAccountAdminScopeScopeFilterIncludeOnlyOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilterIncludeOnly) AdminAccountAdminScopeScopeFilterIncludeOnly {
+		if v != nil {
+			return *v
+		}
+		var ret AdminAccountAdminScopeScopeFilterIncludeOnly
+		return ret
+	}).(AdminAccountAdminScopeScopeFilterIncludeOnlyOutput)
+}
+
+// Set of AWS account IDs.
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilterIncludeOnly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+func (o AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput) OrganizationalUnits() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminAccountAdminScopeScopeFilterIncludeOnly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnits
+	}).(pulumi.StringArrayOutput)
+}
+
+type AdminAccountTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AdminAccountTimeoutsInput is an input type that accepts AdminAccountTimeoutsArgs and AdminAccountTimeoutsOutput values.
+// You can construct a concrete instance of `AdminAccountTimeoutsInput` via:
+//
+//	AdminAccountTimeoutsArgs{...}
+type AdminAccountTimeoutsInput interface {
+	pulumi.Input
+
+	ToAdminAccountTimeoutsOutput() AdminAccountTimeoutsOutput
+	ToAdminAccountTimeoutsOutputWithContext(context.Context) AdminAccountTimeoutsOutput
+}
+
+type AdminAccountTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AdminAccountTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountTimeouts)(nil)).Elem()
+}
+
+func (i AdminAccountTimeoutsArgs) ToAdminAccountTimeoutsOutput() AdminAccountTimeoutsOutput {
+	return i.ToAdminAccountTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AdminAccountTimeoutsArgs) ToAdminAccountTimeoutsOutputWithContext(ctx context.Context) AdminAccountTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountTimeoutsOutput)
+}
+
+func (i AdminAccountTimeoutsArgs) ToAdminAccountTimeoutsPtrOutput() AdminAccountTimeoutsPtrOutput {
+	return i.ToAdminAccountTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AdminAccountTimeoutsArgs) ToAdminAccountTimeoutsPtrOutputWithContext(ctx context.Context) AdminAccountTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountTimeoutsOutput).ToAdminAccountTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AdminAccountTimeoutsPtrInput is an input type that accepts AdminAccountTimeoutsArgs, AdminAccountTimeoutsPtr and AdminAccountTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AdminAccountTimeoutsPtrInput` via:
+//
+//	        AdminAccountTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AdminAccountTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAdminAccountTimeoutsPtrOutput() AdminAccountTimeoutsPtrOutput
+	ToAdminAccountTimeoutsPtrOutputWithContext(context.Context) AdminAccountTimeoutsPtrOutput
+}
+
+type adminAccountTimeoutsPtrType AdminAccountTimeoutsArgs
+
+func AdminAccountTimeoutsPtr(v *AdminAccountTimeoutsArgs) AdminAccountTimeoutsPtrInput {
+	return (*adminAccountTimeoutsPtrType)(v)
+}
+
+func (*adminAccountTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountTimeouts)(nil)).Elem()
+}
+
+func (i *adminAccountTimeoutsPtrType) ToAdminAccountTimeoutsPtrOutput() AdminAccountTimeoutsPtrOutput {
+	return i.ToAdminAccountTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *adminAccountTimeoutsPtrType) ToAdminAccountTimeoutsPtrOutputWithContext(ctx context.Context) AdminAccountTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountTimeoutsPtrOutput)
+}
+
+type AdminAccountTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountTimeouts)(nil)).Elem()
+}
+
+func (o AdminAccountTimeoutsOutput) ToAdminAccountTimeoutsOutput() AdminAccountTimeoutsOutput {
+	return o
+}
+
+func (o AdminAccountTimeoutsOutput) ToAdminAccountTimeoutsOutputWithContext(ctx context.Context) AdminAccountTimeoutsOutput {
+	return o
+}
+
+func (o AdminAccountTimeoutsOutput) ToAdminAccountTimeoutsPtrOutput() AdminAccountTimeoutsPtrOutput {
+	return o.ToAdminAccountTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AdminAccountTimeoutsOutput) ToAdminAccountTimeoutsPtrOutputWithContext(ctx context.Context) AdminAccountTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminAccountTimeouts) *AdminAccountTimeouts {
+		return &v
+	}).(AdminAccountTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AdminAccountTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdminAccountTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AdminAccountTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdminAccountTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AdminAccountTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdminAccountTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AdminAccountTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AdminAccountTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminAccountTimeouts)(nil)).Elem()
+}
+
+func (o AdminAccountTimeoutsPtrOutput) ToAdminAccountTimeoutsPtrOutput() AdminAccountTimeoutsPtrOutput {
+	return o
+}
+
+func (o AdminAccountTimeoutsPtrOutput) ToAdminAccountTimeoutsPtrOutputWithContext(ctx context.Context) AdminAccountTimeoutsPtrOutput {
+	return o
+}
+
+func (o AdminAccountTimeoutsPtrOutput) Elem() AdminAccountTimeoutsOutput {
+	return o.ApplyT(func(v *AdminAccountTimeouts) AdminAccountTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AdminAccountTimeouts
+		return ret
+	}).(AdminAccountTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AdminAccountTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdminAccountTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AdminAccountTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdminAccountTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AdminAccountTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdminAccountTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentConfiguration struct {
+	// Whether to enable cross-account visibility for the deployment.
+	EnableCrossAccountVisibility bool `pulumi:"enableCrossAccountVisibility"`
+}
+
+// DeploymentConfigurationInput is an input type that accepts DeploymentConfigurationArgs and DeploymentConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationInput` via:
+//
+//	DeploymentConfigurationArgs{...}
+type DeploymentConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationOutput() DeploymentConfigurationOutput
+	ToDeploymentConfigurationOutputWithContext(context.Context) DeploymentConfigurationOutput
+}
+
+type DeploymentConfigurationArgs struct {
+	// Whether to enable cross-account visibility for the deployment.
+	EnableCrossAccountVisibility pulumi.BoolInput `pulumi:"enableCrossAccountVisibility"`
+}
+
+func (DeploymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfiguration)(nil)).Elem()
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationOutput() DeploymentConfigurationOutput {
+	return i.ToDeploymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationOutputWithContext(ctx context.Context) DeploymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationOutput)
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return i.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationOutput).ToDeploymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeploymentConfigurationPtrInput is an input type that accepts DeploymentConfigurationArgs, DeploymentConfigurationPtr and DeploymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationPtrInput` via:
+//
+//	        DeploymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput
+	ToDeploymentConfigurationPtrOutputWithContext(context.Context) DeploymentConfigurationPtrOutput
+}
+
+type deploymentConfigurationPtrType DeploymentConfigurationArgs
+
+func DeploymentConfigurationPtr(v *DeploymentConfigurationArgs) DeploymentConfigurationPtrInput {
+	return (*deploymentConfigurationPtrType)(v)
+}
+
+func (*deploymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfiguration)(nil)).Elem()
+}
+
+func (i *deploymentConfigurationPtrType) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return i.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentConfigurationPtrType) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationPtrOutput)
+}
+
+type DeploymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationOutput() DeploymentConfigurationOutput {
+	return o
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationOutputWithContext(ctx context.Context) DeploymentConfigurationOutput {
+	return o
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return o.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfiguration) *DeploymentConfiguration {
+		return &v
+	}).(DeploymentConfigurationPtrOutput)
+}
+
+// Whether to enable cross-account visibility for the deployment.
+func (o DeploymentConfigurationOutput) EnableCrossAccountVisibility() pulumi.BoolOutput {
+	return o.ApplyT(func(v DeploymentConfiguration) bool { return v.EnableCrossAccountVisibility }).(pulumi.BoolOutput)
+}
+
+type DeploymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationPtrOutput) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigurationPtrOutput) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigurationPtrOutput) Elem() DeploymentConfigurationOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) DeploymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfiguration
+		return ret
+	}).(DeploymentConfigurationOutput)
+}
+
+// Whether to enable cross-account visibility for the deployment.
+func (o DeploymentConfigurationPtrOutput) EnableCrossAccountVisibility() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableCrossAccountVisibility
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyConfiguration struct {
+	// Whether to automatically remediate noncompliant resources.
+	RemediationEnabled bool `pulumi:"remediationEnabled"`
+	// Whether to automatically remove the resources the service created when they are no longer needed. The service currently only accepts `true`.
+	ResourcesCleanUp bool `pulumi:"resourcesCleanUp"`
+	// AWS WAF-specific settings. Required for `WAF` policies. See `wafConfig` below.
+	WafConfig *PolicyConfigurationWafConfig `pulumi:"wafConfig"`
+}
+
+// PolicyConfigurationInput is an input type that accepts PolicyConfigurationArgs and PolicyConfigurationOutput values.
+// You can construct a concrete instance of `PolicyConfigurationInput` via:
+//
+//	PolicyConfigurationArgs{...}
+type PolicyConfigurationInput interface {
+	pulumi.Input
+
+	ToPolicyConfigurationOutput() PolicyConfigurationOutput
+	ToPolicyConfigurationOutputWithContext(context.Context) PolicyConfigurationOutput
+}
+
+type PolicyConfigurationArgs struct {
+	// Whether to automatically remediate noncompliant resources.
+	RemediationEnabled pulumi.BoolInput `pulumi:"remediationEnabled"`
+	// Whether to automatically remove the resources the service created when they are no longer needed. The service currently only accepts `true`.
+	ResourcesCleanUp pulumi.BoolInput `pulumi:"resourcesCleanUp"`
+	// AWS WAF-specific settings. Required for `WAF` policies. See `wafConfig` below.
+	WafConfig PolicyConfigurationWafConfigPtrInput `pulumi:"wafConfig"`
+}
+
+func (PolicyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyConfiguration)(nil)).Elem()
+}
+
+func (i PolicyConfigurationArgs) ToPolicyConfigurationOutput() PolicyConfigurationOutput {
+	return i.ToPolicyConfigurationOutputWithContext(context.Background())
+}
+
+func (i PolicyConfigurationArgs) ToPolicyConfigurationOutputWithContext(ctx context.Context) PolicyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyConfigurationOutput)
+}
+
+func (i PolicyConfigurationArgs) ToPolicyConfigurationPtrOutput() PolicyConfigurationPtrOutput {
+	return i.ToPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyConfigurationArgs) ToPolicyConfigurationPtrOutputWithContext(ctx context.Context) PolicyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyConfigurationOutput).ToPolicyConfigurationPtrOutputWithContext(ctx)
+}
+
+// PolicyConfigurationPtrInput is an input type that accepts PolicyConfigurationArgs, PolicyConfigurationPtr and PolicyConfigurationPtrOutput values.
+// You can construct a concrete instance of `PolicyConfigurationPtrInput` via:
+//
+//	        PolicyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPolicyConfigurationPtrOutput() PolicyConfigurationPtrOutput
+	ToPolicyConfigurationPtrOutputWithContext(context.Context) PolicyConfigurationPtrOutput
+}
+
+type policyConfigurationPtrType PolicyConfigurationArgs
+
+func PolicyConfigurationPtr(v *PolicyConfigurationArgs) PolicyConfigurationPtrInput {
+	return (*policyConfigurationPtrType)(v)
+}
+
+func (*policyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyConfiguration)(nil)).Elem()
+}
+
+func (i *policyConfigurationPtrType) ToPolicyConfigurationPtrOutput() PolicyConfigurationPtrOutput {
+	return i.ToPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *policyConfigurationPtrType) ToPolicyConfigurationPtrOutputWithContext(ctx context.Context) PolicyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyConfigurationPtrOutput)
+}
+
+type PolicyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PolicyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyConfiguration)(nil)).Elem()
+}
+
+func (o PolicyConfigurationOutput) ToPolicyConfigurationOutput() PolicyConfigurationOutput {
+	return o
+}
+
+func (o PolicyConfigurationOutput) ToPolicyConfigurationOutputWithContext(ctx context.Context) PolicyConfigurationOutput {
+	return o
+}
+
+func (o PolicyConfigurationOutput) ToPolicyConfigurationPtrOutput() PolicyConfigurationPtrOutput {
+	return o.ToPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyConfigurationOutput) ToPolicyConfigurationPtrOutputWithContext(ctx context.Context) PolicyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyConfiguration) *PolicyConfiguration {
+		return &v
+	}).(PolicyConfigurationPtrOutput)
+}
+
+// Whether to automatically remediate noncompliant resources.
+func (o PolicyConfigurationOutput) RemediationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v PolicyConfiguration) bool { return v.RemediationEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether to automatically remove the resources the service created when they are no longer needed. The service currently only accepts `true`.
+func (o PolicyConfigurationOutput) ResourcesCleanUp() pulumi.BoolOutput {
+	return o.ApplyT(func(v PolicyConfiguration) bool { return v.ResourcesCleanUp }).(pulumi.BoolOutput)
+}
+
+// AWS WAF-specific settings. Required for `WAF` policies. See `wafConfig` below.
+func (o PolicyConfigurationOutput) WafConfig() PolicyConfigurationWafConfigPtrOutput {
+	return o.ApplyT(func(v PolicyConfiguration) *PolicyConfigurationWafConfig { return v.WafConfig }).(PolicyConfigurationWafConfigPtrOutput)
+}
+
+type PolicyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyConfiguration)(nil)).Elem()
+}
+
+func (o PolicyConfigurationPtrOutput) ToPolicyConfigurationPtrOutput() PolicyConfigurationPtrOutput {
+	return o
+}
+
+func (o PolicyConfigurationPtrOutput) ToPolicyConfigurationPtrOutputWithContext(ctx context.Context) PolicyConfigurationPtrOutput {
+	return o
+}
+
+func (o PolicyConfigurationPtrOutput) Elem() PolicyConfigurationOutput {
+	return o.ApplyT(func(v *PolicyConfiguration) PolicyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyConfiguration
+		return ret
+	}).(PolicyConfigurationOutput)
+}
+
+// Whether to automatically remediate noncompliant resources.
+func (o PolicyConfigurationPtrOutput) RemediationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RemediationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to automatically remove the resources the service created when they are no longer needed. The service currently only accepts `true`.
+func (o PolicyConfigurationPtrOutput) ResourcesCleanUp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourcesCleanUp
+	}).(pulumi.BoolPtrOutput)
+}
+
+// AWS WAF-specific settings. Required for `WAF` policies. See `wafConfig` below.
+func (o PolicyConfigurationPtrOutput) WafConfig() PolicyConfigurationWafConfigPtrOutput {
+	return o.ApplyT(func(v *PolicyConfiguration) *PolicyConfigurationWafConfig {
+		if v == nil {
+			return nil
+		}
+		return v.WafConfig
+	}).(PolicyConfigurationWafConfigPtrOutput)
+}
+
+type PolicyConfigurationWafConfig struct {
+	// Conflict-resolution strategy. Valid values: `MERGE_WHERE_APPLICABLE`.
+	ConflictResolution string `pulumi:"conflictResolution"`
+	// How remediation is handled when a resource already has a customer-created web ACL. Valid values: `RETROFIT`, `OVERRIDE_ASSOCIATION`, `NO_REMEDIATION`.
+	ExistingCustomerWebAclResolution string `pulumi:"existingCustomerWebAclResolution"`
+}
+
+// PolicyConfigurationWafConfigInput is an input type that accepts PolicyConfigurationWafConfigArgs and PolicyConfigurationWafConfigOutput values.
+// You can construct a concrete instance of `PolicyConfigurationWafConfigInput` via:
+//
+//	PolicyConfigurationWafConfigArgs{...}
+type PolicyConfigurationWafConfigInput interface {
+	pulumi.Input
+
+	ToPolicyConfigurationWafConfigOutput() PolicyConfigurationWafConfigOutput
+	ToPolicyConfigurationWafConfigOutputWithContext(context.Context) PolicyConfigurationWafConfigOutput
+}
+
+type PolicyConfigurationWafConfigArgs struct {
+	// Conflict-resolution strategy. Valid values: `MERGE_WHERE_APPLICABLE`.
+	ConflictResolution pulumi.StringInput `pulumi:"conflictResolution"`
+	// How remediation is handled when a resource already has a customer-created web ACL. Valid values: `RETROFIT`, `OVERRIDE_ASSOCIATION`, `NO_REMEDIATION`.
+	ExistingCustomerWebAclResolution pulumi.StringInput `pulumi:"existingCustomerWebAclResolution"`
+}
+
+func (PolicyConfigurationWafConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyConfigurationWafConfig)(nil)).Elem()
+}
+
+func (i PolicyConfigurationWafConfigArgs) ToPolicyConfigurationWafConfigOutput() PolicyConfigurationWafConfigOutput {
+	return i.ToPolicyConfigurationWafConfigOutputWithContext(context.Background())
+}
+
+func (i PolicyConfigurationWafConfigArgs) ToPolicyConfigurationWafConfigOutputWithContext(ctx context.Context) PolicyConfigurationWafConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyConfigurationWafConfigOutput)
+}
+
+func (i PolicyConfigurationWafConfigArgs) ToPolicyConfigurationWafConfigPtrOutput() PolicyConfigurationWafConfigPtrOutput {
+	return i.ToPolicyConfigurationWafConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyConfigurationWafConfigArgs) ToPolicyConfigurationWafConfigPtrOutputWithContext(ctx context.Context) PolicyConfigurationWafConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyConfigurationWafConfigOutput).ToPolicyConfigurationWafConfigPtrOutputWithContext(ctx)
+}
+
+// PolicyConfigurationWafConfigPtrInput is an input type that accepts PolicyConfigurationWafConfigArgs, PolicyConfigurationWafConfigPtr and PolicyConfigurationWafConfigPtrOutput values.
+// You can construct a concrete instance of `PolicyConfigurationWafConfigPtrInput` via:
+//
+//	        PolicyConfigurationWafConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyConfigurationWafConfigPtrInput interface {
+	pulumi.Input
+
+	ToPolicyConfigurationWafConfigPtrOutput() PolicyConfigurationWafConfigPtrOutput
+	ToPolicyConfigurationWafConfigPtrOutputWithContext(context.Context) PolicyConfigurationWafConfigPtrOutput
+}
+
+type policyConfigurationWafConfigPtrType PolicyConfigurationWafConfigArgs
+
+func PolicyConfigurationWafConfigPtr(v *PolicyConfigurationWafConfigArgs) PolicyConfigurationWafConfigPtrInput {
+	return (*policyConfigurationWafConfigPtrType)(v)
+}
+
+func (*policyConfigurationWafConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyConfigurationWafConfig)(nil)).Elem()
+}
+
+func (i *policyConfigurationWafConfigPtrType) ToPolicyConfigurationWafConfigPtrOutput() PolicyConfigurationWafConfigPtrOutput {
+	return i.ToPolicyConfigurationWafConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *policyConfigurationWafConfigPtrType) ToPolicyConfigurationWafConfigPtrOutputWithContext(ctx context.Context) PolicyConfigurationWafConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyConfigurationWafConfigPtrOutput)
+}
+
+type PolicyConfigurationWafConfigOutput struct{ *pulumi.OutputState }
+
+func (PolicyConfigurationWafConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyConfigurationWafConfig)(nil)).Elem()
+}
+
+func (o PolicyConfigurationWafConfigOutput) ToPolicyConfigurationWafConfigOutput() PolicyConfigurationWafConfigOutput {
+	return o
+}
+
+func (o PolicyConfigurationWafConfigOutput) ToPolicyConfigurationWafConfigOutputWithContext(ctx context.Context) PolicyConfigurationWafConfigOutput {
+	return o
+}
+
+func (o PolicyConfigurationWafConfigOutput) ToPolicyConfigurationWafConfigPtrOutput() PolicyConfigurationWafConfigPtrOutput {
+	return o.ToPolicyConfigurationWafConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyConfigurationWafConfigOutput) ToPolicyConfigurationWafConfigPtrOutputWithContext(ctx context.Context) PolicyConfigurationWafConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyConfigurationWafConfig) *PolicyConfigurationWafConfig {
+		return &v
+	}).(PolicyConfigurationWafConfigPtrOutput)
+}
+
+// Conflict-resolution strategy. Valid values: `MERGE_WHERE_APPLICABLE`.
+func (o PolicyConfigurationWafConfigOutput) ConflictResolution() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyConfigurationWafConfig) string { return v.ConflictResolution }).(pulumi.StringOutput)
+}
+
+// How remediation is handled when a resource already has a customer-created web ACL. Valid values: `RETROFIT`, `OVERRIDE_ASSOCIATION`, `NO_REMEDIATION`.
+func (o PolicyConfigurationWafConfigOutput) ExistingCustomerWebAclResolution() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyConfigurationWafConfig) string { return v.ExistingCustomerWebAclResolution }).(pulumi.StringOutput)
+}
+
+type PolicyConfigurationWafConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyConfigurationWafConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyConfigurationWafConfig)(nil)).Elem()
+}
+
+func (o PolicyConfigurationWafConfigPtrOutput) ToPolicyConfigurationWafConfigPtrOutput() PolicyConfigurationWafConfigPtrOutput {
+	return o
+}
+
+func (o PolicyConfigurationWafConfigPtrOutput) ToPolicyConfigurationWafConfigPtrOutputWithContext(ctx context.Context) PolicyConfigurationWafConfigPtrOutput {
+	return o
+}
+
+func (o PolicyConfigurationWafConfigPtrOutput) Elem() PolicyConfigurationWafConfigOutput {
+	return o.ApplyT(func(v *PolicyConfigurationWafConfig) PolicyConfigurationWafConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyConfigurationWafConfig
+		return ret
+	}).(PolicyConfigurationWafConfigOutput)
+}
+
+// Conflict-resolution strategy. Valid values: `MERGE_WHERE_APPLICABLE`.
+func (o PolicyConfigurationWafConfigPtrOutput) ConflictResolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyConfigurationWafConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConflictResolution
+	}).(pulumi.StringPtrOutput)
+}
+
+// How remediation is handled when a resource already has a customer-created web ACL. Valid values: `RETROFIT`, `OVERRIDE_ASSOCIATION`, `NO_REMEDIATION`.
+func (o PolicyConfigurationWafConfigPtrOutput) ExistingCustomerWebAclResolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyConfigurationWafConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExistingCustomerWebAclResolution
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyTemplateOrRule struct {
+	// ARN of the rule.
+	RuleIdentifier *string `pulumi:"ruleIdentifier"`
+	// ARN of the template.
+	TemplateIdentifier *string `pulumi:"templateIdentifier"`
+}
+
+// PolicyTemplateOrRuleInput is an input type that accepts PolicyTemplateOrRuleArgs and PolicyTemplateOrRuleOutput values.
+// You can construct a concrete instance of `PolicyTemplateOrRuleInput` via:
+//
+//	PolicyTemplateOrRuleArgs{...}
+type PolicyTemplateOrRuleInput interface {
+	pulumi.Input
+
+	ToPolicyTemplateOrRuleOutput() PolicyTemplateOrRuleOutput
+	ToPolicyTemplateOrRuleOutputWithContext(context.Context) PolicyTemplateOrRuleOutput
+}
+
+type PolicyTemplateOrRuleArgs struct {
+	// ARN of the rule.
+	RuleIdentifier pulumi.StringPtrInput `pulumi:"ruleIdentifier"`
+	// ARN of the template.
+	TemplateIdentifier pulumi.StringPtrInput `pulumi:"templateIdentifier"`
+}
+
+func (PolicyTemplateOrRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTemplateOrRule)(nil)).Elem()
+}
+
+func (i PolicyTemplateOrRuleArgs) ToPolicyTemplateOrRuleOutput() PolicyTemplateOrRuleOutput {
+	return i.ToPolicyTemplateOrRuleOutputWithContext(context.Background())
+}
+
+func (i PolicyTemplateOrRuleArgs) ToPolicyTemplateOrRuleOutputWithContext(ctx context.Context) PolicyTemplateOrRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTemplateOrRuleOutput)
+}
+
+// PolicyTemplateOrRuleArrayInput is an input type that accepts PolicyTemplateOrRuleArray and PolicyTemplateOrRuleArrayOutput values.
+// You can construct a concrete instance of `PolicyTemplateOrRuleArrayInput` via:
+//
+//	PolicyTemplateOrRuleArray{ PolicyTemplateOrRuleArgs{...} }
+type PolicyTemplateOrRuleArrayInput interface {
+	pulumi.Input
+
+	ToPolicyTemplateOrRuleArrayOutput() PolicyTemplateOrRuleArrayOutput
+	ToPolicyTemplateOrRuleArrayOutputWithContext(context.Context) PolicyTemplateOrRuleArrayOutput
+}
+
+type PolicyTemplateOrRuleArray []PolicyTemplateOrRuleInput
+
+func (PolicyTemplateOrRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyTemplateOrRule)(nil)).Elem()
+}
+
+func (i PolicyTemplateOrRuleArray) ToPolicyTemplateOrRuleArrayOutput() PolicyTemplateOrRuleArrayOutput {
+	return i.ToPolicyTemplateOrRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyTemplateOrRuleArray) ToPolicyTemplateOrRuleArrayOutputWithContext(ctx context.Context) PolicyTemplateOrRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTemplateOrRuleArrayOutput)
+}
+
+type PolicyTemplateOrRuleOutput struct{ *pulumi.OutputState }
+
+func (PolicyTemplateOrRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTemplateOrRule)(nil)).Elem()
+}
+
+func (o PolicyTemplateOrRuleOutput) ToPolicyTemplateOrRuleOutput() PolicyTemplateOrRuleOutput {
+	return o
+}
+
+func (o PolicyTemplateOrRuleOutput) ToPolicyTemplateOrRuleOutputWithContext(ctx context.Context) PolicyTemplateOrRuleOutput {
+	return o
+}
+
+// ARN of the rule.
+func (o PolicyTemplateOrRuleOutput) RuleIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTemplateOrRule) *string { return v.RuleIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the template.
+func (o PolicyTemplateOrRuleOutput) TemplateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTemplateOrRule) *string { return v.TemplateIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type PolicyTemplateOrRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyTemplateOrRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyTemplateOrRule)(nil)).Elem()
+}
+
+func (o PolicyTemplateOrRuleArrayOutput) ToPolicyTemplateOrRuleArrayOutput() PolicyTemplateOrRuleArrayOutput {
+	return o
+}
+
+func (o PolicyTemplateOrRuleArrayOutput) ToPolicyTemplateOrRuleArrayOutputWithContext(ctx context.Context) PolicyTemplateOrRuleArrayOutput {
+	return o
+}
+
+func (o PolicyTemplateOrRuleArrayOutput) Index(i pulumi.IntInput) PolicyTemplateOrRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyTemplateOrRule {
+		return vs[0].([]PolicyTemplateOrRule)[vs[1].(int)]
+	}).(PolicyTemplateOrRuleOutput)
+}
+
 type ScopeScopeConfiguration struct {
 	// Accounts that are in scope. Organization administrators must set it, and single-account administrators must omit it. Adding or removing the block forces a new resource. See `scope_configuration.account_filter` Block below.
 	AccountFilter *ScopeScopeConfigurationAccountFilter `pulumi:"accountFilter"`
@@ -3841,6 +5393,26 @@ func (o ScopeScopeConfigurationResourceScopeIncludeExpressionOrAlbConfigPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeInput)(nil)).Elem(), AdminAccountAdminScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopePtrInput)(nil)).Elem(), AdminAccountAdminScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeFirewallTypeScopeInput)(nil)).Elem(), AdminAccountAdminScopeFirewallTypeScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeFirewallTypeScopePtrInput)(nil)).Elem(), AdminAccountAdminScopeFirewallTypeScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeScopeFilterInput)(nil)).Elem(), AdminAccountAdminScopeScopeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeScopeFilterPtrInput)(nil)).Elem(), AdminAccountAdminScopeScopeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeScopeFilterExcludeOnlyInput)(nil)).Elem(), AdminAccountAdminScopeScopeFilterExcludeOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeScopeFilterExcludeOnlyPtrInput)(nil)).Elem(), AdminAccountAdminScopeScopeFilterExcludeOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeScopeFilterIncludeOnlyInput)(nil)).Elem(), AdminAccountAdminScopeScopeFilterIncludeOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountAdminScopeScopeFilterIncludeOnlyPtrInput)(nil)).Elem(), AdminAccountAdminScopeScopeFilterIncludeOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountTimeoutsInput)(nil)).Elem(), AdminAccountTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountTimeoutsPtrInput)(nil)).Elem(), AdminAccountTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationInput)(nil)).Elem(), DeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationPtrInput)(nil)).Elem(), DeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyConfigurationInput)(nil)).Elem(), PolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyConfigurationPtrInput)(nil)).Elem(), PolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyConfigurationWafConfigInput)(nil)).Elem(), PolicyConfigurationWafConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyConfigurationWafConfigPtrInput)(nil)).Elem(), PolicyConfigurationWafConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTemplateOrRuleInput)(nil)).Elem(), PolicyTemplateOrRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTemplateOrRuleArrayInput)(nil)).Elem(), PolicyTemplateOrRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeScopeConfigurationInput)(nil)).Elem(), ScopeScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeScopeConfigurationPtrInput)(nil)).Elem(), ScopeScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeScopeConfigurationAccountFilterInput)(nil)).Elem(), ScopeScopeConfigurationAccountFilterArgs{})
@@ -3891,6 +5463,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeScopeConfigurationResourceScopeIncludeExpressionOrArrayInput)(nil)).Elem(), ScopeScopeConfigurationResourceScopeIncludeExpressionOrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeScopeConfigurationResourceScopeIncludeExpressionOrAlbConfigInput)(nil)).Elem(), ScopeScopeConfigurationResourceScopeIncludeExpressionOrAlbConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeScopeConfigurationResourceScopeIncludeExpressionOrAlbConfigPtrInput)(nil)).Elem(), ScopeScopeConfigurationResourceScopeIncludeExpressionOrAlbConfigArgs{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopePtrOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeFirewallTypeScopeOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeFirewallTypeScopePtrOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeScopeFilterOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeScopeFilterPtrOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeScopeFilterExcludeOnlyOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeScopeFilterExcludeOnlyPtrOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeScopeFilterIncludeOnlyOutput{})
+	pulumi.RegisterOutputType(AdminAccountAdminScopeScopeFilterIncludeOnlyPtrOutput{})
+	pulumi.RegisterOutputType(AdminAccountTimeoutsOutput{})
+	pulumi.RegisterOutputType(AdminAccountTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PolicyConfigurationOutput{})
+	pulumi.RegisterOutputType(PolicyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PolicyConfigurationWafConfigOutput{})
+	pulumi.RegisterOutputType(PolicyConfigurationWafConfigPtrOutput{})
+	pulumi.RegisterOutputType(PolicyTemplateOrRuleOutput{})
+	pulumi.RegisterOutputType(PolicyTemplateOrRuleArrayOutput{})
 	pulumi.RegisterOutputType(ScopeScopeConfigurationOutput{})
 	pulumi.RegisterOutputType(ScopeScopeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScopeScopeConfigurationAccountFilterOutput{})

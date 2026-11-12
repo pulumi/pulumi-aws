@@ -182,6 +182,47 @@ import (
 // }
 // ```
 //
+// ### Valkey Serverless with Public Endpoint
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
+//				CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
+//					DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
+//						Maximum: pulumi.Int(10),
+//						Unit:    pulumi.String("GB"),
+//					},
+//					EcpuPerSeconds: elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{
+//						&elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{
+//							Maximum: pulumi.Int(5000),
+//						},
+//					},
+//				},
+//				Engine:             pulumi.String("valkey"),
+//				Name:               pulumi.String("example"),
+//				MajorEngineVersion: pulumi.String("9"),
+//				ConnectionType:     pulumi.String("public"),
+//				UserGroupId:        pulumi.String("default.iam-user-group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
@@ -196,6 +237,8 @@ type ServerlessCache struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
+	// Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+	ConnectionType pulumi.StringOutput `pulumi:"connectionType"`
 	// Timestamp of when the serverless cache was created.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
@@ -278,6 +321,8 @@ type serverlessCacheState struct {
 	Arn *string `pulumi:"arn"`
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
+	// Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+	ConnectionType *string `pulumi:"connectionType"`
 	// Timestamp of when the serverless cache was created.
 	CreateTime *string `pulumi:"createTime"`
 	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
@@ -328,6 +373,8 @@ type ServerlessCacheState struct {
 	Arn pulumi.StringPtrInput
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
+	// Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+	ConnectionType pulumi.StringPtrInput
 	// Timestamp of when the serverless cache was created.
 	CreateTime pulumi.StringPtrInput
 	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
@@ -386,6 +433,8 @@ func ServerlessCacheExists(ctx *pulumi.Context,
 type serverlessCacheArgs struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
+	// Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+	ConnectionType *string `pulumi:"connectionType"`
 	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
@@ -424,6 +473,8 @@ type serverlessCacheArgs struct {
 type ServerlessCacheArgs struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
+	// Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+	ConnectionType pulumi.StringPtrInput
 	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
 	DailySnapshotTime pulumi.StringPtrInput
 	// User-provided description for the serverless cache. The default is NULL.
@@ -553,6 +604,11 @@ func (o ServerlessCacheOutput) Arn() pulumi.StringOutput {
 // Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 func (o ServerlessCacheOutput) CacheUsageLimits() ServerlessCacheCacheUsageLimitsPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheCacheUsageLimitsPtrOutput { return v.CacheUsageLimits }).(ServerlessCacheCacheUsageLimitsPtrOutput)
+}
+
+// Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+func (o ServerlessCacheOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.ConnectionType }).(pulumi.StringOutput)
 }
 
 // Timestamp of when the serverless cache was created.

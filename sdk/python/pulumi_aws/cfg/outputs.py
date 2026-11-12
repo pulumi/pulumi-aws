@@ -19,6 +19,8 @@ __all__ = [
     'ConfigurationAggregatorAccountAggregationSource',
     'ConfigurationAggregatorOrganizationAggregationSource',
     'ConformancePackInputParameter',
+    'ConnectorConnectorConfiguration',
+    'ConnectorConnectorConfigurationAzure',
     'DeliveryChannelSnapshotDeliveryProperties',
     'OrganizationConformancePackInputParameter',
     'RecorderRecordingGroup',
@@ -212,6 +214,73 @@ class ConformancePackInputParameter(dict):
         The input value.
         """
         return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class ConnectorConnectorConfiguration(dict):
+    def __init__(__self__, *,
+                 azure: Optional['outputs.ConnectorConnectorConfigurationAzure'] = None):
+        """
+        :param 'ConnectorConnectorConfigurationAzureArgs' azure: Configuration for an Azure connector. See `azure` Block below.
+        """
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> Optional['outputs.ConnectorConnectorConfigurationAzure']:
+        """
+        Configuration for an Azure connector. See `azure` Block below.
+        """
+        return pulumi.get(self, "azure")
+
+
+@pulumi.output_type
+class ConnectorConnectorConfigurationAzure(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientIdentifier":
+            suggest = "client_identifier"
+        elif key == "tenantIdentifier":
+            suggest = "tenant_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorConnectorConfigurationAzure. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorConnectorConfigurationAzure.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorConnectorConfigurationAzure.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_identifier: _builtins.str,
+                 tenant_identifier: _builtins.str):
+        """
+        :param _builtins.str client_identifier: Azure application (client) identifier that AWS uses to authenticate to the Azure environment.
+        :param _builtins.str tenant_identifier: Azure (Microsoft Entra ID) tenant identifier.
+        """
+        pulumi.set(__self__, "client_identifier", client_identifier)
+        pulumi.set(__self__, "tenant_identifier", tenant_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdentifier")
+    def client_identifier(self) -> _builtins.str:
+        """
+        Azure application (client) identifier that AWS uses to authenticate to the Azure environment.
+        """
+        return pulumi.get(self, "client_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIdentifier")
+    def tenant_identifier(self) -> _builtins.str:
+        """
+        Azure (Microsoft Entra ID) tenant identifier.
+        """
+        return pulumi.get(self, "tenant_identifier")
 
 
 @pulumi.output_type

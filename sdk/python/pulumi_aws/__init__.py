@@ -2429,6 +2429,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/guardrailResourcePolicy",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/guardrailResourcePolicy:GuardrailResourcePolicy": "GuardrailResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/guardrailVersion",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -2553,6 +2561,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cfg",
   "classes": {
    "aws:cfg/conformancePack:ConformancePack": "ConformancePack"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cfg/connector",
+  "fqn": "pulumi_aws.cfg",
+  "classes": {
+   "aws:cfg/connector:Connector": "Connector"
   }
  },
  {
@@ -4921,6 +4937,14 @@ _utilities.register(
   "fqn": "pulumi_aws.dsql",
   "classes": {
    "aws:dsql/clusterPolicy:ClusterPolicy": "ClusterPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dsql/stream",
+  "fqn": "pulumi_aws.dsql",
+  "classes": {
+   "aws:dsql/stream:Stream": "Stream"
   }
  },
  {
@@ -9789,6 +9813,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networksecuritymanager/adminAccount",
+  "fqn": "pulumi_aws.networksecuritymanager",
+  "classes": {
+   "aws:networksecuritymanager/adminAccount:AdminAccount": "AdminAccount"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networksecuritymanager/deployment",
+  "fqn": "pulumi_aws.networksecuritymanager",
+  "classes": {
+   "aws:networksecuritymanager/deployment:Deployment": "Deployment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networksecuritymanager/policy",
+  "fqn": "pulumi_aws.networksecuritymanager",
+  "classes": {
+   "aws:networksecuritymanager/policy:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networksecuritymanager/rule",
   "fqn": "pulumi_aws.networksecuritymanager",
   "classes": {
@@ -9801,6 +9849,14 @@ _utilities.register(
   "fqn": "pulumi_aws.networksecuritymanager",
   "classes": {
    "aws:networksecuritymanager/scope:Scope": "Scope"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networksecuritymanager/template",
+  "fqn": "pulumi_aws.networksecuritymanager",
+  "classes": {
+   "aws:networksecuritymanager/template:Template": "Template"
   }
  },
  {
@@ -10433,6 +10489,14 @@ _utilities.register(
   "fqn": "pulumi_aws.pinpoint",
   "classes": {
    "aws:pinpoint/smsvoicev2Pool:Smsvoicev2Pool": "Smsvoicev2Pool"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2ProtectConfiguration",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2ProtectConfiguration:Smsvoicev2ProtectConfiguration": "Smsvoicev2ProtectConfiguration"
   }
  },
  {

@@ -144,6 +144,43 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
+    /// ### Valkey Serverless with Public Endpoint
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
+    ///     {
+    ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
+    ///         {
+    ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
+    ///             {
+    ///                 Maximum = 10,
+    ///                 Unit = "GB",
+    ///             },
+    ///             EcpuPerSeconds = new[]
+    ///             {
+    ///                 new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs
+    ///                 {
+    ///                     Maximum = 5000,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Engine = "valkey",
+    ///         Name = "example",
+    ///         MajorEngineVersion = "9",
+    ///         ConnectionType = "public",
+    ///         UserGroupId = "default.iam-user-group",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Serverless Cache using the `Name`. For example:
@@ -166,6 +203,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("cacheUsageLimits")]
         public Output<Outputs.ServerlessCacheCacheUsageLimits?> CacheUsageLimits { get; private set; } = null!;
+
+        /// <summary>
+        /// Connectivity option for the cache. Valid values are `Vpc` (reachable only from within a VPC) and `Public` (reachable over the internet, `Valkey` only). Defaults to `Vpc`. A `Public` endpoint requires `Engine` `Valkey` with `MajorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `SubnetIds` or `SecurityGroupIds`. These `Public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `Plan`. This value cannot be changed after creation.
+        /// </summary>
+        [Output("connectionType")]
+        public Output<string> ConnectionType { get; private set; } = null!;
 
         /// <summary>
         /// Timestamp of when the serverless cache was created.
@@ -343,6 +386,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.ServerlessCacheCacheUsageLimitsArgs>? CacheUsageLimits { get; set; }
 
         /// <summary>
+        /// Connectivity option for the cache. Valid values are `Vpc` (reachable only from within a VPC) and `Public` (reachable over the internet, `Valkey` only). Defaults to `Vpc`. A `Public` endpoint requires `Engine` `Valkey` with `MajorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `SubnetIds` or `SecurityGroupIds`. These `Public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `Plan`. This value cannot be changed after creation.
+        /// </summary>
+        [Input("connectionType")]
+        public Input<string>? ConnectionType { get; set; }
+
+        /// <summary>
         /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         /// </summary>
         [Input("dailySnapshotTime")]
@@ -475,6 +524,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsGetArgs>? CacheUsageLimits { get; set; }
+
+        /// <summary>
+        /// Connectivity option for the cache. Valid values are `Vpc` (reachable only from within a VPC) and `Public` (reachable over the internet, `Valkey` only). Defaults to `Vpc`. A `Public` endpoint requires `Engine` `Valkey` with `MajorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `SubnetIds` or `SecurityGroupIds`. These `Public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `Plan`. This value cannot be changed after creation.
+        /// </summary>
+        [Input("connectionType")]
+        public Input<string>? ConnectionType { get; set; }
 
         /// <summary>
         /// Timestamp of when the serverless cache was created.

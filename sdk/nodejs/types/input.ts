@@ -493,6 +493,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    continuum?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     controltower?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
@@ -23824,6 +23828,24 @@ export namespace cfg {
         parameterValue: pulumi.Input<string>;
     }
 
+    export interface ConnectorConnectorConfiguration {
+        /**
+         * Configuration for an Azure connector. See `azure` Block below.
+         */
+        azure?: pulumi.Input<inputs.cfg.ConnectorConnectorConfigurationAzure | undefined>;
+    }
+
+    export interface ConnectorConnectorConfigurationAzure {
+        /**
+         * Azure application (client) identifier that AWS uses to authenticate to the Azure environment.
+         */
+        clientIdentifier: pulumi.Input<string>;
+        /**
+         * Azure (Microsoft Entra ID) tenant identifier.
+         */
+        tenantIdentifier: pulumi.Input<string>;
+    }
+
     export interface DeliveryChannelSnapshotDeliveryProperties {
         /**
          * The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
@@ -33550,7 +33572,7 @@ export namespace costexplorer {
 
     export interface GetTagsSortBy {
         /**
-         * Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
+         * Key used to sort the data. Valid values are: `BlendedCost`, `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`. The equivalent uppercase values (for example, `BLENDED_COST`) are also accepted.
          */
         key?: string;
         /**
@@ -33561,7 +33583,7 @@ export namespace costexplorer {
 
     export interface GetTagsSortByArgs {
         /**
-         * Key used to sort the data. AWS requires a key when `sortBy` is specified. Valid values are: `BLENDED_COST`, `UNBLENDED_COST`, `AMORTIZED_COST`, `NET_AMORTIZED_COST`, `NET_UNBLENDED_COST`, `USAGE_QUANTITY`, and `NORMALIZED_USAGE_AMOUNT`.
+         * Key used to sort the data. Valid values are: `BlendedCost`, `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`. The equivalent uppercase values (for example, `BLENDED_COST`) are also accepted.
          */
         key?: pulumi.Input<string | undefined>;
         /**
@@ -36761,6 +36783,35 @@ export namespace dsql {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface StreamTargetDefinition {
+        /**
+         * Kinesis stream target configuration. See `target_definition.kinesis` Block below.
+         */
+        kinesis: pulumi.Input<inputs.dsql.StreamTargetDefinitionKinesis>;
+    }
+
+    export interface StreamTargetDefinitionKinesis {
+        /**
+         * ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role ( arn:aws:iam::account-id:role/role-name ) or a role with a path prefix ( arn:aws:iam::account-id:role/service-role/role-name ), such as roles auto-created by the console.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * ARN of the Kinesis stream.
+         */
+        streamArn: pulumi.Input<string>;
+    }
+
+    export interface StreamTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -85204,6 +85255,124 @@ export namespace networkmanager {
 }
 
 export namespace networksecuritymanager {
+    export interface AdminAccountAdminScope {
+        /**
+         * Firewall types that the administrator can create and manage. See `firewallTypeScope` Block below.
+         */
+        firewallTypeScope?: pulumi.Input<inputs.networksecuritymanager.AdminAccountAdminScopeFirewallTypeScope | undefined>;
+        /**
+         * Accounts and OUs that are in the administrator's scope. See `scopeFilter` Block below.
+         */
+        scopeFilter?: pulumi.Input<inputs.networksecuritymanager.AdminAccountAdminScopeScopeFilter | undefined>;
+    }
+
+    export interface AdminAccountAdminScopeFirewallTypeScope {
+        /**
+         * Whether to allow the administrator to manage all firewall types.
+         */
+        allFirewallTypesEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set of firewall types that the administrator can manage. Valid values: `WAF`, `SHIELD_ADVANCED`.
+         */
+        firewallTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface AdminAccountAdminScopeScopeFilter {
+        /**
+         * Accounts and OUs to exclude from the administrator's scope; everything else is in scope. See `excludeOnly` Block below.
+         */
+        excludeOnly?: pulumi.Input<inputs.networksecuritymanager.AdminAccountAdminScopeScopeFilterExcludeOnly | undefined>;
+        /**
+         * Whether to include all accounts and OUs of the organization in scope. Must be `true` if set.
+         */
+        includeAll?: pulumi.Input<boolean | undefined>;
+        /**
+         * Only the specified accounts and OUs are in the administrator's scope. See `includeOnly` Block below.
+         */
+        includeOnly?: pulumi.Input<inputs.networksecuritymanager.AdminAccountAdminScopeScopeFilterIncludeOnly | undefined>;
+    }
+
+    export interface AdminAccountAdminScopeScopeFilterExcludeOnly {
+        /**
+         * Set of AWS account IDs.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+         */
+        organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface AdminAccountAdminScopeScopeFilterIncludeOnly {
+        /**
+         * Set of AWS account IDs.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+         */
+        organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface AdminAccountTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DeploymentConfiguration {
+        /**
+         * Whether to enable cross-account visibility for the deployment.
+         */
+        enableCrossAccountVisibility: pulumi.Input<boolean>;
+    }
+
+    export interface PolicyConfiguration {
+        /**
+         * Whether to automatically remediate noncompliant resources.
+         */
+        remediationEnabled: pulumi.Input<boolean>;
+        /**
+         * Whether to automatically remove the resources the service created when they are no longer needed. The service currently only accepts `true`.
+         */
+        resourcesCleanUp: pulumi.Input<boolean>;
+        /**
+         * AWS WAF-specific settings. Required for `WAF` policies. See `wafConfig` below.
+         */
+        wafConfig?: pulumi.Input<inputs.networksecuritymanager.PolicyConfigurationWafConfig | undefined>;
+    }
+
+    export interface PolicyConfigurationWafConfig {
+        /**
+         * Conflict-resolution strategy. Valid values: `MERGE_WHERE_APPLICABLE`.
+         */
+        conflictResolution: pulumi.Input<string>;
+        /**
+         * How remediation is handled when a resource already has a customer-created web ACL. Valid values: `RETROFIT`, `OVERRIDE_ASSOCIATION`, `NO_REMEDIATION`.
+         */
+        existingCustomerWebAclResolution: pulumi.Input<string>;
+    }
+
+    export interface PolicyTemplateOrRule {
+        /**
+         * ARN of the rule.
+         */
+        ruleIdentifier?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the template.
+         */
+        templateIdentifier?: pulumi.Input<string | undefined>;
+    }
+
     export interface ScopeScopeConfiguration {
         /**
          * Accounts that are in scope. Organization administrators must set it, and single-account administrators must omit it. Adding or removing the block forces a new resource. See `scope_configuration.account_filter` Block below.
@@ -104754,13 +104923,45 @@ export namespace securityhub {
 
     export interface ConnectorV2ConnectorProvider {
         /**
+         * Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+         */
+        azure?: pulumi.Input<inputs.securityhub.ConnectorV2ConnectorProviderAzure | undefined>;
+        /**
          * Details about a Jira Cloud integration. See `jiraCloud` below.
          */
         jiraCloud?: pulumi.Input<inputs.securityhub.ConnectorV2ConnectorProviderJiraCloud | undefined>;
         /**
          * Details about a ServiceNow ITSM integration. See `serviceNow` below.
+         *
+         * Exactly one of `azure`, `jiraCloud`, or `serviceNow` must be specified.
          */
         serviceNow?: pulumi.Input<inputs.securityhub.ConnectorV2ConnectorProviderServiceNow | undefined>;
+    }
+
+    export interface ConnectorV2ConnectorProviderAzure {
+        /**
+         * ARN of the AWS Config multi-cloud connector used to establish the connection to Azure. See `aws.cfg.Connector`.
+         */
+        awsConfigConnectorArn: pulumi.Input<string>;
+        /**
+         * Set of Azure regions to monitor.
+         */
+        azureRegions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Scope configuration that defines which Azure resources are monitored. See `scopeConfiguration` below.
+         */
+        scopeConfiguration: pulumi.Input<inputs.securityhub.ConnectorV2ConnectorProviderAzureScopeConfiguration>;
+    }
+
+    export interface ConnectorV2ConnectorProviderAzureScopeConfiguration {
+        /**
+         * Type of scope. Valid values are `TENANT` and `SUBSCRIPTION`.
+         */
+        scopeType: pulumi.Input<string>;
+        /**
+         * Set of scope values, such as Azure subscription IDs, when `scopeType` is `SUBSCRIPTION`.
+         */
+        scopeValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface ConnectorV2ConnectorProviderJiraCloud {

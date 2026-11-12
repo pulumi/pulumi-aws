@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ClusterEncryptionDetail',
@@ -20,6 +21,9 @@ __all__ = [
     'ClusterPeeringTimeouts',
     'ClusterPolicyTimeouts',
     'ClusterTimeouts',
+    'StreamTargetDefinition',
+    'StreamTargetDefinitionKinesis',
+    'StreamTimeouts',
 ]
 
 @pulumi.output_type
@@ -221,5 +225,102 @@ class ClusterTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class StreamTargetDefinition(dict):
+    def __init__(__self__, *,
+                 kinesis: 'outputs.StreamTargetDefinitionKinesis'):
+        """
+        :param 'StreamTargetDefinitionKinesisArgs' kinesis: Kinesis stream target configuration. See `target_definition.kinesis` Block below.
+        """
+        pulumi.set(__self__, "kinesis", kinesis)
+
+    @_builtins.property
+    @pulumi.getter
+    def kinesis(self) -> 'outputs.StreamTargetDefinitionKinesis':
+        """
+        Kinesis stream target configuration. See `target_definition.kinesis` Block below.
+        """
+        return pulumi.get(self, "kinesis")
+
+
+@pulumi.output_type
+class StreamTargetDefinitionKinesis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamTargetDefinitionKinesis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamTargetDefinitionKinesis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamTargetDefinitionKinesis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 stream_arn: _builtins.str):
+        """
+        :param _builtins.str role_arn: ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role ( arn:aws:iam::account-id:role/role-name ) or a role with a path prefix ( arn:aws:iam::account-id:role/service-role/role-name ), such as roles auto-created by the console.
+        :param _builtins.str stream_arn: ARN of the Kinesis stream.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role ( arn:aws:iam::account-id:role/role-name ) or a role with a path prefix ( arn:aws:iam::account-id:role/service-role/role-name ), such as roles auto-created by the console.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> _builtins.str:
+        """
+        ARN of the Kinesis stream.
+        """
+        return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
+class StreamTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
 
 

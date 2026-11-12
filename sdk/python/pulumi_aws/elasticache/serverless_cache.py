@@ -23,6 +23,7 @@ class ServerlessCacheArgs:
     def __init__(__self__, *,
                  engine: pulumi.Input[_builtins.str],
                  cache_usage_limits: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -42,6 +43,7 @@ class ServerlessCacheArgs:
 
         :param pulumi.Input[_builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        :param pulumi.Input[_builtins.str] connection_type: Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `major_engine_version` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnet_ids` or `security_group_ids`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
         :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         :param pulumi.Input[_builtins.str] description: User-provided description for the serverless cache. The default is NULL.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
@@ -62,6 +64,8 @@ class ServerlessCacheArgs:
         pulumi.set(__self__, "engine", engine)
         if cache_usage_limits is not None:
             pulumi.set(__self__, "cache_usage_limits", cache_usage_limits)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
         if daily_snapshot_time is not None:
             pulumi.set(__self__, "daily_snapshot_time", daily_snapshot_time)
         if description is not None:
@@ -114,6 +118,18 @@ class ServerlessCacheArgs:
     @cache_usage_limits.setter
     def cache_usage_limits(self, value: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']]):
         pulumi.set(self, "cache_usage_limits", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `major_engine_version` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnet_ids` or `security_group_ids`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dailySnapshotTime")
@@ -289,6 +305,7 @@ class _ServerlessCacheState:
     def __init__(__self__, *,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  cache_usage_limits: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  create_time: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -315,6 +332,7 @@ class _ServerlessCacheState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the serverless cache.
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        :param pulumi.Input[_builtins.str] connection_type: Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `major_engine_version` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnet_ids` or `security_group_ids`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
         :param pulumi.Input[_builtins.str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         :param pulumi.Input[_builtins.str] description: User-provided description for the serverless cache. The default is NULL.
@@ -342,6 +360,8 @@ class _ServerlessCacheState:
             pulumi.set(__self__, "arn", arn)
         if cache_usage_limits is not None:
             pulumi.set(__self__, "cache_usage_limits", cache_usage_limits)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
         if create_time is not None:
             pulumi.set(__self__, "create_time", create_time)
         if daily_snapshot_time is not None:
@@ -408,6 +428,18 @@ class _ServerlessCacheState:
     @cache_usage_limits.setter
     def cache_usage_limits(self, value: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']]):
         pulumi.set(self, "cache_usage_limits", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `major_engine_version` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnet_ids` or `security_group_ids`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -666,6 +698,7 @@ class ServerlessCache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict', 'outputs.ServerlessCacheCacheUsageLimits']]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  engine: pulumi.Input[Optional[_builtins.str]] = None,
@@ -766,6 +799,29 @@ class ServerlessCache(pulumi.CustomResource):
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
 
+        ### Valkey Serverless with Public Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.ServerlessCache("example",
+            cache_usage_limits={
+                "data_storage": {
+                    "maximum": 10,
+                    "unit": "GB",
+                },
+                "ecpu_per_seconds": [{
+                    "maximum": 5000,
+                }],
+            },
+            engine="valkey",
+            name="example",
+            major_engine_version="9",
+            connection_type="public",
+            user_group_id="default.iam-user-group")
+        ```
+
         ## Import
 
         Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
@@ -778,6 +834,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict', 'outputs.ServerlessCacheCacheUsageLimits']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        :param pulumi.Input[_builtins.str] connection_type: Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `major_engine_version` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnet_ids` or `security_group_ids`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
         :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         :param pulumi.Input[_builtins.str] description: User-provided description for the serverless cache. The default is NULL.
         :param pulumi.Input[_builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
@@ -886,6 +943,29 @@ class ServerlessCache(pulumi.CustomResource):
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
 
+        ### Valkey Serverless with Public Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.ServerlessCache("example",
+            cache_usage_limits={
+                "data_storage": {
+                    "maximum": 10,
+                    "unit": "GB",
+                },
+                "ecpu_per_seconds": [{
+                    "maximum": 5000,
+                }],
+            },
+            engine="valkey",
+            name="example",
+            major_engine_version="9",
+            connection_type="public",
+            user_group_id="default.iam-user-group")
+        ```
+
         ## Import
 
         Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
@@ -911,6 +991,7 @@ class ServerlessCache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict', 'outputs.ServerlessCacheCacheUsageLimits']]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  engine: pulumi.Input[Optional[_builtins.str]] = None,
@@ -936,6 +1017,7 @@ class ServerlessCache(pulumi.CustomResource):
             __props__ = ServerlessCacheArgs.__new__(ServerlessCacheArgs)
 
             __props__.__dict__["cache_usage_limits"] = cache_usage_limits
+            __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["daily_snapshot_time"] = daily_snapshot_time
             __props__.__dict__["description"] = description
             if engine is None and not opts.urn:
@@ -972,6 +1054,7 @@ class ServerlessCache(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict', 'outputs.ServerlessCacheCacheUsageLimits']]] = None,
+            connection_type: pulumi.Input[Optional[_builtins.str]] = None,
             create_time: pulumi.Input[Optional[_builtins.str]] = None,
             daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1002,6 +1085,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the serverless cache.
         :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict', 'outputs.ServerlessCacheCacheUsageLimits']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        :param pulumi.Input[_builtins.str] connection_type: Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `major_engine_version` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnet_ids` or `security_group_ids`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
         :param pulumi.Input[_builtins.str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         :param pulumi.Input[_builtins.str] description: User-provided description for the serverless cache. The default is NULL.
@@ -1031,6 +1115,7 @@ class ServerlessCache(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cache_usage_limits"] = cache_usage_limits
+        __props__.__dict__["connection_type"] = connection_type
         __props__.__dict__["create_time"] = create_time
         __props__.__dict__["daily_snapshot_time"] = daily_snapshot_time
         __props__.__dict__["description"] = description
@@ -1059,6 +1144,7 @@ class ServerlessCache(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict', 'outputs.ServerlessCacheCacheUsageLimits']]] = None,
+            connection_type: pulumi.Input[Optional[_builtins.str]] = None,
             create_time: pulumi.Input[Optional[_builtins.str]] = None,
             daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1083,6 +1169,7 @@ class ServerlessCache(pulumi.CustomResource):
         __props__: dict = {}
         __props__["arn"] = arn
         __props__["cacheUsageLimits"] = cache_usage_limits
+        __props__["connectionType"] = connection_type
         __props__["createTime"] = create_time
         __props__["dailySnapshotTime"] = daily_snapshot_time
         __props__["description"] = description
@@ -1121,6 +1208,14 @@ class ServerlessCache(pulumi.CustomResource):
         Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         """
         return pulumi.get(self, "cache_usage_limits")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `major_engine_version` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnet_ids` or `security_group_ids`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+        """
+        return pulumi.get(self, "connection_type")
 
     @_builtins.property
     @pulumi.getter(name="createTime")

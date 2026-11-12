@@ -94,6 +94,30 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Valkey Serverless with Public Endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.elasticache.ServerlessCache("example", {
+ *     cacheUsageLimits: {
+ *         dataStorage: {
+ *             maximum: 10,
+ *             unit: "GB",
+ *         },
+ *         ecpuPerSeconds: [{
+ *             maximum: 5000,
+ *         }],
+ *     },
+ *     engine: "valkey",
+ *     name: "example",
+ *     majorEngineVersion: "9",
+ *     connectionType: "public",
+ *     userGroupId: "default.iam-user-group",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
@@ -149,6 +173,10 @@ export class ServerlessCache extends pulumi.CustomResource {
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
     declare public readonly cacheUsageLimits: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
+    /**
+     * Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+     */
+    declare public readonly connectionType: pulumi.Output<string>;
     /**
      * Timestamp of when the serverless cache was created.
      */
@@ -246,6 +274,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             const state = argsOrState as ServerlessCacheState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["cacheUsageLimits"] = state?.cacheUsageLimits;
+            resourceInputs["connectionType"] = state?.connectionType;
             resourceInputs["createTime"] = state?.createTime;
             resourceInputs["dailySnapshotTime"] = state?.dailySnapshotTime;
             resourceInputs["description"] = state?.description;
@@ -273,6 +302,7 @@ export class ServerlessCache extends pulumi.CustomResource {
                 throw new Error("Missing required property 'engine'");
             }
             resourceInputs["cacheUsageLimits"] = args?.cacheUsageLimits;
+            resourceInputs["connectionType"] = args?.connectionType;
             resourceInputs["dailySnapshotTime"] = args?.dailySnapshotTime;
             resourceInputs["description"] = args?.description;
             resourceInputs["engine"] = args?.engine;
@@ -313,6 +343,10 @@ export interface ServerlessCacheState {
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
+    /**
+     * Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+     */
+    connectionType?: pulumi.Input<string | undefined>;
     /**
      * Timestamp of when the serverless cache was created.
      */
@@ -404,6 +438,10 @@ export interface ServerlessCacheArgs {
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
+    /**
+     * Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+     */
+    connectionType?: pulumi.Input<string | undefined>;
     /**
      * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
      */

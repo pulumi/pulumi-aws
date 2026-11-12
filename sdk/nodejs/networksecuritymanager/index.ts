@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AdminAccountArgs, AdminAccountState } from "./adminAccount";
+export type AdminAccount = import("./adminAccount").AdminAccount;
+export const AdminAccount: typeof import("./adminAccount").AdminAccount = null as any;
+utilities.lazyLoad(exports, ["AdminAccount"], () => require("./adminAccount"));
+
+export { DeploymentArgs, DeploymentState } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
 export { RuleArgs, RuleState } from "./rule";
 export type Rule = import("./rule").Rule;
 export const Rule: typeof import("./rule").Rule = null as any;
@@ -15,19 +30,36 @@ export type Scope = import("./scope").Scope;
 export const Scope: typeof import("./scope").Scope = null as any;
 utilities.lazyLoad(exports, ["Scope"], () => require("./scope"));
 
+export { TemplateArgs, TemplateState } from "./template";
+export type Template = import("./template").Template;
+export const Template: typeof import("./template").Template = null as any;
+utilities.lazyLoad(exports, ["Template"], () => require("./template"));
+
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:networksecuritymanager/adminAccount:AdminAccount":
+                return new AdminAccount(name, <any>undefined, { urn })
+            case "aws:networksecuritymanager/deployment:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
+            case "aws:networksecuritymanager/policy:Policy":
+                return new Policy(name, <any>undefined, { urn })
             case "aws:networksecuritymanager/rule:Rule":
                 return new Rule(name, <any>undefined, { urn })
             case "aws:networksecuritymanager/scope:Scope":
                 return new Scope(name, <any>undefined, { urn })
+            case "aws:networksecuritymanager/template:Template":
+                return new Template(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "networksecuritymanager/adminAccount", _module)
+pulumi.runtime.registerResourceModule("aws", "networksecuritymanager/deployment", _module)
+pulumi.runtime.registerResourceModule("aws", "networksecuritymanager/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "networksecuritymanager/rule", _module)
 pulumi.runtime.registerResourceModule("aws", "networksecuritymanager/scope", _module)
+pulumi.runtime.registerResourceModule("aws", "networksecuritymanager/template", _module)

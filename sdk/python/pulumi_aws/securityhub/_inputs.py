@@ -149,6 +149,10 @@ __all__ = [
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgsDict',
     'ConnectorV2ConnectorProviderArgs',
     'ConnectorV2ConnectorProviderArgsDict',
+    'ConnectorV2ConnectorProviderAzureArgs',
+    'ConnectorV2ConnectorProviderAzureArgsDict',
+    'ConnectorV2ConnectorProviderAzureScopeConfigurationArgs',
+    'ConnectorV2ConnectorProviderAzureScopeConfigurationArgsDict',
     'ConnectorV2ConnectorProviderJiraCloudArgs',
     'ConnectorV2ConnectorProviderJiraCloudArgsDict',
     'ConnectorV2ConnectorProviderServiceNowArgs',
@@ -4079,6 +4083,10 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
 
 
 class ConnectorV2ConnectorProviderArgsDict(TypedDict):
+    azure: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderAzureArgsDict']]]
+    """
+    Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+    """
     jira_cloud: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderJiraCloudArgsDict']]]
     """
     Details about a Jira Cloud integration. See `jira_cloud` below.
@@ -4086,21 +4094,41 @@ class ConnectorV2ConnectorProviderArgsDict(TypedDict):
     service_now: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgsDict']]]
     """
     Details about a ServiceNow ITSM integration. See `service_now` below.
+
+    Exactly one of `azure`, `jira_cloud`, or `service_now` must be specified.
     """
 
 @pulumi.input_type
 class ConnectorV2ConnectorProviderArgs:
     def __init__(__self__, *,
+                 azure: pulumi.Input[Optional['ConnectorV2ConnectorProviderAzureArgs']] = None,
                  jira_cloud: pulumi.Input[Optional['ConnectorV2ConnectorProviderJiraCloudArgs']] = None,
                  service_now: pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgs']] = None):
         """
+        :param pulumi.Input['ConnectorV2ConnectorProviderAzureArgs'] azure: Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
         :param pulumi.Input['ConnectorV2ConnectorProviderJiraCloudArgs'] jira_cloud: Details about a Jira Cloud integration. See `jira_cloud` below.
         :param pulumi.Input['ConnectorV2ConnectorProviderServiceNowArgs'] service_now: Details about a ServiceNow ITSM integration. See `service_now` below.
+               
+               Exactly one of `azure`, `jira_cloud`, or `service_now` must be specified.
         """
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
         if jira_cloud is not None:
             pulumi.set(__self__, "jira_cloud", jira_cloud)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> pulumi.Input[Optional['ConnectorV2ConnectorProviderAzureArgs']]:
+        """
+        Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+        """
+        return pulumi.get(self, "azure")
+
+    @azure.setter
+    def azure(self, value: pulumi.Input[Optional['ConnectorV2ConnectorProviderAzureArgs']]):
+        pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter(name="jiraCloud")
@@ -4119,12 +4147,128 @@ class ConnectorV2ConnectorProviderArgs:
     def service_now(self) -> pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgs']]:
         """
         Details about a ServiceNow ITSM integration. See `service_now` below.
+
+        Exactly one of `azure`, `jira_cloud`, or `service_now` must be specified.
         """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
     def service_now(self, value: pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgs']]):
         pulumi.set(self, "service_now", value)
+
+
+class ConnectorV2ConnectorProviderAzureArgsDict(TypedDict):
+    aws_config_connector_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AWS Config multi-cloud connector used to establish the connection to Azure. See `cfg.Connector`.
+    """
+    azure_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of Azure regions to monitor.
+    """
+    scope_configuration: pulumi.Input['ConnectorV2ConnectorProviderAzureScopeConfigurationArgsDict']
+    """
+    Scope configuration that defines which Azure resources are monitored. See `scope_configuration` below.
+    """
+
+@pulumi.input_type
+class ConnectorV2ConnectorProviderAzureArgs:
+    def __init__(__self__, *,
+                 aws_config_connector_arn: pulumi.Input[_builtins.str],
+                 azure_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 scope_configuration: pulumi.Input['ConnectorV2ConnectorProviderAzureScopeConfigurationArgs']):
+        """
+        :param pulumi.Input[_builtins.str] aws_config_connector_arn: ARN of the AWS Config multi-cloud connector used to establish the connection to Azure. See `cfg.Connector`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] azure_regions: Set of Azure regions to monitor.
+        :param pulumi.Input['ConnectorV2ConnectorProviderAzureScopeConfigurationArgs'] scope_configuration: Scope configuration that defines which Azure resources are monitored. See `scope_configuration` below.
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "azure_regions", azure_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS Config multi-cloud connector used to establish the connection to Azure. See `cfg.Connector`.
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @aws_config_connector_arn.setter
+    def aws_config_connector_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "aws_config_connector_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureRegions")
+    def azure_regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of Azure regions to monitor.
+        """
+        return pulumi.get(self, "azure_regions")
+
+    @azure_regions.setter
+    def azure_regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "azure_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> pulumi.Input['ConnectorV2ConnectorProviderAzureScopeConfigurationArgs']:
+        """
+        Scope configuration that defines which Azure resources are monitored. See `scope_configuration` below.
+        """
+        return pulumi.get(self, "scope_configuration")
+
+    @scope_configuration.setter
+    def scope_configuration(self, value: pulumi.Input['ConnectorV2ConnectorProviderAzureScopeConfigurationArgs']):
+        pulumi.set(self, "scope_configuration", value)
+
+
+class ConnectorV2ConnectorProviderAzureScopeConfigurationArgsDict(TypedDict):
+    scope_type: pulumi.Input[_builtins.str]
+    """
+    Type of scope. Valid values are `TENANT` and `SUBSCRIPTION`.
+    """
+    scope_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of scope values, such as Azure subscription IDs, when `scope_type` is `SUBSCRIPTION`.
+    """
+
+@pulumi.input_type
+class ConnectorV2ConnectorProviderAzureScopeConfigurationArgs:
+    def __init__(__self__, *,
+                 scope_type: pulumi.Input[_builtins.str],
+                 scope_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] scope_type: Type of scope. Valid values are `TENANT` and `SUBSCRIPTION`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: Set of scope values, such as Azure subscription IDs, when `scope_type` is `SUBSCRIPTION`.
+        """
+        pulumi.set(__self__, "scope_type", scope_type)
+        if scope_values is not None:
+            pulumi.set(__self__, "scope_values", scope_values)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of scope. Valid values are `TENANT` and `SUBSCRIPTION`.
+        """
+        return pulumi.get(self, "scope_type")
+
+    @scope_type.setter
+    def scope_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scope_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeValues")
+    def scope_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of scope values, such as Azure subscription IDs, when `scope_type` is `SUBSCRIPTION`.
+        """
+        return pulumi.get(self, "scope_values")
+
+    @scope_values.setter
+    def scope_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "scope_values", value)
 
 
 class ConnectorV2ConnectorProviderJiraCloudArgsDict(TypedDict):

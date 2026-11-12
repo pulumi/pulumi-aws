@@ -592,7 +592,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel2VgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`.
+        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
         /// </summary>
         [Output("tunnelBandwidth")]
         public Output<string> TunnelBandwidth { get; private set; } = null!;
@@ -1108,7 +1108,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tunnel2StartupAction { get; set; }
 
         /// <summary>
-        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`.
+        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
         /// </summary>
         [Input("tunnelBandwidth")]
         public Input<string>? TunnelBandwidth { get; set; }
@@ -1704,7 +1704,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tunnel2VgwInsideAddress { get; set; }
 
         /// <summary>
-        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`.
+        /// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `Standard` supports up to 1.25 Gbps per tunnel, while `Large` supports up to 5 Gbps per tunnel. Not supported when `VpnGatewayId` is specified, or `EnableAcceleration` is `True`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
         /// </summary>
         [Input("tunnelBandwidth")]
         public Input<string>? TunnelBandwidth { get; set; }

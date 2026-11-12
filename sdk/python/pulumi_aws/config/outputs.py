@@ -328,6 +328,7 @@ class Endpoints(dict):
                  configservice: Optional[_builtins.str] = None,
                  connect: Optional[_builtins.str] = None,
                  connectcases: Optional[_builtins.str] = None,
+                 continuum: Optional[_builtins.str] = None,
                  controltower: Optional[_builtins.str] = None,
                  costandusagereportservice: Optional[_builtins.str] = None,
                  costexplorer: Optional[_builtins.str] = None,
@@ -657,6 +658,7 @@ class Endpoints(dict):
         :param _builtins.str configservice: Use this to override the default service endpoint URL
         :param _builtins.str connect: Use this to override the default service endpoint URL
         :param _builtins.str connectcases: Use this to override the default service endpoint URL
+        :param _builtins.str continuum: Use this to override the default service endpoint URL
         :param _builtins.str controltower: Use this to override the default service endpoint URL
         :param _builtins.str costandusagereportservice: Use this to override the default service endpoint URL
         :param _builtins.str costexplorer: Use this to override the default service endpoint URL
@@ -1072,6 +1074,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "connect", connect)
         if connectcases is not None:
             pulumi.set(__self__, "connectcases", connectcases)
+        if continuum is not None:
+            pulumi.set(__self__, "continuum", continuum)
         if controltower is not None:
             pulumi.set(__self__, "controltower", controltower)
         if costandusagereportservice is not None:
@@ -2244,6 +2248,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "connectcases")
+
+    @_builtins.property
+    @pulumi.getter
+    def continuum(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "continuum")
 
     @_builtins.property
     @pulumi.getter
