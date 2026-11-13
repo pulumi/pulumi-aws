@@ -235,10 +235,7 @@ func validateCredentials(vars resource.PropertyMap, _ shim.ResourceConfig) error
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
 		return tfbridge.CheckFailureError{
 			Failures: []tfbridge.CheckFailureErrorElement{
-				{
-					Reason:   credentialsFailureReason(formatDiags(diag), config),
-					Property: "",
-				},
+				credentialsFailure(formatDiags(diag), config),
 			},
 		}
 	}
