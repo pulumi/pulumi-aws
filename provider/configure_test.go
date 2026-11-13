@@ -199,34 +199,23 @@ func TestMissingCredentialsRemediation(t *testing.T) {
 	require.NoError(t, os.WriteFile(filepath.Join(bin, "aws"), []byte(script), 0o700))
 	t.Setenv("PATH", bin)
 
-	replaySequence(t, `
-	[{
-		"method": "/pulumirpc.ResourceProvider/CheckConfig",
-		"request": {
-			"urn": "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
-			"olds": {},
-			"news": {
-				"version": "6.18.2",
-				"region": "us-west-2"
-			}
-		},
-		"response": {
-			"inputs": "*",
-			"failures": [
-				{
-					"reason": "*",
-					"remediations": [
-						{
-							"description": "Sign in to AWS",
-							"command": ["aws", "login", "--region", "us-west-2"],
-							"env": {"AWS_CLI_AGENT_TOOLKIT_HINT_DISABLED": "true"},
-							"interactive": true
-						}
-					]
-				}
-			]
-		}
-	}]`)
+	info := *Provider()
+	// The schema is left blank, as in replaySequence.
+	p, err := pfbridge.MakeMuxedServer(context.Background(), info.Name, info, []byte("{}"))(nil)
+	require.NoError(t, err)
+
+	// Remediations are only carried by CheckConfig2, which the replay harness does not support yet.
+	resp, err := p.CheckConfig2(context.Background(), &pulumirpc.CheckConfigRequest{
+		Urn:  "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
+		News: mustStruct(t, map[string]any{"version": "6.18.2", "region": "us-west-2"}),
+	})
+	require.NoError(t, err)
+	require.Len(t, resp.GetFailures(), 1)
+	require.Len(t, resp.GetFailures()[0].GetRemediations(), 1)
+	remediation := resp.GetFailures()[0].GetRemediations()[0]
+	require.Equal(t, "Sign in to AWS", remediation.GetDescription())
+	require.Equal(t, []string{"aws", "login", "--region", "us-west-2"}, remediation.GetCommand())
+	require.Equal(t, map[string]string{"AWS_CLI_AGENT_TOOLKIT_HINT_DISABLED": "true"}, remediation.GetEnv())
 }
 
 func TestMissingRegionErrorMessage(t *testing.T) {
