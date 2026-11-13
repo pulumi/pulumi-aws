@@ -13,6 +13,7 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 //go:embed errors/*.txt
@@ -28,20 +29,49 @@ var credentialsErrors = []struct {
 	template string
 	// signIn is the AWS CLI sign-in that the message recommends, if any.
 	signIn *awsSignInCommand
+	// hint is set when short-lived credentials may help with the failure, so that the Pulumi CLI can suggest them
+	// with the text in hintMessages.
+	hint pulumirpc.Hint
 }{
 	// Normally it'd query sts.REGION.amazonaws.com
 	// but if we query sts..amazonaws.com, then we don't have a region.
-	{[]string{"endpoint rule error, Invalid Configuration: Missing Region"}, "no_region.txt", nil},
-	{[]string{"no EC2 IMDS role found"}, "no_credentials.txt", awsLogin},
+	{markers: []string{"endpoint rule error, Invalid Configuration: Missing Region"}, template: "no_region.txt"},
+	{
+		markers:  []string{"no EC2 IMDS role found"},
+		template: "no_credentials.txt",
+		signIn:   awsLogin,
+		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+	},
 	// STS reports long-expired session tokens as invalid, so one message covers both.
-	{[]string{
-		"The security token included in the request is invalid",
-		"The security token included in the request is expired",
-	}, "invalid_credentials.txt", nil},
-	{[]string{"failed to get shared config profile"}, "profile_not_found.txt", nil},
-	{[]string{"process provider error"}, "credential_process.txt", nil},
-	{[]string{"login token", "oauth2 token", "login session"}, "expired_login.txt", awsLogin},
-	{[]string{"SSO token", "SSO session"}, "expired_sso.txt", awsSSOLogin},
+	{
+		markers: []string{
+			"The security token included in the request is invalid",
+			"The security token included in the request is expired",
+		},
+		template: "invalid_credentials.txt",
+		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+	},
+	{markers: []string{"failed to get shared config profile"}, template: "profile_not_found.txt"},
+	{markers: []string{"process provider error"}, template: "credential_process.txt"},
+	{
+		markers:  []string{"login token", "oauth2 token", "login session"},
+		template: "expired_login.txt",
+		signIn:   awsLogin,
+		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+	},
+	{
+		markers:  []string{"SSO token", "SSO session"},
+		template: "expired_sso.txt",
+		signIn:   awsSSOLogin,
+		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+	},
+}
+
+// hintMessages holds the text of each product hint that a credentials failure can carry.
+var hintMessages = map[pulumirpc.Hint]string{
+	pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS: "Pulumi ESC can give your stacks short-lived AWS credentials through OIDC. " +
+		"To set it up, run `pulumi env setup aws`.\nLearn more: " +
+		"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc", //nolint:lll // URL
 }
 
 const maxListedProfiles = 10
@@ -75,13 +105,14 @@ func (d credentialsErrorData) ProfileFlag() string {
 	}
 }
 
-// credentialsFailure turns the diagnostics of a failed credentials validation into an actionable failure. When the
-// message recommends an AWS CLI sign-in that this machine can run, the failure also offers it as a remediation.
+// credentialsFailure turns the diagnostics of a failed credentials validation into a check failure with an
+// actionable message, and the product hint relevant to it, if any. When the message recommends an AWS CLI sign-in
+// that this machine can run, the failure also offers it as a remediation.
 func credentialsFailure(
 	ctx context.Context, formattedDiag string, config *awsbase.Config, cli awsCLI,
 ) tfbridge.CheckFailureErrorElement {
-	reason, signIn := credentialsFailureReason(formattedDiag, config)
-	failure := tfbridge.CheckFailureErrorElement{Reason: reason}
+	reason, signIn, hint := credentialsFailureReason(formattedDiag, config)
+	failure := tfbridge.CheckFailureErrorElement{Reason: reason, Hint: hint, HintMessage: hintMessages[hint]}
 	if signIn != nil {
 		if r, ok := signIn.remediation(ctx, cli, config); ok {
 			failure.Remediations = []tfbridge.CommandRemediation{r}
@@ -91,8 +122,10 @@ func credentialsFailure(
 }
 
 // credentialsFailureReason turns the diagnostics of a failed credentials validation into an actionable message,
-// and returns the AWS CLI sign-in that the message recommends, if any.
-func credentialsFailureReason(formattedDiag string, config *awsbase.Config) (string, *awsSignInCommand) {
+// and returns the AWS CLI sign-in that the message recommends and the product hint relevant to it, if any.
+func credentialsFailureReason(
+	formattedDiag string, config *awsbase.Config,
+) (string, *awsSignInCommand, pulumirpc.Hint) {
 	for _, e := range credentialsErrors {
 		if !slices.ContainsFunc(e.markers, func(m string) bool { return strings.Contains(formattedDiag, m) }) {
 			continue
@@ -109,9 +142,10 @@ func credentialsFailureReason(formattedDiag string, config *awsbase.Config) (str
 			Cause:    strings.TrimSpace(cause),
 		})
 		contract.AssertNoErrorf(err, "failed to render %s", e.template)
-		return sb.String(), e.signIn
+		return sb.String(), e.signIn, e.hint
 	}
-	return fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag), nil
+	return fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag), nil,
+		pulumirpc.Hint_HINT_UNSPECIFIED
 }
 
 // sharedProfiles returns the names of the profiles defined in the shared config and credentials files, other than

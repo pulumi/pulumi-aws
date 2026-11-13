@@ -149,6 +149,7 @@ func skipIfNotShort(t *testing.T) {
 	}
 }
 
+//nolint:lll // The replayed response holds long messages.
 func TestMissingCredentialsErrorMessage(t *testing.T) {
 	skipIfNotShort(t)
 	unsetAWSEnv()
@@ -170,7 +171,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 			"inputs": "*",
 			"failures": [
 				{
-					"reason": "No valid credential sources found.\nTo sign in through your browser, run '''aws login''' (requires AWS CLI 2.32.0 or later) and try again.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.\n\nYou can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run '''pulumi env setup aws'''.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
+					"reason": "No valid credential sources found.\nTo sign in through your browser, run '''aws login''' (requires AWS CLI 2.32.0 or later) and try again.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials."
 				}
 			]
 		},
@@ -204,7 +205,7 @@ func TestMissingCredentialsRemediation(t *testing.T) {
 	p, err := pfbridge.MakeMuxedServer(context.Background(), info.Name, info, []byte("{}"))(nil)
 	require.NoError(t, err)
 
-	// Remediations are only carried by CheckConfig2, which the replay harness does not support yet.
+	// Remediations and hints are only carried by CheckConfig2, which the replay harness does not support yet.
 	resp, err := p.CheckConfig2(context.Background(), &pulumirpc.CheckConfigRequest{
 		Urn:  "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
 		News: mustStruct(t, map[string]any{"version": "6.18.2", "region": "us-west-2"}),
@@ -216,6 +217,8 @@ func TestMissingCredentialsRemediation(t *testing.T) {
 	require.Equal(t, "Sign in to AWS", remediation.GetDescription())
 	require.Equal(t, []string{"aws", "login", "--region", "us-west-2"}, remediation.GetCommand())
 	require.Equal(t, map[string]string{"AWS_CLI_AGENT_TOOLKIT_HINT_DISABLED": "true"}, remediation.GetEnv())
+	require.Equal(t, pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS, resp.GetFailures()[0].GetHint())
+	require.Contains(t, resp.GetFailures()[0].GetHintMessage(), "pulumi env setup aws")
 }
 
 func TestMissingRegionErrorMessage(t *testing.T) {
@@ -277,7 +280,8 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 
 	provider, err := testProviderServer()
 	require.NoError(t, err)
-	resp, err := provider.CheckConfig(context.Background(), &pulumirpc.CheckRequest{
+	// The hint is only carried by CheckConfig2.
+	resp, err := provider.CheckConfig2(context.Background(), &pulumirpc.CheckConfigRequest{
 		Urn:  "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
 		Olds: mustStruct(t, map[string]any{}),
 		News: mustStruct(t, map[string]any{
@@ -293,7 +297,9 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 	assertMessage := "Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/ " +
 		"for more information about providing credentials."
 	require.Equal(t, 1, strings.Count(reason, assertMessage))
-	require.Contains(t, reason, "run `pulumi env setup aws`")
+	require.NotContains(t, reason, "pulumi env setup")
+	require.Equal(t, pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS, resp.Failures[0].Hint)
+	require.Contains(t, resp.Failures[0].HintMessage, "pulumi env setup aws")
 }
 
 func TestCheckConfigRejectsLegacyAssumeRoleConfigKey(t *testing.T) {
