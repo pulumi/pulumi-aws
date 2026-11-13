@@ -111,7 +111,7 @@ type RestoreTestingSelection struct {
 	RestoreMetadataOverrides pulumi.StringMapOutput `pulumi:"restoreMetadataOverrides"`
 	// Name of the restore testing plan.
 	RestoreTestingPlanName pulumi.StringOutput `pulumi:"restoreTestingPlanName"`
-	// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	// Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
 	ValidationWindowHours pulumi.IntOutput `pulumi:"validationWindowHours"`
 }
 
@@ -170,7 +170,7 @@ type restoreTestingSelectionState struct {
 	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
 	// Name of the restore testing plan.
 	RestoreTestingPlanName *string `pulumi:"restoreTestingPlanName"`
-	// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	// Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
 	ValidationWindowHours *int `pulumi:"validationWindowHours"`
 }
 
@@ -191,7 +191,7 @@ type RestoreTestingSelectionState struct {
 	RestoreMetadataOverrides pulumi.StringMapInput
 	// Name of the restore testing plan.
 	RestoreTestingPlanName pulumi.StringPtrInput
-	// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	// Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
 	ValidationWindowHours pulumi.IntPtrInput
 }
 
@@ -222,7 +222,7 @@ type restoreTestingSelectionArgs struct {
 	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
 	// Name of the restore testing plan.
 	RestoreTestingPlanName string `pulumi:"restoreTestingPlanName"`
-	// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	// Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
 	ValidationWindowHours *int `pulumi:"validationWindowHours"`
 }
 
@@ -244,7 +244,7 @@ type RestoreTestingSelectionArgs struct {
 	RestoreMetadataOverrides pulumi.StringMapInput
 	// Name of the restore testing plan.
 	RestoreTestingPlanName pulumi.StringInput
-	// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	// Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
 	ValidationWindowHours pulumi.IntPtrInput
 }
 
@@ -377,7 +377,7 @@ func (o RestoreTestingSelectionOutput) RestoreTestingPlanName() pulumi.StringOut
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.RestoreTestingPlanName }).(pulumi.StringOutput)
 }
 
-// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+// Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
 func (o RestoreTestingSelectionOutput) ValidationWindowHours() pulumi.IntOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.IntOutput { return v.ValidationWindowHours }).(pulumi.IntOutput)
 }

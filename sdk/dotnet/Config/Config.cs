@@ -804,6 +804,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Continuum { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Controltower { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

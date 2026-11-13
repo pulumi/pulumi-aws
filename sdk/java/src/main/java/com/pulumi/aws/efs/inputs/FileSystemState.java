@@ -105,14 +105,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, the disk will be encrypted.
+     * Whether the file system is encrypted at rest. Defaults to `true`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `false` to `true` forces replacement; changing `true` to `false` is ignored.
      * 
      */
     @Import(name="encrypted")
     private @Nullable Output<Boolean> encrypted;
 
     /**
-     * @return If true, the disk will be encrypted.
+     * @return Whether the file system is encrypted at rest. Defaults to `true`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `false` to `true` forces replacement; changing `true` to `false` is ignored.
      * 
      */
     public Optional<Output<Boolean>> encrypted() {
@@ -120,14 +120,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+     * ARN of the KMS encryption key. Cannot be specified when `encrypted` is explicitly set to `false`.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+     * @return ARN of the KMS encryption key. Cannot be specified when `encrypted` is explicitly set to `false`.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -468,7 +468,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encrypted If true, the disk will be encrypted.
+         * @param encrypted Whether the file system is encrypted at rest. Defaults to `true`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `false` to `true` forces replacement; changing `true` to `false` is ignored.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encrypted If true, the disk will be encrypted.
+         * @param encrypted Whether the file system is encrypted at rest. Defaults to `true`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `false` to `true` forces replacement; changing `true` to `false` is ignored.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+         * @param kmsKeyId ARN of the KMS encryption key. Cannot be specified when `encrypted` is explicitly set to `false`.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+         * @param kmsKeyId ARN of the KMS encryption key. Cannot be specified when `encrypted` is explicitly set to `false`.
          * 
          * @return builder
          * 

@@ -21,6 +21,10 @@ __all__ = [
     'ConfigurationAggregatorOrganizationAggregationSourceArgsDict',
     'ConformancePackInputParameterArgs',
     'ConformancePackInputParameterArgsDict',
+    'ConnectorConnectorConfigurationArgs',
+    'ConnectorConnectorConfigurationArgsDict',
+    'ConnectorConnectorConfigurationAzureArgs',
+    'ConnectorConnectorConfigurationAzureArgsDict',
     'DeliveryChannelSnapshotDeliveryPropertiesArgs',
     'DeliveryChannelSnapshotDeliveryPropertiesArgsDict',
     'OrganizationConformancePackInputParameterArgs',
@@ -246,6 +250,82 @@ class ConformancePackInputParameterArgs:
     @parameter_value.setter
     def parameter_value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "parameter_value", value)
+
+
+class ConnectorConnectorConfigurationArgsDict(TypedDict):
+    azure: NotRequired[pulumi.Input[Optional['ConnectorConnectorConfigurationAzureArgsDict']]]
+    """
+    Configuration for an Azure connector. See `azure` Block below.
+    """
+
+@pulumi.input_type
+class ConnectorConnectorConfigurationArgs:
+    def __init__(__self__, *,
+                 azure: pulumi.Input[Optional['ConnectorConnectorConfigurationAzureArgs']] = None):
+        """
+        :param pulumi.Input['ConnectorConnectorConfigurationAzureArgs'] azure: Configuration for an Azure connector. See `azure` Block below.
+        """
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> pulumi.Input[Optional['ConnectorConnectorConfigurationAzureArgs']]:
+        """
+        Configuration for an Azure connector. See `azure` Block below.
+        """
+        return pulumi.get(self, "azure")
+
+    @azure.setter
+    def azure(self, value: pulumi.Input[Optional['ConnectorConnectorConfigurationAzureArgs']]):
+        pulumi.set(self, "azure", value)
+
+
+class ConnectorConnectorConfigurationAzureArgsDict(TypedDict):
+    client_identifier: pulumi.Input[_builtins.str]
+    """
+    Azure application (client) identifier that AWS uses to authenticate to the Azure environment.
+    """
+    tenant_identifier: pulumi.Input[_builtins.str]
+    """
+    Azure (Microsoft Entra ID) tenant identifier.
+    """
+
+@pulumi.input_type
+class ConnectorConnectorConfigurationAzureArgs:
+    def __init__(__self__, *,
+                 client_identifier: pulumi.Input[_builtins.str],
+                 tenant_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] client_identifier: Azure application (client) identifier that AWS uses to authenticate to the Azure environment.
+        :param pulumi.Input[_builtins.str] tenant_identifier: Azure (Microsoft Entra ID) tenant identifier.
+        """
+        pulumi.set(__self__, "client_identifier", client_identifier)
+        pulumi.set(__self__, "tenant_identifier", tenant_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdentifier")
+    def client_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure application (client) identifier that AWS uses to authenticate to the Azure environment.
+        """
+        return pulumi.get(self, "client_identifier")
+
+    @client_identifier.setter
+    def client_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIdentifier")
+    def tenant_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure (Microsoft Entra ID) tenant identifier.
+        """
+        return pulumi.get(self, "tenant_identifier")
+
+    @tenant_identifier.setter
+    def tenant_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_identifier", value)
 
 
 class DeliveryChannelSnapshotDeliveryPropertiesArgsDict(TypedDict):

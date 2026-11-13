@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Smsvoicev2PhoneNumber{}
 	case "aws:pinpoint/smsvoicev2Pool:Smsvoicev2Pool":
 		r = &Smsvoicev2Pool{}
+	case "aws:pinpoint/smsvoicev2ProtectConfiguration:Smsvoicev2ProtectConfiguration":
+		r = &Smsvoicev2ProtectConfiguration{}
 	case "aws:pinpoint/smsvoicev2ResourcePolicy:Smsvoicev2ResourcePolicy":
 		r = &Smsvoicev2ResourcePolicy{}
 	case "aws:pinpoint/smsvoicev2SenderId:Smsvoicev2SenderId":
@@ -162,6 +164,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"pinpoint/smsvoicev2Pool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"pinpoint/smsvoicev2ProtectConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

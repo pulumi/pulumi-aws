@@ -531,6 +531,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("continuum")]
+        public Input<string>? Continuum { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("controltower")]
         public Input<string>? Controltower { get; set; }
 

@@ -95,6 +95,11 @@ export type Smsvoicev2Pool = import("./smsvoicev2Pool").Smsvoicev2Pool;
 export const Smsvoicev2Pool: typeof import("./smsvoicev2Pool").Smsvoicev2Pool = null as any;
 utilities.lazyLoad(exports, ["Smsvoicev2Pool"], () => require("./smsvoicev2Pool"));
 
+export { Smsvoicev2ProtectConfigurationArgs, Smsvoicev2ProtectConfigurationState } from "./smsvoicev2ProtectConfiguration";
+export type Smsvoicev2ProtectConfiguration = import("./smsvoicev2ProtectConfiguration").Smsvoicev2ProtectConfiguration;
+export const Smsvoicev2ProtectConfiguration: typeof import("./smsvoicev2ProtectConfiguration").Smsvoicev2ProtectConfiguration = null as any;
+utilities.lazyLoad(exports, ["Smsvoicev2ProtectConfiguration"], () => require("./smsvoicev2ProtectConfiguration"));
+
 export { Smsvoicev2ResourcePolicyArgs, Smsvoicev2ResourcePolicyState } from "./smsvoicev2ResourcePolicy";
 export type Smsvoicev2ResourcePolicy = import("./smsvoicev2ResourcePolicy").Smsvoicev2ResourcePolicy;
 export const Smsvoicev2ResourcePolicy: typeof import("./smsvoicev2ResourcePolicy").Smsvoicev2ResourcePolicy = null as any;
@@ -146,6 +151,8 @@ const _module = {
                 return new Smsvoicev2PhoneNumber(name, <any>undefined, { urn })
             case "aws:pinpoint/smsvoicev2Pool:Smsvoicev2Pool":
                 return new Smsvoicev2Pool(name, <any>undefined, { urn })
+            case "aws:pinpoint/smsvoicev2ProtectConfiguration:Smsvoicev2ProtectConfiguration":
+                return new Smsvoicev2ProtectConfiguration(name, <any>undefined, { urn })
             case "aws:pinpoint/smsvoicev2ResourcePolicy:Smsvoicev2ResourcePolicy":
                 return new Smsvoicev2ResourcePolicy(name, <any>undefined, { urn })
             case "aws:pinpoint/smsvoicev2SenderId:Smsvoicev2SenderId":
@@ -173,5 +180,6 @@ pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2Keyword", _modu
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2OptOutList", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2PhoneNumber", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2Pool", _module)
+pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2ProtectConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2ResourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2SenderId", _module)

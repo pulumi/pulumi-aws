@@ -228,14 +228,14 @@ public class RestoreTestingSelection extends com.pulumi.resources.CustomResource
         return this.restoreTestingPlanName;
     }
     /**
-     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
      * 
      */
     @Export(name="validationWindowHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> validationWindowHours;
 
     /**
-     * @return Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * @return Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
      * 
      */
     public Output<Integer> validationWindowHours() {

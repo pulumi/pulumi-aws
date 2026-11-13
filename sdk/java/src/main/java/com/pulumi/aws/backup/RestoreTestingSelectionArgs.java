@@ -141,14 +141,14 @@ public final class RestoreTestingSelectionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
      * 
      */
     @Import(name="validationWindowHours")
     private @Nullable Output<Integer> validationWindowHours;
 
     /**
-     * @return Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * @return Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
      * 
      */
     public Optional<Output<Integer>> validationWindowHours() {
@@ -366,7 +366,7 @@ public final class RestoreTestingSelectionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param validationWindowHours Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+         * @param validationWindowHours Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class RestoreTestingSelectionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param validationWindowHours Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+         * @param validationWindowHours Amount of hours available to run a validation script on the data. Valid range is `0` to `168`. A value of `0` deletes the restored resource as soon as the restore job completes.
          * 
          * @return builder
          * 

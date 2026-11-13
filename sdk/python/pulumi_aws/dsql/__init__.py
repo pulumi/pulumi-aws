@@ -9,5 +9,6 @@ import typing
 from .cluster import *
 from .cluster_peering import *
 from .cluster_policy import *
+from .stream import *
 from ._inputs import *
 from . import outputs

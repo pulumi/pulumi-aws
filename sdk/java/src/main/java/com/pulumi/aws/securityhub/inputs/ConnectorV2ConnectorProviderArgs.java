@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.securityhub.inputs;
 
+import com.pulumi.aws.securityhub.inputs.ConnectorV2ConnectorProviderAzureArgs;
 import com.pulumi.aws.securityhub.inputs.ConnectorV2ConnectorProviderJiraCloudArgs;
 import com.pulumi.aws.securityhub.inputs.ConnectorV2ConnectorProviderServiceNowArgs;
 import com.pulumi.core.Output;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ConnectorV2ConnectorProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ConnectorV2ConnectorProviderArgs Empty = new ConnectorV2ConnectorProviderArgs();
+
+    /**
+     * Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+     * 
+     */
+    @Import(name="azure")
+    private @Nullable Output<ConnectorV2ConnectorProviderAzureArgs> azure;
+
+    /**
+     * @return Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+     * 
+     */
+    public Optional<Output<ConnectorV2ConnectorProviderAzureArgs>> azure() {
+        return Optional.ofNullable(this.azure);
+    }
 
     /**
      * Details about a Jira Cloud integration. See `jiraCloud` below.
@@ -34,12 +50,16 @@ public final class ConnectorV2ConnectorProviderArgs extends com.pulumi.resources
     /**
      * Details about a ServiceNow ITSM integration. See `serviceNow` below.
      * 
+     * Exactly one of `azure`, `jiraCloud`, or `serviceNow` must be specified.
+     * 
      */
     @Import(name="serviceNow")
     private @Nullable Output<ConnectorV2ConnectorProviderServiceNowArgs> serviceNow;
 
     /**
      * @return Details about a ServiceNow ITSM integration. See `serviceNow` below.
+     * 
+     * Exactly one of `azure`, `jiraCloud`, or `serviceNow` must be specified.
      * 
      */
     public Optional<Output<ConnectorV2ConnectorProviderServiceNowArgs>> serviceNow() {
@@ -49,6 +69,7 @@ public final class ConnectorV2ConnectorProviderArgs extends com.pulumi.resources
     private ConnectorV2ConnectorProviderArgs() {}
 
     private ConnectorV2ConnectorProviderArgs(ConnectorV2ConnectorProviderArgs $) {
+        this.azure = $.azure;
         this.jiraCloud = $.jiraCloud;
         this.serviceNow = $.serviceNow;
     }
@@ -69,6 +90,27 @@ public final class ConnectorV2ConnectorProviderArgs extends com.pulumi.resources
 
         public Builder(ConnectorV2ConnectorProviderArgs defaults) {
             $ = new ConnectorV2ConnectorProviderArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param azure Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azure(@Nullable Output<ConnectorV2ConnectorProviderAzureArgs> azure) {
+            $.azure = azure;
+            return this;
+        }
+
+        /**
+         * @param azure Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azure(ConnectorV2ConnectorProviderAzureArgs azure) {
+            return azure(Output.of(azure));
         }
 
         /**
@@ -95,6 +137,8 @@ public final class ConnectorV2ConnectorProviderArgs extends com.pulumi.resources
         /**
          * @param serviceNow Details about a ServiceNow ITSM integration. See `serviceNow` below.
          * 
+         * Exactly one of `azure`, `jiraCloud`, or `serviceNow` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +149,8 @@ public final class ConnectorV2ConnectorProviderArgs extends com.pulumi.resources
 
         /**
          * @param serviceNow Details about a ServiceNow ITSM integration. See `serviceNow` below.
+         * 
+         * Exactly one of `azure`, `jiraCloud`, or `serviceNow` must be specified.
          * 
          * @return builder
          * 

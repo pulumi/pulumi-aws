@@ -183,6 +183,55 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Valkey Serverless with Public Endpoint
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ServerlessCache;
+ * import com.pulumi.aws.elasticache.ServerlessCacheArgs;
+ * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsArgs;
+ * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs;
+ * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()
+ *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
+ *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
+ *                     .maximum(10)
+ *                     .unit("GB")
+ *                     .build())
+ *                 .ecpuPerSeconds(ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.builder()
+ *                     .maximum(5000)
+ *                     .build())
+ *                 .build())
+ *             .engine("valkey")
+ *             .name("example")
+ *             .majorEngineVersion("9")
+ *             .connectionType("public")
+ *             .userGroupId("default.iam-user-group")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
@@ -221,6 +270,20 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ServerlessCacheCacheUsageLimits>> cacheUsageLimits() {
         return Codegen.optional(this.cacheUsageLimits);
+    }
+    /**
+     * Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+     * 
+     */
+    @Export(name="connectionType", refs={String.class}, tree="[0]")
+    private Output<String> connectionType;
+
+    /**
+     * @return Connectivity option for the cache. Valid values are `vpc` (reachable only from within a VPC) and `public` (reachable over the internet, `valkey` only). Defaults to `vpc`. A `public` endpoint requires `engine` `valkey` with `majorEngineVersion` `9` or later, requires IAM authentication over TLS 1.3, and is created without `subnetIds` or `securityGroupIds`. These `public` requirements are enforced by AWS and are not validated by the provider, so an invalid combination fails at apply time with the AWS API error rather than during `plan`. This value cannot be changed after creation.
+     * 
+     */
+    public Output<String> connectionType() {
+        return this.connectionType;
     }
     /**
      * Timestamp of when the serverless cache was created.

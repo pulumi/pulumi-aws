@@ -732,6 +732,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    continuum: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     controltower: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1790,6 +1794,7 @@ class ProviderEndpointArgs:
                  configservice: pulumi.Input[Optional[_builtins.str]] = None,
                  connect: pulumi.Input[Optional[_builtins.str]] = None,
                  connectcases: pulumi.Input[Optional[_builtins.str]] = None,
+                 continuum: pulumi.Input[Optional[_builtins.str]] = None,
                  controltower: pulumi.Input[Optional[_builtins.str]] = None,
                  costandusagereportservice: pulumi.Input[Optional[_builtins.str]] = None,
                  costexplorer: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2119,6 +2124,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] configservice: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] connect: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] connectcases: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] continuum: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] controltower: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] costandusagereportservice: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] costexplorer: Use this to override the default service endpoint URL
@@ -2534,6 +2540,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "connect", connect)
         if connectcases is not None:
             pulumi.set(__self__, "connectcases", connectcases)
+        if continuum is not None:
+            pulumi.set(__self__, "continuum", continuum)
         if controltower is not None:
             pulumi.set(__self__, "controltower", controltower)
         if costandusagereportservice is not None:
@@ -4050,6 +4058,18 @@ class ProviderEndpointArgs:
     @connectcases.setter
     def connectcases(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connectcases", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def continuum(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "continuum")
+
+    @continuum.setter
+    def continuum(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "continuum", value)
 
     @_builtins.property
     @pulumi.getter

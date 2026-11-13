@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfigurationAggregator{}
 	case "aws:cfg/conformancePack:ConformancePack":
 		r = &ConformancePack{}
+	case "aws:cfg/connector:Connector":
+		r = &Connector{}
 	case "aws:cfg/deliveryChannel:DeliveryChannel":
 		r = &DeliveryChannel{}
 	case "aws:cfg/organizationConformancePack:OrganizationConformancePack":
@@ -73,6 +75,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cfg/conformancePack",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cfg/connector",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -445,6 +445,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String continuum;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String controltower;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2259,6 +2264,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> continuum() {
+        return Optional.ofNullable(this.continuum);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> controltower() {
         return Optional.ofNullable(this.controltower);
     }
@@ -4045,6 +4057,7 @@ public final class Endpoints {
         private @Nullable String configservice;
         private @Nullable String connect;
         private @Nullable String connectcases;
+        private @Nullable String continuum;
         private @Nullable String controltower;
         private @Nullable String costandusagereportservice;
         private @Nullable String costexplorer;
@@ -4376,6 +4389,7 @@ public final class Endpoints {
     	      this.configservice = defaults.configservice;
     	      this.connect = defaults.connect;
     	      this.connectcases = defaults.connectcases;
+    	      this.continuum = defaults.continuum;
     	      this.controltower = defaults.controltower;
     	      this.costandusagereportservice = defaults.costandusagereportservice;
     	      this.costexplorer = defaults.costexplorer;
@@ -5134,6 +5148,12 @@ public final class Endpoints {
         public Builder connectcases(@Nullable String connectcases) {
 
             this.connectcases = connectcases;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder continuum(@Nullable String continuum) {
+
+            this.continuum = continuum;
             return this;
         }
         @CustomType.Setter
@@ -6676,6 +6696,7 @@ public final class Endpoints {
             _resultValue.configservice = configservice;
             _resultValue.connect = connect;
             _resultValue.connectcases = connectcases;
+            _resultValue.continuum = continuum;
             _resultValue.controltower = controltower;
             _resultValue.costandusagereportservice = costandusagereportservice;
             _resultValue.costexplorer = costexplorer;

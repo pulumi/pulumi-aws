@@ -138,6 +138,10 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly Outputs.GetServerlessCacheCacheUsageLimitsResult CacheUsageLimits;
         /// <summary>
+        /// Connectivity option for the cache. Either `Vpc` (reachable only from within a VPC) or `Public` (reachable over the internet).
+        /// </summary>
+        public readonly string ConnectionType;
+        /// <summary>
         /// Timestamp of when the serverless cache was created.
         /// </summary>
         public readonly string CreateTime;
@@ -202,6 +206,8 @@ namespace Pulumi.Aws.ElastiCache
 
             Outputs.GetServerlessCacheCacheUsageLimitsResult cacheUsageLimits,
 
+            string connectionType,
+
             string createTime,
 
             string dailySnapshotTime,
@@ -236,6 +242,7 @@ namespace Pulumi.Aws.ElastiCache
         {
             Arn = arn;
             CacheUsageLimits = cacheUsageLimits;
+            ConnectionType = connectionType;
             CreateTime = createTime;
             DailySnapshotTime = dailySnapshotTime;
             Description = description;

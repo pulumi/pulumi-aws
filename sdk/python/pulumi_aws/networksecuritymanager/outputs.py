@@ -16,6 +16,16 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AdminAccountAdminScope',
+    'AdminAccountAdminScopeFirewallTypeScope',
+    'AdminAccountAdminScopeScopeFilter',
+    'AdminAccountAdminScopeScopeFilterExcludeOnly',
+    'AdminAccountAdminScopeScopeFilterIncludeOnly',
+    'AdminAccountTimeouts',
+    'DeploymentConfiguration',
+    'PolicyConfiguration',
+    'PolicyConfigurationWafConfig',
+    'PolicyTemplateOrRule',
     'ScopeScopeConfiguration',
     'ScopeScopeConfigurationAccountFilter',
     'ScopeScopeConfigurationAccountFilterExclude',
@@ -42,6 +52,504 @@ __all__ = [
     'ScopeScopeConfigurationResourceScopeIncludeExpressionOr',
     'ScopeScopeConfigurationResourceScopeIncludeExpressionOrAlbConfig',
 ]
+
+@pulumi.output_type
+class AdminAccountAdminScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firewallTypeScope":
+            suggest = "firewall_type_scope"
+        elif key == "scopeFilter":
+            suggest = "scope_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdminAccountAdminScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdminAccountAdminScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdminAccountAdminScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 firewall_type_scope: Optional['outputs.AdminAccountAdminScopeFirewallTypeScope'] = None,
+                 scope_filter: Optional['outputs.AdminAccountAdminScopeScopeFilter'] = None):
+        """
+        :param 'AdminAccountAdminScopeFirewallTypeScopeArgs' firewall_type_scope: Firewall types that the administrator can create and manage. See `firewall_type_scope` Block below.
+        :param 'AdminAccountAdminScopeScopeFilterArgs' scope_filter: Accounts and OUs that are in the administrator's scope. See `scope_filter` Block below.
+        """
+        if firewall_type_scope is not None:
+            pulumi.set(__self__, "firewall_type_scope", firewall_type_scope)
+        if scope_filter is not None:
+            pulumi.set(__self__, "scope_filter", scope_filter)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallTypeScope")
+    def firewall_type_scope(self) -> Optional['outputs.AdminAccountAdminScopeFirewallTypeScope']:
+        """
+        Firewall types that the administrator can create and manage. See `firewall_type_scope` Block below.
+        """
+        return pulumi.get(self, "firewall_type_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeFilter")
+    def scope_filter(self) -> Optional['outputs.AdminAccountAdminScopeScopeFilter']:
+        """
+        Accounts and OUs that are in the administrator's scope. See `scope_filter` Block below.
+        """
+        return pulumi.get(self, "scope_filter")
+
+
+@pulumi.output_type
+class AdminAccountAdminScopeFirewallTypeScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allFirewallTypesEnabled":
+            suggest = "all_firewall_types_enabled"
+        elif key == "firewallTypes":
+            suggest = "firewall_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdminAccountAdminScopeFirewallTypeScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdminAccountAdminScopeFirewallTypeScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdminAccountAdminScopeFirewallTypeScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all_firewall_types_enabled: Optional[_builtins.bool] = None,
+                 firewall_types: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.bool all_firewall_types_enabled: Whether to allow the administrator to manage all firewall types.
+        :param Sequence[_builtins.str] firewall_types: Set of firewall types that the administrator can manage. Valid values: `WAF`, `SHIELD_ADVANCED`.
+        """
+        if all_firewall_types_enabled is not None:
+            pulumi.set(__self__, "all_firewall_types_enabled", all_firewall_types_enabled)
+        if firewall_types is not None:
+            pulumi.set(__self__, "firewall_types", firewall_types)
+
+    @_builtins.property
+    @pulumi.getter(name="allFirewallTypesEnabled")
+    def all_firewall_types_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to allow the administrator to manage all firewall types.
+        """
+        return pulumi.get(self, "all_firewall_types_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="firewallTypes")
+    def firewall_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of firewall types that the administrator can manage. Valid values: `WAF`, `SHIELD_ADVANCED`.
+        """
+        return pulumi.get(self, "firewall_types")
+
+
+@pulumi.output_type
+class AdminAccountAdminScopeScopeFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeOnly":
+            suggest = "exclude_only"
+        elif key == "includeAll":
+            suggest = "include_all"
+        elif key == "includeOnly":
+            suggest = "include_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdminAccountAdminScopeScopeFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdminAccountAdminScopeScopeFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdminAccountAdminScopeScopeFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exclude_only: Optional['outputs.AdminAccountAdminScopeScopeFilterExcludeOnly'] = None,
+                 include_all: Optional[_builtins.bool] = None,
+                 include_only: Optional['outputs.AdminAccountAdminScopeScopeFilterIncludeOnly'] = None):
+        """
+        :param 'AdminAccountAdminScopeScopeFilterExcludeOnlyArgs' exclude_only: Accounts and OUs to exclude from the administrator's scope; everything else is in scope. See `exclude_only` Block below.
+        :param _builtins.bool include_all: Whether to include all accounts and OUs of the organization in scope. Must be `true` if set.
+        :param 'AdminAccountAdminScopeScopeFilterIncludeOnlyArgs' include_only: Only the specified accounts and OUs are in the administrator's scope. See `include_only` Block below.
+        """
+        if exclude_only is not None:
+            pulumi.set(__self__, "exclude_only", exclude_only)
+        if include_all is not None:
+            pulumi.set(__self__, "include_all", include_all)
+        if include_only is not None:
+            pulumi.set(__self__, "include_only", include_only)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeOnly")
+    def exclude_only(self) -> Optional['outputs.AdminAccountAdminScopeScopeFilterExcludeOnly']:
+        """
+        Accounts and OUs to exclude from the administrator's scope; everything else is in scope. See `exclude_only` Block below.
+        """
+        return pulumi.get(self, "exclude_only")
+
+    @_builtins.property
+    @pulumi.getter(name="includeAll")
+    def include_all(self) -> Optional[_builtins.bool]:
+        """
+        Whether to include all accounts and OUs of the organization in scope. Must be `true` if set.
+        """
+        return pulumi.get(self, "include_all")
+
+    @_builtins.property
+    @pulumi.getter(name="includeOnly")
+    def include_only(self) -> Optional['outputs.AdminAccountAdminScopeScopeFilterIncludeOnly']:
+        """
+        Only the specified accounts and OUs are in the administrator's scope. See `include_only` Block below.
+        """
+        return pulumi.get(self, "include_only")
+
+
+@pulumi.output_type
+class AdminAccountAdminScopeScopeFilterExcludeOnly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationalUnits":
+            suggest = "organizational_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdminAccountAdminScopeScopeFilterExcludeOnly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdminAccountAdminScopeScopeFilterExcludeOnly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdminAccountAdminScopeScopeFilterExcludeOnly.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accounts: Optional[Sequence[_builtins.str]] = None,
+                 organizational_units: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] accounts: Set of AWS account IDs.
+        :param Sequence[_builtins.str] organizational_units: Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+        """
+        if accounts is not None:
+            pulumi.set(__self__, "accounts", accounts)
+        if organizational_units is not None:
+            pulumi.set(__self__, "organizational_units", organizational_units)
+
+    @_builtins.property
+    @pulumi.getter
+    def accounts(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of AWS account IDs.
+        """
+        return pulumi.get(self, "accounts")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnits")
+    def organizational_units(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+        """
+        return pulumi.get(self, "organizational_units")
+
+
+@pulumi.output_type
+class AdminAccountAdminScopeScopeFilterIncludeOnly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationalUnits":
+            suggest = "organizational_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdminAccountAdminScopeScopeFilterIncludeOnly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdminAccountAdminScopeScopeFilterIncludeOnly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdminAccountAdminScopeScopeFilterIncludeOnly.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accounts: Optional[Sequence[_builtins.str]] = None,
+                 organizational_units: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] accounts: Set of AWS account IDs.
+        :param Sequence[_builtins.str] organizational_units: Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+        """
+        if accounts is not None:
+            pulumi.set(__self__, "accounts", accounts)
+        if organizational_units is not None:
+            pulumi.set(__self__, "organizational_units", organizational_units)
+
+    @_builtins.property
+    @pulumi.getter
+    def accounts(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of AWS account IDs.
+        """
+        return pulumi.get(self, "accounts")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnits")
+    def organizational_units(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of AWS Organizations OU IDs (`ou-...`). Root IDs are not accepted.
+        """
+        return pulumi.get(self, "organizational_units")
+
+
+@pulumi.output_type
+class AdminAccountTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class DeploymentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableCrossAccountVisibility":
+            suggest = "enable_cross_account_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_cross_account_visibility: _builtins.bool):
+        """
+        :param _builtins.bool enable_cross_account_visibility: Whether to enable cross-account visibility for the deployment.
+        """
+        pulumi.set(__self__, "enable_cross_account_visibility", enable_cross_account_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="enableCrossAccountVisibility")
+    def enable_cross_account_visibility(self) -> _builtins.bool:
+        """
+        Whether to enable cross-account visibility for the deployment.
+        """
+        return pulumi.get(self, "enable_cross_account_visibility")
+
+
+@pulumi.output_type
+class PolicyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remediationEnabled":
+            suggest = "remediation_enabled"
+        elif key == "resourcesCleanUp":
+            suggest = "resources_clean_up"
+        elif key == "wafConfig":
+            suggest = "waf_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 remediation_enabled: _builtins.bool,
+                 resources_clean_up: _builtins.bool,
+                 waf_config: Optional['outputs.PolicyConfigurationWafConfig'] = None):
+        """
+        :param _builtins.bool remediation_enabled: Whether to automatically remediate noncompliant resources.
+        :param _builtins.bool resources_clean_up: Whether to automatically remove the resources the service created when they are no longer needed. The service currently only accepts `true`.
+        :param 'PolicyConfigurationWafConfigArgs' waf_config: AWS WAF-specific settings. Required for `WAF` policies. See `waf_config` below.
+        """
+        pulumi.set(__self__, "remediation_enabled", remediation_enabled)
+        pulumi.set(__self__, "resources_clean_up", resources_clean_up)
+        if waf_config is not None:
+            pulumi.set(__self__, "waf_config", waf_config)
+
+    @_builtins.property
+    @pulumi.getter(name="remediationEnabled")
+    def remediation_enabled(self) -> _builtins.bool:
+        """
+        Whether to automatically remediate noncompliant resources.
+        """
+        return pulumi.get(self, "remediation_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesCleanUp")
+    def resources_clean_up(self) -> _builtins.bool:
+        """
+        Whether to automatically remove the resources the service created when they are no longer needed. The service currently only accepts `true`.
+        """
+        return pulumi.get(self, "resources_clean_up")
+
+    @_builtins.property
+    @pulumi.getter(name="wafConfig")
+    def waf_config(self) -> Optional['outputs.PolicyConfigurationWafConfig']:
+        """
+        AWS WAF-specific settings. Required for `WAF` policies. See `waf_config` below.
+        """
+        return pulumi.get(self, "waf_config")
+
+
+@pulumi.output_type
+class PolicyConfigurationWafConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conflictResolution":
+            suggest = "conflict_resolution"
+        elif key == "existingCustomerWebAclResolution":
+            suggest = "existing_customer_web_acl_resolution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyConfigurationWafConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyConfigurationWafConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyConfigurationWafConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 conflict_resolution: _builtins.str,
+                 existing_customer_web_acl_resolution: _builtins.str):
+        """
+        :param _builtins.str conflict_resolution: Conflict-resolution strategy. Valid values: `MERGE_WHERE_APPLICABLE`.
+        :param _builtins.str existing_customer_web_acl_resolution: How remediation is handled when a resource already has a customer-created web ACL. Valid values: `RETROFIT`, `OVERRIDE_ASSOCIATION`, `NO_REMEDIATION`.
+        """
+        pulumi.set(__self__, "conflict_resolution", conflict_resolution)
+        pulumi.set(__self__, "existing_customer_web_acl_resolution", existing_customer_web_acl_resolution)
+
+    @_builtins.property
+    @pulumi.getter(name="conflictResolution")
+    def conflict_resolution(self) -> _builtins.str:
+        """
+        Conflict-resolution strategy. Valid values: `MERGE_WHERE_APPLICABLE`.
+        """
+        return pulumi.get(self, "conflict_resolution")
+
+    @_builtins.property
+    @pulumi.getter(name="existingCustomerWebAclResolution")
+    def existing_customer_web_acl_resolution(self) -> _builtins.str:
+        """
+        How remediation is handled when a resource already has a customer-created web ACL. Valid values: `RETROFIT`, `OVERRIDE_ASSOCIATION`, `NO_REMEDIATION`.
+        """
+        return pulumi.get(self, "existing_customer_web_acl_resolution")
+
+
+@pulumi.output_type
+class PolicyTemplateOrRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleIdentifier":
+            suggest = "rule_identifier"
+        elif key == "templateIdentifier":
+            suggest = "template_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTemplateOrRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTemplateOrRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTemplateOrRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_identifier: Optional[_builtins.str] = None,
+                 template_identifier: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str rule_identifier: ARN of the rule.
+        :param _builtins.str template_identifier: ARN of the template.
+        """
+        if rule_identifier is not None:
+            pulumi.set(__self__, "rule_identifier", rule_identifier)
+        if template_identifier is not None:
+            pulumi.set(__self__, "template_identifier", template_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleIdentifier")
+    def rule_identifier(self) -> Optional[_builtins.str]:
+        """
+        ARN of the rule.
+        """
+        return pulumi.get(self, "rule_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="templateIdentifier")
+    def template_identifier(self) -> Optional[_builtins.str]:
+        """
+        ARN of the template.
+        """
+        return pulumi.get(self, "template_identifier")
+
 
 @pulumi.output_type
 class ScopeScopeConfiguration(dict):

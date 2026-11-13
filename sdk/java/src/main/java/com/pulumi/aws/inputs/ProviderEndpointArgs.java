@@ -1309,6 +1309,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="continuum")
+    private @Nullable Output<String> continuum;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> continuum() {
+        return Optional.ofNullable(this.continuum);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="controltower")
     private @Nullable Output<String> controltower;
 
@@ -5024,6 +5039,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.configservice = $.configservice;
         this.connect = $.connect;
         this.connectcases = $.connectcases;
+        this.continuum = $.continuum;
         this.controltower = $.controltower;
         this.costandusagereportservice = $.costandusagereportservice;
         this.costexplorer = $.costexplorer;
@@ -7090,6 +7106,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder connectcases(String connectcases) {
             return connectcases(Output.of(connectcases));
+        }
+
+        /**
+         * @param continuum Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder continuum(@Nullable Output<String> continuum) {
+            $.continuum = continuum;
+            return this;
+        }
+
+        /**
+         * @param continuum Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder continuum(String continuum) {
+            return continuum(Output.of(continuum));
         }
 
         /**

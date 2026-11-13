@@ -736,6 +736,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Connectcases *string `pulumi:"connectcases"`
 	// Use this to override the default service endpoint URL
+	Continuum *string `pulumi:"continuum"`
+	// Use this to override the default service endpoint URL
 	Controltower *string `pulumi:"controltower"`
 	// Use this to override the default service endpoint URL
 	Costandusagereportservice *string `pulumi:"costandusagereportservice"`
@@ -1405,6 +1407,8 @@ type ProviderEndpointArgs struct {
 	Connect pulumi.StringPtrInput `pulumi:"connect"`
 	// Use this to override the default service endpoint URL
 	Connectcases pulumi.StringPtrInput `pulumi:"connectcases"`
+	// Use this to override the default service endpoint URL
+	Continuum pulumi.StringPtrInput `pulumi:"continuum"`
 	// Use this to override the default service endpoint URL
 	Controltower pulumi.StringPtrInput `pulumi:"controltower"`
 	// Use this to override the default service endpoint URL
@@ -2370,6 +2374,11 @@ func (o ProviderEndpointOutput) Connect() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Connectcases() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Connectcases }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Continuum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Continuum }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

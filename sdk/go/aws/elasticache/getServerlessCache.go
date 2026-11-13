@@ -62,6 +62,8 @@ type LookupServerlessCacheResult struct {
 	Arn string `pulumi:"arn"`
 	// The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits GetServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
+	// Connectivity option for the cache. Either `vpc` (reachable only from within a VPC) or `public` (reachable over the internet).
+	ConnectionType string `pulumi:"connectionType"`
 	// Timestamp of when the serverless cache was created.
 	CreateTime string `pulumi:"createTime"`
 	// The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
@@ -134,6 +136,11 @@ func (o LookupServerlessCacheResultOutput) Arn() pulumi.StringOutput {
 // The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 func (o LookupServerlessCacheResultOutput) CacheUsageLimits() GetServerlessCacheCacheUsageLimitsOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) GetServerlessCacheCacheUsageLimits { return v.CacheUsageLimits }).(GetServerlessCacheCacheUsageLimitsOutput)
+}
+
+// Connectivity option for the cache. Either `vpc` (reachable only from within a VPC) or `public` (reachable over the internet).
+func (o LookupServerlessCacheResultOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.ConnectionType }).(pulumi.StringOutput)
 }
 
 // Timestamp of when the serverless cache was created.

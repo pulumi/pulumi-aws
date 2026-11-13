@@ -20,6 +20,11 @@ export type ClusterPolicy = import("./clusterPolicy").ClusterPolicy;
 export const ClusterPolicy: typeof import("./clusterPolicy").ClusterPolicy = null as any;
 utilities.lazyLoad(exports, ["ClusterPolicy"], () => require("./clusterPolicy"));
 
+export { StreamArgs, StreamState } from "./stream";
+export type Stream = import("./stream").Stream;
+export const Stream: typeof import("./stream").Stream = null as any;
+utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +36,8 @@ const _module = {
                 return new ClusterPeering(name, <any>undefined, { urn })
             case "aws:dsql/clusterPolicy:ClusterPolicy":
                 return new ClusterPolicy(name, <any>undefined, { urn })
+            case "aws:dsql/stream:Stream":
+                return new Stream(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -39,3 +46,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "dsql/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "dsql/clusterPeering", _module)
 pulumi.runtime.registerResourceModule("aws", "dsql/clusterPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "dsql/stream", _module)

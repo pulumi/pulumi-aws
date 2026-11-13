@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.securityhub.outputs;
 
+import com.pulumi.aws.securityhub.outputs.ConnectorV2ConnectorProviderAzure;
 import com.pulumi.aws.securityhub.outputs.ConnectorV2ConnectorProviderJiraCloud;
 import com.pulumi.aws.securityhub.outputs.ConnectorV2ConnectorProviderServiceNow;
 import com.pulumi.core.annotations.CustomType;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorV2ConnectorProvider {
     /**
+     * @return Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+     * 
+     */
+    private @Nullable ConnectorV2ConnectorProviderAzure azure;
+    /**
      * @return Details about a Jira Cloud integration. See `jiraCloud` below.
      * 
      */
@@ -20,10 +26,19 @@ public final class ConnectorV2ConnectorProvider {
     /**
      * @return Details about a ServiceNow ITSM integration. See `serviceNow` below.
      * 
+     * Exactly one of `azure`, `jiraCloud`, or `serviceNow` must be specified.
+     * 
      */
     private @Nullable ConnectorV2ConnectorProviderServiceNow serviceNow;
 
     private ConnectorV2ConnectorProvider() {}
+    /**
+     * @return Details about a Microsoft Azure integration for multi-cloud coverage. See `azure` below.
+     * 
+     */
+    public Optional<ConnectorV2ConnectorProviderAzure> azure() {
+        return Optional.ofNullable(this.azure);
+    }
     /**
      * @return Details about a Jira Cloud integration. See `jiraCloud` below.
      * 
@@ -33,6 +48,8 @@ public final class ConnectorV2ConnectorProvider {
     }
     /**
      * @return Details about a ServiceNow ITSM integration. See `serviceNow` below.
+     * 
+     * Exactly one of `azure`, `jiraCloud`, or `serviceNow` must be specified.
      * 
      */
     public Optional<ConnectorV2ConnectorProviderServiceNow> serviceNow() {
@@ -48,15 +65,23 @@ public final class ConnectorV2ConnectorProvider {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ConnectorV2ConnectorProviderAzure azure;
         private @Nullable ConnectorV2ConnectorProviderJiraCloud jiraCloud;
         private @Nullable ConnectorV2ConnectorProviderServiceNow serviceNow;
         public Builder() {}
         public Builder(ConnectorV2ConnectorProvider defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.azure = defaults.azure;
     	      this.jiraCloud = defaults.jiraCloud;
     	      this.serviceNow = defaults.serviceNow;
         }
 
+        @CustomType.Setter
+        public Builder azure(@Nullable ConnectorV2ConnectorProviderAzure azure) {
+
+            this.azure = azure;
+            return this;
+        }
         @CustomType.Setter
         public Builder jiraCloud(@Nullable ConnectorV2ConnectorProviderJiraCloud jiraCloud) {
 
@@ -71,6 +96,7 @@ public final class ConnectorV2ConnectorProvider {
         }
         public ConnectorV2ConnectorProvider build() {
             final var _resultValue = new ConnectorV2ConnectorProvider();
+            _resultValue.azure = azure;
             _resultValue.jiraCloud = jiraCloud;
             _resultValue.serviceNow = serviceNow;
             return _resultValue;

@@ -117,13 +117,13 @@ namespace Pulumi.Aws.Efs
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the disk will be encrypted.
+        /// Whether the file system is encrypted at rest. Defaults to `True`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `False` to `True` forces replacement; changing `True` to `False` is ignored.
         /// </summary>
         [Output("encrypted")]
         public Output<bool> Encrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+        /// ARN of the KMS encryption key. Cannot be specified when `Encrypted` is explicitly set to `False`.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -262,13 +262,13 @@ namespace Pulumi.Aws.Efs
         public Input<string>? CreationToken { get; set; }
 
         /// <summary>
-        /// If true, the disk will be encrypted.
+        /// Whether the file system is encrypted at rest. Defaults to `True`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `False` to `True` forces replacement; changing `True` to `False` is ignored.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+        /// ARN of the KMS encryption key. Cannot be specified when `Encrypted` is explicitly set to `False`.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -369,13 +369,13 @@ namespace Pulumi.Aws.Efs
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// If true, the disk will be encrypted.
+        /// Whether the file system is encrypted at rest. Defaults to `True`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `False` to `True` forces replacement; changing `True` to `False` is ignored.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+        /// ARN of the KMS encryption key. Cannot be specified when `Encrypted` is explicitly set to `False`.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

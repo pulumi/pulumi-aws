@@ -1216,14 +1216,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tunnel2VgwInsideAddress;
     }
     /**
-     * Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     * Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
      * 
      */
     @Export(name="tunnelBandwidth", refs={String.class}, tree="[0]")
     private Output<String> tunnelBandwidth;
 
     /**
-     * @return Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+     * @return Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
      * 
      */
     public Output<String> tunnelBandwidth() {

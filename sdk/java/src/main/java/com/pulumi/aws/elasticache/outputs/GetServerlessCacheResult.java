@@ -26,6 +26,11 @@ public final class GetServerlessCacheResult {
      */
     private GetServerlessCacheCacheUsageLimits cacheUsageLimits;
     /**
+     * @return Connectivity option for the cache. Either `vpc` (reachable only from within a VPC) or `public` (reachable over the internet).
+     * 
+     */
+    private String connectionType;
+    /**
      * @return Timestamp of when the serverless cache was created.
      * 
      */
@@ -112,6 +117,13 @@ public final class GetServerlessCacheResult {
      */
     public GetServerlessCacheCacheUsageLimits cacheUsageLimits() {
         return this.cacheUsageLimits;
+    }
+    /**
+     * @return Connectivity option for the cache. Either `vpc` (reachable only from within a VPC) or `public` (reachable over the internet).
+     * 
+     */
+    public String connectionType() {
+        return this.connectionType;
     }
     /**
      * @return Timestamp of when the serverless cache was created.
@@ -229,6 +241,7 @@ public final class GetServerlessCacheResult {
     public static final class Builder {
         private String arn;
         private GetServerlessCacheCacheUsageLimits cacheUsageLimits;
+        private String connectionType;
         private String createTime;
         private String dailySnapshotTime;
         private String description;
@@ -250,6 +263,7 @@ public final class GetServerlessCacheResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.cacheUsageLimits = defaults.cacheUsageLimits;
+    	      this.connectionType = defaults.connectionType;
     	      this.createTime = defaults.createTime;
     	      this.dailySnapshotTime = defaults.dailySnapshotTime;
     	      this.description = defaults.description;
@@ -282,6 +296,14 @@ public final class GetServerlessCacheResult {
               throw new MissingRequiredPropertyException("GetServerlessCacheResult", "cacheUsageLimits");
             }
             this.cacheUsageLimits = cacheUsageLimits;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder connectionType(String connectionType) {
+            if (connectionType == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCacheResult", "connectionType");
+            }
+            this.connectionType = connectionType;
             return this;
         }
         @CustomType.Setter
@@ -422,6 +444,7 @@ public final class GetServerlessCacheResult {
             final var _resultValue = new GetServerlessCacheResult();
             _resultValue.arn = arn;
             _resultValue.cacheUsageLimits = cacheUsageLimits;
+            _resultValue.connectionType = connectionType;
             _resultValue.createTime = createTime;
             _resultValue.dailySnapshotTime = dailySnapshotTime;
             _resultValue.description = description;

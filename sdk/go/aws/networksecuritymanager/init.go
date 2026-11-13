@@ -21,10 +21,18 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:networksecuritymanager/adminAccount:AdminAccount":
+		r = &AdminAccount{}
+	case "aws:networksecuritymanager/deployment:Deployment":
+		r = &Deployment{}
+	case "aws:networksecuritymanager/policy:Policy":
+		r = &Policy{}
 	case "aws:networksecuritymanager/rule:Rule":
 		r = &Rule{}
 	case "aws:networksecuritymanager/scope:Scope":
 		r = &Scope{}
+	case "aws:networksecuritymanager/template:Template":
+		r = &Template{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -40,12 +48,32 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"networksecuritymanager/adminAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networksecuritymanager/deployment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networksecuritymanager/policy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"networksecuritymanager/rule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networksecuritymanager/scope",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networksecuritymanager/template",
 		&module{version},
 	)
 }

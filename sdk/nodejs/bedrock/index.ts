@@ -205,6 +205,11 @@ export type Guardrail = import("./guardrail").Guardrail;
 export const Guardrail: typeof import("./guardrail").Guardrail = null as any;
 utilities.lazyLoad(exports, ["Guardrail"], () => require("./guardrail"));
 
+export { GuardrailResourcePolicyArgs, GuardrailResourcePolicyState } from "./guardrailResourcePolicy";
+export type GuardrailResourcePolicy = import("./guardrailResourcePolicy").GuardrailResourcePolicy;
+export const GuardrailResourcePolicy: typeof import("./guardrailResourcePolicy").GuardrailResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["GuardrailResourcePolicy"], () => require("./guardrailResourcePolicy"));
+
 export { GuardrailVersionArgs, GuardrailVersionState } from "./guardrailVersion";
 export type GuardrailVersion = import("./guardrailVersion").GuardrailVersion;
 export const GuardrailVersion: typeof import("./guardrailVersion").GuardrailVersion = null as any;
@@ -298,6 +303,8 @@ const _module = {
                 return new EvaluationJob(name, <any>undefined, { urn })
             case "aws:bedrock/guardrail:Guardrail":
                 return new Guardrail(name, <any>undefined, { urn })
+            case "aws:bedrock/guardrailResourcePolicy:GuardrailResourcePolicy":
+                return new GuardrailResourcePolicy(name, <any>undefined, { urn })
             case "aws:bedrock/guardrailVersion:GuardrailVersion":
                 return new GuardrailVersion(name, <any>undefined, { urn })
             case "aws:bedrock/inferenceProfile:InferenceProfile":
@@ -345,6 +352,7 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/enforcedGuardrailConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/evaluationJob", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrail", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/guardrailResourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrailVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/inferenceProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/provisionedModelThroughput", _module)

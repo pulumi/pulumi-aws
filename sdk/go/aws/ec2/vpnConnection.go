@@ -339,7 +339,7 @@ type VpnConnection struct {
 	Tunnel2StartupAction pulumi.StringPtrOutput `pulumi:"tunnel2StartupAction"`
 	// RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress pulumi.StringOutput `pulumi:"tunnel2VgwInsideAddress"`
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
 	TunnelBandwidth pulumi.StringOutput `pulumi:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion pulumi.StringOutput `pulumi:"tunnelInsideIpVersion"`
@@ -543,7 +543,7 @@ type vpnConnectionState struct {
 	Tunnel2StartupAction *string `pulumi:"tunnel2StartupAction"`
 	// RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress *string `pulumi:"tunnel2VgwInsideAddress"`
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
 	TunnelBandwidth *string `pulumi:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion *string `pulumi:"tunnelInsideIpVersion"`
@@ -700,7 +700,7 @@ type VpnConnectionState struct {
 	Tunnel2StartupAction pulumi.StringPtrInput
 	// RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress pulumi.StringPtrInput
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
 	TunnelBandwidth pulumi.StringPtrInput
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion pulumi.StringPtrInput
@@ -831,7 +831,7 @@ type vpnConnectionArgs struct {
 	Tunnel2ReplayWindowSize *int `pulumi:"tunnel2ReplayWindowSize"`
 	// Action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
 	Tunnel2StartupAction *string `pulumi:"tunnel2StartupAction"`
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
 	TunnelBandwidth *string `pulumi:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion *string `pulumi:"tunnelInsideIpVersion"`
@@ -951,7 +951,7 @@ type VpnConnectionArgs struct {
 	Tunnel2ReplayWindowSize pulumi.IntPtrInput
 	// Action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
 	Tunnel2StartupAction pulumi.StringPtrInput
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
 	TunnelBandwidth pulumi.StringPtrInput
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 	TunnelInsideIpVersion pulumi.StringPtrInput
@@ -1405,7 +1405,7 @@ func (o VpnConnectionOutput) Tunnel2VgwInsideAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2VgwInsideAddress }).(pulumi.StringOutput)
 }
 
-// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
+// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`. In-place updates are supported in the regions described in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-connection-options.html#modify-vpn-connection-options-tunnel-bandwidth). In regions where modifying tunnel bandwidth is not supported, changing this option requires first deleting the resource and then creating a new one.
 func (o VpnConnectionOutput) TunnelBandwidth() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.TunnelBandwidth }).(pulumi.StringOutput)
 }

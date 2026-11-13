@@ -9,6 +9,7 @@ import typing
 from .aggregate_authorization import *
 from .configuration_aggregator import *
 from .conformance_pack import *
+from .connector import *
 from .delivery_channel import *
 from .organization_conformance_pack import *
 from .organization_custom_policy_rule import *

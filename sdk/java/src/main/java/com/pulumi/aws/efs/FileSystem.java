@@ -197,28 +197,28 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
-     * If true, the disk will be encrypted.
+     * Whether the file system is encrypted at rest. Defaults to `true`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `false` to `true` forces replacement; changing `true` to `false` is ignored.
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> encrypted;
 
     /**
-     * @return If true, the disk will be encrypted.
+     * @return Whether the file system is encrypted at rest. Defaults to `true`. AWS encrypts all new file systems regardless of this value. Encryption at rest [cannot be changed after the file system is created](https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html). Changing an existing unencrypted file system from `false` to `true` forces replacement; changing `true` to `false` is ignored.
      * 
      */
     public Output<Boolean> encrypted() {
         return this.encrypted;
     }
     /**
-     * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+     * ARN of the KMS encryption key. Cannot be specified when `encrypted` is explicitly set to `false`.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+     * @return ARN of the KMS encryption key. Cannot be specified when `encrypted` is explicitly set to `false`.
      * 
      */
     public Output<String> kmsKeyId() {

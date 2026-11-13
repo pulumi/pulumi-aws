@@ -27,13 +27,16 @@ class GetServerlessCacheResult:
     """
     A collection of values returned by getServerlessCache.
     """
-    def __init__(__self__, arn=None, cache_usage_limits=None, create_time=None, daily_snapshot_time=None, description=None, endpoint=None, engine=None, full_engine_version=None, kms_key_id=None, major_engine_version=None, name=None, reader_endpoint=None, region=None, security_group_ids=None, snapshot_retention_limit=None, status=None, subnet_ids=None, user_group_id=None):
+    def __init__(__self__, arn=None, cache_usage_limits=None, connection_type=None, create_time=None, daily_snapshot_time=None, description=None, endpoint=None, engine=None, full_engine_version=None, kms_key_id=None, major_engine_version=None, name=None, reader_endpoint=None, region=None, security_group_ids=None, snapshot_retention_limit=None, status=None, subnet_ids=None, user_group_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if cache_usage_limits and not isinstance(cache_usage_limits, dict):
             raise TypeError("Expected argument 'cache_usage_limits' to be a dict")
         pulumi.set(__self__, "cache_usage_limits", cache_usage_limits)
+        if connection_type and not isinstance(connection_type, str):
+            raise TypeError("Expected argument 'connection_type' to be a str")
+        pulumi.set(__self__, "connection_type", connection_type)
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
@@ -98,6 +101,14 @@ class GetServerlessCacheResult:
         The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         """
         return pulumi.get(self, "cache_usage_limits")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> _builtins.str:
+        """
+        Connectivity option for the cache. Either `vpc` (reachable only from within a VPC) or `public` (reachable over the internet).
+        """
+        return pulumi.get(self, "connection_type")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -230,6 +241,7 @@ class AwaitableGetServerlessCacheResult(GetServerlessCacheResult):
         return GetServerlessCacheResult(
             arn=self.arn,
             cache_usage_limits=self.cache_usage_limits,
+            connection_type=self.connection_type,
             create_time=self.create_time,
             daily_snapshot_time=self.daily_snapshot_time,
             description=self.description,
@@ -276,6 +288,7 @@ def get_serverless_cache(name: Optional[_builtins.str] = None,
     return AwaitableGetServerlessCacheResult(
         arn=pulumi.get(__ret__, 'arn'),
         cache_usage_limits=pulumi.get(__ret__, 'cache_usage_limits'),
+        connection_type=pulumi.get(__ret__, 'connection_type'),
         create_time=pulumi.get(__ret__, 'create_time'),
         daily_snapshot_time=pulumi.get(__ret__, 'daily_snapshot_time'),
         description=pulumi.get(__ret__, 'description'),
@@ -319,6 +332,7 @@ def get_serverless_cache_output(name: pulumi.Input[Optional[_builtins.str]] = No
     return __ret__.apply(lambda __response__: GetServerlessCacheResult(
         arn=pulumi.get(__response__, 'arn'),
         cache_usage_limits=pulumi.get(__response__, 'cache_usage_limits'),
+        connection_type=pulumi.get(__response__, 'connection_type'),
         create_time=pulumi.get(__response__, 'create_time'),
         daily_snapshot_time=pulumi.get(__response__, 'daily_snapshot_time'),
         description=pulumi.get(__response__, 'description'),

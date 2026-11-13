@@ -14,20 +14,29 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     public sealed class ConnectorV2ConnectorProvider
     {
         /// <summary>
+        /// Details about a Microsoft Azure integration for multi-cloud coverage. See `Azure` below.
+        /// </summary>
+        public readonly Outputs.ConnectorV2ConnectorProviderAzure? Azure;
+        /// <summary>
         /// Details about a Jira Cloud integration. See `JiraCloud` below.
         /// </summary>
         public readonly Outputs.ConnectorV2ConnectorProviderJiraCloud? JiraCloud;
         /// <summary>
         /// Details about a ServiceNow ITSM integration. See `ServiceNow` below.
+        /// 
+        /// Exactly one of `Azure`, `JiraCloud`, or `ServiceNow` must be specified.
         /// </summary>
         public readonly Outputs.ConnectorV2ConnectorProviderServiceNow? ServiceNow;
 
         [OutputConstructor]
         private ConnectorV2ConnectorProvider(
+            Outputs.ConnectorV2ConnectorProviderAzure? azure,
+
             Outputs.ConnectorV2ConnectorProviderJiraCloud? jiraCloud,
 
             Outputs.ConnectorV2ConnectorProviderServiceNow? serviceNow)
         {
+            Azure = azure;
             JiraCloud = jiraCloud;
             ServiceNow = serviceNow;
         }
