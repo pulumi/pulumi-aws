@@ -19,6 +19,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -151,6 +153,8 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 	skipIfNotShort(t)
 	unsetAWSEnv()
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
+	// Without the AWS CLI, no sign-in is offered.
+	t.Setenv("PATH", t.TempDir())
 
 	replaySequence(t, strings.ReplaceAll(`
 	[{
@@ -176,6 +180,42 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 			"name": "aws"
 		}
 	}]`, "'''", "`"))
+}
+
+// TestMissingCredentialsRemediation checks that the provider offers to run `aws login` when the AWS CLI on PATH
+// supports it.
+func TestMissingCredentialsRemediation(t *testing.T) {
+	skipIfNotShort(t)
+	if runtime.GOOS == "windows" {
+		t.Skip("the fake AWS CLI is a shell script")
+	}
+	unsetAWSEnv()
+	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
+	t.Setenv("SSH_CONNECTION", "")
+	t.Setenv("SSH_TTY", "")
+	bin := t.TempDir()
+	script := "#!/bin/sh\necho 'aws-cli/2.32.0 Python/3.13.9 Linux/6.8.0 exe/x86_64'\n"
+	//nolint:gosec // The fake AWS CLI must be executable.
+	require.NoError(t, os.WriteFile(filepath.Join(bin, "aws"), []byte(script), 0o700))
+	t.Setenv("PATH", bin)
+
+	info := *Provider()
+	// The schema is left blank, as in replaySequence.
+	p, err := pfbridge.MakeMuxedServer(context.Background(), info.Name, info, []byte("{}"))(nil)
+	require.NoError(t, err)
+
+	// Remediations are only carried by CheckConfig2, which the replay harness does not support yet.
+	resp, err := p.CheckConfig2(context.Background(), &pulumirpc.CheckConfigRequest{
+		Urn:  "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
+		News: mustStruct(t, map[string]any{"version": "6.18.2", "region": "us-west-2"}),
+	})
+	require.NoError(t, err)
+	require.Len(t, resp.GetFailures(), 1)
+	require.Len(t, resp.GetFailures()[0].GetRemediations(), 1)
+	remediation := resp.GetFailures()[0].GetRemediations()[0]
+	require.Equal(t, "Sign in to AWS", remediation.GetDescription())
+	require.Equal(t, []string{"aws", "login", "--region", "us-west-2"}, remediation.GetCommand())
+	require.Equal(t, map[string]string{"AWS_CLI_AGENT_TOOLKIT_HINT_DISABLED": "true"}, remediation.GetEnv())
 }
 
 func TestMissingRegionErrorMessage(t *testing.T) {
