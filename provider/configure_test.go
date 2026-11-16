@@ -206,8 +206,8 @@ func TestMissingCredentialsRemediation(t *testing.T) {
 
 	// Remediations are only carried by CheckConfig2, which the replay harness does not support yet.
 	resp, err := p.CheckConfig2(context.Background(), &pulumirpc.CheckConfigRequest{
-		Urn:  "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
-		News: mustStruct(t, map[string]any{"version": "6.18.2", "region": "us-west-2"}),
+		Urn:       "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
+		NewInputs: mustStruct(t, map[string]any{"version": "6.18.2", "region": "us-west-2"}),
 	})
 	require.NoError(t, err)
 	require.Len(t, resp.GetFailures(), 1)
