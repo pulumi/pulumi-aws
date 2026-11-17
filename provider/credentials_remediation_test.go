@@ -212,3 +212,10 @@ func TestSignInRemediationSettings(t *testing.T) {
 		})
 	}
 }
+
+// resetAWSCLIVersionCache makes the next credentials check run `aws --version` again, for a test that changes which
+// AWS CLI is on PATH.
+func resetAWSCLIVersionCache(t *testing.T) {
+	systemAWSCLIVersion = cachedAWSCLIVersion()
+	t.Cleanup(func() { systemAWSCLIVersion = cachedAWSCLIVersion() })
+}
