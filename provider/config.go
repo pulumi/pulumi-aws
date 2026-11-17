@@ -151,6 +151,12 @@ func parseAssumeRoles(vars resource.PropertyMap) ([]awsbase.AssumeRole, error) {
 }
 
 func validateCredentials(vars resource.PropertyMap, _ shim.ResourceConfig) error {
+	return validateCredentialsWith(vars, systemAWSCLI)
+}
+
+// validateCredentialsWith validates credentials like [validateCredentials], consulting cli to decide whether to
+// offer an AWS CLI sign-in.
+func validateCredentialsWith(vars resource.PropertyMap, cli awsCLI) error {
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
 		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
@@ -232,13 +238,11 @@ func validateCredentials(vars resource.PropertyMap, _ shim.ResourceConfig) error
 	}
 	config.SharedConfigFiles = sharedConfigFilePaths
 
-	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
+	ctx := context.Background()
+	if _, _, diag := awsbase.GetAwsConfig(ctx, config); diag != nil && diag.HasError() {
 		return tfbridge.CheckFailureError{
 			Failures: []tfbridge.CheckFailureErrorElement{
-				{
-					Reason:   credentialsFailureReason(formatDiags(diag), config),
-					Property: "",
-				},
+				credentialsFailure(ctx, formatDiags(diag), config, cli),
 			},
 		}
 	}
