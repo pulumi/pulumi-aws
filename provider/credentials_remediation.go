@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/blang/semver"
@@ -54,13 +55,22 @@ type awsCLI struct {
 
 // systemAWSCLI runs the AWS CLI found on PATH.
 var systemAWSCLI = awsCLI{
-	version: func(ctx context.Context) ([]byte, error) {
-		ctx, cancel := context.WithTimeout(ctx, awsCLIVersionTimeout)
+	version: func(context.Context) ([]byte, error) { return systemAWSCLIVersion() },
+	getenv:  os.Getenv,
+}
+
+// systemAWSCLIVersion runs `aws --version` once per provider process, since every failed credentials check would
+// otherwise pay for starting the AWS CLI again. It does not use the caller's context, so that a cancelled call does
+// not leave its error cached for later ones.
+var systemAWSCLIVersion = cachedAWSCLIVersion()
+
+func cachedAWSCLIVersion() func() ([]byte, error) {
+	return sync.OnceValues(func() ([]byte, error) {
+		ctx, cancel := context.WithTimeout(context.Background(), awsCLIVersionTimeout)
 		defer cancel()
 		// This fails when the AWS CLI is not on PATH.
 		return exec.CommandContext(ctx, awsCLIProgram, "--version").Output()
-	},
-	getenv: os.Getenv,
+	})
 }
 
 // parseAWSCLIVersion parses the output of `aws --version`, such as

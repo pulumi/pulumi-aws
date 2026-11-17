@@ -155,6 +155,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
 	// Without the AWS CLI, no sign-in is offered.
 	t.Setenv("PATH", t.TempDir())
+	resetAWSCLIVersionCache(t)
 
 	replaySequence(t, strings.ReplaceAll(`
 	[{
@@ -198,6 +199,7 @@ func TestMissingCredentialsRemediation(t *testing.T) {
 	//nolint:gosec // The fake AWS CLI must be executable.
 	require.NoError(t, os.WriteFile(filepath.Join(bin, "aws"), []byte(script), 0o700))
 	t.Setenv("PATH", bin)
+	resetAWSCLIVersionCache(t)
 
 	info := *Provider()
 	// The schema is left blank, as in replaySequence.
