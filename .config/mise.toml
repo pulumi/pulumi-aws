@@ -46,3 +46,4 @@ fetch_remote_versions_cache = "24h" # Mise queries versions even if they're pinn
 
 [plugins]
 vfox-pulumi = "https://github.com/pulumi/vfox-pulumi"
+vfox-version-fox-vfox-dotnet = "https://github.com/version-fox/vfox-dotnet#v0.3.0"
