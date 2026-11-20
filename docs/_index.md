@@ -8,7 +8,7 @@ The Amazon Web Services (AWS) provider for Pulumi can provision many of the clou
 
 The AWS provider must be configured with credentials to deploy and update resources in AWS; see [Installation & Configuration](./installation-configuration/) for instructions.
 
-**New to Pulumi and AWS?** [Get started with AWS using our tutorial](/docs/get-started/aws).
+**New to Pulumi and AWS?** [Get started with AWS using our tutorial](/up/?cloud=aws).
 
 ## Example
 

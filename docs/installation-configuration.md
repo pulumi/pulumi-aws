@@ -226,7 +226,7 @@ config:
 
 ### Dynamically generate credentials via Pulumi ESC
 
-In addition to configuring the AWS provider locally, you also have the option to centralize your configurations using [Pulumi ESC (Environments, Secrets, and Configuration)](/docs/pulumi-cloud/esc/). Using this service will enable you to run AWS or Pulumi CLI commands with dynamically generated credentials, removing the need to configure and manage your credentials locally.
+In addition to configuring the AWS provider locally, you also have the option to centralize your configurations using [Pulumi ESC (Environments, Secrets, and Configuration)](/docs/esc/). Using this service will enable you to run AWS or Pulumi CLI commands with dynamically generated credentials, removing the need to configure and manage your credentials locally.
 
 To do this, you will need to complete the following steps:
 
@@ -252,7 +252,7 @@ values:
 
 #### [Optional] Move Pulumi config to your ESC environment
 
-It was mentioned earlier in this guide that you can also set your AWS region as a Pulumi configuration value in your project's stack settings file (`Pulumi.<stack-name>.yaml`). In addition to this, there may be other values that you have defined in this file, and these values can also be centralized using Pulumi ESC. To [expose these values to Pulumi IaC](/docs/pulumi-cloud/esc/environments/#using-environments-with-pulumi-iac), you will need to add a second-level key called `pulumiConfig` and nest any desired values underneath it as shown below:
+It was mentioned earlier in this guide that you can also set your AWS region as a Pulumi configuration value in your project's stack settings file (`Pulumi.<stack-name>.yaml`). In addition to this, there may be other values that you have defined in this file, and these values can also be centralized using Pulumi ESC. To [expose these values to Pulumi IaC](/docs/esc/concepts/environments/#using-environments-with-pulumi-iac), you will need to add a second-level key called `pulumiConfig` and nest any desired values underneath it as shown below:
 
 ```yaml
 values:
@@ -300,7 +300,7 @@ values:
 ```
 
 {{< notes type="info" >}}
-The configuration values under `pulumiConfig` can also be referenced directly from within your Pulumi program code. This is done using the same method to reference values from your project's stack settings file. You can see examples of how to do this in the [Accessing Configuration from Code](/docs/concepts/config/#code) section of the Pulumi documentation.
+The configuration values under `pulumiConfig` can also be referenced directly from within your Pulumi program code. This is done using the same method to reference values from your project's stack settings file. You can see examples of how to do this in the [Accessing Configuration from Code](/docs/iac/concepts/config/#code) section of the Pulumi documentation.
 {{< /notes >}}
 
 #### Import your environment
@@ -322,7 +322,7 @@ Make sure that your local environment does not have AWS credentials configured b
 'Unable to locate credentials. You can configure credentials by running "aws configure".'
 {{< /notes >}}
 
-To learn more about projecting environment variables in Pulumi ESC, refer to the [relevant Pulumi ESC documentation](/docs/pulumi-cloud/esc/environments/#projecting-environment-variables).
+To learn more about projecting environment variables in Pulumi ESC, refer to the [relevant Pulumi ESC documentation](/docs/esc/concepts/outputs/#environmentvariables).
 
 
 ## Configuration options
@@ -334,7 +334,7 @@ Use `pulumi config set aws:<option>` or pass options to the [constructor of `new
 | `region` | Required | The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc. |
 | `accessKey` | Optional | The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console. |
 | `allowedAccountIds` | Optional | List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one (and potentially end up destroying a live environment). Conflicts with `forbiddenAccountIds`. |
-| `assumeRoles` | Optional | A List of JSON objects representing an IAM role to assume.  To set these nested properties, see docs on [structured configuration](/docs/concepts/config#structured-configuration), for example `pulumi config set --path aws:assumeRoles[0].roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
+| `assumeRoles` | Optional | A List of JSON objects representing an IAM role to assume.  To set these nested properties, see docs on [structured configuration](/docs/iac/concepts/config/#structured-configuration), for example `pulumi config set --path aws:assumeRoles[0].roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
 | ↳ `duration` | Optional | The duration, between 15 minutes and 12 hours, of the role session. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `h`, or `m`. |
 | ↳ `externalId` | Optional | External identifier to use when assuming the role. |
 | ↳ `policy` | Optional | IAM Policy JSON describing further restricting permissions for the IAM Role being assumed. |
@@ -344,7 +344,7 @@ Use `pulumi config set aws:<option>` or pass options to the [constructor of `new
 | ↳ `sourceIdentity` | Optional | Source identity specified by the principal assuming the role. |
 | ↳ `tags` | Optional | Map of assume role session tags. |
 | ↳ `transitiveTagKeys` | Optional | Set of assume role session tag keys to pass to any subsequent sessions. |
-| `assumeRoleWithWebIdentity` | Optional | A JSON object representing an IAM role to assume using web identity/OIDC.  To set these nested properties, see docs on [structured configuration](/docs/concepts/config#structured-configuration), for example `pulumi config set --path aws:assumeRoleWithWebIdentity.roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
+| `assumeRoleWithWebIdentity` | Optional | A JSON object representing an IAM role to assume using web identity/OIDC.  To set these nested properties, see docs on [structured configuration](/docs/iac/concepts/config/#structured-configuration), for example `pulumi config set --path aws:assumeRoleWithWebIdentity.roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
 | ↳ `duration` | Optional | The duration, between 15 minutes and 12 hours, of the role session. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `h`, or `m`. |
 | ↳ `policy` | Optional | IAM Policy JSON describing further restricting permissions for the IAM Role being assumed. |
 | ↳ `policyArns` | Optional | Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed. |
