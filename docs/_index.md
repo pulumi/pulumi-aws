@@ -12,7 +12,7 @@ The AWS provider must be configured with credentials to deploy and update resour
 
 ## Example
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 
 {{% choosable language typescript %}}
 
@@ -102,6 +102,27 @@ resources:
     type: aws:s3:Bucket
 outputs:
   bucketName: ${mybucket.name}
+```
+
+{{% /choosable %}}
+
+{{% choosable language hcl %}}
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source = "pulumi/aws"
+    }
+  }
+}
+
+resource "aws_s3_bucket" "mybucket" {
+}
+
+output "bucketName" {
+  value = aws_s3_bucket.mybucket.bucket
+}
 ```
 
 {{% /choosable %}}
