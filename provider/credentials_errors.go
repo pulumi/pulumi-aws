@@ -64,7 +64,7 @@ var credentialsErrors = []struct {
 // escHintMessage is the text of the product hint that suggests Pulumi ESC for credentials failures.
 const escHintMessage = "Pulumi ESC can give your stacks short-lived AWS credentials through OIDC. " +
 	"To set it up, run `pulumi env setup aws`.\nLearn more: " +
-	"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc" //nolint:lll // URL
+	"https://www.pulumi.com/registry/packages/aws/installation-configuration/?utm_source=cli#dynamically-generate-credentials-via-pulumi-esc" //nolint:lll // URL
 
 const maxListedProfiles = 10
 
