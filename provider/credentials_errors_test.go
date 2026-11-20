@@ -149,8 +149,12 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 			require.ErrorAs(t, err, &failure)
 			require.Len(t, failure.Failures, 1)
 			require.Equal(t, tt.expected, failure.Failures[0].Reason)
-			require.Equal(t, expectedHint(tt.noHint), failure.Failures[0].Hint)
-			require.Equal(t, expectedHintMessage(tt.noHint), failure.Failures[0].HintMessage)
+			if tt.noHint {
+				require.Nil(t, failure.Failures[0].Hint)
+			} else {
+				require.Equal(t, pulumirpc.Hint_DYNAMIC_CREDENTIALS, failure.Failures[0].Hint.GetKind())
+				require.Equal(t, escHintMessage, failure.Failures[0].Hint.GetMessage())
+			}
 		})
 	}
 }
@@ -232,25 +236,11 @@ func TestCredentialsFailureReason(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			actual, hint := credentialsFailureReason(tt.diag, &awsbase.Config{Profile: tt.profile})
+			actual, dynamicCredentials := credentialsFailureReason(tt.diag, &awsbase.Config{Profile: tt.profile})
 			require.Equal(t, tt.expected, actual)
-			require.Equal(t, expectedHint(tt.noHint), hint)
+			require.Equal(t, !tt.noHint, dynamicCredentials)
 		})
 	}
-}
-
-func expectedHint(noHint bool) pulumirpc.Hint {
-	if noHint {
-		return pulumirpc.Hint_HINT_UNSPECIFIED
-	}
-	return pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS
-}
-
-func expectedHintMessage(noHint bool) string {
-	if noHint {
-		return ""
-	}
-	return hintMessages[pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS]
 }
 
 func TestCredentialsErrorTemplatesExist(t *testing.T) {

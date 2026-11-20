@@ -199,8 +199,8 @@ func TestMissingCredentialsHint(t *testing.T) {
 	})
 	require.NoError(t, err)
 	require.Len(t, resp.GetFailures(), 1)
-	require.Equal(t, pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS, resp.GetFailures()[0].GetHint())
-	require.Contains(t, resp.GetFailures()[0].GetHintMessage(), "pulumi env setup aws")
+	require.Equal(t, pulumirpc.Hint_DYNAMIC_CREDENTIALS, resp.GetFailures()[0].GetHint().GetKind())
+	require.Contains(t, resp.GetFailures()[0].GetHint().GetMessage(), "pulumi env setup aws")
 }
 
 func TestMissingRegionErrorMessage(t *testing.T) {
@@ -280,8 +280,8 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 		"for more information about providing credentials."
 	require.Equal(t, 1, strings.Count(reason, assertMessage))
 	require.NotContains(t, reason, "pulumi env setup")
-	require.Equal(t, pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS, resp.Failures[0].Hint)
-	require.Contains(t, resp.Failures[0].HintMessage, "pulumi env setup aws")
+	require.Equal(t, pulumirpc.Hint_DYNAMIC_CREDENTIALS, resp.Failures[0].GetHint().GetKind())
+	require.Contains(t, resp.Failures[0].GetHint().GetMessage(), "pulumi env setup aws")
 }
 
 func TestCheckConfigRejectsLegacyAssumeRoleConfigKey(t *testing.T) {

@@ -26,17 +26,17 @@ var credentialsErrorTemplates = template.Must(template.ParseFS(credentialsErrorF
 var credentialsErrors = []struct {
 	markers  []string
 	template string
-	// hint is set when short-lived credentials may help with the failure, so that the Pulumi CLI can suggest them
-	// with the text in hintMessages.
-	hint pulumirpc.Hint
+	// dynamicCredentials is set when short-lived credentials may help with the failure, so that the Pulumi CLI can
+	// suggest them.
+	dynamicCredentials bool
 }{
 	// Normally it'd query sts.REGION.amazonaws.com
 	// but if we query sts..amazonaws.com, then we don't have a region.
 	{markers: []string{"endpoint rule error, Invalid Configuration: Missing Region"}, template: "no_region.txt"},
 	{
-		markers:  []string{"no EC2 IMDS role found"},
-		template: "no_credentials.txt",
-		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+		markers:            []string{"no EC2 IMDS role found"},
+		template:           "no_credentials.txt",
+		dynamicCredentials: true,
 	},
 	// STS reports long-expired session tokens as invalid, so one message covers both.
 	{
@@ -44,29 +44,27 @@ var credentialsErrors = []struct {
 			"The security token included in the request is invalid",
 			"The security token included in the request is expired",
 		},
-		template: "invalid_credentials.txt",
-		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+		template:           "invalid_credentials.txt",
+		dynamicCredentials: true,
 	},
 	{markers: []string{"failed to get shared config profile"}, template: "profile_not_found.txt"},
 	{markers: []string{"process provider error"}, template: "credential_process.txt"},
 	{
-		markers:  []string{"login token", "oauth2 token", "login session"},
-		template: "expired_login.txt",
-		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+		markers:            []string{"login token", "oauth2 token", "login session"},
+		template:           "expired_login.txt",
+		dynamicCredentials: true,
 	},
 	{
-		markers:  []string{"SSO token", "SSO session"},
-		template: "expired_sso.txt",
-		hint:     pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS,
+		markers:            []string{"SSO token", "SSO session"},
+		template:           "expired_sso.txt",
+		dynamicCredentials: true,
 	},
 }
 
-// hintMessages holds the text of each product hint that a credentials failure can carry.
-var hintMessages = map[pulumirpc.Hint]string{
-	pulumirpc.Hint_HINT_DYNAMIC_CREDENTIALS: "Pulumi ESC can give your stacks short-lived AWS credentials through OIDC. " +
-		"To set it up, run `pulumi env setup aws`.\nLearn more: " +
-		"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc", //nolint:lll // URL
-}
+// escHintMessage is the text of the product hint that suggests Pulumi ESC for credentials failures.
+const escHintMessage = "Pulumi ESC can give your stacks short-lived AWS credentials through OIDC. " +
+	"To set it up, run `pulumi env setup aws`.\nLearn more: " +
+	"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc" //nolint:lll // URL
 
 const maxListedProfiles = 10
 
@@ -100,15 +98,19 @@ func (d credentialsErrorData) ProfileFlag() string {
 }
 
 // credentialsFailure turns the diagnostics of a failed credentials validation into a check failure with an
-// actionable message, and the product hint relevant to it, if any.
+// actionable message, with a product hint suggesting Pulumi ESC when short-lived credentials may help.
 func credentialsFailure(formattedDiag string, config *awsbase.Config) tfbridge.CheckFailureErrorElement {
-	reason, hint := credentialsFailureReason(formattedDiag, config)
-	return tfbridge.CheckFailureErrorElement{Reason: reason, Hint: hint, HintMessage: hintMessages[hint]}
+	reason, dynamicCredentials := credentialsFailureReason(formattedDiag, config)
+	failure := tfbridge.CheckFailureErrorElement{Reason: reason}
+	if dynamicCredentials {
+		failure.Hint = &pulumirpc.Hint{Kind: pulumirpc.Hint_DYNAMIC_CREDENTIALS, Message: escHintMessage}
+	}
+	return failure
 }
 
 // credentialsFailureReason turns the diagnostics of a failed credentials validation into an actionable message,
-// and returns the product hint relevant to it, if any.
-func credentialsFailureReason(formattedDiag string, config *awsbase.Config) (string, pulumirpc.Hint) {
+// and reports whether short-lived credentials may help with it.
+func credentialsFailureReason(formattedDiag string, config *awsbase.Config) (string, bool) {
 	for _, e := range credentialsErrors {
 		if !slices.ContainsFunc(e.markers, func(m string) bool { return strings.Contains(formattedDiag, m) }) {
 			continue
@@ -125,10 +127,9 @@ func credentialsFailureReason(formattedDiag string, config *awsbase.Config) (str
 			Cause:    strings.TrimSpace(cause),
 		})
 		contract.AssertNoErrorf(err, "failed to render %s", e.template)
-		return sb.String(), e.hint
+		return sb.String(), e.dynamicCredentials
 	}
-	return fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag),
-		pulumirpc.Hint_HINT_UNSPECIFIED
+	return fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag), false
 }
 
 // sharedProfiles returns the names of the profiles defined in the shared config and credentials files, other than

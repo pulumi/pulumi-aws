@@ -16,10 +16,10 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.40.1
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/providertest v0.7.0
+	github.com/pulumi/providertest v0.8.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.143.0
 	github.com/pulumi/pulumi/pkg/v3 v3.277.0
-	github.com/pulumi/pulumi/sdk/v3 v3.277.0
+	github.com/pulumi/pulumi/sdk/v3 v3.278.0
 	github.com/stretchr/testify v1.12.1
 	google.golang.org/protobuf v1.36.12
 )
@@ -566,8 +566,8 @@ require (
 	lukechampine.com/frand v1.5.1 // indirect
 )
 
-replace github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.143.1-0.20261117112411-c4f823a2c483
+replace github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.143.1-0.20261120145651-9d7299f89a29
 
-replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.276.1-0.20261117110451-4e643b74288b
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.277.1-0.20261120144801-e23f6bad085e
 
-replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.276.1-0.20261117110451-4e643b74288b
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.277.1-0.20261120144801-e23f6bad085e
