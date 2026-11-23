@@ -566,8 +566,8 @@ require (
 	lukechampine.com/frand v1.5.1 // indirect
 )
 
-replace github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.143.1-0.20261120145651-9d7299f89a29
+replace github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.143.1-0.20261123155643-b0b1823dbb02
 
-replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.277.1-0.20261120144801-e23f6bad085e
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.277.1-0.20261123123113-d64b997cbb6b
 
-replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.277.1-0.20261120144801-e23f6bad085e
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.277.1-0.20261123123113-d64b997cbb6b
