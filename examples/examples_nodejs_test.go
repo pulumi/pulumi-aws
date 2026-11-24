@@ -821,6 +821,7 @@ func TestAccProviderRoleChaining(t *testing.T) {
 
 func TestAccConfigureClusterAddons(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "eks-remove-addons"),
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 		opttest.YarnLink("@pulumi/aws"),
