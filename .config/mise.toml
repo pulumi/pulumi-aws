@@ -45,5 +45,7 @@ pin = true # `mise use` should pin versions instead of defaulting to latest.
 fetch_remote_versions_cache = "24h" # Mise queries versions even if they're pinned to confirm they exist. Reduce GitHub API calls by doing that less often.
 
 [plugins]
-vfox-pulumi = "https://github.com/pulumi/vfox-pulumi"
-vfox-version-fox-vfox-dotnet = "https://github.com/version-fox/vfox-dotnet#v0.3.0"
+# Pinned to full commit SHAs so a moved upstream tag or branch cannot change what we run.
+# Renovate bumps the SHA to the branch or tag named in the trailing comment.
+vfox-pulumi = "https://github.com/pulumi/vfox-pulumi#b79776a6fabfcfe1fe2e8eda2cfb2c9c7a02a433" # renovate: datasource=git-refs ref=main
+vfox-version-fox-vfox-dotnet = "https://github.com/version-fox/vfox-dotnet#1612af8a9a6da8913387e47fda92cdd72dded44c" # renovate: datasource=git-tags ref=v0.3.0

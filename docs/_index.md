@@ -8,11 +8,11 @@ The Amazon Web Services (AWS) provider for Pulumi can provision many of the clou
 
 The AWS provider must be configured with credentials to deploy and update resources in AWS; see [Installation & Configuration](./installation-configuration/) for instructions.
 
-**New to Pulumi and AWS?** [Get started with AWS using our tutorial](/docs/get-started/aws).
+**New to Pulumi and AWS?** [Get started with AWS using our tutorial](/up/?cloud=aws).
 
 ## Example
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 
 {{% choosable language typescript %}}
 
@@ -106,9 +106,30 @@ outputs:
 
 {{% /choosable %}}
 
+{{% choosable language hcl %}}
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source = "pulumi/aws"
+    }
+  }
+}
+
+resource "aws_s3_bucket" "mybucket" {
+}
+
+output "bucketName" {
+  value = aws_s3_bucket.mybucket.bucket
+}
+```
+
+{{% /choosable %}}
+
 {{< /chooser >}}
 
-Visit the [How-to Guides](./how-to-guides) to find step-by-step guides for specific scenarios like creating a serverless application or setting up Athena search.
+Visit the [Guides](./guides/) for major-version migration guides.
 
 ## Learn More
 
@@ -118,5 +139,5 @@ For a complete catalog of resources for using Pulumi with AWS, including compone
 
 Information about updating the major versions of the AWS Provider, along with any breaking changes that you should be aware of can be found on the following pages:
 
-* [Migrating to v6.x.x guide](/registry/packages/aws/how-to-guides/6-0-migration/)
-* [Migrating to v7.x.x guide](/registry/packages/aws/how-to-guides/7-0-migration/)
+* [Migrating to v6.x.x guide](/registry/packages/aws/guides/6-0-migration/)
+* [Migrating to v7.x.x guide](/registry/packages/aws/guides/7-0-migration/)

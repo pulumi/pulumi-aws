@@ -226,7 +226,7 @@ config:
 
 ### Dynamically generate credentials via Pulumi ESC
 
-In addition to configuring the AWS provider locally, you also have the option to centralize your configurations using [Pulumi ESC (Environments, Secrets, and Configuration)](/docs/pulumi-cloud/esc/). Using this service will enable you to run AWS or Pulumi CLI commands with dynamically generated credentials, removing the need to configure and manage your credentials locally.
+In addition to configuring the AWS provider locally, you also have the option to centralize your configurations using [Pulumi ESC (Environments, Secrets, and Configuration)](/docs/esc/). Using this service will enable you to run AWS or Pulumi CLI commands with dynamically generated credentials, removing the need to configure and manage your credentials locally.
 
 To do this, you will need to complete the following steps:
 
@@ -252,7 +252,7 @@ values:
 
 #### [Optional] Move Pulumi config to your ESC environment
 
-It was mentioned earlier in this guide that you can also set your AWS region as a Pulumi configuration value in your project's stack settings file (`Pulumi.<stack-name>.yaml`). In addition to this, there may be other values that you have defined in this file, and these values can also be centralized using Pulumi ESC. To [expose these values to Pulumi IaC](/docs/pulumi-cloud/esc/environments/#using-environments-with-pulumi-iac), you will need to add a second-level key called `pulumiConfig` and nest any desired values underneath it as shown below:
+It was mentioned earlier in this guide that you can also set your AWS region as a Pulumi configuration value in your project's stack settings file (`Pulumi.<stack-name>.yaml`). In addition to this, there may be other values that you have defined in this file, and these values can also be centralized using Pulumi ESC. To [expose these values to Pulumi IaC](/docs/esc/concepts/environments/#using-environments-with-pulumi-iac), you will need to add a second-level key called `pulumiConfig` and nest any desired values underneath it as shown below:
 
 ```yaml
 values:
@@ -272,7 +272,8 @@ values:
     project:environment: 'dev'
     aws:assumeRoles:
       - roleArn: 'arn:aws:iam::058111598222:role/OrganizationAccountAccessRole'
-    aws:dynamodbEndpoint: 'dynamodb.us-east-2.amazonaws.com'
+    aws:endpoints:
+      - dynamodb: 'https://dynamodb.us-east-2.amazonaws.com'
 ```
 
 If your workflow does not require the exposure of environment variables, you can also define those variables under the `pulumiConfig` block so that they are scoped only to your `pulumi` run.
@@ -294,11 +295,12 @@ values:
     project:environment: 'dev'
     aws:assumeRoles:
       - roleArn: 'arn:aws:iam::058111598222:role/OrganizationAccountAccessRole'
-    aws:dynamodbEndpoint: 'dynamodb.us-east-2.amazonaws.com'
+    aws:endpoints:
+      - dynamodb: 'https://dynamodb.us-east-2.amazonaws.com'
 ```
 
 {{< notes type="info" >}}
-The configuration values under `pulumiConfig` can also be referenced directly from within your Pulumi program code. This is done using the same method to reference values from your project's stack settings file. You can see examples of how to do this in the [Accessing Configuration from Code](/docs/concepts/config/#code) section of the Pulumi documentation.
+The configuration values under `pulumiConfig` can also be referenced directly from within your Pulumi program code. This is done using the same method to reference values from your project's stack settings file. You can see examples of how to do this in the [Accessing Configuration from Code](/docs/iac/concepts/config/#code) section of the Pulumi documentation.
 {{< /notes >}}
 
 #### Import your environment
@@ -320,7 +322,7 @@ Make sure that your local environment does not have AWS credentials configured b
 'Unable to locate credentials. You can configure credentials by running "aws configure".'
 {{< /notes >}}
 
-To learn more about projecting environment variables in Pulumi ESC, refer to the [relevant Pulumi ESC documentation](/docs/pulumi-cloud/esc/environments/#projecting-environment-variables).
+To learn more about projecting environment variables in Pulumi ESC, refer to the [relevant Pulumi ESC documentation](/docs/esc/concepts/outputs/#environmentvariables).
 
 
 ## Configuration options
@@ -330,42 +332,56 @@ Use `pulumi config set aws:<option>` or pass options to the [constructor of `new
 | Option | Required? | Description |
 | - | - | - |
 | `region` | Required | The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc. |
-| `allowedAccountIds` | Optional | List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one (and potentially end up destroying a live environment). Conflicts with `forbiddenAccountIds`. |
 | `accessKey` | Optional | The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console. |
-| `assumeRoles` | Optional | A List of JSON objects representing an IAM role to assume.  To set these nested properties, see docs on [structured configuration](/docs/concepts/config#structured-configuration), for example `pulumi config set --path aws:assumeRoles[0].roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
-| ↳ `durationSeconds` | Optional |  Number of seconds to restrict the assume role session duration. |
+| `allowedAccountIds` | Optional | List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one (and potentially end up destroying a live environment). Conflicts with `forbiddenAccountIds`. |
+| `assumeRoles` | Optional | A List of JSON objects representing an IAM role to assume.  To set these nested properties, see docs on [structured configuration](/docs/iac/concepts/config/#structured-configuration), for example `pulumi config set --path aws:assumeRoles[0].roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
+| ↳ `duration` | Optional | The duration, between 15 minutes and 12 hours, of the role session. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `h`, or `m`. |
 | ↳ `externalId` | Optional | External identifier to use when assuming the role. |
 | ↳ `policy` | Optional | IAM Policy JSON describing further restricting permissions for the IAM Role being assumed. |
 | ↳ `policyArns` | Optional | Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed. |
 | ↳ `roleArn` | Optional | Amazon Resource Name (ARN) of the IAM Role to assume. |
 | ↳ `sessionName` | Optional | Session name to use when assuming the role. |
+| ↳ `sourceIdentity` | Optional | Source identity specified by the principal assuming the role. |
 | ↳ `tags` | Optional | Map of assume role session tags. |
 | ↳ `transitiveTagKeys` | Optional | Set of assume role session tag keys to pass to any subsequent sessions. |
-| `assumeRoleWithWebIdentity` | Optional | A JSON object representing an IAM role to assume using web identity/OIDC.  To set these nested properties, see docs on [structured configuration](/docs/concepts/config#structured-configuration), for example `pulumi config set --path aws:assumeRole.roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
-| ↳ `durationSeconds` | Optional |  Number of seconds to restrict the assume role session duration. |
+| `assumeRoleWithWebIdentity` | Optional | A JSON object representing an IAM role to assume using web identity/OIDC.  To set these nested properties, see docs on [structured configuration](/docs/iac/concepts/config/#structured-configuration), for example `pulumi config set --path aws:assumeRoleWithWebIdentity.roleArn arn:aws:iam::058111598222:role/OrganizationAccountAccessRole`. The object contains the properties marked with a ↳ below: |
+| ↳ `duration` | Optional | The duration, between 15 minutes and 12 hours, of the role session. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `h`, or `m`. |
 | ↳ `policy` | Optional | IAM Policy JSON describing further restricting permissions for the IAM Role being assumed. |
 | ↳ `policyArns` | Optional | Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed. |
 | ↳ `roleArn` | Optional | Amazon Resource Name (ARN) of the IAM Role to assume. |
 | ↳ `sessionName` | Optional | Session name to use when assuming the role. |
 | ↳ `webIdentityToken` | Optional | Web Identity (OIDC ID) token value. |
 | ↳ `webIdentityTokenFile` | Optional | File containing the Web Identity (OIDC ID) token. |
-| `dynamodbEndpoint` | Optional | Use this to override the default endpoint URL constructed from the `region`. It’s typically used to connect to dynamodb-local. |
-| `forbiddenAccountIds` | Optional | List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`. |
+| `customCaBundle` | Optional | File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. |
 | `defaultTags` | Optional | A JSON block with resource tag settings to apply across all resources handled by this provider. Additional tags can be added/overridden at a per resource level. The object contains the properties marked with a ↳ below: |
 | ↳ `tags` | Optional | A key value pair of tags to apply across all resources. |
+| `ec2MetadataServiceEndpoint` | Optional | Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable. |
+| `ec2MetadataServiceEndpointMode` | Optional | Protocol to use with the EC2 metadata service endpoint. Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable. |
+| `endpoints` | Optional | A list of JSON objects that override the default endpoint URL for individual services, keyed by service name. For example, `pulumi config set --path aws:endpoints[0].dynamodb http://localhost:8000` connects to dynamodb-local. |
+| `forbiddenAccountIds` | Optional | List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`. |
+| `httpProxy` | Optional | URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables. |
+| `httpsProxy` | Optional | URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables. |
 | `ignoreTags` | Optional | A JSON block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `aws.ec2.Tag`) for situations where external systems are managing certain resource tags. The object contains the properties marked with a ↳ below: |
 | ↳ `keys` | Optional | A list of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` properties and displaying any diffs for the tag value. If any resource still has this tag key configured in the `tags` argument, it will display a perpetual diff until the tag is removed from the argument or `ignoreChanges` is also used. |
 | ↳ `keyPrefixes` | Optional | A list of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` properties and displaying any diffs for the tag value. If any resource still has this tag key configured in the `tags` argument, it will display a perpetual diff until the tag is removed from the argument or `ignoreChanges` is also used. |
 | `insecure` | Optional | Explicitly allow the provider to perform "insecure" SSL requests. If omitted, the default value is `false`. |
-| `kinesisEndpoint` | Optional | Use this to override the default endpoint URL constructed from the `region`. It's typically used to connect to kinesalite. |
 | `maxRetries` | Optional | The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown. |
+| `noProxy` | Optional | Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables. |
 | `profile` | Optional | The profile for API operations. If not set, the default profile created with `aws configure` will be used. |
 | `retryMode` | Optional | Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable. |
-| `s3ForcePathStyle` | Optional | Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service. |
+| `s3UsEast1RegionalEndpoint` | Optional | Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable. |
+| `s3UsePathStyle` | Optional | Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service. |
 | `secretKey` |  Optional | The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console. |
-| `sharedCredentialsFile` | Optional | The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`. |
+| `sharedConfigFiles` | Optional | List of paths to shared config files. If not set this defaults to `~/.aws/config`. |
+| `sharedCredentialsFiles` | Optional | List of paths to shared credentials files. If not set this defaults to `~/.aws/credentials`. |
 | `skipCredentialsValidation` | Optional | Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented. |
 | `skipMetadataApiCheck` | Optional | Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables. |
 | `skipRegionValidation` | Optional | Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet). |
 | `skipRequestingAccountId` | Optional | Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API. |
+| `stsRegion` | Optional | The region where AWS STS operations will take place. Examples are `us-east-1` and `us-west-2`. |
+| `tagPolicyCompliance` | Optional | The severity with which to enforce organizational tagging policies on resources managed by this provider instance. Only compliance with required tag keys by resource type is checked. Valid values are `error`, `warning`, and `disabled`. When unset or `disabled`, tag policy compliance isn't enforced. Can also be configured using the `TF_AWS_TAG_POLICY_COMPLIANCE` environment variable. |
 | `token` | Optional | Use this to set an MFA token. It can also be sourced from the `AWS_SESSION_TOKEN` environment variable. |
+| `tokenBucketRateLimiterCapacity` | Optional | The capacity of the AWS SDK's token bucket rate limiter. |
+| `useDualstackEndpoint` | Optional | Resolve an endpoint with DualStack capability. |
+| `useFipsEndpoint` | Optional | Resolve an endpoint with FIPS capability. |
+| `userAgents` | Optional | Product details to append to the User-Agent string sent in all AWS API calls. |
