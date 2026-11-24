@@ -4,7 +4,7 @@ import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 
 const size = aws.ec2.InstanceType.T2_Micro;
-const amiParamName = "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs";
+const amiParamName = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64";
 
 const provider = new aws.Provider('provider-us-west-2', {
     region: 'us-west-2',
