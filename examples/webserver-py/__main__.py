@@ -26,7 +26,7 @@ group = ec2.SecurityGroup('py-web-secgrp',
 server = ec2.Instance('web-server-www',
     instance_type=size,
     vpc_security_group_ids=[group.id],
-    ami=get_linux_ami(size),
+    ami=get_linux_ami(),
     subnet_id=subnet.id)
 
 pulumi.export('public_ip', server.public_ip)
