@@ -26,6 +26,7 @@ const (
 	RuntimeNodeJS20dX   = Runtime("nodejs20.x")
 	RuntimeNodeJS22dX   = Runtime("nodejs22.x")
 	RuntimeNodeJS24dX   = Runtime("nodejs24.x")
+	RuntimeNodeJS26dX   = Runtime("nodejs26.x")
 	RuntimeCustomAL2    = Runtime("provided.al2")
 	RuntimeCustomAL2023 = Runtime("provided.al2023")
 	RuntimePython3d10   = Runtime("python3.10")
@@ -207,6 +208,7 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 //	RuntimeNodeJS20dX
 //	RuntimeNodeJS22dX
 //	RuntimeNodeJS24dX
+//	RuntimeNodeJS26dX
 //	RuntimeCustomAL2
 //	RuntimeCustomAL2023
 //	RuntimePython3d10

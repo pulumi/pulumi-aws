@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Lambda
         public static Runtime NodeJS20dX { get; } = new Runtime("nodejs20.x");
         public static Runtime NodeJS22dX { get; } = new Runtime("nodejs22.x");
         public static Runtime NodeJS24dX { get; } = new Runtime("nodejs24.x");
+        public static Runtime NodeJS26dX { get; } = new Runtime("nodejs26.x");
         public static Runtime CustomAL2 { get; } = new Runtime("provided.al2");
         public static Runtime CustomAL2023 { get; } = new Runtime("provided.al2023");
         public static Runtime Python3d10 { get; } = new Runtime("python3.10");
