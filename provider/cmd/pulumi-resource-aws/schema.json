@@ -134347,6 +134347,10 @@
                     "value": "nodejs24.x"
                 },
                 {
+                    "name": "NodeJS26dX",
+                    "value": "nodejs26.x"
+                },
+                {
                     "name": "CustomAL2",
                     "value": "provided.al2"
                 },

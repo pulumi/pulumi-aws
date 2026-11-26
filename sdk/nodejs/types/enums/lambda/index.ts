@@ -15,6 +15,7 @@ export const Runtime = {
     NodeJS20dX: "nodejs20.x",
     NodeJS22dX: "nodejs22.x",
     NodeJS24dX: "nodejs24.x",
+    NodeJS26dX: "nodejs26.x",
     CustomAL2: "provided.al2",
     CustomAL2023: "provided.al2023",
     Python3d10: "python3.10",

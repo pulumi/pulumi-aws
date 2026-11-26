@@ -28,6 +28,7 @@ class Runtime(_builtins.str, Enum):
     NODE_JS20D_X = "nodejs20.x"
     NODE_JS22D_X = "nodejs22.x"
     NODE_JS24D_X = "nodejs24.x"
+    NODE_JS26D_X = "nodejs26.x"
     CUSTOM_AL2 = "provided.al2"
     CUSTOM_AL2023 = "provided.al2023"
     PYTHON3D10 = "python3.10"
