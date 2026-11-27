@@ -40,21 +40,19 @@ var callbackFunctionMD string
 // The CallbackFunction resource is an overlay based on the AWS Lambda Function resource. Properties are copied from
 // the lambda/Function resource and additional properties/overrides are added here.
 var callbackFunction = schema.ResourceSpec{
-	ObjectTypeSpec: schema.ObjectTypeSpec{
-		IsOverlay:                 true,
-		OverlaySupportedLanguages: []string{"nodejs"},
-		Description:               callbackFunctionMD,
-		Properties: map[string]schema.PropertySpec{
-			"roleInstance": {
-				TypeSpec: schema.TypeSpec{
-					Type: "string",
-				},
-				Description: "The IAM role assigned to this Lambda function. Will be undefined if an ARN was provided " +
-					"for the role input property.",
+	IsOverlay:                 true,
+	OverlaySupportedLanguages: []string{"nodejs"},
+	Description:               callbackFunctionMD,
+	Properties: map[string]schema.PropertySpec{
+		"roleInstance": {
+			TypeSpec: schema.TypeSpec{
+				Type: "string",
 			},
+			Description: "The IAM role assigned to this Lambda function. Will be undefined if an ARN was provided " +
+				"for the role input property.",
 		},
-		Type: "object",
 	},
+	Type: "object",
 	InputProperties: map[string]schema.PropertySpec{
 		"role": {
 			TypeSpec: schema.TypeSpec{
@@ -126,48 +124,46 @@ var callbackFunction = schema.ResourceSpec{
 }
 
 var codePathOptions = schema.ComplexTypeSpec{
-	ObjectTypeSpec: schema.ObjectTypeSpec{
-		IsOverlay: true,
-		Description: "Options to control which paths/packages should be included or excluded in the zip file " +
-			"containing the code for the AWS lambda.",
-		Properties: map[string]schema.PropertySpec{
-			"extraIncludePaths": {
-				TypeSpec: schema.TypeSpec{
-					Type: "array",
-					Items: &schema.TypeSpec{
-						Type: "string",
-					},
+	IsOverlay: true,
+	Description: "Options to control which paths/packages should be included or excluded in the zip file " +
+		"containing the code for the AWS lambda.",
+	Properties: map[string]schema.PropertySpec{
+		"extraIncludePaths": {
+			TypeSpec: schema.TypeSpec{
+				Type: "array",
+				Items: &schema.TypeSpec{
+					Type: "string",
 				},
-				Description: "Local file/directory paths that should be included when producing the Assets " +
-					"for a serialized closure.",
 			},
-			"extraIncludePackages": {
-				TypeSpec: schema.TypeSpec{
-					Type: "array",
-					Items: &schema.TypeSpec{
-						Type: "string",
-					},
-				},
-				Description: "Extra packages to include when producing the Assets for a serialized closure. " +
-					"This can be useful if the packages are acquired in a way that the serialization code does not " +
-					"understand. For example, if there was some sort of module that was pulled in based off of a " +
-					"computed string.",
-			},
-			"extraExcludePackages": {
-				TypeSpec: schema.TypeSpec{
-					Type: "array",
-					Items: &schema.TypeSpec{
-						Type: "string",
-					},
-				},
-				Description: "Packages to explicitly exclude from the Assets for a serialized closure. This can be " +
-					"used when clients want to trim down the size of a closure, and they know that some package won't " +
-					"ever actually be needed at runtime, but is still a dependency of some package that is being used " +
-					"at runtime.",
-			},
+			Description: "Local file/directory paths that should be included when producing the Assets " +
+				"for a serialized closure.",
 		},
-		Type: "object",
+		"extraIncludePackages": {
+			TypeSpec: schema.TypeSpec{
+				Type: "array",
+				Items: &schema.TypeSpec{
+					Type: "string",
+				},
+			},
+			Description: "Extra packages to include when producing the Assets for a serialized closure. " +
+				"This can be useful if the packages are acquired in a way that the serialization code does not " +
+				"understand. For example, if there was some sort of module that was pulled in based off of a " +
+				"computed string.",
+		},
+		"extraExcludePackages": {
+			TypeSpec: schema.TypeSpec{
+				Type: "array",
+				Items: &schema.TypeSpec{
+					Type: "string",
+				},
+			},
+			Description: "Packages to explicitly exclude from the Assets for a serialized closure. This can be " +
+				"used when clients want to trim down the size of a closure, and they know that some package won't " +
+				"ever actually be needed at runtime, but is still a dependency of some package that is being used " +
+				"at runtime.",
+		},
 	},
+	Type: "object",
 }
 
 // postProcessCallbackFunction post-processes the CallbackFunction resource of the given PackageSpec.
